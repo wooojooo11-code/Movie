@@ -1,0 +1,315 @@
+<script setup lang="ts">
+import type { DeepReadonly } from 'vue';
+
+import type {
+  MovieSearchResult,
+  ResolvedListSearchCard,
+  SearchMatchField,
+  SearchableCatalogMovie
+} from '@/types/lists';
+
+const props = defineProps<{
+  title: string;
+  isPrivate: boolean;
+  movies: readonly DeepReadonly<SearchableCatalogMovie>[];
+  canSave: boolean;
+  isEditing: boolean;
+  searchQuery: string;
+  isSearching: boolean;
+  movieResults: readonly DeepReadonly<MovieSearchResult>[];
+  listResults: readonly DeepReadonly<ResolvedListSearchCard>[];
+  selectedMovieIds: readonly string[];
+}>();
+
+const emit = defineEmits<{
+  'update:title': [value: string];
+  'update:search-query': [value: string];
+  'toggle-private': [];
+  'remove-movie': [movieId: string];
+  'add-movie': [movieId: string];
+  save: [];
+  reset: [];
+}>();
+
+const matchLabelMap: Record<SearchMatchField, string> = {
+  title: '제목',
+  director: '감독',
+  actor: '배우',
+  genre: '장르',
+  tag: '키워드',
+  owner: '작성자',
+  movie: '포함 영화'
+};
+
+const handleTitleInput = (event: Event) => {
+  emit('update:title', (event.target as HTMLInputElement).value);
+};
+
+const handleSearchInput = (event: Event) => {
+  emit('update:search-query', (event.target as HTMLInputElement).value);
+};
+
+const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(movieId);
+</script>
+
+<template>
+  <section class="rounded-[24px] border border-app-line bg-app-panel p-4">
+    <div class="flex items-start justify-between gap-3">
+      <div>
+        <p class="text-sm font-bold text-app-accent">나만의 추천 리스트</p>
+        <h2 class="mt-1 text-lg font-extrabold text-white">
+          {{ isEditing ? '리스트 수정' : '내 리스트 만들기' }}
+        </h2>
+        <p class="mt-2 text-sm text-app-muted">
+          영화 검색부터 추가, 저장까지 한 번에 이어서 할 수 있어요.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="focus-ring rounded-full border px-3 py-1.5 text-xs font-bold"
+        :class="
+          isPrivate
+            ? 'border-app-accent/40 bg-app-accent/10 text-white'
+            : 'border-app-line bg-white/5 text-app-muted'
+        "
+        @click="emit('toggle-private')"
+      >
+        {{ isPrivate ? '비공개' : '공개' }}
+      </button>
+    </div>
+
+    <div class="mt-5 border-t border-white/5 pt-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <h3 class="text-sm font-bold text-white">검색</h3>
+          <p class="mt-1 text-sm text-app-muted">영화, 감독, 배우, 리스트 제목</p>
+        </div>
+        <span
+          v-if="isSearching"
+          class="rounded-full bg-white/10 px-2.5 py-1 text-xs font-bold text-app-muted"
+        >
+          찾는 중
+        </span>
+      </div>
+
+      <label class="mt-4 block">
+        <span class="sr-only">영화와 리스트 검색</span>
+        <input
+          :value="searchQuery"
+          type="search"
+          placeholder="영화, 감독, 배우, 리스트 검색"
+          class="focus-ring h-12 w-full rounded-2xl border border-app-line bg-white/5 px-4 text-sm text-white placeholder:text-app-muted"
+          @input="handleSearchInput"
+        />
+      </label>
+
+      <div v-if="searchQuery.trim()" class="mt-4 grid gap-4">
+        <section class="grid gap-3">
+          <div class="flex items-center justify-between gap-3">
+            <h4 class="text-sm font-bold text-white">영화 결과</h4>
+            <span class="text-xs font-bold text-app-muted">{{ movieResults.length }}개</span>
+          </div>
+
+          <div v-if="movieResults.length > 0" class="grid gap-3">
+            <article
+              v-for="result in movieResults"
+              :key="result.movie.id"
+              class="flex items-center gap-3 rounded-[18px] border border-app-line bg-white/5 p-3"
+            >
+              <img
+                :src="result.movie.posterUrl"
+                :alt="result.movie.posterAlt"
+                class="h-20 w-14 shrink-0 rounded-xl object-cover"
+                loading="lazy"
+              />
+              <div class="min-w-0 flex-1">
+                <p class="truncate text-sm font-bold text-white">{{ result.movie.title }}</p>
+                <p class="mt-1 truncate text-xs text-app-muted">
+                  {{ result.movie.director }} · {{ result.movie.cast.join(', ') }}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  <span
+                    v-for="field in result.matchedBy"
+                    :key="`${result.movie.id}-${field}`"
+                    class="rounded-full bg-white/10 px-2 py-1 text-[11px] font-bold text-app-muted"
+                  >
+                    {{ matchLabelMap[field] }}
+                  </span>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="focus-ring inline-flex size-10 shrink-0 items-center justify-center rounded-full border text-base font-black"
+                :class="
+                  isMovieSelected(result.movie.id)
+                    ? 'border-app-accent/40 bg-app-accent/10 text-white'
+                    : 'border-app-line bg-white/5 text-white'
+                "
+                :disabled="isMovieSelected(result.movie.id)"
+                @click="emit('add-movie', result.movie.id)"
+              >
+                {{ isMovieSelected(result.movie.id) ? '담김' : '+' }}
+              </button>
+            </article>
+          </div>
+
+          <div
+            v-else
+            class="rounded-[18px] border border-dashed border-app-line bg-white/[0.03] px-4 py-5 text-sm text-app-muted"
+          >
+            영화 결과가 없어요
+          </div>
+        </section>
+
+        <section class="grid gap-3">
+          <div class="flex items-center justify-between gap-3">
+            <h4 class="text-sm font-bold text-white">리스트 결과</h4>
+            <span class="text-xs font-bold text-app-muted">{{ listResults.length }}개</span>
+          </div>
+
+          <div v-if="listResults.length > 0" class="grid gap-3">
+            <article
+              v-for="result in listResults"
+              :key="`${result.source}-${result.list.id}`"
+              class="rounded-[18px] border border-app-line bg-white/5 p-4"
+            >
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <h4 class="text-sm font-bold text-white">{{ result.list.title }}</h4>
+                    <span
+                      class="rounded-full px-2.5 py-1 text-[11px] font-bold"
+                      :class="
+                        result.source === 'mine'
+                          ? 'bg-app-accent/15 text-[#ffdbe6]'
+                          : 'bg-white/10 text-app-muted'
+                      "
+                    >
+                      {{ result.source === 'mine' ? '내 리스트' : '공유 리스트' }}
+                    </span>
+                    <span
+                      v-if="result.source === 'shared'"
+                      class="rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-bold text-app-muted"
+                    >
+                      재공유 불가
+                    </span>
+                  </div>
+                  <p class="mt-2 text-xs text-app-muted">
+                    {{ result.list.ownerName }} · 저장
+                    {{ result.list.saveCount.toLocaleString('ko-KR') }} · 평점
+                    {{ result.list.averageRating.toFixed(1) }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  v-for="field in result.matchedBy"
+                  :key="`${result.list.id}-${field}`"
+                  class="rounded-full bg-white/10 px-2 py-1 text-[11px] font-bold text-app-muted"
+                >
+                  {{ matchLabelMap[field] }}
+                </span>
+                <span
+                  v-for="title in result.movieTitles"
+                  :key="`${result.list.id}-${title}`"
+                  class="rounded-full bg-white/5 px-2 py-1 text-[11px] font-bold text-[#dfe6f2]"
+                >
+                  {{ title }}
+                </span>
+              </div>
+            </article>
+          </div>
+
+          <div
+            v-else
+            class="rounded-[18px] border border-dashed border-app-line bg-white/[0.03] px-4 py-5 text-sm text-app-muted"
+          >
+            리스트 결과가 없어요
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="mt-5 border-t border-white/5 pt-4">
+      <label class="block">
+        <span class="mb-2 block text-xs font-bold text-app-muted">리스트 제목</span>
+        <input
+          :value="title"
+          type="text"
+          placeholder="비 오는 날 보기 좋은 추리 영화"
+          class="focus-ring h-12 w-full rounded-2xl border border-app-line bg-white/5 px-4 text-sm text-white placeholder:text-app-muted"
+          @input="handleTitleInput"
+        />
+      </label>
+
+      <div class="mt-4">
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-xs font-bold text-app-muted">담은 영화 {{ movies.length }}편</span>
+          <button
+            v-if="isEditing || movies.length > 0 || title"
+            type="button"
+            class="focus-ring rounded-full border border-app-line bg-white/5 px-3 py-1.5 text-xs font-bold text-app-muted"
+            @click="emit('reset')"
+          >
+            초기화
+          </button>
+        </div>
+
+        <div v-if="movies.length > 0" class="mt-3 grid gap-3">
+          <article
+            v-for="movie in movies"
+            :key="movie.id"
+            class="flex items-center gap-3 rounded-[18px] border border-app-line bg-white/5 p-3"
+          >
+            <img
+              :src="movie.posterUrl"
+              :alt="movie.posterAlt"
+              class="h-16 w-12 shrink-0 rounded-xl object-cover"
+              loading="lazy"
+            />
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-bold text-white">{{ movie.title }}</p>
+              <p class="mt-1 truncate text-xs text-app-muted">
+                {{ movie.genres.join(' · ') }} · {{ movie.releaseYear }}
+              </p>
+            </div>
+            <button
+              type="button"
+              class="focus-ring rounded-full border border-app-line bg-white/5 px-3 py-2 text-xs font-bold text-white"
+              @click="emit('remove-movie', movie.id)"
+            >
+              삭제
+            </button>
+          </article>
+        </div>
+
+        <div
+          v-else
+          class="mt-3 rounded-[18px] border border-dashed border-app-line bg-white/[0.03] px-4 py-6 text-sm text-app-muted"
+        >
+          위에서 검색해서 영화를 담아보세요
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4 flex gap-2">
+      <button
+        type="button"
+        class="app-gradient focus-ring inline-flex min-h-11 flex-1 items-center justify-center rounded-[14px] px-4 py-[11px] text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-40"
+        :disabled="!canSave"
+        @click="emit('save')"
+      >
+        {{ isEditing ? '수정 저장' : '리스트 저장' }}
+      </button>
+      <button
+        type="button"
+        class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
+        @click="emit('reset')"
+      >
+        새 리스트 만들기
+      </button>
+    </div>
+  </section>
+</template>

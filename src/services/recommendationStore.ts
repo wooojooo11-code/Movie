@@ -1,0 +1,229 @@
+import { computed, reactive, readonly } from 'vue';
+
+import { catalogLists, catalogMovies } from '@/data/catalog';
+import { ratingMovies } from '@/data/rating';
+import {
+  applyRatingToProfile,
+  createEmptyUserPreferenceProfile,
+  recommendLists,
+  recommendMovies,
+  type RatingInput
+} from '@/services/movie_recommendation_algorithm';
+import { localRecommendationRepository } from '@/services/recommendationRepository';
+import type {
+  CatalogMovie,
+  RatingFeedbackPayload,
+  RecommendedCatalogList,
+  RecommendedCatalogMovie,
+  RecommendationStateSnapshot,
+  StoredRatingRecord
+} from '@/types/recommendation';
+
+const FALLBACK_USER_ID = 'guest-user';
+
+const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
+  string,
+  CatalogMovie
+>;
+
+const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) =>
+  ratings.reduce((profile, ratingRecord) => {
+    const movie = movieMap[ratingRecord.input.movieId];
+
+    if (!movie) {
+      return profile;
+    }
+
+    return applyRatingToProfile(profile, movie, ratingRecord.input);
+  }, createEmptyUserPreferenceProfile(userId));
+
+const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings']) =>
+  (ratings ?? []).map((rating) => ({
+    rawDecision: rating.rawDecision ?? rating.input.status,
+    detailCompleted:
+      rating.detailCompleted ??
+      (rating.input.status !== 'like' ||
+        rating.input.rating != null ||
+        rating.input.reviewTags.length > 0 ||
+        Boolean(rating.input.favoriteCharacter)),
+    input: rating.input,
+    questionText: rating.questionText ?? '',
+    reviewText: rating.reviewText ?? ''
+  }));
+
+const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
+  const saved = localRecommendationRepository.load(userId);
+
+  if (!saved) {
+    return {
+      userId,
+      profile: createEmptyUserPreferenceProfile(userId),
+      ratings: [],
+      dismissedRecommendationMovieIds: []
+    };
+  }
+
+  const normalizedRatings = normalizeStoredRatings(saved.ratings);
+
+  return {
+    userId,
+    profile: buildProfileFromRatings(userId, normalizedRatings),
+    ratings: normalizedRatings,
+    dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? []
+  };
+};
+
+const initialSnapshot = loadSnapshot(FALLBACK_USER_ID);
+
+const state = reactive<RecommendationStateSnapshot>({
+  userId: initialSnapshot.userId,
+  profile: initialSnapshot.profile,
+  ratings: initialSnapshot.ratings,
+  dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds
+});
+
+const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
+  state.userId = snapshot.userId;
+  state.profile = snapshot.profile;
+  state.ratings = snapshot.ratings;
+  state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
+};
+
+const persistState = () => {
+  localRecommendationRepository.save({
+    userId: state.userId,
+    profile: state.profile,
+    ratings: state.ratings,
+    dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
+  });
+};
+
+const recomputeProfile = () => {
+  state.profile = buildProfileFromRatings(state.userId, state.ratings);
+};
+
+const upsertRatingRecord = (record: StoredRatingRecord) => {
+  const nextRatings = [...state.ratings];
+  const existingIndex = nextRatings.findIndex((item) => item.input.movieId === record.input.movieId);
+
+  if (existingIndex >= 0) {
+    nextRatings.splice(existingIndex, 1, record);
+  } else {
+    nextRatings.push(record);
+  }
+
+  state.ratings = nextRatings;
+  recomputeProfile();
+  persistState();
+};
+
+const ratedMovieIds = computed(() => state.ratings.map((rating) => rating.input.movieId));
+const likedRatingRecords = computed(() => state.ratings.filter((rating) => rating.rawDecision === 'like'));
+const pendingDetailedRatings = computed(() =>
+  likedRatingRecords.value.filter((rating) => !rating.detailCompleted)
+);
+const excludedRecommendationMovieIds = computed(() => [
+  ...ratedMovieIds.value,
+  ...state.dismissedRecommendationMovieIds
+]);
+
+const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+  const scoredMovies = recommendMovies(catalogMovies, state.profile, {
+    excludeMovieIds: excludedRecommendationMovieIds.value,
+    limit: 10
+  });
+
+  return scoredMovies.map((movie) => ({
+    ...movieMap[movie.id],
+    recommendationScore: movie.recommendationScore
+  }));
+});
+
+const recommendedLists = computed<RecommendedCatalogList[]>(() => {
+  const scoredLists = recommendLists(catalogLists, catalogMovies, state.profile, 6);
+  const listMap = Object.fromEntries(catalogLists.map((list) => [list.id, list])) as Record<
+    string,
+    (typeof catalogLists)[number]
+  >;
+
+  return scoredLists.map((list) => ({
+    ...listMap[list.id],
+    recommendationScore: list.recommendationScore,
+    moviePreviewTitles: list.movieIds
+      .map((movieId) => movieMap[movieId]?.title)
+      .filter((title): title is string => Boolean(title))
+      .slice(0, 3)
+  }));
+});
+
+const getNextRatingMovie = () => {
+  const ratedIds = new Set(ratedMovieIds.value);
+
+  return ratingMovies.find((movie) => !ratedIds.has(movie.id)) ?? null;
+};
+
+const getPendingDetailMovie = () => {
+  const pendingRecord = pendingDetailedRatings.value[0];
+
+  if (!pendingRecord) {
+    return null;
+  }
+
+  return movieMap[pendingRecord.input.movieId] ?? null;
+};
+
+const submitSwipeRating = (
+  movie: CatalogMovie,
+  input: RatingInput,
+  options?: {
+    rawDecision: StoredRatingRecord['rawDecision'];
+    detailCompleted: boolean;
+    feedback?: RatingFeedbackPayload;
+  }
+) => {
+  upsertRatingRecord({
+    rawDecision: options?.rawDecision ?? input.status,
+    detailCompleted: options?.detailCompleted ?? input.status !== 'like',
+    input,
+    reviewText: options?.feedback?.reviewText ?? '',
+    questionText: options?.feedback?.questionText ?? ''
+  });
+};
+
+const dismissRecommendedMovie = (movieId: string) => {
+  if (state.dismissedRecommendationMovieIds.includes(movieId)) {
+    return;
+  }
+
+  state.dismissedRecommendationMovieIds = [...state.dismissedRecommendationMovieIds, movieId];
+  persistState();
+};
+
+const resetTasteAnalysis = () => {
+  state.profile = createEmptyUserPreferenceProfile(state.userId);
+  state.ratings = [];
+  state.dismissedRecommendationMovieIds = [];
+  localRecommendationRepository.clear(state.userId);
+};
+
+const setActiveUser = (userId: string) => {
+  applySnapshot(loadSnapshot(userId || FALLBACK_USER_ID));
+};
+
+export const recommendationStore = {
+  state: readonly(state),
+  catalogMovies,
+  catalogLists,
+  ratedMovieIds,
+  pendingDetailedRatings,
+  recommendedMovies,
+  recommendedLists,
+  getNextRatingMovie,
+  getPendingDetailMovie,
+  submitSwipeRating,
+  dismissRecommendedMovie,
+  resetTasteAnalysis,
+  setActiveUser
+};
+
+export const useRecommendationStore = () => recommendationStore;

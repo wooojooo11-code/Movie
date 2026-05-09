@@ -51,7 +51,7 @@ const signOut = async () => {
               to="/login"
               class="focus-ring rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
             >
-              로그인
+              로그인kjhkjhhk
             </RouterLink>
             <RouterLink
               :to="{ name: 'login', query: { mode: 'signup' } }"

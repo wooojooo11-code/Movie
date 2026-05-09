@@ -17,7 +17,7 @@ const hasMoreTasteAnalysis = computed(() =>
       class="rounded-[24px] border border-app-line bg-[radial-gradient(circle_at_top_right,rgba(125,123,255,0.35),transparent_30%),radial-gradient(circle_at_left_bottom,rgba(255,93,143,0.24),transparent_28%),linear-gradient(180deg,#161a24,#10131b)] p-[22px]"
     >
       <h1 id="home-cta-title" class="text-[28px] font-extrabold leading-tight text-white">
-        10개만 취향분석하면 추천 시작
+        추천을 위한 취향분석 시작
       </h1>
 
       <div class="mt-6 flex flex-wrap gap-3">

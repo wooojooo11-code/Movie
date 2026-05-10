@@ -46,3 +46,32 @@
 [2mPM 2:06:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
 [2mPM 2:08:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
 [2mPM 2:09:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listSearchService.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/RatingView.vue[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/movie_recommendation_algorithm.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/onboarding.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/RatingView.vue[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 2:35:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/RatingView.vue[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listSearchService.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/movie_recommendation_algorithm.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/onboarding.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/RatingView.vue[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 2:35:17[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 2:58:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/RatingView.vue, /src/views/RecommendationsView.vue[22m
+[2mPM 2:58:59[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 3:01:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/rating.ts[22m
+[2mPM 3:02:02[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/rating.ts[22m
+[2mPM 3:02:09[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 3:03:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 3:03:15[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 3:03:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/HeroCTA.vue, /src/assets/styles/main.css[22m
+[2mPM 3:03:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/HeroCTA.vue[22m
+[2mPM 3:04:06[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RecommendationsView.vue, /src/assets/styles/main.css[22m
+[2mPM 3:04:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RecommendationsView.vue[22m

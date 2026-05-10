@@ -1,7 +1,11 @@
 import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
-import { primaryRatingMovies, ratingMovies } from '@/data/rating';
+import {
+  getNextAdditionalBatchIndex,
+  primaryRatingMovies,
+  ratingMovies
+} from '@/data/rating';
 import {
   applyRatingToProfile,
   createEmptyUserPreferenceProfile,
@@ -165,6 +169,7 @@ const primaryUnratedMovies = computed(() =>
 const pendingPrimaryDetailedRatings = computed(() =>
   pendingDetailedRatings.value.filter((rating) => primaryRatingMovieIds.has(rating.input.movieId))
 );
+const nextAdditionalBatchIndex = computed(() => getNextAdditionalBatchIndex(ratedMovieIds.value));
 const excludedRecommendationMovieIds = computed(() => [
   ...ratedMovieIds.value,
   ...state.dismissedRecommendationMovieIds
@@ -304,6 +309,7 @@ export const recommendationStore = {
   pendingDetailedRatings,
   pendingPrimaryDetailedRatings,
   primaryUnratedMovies,
+  nextAdditionalBatchIndex,
   shouldResumeTasteAnalysis: computed(
     () => primaryUnratedMovies.value.length > 0 || pendingPrimaryDetailedRatings.value.length > 0
   ),

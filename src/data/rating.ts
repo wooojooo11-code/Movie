@@ -28,6 +28,7 @@ export const primaryRatingMovies = primaryRatingMovieIds
 export const additionalRatingMovies = catalogMovies.filter((movie) => !primaryIdSet.has(movie.id));
 export const ratingMovies = [...primaryRatingMovies, ...additionalRatingMovies];
 export const initialTasteAnalysisCount = primaryRatingMovies.length;
+export const tasteAnalysisBatchSize = 16;
 
 export const getUnratedMoviesFromPool = (
   ratedMovieIds: readonly string[],
@@ -37,5 +38,46 @@ export const getUnratedMoviesFromPool = (
   return pool.filter((movie) => !ratedIdSet.has(movie.id));
 };
 
+export const getAdditionalBatchCount = () =>
+  Math.ceil(additionalRatingMovies.length / tasteAnalysisBatchSize);
+
+export const getAdditionalRatingBatchByIndex = (batchIndex: number) => {
+  const safeBatchIndex = Math.max(0, batchIndex);
+  const start = safeBatchIndex * tasteAnalysisBatchSize;
+  return additionalRatingMovies.slice(start, start + tasteAnalysisBatchSize);
+};
+
+export const getUnratedMoviesFromAdditionalBatch = (
+  ratedMovieIds: readonly string[],
+  batchIndex: number
+) => getUnratedMoviesFromPool(ratedMovieIds, getAdditionalRatingBatchByIndex(batchIndex));
+
+export const getNextAdditionalBatchIndex = (ratedMovieIds: readonly string[]) => {
+  const totalBatchCount = getAdditionalBatchCount();
+
+  for (let index = 0; index < totalBatchCount; index += 1) {
+    if (getUnratedMoviesFromAdditionalBatch(ratedMovieIds, index).length > 0) {
+      return index;
+    }
+  }
+
+  return null;
+};
+
+export const getFollowingAdditionalBatchIndex = (
+  ratedMovieIds: readonly string[],
+  currentBatchIndex: number
+) => {
+  const totalBatchCount = getAdditionalBatchCount();
+
+  for (let index = currentBatchIndex + 1; index < totalBatchCount; index += 1) {
+    if (getUnratedMoviesFromAdditionalBatch(ratedMovieIds, index).length > 0) {
+      return index;
+    }
+  }
+
+  return null;
+};
+
 export const hasAdditionalTasteAnalysisMovies = (ratedMovieIds: readonly string[]) =>
-  additionalRatingMovies.some((movie) => !ratedMovieIds.includes(movie.id));
+  getNextAdditionalBatchIndex(ratedMovieIds) !== null;

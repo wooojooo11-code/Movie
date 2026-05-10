@@ -19,6 +19,11 @@ const hasMoreTasteAnalysis = computed(() =>
   hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
 );
 
+const nextAdditionalBatchLink = computed(() => {
+  const batchIndex = recommendationStore.nextAdditionalBatchIndex.value;
+  return batchIndex == null ? null : `/rating?mode=more&batch=${batchIndex}`;
+});
+
 const openMovieSheet = (movie: RecommendedCatalogMovie) => {
   selectedMovie.value = movie;
 };
@@ -66,8 +71,8 @@ const openListsPage = () => {
         </RouterLink>
 
         <RouterLink
-          v-else-if="hasMoreTasteAnalysis"
-          to="/rating?mode=more"
+          v-else-if="hasMoreTasteAnalysis && nextAdditionalBatchLink"
+          :to="nextAdditionalBatchLink"
           class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
         >
           취향 더 분석하기
@@ -80,7 +85,7 @@ const openListsPage = () => {
         <div class="mb-3 flex items-end justify-between gap-4">
           <div>
             <h2 class="text-lg font-extrabold text-white">추천 영화</h2>
-            <p class="mt-1 text-sm text-app-muted">작게 모아서 한 번에 볼 수 있어요.</p>
+            <p class="mt-1 text-sm text-app-muted">작게 모아두어 한 번에 보기 편해요</p>
           </div>
           <span class="text-xs font-bold text-app-muted">
             {{ recommendationStore.recommendedMovies.value.length }}개

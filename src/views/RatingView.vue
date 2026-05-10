@@ -7,7 +7,9 @@ import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
 import {
-  additionalRatingMovies,
+  getAdditionalRatingBatchByIndex,
+  getFollowingAdditionalBatchIndex,
+  getUnratedMoviesFromAdditionalBatch,
   getUnratedMoviesFromPool,
   hasAdditionalTasteAnalysisMovies,
   initialTasteAnalysisCount,
@@ -26,7 +28,19 @@ const savedNotice = ref('');
 let savedNoticeTimer: ReturnType<typeof setTimeout> | null = null;
 
 const isMoreMode = computed(() => route.query.mode === 'more');
-const currentMoviePool = computed(() => (isMoreMode.value ? additionalRatingMovies : primaryRatingMovies));
+const batchIndex = computed(() => {
+  const rawBatch = Number(route.query.batch ?? 0);
+  return Number.isFinite(rawBatch) && rawBatch >= 0 ? Math.floor(rawBatch) : 0;
+});
+
+const currentMoviePool = computed(() => {
+  if (!isMoreMode.value) {
+    return primaryRatingMovies;
+  }
+
+  return getAdditionalRatingBatchByIndex(batchIndex.value);
+});
+
 const currentPoolMovieIds = computed(() => currentMoviePool.value.map((movie) => movie.id));
 
 const totalCount = computed(() => currentMoviePool.value.length);
@@ -36,27 +50,43 @@ const completedCount = computed(() =>
 );
 
 const swipeStageMovie = computed(() => {
-  const unratedMovies = getUnratedMoviesFromPool(recommendationStore.ratedMovieIds.value, currentMoviePool.value);
-  return unratedMovies[0] ?? null;
+  if (isMoreMode.value) {
+    return getUnratedMoviesFromAdditionalBatch(recommendationStore.ratedMovieIds.value, batchIndex.value)[0] ?? null;
+  }
+
+  return getUnratedMoviesFromPool(recommendationStore.ratedMovieIds.value, currentMoviePool.value)[0] ?? null;
 });
 
-const detailStageMovie = computed(() => recommendationStore.getPendingDetailMovie());
+const detailStageMovie = computed(() => {
+  const pendingRecord = recommendationStore.pendingDetailedRatings.value.find((rating) =>
+    currentPoolMovieIds.value.includes(rating.input.movieId)
+  );
+
+  if (!pendingRecord) {
+    return null;
+  }
+
+  return recommendationStore.catalogMovies.find((movie) => movie.id === pendingRecord.input.movieId) ?? null;
+});
+
 const isSwipeStage = computed(() => Boolean(swipeStageMovie.value));
 const isDetailStage = computed(() => !swipeStageMovie.value && Boolean(detailStageMovie.value));
 const currentMovie = computed(() => swipeStageMovie.value ?? detailStageMovie.value);
 
 const likedCount = computed(
   () =>
-    recommendationStore.pendingDetailedRatings.value.length +
+    recommendationStore.pendingDetailedRatings.value.filter((rating) =>
+      currentPoolMovieIds.value.includes(rating.input.movieId)
+    ).length +
     recommendationStore.state.ratings.filter(
-      (rating) => rating.rawDecision === 'like' && rating.detailCompleted
+      (rating) => rating.rawDecision === 'like' && rating.detailCompleted && currentPoolMovieIds.value.includes(rating.input.movieId)
     ).length
 );
 
 const detailCompletedCount = computed(
   () =>
     recommendationStore.state.ratings.filter(
-      (rating) => rating.rawDecision === 'like' && rating.detailCompleted
+      (rating) => rating.rawDecision === 'like' && rating.detailCompleted && currentPoolMovieIds.value.includes(rating.input.movieId)
     ).length
 );
 
@@ -71,6 +101,22 @@ const currentCharacterChoices = computed(() =>
 const hasMoreTasteAnalysis = computed(
   () => !isMoreMode.value && hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
 );
+
+const nextAdditionalBatchIndex = computed(() => {
+  if (!isMoreMode.value) {
+    return recommendationStore.nextAdditionalBatchIndex.value;
+  }
+
+  return getFollowingAdditionalBatchIndex(recommendationStore.ratedMovieIds.value, batchIndex.value);
+});
+
+const nextAdditionalBatchLink = computed(() => {
+  if (nextAdditionalBatchIndex.value == null) {
+    return null;
+  }
+
+  return `/rating?mode=more&batch=${nextAdditionalBatchIndex.value}`;
+});
 
 const saveSwipeDecision = (decision: RatingDecision | 'not_interested') => {
   const movie = swipeStageMovie.value;
@@ -246,7 +292,7 @@ onUnmounted(() => {
           {{ isMoreMode ? '추가로 고른 영화 상세 취향분석' : '재밌게 고른 영화 상세 취향분석' }}
         </p>
         <p class="mt-2 text-sm leading-6 text-[#c8d1df]">
-          재밌었던 영화만 별점, 좋았던 포인트, 캐릭터 질문으로 더 자세히 남겨주세요.
+          별점과 좋았던 포인트를 남기고, 가장 좋았던 캐릭터도 골라 주세요.
         </p>
       </section>
 
@@ -265,7 +311,7 @@ onUnmounted(() => {
         {{ isMoreMode ? '추가 취향분석 완료' : `${initialTasteAnalysisCount}개 취향분석 완료` }}
       </p>
       <h1 class="mt-2 text-2xl font-black text-white">
-        {{ isMoreMode ? '추천이 더 정교해졌어요.' : '추천이 준비됐어요.' }}
+        {{ isMoreMode ? '추천이 더 정교해졌어요.' : '추천을 준비했어요.' }}
       </h1>
 
       <div class="mt-5 flex flex-wrap gap-3">
@@ -277,11 +323,19 @@ onUnmounted(() => {
         </RouterLink>
 
         <RouterLink
-          v-if="hasMoreTasteAnalysis"
-          to="/rating?mode=more"
+          v-if="!isMoreMode && hasMoreTasteAnalysis && nextAdditionalBatchLink"
+          :to="nextAdditionalBatchLink"
           class="focus-ring inline-flex min-h-12 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
         >
           취향 더 분석하기
+        </RouterLink>
+
+        <RouterLink
+          v-else-if="isMoreMode && nextAdditionalBatchLink"
+          :to="nextAdditionalBatchLink"
+          class="focus-ring inline-flex min-h-12 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
+        >
+          다음 16개 더 보기
         </RouterLink>
       </div>
     </section>

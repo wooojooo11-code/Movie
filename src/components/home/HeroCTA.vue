@@ -11,6 +11,10 @@ const hasMoreTasteAnalysis = computed(() =>
 );
 
 const shouldResumeTasteAnalysis = computed(() => recommendationStore.shouldResumeTasteAnalysis.value);
+const nextAdditionalBatchLink = computed(() => {
+  const batchIndex = recommendationStore.nextAdditionalBatchIndex.value;
+  return batchIndex == null ? null : `/rating?mode=more&batch=${batchIndex}`;
+});
 
 const primaryButtonLabel = computed(() => {
   if (shouldResumeTasteAnalysis.value) {
@@ -43,8 +47,8 @@ const primaryButtonLabel = computed(() => {
         </RouterLink>
 
         <RouterLink
-          v-if="recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis"
-          to="/rating?mode=more"
+          v-if="recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis && nextAdditionalBatchLink"
+          :to="nextAdditionalBatchLink"
           class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
         >
           취향 더 분석하기

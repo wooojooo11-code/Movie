@@ -1,11 +1,7 @@
 import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
-import {
-  getNextAdditionalBatchIndex,
-  primaryRatingMovies,
-  ratingMovies
-} from '@/data/rating';
+import { getNextAdditionalBatchIndex, primaryRatingMovies, ratingMovies } from '@/data/rating';
 import {
   applyRatingToProfile,
   createEmptyUserPreferenceProfile,
@@ -93,6 +89,7 @@ const state = reactive<RecommendationStateSnapshot>({
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
+let remoteSaveChain: Promise<void> = Promise.resolve();
 
 const getErrorMessage = (error: unknown, fallback: string) => {
   if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
@@ -109,6 +106,29 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
 };
 
+const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
+  remoteSyncStatus.value = 'syncing';
+
+  try {
+    await task();
+    remoteSyncStatus.value = 'success';
+  } catch (error) {
+    remoteSyncStatus.value = 'error';
+    remoteSyncErrorMessage.value = getErrorMessage(error, fallbackMessage);
+    console.error('[recommendationStore] Supabase ratings sync failed.', error);
+  }
+};
+
+const enqueueRemoteTask = (task: () => Promise<void>, fallbackMessage: string) => {
+  remoteSaveChain = remoteSaveChain
+    .catch(() => {
+      // Previous failures already updated the error state.
+    })
+    .then(() => runRemoteTask(task, fallbackMessage));
+
+  return remoteSaveChain;
+};
+
 const persistState = () => {
   const snapshot = {
     userId: state.userId,
@@ -118,24 +138,12 @@ const persistState = () => {
   };
 
   localRecommendationRepository.save(snapshot);
-
   remoteSyncErrorMessage.value = '';
 
-  void (async () => {
-    remoteSyncStatus.value = 'syncing';
-
-    try {
-      await remoteRecommendationRepository.save(snapshot);
-      remoteSyncStatus.value = 'success';
-    } catch (error) {
-      remoteSyncStatus.value = 'error';
-      remoteSyncErrorMessage.value = getErrorMessage(
-        error,
-        '취향분석 결과를 Supabase ratings 테이블에 저장하지 못했어요.'
-      );
-      console.error('[recommendationStore] Failed to sync ratings to Supabase.', error);
-    }
-  })();
+  return enqueueRemoteTask(
+    () => remoteRecommendationRepository.save(snapshot),
+    '취향분석 결과를 Supabase ratings 테이블에 저장하지 못했어요.'
+  );
 };
 
 const recomputeProfile = () => {
@@ -154,7 +162,8 @@ const upsertRatingRecord = (record: StoredRatingRecord) => {
 
   state.ratings = nextRatings;
   recomputeProfile();
-  persistState();
+
+  return persistState();
 };
 
 const ratedMovieIds = computed(() => state.ratings.map((rating) => rating.input.movieId));
@@ -206,7 +215,6 @@ const recommendedLists = computed<RecommendedCatalogList[]>(() => {
 
 const getNextRatingMovie = () => {
   const ratedIds = new Set(ratedMovieIds.value);
-
   return ratingMovies.find((movie) => !ratedIds.has(movie.id)) ?? null;
 };
 
@@ -228,7 +236,7 @@ const submitSwipeRating = (
     detailCompleted: boolean;
     feedback?: RatingFeedbackPayload;
   }
-) => {
+) =>
   upsertRatingRecord({
     rawDecision: options?.rawDecision ?? input.status,
     detailCompleted: options?.detailCompleted ?? input.status !== 'like',
@@ -236,7 +244,6 @@ const submitSwipeRating = (
     reviewText: options?.feedback?.reviewText ?? '',
     questionText: options?.feedback?.questionText ?? ''
   });
-};
 
 const dismissRecommendedMovie = (movieId: string) => {
   if (state.dismissedRecommendationMovieIds.includes(movieId)) {
@@ -244,7 +251,7 @@ const dismissRecommendedMovie = (movieId: string) => {
   }
 
   state.dismissedRecommendationMovieIds = [...state.dismissedRecommendationMovieIds, movieId];
-  persistState();
+  void persistState();
 };
 
 const resetTasteAnalysis = () => {
@@ -254,14 +261,11 @@ const resetTasteAnalysis = () => {
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
   localRecommendationRepository.clear(state.userId);
-  void remoteRecommendationRepository.clear(state.userId).catch((error) => {
-    remoteSyncStatus.value = 'error';
-    remoteSyncErrorMessage.value = getErrorMessage(
-      error,
-      '취향분석 초기화 내용을 Supabase ratings 테이블에 반영하지 못했어요.'
-    );
-    console.error('[recommendationStore] Failed to clear ratings from Supabase.', error);
-  });
+
+  void enqueueRemoteTask(
+    () => remoteRecommendationRepository.clear(state.userId),
+    '취향분석 초기화 내용을 Supabase ratings 테이블에 반영하지 못했어요.'
+  );
 };
 
 const setActiveUser = async (userId: string) => {

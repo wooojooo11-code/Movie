@@ -118,7 +118,7 @@ const nextAdditionalBatchLink = computed(() => {
   return `/rating?mode=more&batch=${nextAdditionalBatchIndex.value}`;
 });
 
-const saveSwipeDecision = (decision: RatingDecision | 'not_interested') => {
+const saveSwipeDecision = async (decision: RatingDecision | 'not_interested') => {
   const movie = swipeStageMovie.value;
 
   if (!movie) {
@@ -135,7 +135,7 @@ const saveSwipeDecision = (decision: RatingDecision | 'not_interested') => {
     answeredAt: new Date().toISOString()
   };
 
-  recommendationStore.submitSwipeRating(movie, input, {
+  await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: decision,
     detailCompleted: decision !== 'like'
   });
@@ -146,7 +146,7 @@ const saveSwipeDecision = (decision: RatingDecision | 'not_interested') => {
   });
 };
 
-const submitPositiveFeedback = (feedback: PositiveRatingInput) => {
+const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
   const movie = detailStageMovie.value;
 
   if (!movie) {
@@ -163,7 +163,7 @@ const submitPositiveFeedback = (feedback: PositiveRatingInput) => {
     answeredAt: new Date().toISOString()
   };
 
-  recommendationStore.submitSwipeRating(movie, input, {
+  await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'like',
     detailCompleted: true,
     feedback: {
@@ -280,6 +280,18 @@ onUnmounted(() => {
       :detail-current="detailCompletedCount"
       :detail-total="likedCount"
     />
+
+    <section
+      v-if="isMoreMode && recommendationStore.state.profile.totalRatings > 0"
+      class="flex justify-end"
+    >
+      <RouterLink
+        to="/recommendations"
+        class="focus-ring inline-flex min-h-10 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 text-sm font-bold text-white"
+      >
+        지금 추천 보기
+      </RouterLink>
+    </section>
 
     <template v-if="isSwipeStage && currentMovie">
       <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" @decide="saveSwipeDecision" />

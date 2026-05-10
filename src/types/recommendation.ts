@@ -43,6 +43,11 @@ export interface RatingFeedbackPayload {
   questionText: string;
 }
 
+export interface RatedCatalogMovieRecord {
+  movie: CatalogMovie;
+  ratingRecord: StoredRatingRecord;
+}
+
 export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {}
 
 export interface RecommendedCatalogList extends CatalogMovieList, ScoredMovieList {

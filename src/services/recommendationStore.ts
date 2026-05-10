@@ -16,6 +16,7 @@ import {
 import type {
   CatalogMovie,
   RatingFeedbackPayload,
+  RatedCatalogMovieRecord,
   RecommendedCatalogList,
   RecommendedCatalogMovie,
   RecommendationStateSnapshot,
@@ -213,6 +214,29 @@ const recommendedLists = computed<RecommendedCatalogList[]>(() => {
   }));
 });
 
+const ratedMoviesHistory = computed<RatedCatalogMovieRecord[]>(() =>
+  [...state.ratings]
+    .map((ratingRecord) => {
+      const movie = movieMap[ratingRecord.input.movieId];
+
+      if (!movie) {
+        return null;
+      }
+
+      return {
+        movie,
+        ratingRecord
+      };
+    })
+    .filter((entry): entry is RatedCatalogMovieRecord => Boolean(entry))
+    .sort((left, right) => {
+      const leftTime = new Date(left.ratingRecord.input.answeredAt).getTime();
+      const rightTime = new Date(right.ratingRecord.input.answeredAt).getTime();
+
+      return rightTime - leftTime;
+    })
+);
+
 const getNextRatingMovie = () => {
   const ratedIds = new Set(ratedMovieIds.value);
   return ratingMovies.find((movie) => !ratedIds.has(movie.id)) ?? null;
@@ -317,6 +341,7 @@ export const recommendationStore = {
   shouldResumeTasteAnalysis: computed(
     () => primaryUnratedMovies.value.length > 0 || pendingPrimaryDetailedRatings.value.length > 0
   ),
+  ratedMoviesHistory,
   recommendedMovies,
   recommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),

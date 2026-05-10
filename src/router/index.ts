@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import HomeView from '@/views/HomeView.vue';
+import EditRatingView from '@/views/EditRatingView.vue';
 import ListsView from '@/views/ListsView.vue';
 import LoginView from '@/views/LoginView.vue';
+import RatedMoviesView from '@/views/RatedMoviesView.vue';
 import RecommendationsView from '@/views/RecommendationsView.vue';
 import RatingView from '@/views/RatingView.vue';
 import { useRecommendationStore } from '@/services/recommendationStore';
@@ -28,6 +30,22 @@ const router = createRouter({
       path: '/recommendations',
       name: 'recommendations',
       component: RecommendationsView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: RatedMoviesView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/history/:movieId/edit',
+      name: 'history-edit',
+      component: EditRatingView,
       meta: {
         requiresAuth: true
       }

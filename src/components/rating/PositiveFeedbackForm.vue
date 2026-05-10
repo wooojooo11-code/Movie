@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
@@ -8,6 +8,8 @@ import type { CharacterChoice, PositiveRatingInput } from '@/types/rating';
 const props = defineProps<{
   characters: CharacterChoice[];
   questionText: string;
+  initialValue?: Partial<PositiveRatingInput> | null;
+  submitLabel?: string;
 }>();
 
 const emit = defineEmits<{
@@ -45,6 +47,25 @@ const form = reactive<PositiveRatingInput>({
   questionText: ''
 });
 
+const applyInitialValue = (value?: Partial<PositiveRatingInput> | null) => {
+  form.stars = value?.stars ?? 4.5;
+  form.reviewTags = [...(value?.reviewTags ?? [])];
+  form.favoriteCharacter = value?.favoriteCharacter ?? null;
+  form.reviewText = value?.reviewText ?? '';
+  form.questionText = value?.questionText ?? '';
+};
+
+watch(
+  () => props.initialValue,
+  (value) => {
+    applyInitialValue(value);
+  },
+  {
+    immediate: true,
+    deep: true
+  }
+);
+
 const toggleReviewTag = (tag: ReviewTag) => {
   const currentIndex = form.reviewTags.indexOf(tag);
 
@@ -69,7 +90,7 @@ const submitForm = () => {
 
 <template>
   <section class="rounded-[24px] border border-app-line bg-app-panel p-4">
-    <h2 class="text-lg font-extrabold text-white">좋았던 이유</h2>
+    <h2 class="text-lg font-extrabold text-white">좋았던 포인트</h2>
 
     <div class="mt-4">
       <label class="mb-2 block text-sm font-bold text-app-muted" for="favorite-character">
@@ -117,7 +138,7 @@ const submitForm = () => {
         id="review"
         v-model="form.reviewText"
         class="focus-ring mt-3 min-h-24 w-full resize-none rounded-[16px] border border-app-line bg-white/5 px-4 py-3 text-sm text-white placeholder:text-app-muted"
-        placeholder="짧게 남기기"
+        placeholder="짧게 메모 남기기"
       ></textarea>
     </div>
 
@@ -164,7 +185,7 @@ const submitForm = () => {
         class="app-gradient focus-ring min-h-12 w-full rounded-[16px] px-3 text-sm font-extrabold text-white"
         @click="submitForm"
       >
-        저장
+        {{ props.submitLabel ?? '저장하기' }}
       </button>
     </div>
   </section>

@@ -93,6 +93,13 @@ const signOut = async () => {
           추천
         </RouterLink>
         <RouterLink
+          to="/history"
+          class="focus-ring rounded-full px-3.5 py-2 text-sm font-bold text-[#c7cfdd] hover:bg-white/10 hover:text-white"
+          active-class="bg-white/10 text-white"
+        >
+          평가기록
+        </RouterLink>
+        <RouterLink
           to="/lists"
           class="focus-ring rounded-full px-3.5 py-2 text-sm font-bold text-[#c7cfdd] hover:bg-white/10 hover:text-white"
           active-class="bg-white/10 text-white"

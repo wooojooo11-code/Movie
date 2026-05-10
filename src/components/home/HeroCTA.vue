@@ -9,6 +9,20 @@ const recommendationStore = useRecommendationStore();
 const hasMoreTasteAnalysis = computed(() =>
   hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
 );
+
+const shouldResumeTasteAnalysis = computed(() => recommendationStore.shouldResumeTasteAnalysis.value);
+
+const primaryButtonLabel = computed(() => {
+  if (shouldResumeTasteAnalysis.value) {
+    return '취향분석 이어서 하기';
+  }
+
+  if (recommendationStore.state.profile.totalRatings > 0) {
+    return '취향분석 보러 가기';
+  }
+
+  return '취향분석 하러 가기';
+});
 </script>
 
 <template>
@@ -25,7 +39,7 @@ const hasMoreTasteAnalysis = computed(() =>
           to="/rating"
           class="app-gradient focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] px-4 py-[11px] text-sm font-bold text-white"
         >
-          {{ recommendationStore.state.profile.totalRatings > 0 ? '취향분석 이어서 보기' : '취향분석 하러 가기' }}
+          {{ primaryButtonLabel }}
         </RouterLink>
 
         <RouterLink

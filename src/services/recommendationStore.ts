@@ -1,7 +1,7 @@
 import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
-import { ratingMovies } from '@/data/rating';
+import { primaryRatingMovies, ratingMovies } from '@/data/rating';
 import {
   applyRatingToProfile,
   createEmptyUserPreferenceProfile,
@@ -158,6 +158,13 @@ const likedRatingRecords = computed(() => state.ratings.filter((rating) => ratin
 const pendingDetailedRatings = computed(() =>
   likedRatingRecords.value.filter((rating) => !rating.detailCompleted)
 );
+const primaryRatingMovieIds = new Set(primaryRatingMovies.map((movie) => movie.id));
+const primaryUnratedMovies = computed(() =>
+  primaryRatingMovies.filter((movie) => !ratedMovieIds.value.includes(movie.id))
+);
+const pendingPrimaryDetailedRatings = computed(() =>
+  pendingDetailedRatings.value.filter((rating) => primaryRatingMovieIds.has(rating.input.movieId))
+);
 const excludedRecommendationMovieIds = computed(() => [
   ...ratedMovieIds.value,
   ...state.dismissedRecommendationMovieIds
@@ -295,6 +302,11 @@ export const recommendationStore = {
   catalogLists,
   ratedMovieIds,
   pendingDetailedRatings,
+  pendingPrimaryDetailedRatings,
+  primaryUnratedMovies,
+  shouldResumeTasteAnalysis: computed(
+    () => primaryUnratedMovies.value.length > 0 || pendingPrimaryDetailedRatings.value.length > 0
+  ),
   recommendedMovies,
   recommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),

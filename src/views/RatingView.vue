@@ -6,7 +6,6 @@ import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
-import SwipeGuide from '@/components/rating/SwipeGuide.vue';
 import {
   additionalRatingMovies,
   getUnratedMoviesFromPool,
@@ -23,6 +22,8 @@ import type { PositiveRatingInput, RatingDecision, RatingResult } from '@/types/
 const recommendationStore = useRecommendationStore();
 const route = useRoute();
 const results = ref<RatingResult[]>([]);
+const savedNotice = ref('');
+let savedNoticeTimer: ReturnType<typeof setTimeout> | null = null;
 
 const isMoreMode = computed(() => route.query.mode === 'more');
 const currentMoviePool = computed(() => (isMoreMode.value ? additionalRatingMovies : primaryRatingMovies));
@@ -133,6 +134,22 @@ const submitPositiveFeedback = (feedback: PositiveRatingInput) => {
     decision: 'like',
     feedback
   });
+
+  savedNotice.value = `"${movie.title}" 저장됨. 다음 영화로 이어서 볼게요.`;
+
+  if (savedNoticeTimer) {
+    clearTimeout(savedNoticeTimer);
+  }
+
+  savedNoticeTimer = setTimeout(() => {
+    savedNotice.value = '';
+    savedNoticeTimer = null;
+  }, 1800);
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 };
 
 const isComplete = computed(() => !swipeStageMovie.value && !detailStageMovie.value);
@@ -175,6 +192,10 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown);
+
+  if (savedNoticeTimer) {
+    clearTimeout(savedNoticeTimer);
+  }
 });
 </script>
 
@@ -182,6 +203,22 @@ onUnmounted(() => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
+    <transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="translate-y-1 opacity-0"
+      enter-to-class="translate-y-0 opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="translate-y-0 opacity-100"
+      leave-to-class="translate-y-1 opacity-0"
+    >
+      <section
+        v-if="savedNotice"
+        class="rounded-[16px] border border-app-line bg-white/[0.05] px-4 py-3 text-sm font-bold text-white"
+      >
+        {{ savedNotice }}
+      </section>
+    </transition>
+
     <RatingProgress
       :current="completedCount"
       :total="totalCount"
@@ -199,7 +236,6 @@ onUnmounted(() => {
     />
 
     <template v-if="isSwipeStage && currentMovie">
-      <SwipeGuide />
       <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" @decide="saveSwipeDecision" />
       <RatingActions @decide="saveSwipeDecision" />
     </template>
@@ -217,6 +253,7 @@ onUnmounted(() => {
       <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" @decide="saveSwipeDecision" />
 
       <PositiveFeedbackForm
+        :key="currentMovie.id"
         :characters="currentCharacterChoices"
         :question-text="currentQuestion"
         @submit="submitPositiveFeedback"

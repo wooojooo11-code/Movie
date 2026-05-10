@@ -128,7 +128,13 @@ export const useAuthStore = defineStore('auth', {
       return this.ratingCount;
     },
     getPostLoginPath(fallbackPath = '/') {
-      return this.ratingCount === 0 ? '/rating' : fallbackPath;
+      const recommendationStore = useRecommendationStore();
+
+      if (this.ratingCount === 0 || recommendationStore.shouldResumeTasteAnalysis.value) {
+        return '/rating';
+      }
+
+      return fallbackPath;
     },
     async signIn(email: string, password: string) {
       if (!supabase) {

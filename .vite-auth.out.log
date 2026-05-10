@@ -79,3 +79,5 @@
 [2mPM 3:24:46[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
 [2mPM 3:24:59[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
 [2mPM 3:28:30[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 3:42:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/catalog.ts[22m
+[2mPM 3:42:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/movieCredits.ts[22m

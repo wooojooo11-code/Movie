@@ -207,7 +207,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "토니 콜렛",
       "스티브 카렐"
     ],
-    "director": "Jonathan Dayton"
+    "director": "Valerie Faris"
   },
   "movie_17": {
     "characters": [
@@ -808,5 +808,809 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "밥 건턴"
     ],
     "director": "프랭크 다라본트"
+  },
+  "movie_65": {
+    "characters": [
+      "Maximus",
+      "Commodus",
+      "Lucilla"
+    ],
+    "cast": [
+      "러셀 크로우",
+      "호아킨 피닉스",
+      "코니 닐센"
+    ],
+    "director": "리들리 스콧"
+  },
+  "movie_66": {
+    "characters": [
+      "James Bond",
+      "Vesper Lynd",
+      "Le Chiffre"
+    ],
+    "cast": [
+      "다니엘 크레이그",
+      "에바 그린",
+      "매즈 미켈슨"
+    ],
+    "director": "마틴 캠벨"
+  },
+  "movie_67": {
+    "characters": [
+      "James Bond",
+      "M",
+      "Silva"
+    ],
+    "cast": [
+      "다니엘 크레이그",
+      "주디 덴치",
+      "하비에르 바르뎀"
+    ],
+    "director": "샘 멘데스"
+  },
+  "movie_68": {
+    "characters": [
+      "Jason Bourne",
+      "Nicky Parsons",
+      "Noah Vosen"
+    ],
+    "cast": [
+      "맷 데이먼",
+      "줄리아 스타일스",
+      "데이비드 스트러세언"
+    ],
+    "director": "폴 그린그래스"
+  },
+  "movie_69": {
+    "characters": [
+      "Himself - Presenter"
+    ],
+    "cast": [
+      "Paddy Ashdown"
+    ],
+    "director": "Francis Whately"
+  },
+  "movie_70": {
+    "characters": [
+      "John McClane",
+      "Hans Gruber",
+      "Karl"
+    ],
+    "cast": [
+      "브루스 윌리스",
+      "앨런 릭먼",
+      "Александр Годунов"
+    ],
+    "director": "존 맥티어난"
+  },
+  "movie_71": {
+    "characters": [
+      "The Terminator",
+      "Sarah Connor",
+      "John Connor"
+    ],
+    "cast": [
+      "아놀드 슈왈제네거",
+      "린다 해밀턴",
+      "에드워드 펄롱"
+    ],
+    "director": "제임스 카메론"
+  },
+  "movie_72": {
+    "characters": [
+      "Ripley",
+      "Newt",
+      "Corporal Hicks"
+    ],
+    "cast": [
+      "시고니 위버",
+      "Carrie Henn",
+      "마이클 빈"
+    ],
+    "director": "제임스 카메론"
+  },
+  "movie_73": {
+    "characters": [
+      "Tony Stark / Iron Man",
+      "Steve Rogers / Captain America",
+      "Bruce Banner / The Hulk"
+    ],
+    "cast": [
+      "로버트 다우니 주니어",
+      "크리스 에반스",
+      "마크 러팔로"
+    ],
+    "director": "조스 웨던"
+  },
+  "movie_74": {
+    "characters": [
+      "Steve Rogers / Captain America",
+      "Nick Fury",
+      "Natasha Romanoff / Black Widow"
+    ],
+    "cast": [
+      "크리스 에반스",
+      "사무엘 L. 잭슨",
+      "스칼렛 요한슨"
+    ],
+    "director": "조 루소"
+  },
+  "movie_75": {
+    "characters": [
+      "Cage",
+      "Rita",
+      "General Brigham"
+    ],
+    "cast": [
+      "톰 크루즈",
+      "에밀리 블런트",
+      "브렌던 글리슨"
+    ],
+    "director": "더그 라이만"
+  },
+  "movie_76": {
+    "characters": [
+      "Logan / X-24",
+      "Laura",
+      "Charles"
+    ],
+    "cast": [
+      "휴 잭맨",
+      "다프네 킨",
+      "패트릭 스튜어트"
+    ],
+    "director": "제임스 맨골드"
+  },
+  "movie_77": {
+    "characters": [
+      "Baby",
+      "Doc",
+      "Debora"
+    ],
+    "cast": [
+      "안셀 엘고트",
+      "케빈 스페이시",
+      "릴리 제임스"
+    ],
+    "director": "에드가 라이트"
+  },
+  "movie_78": {
+    "characters": [
+      "Komaram Bheem",
+      "Alluri Sitarama Raju",
+      "Jennifer 'Jenny' Buxton"
+    ],
+    "cast": [
+      "N.T. Rama Rao Jr.",
+      "Ram Charan",
+      "Olivia Morris"
+    ],
+    "director": "S. S. 라자몰리"
+  },
+  "movie_79": {
+    "characters": [
+      "Li Mu Bai",
+      "Yu Shu Lien",
+      "Jen"
+    ],
+    "cast": [
+      "주윤발",
+      "양자경",
+      "장쯔이"
+    ],
+    "director": "이안"
+  },
+  "movie_80": {
+    "characters": [
+      "The Bride",
+      "O-Ren Ishii",
+      "Vernita Green"
+    ],
+    "cast": [
+      "우마 서먼",
+      "루시 리우",
+      "비비카 A. 폭스"
+    ],
+    "director": "쿠엔틴 타란티노"
+  },
+  "movie_81": {
+    "characters": [
+      "Somerset",
+      "Mills",
+      "Tracy"
+    ],
+    "cast": [
+      "모건 프리먼",
+      "브래드 피트",
+      "기네스 팰트로"
+    ],
+    "director": "데이비드 핀처"
+  },
+  "movie_82": {
+    "characters": [
+      "Teddy Daniels",
+      "Chuck Aule",
+      "Dr. Cawley"
+    ],
+    "cast": [
+      "레오나르도 디카프리오",
+      "마크 러팔로",
+      "벤 킹슬리"
+    ],
+    "director": "마틴 스콜세지"
+  },
+  "movie_83": {
+    "characters": [
+      "Leonard",
+      "Natalie",
+      "Teddy"
+    ],
+    "cast": [
+      "가이 피어스",
+      "캐리 앤 모스",
+      "조 판톨리아노"
+    ],
+    "director": "크리스토퍼 놀란"
+  },
+  "movie_84": {
+    "characters": [
+      "McManus",
+      "Keaton",
+      "Fenster"
+    ],
+    "cast": [
+      "Stephen Baldwin",
+      "가브리엘 번",
+      "베니시오 델 토로"
+    ],
+    "director": "브라이언 싱어"
+  },
+  "movie_85": {
+    "characters": [
+      "J.J. 'Jake' Gittes",
+      "Evelyn Cross Mulwray",
+      "Noah Cross"
+    ],
+    "cast": [
+      "잭 니콜슨",
+      "페이 더너웨이",
+      "존 휴스턴"
+    ],
+    "director": "로만 폴란스키"
+  },
+  "movie_86": {
+    "characters": [
+      "Jack Vincennes",
+      "Wendell 'Bud' White",
+      "Edmund 'Ed' Exley"
+    ],
+    "cast": [
+      "케빈 스페이시",
+      "러셀 크로우",
+      "가이 피어스"
+    ],
+    "director": "커티스 핸슨"
+  },
+  "movie_87": {
+    "characters": [
+      "Jimmy Markum",
+      "Dave Boyle",
+      "Sean Devine"
+    ],
+    "cast": [
+      "숀 펜",
+      "팀 로빈스",
+      "케빈 베이컨"
+    ],
+    "director": "클린트 이스트우드"
+  },
+  "movie_88": {
+    "characters": [
+      "Mikael Blomkvist",
+      "Lisbeth Salander",
+      "Henrik Vanger"
+    ],
+    "cast": [
+      "다니엘 크레이그",
+      "루니 마라",
+      "크리스토퍼 플러머"
+    ],
+    "director": "데이비드 핀처"
+  },
+  "movie_89": {
+    "characters": [
+      "Clarice Starling",
+      "Dr. Hannibal Lecter",
+      "Jack Crawford"
+    ],
+    "cast": [
+      "조디 포스터",
+      "안소니 홉킨스",
+      "스콧 글렌"
+    ],
+    "director": "조나단 드미"
+  },
+  "movie_90": {
+    "characters": [
+      "Malcolm Crowe",
+      "Cole Sear",
+      "Lynn Sear"
+    ],
+    "cast": [
+      "브루스 윌리스",
+      "헤일리 조엘 오스먼트",
+      "토니 콜렛"
+    ],
+    "director": "M. 나이트 샤말란"
+  },
+  "movie_91": {
+    "characters": [
+      "David Kim",
+      "Margot",
+      "Detective Vick"
+    ],
+    "cast": [
+      "존 조",
+      "Michelle La",
+      "데브라 메싱"
+    ],
+    "director": "아니쉬 채겐티"
+  },
+  "movie_92": {
+    "characters": [
+      "Sandra Voyter",
+      "Maître Vincent Renzi",
+      "Daniel"
+    ],
+    "cast": [
+      "산드라 휠러",
+      "스완 아를로",
+      "Milo Machado-Graner"
+    ],
+    "director": "쥐스틴 트리에"
+  },
+  "movie_93": {
+    "characters": [],
+    "cast": [],
+    "director": "루벤 외스틀룬드"
+  },
+  "movie_94": {
+    "characters": [
+      "Hercule Poirot",
+      "Bouc",
+      "Caroline Hubbard"
+    ],
+    "cast": [
+      "케네스 브래너",
+      "톰 베이트먼",
+      "미셸 파이퍼"
+    ],
+    "director": "케네스 브래너"
+  },
+  "movie_95": {
+    "characters": [
+      "Sandy McSouthers",
+      "Tabitha Ruth 'Turtle' Wexler",
+      "Berthe Erica Crow"
+    ],
+    "cast": [
+      "Ray Walston",
+      "Ashley Peldon",
+      "Diane Ladd"
+    ],
+    "director": "Terence H. Winkless"
+  },
+  "movie_96": {
+    "characters": [
+      "L.B. Jefferies",
+      "Lisa Fremont",
+      "Thomas Doyle"
+    ],
+    "cast": [
+      "제임스 스튜어트",
+      "그레이스 켈리",
+      "Wendell Corey"
+    ],
+    "director": "알프레드 히치콕"
+  },
+  "movie_97": {
+    "characters": [
+      "Princess Ann",
+      "Joe Bradley",
+      "Irving Radovich"
+    ],
+    "cast": [
+      "오드리 헵번",
+      "그레고리 펙",
+      "Eddie Albert"
+    ],
+    "director": "윌리엄 와일러"
+  },
+  "movie_98": {
+    "characters": [
+      "Anna Scott",
+      "William Thacker",
+      "Bella"
+    ],
+    "cast": [
+      "줄리아 로버츠",
+      "휴 그랜트",
+      "지나 맥키"
+    ],
+    "director": "로저 미첼"
+  },
+  "movie_99": {
+    "characters": [
+      "Elizabeth Bennet",
+      "Mr. Darcy",
+      "Mrs. Bennet"
+    ],
+    "cast": [
+      "키이라 나이틀리",
+      "매튜 맥패디언",
+      "Brenda Blethyn"
+    ],
+    "director": "조 라이트"
+  },
+  "movie_100": {
+    "characters": [
+      "Robbie Turner",
+      "Cecilia Tallis",
+      "Briony Tallis (Age 13)"
+    ],
+    "cast": [
+      "제임스 맥어보이",
+      "키이라 나이틀리",
+      "시얼샤 로넌"
+    ],
+    "director": "조 라이트"
+  },
+  "movie_101": {
+    "characters": [
+      "Self - Narrator (voice)"
+    ],
+    "cast": [
+      "린다 헌트"
+    ],
+    "director": "감독 미상"
+  },
+  "movie_102": {
+    "characters": [
+      "Amélie Poulain",
+      "Nino Quincampoix",
+      "Raphaël Poulain"
+    ],
+    "cast": [
+      "오드리 토투",
+      "마티외 카소비츠",
+      "Rufus"
+    ],
+    "director": "장-피에르 주네"
+  },
+  "movie_103": {
+    "characters": [
+      "Noah Calhoun",
+      "Allie Hamilton",
+      "Older Allie"
+    ],
+    "cast": [
+      "라이언 고슬링",
+      "레이첼 맥아담스",
+      "지나 롤랜즈"
+    ],
+    "director": "닉 카사베츠"
+  },
+  "movie_104": {
+    "characters": [
+      "Ennis Del Mar",
+      "Jack Twist",
+      "Alma Beers"
+    ],
+    "cast": [
+      "히스 레저",
+      "제이크 질렌할",
+      "미셸 윌리엄스"
+    ],
+    "director": "이안"
+  },
+  "movie_105": {
+    "characters": [
+      "Charles Dickens",
+      "Ebenezer Scrooge",
+      "Isabelle"
+    ],
+    "cast": [
+      "Colin Baker",
+      "Anthony D.P. Mann",
+      "Charline Cleaver"
+    ],
+    "director": "Anthony D.P. Mann"
+  },
+  "movie_106": {
+    "characters": [
+      "Jesse",
+      "Céline",
+      "Bookstore Manager"
+    ],
+    "cast": [
+      "에단 호크",
+      "줄리 델피",
+      "Vernon Dobtcheff"
+    ],
+    "director": "리처드 링클레이터"
+  },
+  "movie_107": {
+    "characters": [
+      "Jesse",
+      "Céline",
+      "Hank"
+    ],
+    "cast": [
+      "에단 호크",
+      "줄리 델피",
+      "Seamus Davey-Fitzpatrick"
+    ],
+    "director": "리처드 링클레이터"
+  },
+  "movie_108": {
+    "characters": [
+      "Harry Burns",
+      "Sally Albright",
+      "Marie"
+    ],
+    "cast": [
+      "빌리 크리스탈",
+      "맥 라이언",
+      "캐리 피셔"
+    ],
+    "director": "롭 라이너"
+  },
+  "movie_109": {
+    "characters": [
+      "Tom",
+      "Summer",
+      "McKenzie"
+    ],
+    "cast": [
+      "조셉 고든레빗",
+      "주이 디샤넬",
+      "Geoffrey Arend"
+    ],
+    "director": "마크 웹"
+  },
+  "movie_110": {
+    "characters": [
+      "Woman in Blonde Wig",
+      "He Zhiwu / Cop 223",
+      "Cop 663"
+    ],
+    "cast": [
+      "임청하",
+      "금성무",
+      "양조위"
+    ],
+    "director": "왕가위"
+  },
+  "movie_111": {
+    "characters": [
+      "Bob Harris",
+      "Charlotte",
+      "John"
+    ],
+    "cast": [
+      "빌 머레이",
+      "스칼렛 요한슨",
+      "조반니 리비시"
+    ],
+    "director": "소피아 코폴라"
+  },
+  "movie_112": {
+    "characters": [
+      "Annie Reed",
+      "Sam Baldwin",
+      "Jonah Baldwin"
+    ],
+    "cast": [
+      "맥 라이언",
+      "톰 행크스",
+      "Ross Malinger"
+    ],
+    "director": "Nora Ephron"
+  },
+  "movie_113": {
+    "characters": [
+      "Seth",
+      "Evan",
+      "Fogell"
+    ],
+    "cast": [
+      "조나 힐",
+      "마이클 세라",
+      "크리스토퍼 민츠플라스"
+    ],
+    "director": "Greg Mottola"
+  },
+  "movie_114": {
+    "characters": [
+      "Phil Connors",
+      "Rita Hanson",
+      "Larry"
+    ],
+    "cast": [
+      "빌 머레이",
+      "앤디 맥도웰",
+      "크리스 엘리엇"
+    ],
+    "director": "해롤드 래미스"
+  },
+  "movie_115": {
+    "characters": [
+      "Annie",
+      "Lillian",
+      "Helen"
+    ],
+    "cast": [
+      "크리스틴 위그",
+      "마야 루돌프",
+      "로즈 번"
+    ],
+    "director": "폴 피그"
+  },
+  "movie_116": {
+    "characters": [
+      "Amy",
+      "Molly",
+      "Miss Fine"
+    ],
+    "cast": [
+      "케이틀린 디버",
+      "비니 펠드스타인",
+      "제시카 윌리엄스"
+    ],
+    "director": "올리비아 와일드"
+  },
+  "movie_117": {
+    "characters": [],
+    "cast": [],
+    "director": "Hellin Kay"
+  },
+  "movie_118": {
+    "characters": [
+      "Nicholas Angel",
+      "PC Danny Butterman",
+      "Inspector Frank Butterman"
+    ],
+    "cast": [
+      "사이먼 페그",
+      "닉 프로스트",
+      "짐 브로드벤트"
+    ],
+    "director": "에드가 라이트"
+  },
+  "movie_119": {
+    "characters": [
+      "Shaun",
+      "Ed",
+      "Liz"
+    ],
+    "cast": [
+      "사이먼 페그",
+      "닉 프로스트",
+      "케이트 애쉬필드"
+    ],
+    "director": "에드가 라이트"
+  },
+  "movie_120": {
+    "characters": [
+      "Dewey Finn",
+      "Rosalie Mullins",
+      "Ned Schneebly"
+    ],
+    "cast": [
+      "잭 블랙",
+      "조앤 쿠삭",
+      "마이크 화이트"
+    ],
+    "director": "리처드 링클레이터"
+  },
+  "movie_121": {
+    "characters": [
+      "Cady Heron",
+      "Regina George",
+      "Janis Ian"
+    ],
+    "cast": [
+      "린제이 로한",
+      "레이첼 맥아담스",
+      "리지 캐플런"
+    ],
+    "director": "마크 워터스"
+  },
+  "movie_122": {
+    "characters": [
+      "Miranda Priestly",
+      "Andy Sachs",
+      "Emily"
+    ],
+    "cast": [
+      "메릴 스트립",
+      "앤 해서웨이",
+      "에밀리 블런트"
+    ],
+    "director": "데이비드 프랭클"
+  },
+  "movie_123": {
+    "characters": [
+      "벤 왓킨스"
+    ],
+    "cast": [
+      "벤 왓킨스"
+    ],
+    "director": "감독 미상"
+  },
+  "movie_124": {
+    "characters": [
+      "Daniel Hillard / Mrs. Doubtfire",
+      "Miranda Hillard",
+      "Lydia Hillard"
+    ],
+    "cast": [
+      "로빈 윌리엄스",
+      "샐리 필드",
+      "Lisa Jakub"
+    ],
+    "director": "크리스 콜럼버스"
+  },
+  "movie_125": {
+    "characters": [
+      "Philippe",
+      "Driss",
+      "Yvonne"
+    ],
+    "cast": [
+      "프랑수아 클루제",
+      "오마르 시",
+      "Anne Le Ny"
+    ],
+    "director": "Éric Toledano"
+  },
+  "movie_126": {
+    "characters": [
+      "Axel Foley",
+      "Det. Billy Rosewood",
+      "Sgt. Taggart"
+    ],
+    "cast": [
+      "에디 머피",
+      "Judge Reinhold",
+      "존 애슈턴"
+    ],
+    "director": "Martin Brest"
+  },
+  "movie_127": {
+    "characters": [
+      "Barbie",
+      "Ken",
+      "Gloria"
+    ],
+    "cast": [
+      "마고 로비",
+      "라이언 고슬링",
+      "아메리카 페레라"
+    ],
+    "director": "그레타 거윅"
+  },
+  "movie_128": {
+    "characters": [
+      "Max Fischer",
+      "Herman Blume",
+      "Rosemary Cross"
+    ],
+    "cast": [
+      "제이슨 슈워츠먼",
+      "빌 머레이",
+      "올리비아 윌리엄스"
+    ],
+    "director": "웨스 앤더슨"
   }
 };

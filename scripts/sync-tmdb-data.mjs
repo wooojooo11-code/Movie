@@ -72,7 +72,71 @@ const movieSeeds = [
   { id: 'movie_61', query: 'The Menu', year: 2022 },
   { id: 'movie_62', query: 'Nope', year: 2022 },
   { id: 'movie_63', query: 'Fight Club', year: 1999 },
-  { id: 'movie_64', query: 'The Shawshank Redemption', year: 1994 }
+  { id: 'movie_64', query: 'The Shawshank Redemption', year: 1994 },
+  { id: 'movie_65', query: 'Gladiator', year: 2000 },
+  { id: 'movie_66', query: 'Casino Royale', year: 2006 },
+  { id: 'movie_67', query: 'Skyfall', year: 2012 },
+  { id: 'movie_68', query: 'The Bourne Ultimatum', year: 2007 },
+  { id: 'movie_69', query: 'The Raid', year: 2011 },
+  { id: 'movie_70', query: 'Die Hard', year: 1988 },
+  { id: 'movie_71', query: 'Terminator 2: Judgment Day', year: 1991 },
+  { id: 'movie_72', query: 'Aliens', year: 1986 },
+  { id: 'movie_73', query: 'The Avengers', year: 2012 },
+  { id: 'movie_74', query: 'Captain America: The Winter Soldier', year: 2014 },
+  { id: 'movie_75', query: 'Edge of Tomorrow', year: 2014 },
+  { id: 'movie_76', query: 'Logan', year: 2017 },
+  { id: 'movie_77', query: 'Baby Driver', year: 2017 },
+  { id: 'movie_78', query: 'RRR', year: 2022 },
+  { id: 'movie_79', query: 'Crouching Tiger, Hidden Dragon', year: 2000 },
+  { id: 'movie_80', query: 'Kill Bill: Vol. 1', year: 2003 },
+  { id: 'movie_81', query: 'Se7en', year: 1995 },
+  { id: 'movie_82', query: 'Shutter Island', year: 2010 },
+  { id: 'movie_83', query: 'Memento', year: 2000 },
+  { id: 'movie_84', query: 'The Usual Suspects', year: 1995 },
+  { id: 'movie_85', query: 'Chinatown', year: 1974 },
+  { id: 'movie_86', query: 'L.A. Confidential', year: 1997 },
+  { id: 'movie_87', query: 'Mystic River', year: 2003 },
+  { id: 'movie_88', query: 'The Girl with the Dragon Tattoo', year: 2011 },
+  { id: 'movie_89', query: 'The Silence of the Lambs', year: 1991 },
+  { id: 'movie_90', query: 'The Sixth Sense', year: 1999 },
+  { id: 'movie_91', query: 'Searching', year: 2018 },
+  { id: 'movie_92', query: 'Anatomy of a Fall', year: 2023 },
+  { id: 'movie_93', query: 'The Others', year: 2001 },
+  { id: 'movie_94', query: 'Murder on the Orient Express', year: 2017 },
+  { id: 'movie_95', query: 'The Game', year: 1997 },
+  { id: 'movie_96', query: 'Rear Window', year: 1954 },
+  { id: 'movie_97', query: 'Roman Holiday', year: 1953 },
+  { id: 'movie_98', query: 'Notting Hill', year: 1999 },
+  { id: 'movie_99', query: 'Pride & Prejudice', year: 2005 },
+  { id: 'movie_100', query: 'Atonement', year: 2007 },
+  { id: 'movie_101', query: 'Titanic', year: 1997 },
+  { id: 'movie_102', query: 'Amelie', year: 2001 },
+  { id: 'movie_103', query: 'The Notebook', year: 2004 },
+  { id: 'movie_104', query: 'Brokeback Mountain', year: 2005 },
+  { id: 'movie_105', query: 'Carol', year: 2015 },
+  { id: 'movie_106', query: 'Before Sunset', year: 2004 },
+  { id: 'movie_107', query: 'Before Midnight', year: 2013 },
+  { id: 'movie_108', query: 'When Harry Met Sally...', year: 1989 },
+  { id: 'movie_109', query: '(500) Days of Summer', year: 2009 },
+  { id: 'movie_110', query: 'Chungking Express', year: 1994 },
+  { id: 'movie_111', query: 'Lost in Translation', year: 2003 },
+  { id: 'movie_112', query: 'Sleepless in Seattle', year: 1993 },
+  { id: 'movie_113', query: 'Superbad', year: 2007 },
+  { id: 'movie_114', query: 'Groundhog Day', year: 1993 },
+  { id: 'movie_115', query: 'Bridesmaids', year: 2011 },
+  { id: 'movie_116', query: 'Booksmart', year: 2019 },
+  { id: 'movie_117', query: 'Palm Springs', year: 2020 },
+  { id: 'movie_118', query: 'Hot Fuzz', year: 2007 },
+  { id: 'movie_119', query: 'Shaun of the Dead', year: 2004 },
+  { id: 'movie_120', query: 'School of Rock', year: 2003 },
+  { id: 'movie_121', query: 'Mean Girls', year: 2004 },
+  { id: 'movie_122', query: 'The Devil Wears Prada', year: 2006 },
+  { id: 'movie_123', query: 'Juno', year: 2007 },
+  { id: 'movie_124', query: 'Mrs. Doubtfire', year: 1993 },
+  { id: 'movie_125', query: 'The Intouchables', year: 2011 },
+  { id: 'movie_126', query: 'Beverly Hills Cop', year: 1984 },
+  { id: 'movie_127', query: 'Barbie', year: 2023 },
+  { id: 'movie_128', query: 'Rushmore', year: 1998 }
 ];
 
 const catalogLists = [
@@ -253,11 +317,13 @@ const selectBestSearchResult = (results, seed) => {
     throw new Error(`No TMDB movie search result for "${seed.query}"`);
   }
 
-  const exactYearMatch = results.find((item) =>
+  const exactYearMatches = results.filter((item) =>
     typeof item.release_date === 'string' && item.release_date.startsWith(String(seed.year))
   );
+  const exactYearMatchWithPoster = exactYearMatches.find((item) => item.poster_path);
+  const anyMatchWithPoster = results.find((item) => item.poster_path);
 
-  return exactYearMatch ?? results[0];
+  return exactYearMatchWithPoster ?? anyMatchWithPoster ?? exactYearMatches[0] ?? results[0];
 };
 
 const deriveTags = (detail) => {

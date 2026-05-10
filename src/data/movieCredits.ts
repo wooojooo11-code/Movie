@@ -408,5 +408,405 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 나이"
     ],
     "director": "리처드 커티스"
+  },
+  "movie_33": {
+    "characters": [
+      "Cooper",
+      "Brand",
+      "Professor Brand"
+    ],
+    "cast": [
+      "매튜 매커너히",
+      "앤 해서웨이",
+      "마이클 케인"
+    ],
+    "director": "크리스토퍼 놀란"
+  },
+  "movie_34": {
+    "characters": [
+      "Dom Cobb",
+      "Arthur",
+      "Saito"
+    ],
+    "cast": [
+      "레오나르도 디카프리오",
+      "조셉 고든레빗",
+      "와타나베 켄"
+    ],
+    "director": "크리스토퍼 놀란"
+  },
+  "movie_35": {
+    "characters": [
+      "Neo",
+      "Morpheus",
+      "Trinity"
+    ],
+    "cast": [
+      "키아누 리브스",
+      "로렌스 피시번",
+      "캐리 앤 모스"
+    ],
+    "director": "라나 워쇼스키"
+  },
+  "movie_36": {
+    "characters": [],
+    "cast": [],
+    "director": "Alex Myung"
+  },
+  "movie_37": {
+    "characters": [
+      "Paul Atreides",
+      "Lady Jessica Atreides",
+      "Duke Leto Atreides"
+    ],
+    "cast": [
+      "티모시 샬라메",
+      "레베카 퍼거슨",
+      "오스카 아이작"
+    ],
+    "director": "드니 빌뇌브"
+  },
+  "movie_38": {
+    "characters": [
+      "'K'",
+      "Rick Deckard",
+      "Joi"
+    ],
+    "cast": [
+      "라이언 고슬링",
+      "해리슨 포드",
+      "아나 데 아르마스"
+    ],
+    "director": "드니 빌뇌브"
+  },
+  "movie_39": {
+    "characters": [
+      "Evelyn Wang",
+      "Joy Wang / Jobu Tupaki",
+      "Waymond Wang"
+    ],
+    "cast": [
+      "양자경",
+      "스테파니 수",
+      "키호이콴"
+    ],
+    "director": "다니엘 쉐이너트"
+  },
+  "movie_40": {
+    "characters": [
+      "Caleb",
+      "Ava",
+      "Nathan"
+    ],
+    "cast": [
+      "도널 글리슨",
+      "알리시아 비칸데르",
+      "오스카 아이작"
+    ],
+    "director": "알렉스 가랜드"
+  },
+  "movie_41": {
+    "characters": [
+      "Robert Angier",
+      "Alfred Borden",
+      "Cutter"
+    ],
+    "cast": [
+      "휴 잭맨",
+      "크리스찬 베일",
+      "마이클 케인"
+    ],
+    "director": "크리스토퍼 놀란"
+  },
+  "movie_42": {
+    "characters": [
+      "Lady Hideko",
+      "Sook-hee",
+      "Count Fujiwara"
+    ],
+    "cast": [
+      "김민희",
+      "김태리",
+      "하정우"
+    ],
+    "director": "박찬욱"
+  },
+  "movie_43": {
+    "characters": [
+      "Song Seo-rae",
+      "Jang Hae-joon",
+      "Jeong-ahn"
+    ],
+    "cast": [
+      "탕웨이",
+      "박해일",
+      "이정현"
+    ],
+    "director": "박찬욱"
+  },
+  "movie_44": {
+    "characters": [
+      "Pritha Baiga",
+      "Shakuntala Mishra",
+      "Pritha's Relative"
+    ],
+    "cast": [
+      "Ketaki Narayan Kulkarni",
+      "Rukshana Tabassum",
+      "Abhinav Shukla"
+    ],
+    "director": "VS Sanoj"
+  },
+  "movie_45": {
+    "characters": [
+      "Self",
+      "Self",
+      "Self"
+    ],
+    "cast": [
+      "Mark Borchardt",
+      "Mike Schank",
+      "Robert Richard Jorge"
+    ],
+    "director": "감독 미상"
+  },
+  "movie_46": {
+    "characters": [
+      "Seok-woo",
+      "Soo-ahn",
+      "Sung-gyeong"
+    ],
+    "cast": [
+      "공유",
+      "김수안",
+      "정유미"
+    ],
+    "director": "연상호"
+  },
+  "movie_47": {
+    "characters": [],
+    "cast": [],
+    "director": "Pablo Álvarez"
+  },
+  "movie_48": {
+    "characters": [
+      "J. Robert Oppenheimer",
+      "Kitty Oppenheimer",
+      "Leslie Groves"
+    ],
+    "cast": [
+      "킬리언 머피",
+      "에밀리 블런트",
+      "맷 데이먼"
+    ],
+    "director": "크리스토퍼 놀란"
+  },
+  "movie_49": {
+    "characters": [
+      "Mark Zuckerberg",
+      "Eduardo Saverin",
+      "Cameron Winklevoss / Tyler Winklevoss"
+    ],
+    "cast": [
+      "제시 아이젠버그",
+      "앤드류 가필드",
+      "아미 해머"
+    ],
+    "director": "데이비드 핀처"
+  },
+  "movie_50": {
+    "characters": [
+      "Jo March",
+      "Meg March",
+      "Amy March"
+    ],
+    "cast": [
+      "시얼샤 로넌",
+      "엠마 왓슨",
+      "플로렌스 퓨"
+    ],
+    "director": "그레타 거윅"
+  },
+  "movie_51": {
+    "characters": [
+      "Jacob",
+      "Monica",
+      "Soonja"
+    ],
+    "cast": [
+      "스티븐 연",
+      "한예리",
+      "윤여정"
+    ],
+    "director": "정이삭"
+  },
+  "movie_52": {
+    "characters": [
+      "Oliver",
+      "Elio",
+      "Mr. Perlman"
+    ],
+    "cast": [
+      "아미 해머",
+      "티모시 샬라메",
+      "마이클 스툴바그"
+    ],
+    "director": "루카 구아다니노"
+  },
+  "movie_53": {
+    "characters": [
+      "Marianne",
+      "Héloïse",
+      "Sophie"
+    ],
+    "cast": [
+      "노에미 메를랑",
+      "아델 에넬",
+      "Luàna Bajrami"
+    ],
+    "director": "셀린 시아마"
+  },
+  "movie_54": {
+    "characters": [
+      "Coco",
+      "Bruno",
+      "Moeder Coco"
+    ],
+    "cast": [
+      "Nola Kemper",
+      "Valentijn Avé",
+      "Eva Duijvestein"
+    ],
+    "director": "Tessa Schram"
+  },
+  "movie_55": {
+    "characters": [
+      "Woody (voice)",
+      "Buzz Lightyear (voice)",
+      "Jessie (voice)"
+    ],
+    "cast": [
+      "톰 행크스",
+      "팀 앨런",
+      "조앤 쿠삭"
+    ],
+    "director": "리 언크리치"
+  },
+  "movie_56": {
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "cast": [
+      "일라이저 우드",
+      "이안 맥켈런",
+      "비고 모텐슨"
+    ],
+    "director": "피터 잭슨"
+  },
+  "movie_57": {
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "cast": [
+      "일라이저 우드",
+      "이안 맥켈런",
+      "비고 모텐슨"
+    ],
+    "director": "피터 잭슨"
+  },
+  "movie_58": {
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "cast": [
+      "일라이저 우드",
+      "이안 맥켈런",
+      "비고 모텐슨"
+    ],
+    "director": "피터 잭슨"
+  },
+  "movie_59": {
+    "characters": [
+      "Chris Washington",
+      "Rose Armitage",
+      "Missy Armitage"
+    ],
+    "cast": [
+      "다니엘 칼루야",
+      "앨리슨 윌리엄스",
+      "캐서린 키너"
+    ],
+    "director": "조던 필"
+  },
+  "movie_60": {
+    "characters": [
+      "Annie Graham",
+      "Peter Graham",
+      "Steve Graham"
+    ],
+    "cast": [
+      "토니 콜렛",
+      "알렉스 울프",
+      "가브리엘 번"
+    ],
+    "director": "아리 애스터"
+  },
+  "movie_61": {
+    "characters": [
+      "Margot",
+      "Chef Slowik",
+      "Tyler"
+    ],
+    "cast": [
+      "안야 테일러조이",
+      "랄프 파인즈",
+      "니콜라스 홀트"
+    ],
+    "director": "Mark Mylod"
+  },
+  "movie_62": {
+    "characters": [
+      "OJ Haywood",
+      "Emerald Haywood",
+      "Angel Torres"
+    ],
+    "cast": [
+      "다니엘 칼루야",
+      "키키 팔머",
+      "브랜든 페레아"
+    ],
+    "director": "조던 필"
+  },
+  "movie_63": {
+    "characters": [
+      "Narrator",
+      "Tyler Durden",
+      "Marla Singer"
+    ],
+    "cast": [
+      "에드워드 노튼",
+      "브래드 피트",
+      "헬레나 본햄 카터"
+    ],
+    "director": "데이비드 핀처"
+  },
+  "movie_64": {
+    "characters": [
+      "Andy Dufresne",
+      "Ellis Boyd 'Red' Redding",
+      "Warden Norton"
+    ],
+    "cast": [
+      "팀 로빈스",
+      "모건 프리먼",
+      "밥 건턴"
+    ],
+    "director": "프랭크 다라본트"
   }
 };

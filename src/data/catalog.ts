@@ -688,6 +688,686 @@ export const catalogMovies: CatalogMovie[] = [
     "releaseYear": 2013,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cLfuuK1Y5FjX1xXDrrEa9ppnKuy.jpg",
     "posterAlt": "어바웃 타임 포스터"
+  },
+  {
+    "id": "movie_33",
+    "title": "인터스텔라",
+    "genres": [
+      "모험",
+      "드라마",
+      "SF"
+    ],
+    "tags": [
+      "감동",
+      "몰입감",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Cooper",
+      "Brand",
+      "Professor Brand"
+    ],
+    "releaseYear": 2014,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/evoEi8SBSvIIEveM3V6nCJ6vKj8.jpg",
+    "posterAlt": "인터스텔라 포스터"
+  },
+  {
+    "id": "movie_34",
+    "title": "인셉션",
+    "genres": [
+      "액션",
+      "SF",
+      "모험"
+    ],
+    "tags": [
+      "여운",
+      "영상미",
+      "세계관",
+      "액션"
+    ],
+    "characters": [
+      "Dom Cobb",
+      "Arthur",
+      "Saito"
+    ],
+    "releaseYear": 2010,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/atSxEGstxXRoSKDQFBgqQ5lpGSt.jpg",
+    "posterAlt": "인셉션 포스터"
+  },
+  {
+    "id": "movie_35",
+    "title": "매트릭스",
+    "genres": [
+      "액션",
+      "SF"
+    ],
+    "tags": [
+      "액션",
+      "감동적인 음악",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Neo",
+      "Morpheus",
+      "Trinity"
+    ],
+    "releaseYear": 1999,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fxBxoXFAYKWde6lKzXxSusn18Av.jpg",
+    "posterAlt": "매트릭스 포스터"
+  },
+  {
+    "id": "movie_36",
+    "title": "Arrival",
+    "genres": [
+      "애니메이션",
+      "드라마",
+      "로맨스"
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [],
+    "releaseYear": 2016,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/yRkKfIrNQRqX2MIzckFNAtGWEOd.jpg",
+    "posterAlt": "Arrival 포스터"
+  },
+  {
+    "id": "movie_37",
+    "title": "듄",
+    "genres": [
+      "SF",
+      "모험"
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Paul Atreides",
+      "Lady Jessica Atreides",
+      "Duke Leto Atreides"
+    ],
+    "releaseYear": 2021,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/7zV8FTYofAORGm0Umgh1mNNCym8.jpg",
+    "posterAlt": "듄 포스터"
+  },
+  {
+    "id": "movie_38",
+    "title": "블레이드 러너 2049",
+    "genres": [
+      "SF",
+      "드라마"
+    ],
+    "tags": [
+      "긴장감",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "'K'",
+      "Rick Deckard",
+      "Joi"
+    ],
+    "releaseYear": 2017,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fJZmCJpLeBFKktLFEIKPEhllWlU.jpg",
+    "posterAlt": "블레이드 러너 2049 포스터"
+  },
+  {
+    "id": "movie_39",
+    "title": "에브리씽 에브리웨어 올 앳 원스",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "tags": [
+      "액션",
+      "감동",
+      "유머",
+      "몰입감"
+    ],
+    "characters": [
+      "Evelyn Wang",
+      "Joy Wang / Jobu Tupaki",
+      "Waymond Wang"
+    ],
+    "releaseYear": 2022,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dd29Kt2p2voyP2sB6p3jC36A7ce.jpg",
+    "posterAlt": "에브리씽 에브리웨어 올 앳 원스 포스터"
+  },
+  {
+    "id": "movie_40",
+    "title": "엑스 마키나",
+    "genres": [
+      "드라마",
+      "SF"
+    ],
+    "tags": [
+      "감동",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Caleb",
+      "Ava",
+      "Nathan"
+    ],
+    "releaseYear": 2015,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/a3tuxUHT64cl4gPqWbtsLyKdzJS.jpg",
+    "posterAlt": "엑스 마키나 포스터"
+  },
+  {
+    "id": "movie_41",
+    "title": "프레스티지",
+    "genres": [
+      "드라마",
+      "미스터리",
+      "SF"
+    ],
+    "tags": [
+      "반전",
+      "감동적인 음악",
+      "OST",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Robert Angier",
+      "Alfred Borden",
+      "Cutter"
+    ],
+    "releaseYear": 2006,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/pN3H35IXZb9Aiew4BWLiloWQe7q.jpg",
+    "posterAlt": "프레스티지 포스터"
+  },
+  {
+    "id": "movie_42",
+    "title": "아가씨",
+    "genres": [
+      "스릴러",
+      "드라마",
+      "로맨스"
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "몰입감",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Lady Hideko",
+      "Sook-hee",
+      "Count Fujiwara"
+    ],
+    "releaseYear": 2016,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/pDogzUCSBy0m4ybLKUv3OtGMRNm.jpg",
+    "posterAlt": "아가씨 포스터"
+  },
+  {
+    "id": "movie_43",
+    "title": "헤어질 결심",
+    "genres": [
+      "스릴러",
+      "미스터리",
+      "로맨스"
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "탄탄한 스토리",
+      "여운"
+    ],
+    "characters": [
+      "Song Seo-rae",
+      "Jang Hae-joon",
+      "Jeong-ahn"
+    ],
+    "releaseYear": 2022,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/rXEJ28XDQsogIGqwVEgwM2oDdpl.jpg",
+    "posterAlt": "헤어질 결심 포스터"
+  },
+  {
+    "id": "movie_44",
+    "title": "Burning",
+    "genres": [],
+    "tags": [],
+    "characters": [
+      "Pritha Baiga",
+      "Shakuntala Mishra",
+      "Pritha's Relative"
+    ],
+    "releaseYear": 2018,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hxGv1O2W5SOJTmiBc45CL842mrx.jpg",
+    "posterAlt": "Burning 포스터"
+  },
+  {
+    "id": "movie_45",
+    "title": "Night of the Living Dead: Live from Wisconsin - Hosted by Mark & Mike",
+    "genres": [
+      "공포",
+      "TV 영화"
+    ],
+    "tags": [
+      "공포",
+      "TV 영화"
+    ],
+    "characters": [
+      "Self",
+      "Self",
+      "Self"
+    ],
+    "releaseYear": 2006,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2Hil2YzgUx0zSVhmYYED32dIKM8.jpg",
+    "posterAlt": "Night of the Living Dead: Live from Wisconsin - Hosted by Mark & Mike 포스터"
+  },
+  {
+    "id": "movie_46",
+    "title": "부산행",
+    "genres": [
+      "공포",
+      "스릴러",
+      "액션"
+    ],
+    "tags": [
+      "몰입감",
+      "긴장감",
+      "액션"
+    ],
+    "characters": [
+      "Seok-woo",
+      "Soo-ahn",
+      "Sung-gyeong"
+    ],
+    "releaseYear": 2016,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6XvEZVBFFjybvb1yQd1qfOC6F2S.jpg",
+    "posterAlt": "부산행 포스터"
+  },
+  {
+    "id": "movie_47",
+    "title": "Goksung (The Wailing)",
+    "genres": [],
+    "tags": [],
+    "characters": [],
+    "releaseYear": 2016,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/nRrhrNWcPVgVR5qQdFy4fmLvyKZ.jpg",
+    "posterAlt": "Goksung (The Wailing) 포스터"
+  },
+  {
+    "id": "movie_48",
+    "title": "오펜하이머",
+    "genres": [
+      "드라마",
+      "역사"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "세계관",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "J. Robert Oppenheimer",
+      "Kitty Oppenheimer",
+      "Leslie Groves"
+    ],
+    "releaseYear": 2023,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/jpD6z9fgNe7OqsHoDeAWQWoULde.jpg",
+    "posterAlt": "오펜하이머 포스터"
+  },
+  {
+    "id": "movie_49",
+    "title": "소셜 네트워크",
+    "genres": [
+      "드라마"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동적인 음악",
+      "OST",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Mark Zuckerberg",
+      "Eduardo Saverin",
+      "Cameron Winklevoss / Tyler Winklevoss"
+    ],
+    "releaseYear": 2010,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4WAq2IZuVvWl0Wd1YIgBXdYgXna.jpg",
+    "posterAlt": "소셜 네트워크 포스터"
+  },
+  {
+    "id": "movie_50",
+    "title": "작은 아씨들",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동",
+      "여운"
+    ],
+    "characters": [
+      "Jo March",
+      "Meg March",
+      "Amy March"
+    ],
+    "releaseYear": 2019,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2kfDJEwZ7Rxo3yz5v6rJlwqtY0W.jpg",
+    "posterAlt": "작은 아씨들 포스터"
+  },
+  {
+    "id": "movie_51",
+    "title": "미나리",
+    "genres": [
+      "드라마"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "몰입감"
+    ],
+    "characters": [
+      "Jacob",
+      "Monica",
+      "Soonja"
+    ],
+    "releaseYear": 2021,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ltS2iKKvvBi7ZXWPRZSZBGmC9Gr.jpg",
+    "posterAlt": "미나리 포스터"
+  },
+  {
+    "id": "movie_52",
+    "title": "콜 미 바이 유어 네임",
+    "genres": [
+      "로맨스",
+      "드라마"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "여운",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Oliver",
+      "Elio",
+      "Mr. Perlman"
+    ],
+    "releaseYear": 2017,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/guzNdgRjANTBDkTRYGqgzFOgSWx.jpg",
+    "posterAlt": "콜 미 바이 유어 네임 포스터"
+  },
+  {
+    "id": "movie_53",
+    "title": "타오르는 여인의 초상",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동적인 음악",
+      "연출",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Marianne",
+      "Héloïse",
+      "Sophie"
+    ],
+    "releaseYear": 2019,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/M0mm1VGMZRa6eRzgoZmYW9zPd8.jpg",
+    "posterAlt": "타오르는 여인의 초상 포스터"
+  },
+  {
+    "id": "movie_54",
+    "title": "100% Coco",
+    "genres": [
+      "가족",
+      "코미디"
+    ],
+    "tags": [
+      "감동",
+      "캐릭터 매력",
+      "유머"
+    ],
+    "characters": [
+      "Coco",
+      "Bruno",
+      "Moeder Coco"
+    ],
+    "releaseYear": 2017,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qOULNNkz56MT2t3CLzGFwazgRf0.jpg",
+    "posterAlt": "100% Coco 포스터"
+  },
+  {
+    "id": "movie_55",
+    "title": "토이 스토리 3",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "코미디"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동적인 음악",
+      "OST",
+      "유머"
+    ],
+    "characters": [
+      "Woody (voice)",
+      "Buzz Lightyear (voice)",
+      "Jessie (voice)"
+    ],
+    "releaseYear": 2010,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hbUWahBLUon8RaIb9Tq7aWCBCtS.jpg",
+    "posterAlt": "토이 스토리 3 포스터"
+  },
+  {
+    "id": "movie_56",
+    "title": "반지의 제왕: 반지 원정대",
+    "genres": [
+      "모험",
+      "판타지",
+      "액션"
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "releaseYear": 2001,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/r18JdjImbWDRwkbVDIzWoLQqkCo.jpg",
+    "posterAlt": "반지의 제왕: 반지 원정대 포스터"
+  },
+  {
+    "id": "movie_57",
+    "title": "반지의 제왕: 두 개의 탑",
+    "genres": [
+      "모험",
+      "판타지",
+      "액션"
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "감동",
+      "영상미"
+    ],
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "releaseYear": 2002,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/zxZdTi3fA7aDxEOivmzZAY2bmTu.jpg",
+    "posterAlt": "반지의 제왕: 두 개의 탑 포스터"
+  },
+  {
+    "id": "movie_58",
+    "title": "반지의 제왕: 왕의 귀환",
+    "genres": [
+      "모험",
+      "판타지",
+      "액션"
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Frodo",
+      "Gandalf",
+      "Aragorn"
+    ],
+    "releaseYear": 2003,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/n8BPIRqvj1SdTRND828ANXhmSng.jpg",
+    "posterAlt": "반지의 제왕: 왕의 귀환 포스터"
+  },
+  {
+    "id": "movie_59",
+    "title": "겟 아웃",
+    "genres": [
+      "미스터리",
+      "스릴러",
+      "공포"
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "유머",
+      "반전"
+    ],
+    "characters": [
+      "Chris Washington",
+      "Rose Armitage",
+      "Missy Armitage"
+    ],
+    "releaseYear": 2017,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/paPvmoLgUUQojsSdAZmf7dwkKGT.jpg",
+    "posterAlt": "겟 아웃 포스터"
+  },
+  {
+    "id": "movie_60",
+    "title": "유전",
+    "genres": [
+      "공포",
+      "미스터리",
+      "스릴러"
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "감동",
+      "반전"
+    ],
+    "characters": [
+      "Annie Graham",
+      "Peter Graham",
+      "Steve Graham"
+    ],
+    "releaseYear": 2018,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/h2Fw8XXqDSyRA5Dn9ntCRJESYYY.jpg",
+    "posterAlt": "유전 포스터"
+  },
+  {
+    "id": "movie_61",
+    "title": "더 메뉴",
+    "genres": [
+      "코미디",
+      "공포"
+    ],
+    "tags": [
+      "긴장감",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Margot",
+      "Chef Slowik",
+      "Tyler"
+    ],
+    "releaseYear": 2022,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2Bi9OTGNAkNjStDnMDR93GPgwFY.jpg",
+    "posterAlt": "더 메뉴 포스터"
+  },
+  {
+    "id": "movie_62",
+    "title": "놉",
+    "genres": [
+      "공포",
+      "SF"
+    ],
+    "tags": [
+      "공포",
+      "SF"
+    ],
+    "characters": [
+      "OJ Haywood",
+      "Emerald Haywood",
+      "Angel Torres"
+    ],
+    "releaseYear": 2022,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6N5pRG81j6EBHhjIMkvwKnOj7u6.jpg",
+    "posterAlt": "놉 포스터"
+  },
+  {
+    "id": "movie_63",
+    "title": "파이트 클럽",
+    "genres": [
+      "드라마",
+      "스릴러"
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Narrator",
+      "Tyler Durden",
+      "Marla Singer"
+    ],
+    "releaseYear": 1999,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eKZ07Ted7VHxQjbuZrRBFOamcKJ.jpg",
+    "posterAlt": "파이트 클럽 포스터"
+  },
+  {
+    "id": "movie_64",
+    "title": "쇼생크 탈출",
+    "genres": [
+      "드라마",
+      "범죄"
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "감동",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Andy Dufresne",
+      "Ellis Boyd 'Red' Redding",
+      "Warden Norton"
+    ],
+    "releaseYear": 1994,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qV9BQZdiM8foEzDz0Ag5hGWE5qM.jpg",
+    "posterAlt": "쇼생크 탈출 포스터"
   }
 ];
 

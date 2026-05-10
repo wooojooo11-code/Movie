@@ -2,9 +2,9 @@ import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { defineStore } from 'pinia';
 
 import {
+  getSupabaseRatingsRelation,
   isSupabaseConfigured,
   supabase,
-  supabaseRatingsTable,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
 import { useListStore } from '@/services/listStore';
@@ -90,7 +90,7 @@ export const useAuthStore = defineStore('auth', {
       this.session = session;
       this.user = session?.user ?? null;
       this.errorMessage = '';
-      recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
+      await recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
       listStore.setActiveUser(session?.user?.id ?? 'guest-user');
 
       if (!session?.user || !supabase) {
@@ -106,9 +106,15 @@ export const useAuthStore = defineStore('auth', {
         return 0;
       }
 
-      const { count, error } = await supabase
-        .from(supabaseRatingsTable)
-        .select('id', { count: 'exact', head: true })
+      const relation = getSupabaseRatingsRelation();
+
+      if (!relation) {
+        this.ratingCount = 0;
+        return 0;
+      }
+
+      const { count, error } = await relation
+        .select('movie_id', { count: 'exact', head: true })
         .eq(supabaseRatingsUserColumn, this.user.id);
 
       if (error) {
@@ -191,9 +197,7 @@ export const useAuthStore = defineStore('auth', {
     },
     async signOut() {
       if (!supabase) {
-        this.session = null;
-        this.user = null;
-        this.ratingCount = null;
+        await this.applySession(null);
         return;
       }
 
@@ -207,9 +211,7 @@ export const useAuthStore = defineStore('auth', {
           throw error;
         }
 
-        this.session = null;
-        this.user = null;
-        this.ratingCount = null;
+        await this.applySession(null);
       } catch (error) {
         this.errorMessage = extractAuthMessage(error, '로그아웃에 실패했어요.');
         throw error;

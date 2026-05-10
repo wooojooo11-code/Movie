@@ -2,8 +2,8 @@ export interface TrendingMovie {
   id: string;
   rank: number;
   title: string;
-  genre: string;
-  averageRating: number;
+  audienceLabel: string;
+  sourceLabel: string;
   posterUrl: string;
   posterAlt: string;
 }

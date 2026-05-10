@@ -1,4 +1,4 @@
-import { computed, reactive, readonly } from 'vue';
+import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
 import { ratingMovies } from '@/data/rating';
@@ -9,7 +9,10 @@ import {
   recommendMovies,
   type RatingInput
 } from '@/services/movie_recommendation_algorithm';
-import { localRecommendationRepository } from '@/services/recommendationRepository';
+import {
+  localRecommendationRepository,
+  remoteRecommendationRepository
+} from '@/services/recommendationRepository';
 import type {
   CatalogMovie,
   RatingFeedbackPayload,
@@ -20,6 +23,8 @@ import type {
 } from '@/types/recommendation';
 
 const FALLBACK_USER_ID = 'guest-user';
+
+type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
 const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
   string,
@@ -82,6 +87,17 @@ const state = reactive<RecommendationStateSnapshot>({
   dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds
 });
 
+const remoteSyncErrorMessage = ref('');
+const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
+
+const getErrorMessage = (error: unknown, fallback: string) => {
+  if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
+    return error.message;
+  }
+
+  return fallback;
+};
+
 const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.userId = snapshot.userId;
   state.profile = snapshot.profile;
@@ -90,12 +106,32 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
 };
 
 const persistState = () => {
-  localRecommendationRepository.save({
+  const snapshot = {
     userId: state.userId,
     profile: state.profile,
     ratings: state.ratings,
     dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
-  });
+  };
+
+  localRecommendationRepository.save(snapshot);
+
+  remoteSyncErrorMessage.value = '';
+
+  void (async () => {
+    remoteSyncStatus.value = 'syncing';
+
+    try {
+      await remoteRecommendationRepository.save(snapshot);
+      remoteSyncStatus.value = 'success';
+    } catch (error) {
+      remoteSyncStatus.value = 'error';
+      remoteSyncErrorMessage.value = getErrorMessage(
+        error,
+        '취향분석 결과를 Supabase ratings 테이블에 저장하지 못했어요.'
+      );
+      console.error('[recommendationStore] Failed to sync ratings to Supabase.', error);
+    }
+  })();
 };
 
 const recomputeProfile = () => {
@@ -203,11 +239,54 @@ const resetTasteAnalysis = () => {
   state.profile = createEmptyUserPreferenceProfile(state.userId);
   state.ratings = [];
   state.dismissedRecommendationMovieIds = [];
+  remoteSyncErrorMessage.value = '';
+  remoteSyncStatus.value = 'idle';
   localRecommendationRepository.clear(state.userId);
+  void remoteRecommendationRepository.clear(state.userId).catch((error) => {
+    remoteSyncStatus.value = 'error';
+    remoteSyncErrorMessage.value = getErrorMessage(
+      error,
+      '취향분석 초기화 내용을 Supabase ratings 테이블에 반영하지 못했어요.'
+    );
+    console.error('[recommendationStore] Failed to clear ratings from Supabase.', error);
+  });
 };
 
-const setActiveUser = (userId: string) => {
-  applySnapshot(loadSnapshot(userId || FALLBACK_USER_ID));
+const setActiveUser = async (userId: string) => {
+  const normalizedUserId = userId || FALLBACK_USER_ID;
+  applySnapshot(loadSnapshot(normalizedUserId));
+  remoteSyncErrorMessage.value = '';
+  remoteSyncStatus.value = 'idle';
+
+  try {
+    const remoteSnapshot = await remoteRecommendationRepository.load(normalizedUserId);
+
+    if (!remoteSnapshot) {
+      return;
+    }
+
+    const normalizedRatings = normalizeStoredRatings(remoteSnapshot.ratings);
+
+    applySnapshot({
+      userId: normalizedUserId,
+      profile: buildProfileFromRatings(normalizedUserId, normalizedRatings),
+      ratings: normalizedRatings,
+      dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
+    });
+
+    localRecommendationRepository.save({
+      userId: normalizedUserId,
+      profile: state.profile,
+      ratings: state.ratings,
+      dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
+    });
+    remoteSyncStatus.value = 'success';
+  } catch (error) {
+    remoteSyncStatus.value = 'error';
+    remoteSyncErrorMessage.value =
+      'Supabase ratings 테이블에서 취향분석 기록을 불러오지 못했어요. 로컬에 저장된 기록은 그대로 사용할게요.';
+    console.error('[recommendationStore] Failed to load ratings from Supabase.', error);
+  }
 };
 
 export const recommendationStore = {
@@ -218,6 +297,8 @@ export const recommendationStore = {
   pendingDetailedRatings,
   recommendedMovies,
   recommendedLists,
+  remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
+  remoteSyncStatus: readonly(remoteSyncStatus),
   getNextRatingMovie,
   getPendingDetailMovie,
   submitSwipeRating,

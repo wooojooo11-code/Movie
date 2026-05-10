@@ -19,3 +19,23 @@
 [2mPM 1:03:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m
 [2mPM 1:04:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/HeroCTA.vue, /src/assets/styles/main.css[22m
 [2mPM 1:10:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m
+[2mPM 1:23:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 1:23:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 1:30:16[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/vite-env.d.ts[22m
+[2mPM 1:30:24[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/lib/supabase.ts[22m
+[2mPM 1:30:46[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 1:31:12[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 1:31:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 1:31:35[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 1:31:38[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 1:31:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 1:32:09[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 1:40:40[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/catalog.ts[22m
+[2mPM 1:40:40[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/data/movieCredits.ts[22m
+[2mPM 1:46:31[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 1:46:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 2:04:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/home.ts[22m
+[2mPM 2:04:50[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css, /src/views/HomeView.vue[22m
+[2mPM 2:05:27[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/HomeView.vue, /src/assets/styles/main.css[22m
+[2mPM 2:05:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/MovieRankCard.vue, /src/assets/styles/main.css[22m
+[2mPM 2:06:00[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/MovieRankCard.vue[22m

@@ -2,104 +2,104 @@ import type { PopularList, TrendingMovie } from '@/types/home';
 
 export const trendingMovies: TrendingMovie[] = [
   {
-    id: 'popular-1',
+    id: 'kobis-2024-1',
     rank: 1,
-    title: '인기 영화 1',
-    genre: '액션 · 드라마',
-    averageRating: 4.3,
+    title: '파묘',
+    audienceLabel: '한국 · 관객 1,191만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '어두운 영화관 좌석'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/01/thumb_x192/thn_1b4f47605d1347f999840289226491d8.jpg&w=240&h=320&zc=0',
+    posterAlt: '파묘 포스터'
   },
   {
-    id: 'popular-2',
+    id: 'kobis-2024-2',
     rank: 2,
-    title: '인기 영화 2',
-    genre: '미스터리 · 스릴러',
-    averageRating: 4.1,
+    title: '범죄도시4',
+    audienceLabel: '한국 · 관객 1,150만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '영화 감상 분위기의 팝콘과 상영관'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/01/thumb_x192/thn_baa027b05dc941479d9fd43225d8373e.jpg&w=240&h=320&zc=0',
+    posterAlt: '범죄도시4 포스터'
   },
   {
-    id: 'popular-3',
+    id: 'kobis-2024-3',
     rank: 3,
-    title: '인기 영화 3',
-    genre: '로맨스 · 코미디',
-    averageRating: 4.0,
+    title: '인사이드 아웃 2',
+    audienceLabel: '미국 · 관객 879만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '영화관 스크린 앞 좌석'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/06/thumb_x192/thn_d230816340e942859e896956d20a9097.jpg&w=240&h=320&zc=0',
+    posterAlt: '인사이드 아웃 2 포스터'
   },
   {
-    id: 'popular-4',
+    id: 'kobis-2024-4',
     rank: 4,
-    title: '인기 영화 4',
-    genre: 'SF · 어드벤처',
-    averageRating: 4.2,
+    title: '베테랑2',
+    audienceLabel: '한국 · 관객 752만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '영화 필름과 팝콘'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/04/thumb_x192/thn_1e9d41ee8be543e38bb7b9a8d218c81c.jpg&w=240&h=320&zc=0',
+    posterAlt: '베테랑2 포스터'
   },
   {
-    id: 'popular-5',
+    id: 'kobis-2024-5',
     rank: 5,
-    title: '인기 영화 5',
-    genre: '드라마 · 가족',
-    averageRating: 3.9,
+    title: '파일럿',
+    audienceLabel: '한국 · 관객 471만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '영화관의 붉은 좌석'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/07/thumb_x192/thn_29fb6613911f45369c55beb3d62e0b25.jpg&w=240&h=320&zc=0',
+    posterAlt: '파일럿 포스터'
   },
   {
-    id: 'popular-6',
+    id: 'kobis-2024-6',
     rank: 6,
-    title: '인기 영화 6',
-    genre: '범죄 · 느와르',
-    averageRating: 4.4,
+    title: '웡카',
+    audienceLabel: '미국 · 관객 353만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '어두운 조명의 영화 장면 같은 거리'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/01/thumb_x192/thn_64e935508d6e4428892d8ffd774afccf.jpg&w=240&h=320&zc=0',
+    posterAlt: '웡카 포스터'
   },
   {
-    id: 'popular-7',
+    id: 'kobis-2024-7',
     rank: 7,
-    title: '인기 영화 7',
-    genre: '애니메이션 · 판타지',
-    averageRating: 4.1,
+    title: '모아나 2',
+    audienceLabel: '미국 · 관객 337만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '필름 릴과 영화 장비'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/11/thumb_x192/thn_cda99406a3e84de6a53b63f884c0917b.jpg&w=240&h=320&zc=0',
+    posterAlt: '모아나 2 포스터'
   },
   {
-    id: 'popular-8',
+    id: 'kobis-2024-8',
     rank: 8,
-    title: '인기 영화 8',
-    genre: '공포 · 미스터리',
-    averageRating: 3.8,
+    title: '소방관',
+    audienceLabel: '한국 · 관객 331만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '어두운 분위기의 조명'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/12/thumb_x192/thn_24b5559eff184a7d803e4bbed9e45e2b.jpg&w=240&h=320&zc=0',
+    posterAlt: '소방관 포스터'
   },
   {
-    id: 'popular-9',
+    id: 'kobis-2024-9',
     rank: 9,
-    title: '인기 영화 9',
-    genre: '음악 · 드라마',
-    averageRating: 4.0,
+    title: '하얼빈',
+    audienceLabel: '한국 · 관객 275만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '카메라 장비와 촬영 현장'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/05/thumb_x192/thn_9b6848ef39284641a622ca5b83bea3f7.jpg&w=240&h=320&zc=0',
+    posterAlt: '하얼빈 포스터'
   },
   {
-    id: 'popular-10',
+    id: 'kobis-2024-10',
     rank: 10,
-    title: '인기 영화 10',
-    genre: '액션 · 스릴러',
-    averageRating: 4.2,
+    title: '탈주',
+    audienceLabel: '한국 · 관객 256만',
+    sourceLabel: 'KOBIS 2024 연간 박스오피스',
     posterUrl:
-      'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=720&q=80',
-    posterAlt: '어두운 영화관 스크린'
+      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/07/thumb_x192/thn_a2e6a978b99e403cbbc0828ae8a3f940.png&w=240&h=320&zc=0',
+    posterAlt: '탈주 포스터'
   }
 ];
 

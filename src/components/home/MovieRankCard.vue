@@ -7,8 +7,6 @@ const props = defineProps<{
   movie: TrendingMovie;
 }>();
 
-const formatRating = (rating: number) => rating.toFixed(1);
-
 const posterStyle = computed(() => ({
   backgroundImage: `linear-gradient(160deg, rgba(43,49,64,0.88), rgba(25,29,40,0.94) 65%), url(${props.movie.posterUrl})`
 }));
@@ -36,7 +34,10 @@ const posterStyle = computed(() => ({
 
     <div class="px-4 pb-[18px] pt-4">
       <p class="truncate text-sm font-medium text-app-muted">
-        {{ movie.genre }} · 평점 {{ formatRating(movie.averageRating) }}
+        {{ movie.audienceLabel }}
+      </p>
+      <p class="mt-1 truncate text-xs font-medium text-white/45">
+        {{ movie.sourceLabel }}
       </p>
     </div>
   </article>

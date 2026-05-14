@@ -1,9 +1,9 @@
-import { computed, reactive, readonly } from 'vue';
+import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogMovies } from '@/data/catalog';
 import { mockSharedLists } from '@/data/lists';
 import { movieCreditsById } from '@/data/movieCredits';
-import { localListRepository } from '@/services/listRepository';
+import { localListRepository, remoteListRepository } from '@/services/listRepository';
 import { mockListSearchService } from '@/services/listSearchService';
 import type {
   DraftUserList,
@@ -18,6 +18,8 @@ import type {
 } from '@/types/lists';
 
 const FALLBACK_USER_ID = 'guest-user';
+
+type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
 const createEmptyDraft = (): DraftUserList => ({
   id: null,
@@ -69,7 +71,19 @@ const state = reactive({
   isSearching: false
 });
 
+const remoteSyncErrorMessage = ref('');
+const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
+
 let latestSearchToken = 0;
+let remoteSaveChain: Promise<void> = Promise.resolve();
+
+const getErrorMessage = (error: unknown, fallback: string) => {
+  if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
+    return error.message;
+  }
+
+  return fallback;
+};
 
 const applySnapshot = (snapshot: ListsStateSnapshot) => {
   state.userId = snapshot.userId;
@@ -82,12 +96,43 @@ const applySnapshot = (snapshot: ListsStateSnapshot) => {
   state.isSearching = false;
 };
 
+const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
+  remoteSyncStatus.value = 'syncing';
+
+  try {
+    await task();
+    remoteSyncStatus.value = 'success';
+  } catch (error) {
+    remoteSyncStatus.value = 'error';
+    remoteSyncErrorMessage.value = getErrorMessage(error, fallbackMessage);
+    console.error('[listStore] Supabase list sync failed.', error);
+  }
+};
+
+const enqueueRemoteTask = (task: () => Promise<void>, fallbackMessage: string) => {
+  remoteSaveChain = remoteSaveChain
+    .catch(() => {
+      // Previous failures already updated the error state.
+    })
+    .then(() => runRemoteTask(task, fallbackMessage));
+
+  return remoteSaveChain;
+};
+
 const persistState = () => {
-  localListRepository.save({
+  const snapshot: ListsStateSnapshot = {
     userId: state.userId,
     userLists: state.userLists,
     interactions: state.interactions
-  });
+  };
+
+  localListRepository.save(snapshot);
+  remoteSyncErrorMessage.value = '';
+
+  return enqueueRemoteTask(
+    () => remoteListRepository.save(snapshot),
+    '리스트 변경 내용을 Supabase에 저장하지 못했어요.'
+  );
 };
 
 const resolveMoviePreviews = (movieIds: readonly string[]) =>
@@ -115,7 +160,7 @@ const upsertInteraction = (listId: string, next: Partial<ListInteractionRecord>)
   }
 
   state.interactions = nextInteractions;
-  persistState();
+  void persistState();
 };
 
 const resetDraft = () => {
@@ -129,7 +174,7 @@ const canSaveDraft = computed(
 
 const myLists = computed<ResolvedUserListCard[]>(() =>
   [...state.userLists]
-    .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+    .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
     .map((list) => ({
       ...list,
       moviePreviews: resolveMoviePreviews(list.movieIds).slice(0, 4)
@@ -215,7 +260,7 @@ const saveDraft = () => {
   const nextRecord: UserMovieListRecord = {
     id: currentList?.id ?? `user_list_${Date.now()}`,
     ownerId: state.userId,
-    ownerName: '나',
+    ownerName: currentList?.ownerName ?? '나',
     title: state.draft.title.trim(),
     movieIds: [...state.draft.movieIds],
     saveCount: currentList?.saveCount ?? (state.draft.isPrivate ? 0 : 1),
@@ -236,7 +281,7 @@ const saveDraft = () => {
   }
 
   state.userLists = nextLists;
-  persistState();
+  void persistState();
   resetDraft();
 
   if (state.searchQuery.trim()) {
@@ -263,7 +308,7 @@ const editUserList = (listId: string) => {
 
 const deleteUserList = (listId: string) => {
   state.userLists = state.userLists.filter((list) => list.id !== listId);
-  persistState();
+  void persistState();
 
   if (state.draft.id === listId) {
     resetDraft();
@@ -315,7 +360,7 @@ const saveRecommendedList = (list: { id: string; movieIds: readonly string[]; ti
   };
 
   state.userLists = [nextRecord, ...state.userLists];
-  persistState();
+  void persistState();
 
   if (state.searchQuery.trim()) {
     void updateSearchQuery(state.searchQuery);
@@ -324,8 +369,31 @@ const saveRecommendedList = (list: { id: string; movieIds: readonly string[]; ti
   return nextRecord.id;
 };
 
-const setActiveUser = (userId: string) => {
-  applySnapshot(normalizeSnapshot(userId || FALLBACK_USER_ID, localListRepository.load(userId || FALLBACK_USER_ID)));
+const setActiveUser = async (userId: string) => {
+  const normalizedUserId = userId || FALLBACK_USER_ID;
+  applySnapshot(normalizeSnapshot(normalizedUserId, localListRepository.load(normalizedUserId)));
+  remoteSyncErrorMessage.value = '';
+  remoteSyncStatus.value = 'idle';
+
+  try {
+    const remoteSnapshot = await remoteListRepository.load(normalizedUserId);
+
+    if (!remoteSnapshot) {
+      return;
+    }
+
+    applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
+    localListRepository.save({
+      userId: normalizedUserId,
+      userLists: state.userLists,
+      interactions: state.interactions
+    });
+    remoteSyncStatus.value = 'success';
+  } catch (error) {
+    remoteSyncStatus.value = 'error';
+    remoteSyncErrorMessage.value = 'Supabase에서 리스트 기록을 불러오지 못했어요. 로컬에 남은 기록으로 이어서 보여드릴게요.';
+    console.error('[listStore] Failed to load lists from Supabase.', error);
+  }
 };
 
 export const listStore = {
@@ -335,6 +403,8 @@ export const listStore = {
   canSaveDraft,
   myLists,
   sharedLists,
+  remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
+  remoteSyncStatus: readonly(remoteSyncStatus),
   resolveMoviePreviews,
   updateSearchQuery,
   updateDraftTitle,

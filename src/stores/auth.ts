@@ -10,6 +10,9 @@ import {
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
+let hasLifecycleListeners = false;
+let sessionSyncPromise: null | Promise<void> = null;
+
 interface AuthState {
   errorMessage: string;
   isConfigured: boolean;
@@ -81,6 +84,21 @@ export const useAuthStore = defineStore('auth', {
         await this.applySession(nextSession);
       });
 
+      if (typeof window !== 'undefined' && !hasLifecycleListeners) {
+        const syncOnResume = () => {
+          if (typeof document !== 'undefined' && document.visibilityState === 'hidden') {
+            return;
+          }
+
+          void this.syncSession();
+        };
+
+        window.addEventListener('focus', syncOnResume);
+        window.addEventListener('pageshow', syncOnResume);
+        document.addEventListener('visibilitychange', syncOnResume);
+        hasLifecycleListeners = true;
+      }
+
       this.isInitialized = true;
     },
     async applySession(session: null | Session) {
@@ -91,7 +109,7 @@ export const useAuthStore = defineStore('auth', {
       this.user = session?.user ?? null;
       this.errorMessage = '';
       await recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
-      listStore.setActiveUser(session?.user?.id ?? 'guest-user');
+      await listStore.setActiveUser(session?.user?.id ?? 'guest-user');
 
       if (!session?.user || !supabase) {
         this.ratingCount = null;
@@ -99,6 +117,40 @@ export const useAuthStore = defineStore('auth', {
       }
 
       await this.refreshRatingCount();
+    },
+    async syncSession() {
+      if (!supabase) {
+        return;
+      }
+
+      if (sessionSyncPromise) {
+        await sessionSyncPromise;
+        return;
+      }
+
+      sessionSyncPromise = (async () => {
+        const {
+          data: { session }
+        } = await supabase.auth.getSession();
+
+        const currentAccessToken = this.session?.access_token ?? null;
+        const nextAccessToken = session?.access_token ?? null;
+        const currentUserId = this.user?.id ?? null;
+        const nextUserId = session?.user?.id ?? null;
+
+        if (currentAccessToken !== nextAccessToken || currentUserId !== nextUserId) {
+          await this.applySession(session);
+          return;
+        }
+
+        if (session?.user) {
+          await this.refreshRatingCount();
+        }
+      })().finally(() => {
+        sessionSyncPromise = null;
+      });
+
+      await sessionSyncPromise;
     },
     async refreshRatingCount() {
       if (!supabase || !this.user) {

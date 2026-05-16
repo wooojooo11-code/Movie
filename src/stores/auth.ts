@@ -74,7 +74,7 @@ export const useAuthStore = defineStore('auth', {
       this.errorMessage = '';
 
       await recommendationStore.setActiveUser('guest-user');
-      await listStore.setActiveUser('guest-user');
+      await listStore.setActiveUser('guest-user', '나');
     },
     async initialize() {
       if (this.isInitialized) {
@@ -116,12 +116,15 @@ export const useAuthStore = defineStore('auth', {
     async applySession(session: null | Session) {
       const recommendationStore = useRecommendationStore();
       const listStore = useListStore();
+      const nickname = session?.user?.user_metadata.nickname as string | undefined;
+      const fullName = session?.user?.user_metadata.full_name as string | undefined;
+      const ownerName = nickname?.trim() || fullName?.trim() || session?.user?.email || '나';
 
       this.session = session;
       this.user = session?.user ?? null;
       this.errorMessage = '';
       await recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
-      await listStore.setActiveUser(session?.user?.id ?? 'guest-user');
+      await listStore.setActiveUser(session?.user?.id ?? 'guest-user', ownerName);
 
       if (!session?.user || !supabase) {
         this.ratingCount = null;

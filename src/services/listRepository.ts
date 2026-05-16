@@ -5,7 +5,13 @@ import {
   supabaseListInteractionsUserColumn,
   supabaseUserListsUserColumn
 } from '@/lib/supabase';
-import type { ListInteractionRecord, ListsStateSnapshot, UserMovieListRecord } from '@/types/lists';
+import type {
+  ListInteractionRecord,
+  ListsStateSnapshot,
+  RemoteListsPayload,
+  SharedMovieListRecord,
+  UserMovieListRecord
+} from '@/types/lists';
 
 const STORAGE_PREFIX = 'movielist:user-lists';
 
@@ -58,7 +64,7 @@ const getRowUserId = (
 const normalizeUserListRow = (row: SupabaseUserListRow): UserMovieListRecord => ({
   id: row.id,
   ownerId: getRowUserId(row, supabaseUserListsUserColumn),
-  ownerName: row.owner_name?.trim() || '나',
+  ownerName: row.owner_name?.trim() || '사용자',
   title: row.title?.trim() || '이름 없는 리스트',
   movieIds: row.movie_ids ?? [],
   saveCount: row.save_count ?? 0,
@@ -68,6 +74,11 @@ const normalizeUserListRow = (row: SupabaseUserListRow): UserMovieListRecord => 
   createdAt: row.created_at ?? new Date(0).toISOString(),
   sourceListId: row.source_list_id ?? null,
   updatedAt: row.updated_at ?? row.created_at ?? new Date(0).toISOString()
+});
+
+const normalizeSharedListRow = (row: SupabaseUserListRow): SharedMovieListRecord => ({
+  ...normalizeUserListRow(row),
+  canBeReshared: false
 });
 
 const normalizeInteractionRow = (row: SupabaseListInteractionRow): ListInteractionRecord => ({
@@ -138,60 +149,110 @@ export const localListRepository: ListRepository = {
   }
 };
 
+const loadOwnedListsAndInteractions = async (userId: string): Promise<RemoteListsPayload | null> => {
+  if (!isRemoteSyncEnabled(userId)) {
+    return null;
+  }
+
+  const userListsRelation = getSupabaseUserListsRelation() as any;
+  const listInteractionsRelation = getSupabaseListInteractionsRelation() as any;
+
+  if (!userListsRelation || !listInteractionsRelation) {
+    return null;
+  }
+
+  const [{ data: userListsData, error: userListsError }, { data: interactionsData, error: interactionsError }] =
+    await Promise.all([
+      userListsRelation
+        .select(
+          [
+            'id',
+            supabaseUserListsUserColumn,
+            'owner_name',
+            'title',
+            'movie_ids',
+            'save_count',
+            'average_rating',
+            'rating_count',
+            'is_private',
+            'source_list_id',
+            'created_at',
+            'updated_at'
+          ].join(', ')
+        )
+        .eq(supabaseUserListsUserColumn, userId)
+        .order('updated_at', { ascending: false }),
+      listInteractionsRelation
+        .select([supabaseListInteractionsUserColumn, 'list_id', 'saved', 'personal_rating'].join(', '))
+        .eq(supabaseListInteractionsUserColumn, userId)
+    ]);
+
+  if (userListsError) {
+    throw userListsError;
+  }
+
+  if (interactionsError) {
+    throw interactionsError;
+  }
+
+  return {
+    userLists: ((userListsData ?? []) as unknown as SupabaseUserListRow[]).map(normalizeUserListRow),
+    interactions: ((interactionsData ?? []) as unknown as SupabaseListInteractionRow[]).map(
+      normalizeInteractionRow
+    )
+  };
+};
+
 export const remoteListRepository = {
   async load(userId: string): Promise<ListsStateSnapshot | null> {
-    if (!isRemoteSyncEnabled(userId)) {
+    const payload = await loadOwnedListsAndInteractions(userId);
+
+    if (!payload) {
       return null;
-    }
-
-    const userListsRelation = getSupabaseUserListsRelation() as any;
-    const listInteractionsRelation = getSupabaseListInteractionsRelation() as any;
-
-    if (!userListsRelation || !listInteractionsRelation) {
-      return null;
-    }
-
-    const [{ data: userListsData, error: userListsError }, { data: interactionsData, error: interactionsError }] =
-      await Promise.all([
-        userListsRelation
-          .select(
-            [
-              'id',
-              supabaseUserListsUserColumn,
-              'owner_name',
-              'title',
-              'movie_ids',
-              'save_count',
-              'average_rating',
-              'rating_count',
-              'is_private',
-              'source_list_id',
-              'created_at',
-              'updated_at'
-            ].join(', ')
-          )
-          .eq(supabaseUserListsUserColumn, userId)
-          .order('updated_at', { ascending: false }),
-        listInteractionsRelation
-          .select([supabaseListInteractionsUserColumn, 'list_id', 'saved', 'personal_rating'].join(', '))
-          .eq(supabaseListInteractionsUserColumn, userId)
-      ]);
-
-    if (userListsError) {
-      throw userListsError;
-    }
-
-    if (interactionsError) {
-      throw interactionsError;
     }
 
     return {
       userId,
-      userLists: ((userListsData ?? []) as unknown as SupabaseUserListRow[]).map(normalizeUserListRow),
-      interactions: ((interactionsData ?? []) as unknown as SupabaseListInteractionRow[]).map(
-        normalizeInteractionRow
-      )
+      ...payload
     };
+  },
+  async loadSharedLists(userId: string): Promise<SharedMovieListRecord[]> {
+    if (!isRemoteSyncEnabled(userId)) {
+      return [];
+    }
+
+    const userListsRelation = getSupabaseUserListsRelation() as any;
+
+    if (!userListsRelation) {
+      return [];
+    }
+
+    const { data, error } = await userListsRelation
+      .select(
+        [
+          'id',
+          supabaseUserListsUserColumn,
+          'owner_name',
+          'title',
+          'movie_ids',
+          'save_count',
+          'average_rating',
+          'rating_count',
+          'is_private',
+          'source_list_id',
+          'created_at',
+          'updated_at'
+        ].join(', ')
+      )
+      .eq('is_private', false)
+      .neq(supabaseUserListsUserColumn, userId)
+      .order('updated_at', { ascending: false });
+
+    if (error) {
+      throw error;
+    }
+
+    return ((data ?? []) as unknown as SupabaseUserListRow[]).map(normalizeSharedListRow);
   },
   async save(snapshot: ListsStateSnapshot): Promise<void> {
     if (!isRemoteSyncEnabled(snapshot.userId)) {

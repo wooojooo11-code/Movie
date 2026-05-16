@@ -1,7 +1,6 @@
 import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogMovies } from '@/data/catalog';
-import { mockSharedLists } from '@/data/lists';
 import { movieCreditsById } from '@/data/movieCredits';
 import { localListRepository, remoteListRepository } from '@/services/listRepository';
 import { mockListSearchService } from '@/services/listSearchService';
@@ -14,6 +13,7 @@ import type {
   ResolvedSharedListCard,
   ResolvedUserListCard,
   SearchableCatalogMovie,
+  SharedMovieListRecord,
   UserMovieListRecord
 } from '@/types/lists';
 
@@ -62,7 +62,9 @@ const initialSnapshot = normalizeSnapshot(FALLBACK_USER_ID, localListRepository.
 
 const state = reactive({
   userId: initialSnapshot.userId,
+  ownerName: '나',
   userLists: initialSnapshot.userLists,
+  sharedCatalog: [] as SharedMovieListRecord[],
   interactions: initialSnapshot.interactions,
   draft: createEmptyDraft(),
   searchQuery: '',
@@ -119,7 +121,34 @@ const enqueueRemoteTask = (task: () => Promise<void>, fallbackMessage: string) =
   return remoteSaveChain;
 };
 
-const persistState = () => {
+const refreshSearchResults = async () => {
+  const trimmedQuery = state.searchQuery.trim();
+  const searchToken = ++latestSearchToken;
+
+  if (!trimmedQuery) {
+    state.movieResults = [];
+    state.listResults = [];
+    state.isSearching = false;
+    return;
+  }
+
+  state.isSearching = true;
+  const results = await mockListSearchService.search(trimmedQuery, {
+    movies: searchableMovies,
+    userLists: state.userLists,
+    sharedLists: state.sharedCatalog
+  });
+
+  if (searchToken !== latestSearchToken) {
+    return;
+  }
+
+  state.movieResults = results.movies;
+  state.listResults = results.lists;
+  state.isSearching = false;
+};
+
+const persistState = async () => {
   const snapshot: ListsStateSnapshot = {
     userId: state.userId,
     userLists: state.userLists,
@@ -129,10 +158,14 @@ const persistState = () => {
   localListRepository.save(snapshot);
   remoteSyncErrorMessage.value = '';
 
-  return enqueueRemoteTask(
+  await enqueueRemoteTask(
     () => remoteListRepository.save(snapshot),
     '리스트 변경 내용을 Supabase에 저장하지 못했어요.'
   );
+
+  if (state.userId !== FALLBACK_USER_ID) {
+    state.sharedCatalog = await remoteListRepository.loadSharedLists(state.userId);
+  }
 };
 
 const resolveMoviePreviews = (movieIds: readonly string[]) =>
@@ -140,28 +173,6 @@ const resolveMoviePreviews = (movieIds: readonly string[]) =>
 
 const getInteraction = (listId: string): ListInteractionRecord | undefined =>
   state.interactions.find((interaction) => interaction.listId === listId);
-
-const upsertInteraction = (listId: string, next: Partial<ListInteractionRecord>) => {
-  const nextInteractions = [...state.interactions];
-  const existingIndex = nextInteractions.findIndex((interaction) => interaction.listId === listId);
-  const current = existingIndex >= 0 ? nextInteractions[existingIndex] : undefined;
-
-  const updated: ListInteractionRecord = {
-    listId,
-    saved: next.saved ?? current?.saved ?? false,
-    personalRating:
-      next.personalRating !== undefined ? next.personalRating : (current?.personalRating ?? null)
-  };
-
-  if (existingIndex >= 0) {
-    nextInteractions.splice(existingIndex, 1, updated);
-  } else {
-    nextInteractions.push(updated);
-  }
-
-  state.interactions = nextInteractions;
-  void persistState();
-};
 
 const resetDraft = () => {
   state.draft = createEmptyDraft();
@@ -182,7 +193,7 @@ const myLists = computed<ResolvedUserListCard[]>(() =>
 );
 
 const sharedLists = computed<ResolvedSharedListCard[]>(() =>
-  mockSharedLists.map((list) => {
+  state.sharedCatalog.map((list) => {
     const interaction = getInteraction(list.id);
     const viewerSaved = interaction?.saved ?? false;
     const viewerRating = interaction?.personalRating ?? null;
@@ -202,30 +213,7 @@ const sharedLists = computed<ResolvedSharedListCard[]>(() =>
 
 const updateSearchQuery = async (query: string) => {
   state.searchQuery = query;
-  const trimmedQuery = query.trim();
-  const searchToken = ++latestSearchToken;
-
-  if (!trimmedQuery) {
-    state.movieResults = [];
-    state.listResults = [];
-    state.isSearching = false;
-    return;
-  }
-
-  state.isSearching = true;
-  const results = await mockListSearchService.search(trimmedQuery, {
-    movies: searchableMovies,
-    userLists: state.userLists,
-    sharedLists: mockSharedLists
-  });
-
-  if (searchToken !== latestSearchToken) {
-    return;
-  }
-
-  state.movieResults = results.movies;
-  state.listResults = results.lists;
-  state.isSearching = false;
+  await refreshSearchResults();
 };
 
 const addMovieToDraft = (movieId: string) => {
@@ -248,7 +236,7 @@ const toggleDraftPrivacy = () => {
   state.draft.isPrivate = !state.draft.isPrivate;
 };
 
-const saveDraft = () => {
+const saveDraft = async () => {
   if (!canSaveDraft.value) {
     return false;
   }
@@ -260,7 +248,7 @@ const saveDraft = () => {
   const nextRecord: UserMovieListRecord = {
     id: currentList?.id ?? `user_list_${Date.now()}`,
     ownerId: state.userId,
-    ownerName: currentList?.ownerName ?? '나',
+    ownerName: currentList?.ownerName ?? state.ownerName,
     title: state.draft.title.trim(),
     movieIds: [...state.draft.movieIds],
     saveCount: currentList?.saveCount ?? (state.draft.isPrivate ? 0 : 1),
@@ -281,11 +269,11 @@ const saveDraft = () => {
   }
 
   state.userLists = nextLists;
-  void persistState();
+  await persistState();
   resetDraft();
 
   if (state.searchQuery.trim()) {
-    void updateSearchQuery(state.searchQuery);
+    await refreshSearchResults();
   }
 
   return true;
@@ -306,37 +294,63 @@ const editUserList = (listId: string) => {
   };
 };
 
-const deleteUserList = (listId: string) => {
+const deleteUserList = async (listId: string) => {
   state.userLists = state.userLists.filter((list) => list.id !== listId);
-  void persistState();
+  await persistState();
 
   if (state.draft.id === listId) {
     resetDraft();
   }
 
   if (state.searchQuery.trim()) {
-    void updateSearchQuery(state.searchQuery);
+    await refreshSearchResults();
   }
 };
 
-const toggleSharedListSave = (listId: string) => {
+const toggleSharedListSave = async (listId: string) => {
   const current = getInteraction(listId);
+  const nextInteractions = [...state.interactions];
+  const existingIndex = nextInteractions.findIndex((interaction) => interaction.listId === listId);
+  const updated: ListInteractionRecord = {
+    listId,
+    saved: !(current?.saved ?? false),
+    personalRating: current?.personalRating ?? null
+  };
 
-  upsertInteraction(listId, {
-    saved: !(current?.saved ?? false)
-  });
+  if (existingIndex >= 0) {
+    nextInteractions.splice(existingIndex, 1, updated);
+  } else {
+    nextInteractions.push(updated);
+  }
+
+  state.interactions = nextInteractions;
+  await persistState();
 };
 
-const setSharedListRating = (listId: string, rating: null | number) => {
-  upsertInteraction(listId, {
+const setSharedListRating = async (listId: string, rating: null | number) => {
+  const current = getInteraction(listId);
+  const nextInteractions = [...state.interactions];
+  const existingIndex = nextInteractions.findIndex((interaction) => interaction.listId === listId);
+  const updated: ListInteractionRecord = {
+    listId,
+    saved: current?.saved ?? false,
     personalRating: rating
-  });
+  };
+
+  if (existingIndex >= 0) {
+    nextInteractions.splice(existingIndex, 1, updated);
+  } else {
+    nextInteractions.push(updated);
+  }
+
+  state.interactions = nextInteractions;
+  await persistState();
 };
 
 const hasImportedList = (sourceListId: string) =>
   state.userLists.some((list) => list.sourceListId === sourceListId);
 
-const saveRecommendedList = (list: { id: string; movieIds: readonly string[]; title: string }) => {
+const saveRecommendedList = async (list: { id: string; movieIds: readonly string[]; title: string }) => {
   const existing = state.userLists.find((userList) => userList.sourceListId === list.id);
 
   if (existing) {
@@ -347,7 +361,7 @@ const saveRecommendedList = (list: { id: string; movieIds: readonly string[]; ti
   const nextRecord: UserMovieListRecord = {
     id: `user_list_${Date.now()}`,
     ownerId: state.userId,
-    ownerName: '나',
+    ownerName: state.ownerName,
     title: list.title,
     movieIds: [...list.movieIds],
     saveCount: 1,
@@ -360,39 +374,49 @@ const saveRecommendedList = (list: { id: string; movieIds: readonly string[]; ti
   };
 
   state.userLists = [nextRecord, ...state.userLists];
-  void persistState();
+  await persistState();
 
   if (state.searchQuery.trim()) {
-    void updateSearchQuery(state.searchQuery);
+    await refreshSearchResults();
   }
 
   return nextRecord.id;
 };
 
-const setActiveUser = async (userId: string) => {
+const setActiveUser = async (userId: string, ownerName = '나') => {
   const normalizedUserId = userId || FALLBACK_USER_ID;
+  state.ownerName = ownerName.trim() || '나';
   applySnapshot(normalizeSnapshot(normalizedUserId, localListRepository.load(normalizedUserId)));
+  state.sharedCatalog = [];
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
 
   try {
-    const remoteSnapshot = await remoteListRepository.load(normalizedUserId);
+    const [remoteSnapshot, remoteSharedLists] = await Promise.all([
+      remoteListRepository.load(normalizedUserId),
+      remoteListRepository.loadSharedLists(normalizedUserId)
+    ]);
 
-    if (!remoteSnapshot) {
-      return;
+    if (remoteSnapshot) {
+      applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
+      localListRepository.save({
+        userId: normalizedUserId,
+        userLists: state.userLists,
+        interactions: state.interactions
+      });
     }
 
-    applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
-    localListRepository.save({
-      userId: normalizedUserId,
-      userLists: state.userLists,
-      interactions: state.interactions
-    });
+    state.sharedCatalog = remoteSharedLists;
     remoteSyncStatus.value = 'success';
   } catch (error) {
     remoteSyncStatus.value = 'error';
-    remoteSyncErrorMessage.value = 'Supabase에서 리스트 기록을 불러오지 못했어요. 로컬에 남은 기록으로 이어서 보여드릴게요.';
+    remoteSyncErrorMessage.value =
+      'Supabase에서 리스트 기록을 불러오지 못했어요. 로컬에 남은 기록으로 계속 보여드릴게요.';
     console.error('[listStore] Failed to load lists from Supabase.', error);
+  }
+
+  if (state.searchQuery.trim()) {
+    await refreshSearchResults();
   }
 };
 

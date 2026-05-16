@@ -53,6 +53,11 @@ export interface ListsStateSnapshot {
   interactions: ListInteractionRecord[];
 }
 
+export interface RemoteListsPayload {
+  userLists: UserMovieListRecord[];
+  interactions: ListInteractionRecord[];
+}
+
 export interface MovieSearchResult {
   type: 'movie';
   movie: SearchableCatalogMovie;

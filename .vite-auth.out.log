@@ -145,3 +145,9 @@
 [2mPM 12:36:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
 [2mPM 12:38:51[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
 [2mPM 12:38:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m
+[2mPM 12:41:01[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/lists.ts[22m
+[2mPM 12:41:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
+[2mPM 12:41:56[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
+[2mPM 12:42:01[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 12:43:11[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 12:43:20[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m

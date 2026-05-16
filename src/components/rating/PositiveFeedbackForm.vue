@@ -5,15 +5,24 @@ import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
 import type { CharacterChoice, PositiveRatingInput } from '@/types/rating';
 
-const props = defineProps<{
-  characters: CharacterChoice[];
-  questionText: string;
-  initialValue?: Partial<PositiveRatingInput> | null;
-  submitLabel?: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    characters: CharacterChoice[];
+    questionText: string;
+    initialValue?: Partial<PositiveRatingInput> | null;
+    showSkipButton?: boolean;
+    submitLabel?: string;
+  }>(),
+  {
+    initialValue: null,
+    showSkipButton: true,
+    submitLabel: '저장하기'
+  }
+);
 
 const emit = defineEmits<{
   submit: [feedback: PositiveRatingInput];
+  skip: [];
 }>();
 
 const reviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
@@ -93,9 +102,7 @@ const submitForm = () => {
     <h2 class="text-lg font-extrabold text-white">좋았던 포인트</h2>
 
     <div class="mt-4">
-      <label class="mb-2 block text-sm font-bold text-app-muted" for="favorite-character">
-        별점
-      </label>
+      <label class="mb-2 block text-sm font-bold text-app-muted">별점</label>
       <HalfStarRating
         v-model="form.stars"
         size="md"
@@ -139,7 +146,7 @@ const submitForm = () => {
         v-model="form.reviewText"
         class="focus-ring mt-3 min-h-24 w-full resize-none rounded-[16px] border border-app-line bg-white/5 px-4 py-3 text-sm text-white placeholder:text-app-muted"
         placeholder="짧게 메모 남기기"
-      ></textarea>
+      />
     </div>
 
     <div class="mt-4">
@@ -179,13 +186,22 @@ const submitForm = () => {
       </div>
     </div>
 
-    <div class="mt-4">
+    <div class="mt-4 flex gap-2">
+      <button
+        v-if="props.showSkipButton"
+        type="button"
+        class="focus-ring min-h-12 flex-1 rounded-[16px] border border-app-line bg-white/5 px-3 text-sm font-extrabold text-white"
+        @click="$emit('skip')"
+      >
+        기억 안 남
+      </button>
       <button
         type="button"
-        class="app-gradient focus-ring min-h-12 w-full rounded-[16px] px-3 text-sm font-extrabold text-white"
+        class="app-gradient focus-ring min-h-12 rounded-[16px] px-3 text-sm font-extrabold text-white"
+        :class="props.showSkipButton ? 'flex-[1.2]' : 'w-full'"
         @click="submitForm"
       >
-        {{ props.submitLabel ?? '저장하기' }}
+        {{ props.submitLabel }}
       </button>
     </div>
   </section>

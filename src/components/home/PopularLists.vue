@@ -1,10 +1,23 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
 import PopularListCard from '@/components/home/PopularListCard.vue';
+import PopularListSheet from '@/components/home/PopularListSheet.vue';
 import type { PopularList } from '@/types/home';
 
 defineProps<{
   lists: PopularList[];
 }>();
+
+const selectedList = ref<PopularList | null>(null);
+
+const openList = (list: PopularList) => {
+  selectedList.value = list;
+};
+
+const closeList = () => {
+  selectedList.value = null;
+};
 </script>
 
 <template>
@@ -14,7 +27,9 @@ defineProps<{
     </div>
 
     <div class="grid gap-3">
-      <PopularListCard v-for="list in lists" :key="list.id" :list="list" />
+      <PopularListCard v-for="list in lists" :key="list.id" :list="list" @open="openList" />
     </div>
+
+    <PopularListSheet v-if="selectedList" :list="selectedList" @close="closeList" />
   </section>
 </template>

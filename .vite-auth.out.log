@@ -104,3 +104,44 @@
 [2mPM 10:28:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
 [2mPM 10:29:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listRepository.ts[22m
 [2mPM 11:21:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 11:51:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/home.ts[22m
+[2mPM 11:51:20[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/home.ts[22m
+[2mPM 11:51:29[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/HomeView.vue, /src/assets/styles/main.css[22m
+[2mPM 11:52:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/HomeView.vue, /src/assets/styles/main.css[22m
+[2mPM 11:52:13[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListCard.vue, /src/assets/styles/main.css[22m
+[2mPM 11:52:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListCard.vue[22m
+[2mPM 11:52:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularLists.vue, /src/assets/styles/main.css[22m
+[2mPM 11:52:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularLists.vue[22m
+[2mPM 11:53:03[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue, /src/assets/styles/main.css[22m
+[2mPM 11:53:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mPM 11:55:52[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mPM 11:56:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 9:38:30[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 9:38:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 10:08:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 10:08:52[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 10:08:52[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue[22m
+[2mAM 10:09:11[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/MovieRankCard.vue, /src/assets/styles/main.css[22m
+[2mAM 10:09:22[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/MovieRankCard.vue[22m
+[2mAM 10:09:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/TrendingMovies.vue, /src/assets/styles/main.css[22m
+[2mAM 10:09:45[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/TrendingMovies.vue[22m
+[2mAM 10:09:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListCard.vue, /src/assets/styles/main.css[22m
+[2mAM 10:09:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListCard.vue[22m
+[2mAM 10:10:02[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListSheet.vue, /src/assets/styles/main.css[22m
+[2mAM 10:10:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListSheet.vue[22m
+[2mAM 10:10:25[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularLists.vue, /src/assets/styles/main.css[22m
+[2mAM 10:10:33[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularLists.vue[22m
+[2mAM 10:10:39[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/PositiveFeedbackForm.vue, /src/assets/styles/main.css[22m
+[2mAM 10:11:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/PositiveFeedbackForm.vue[22m
+[2mAM 10:11:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mAM 10:12:18[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue[22m
+[2mAM 10:12:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/EditRatingView.vue, /src/assets/styles/main.css[22m
+[2mAM 10:13:04[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/EditRatingView.vue[22m
+[2mAM 11:54:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/EditRatingView.vue[22m
+[2mAM 11:57:02[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/TrendingMovies.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:51[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/ListComposerCard.vue, /src/assets/styles/main.css[22m
+[2mPM 12:36:03[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/UserListCard.vue, /src/assets/styles/main.css[22m
+[2mPM 12:36:19[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/UserListCard.vue[22m
+[2mPM 12:36:23[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:38:51[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/stores/auth.ts[22m
+[2mPM 12:38:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m

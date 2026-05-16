@@ -79,14 +79,20 @@ const likedCount = computed(
       currentPoolMovieIds.value.includes(rating.input.movieId)
     ).length +
     recommendationStore.state.ratings.filter(
-      (rating) => rating.rawDecision === 'like' && rating.detailCompleted && currentPoolMovieIds.value.includes(rating.input.movieId)
+      (rating) =>
+        rating.rawDecision === 'like' &&
+        rating.detailCompleted &&
+        currentPoolMovieIds.value.includes(rating.input.movieId)
     ).length
 );
 
 const detailCompletedCount = computed(
   () =>
     recommendationStore.state.ratings.filter(
-      (rating) => rating.rawDecision === 'like' && rating.detailCompleted && currentPoolMovieIds.value.includes(rating.input.movieId)
+      (rating) =>
+        rating.rawDecision === 'like' &&
+        rating.detailCompleted &&
+        currentPoolMovieIds.value.includes(rating.input.movieId)
     ).length
 );
 
@@ -118,6 +124,24 @@ const nextAdditionalBatchLink = computed(() => {
   return `/rating?mode=more&batch=${nextAdditionalBatchIndex.value}`;
 });
 
+const showSavedNotice = (movieTitle: string) => {
+  savedNotice.value = `"${movieTitle}" 저장됨. 다음 영화로 넘어갈게요.`;
+
+  if (savedNoticeTimer) {
+    clearTimeout(savedNoticeTimer);
+  }
+
+  savedNoticeTimer = setTimeout(() => {
+    savedNotice.value = '';
+    savedNoticeTimer = null;
+  }, 1800);
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
 const saveSwipeDecision = async (decision: RatingDecision | 'not_interested') => {
   const movie = swipeStageMovie.value;
 
@@ -146,7 +170,7 @@ const saveSwipeDecision = async (decision: RatingDecision | 'not_interested') =>
   });
 };
 
-const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
+const completeDetailedLike = async (feedback?: PositiveRatingInput) => {
   const movie = detailStageMovie.value;
 
   if (!movie) {
@@ -157,9 +181,9 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     movieId: movie.id,
     userId: recommendationStore.state.userId,
     status: 'like',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacter: feedback.favoriteCharacter,
+    rating: feedback?.stars ?? null,
+    reviewTags: feedback?.reviewTags ?? [],
+    favoriteCharacter: feedback?.favoriteCharacter ?? null,
     answeredAt: new Date().toISOString()
   };
 
@@ -167,10 +191,10 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     rawDecision: 'like',
     detailCompleted: true,
     feedback: {
-      rating: feedback.stars,
-      reviewTags: feedback.reviewTags,
-      favoriteCharacter: feedback.favoriteCharacter,
-      reviewText: feedback.reviewText,
+      rating: feedback?.stars ?? 0,
+      reviewTags: feedback?.reviewTags ?? [],
+      favoriteCharacter: feedback?.favoriteCharacter ?? null,
+      reviewText: feedback?.reviewText ?? '',
       questionText: ''
     }
   });
@@ -181,21 +205,15 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     feedback
   });
 
-  savedNotice.value = `"${movie.title}" 저장됨. 다음 영화로 이어서 볼게요.`;
+  showSavedNotice(movie.title);
+};
 
-  if (savedNoticeTimer) {
-    clearTimeout(savedNoticeTimer);
-  }
+const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
+  await completeDetailedLike(feedback);
+};
 
-  savedNoticeTimer = setTimeout(() => {
-    savedNotice.value = '';
-    savedNoticeTimer = null;
-  }, 1800);
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+const submitUnknownFeedback = async () => {
+  await completeDetailedLike();
 };
 
 const isComplete = computed(() => !swipeStageMovie.value && !detailStageMovie.value);
@@ -213,22 +231,22 @@ const handleKeydown = (event: KeyboardEvent) => {
 
   if (event.key === 'ArrowLeft') {
     event.preventDefault();
-    saveSwipeDecision('dislike');
+    void saveSwipeDecision('dislike');
   }
 
   if (event.key === 'ArrowRight') {
     event.preventDefault();
-    saveSwipeDecision('like');
+    void saveSwipeDecision('like');
   }
 
   if (event.key === 'ArrowUp') {
     event.preventDefault();
-    saveSwipeDecision('not_seen');
+    void saveSwipeDecision('not_seen');
   }
 
   if (event.key === 'ArrowDown') {
     event.preventDefault();
-    saveSwipeDecision('not_interested');
+    void saveSwipeDecision('not_interested');
   }
 };
 
@@ -315,6 +333,7 @@ onUnmounted(() => {
         :characters="currentCharacterChoices"
         :question-text="currentQuestion"
         @submit="submitPositiveFeedback"
+        @skip="submitUnknownFeedback"
       />
     </template>
 
@@ -323,7 +342,7 @@ onUnmounted(() => {
         {{ isMoreMode ? '추가 취향분석 완료' : `${initialTasteAnalysisCount}개 취향분석 완료` }}
       </p>
       <h1 class="mt-2 text-2xl font-black text-white">
-        {{ isMoreMode ? '추천이 더 정교해졌어요.' : '추천을 준비했어요.' }}
+        {{ isMoreMode ? '추천이 더 정교해졌어요.' : '추천이 준비됐어요.' }}
       </h1>
 
       <div class="mt-5 flex flex-wrap gap-3">

@@ -64,6 +64,18 @@ export const useAuthStore = defineStore('auth', {
     shouldStartRatingFlow: (state) => state.ratingCount === 0
   },
   actions: {
+    async applySignedOutState() {
+      const recommendationStore = useRecommendationStore();
+      const listStore = useListStore();
+
+      this.session = null;
+      this.user = null;
+      this.ratingCount = null;
+      this.errorMessage = '';
+
+      await recommendationStore.setActiveUser('guest-user');
+      await listStore.setActiveUser('guest-user');
+    },
     async initialize() {
       if (this.isInitialized) {
         return;
@@ -255,7 +267,7 @@ export const useAuthStore = defineStore('auth', {
     },
     async signOut() {
       if (!supabase) {
-        await this.applySession(null);
+        await this.applySignedOutState();
         return;
       }
 
@@ -269,7 +281,7 @@ export const useAuthStore = defineStore('auth', {
           throw error;
         }
 
-        await this.applySession(null);
+        await this.applySignedOutState();
       } catch (error) {
         this.errorMessage = extractAuthMessage(error, '로그아웃에 실패했어요.');
         throw error;

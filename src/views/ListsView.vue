@@ -57,7 +57,7 @@ const searchListCards = computed(() =>
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-extrabold text-white">내 리스트</h2>
-          <p class="mt-1 text-sm text-app-muted">비공개 리스트도 여기서 관리해요.</p>
+          <p class="mt-1 text-sm text-app-muted">비공유 리스트도 여기서 관리해요.</p>
         </div>
         <span class="text-xs font-bold text-app-muted">{{ listStore.myLists.value.length }}개</span>
       </div>

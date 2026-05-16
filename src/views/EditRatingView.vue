@@ -80,7 +80,7 @@ watch(ratingRecord, () => {
 });
 
 const goBackToHistory = async () => {
-  await router.push('/history');
+  await router.replace('/history');
 };
 
 const saveDecision = async (decision: RatingDecision | 'not_interested') => {
@@ -107,12 +107,13 @@ const saveDecision = async (decision: RatingDecision | 'not_interested') => {
       answeredAt: new Date().toISOString()
     };
 
-    await recommendationStore.submitSwipeRating(movie.value, input, {
+    const saveTask = recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: decision,
       detailCompleted: true
     });
 
     await goBackToHistory();
+    void saveTask;
   } finally {
     isSaving.value = false;
   }
@@ -136,7 +137,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       answeredAt: new Date().toISOString()
     };
 
-    await recommendationStore.submitSwipeRating(movie.value, input, {
+    const saveTask = recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: 'like',
       detailCompleted: true,
       feedback: {
@@ -149,6 +150,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     });
 
     await goBackToHistory();
+    void saveTask;
   } finally {
     isSaving.value = false;
   }
@@ -195,7 +197,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       <section class="rounded-[20px] border border-app-line bg-app-panel p-4">
         <p class="text-sm font-bold text-app-accent">평가를 다시 골라보세요</p>
         <p class="mt-2 text-sm leading-6 text-[#c8d1df]">
-          화살표나 버튼으로 상태를 바꾸고, 재밌음이면 아래 상세 내용도 같이 수정할 수 있어요.
+          제스처나 버튼으로 상태를 바꾸고, 재밌음이면 아래 상세 내용도 같이 수정할 수 있어요.
         </p>
       </section>
 
@@ -208,6 +210,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
         :characters="currentCharacterChoices"
         :question-text="currentQuestion"
         :initial-value="initialFeedback"
+        :show-skip-button="false"
         submit-label="변경 저장하기"
         @submit="submitPositiveFeedback"
       />

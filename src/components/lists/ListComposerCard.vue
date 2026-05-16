@@ -75,7 +75,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
         "
         @click="emit('toggle-private')"
       >
-        {{ isPrivate ? '비공개' : '공개' }}
+        {{ isPrivate ? '비공유' : '공유' }}
       </button>
     </div>
 

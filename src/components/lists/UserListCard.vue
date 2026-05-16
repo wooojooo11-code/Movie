@@ -30,11 +30,11 @@ const formatDate = (value: string) =>
               list.isPrivate ? 'bg-white/10 text-white' : 'bg-app-accent/15 text-[#ffdbe6]'
             "
           >
-            {{ list.isPrivate ? '비공개' : '공개' }}
+            {{ list.isPrivate ? '비공유' : '공유' }}
           </span>
         </div>
         <p class="mt-2 text-sm text-app-muted">
-          영화 {{ list.movieIds.length }}편 · 저장 {{ formatCount(list.saveCount) }}
+          영화 {{ list.movieIds.length }}개 · 저장 {{ formatCount(list.saveCount) }}
           <template v-if="list.ratingCount > 0"> · 평점 {{ list.averageRating.toFixed(1) }}</template>
         </p>
       </div>

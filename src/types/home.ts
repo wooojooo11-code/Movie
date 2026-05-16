@@ -8,9 +8,17 @@ export interface TrendingMovie {
   posterAlt: string;
 }
 
+export interface PopularListMoviePreview {
+  id: string;
+  title: string;
+  posterUrl: string;
+  posterAlt: string;
+}
+
 export interface PopularList {
   id: string;
   title: string;
   saveCount: number;
   averageRating: number;
+  moviePreviews: PopularListMoviePreview[];
 }

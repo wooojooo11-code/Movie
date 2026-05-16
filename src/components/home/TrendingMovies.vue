@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue';
 
 import MovieRankCard from '@/components/home/MovieRankCard.vue';
+import TrendingMovieSheet from '@/components/home/TrendingMovieSheet.vue';
 import type { TrendingMovie } from '@/types/home';
 
 defineProps<{
@@ -9,9 +10,11 @@ defineProps<{
 }>();
 
 const scroller = ref<HTMLElement | null>(null);
+const selectedMovie = ref<TrendingMovie | null>(null);
 const isDragging = ref(false);
 const startX = ref(0);
 const startScrollLeft = ref(0);
+const activePointerId = ref<number | null>(null);
 
 const dragCursorClass = computed(() => (isDragging.value ? 'cursor-grabbing' : 'cursor-grab'));
 
@@ -22,7 +25,7 @@ const scrollByCard = (direction: -1 | 1) => {
     return;
   }
 
-  const cardWidth = target.querySelector('article')?.clientWidth ?? 156;
+  const cardWidth = target.querySelector('button')?.clientWidth ?? 156;
   target.scrollBy({
     left: direction * (cardWidth + 16),
     behavior: 'smooth'
@@ -30,6 +33,10 @@ const scrollByCard = (direction: -1 | 1) => {
 };
 
 const onPointerDown = (event: PointerEvent) => {
+  if (event.pointerType !== 'mouse') {
+    return;
+  }
+
   const target = scroller.value;
 
   if (!target) {
@@ -37,13 +44,14 @@ const onPointerDown = (event: PointerEvent) => {
   }
 
   isDragging.value = true;
+  activePointerId.value = event.pointerId;
   startX.value = event.clientX;
   startScrollLeft.value = target.scrollLeft;
   target.setPointerCapture(event.pointerId);
 };
 
 const onPointerMove = (event: PointerEvent) => {
-  if (!isDragging.value || !scroller.value) {
+  if (!isDragging.value || !scroller.value || activePointerId.value !== event.pointerId) {
     return;
   }
 
@@ -51,12 +59,21 @@ const onPointerMove = (event: PointerEvent) => {
 };
 
 const stopDragging = (event: PointerEvent) => {
-  if (!isDragging.value) {
+  if (!isDragging.value || activePointerId.value !== event.pointerId) {
     return;
   }
 
   isDragging.value = false;
+  activePointerId.value = null;
   scroller.value?.releasePointerCapture(event.pointerId);
+};
+
+const openMovie = (movie: TrendingMovie) => {
+  selectedMovie.value = movie;
+};
+
+const closeMovie = () => {
+  selectedMovie.value = null;
 };
 </script>
 
@@ -74,7 +91,7 @@ const stopDragging = (event: PointerEvent) => {
           aria-label="이전 영화 보기"
           @click="scrollByCard(-1)"
         >
-          ‹
+          ←
         </button>
         <button
           type="button"
@@ -82,7 +99,7 @@ const stopDragging = (event: PointerEvent) => {
           aria-label="다음 영화 보기"
           @click="scrollByCard(1)"
         >
-          ›
+          →
         </button>
       </div>
     </div>
@@ -97,7 +114,9 @@ const stopDragging = (event: PointerEvent) => {
       @pointercancel="stopDragging"
       @pointerleave="stopDragging"
     >
-      <MovieRankCard v-for="movie in movies" :key="movie.id" :movie="movie" />
+      <MovieRankCard v-for="movie in movies" :key="movie.id" :movie="movie" @open="openMovie" />
     </div>
+
+    <TrendingMovieSheet v-if="selectedMovie" :movie="selectedMovie" @close="closeMovie" />
   </section>
 </template>

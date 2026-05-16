@@ -48,13 +48,13 @@ const clearRating = () => {
       </span>
     </div>
 
-    <div class="mt-4 flex gap-2 overflow-x-auto scrollbar-hide">
+    <div class="mt-4 flex gap-1.5 overflow-x-auto scrollbar-hide">
       <img
         v-for="movie in list.moviePreviews"
         :key="movie.id"
         :src="movie.posterUrl"
         :alt="movie.posterAlt"
-        class="h-20 w-14 shrink-0 rounded-xl object-cover"
+        class="h-16 w-11 shrink-0 rounded-[10px] object-cover"
         loading="lazy"
       />
     </div>

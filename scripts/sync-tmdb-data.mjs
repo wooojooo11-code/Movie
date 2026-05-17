@@ -136,7 +136,11 @@ const movieSeeds = [
   { id: 'movie_125', query: 'The Intouchables', year: 2011 },
   { id: 'movie_126', query: 'Beverly Hills Cop', year: 1984 },
   { id: 'movie_127', query: 'Barbie', year: 2023 },
-  { id: 'movie_128', query: 'Rushmore', year: 1998 }
+  { id: 'movie_128', query: 'Rushmore', year: 1998 },
+  { id: 'movie_129', query: 'The Martian', year: 2015 },
+  { id: 'movie_130', query: 'Minority Report', year: 2002 },
+  { id: 'movie_131', query: 'Avatar', year: 2009 },
+  { id: 'movie_132', query: 'The Rock', year: 1996 }
 ];
 
 const catalogLists = [

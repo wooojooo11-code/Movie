@@ -414,7 +414,7 @@ onUnmounted(() => {
           :to="nextAdditionalBatchLink"
           class="focus-ring inline-flex min-h-12 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
         >
-          다음 16개 더 보기
+          다음 20개 더 보기
         </RouterLink>
       </div>
     </section>

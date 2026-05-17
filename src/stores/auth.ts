@@ -2,18 +2,20 @@ import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { defineStore } from 'pinia';
 
 import {
-  supabaseAuthStorageKey,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
   supabase,
+  supabaseAuthStorageKey,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
 let hasLifecycleListeners = false;
-let sessionSyncPromise: null | Promise<void> = null;
+let isSigningOut = false;
 let sessionSyncIntervalId: null | ReturnType<typeof setInterval> = null;
+let sessionSyncPromise: null | Promise<void> = null;
+let lastSessionSyncAt = 0;
 
 interface AuthState {
   errorMessage: string;
@@ -24,6 +26,8 @@ interface AuthState {
   session: null | Session;
   user: null | User;
 }
+
+const SESSION_SYNC_THROTTLE_MS = 4000;
 
 const extractAuthMessage = (error: unknown, fallback: string) => {
   if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
@@ -41,21 +45,23 @@ const getEmailRedirectTo = () => {
   return `${window.location.origin}/login`;
 };
 
-const clearSupabaseSessionStorage = () => {
+const hasStoredSupabaseSession = () => {
+  if (typeof window === 'undefined' || !supabaseAuthStorageKey) {
+    return false;
+  }
+
+  return Boolean(
+    window.localStorage.getItem(supabaseAuthStorageKey) || window.sessionStorage.getItem(supabaseAuthStorageKey)
+  );
+};
+
+const clearStoredSupabaseSession = () => {
   if (typeof window === 'undefined' || !supabaseAuthStorageKey) {
     return;
   }
 
-  const keys = [
-    supabaseAuthStorageKey,
-    `${supabaseAuthStorageKey}-code-verifier`,
-    `${supabaseAuthStorageKey}-user`
-  ];
-
-  for (const key of keys) {
-    window.localStorage.removeItem(key);
-    window.sessionStorage.removeItem(key);
-  }
+  window.localStorage.removeItem(supabaseAuthStorageKey);
+  window.sessionStorage.removeItem(supabaseAuthStorageKey);
 };
 
 export const useAuthStore = defineStore('auth', {
@@ -84,16 +90,8 @@ export const useAuthStore = defineStore('auth', {
   },
   actions: {
     async applySignedOutState() {
-      const recommendationStore = useRecommendationStore();
-      const listStore = useListStore();
-
-      this.session = null;
-      this.user = null;
-      this.ratingCount = null;
-      this.errorMessage = '';
-
-      await recommendationStore.setActiveUser('guest-user');
-      await listStore.setActiveUser('guest-user', '나');
+      clearStoredSupabaseSession();
+      await this.applySession(null);
     },
     async initialize() {
       if (this.isInitialized) {
@@ -109,10 +107,10 @@ export const useAuthStore = defineStore('auth', {
         data: { session }
       } = await supabase.auth.getSession();
 
-      await this.applySession(session);
+      await this.reconcileResolvedSession(session);
 
       supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, nextSession: null | Session) => {
-        await this.applySession(nextSession);
+        await this.reconcileResolvedSession(nextSession);
       });
 
       if (typeof window !== 'undefined' && !hasLifecycleListeners) {
@@ -121,9 +119,14 @@ export const useAuthStore = defineStore('auth', {
             return;
           }
 
-          void this.syncSession();
+          void this.syncSession({ force: true });
         };
-        const syncOnStorage = () => {
+
+        const syncOnInteraction = () => {
+          if (typeof document !== 'undefined' && document.visibilityState === 'hidden') {
+            return;
+          }
+
           void this.syncSession();
         };
 
@@ -132,8 +135,11 @@ export const useAuthStore = defineStore('auth', {
         window.addEventListener('popstate', syncOnResume);
         window.addEventListener('online', syncOnResume);
         window.addEventListener('resume', syncOnResume as EventListener);
-        window.addEventListener('storage', syncOnStorage);
+        window.addEventListener('storage', syncOnResume);
+        window.addEventListener('pointerdown', syncOnInteraction, true);
+        window.addEventListener('keydown', syncOnInteraction, true);
         document.addEventListener('visibilitychange', syncOnResume);
+
         hasLifecycleListeners = true;
 
         if (!sessionSyncIntervalId) {
@@ -142,8 +148,8 @@ export const useAuthStore = defineStore('auth', {
               return;
             }
 
-            void this.syncSession();
-          }, 15000);
+            void this.syncSession({ force: true });
+          }, 5000);
         }
       }
 
@@ -170,8 +176,46 @@ export const useAuthStore = defineStore('auth', {
 
       await this.refreshRatingCount();
     },
-    async syncSession() {
+    async reconcileResolvedSession(session: null | Session) {
+      if (isSigningOut) {
+        if (!session) {
+          clearStoredSupabaseSession();
+        }
+
+        return;
+      }
+
+      if (!session) {
+        const hadStoredSession = hasStoredSupabaseSession();
+
+        clearStoredSupabaseSession();
+
+        if (this.session || this.user || hadStoredSession) {
+          await this.applySession(null);
+        } else {
+          this.session = null;
+          this.user = null;
+          this.ratingCount = null;
+        }
+
+        return;
+      }
+
+      await this.applySession(session);
+    },
+    async syncSession(options?: { force?: boolean }) {
       if (!supabase) {
+        return;
+      }
+
+      if (isSigningOut) {
+        return;
+      }
+
+      const force = options?.force ?? false;
+      const now = Date.now();
+
+      if (!force && now - lastSessionSyncAt < SESSION_SYNC_THROTTLE_MS) {
         return;
       }
 
@@ -180,22 +224,38 @@ export const useAuthStore = defineStore('auth', {
         return;
       }
 
+      lastSessionSyncAt = now;
+
       sessionSyncPromise = (async () => {
         const {
           data: { session }
         } = await supabase.auth.getSession();
 
+        if (!session) {
+          const hadStoredSession = hasStoredSupabaseSession();
+
+          if (hadStoredSession) {
+            clearStoredSupabaseSession();
+          }
+
+          if (this.session || this.user || hadStoredSession) {
+            await this.applySession(null);
+          }
+
+          return;
+        }
+
         const currentAccessToken = this.session?.access_token ?? null;
-        const nextAccessToken = session?.access_token ?? null;
+        const nextAccessToken = session.access_token ?? null;
         const currentUserId = this.user?.id ?? null;
-        const nextUserId = session?.user?.id ?? null;
+        const nextUserId = session.user?.id ?? null;
 
         if (currentAccessToken !== nextAccessToken || currentUserId !== nextUserId) {
           await this.applySession(session);
           return;
         }
 
-        if (session?.user) {
+        if (session.user) {
           await this.refreshRatingCount();
         }
       })().finally(() => {
@@ -258,7 +318,7 @@ export const useAuthStore = defineStore('auth', {
           throw error;
         }
 
-        await this.applySession(data.session);
+        await this.reconcileResolvedSession(data.session);
         return this.getPostLoginPath('/');
       } catch (error) {
         this.errorMessage = extractAuthMessage(error, '로그인에 실패했어요.');
@@ -292,7 +352,7 @@ export const useAuthStore = defineStore('auth', {
           throw error;
         }
 
-        await this.applySession(data.session);
+        await this.reconcileResolvedSession(data.session);
 
         return {
           needsEmailConfirmation: !data.session,
@@ -311,32 +371,24 @@ export const useAuthStore = defineStore('auth', {
         return;
       }
 
+      isSigningOut = true;
       this.isSubmitting = true;
       this.errorMessage = '';
 
       try {
-        await this.syncSession();
-
+        await this.applySignedOutState();
         const { error } = await supabase.auth.signOut({ scope: 'local' });
 
         if (error) {
-          throw error;
+          this.errorMessage = extractAuthMessage(error, '');
         }
-
-        await this.applySignedOutState();
-      } catch (error) {
-        const {
-          data: { session }
-        } = await supabase.auth.getSession();
-
-        if (!session) {
-          await this.applySignedOutState();
-          return;
-        }
-
-        this.errorMessage = extractAuthMessage(error, '로그아웃에 실패했어요.');
-        throw error;
+      } catch {
+        // Some browsers leave the client in a stale state after returning from another site.
+        // We still clear the local auth state so the user is not stuck.
       } finally {
+        clearStoredSupabaseSession();
+        lastSessionSyncAt = Date.now();
+        isSigningOut = false;
         this.isSubmitting = false;
       }
     }

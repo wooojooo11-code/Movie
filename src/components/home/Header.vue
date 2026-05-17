@@ -9,6 +9,11 @@ const router = useRouter();
 const signOut = async () => {
   try {
     await authStore.signOut();
+    if (typeof window !== 'undefined') {
+      window.location.replace('/');
+      return;
+    }
+
     await router.replace('/');
   } catch {
     // The store already holds a user-facing error message.

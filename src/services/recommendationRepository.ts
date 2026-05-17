@@ -1,12 +1,15 @@
 import {
+  getSupabaseRecommendationExclusionsRelation,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
+  supabaseRecommendationExclusionsUserColumn,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
 import type { RecommendationStateSnapshot, StoredRatingRecord } from '@/types/recommendation';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 
 const STORAGE_PREFIX = 'movielist:recommendation-state';
+const ALREADY_SEEN_REASON = 'already_seen';
 
 const isClient = () => typeof window !== 'undefined';
 
@@ -19,24 +22,34 @@ export interface RecommendationRepository {
 }
 
 interface SupabaseRatingRow {
-  answered_at: string | null;
+  answered_at: null | string;
   detail_completed: boolean | null;
   favorite_character: string | null;
   movie_id: string;
   question_text: string | null;
-  rating: number | null;
-  raw_decision: StoredRatingRecord['rawDecision'] | null;
-  review_tags: string[] | null;
-  review_text: string | null;
+  rating: null | number;
+  raw_decision: null | StoredRatingRecord['rawDecision'];
+  review_tags: null | string[];
+  review_text: null | string;
   status: RatingInput['status'];
+  user_id?: string;
+  [key: string]: boolean | null | number | string | string[] | undefined;
+}
+
+interface SupabaseRecommendationExclusionRow {
+  movie_id: string;
+  reason: null | string;
   user_id?: string;
   [key: string]: boolean | null | number | string | string[] | undefined;
 }
 
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
 
-const getRowUserId = (row: SupabaseRatingRow) => {
-  const value = row[supabaseRatingsUserColumn];
+const getRowUserId = (
+  row: SupabaseRatingRow | SupabaseRecommendationExclusionRow,
+  userColumn: string
+) => {
+  const value = row[userColumn];
   return typeof value === 'string' && value.length > 0 ? value : row.user_id ?? '';
 };
 
@@ -45,7 +58,7 @@ const normalizeSupabaseRatingRow = (row: SupabaseRatingRow): StoredRatingRecord 
   detailCompleted: row.detail_completed ?? row.status !== 'like',
   input: {
     movieId: row.movie_id,
-    userId: getRowUserId(row),
+    userId: getRowUserId(row, supabaseRatingsUserColumn),
     status: row.status,
     rating: row.rating,
     reviewTags: (row.review_tags ?? []) as RatingInput['reviewTags'],
@@ -71,6 +84,12 @@ const serializeSupabaseRatingRow = (
   detail_completed: rating.detailCompleted,
   review_text: rating.reviewText,
   question_text: rating.questionText
+});
+
+const serializeRecommendationExclusionRow = (userId: string, movieId: string) => ({
+  [supabaseRecommendationExclusionsUserColumn]: userId,
+  movie_id: movieId,
+  reason: ALREADY_SEEN_REASON
 });
 
 export const localRecommendationRepository: RecommendationRepository = {
@@ -113,13 +132,14 @@ export const remoteRecommendationRepository = {
       return null;
     }
 
-    const relation = getSupabaseRatingsRelation();
+    const ratingsRelation = getSupabaseRatingsRelation() as any;
+    const exclusionsRelation = getSupabaseRecommendationExclusionsRelation() as any;
 
-    if (!relation) {
+    if (!ratingsRelation || !exclusionsRelation) {
       return null;
     }
 
-    const { data, error } = await relation
+    const { data: ratingsData, error: ratingsError } = await ratingsRelation
       .select(
         [
           supabaseRatingsUserColumn,
@@ -138,8 +158,17 @@ export const remoteRecommendationRepository = {
       .eq(supabaseRatingsUserColumn, userId)
       .order('answered_at', { ascending: true });
 
-    if (error) {
-      throw error;
+    const { data: exclusionsData, error: exclusionsError } = await exclusionsRelation
+      .select([supabaseRecommendationExclusionsUserColumn, 'movie_id', 'reason'].join(', '))
+      .eq(supabaseRecommendationExclusionsUserColumn, userId)
+      .eq('reason', ALREADY_SEEN_REASON);
+
+    if (ratingsError) {
+      throw ratingsError;
+    }
+
+    if (exclusionsError) {
+      throw exclusionsError;
     }
 
     return {
@@ -152,8 +181,10 @@ export const remoteRecommendationRepository = {
         characterScores: {},
         totalRatings: 0
       },
-      ratings: ((data ?? []) as unknown as SupabaseRatingRow[]).map(normalizeSupabaseRatingRow),
-      dismissedRecommendationMovieIds: []
+      ratings: ((ratingsData ?? []) as unknown as SupabaseRatingRow[]).map(normalizeSupabaseRatingRow),
+      dismissedRecommendationMovieIds: ((exclusionsData ?? []) as unknown as SupabaseRecommendationExclusionRow[])
+        .filter((row) => row.reason === ALREADY_SEEN_REASON)
+        .map((row) => row.movie_id)
     };
   },
   async save(snapshot: RecommendationStateSnapshot): Promise<void> {
@@ -161,24 +192,43 @@ export const remoteRecommendationRepository = {
       return;
     }
 
-    const relation = getSupabaseRatingsRelation();
+    const ratingsRelation = getSupabaseRatingsRelation() as any;
+    const exclusionsRelation = getSupabaseRecommendationExclusionsRelation() as any;
 
-    if (!relation) {
+    if (!ratingsRelation || !exclusionsRelation) {
       return;
     }
 
-    const payload = snapshot.ratings.map((rating) => serializeSupabaseRatingRow(snapshot.userId, rating));
+    const ratingsPayload = snapshot.ratings.map((rating) => serializeSupabaseRatingRow(snapshot.userId, rating));
+    const exclusionsPayload = snapshot.dismissedRecommendationMovieIds.map((movieId) =>
+      serializeRecommendationExclusionRow(snapshot.userId, movieId)
+    );
 
-    if (payload.length === 0) {
-      return;
+    if (ratingsPayload.length > 0) {
+      const { error: ratingsSaveError } = await ratingsRelation.upsert(ratingsPayload, {
+        onConflict: `${supabaseRatingsUserColumn},movie_id`
+      });
+
+      if (ratingsSaveError) {
+        throw ratingsSaveError;
+      }
     }
 
-    const { error } = await relation.upsert(payload, {
-      onConflict: `${supabaseRatingsUserColumn},movie_id`
-    });
+    const { error: exclusionsDeleteError } = await exclusionsRelation
+      .delete()
+      .eq(supabaseRecommendationExclusionsUserColumn, snapshot.userId)
+      .eq('reason', ALREADY_SEEN_REASON);
 
-    if (error) {
-      throw error;
+    if (exclusionsDeleteError) {
+      throw exclusionsDeleteError;
+    }
+
+    if (exclusionsPayload.length > 0) {
+      const { error: exclusionsInsertError } = await exclusionsRelation.insert(exclusionsPayload);
+
+      if (exclusionsInsertError) {
+        throw exclusionsInsertError;
+      }
     }
   },
   async clear(userId: string): Promise<void> {
@@ -186,16 +236,26 @@ export const remoteRecommendationRepository = {
       return;
     }
 
-    const relation = getSupabaseRatingsRelation();
+    const ratingsRelation = getSupabaseRatingsRelation() as any;
+    const exclusionsRelation = getSupabaseRecommendationExclusionsRelation() as any;
 
-    if (!relation) {
+    if (!ratingsRelation || !exclusionsRelation) {
       return;
     }
 
-    const { error } = await relation.delete().eq(supabaseRatingsUserColumn, userId);
+    const { error: ratingsDeleteError } = await ratingsRelation.delete().eq(supabaseRatingsUserColumn, userId);
 
-    if (error) {
-      throw error;
+    if (ratingsDeleteError) {
+      throw ratingsDeleteError;
+    }
+
+    const { error: exclusionsDeleteError } = await exclusionsRelation
+      .delete()
+      .eq(supabaseRecommendationExclusionsUserColumn, userId)
+      .eq('reason', ALREADY_SEEN_REASON);
+
+    if (exclusionsDeleteError) {
+      throw exclusionsDeleteError;
     }
   }
 };

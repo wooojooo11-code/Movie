@@ -4,10 +4,19 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim() ?? '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() ?? '';
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+export const supabaseAuthStorageKey = isSupabaseConfigured
+  ? `sb-${new URL(supabaseUrl).hostname.split('.')[0]}-auth-token`
+  : '';
 export const supabaseRatingsSchema = import.meta.env.VITE_SUPABASE_RATINGS_SCHEMA?.trim() || 'public';
 export const supabaseRatingsTable = import.meta.env.VITE_SUPABASE_RATINGS_TABLE?.trim() || 'ratings';
 export const supabaseRatingsUserColumn =
   import.meta.env.VITE_SUPABASE_RATINGS_USER_COLUMN?.trim() || 'user_id';
+export const supabaseRecommendationExclusionsSchema =
+  import.meta.env.VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_SCHEMA?.trim() || 'public';
+export const supabaseRecommendationExclusionsTable =
+  import.meta.env.VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_TABLE?.trim() || 'recommendation_exclusions';
+export const supabaseRecommendationExclusionsUserColumn =
+  import.meta.env.VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_USER_COLUMN?.trim() || 'user_id';
 export const supabaseUserListsSchema = import.meta.env.VITE_SUPABASE_USER_LISTS_SCHEMA?.trim() || 'public';
 export const supabaseUserListsTable =
   import.meta.env.VITE_SUPABASE_USER_LISTS_TABLE?.trim() || 'user_lists';
@@ -36,6 +45,14 @@ export const getSupabaseRatingsRelation = () => {
   }
 
   return supabase.schema(supabaseRatingsSchema).from(supabaseRatingsTable);
+};
+
+export const getSupabaseRecommendationExclusionsRelation = () => {
+  if (!supabase) {
+    return null;
+  }
+
+  return supabase.schema(supabaseRecommendationExclusionsSchema).from(supabaseRecommendationExclusionsTable);
 };
 
 export const getSupabaseUserListsRelation = () => {

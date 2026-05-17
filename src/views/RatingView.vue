@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
@@ -19,12 +19,13 @@ import { getCharacterChoices } from '@/services/movieCreditsService';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { PositiveRatingInput, RatingDecision, RatingResult } from '@/types/rating';
+import type { PositiveRatingInput, RatingDecision } from '@/types/rating';
 
 const recommendationStore = useRecommendationStore();
 const route = useRoute();
-const results = ref<RatingResult[]>([]);
+const router = useRouter();
 const savedNotice = ref('');
+const detailRequested = ref(false);
 let savedNoticeTimer: ReturnType<typeof setTimeout> | null = null;
 
 const isMoreMode = computed(() => route.query.mode === 'more');
@@ -57,10 +58,18 @@ const swipeStageMovie = computed(() => {
   return getUnratedMoviesFromPool(recommendationStore.ratedMovieIds.value, currentMoviePool.value)[0] ?? null;
 });
 
-const detailStageMovie = computed(() => {
-  const pendingRecord = recommendationStore.pendingDetailedRatings.value.find((rating) =>
+const pendingDetailRatingsInPool = computed(() =>
+  recommendationStore.pendingDetailedRatings.value.filter((rating) =>
     currentPoolMovieIds.value.includes(rating.input.movieId)
-  );
+  )
+);
+
+const detailStageMovie = computed(() => {
+  if (!detailRequested.value) {
+    return null;
+  }
+
+  const pendingRecord = pendingDetailRatingsInPool.value[0];
 
   if (!pendingRecord) {
     return null;
@@ -70,14 +79,19 @@ const detailStageMovie = computed(() => {
 });
 
 const isSwipeStage = computed(() => Boolean(swipeStageMovie.value));
-const isDetailStage = computed(() => !swipeStageMovie.value && Boolean(detailStageMovie.value));
+const shouldPromptDetailChoice = computed(
+  () => !swipeStageMovie.value && pendingDetailRatingsInPool.value.length > 0 && !detailRequested.value
+);
+const isDetailStage = computed(() => Boolean(detailStageMovie.value));
+const isComplete = computed(
+  () => !swipeStageMovie.value && !shouldPromptDetailChoice.value && !isDetailStage.value
+);
+
 const currentMovie = computed(() => swipeStageMovie.value ?? detailStageMovie.value);
 
 const likedCount = computed(
   () =>
-    recommendationStore.pendingDetailedRatings.value.filter((rating) =>
-      currentPoolMovieIds.value.includes(rating.input.movieId)
-    ).length +
+    pendingDetailRatingsInPool.value.length +
     recommendationStore.state.ratings.filter(
       (rating) =>
         rating.rawDecision === 'like' &&
@@ -124,6 +138,22 @@ const nextAdditionalBatchLink = computed(() => {
   return `/rating?mode=more&batch=${nextAdditionalBatchIndex.value}`;
 });
 
+const stageLabel = computed(() => {
+  if (isSwipeStage.value) {
+    return isMoreMode.value ? '추가 취향분석' : '1차 취향분석';
+  }
+
+  if (shouldPromptDetailChoice.value) {
+    return '상세평가 선택';
+  }
+
+  if (isDetailStage.value) {
+    return '상세 취향분석';
+  }
+
+  return '취향분석 완료';
+});
+
 const showSavedNotice = (movieTitle: string) => {
   savedNotice.value = `"${movieTitle}" 저장됨. 다음 영화로 넘어갈게요.`;
 
@@ -163,11 +193,6 @@ const saveSwipeDecision = async (decision: RatingDecision | 'not_interested') =>
     rawDecision: decision,
     detailCompleted: decision !== 'like'
   });
-
-  results.value.push({
-    movieId: movie.id,
-    decision: decision === 'not_interested' ? 'dislike' : decision
-  });
 };
 
 const completeDetailedLike = async (feedback?: PositiveRatingInput) => {
@@ -199,12 +224,6 @@ const completeDetailedLike = async (feedback?: PositiveRatingInput) => {
     }
   });
 
-  results.value.push({
-    movieId: movie.id,
-    decision: 'like',
-    feedback
-  });
-
   showSavedNotice(movie.title);
 };
 
@@ -216,7 +235,18 @@ const submitUnknownFeedback = async () => {
   await completeDetailedLike();
 };
 
-const isComplete = computed(() => !swipeStageMovie.value && !detailStageMovie.value);
+const startDetailStage = () => {
+  detailRequested.value = true;
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
+const skipDetailStage = async () => {
+  detailRequested.value = false;
+  await router.push('/recommendations');
+};
 
 const handleKeydown = (event: KeyboardEvent) => {
   if (!isSwipeStage.value) {
@@ -286,15 +316,7 @@ onUnmounted(() => {
     <RatingProgress
       :current="completedCount"
       :total="totalCount"
-      :stage-label="
-        isSwipeStage
-          ? isMoreMode
-            ? '추가 취향분석'
-            : '1차 취향분석'
-          : isDetailStage
-            ? '상세 취향분석'
-            : '취향분석 완료'
-      "
+      :stage-label="stageLabel"
       :detail-current="detailCompletedCount"
       :detail-total="likedCount"
     />
@@ -315,6 +337,32 @@ onUnmounted(() => {
       <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" @decide="saveSwipeDecision" />
       <RatingActions @decide="saveSwipeDecision" />
     </template>
+
+    <section v-else-if="shouldPromptDetailChoice" class="rounded-[24px] border border-app-line bg-app-panel p-5">
+      <p class="text-sm font-bold text-app-accent">1차 취향분석 완료</p>
+      <h1 class="mt-2 text-2xl font-black text-white">상세평가는 원할 때만 하면 돼요.</h1>
+      <p class="mt-3 text-sm leading-6 text-[#c8d1df]">
+        재밌게 고른 영화 {{ pendingDetailRatingsInPool.length }}개를 더 자세히 남길 수 있어요.
+        지금 바로 해도 되고, 일단 넘어가도 괜찮아요.
+      </p>
+
+      <div class="mt-5 flex flex-wrap gap-3">
+        <button
+          type="button"
+          class="app-gradient focus-ring inline-flex min-h-12 items-center justify-center rounded-[16px] px-4 text-sm font-extrabold text-white"
+          @click="startDetailStage"
+        >
+          상세평가하기
+        </button>
+        <button
+          type="button"
+          class="focus-ring inline-flex min-h-12 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
+          @click="skipDetailStage"
+        >
+          넘어가기
+        </button>
+      </div>
+    </section>
 
     <template v-else-if="isDetailStage && currentMovie">
       <section class="rounded-[20px] border border-app-line bg-app-panel p-4">

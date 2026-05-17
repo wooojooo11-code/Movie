@@ -245,7 +245,6 @@ export const remoteListRepository = {
         ].join(', ')
       )
       .eq('is_private', false)
-      .neq(supabaseUserListsUserColumn, userId)
       .order('updated_at', { ascending: false });
 
     if (error) {

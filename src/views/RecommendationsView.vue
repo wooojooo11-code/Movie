@@ -13,10 +13,13 @@ import type { RecommendedCatalogList, RecommendedCatalogMovie } from '@/types/re
 const listStore = useListStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
-const selectedMovie = ref<RecommendedCatalogMovie | null>(null);
+const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 
 const hasMoreTasteAnalysis = computed(() =>
   hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
+);
+const hasDismissedRecommendations = computed(
+  () => recommendationStore.state.dismissedRecommendationMovieIds.length > 0
 );
 
 const nextAdditionalBatchLink = computed(() => {
@@ -32,9 +35,13 @@ const closeMovieSheet = () => {
   selectedMovie.value = null;
 };
 
-const handleAlreadySeen = (movieId: string) => {
-  recommendationStore.dismissRecommendedMovie(movieId);
+const handleAlreadySeen = async (movieId: string) => {
+  await recommendationStore.dismissRecommendedMovie(movieId);
   closeMovieSheet();
+};
+
+const resetAlreadySeen = async () => {
+  await recommendationStore.resetDismissedRecommendations();
 };
 
 const saveRecommendedList = (list: RecommendedCatalogList) => {
@@ -77,6 +84,15 @@ const openListsPage = () => {
         >
           취향 더 분석하기
         </RouterLink>
+
+        <button
+          v-if="hasDismissedRecommendations"
+          type="button"
+          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
+          @click="resetAlreadySeen"
+        >
+          이미 봄 초기화
+        </button>
       </div>
     </section>
 
@@ -85,14 +101,23 @@ const openListsPage = () => {
         <div class="mb-3 flex items-end justify-between gap-4">
           <div>
             <h2 class="text-lg font-extrabold text-white">추천 영화</h2>
-            <p class="mt-1 text-sm text-app-muted">작게 모아두어 한 번에 보기 편해요</p>
+            <p class="mt-1 text-sm text-app-muted">
+              {{
+                recommendationStore.isRecommendationFallbackMode.value
+                  ? '새 후보가 모두 소진되어, 봤던 영화까지 포함해 다시 골라드리고 있어요.'
+                  : '한 번에 빠르게 훑어볼 수 있게 모아뒀어요.'
+              }}
+            </p>
           </div>
           <span class="text-xs font-bold text-app-muted">
             {{ recommendationStore.recommendedMovies.value.length }}개
           </span>
         </div>
 
-        <div class="grid grid-cols-5 gap-2">
+        <div
+          v-if="recommendationStore.recommendedMovies.value.length > 0"
+          class="grid grid-cols-5 gap-2"
+        >
           <RecommendationMovieCard
             v-for="movie in recommendationStore.recommendedMovies.value"
             :key="movie.id"
@@ -100,6 +125,13 @@ const openListsPage = () => {
             size="compact"
             @open="openMovieSheet"
           />
+        </div>
+
+        <div
+          v-else
+          class="rounded-[20px] border border-dashed border-app-line bg-white/[0.03] px-4 py-5 text-sm text-app-muted"
+        >
+          지금은 보여줄 추천 영화가 없어요. `이미 봄 초기화`를 누르거나 취향을 더 분석해 보세요.
         </div>
       </section>
 

@@ -178,6 +178,13 @@ const resetDraft = () => {
   state.draft = createEmptyDraft();
 };
 
+const resetSearchState = () => {
+  state.searchQuery = '';
+  state.movieResults = [];
+  state.listResults = [];
+  state.isSearching = false;
+};
+
 const selectedDraftMovies = computed(() => resolveMoviePreviews(state.draft.movieIds));
 const canSaveDraft = computed(
   () => state.draft.title.trim().length > 0 && state.draft.movieIds.length > 0
@@ -271,10 +278,7 @@ const saveDraft = async () => {
   state.userLists = nextLists;
   await persistState();
   resetDraft();
-
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
-  }
+  resetSearchState();
 
   return true;
 };

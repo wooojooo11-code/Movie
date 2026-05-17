@@ -79,6 +79,117 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   };
 };
 
+const getAnsweredAtTime = (record: StoredRatingRecord) => {
+  const timestamp = new Date(record.input.answeredAt).getTime();
+  return Number.isFinite(timestamp) ? timestamp : 0;
+};
+
+const shouldReplaceRatingRecord = (current: StoredRatingRecord, candidate: StoredRatingRecord) => {
+  const currentTime = getAnsweredAtTime(current);
+  const candidateTime = getAnsweredAtTime(candidate);
+
+  if (candidateTime !== currentTime) {
+    return candidateTime > currentTime;
+  }
+
+  if (candidate.detailCompleted !== current.detailCompleted) {
+    return candidate.detailCompleted;
+  }
+
+  return false;
+};
+
+const mergeRatingRecords = (
+  localRatings: readonly StoredRatingRecord[],
+  remoteRatings: readonly StoredRatingRecord[]
+) => {
+  const mergedRatings = new Map<string, StoredRatingRecord>();
+
+  for (const record of [...localRatings, ...remoteRatings]) {
+    const existing = mergedRatings.get(record.input.movieId);
+
+    if (!existing || shouldReplaceRatingRecord(existing, record)) {
+      mergedRatings.set(record.input.movieId, record);
+    }
+  }
+
+  return [...mergedRatings.values()].sort(
+    (left, right) => getAnsweredAtTime(left) - getAnsweredAtTime(right)
+  );
+};
+
+const mergeSnapshots = (
+  localSnapshot: RecommendationStateSnapshot,
+  remoteSnapshot: RecommendationStateSnapshot
+): RecommendationStateSnapshot => {
+  const mergedRatings = normalizeStoredRatings(
+    mergeRatingRecords(localSnapshot.ratings, remoteSnapshot.ratings)
+  );
+  const dismissedRecommendationMovieIds = [
+    ...new Set([
+      ...localSnapshot.dismissedRecommendationMovieIds,
+      ...remoteSnapshot.dismissedRecommendationMovieIds
+    ])
+  ];
+
+  return {
+    userId: localSnapshot.userId,
+    profile: buildProfileFromRatings(localSnapshot.userId, mergedRatings),
+    ratings: mergedRatings,
+    dismissedRecommendationMovieIds
+  };
+};
+
+const hasRatingRecordChanged = (left: StoredRatingRecord, right: StoredRatingRecord) =>
+  left.rawDecision !== right.rawDecision ||
+  left.detailCompleted !== right.detailCompleted ||
+  left.input.status !== right.input.status ||
+  left.input.rating !== right.input.rating ||
+  left.input.favoriteCharacter !== right.input.favoriteCharacter ||
+  left.input.answeredAt !== right.input.answeredAt ||
+  left.reviewText !== right.reviewText ||
+  left.questionText !== right.questionText ||
+  left.input.reviewTags.length !== right.input.reviewTags.length ||
+  left.input.reviewTags.some((tag, index) => tag !== right.input.reviewTags[index]);
+
+const shouldResyncRemoteSnapshot = (
+  remoteSnapshot: RecommendationStateSnapshot,
+  mergedSnapshot: RecommendationStateSnapshot
+) => {
+  if (remoteSnapshot.ratings.length !== mergedSnapshot.ratings.length) {
+    return true;
+  }
+
+  const remoteRatingsByMovieId = new Map(
+    remoteSnapshot.ratings.map((record) => [record.input.movieId, record] as const)
+  );
+
+  for (const mergedRecord of mergedSnapshot.ratings) {
+    const remoteRecord = remoteRatingsByMovieId.get(mergedRecord.input.movieId);
+
+    if (!remoteRecord || hasRatingRecordChanged(remoteRecord, mergedRecord)) {
+      return true;
+    }
+  }
+
+  if (
+    remoteSnapshot.dismissedRecommendationMovieIds.length !==
+    mergedSnapshot.dismissedRecommendationMovieIds.length
+  ) {
+    return true;
+  }
+
+  const remoteDismissedIds = new Set(remoteSnapshot.dismissedRecommendationMovieIds);
+
+  for (const movieId of mergedSnapshot.dismissedRecommendationMovieIds) {
+    if (!remoteDismissedIds.has(movieId)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const initialSnapshot = loadSnapshot(FALLBACK_USER_ID);
 
 const state = reactive<RecommendationStateSnapshot>({
@@ -185,7 +296,7 @@ const excludedRecommendationMovieIds = computed(() => [
   ...state.dismissedRecommendationMovieIds
 ]);
 
-const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+const freshRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
   const scoredMovies = recommendMovies(catalogMovies, state.profile, {
     excludeMovieIds: excludedRecommendationMovieIds.value,
     limit: 10
@@ -196,6 +307,26 @@ const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
     recommendationScore: movie.recommendationScore
   }));
 });
+
+const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+  if (freshRecommendedMovies.value.length > 0) {
+    return freshRecommendedMovies.value;
+  }
+
+  const scoredMovies = recommendMovies(catalogMovies, state.profile, {
+    excludeMovieIds: state.dismissedRecommendationMovieIds,
+    limit: 10
+  });
+
+  return scoredMovies.map((movie) => ({
+    ...movieMap[movie.id],
+    recommendationScore: movie.recommendationScore
+  }));
+});
+
+const isRecommendationFallbackMode = computed(
+  () => freshRecommendedMovies.value.length === 0 && recommendedMovies.value.length > 0
+);
 
 const recommendedLists = computed<RecommendedCatalogList[]>(() => {
   const scoredLists = recommendLists(catalogLists, catalogMovies, state.profile, 6);
@@ -271,11 +402,20 @@ const submitSwipeRating = (
 
 const dismissRecommendedMovie = (movieId: string) => {
   if (state.dismissedRecommendationMovieIds.includes(movieId)) {
-    return;
+    return Promise.resolve();
   }
 
   state.dismissedRecommendationMovieIds = [...state.dismissedRecommendationMovieIds, movieId];
-  void persistState();
+  return persistState();
+};
+
+const resetDismissedRecommendations = () => {
+  if (state.dismissedRecommendationMovieIds.length === 0) {
+    return Promise.resolve();
+  }
+
+  state.dismissedRecommendationMovieIds = [];
+  return persistState();
 };
 
 const resetTasteAnalysis = () => {
@@ -294,7 +434,8 @@ const resetTasteAnalysis = () => {
 
 const setActiveUser = async (userId: string) => {
   const normalizedUserId = userId || FALLBACK_USER_ID;
-  applySnapshot(loadSnapshot(normalizedUserId));
+  const localSnapshot = loadSnapshot(normalizedUserId);
+  applySnapshot(localSnapshot);
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
 
@@ -305,21 +446,24 @@ const setActiveUser = async (userId: string) => {
       return;
     }
 
-    const normalizedRatings = normalizeStoredRatings(remoteSnapshot.ratings);
-
-    applySnapshot({
+    const normalizedRemoteSnapshot = {
       userId: normalizedUserId,
-      profile: buildProfileFromRatings(normalizedUserId, normalizedRatings),
-      ratings: normalizedRatings,
-      dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
-    });
+      profile: remoteSnapshot.profile,
+      ratings: normalizeStoredRatings(remoteSnapshot.ratings),
+      dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? []
+    };
+    const mergedSnapshot = mergeSnapshots(localSnapshot, normalizedRemoteSnapshot);
 
-    localRecommendationRepository.save({
-      userId: normalizedUserId,
-      profile: state.profile,
-      ratings: state.ratings,
-      dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
-    });
+    applySnapshot(mergedSnapshot);
+    localRecommendationRepository.save(mergedSnapshot);
+
+    if (shouldResyncRemoteSnapshot(normalizedRemoteSnapshot, mergedSnapshot)) {
+      void enqueueRemoteTask(
+        () => remoteRecommendationRepository.save(mergedSnapshot),
+        '최신 취향분석 결과를 Supabase ratings 테이블과 다시 맞추지 못했어요.'
+      );
+    }
+
     remoteSyncStatus.value = 'success';
   } catch (error) {
     remoteSyncStatus.value = 'error';
@@ -338,11 +482,10 @@ export const recommendationStore = {
   pendingPrimaryDetailedRatings,
   primaryUnratedMovies,
   nextAdditionalBatchIndex,
-  shouldResumeTasteAnalysis: computed(
-    () => primaryUnratedMovies.value.length > 0 || pendingPrimaryDetailedRatings.value.length > 0
-  ),
+  shouldResumeTasteAnalysis: computed(() => primaryUnratedMovies.value.length > 0),
   ratedMoviesHistory,
   recommendedMovies,
+  isRecommendationFallbackMode,
   recommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
@@ -350,6 +493,7 @@ export const recommendationStore = {
   getPendingDetailMovie,
   submitSwipeRating,
   dismissRecommendedMovie,
+  resetDismissedRecommendations,
   resetTasteAnalysis,
   setActiveUser
 };

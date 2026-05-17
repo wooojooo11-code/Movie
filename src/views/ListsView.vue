@@ -94,6 +94,7 @@ const searchListCards = computed(() =>
           v-for="list in listStore.sharedLists.value"
           :key="list.id"
           :list="list"
+          :show-save-button="list.ownerId !== listStore.state.userId"
           @toggle-save="listStore.toggleSharedListSave"
           @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
         />

@@ -88,6 +88,8 @@ router.beforeEach(async (to) => {
 
   if (!authStore.isInitialized) {
     await authStore.initialize();
+  } else if (authStore.isConfigured) {
+    await authStore.syncSession();
   }
 
   if (guestOnly && authStore.isAuthenticated) {

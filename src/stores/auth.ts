@@ -2,6 +2,7 @@ import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { defineStore } from 'pinia';
 
 import {
+  supabaseAuthStorageKey,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
   supabase,
@@ -12,6 +13,7 @@ import { useRecommendationStore } from '@/services/recommendationStore';
 
 let hasLifecycleListeners = false;
 let sessionSyncPromise: null | Promise<void> = null;
+let sessionSyncIntervalId: null | ReturnType<typeof setInterval> = null;
 
 interface AuthState {
   errorMessage: string;
@@ -37,6 +39,23 @@ const getEmailRedirectTo = () => {
   }
 
   return `${window.location.origin}/login`;
+};
+
+const clearSupabaseSessionStorage = () => {
+  if (typeof window === 'undefined' || !supabaseAuthStorageKey) {
+    return;
+  }
+
+  const keys = [
+    supabaseAuthStorageKey,
+    `${supabaseAuthStorageKey}-code-verifier`,
+    `${supabaseAuthStorageKey}-user`
+  ];
+
+  for (const key of keys) {
+    window.localStorage.removeItem(key);
+    window.sessionStorage.removeItem(key);
+  }
 };
 
 export const useAuthStore = defineStore('auth', {
@@ -104,11 +123,28 @@ export const useAuthStore = defineStore('auth', {
 
           void this.syncSession();
         };
+        const syncOnStorage = () => {
+          void this.syncSession();
+        };
 
         window.addEventListener('focus', syncOnResume);
         window.addEventListener('pageshow', syncOnResume);
+        window.addEventListener('popstate', syncOnResume);
+        window.addEventListener('online', syncOnResume);
+        window.addEventListener('resume', syncOnResume as EventListener);
+        window.addEventListener('storage', syncOnStorage);
         document.addEventListener('visibilitychange', syncOnResume);
         hasLifecycleListeners = true;
+
+        if (!sessionSyncIntervalId) {
+          sessionSyncIntervalId = setInterval(() => {
+            if (typeof document !== 'undefined' && document.visibilityState === 'hidden') {
+              return;
+            }
+
+            void this.syncSession();
+          }, 15000);
+        }
       }
 
       this.isInitialized = true;
@@ -123,6 +159,7 @@ export const useAuthStore = defineStore('auth', {
       this.session = session;
       this.user = session?.user ?? null;
       this.errorMessage = '';
+
       await recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
       await listStore.setActiveUser(session?.user?.id ?? 'guest-user', ownerName);
 
@@ -278,7 +315,9 @@ export const useAuthStore = defineStore('auth', {
       this.errorMessage = '';
 
       try {
-        const { error } = await supabase.auth.signOut();
+        await this.syncSession();
+
+        const { error } = await supabase.auth.signOut({ scope: 'local' });
 
         if (error) {
           throw error;
@@ -286,6 +325,15 @@ export const useAuthStore = defineStore('auth', {
 
         await this.applySignedOutState();
       } catch (error) {
+        const {
+          data: { session }
+        } = await supabase.auth.getSession();
+
+        if (!session) {
+          await this.applySignedOutState();
+          return;
+        }
+
         this.errorMessage = extractAuthMessage(error, '로그아웃에 실패했어요.');
         throw error;
       } finally {

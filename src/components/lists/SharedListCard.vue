@@ -4,6 +4,7 @@ import type { ResolvedSharedListCard } from '@/types/lists';
 
 const props = defineProps<{
   list: ResolvedSharedListCard;
+  showSaveButton?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -71,6 +72,7 @@ const clearRating = () => {
 
     <div class="mt-4 flex gap-2">
       <button
+        v-if="showSaveButton !== false"
         type="button"
         class="focus-ring inline-flex min-h-10 items-center justify-center rounded-[14px] border px-4 text-sm font-bold"
         :class="

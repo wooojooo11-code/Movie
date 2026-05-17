@@ -107,13 +107,12 @@ const saveDecision = async (decision: RatingDecision | 'not_interested') => {
       answeredAt: new Date().toISOString()
     };
 
-    const saveTask = recommendationStore.submitSwipeRating(movie.value, input, {
+    await recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: decision,
       detailCompleted: true
     });
 
     await goBackToHistory();
-    void saveTask;
   } finally {
     isSaving.value = false;
   }
@@ -137,7 +136,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       answeredAt: new Date().toISOString()
     };
 
-    const saveTask = recommendationStore.submitSwipeRating(movie.value, input, {
+    await recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: 'like',
       detailCompleted: true,
       feedback: {
@@ -150,7 +149,6 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     });
 
     await goBackToHistory();
-    void saveTask;
   } finally {
     isSaving.value = false;
   }

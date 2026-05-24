@@ -1,4 +1,4 @@
-import { computed, reactive, readonly, ref } from 'vue';
+﻿import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
 import { getNextAdditionalBatchIndex, primaryRatingMovies, ratingMovies } from '@/data/rating';
@@ -29,24 +29,48 @@ const FALLBACK_USER_ID = 'guest-user';
 type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
 const GENRE_NAME_TO_TMDB_ID: Record<string, number> = {
-  액션: 28,
-  모험: 12,
-  코미디: 35,
-  드라마: 18,
-  공포: 27,
-  미스터리: 9648,
-  추리: 9648,
-  로맨스: 10749,
-  스릴러: 53,
+  ??: 28,
+  ?????: 16,
+  ??: 12,
+  ???: 35,
+  ???: 18,
+  ??: 27,
+  ????: 9648,
+  ??: 9648,
+  ???: 10749,
+  ???: 53,
   SF: 878
 };
-
 const CONTEXT_WEIGHTS: Record<MoodContext, Record<number, number>> = {
   normal: {},
-  after_exam: { 28: 1.5, 35: 2.0, 878: 1.3 },
-  before_academy: { 35: 1.8, 28: 1.2, 18: 0.2 },
-  bed_time: { 18: 2.0, 9648: 1.5, 28: 0.1 },
-  with_friends: { 35: 2.0, 27: 1.8, 18: 0.3 }
+  after_exam: {
+    28: 2.0,
+    878: 1.8,
+    35: 1.5,
+    9648: 0.8,
+    10749: 0.5
+  },
+  bed_time: {
+    10749: 2.0,
+    9648: 1.6,
+    35: 1.0,
+    878: 0.5,
+    28: 0.2
+  },
+  with_friends: {
+    35: 2.0,
+    9648: 1.8,
+    28: 1.3,
+    878: 0.8,
+    10749: 0.3
+  },
+  after_academy: {
+    35: 2.0,
+    28: 1.5,
+    10749: 1.2,
+    878: 0.6,
+    9648: 0.1
+  }
 };
 
 const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
@@ -581,3 +605,4 @@ export const recommendationStore = {
 };
 
 export const useRecommendationStore = () => recommendationStore;
+

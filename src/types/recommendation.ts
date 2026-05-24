@@ -9,7 +9,7 @@ import type {
   UserPreferenceProfile
 } from '@/services/movie_recommendation_algorithm';
 
-export type MoodContext = 'normal' | 'after_exam' | 'before_academy' | 'bed_time' | 'with_friends';
+export type MoodContext = 'normal' | 'after_exam' | 'bed_time' | 'with_friends' | 'after_academy';
 
 export interface CatalogMovie extends Movie {
   genreIds?: number[];

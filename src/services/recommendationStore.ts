@@ -29,16 +29,16 @@ const FALLBACK_USER_ID = 'guest-user';
 type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
 const GENRE_NAME_TO_TMDB_ID: Record<string, number> = {
-  ??: 28,
-  ?????: 16,
-  ??: 12,
-  ???: 35,
-  ???: 18,
-  ??: 27,
-  ????: 9648,
-  ??: 9648,
-  ???: 10749,
-  ???: 53,
+  '액션': 28,
+  '애니메이션': 16,
+  '모험': 12,
+  '코미디': 35,
+  '드라마': 18,
+  '공포': 27,
+  '미스터리': 9648,
+  '추리': 9648,
+  '로맨스': 10749,
+  '스릴러': 53,
   SF: 878
 };
 const CONTEXT_WEIGHTS: Record<MoodContext, Record<number, number>> = {

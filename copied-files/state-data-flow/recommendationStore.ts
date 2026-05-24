@@ -15,7 +15,6 @@ import {
 } from '@/services/recommendationRepository';
 import type {
   CatalogMovie,
-  MoodContext,
   RatingFeedbackPayload,
   RatedCatalogMovieRecord,
   RecommendedCatalogList,
@@ -28,41 +27,10 @@ const FALLBACK_USER_ID = 'guest-user';
 
 type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
-const GENRE_NAME_TO_TMDB_ID: Record<string, number> = {
-  액션: 28,
-  모험: 12,
-  코미디: 35,
-  드라마: 18,
-  공포: 27,
-  미스터리: 9648,
-  추리: 9648,
-  로맨스: 10749,
-  스릴러: 53,
-  SF: 878
-};
-
-const CONTEXT_WEIGHTS: Record<MoodContext, Record<number, number>> = {
-  normal: {},
-  after_exam: { 28: 1.5, 35: 2.0, 878: 1.3 },
-  before_academy: { 35: 1.8, 28: 1.2, 18: 0.2 },
-  bed_time: { 18: 2.0, 9648: 1.5, 28: 0.1 },
-  with_friends: { 35: 2.0, 27: 1.8, 18: 0.3 }
-};
-
 const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
   string,
   CatalogMovie
 >;
-
-const resolveGenreIds = (movie: CatalogMovie) => {
-  if (movie.genreIds?.length) {
-    return movie.genreIds;
-  }
-
-  return movie.genres
-    .map((genre) => GENRE_NAME_TO_TMDB_ID[genre])
-    .filter((genreId): genreId is number => typeof genreId === 'number');
-};
 
 const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) =>
   ratings.reduce((profile, ratingRecord) => {
@@ -228,7 +196,6 @@ const state = reactive<RecommendationStateSnapshot>({
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
-const currentContext = ref<MoodContext>('normal');
 let remoteSaveChain: Promise<void> = Promise.resolve();
 
 const getErrorMessage = (error: unknown, fallback: string) => {
@@ -332,12 +299,11 @@ const freshRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
 
   return scoredMovies.map((movie) => ({
     ...movieMap[movie.id],
-    genreIds: resolveGenreIds(movieMap[movie.id]),
     recommendationScore: movie.recommendationScore
   }));
 });
 
-const rawRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
   if (freshRecommendedMovies.value.length > 0) {
     return freshRecommendedMovies.value;
   }
@@ -349,49 +315,13 @@ const rawRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
 
   return scoredMovies.map((movie) => ({
     ...movieMap[movie.id],
-    genreIds: resolveGenreIds(movieMap[movie.id]),
     recommendationScore: movie.recommendationScore
   }));
 });
 
 const isRecommendationFallbackMode = computed(
-  () => freshRecommendedMovies.value.length === 0 && rawRecommendedMovies.value.length > 0
+  () => freshRecommendedMovies.value.length === 0 && recommendedMovies.value.length > 0
 );
-
-const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
-  const baseMovies = rawRecommendedMovies.value;
-  const context = currentContext.value;
-
-  if (context === 'normal') {
-    return baseMovies;
-  }
-
-  const weights = CONTEXT_WEIGHTS[context];
-
-  return [...baseMovies].sort((left, right) => {
-    const leftGenreIds = left.genreIds?.length ? left.genreIds : resolveGenreIds(left);
-    const rightGenreIds = right.genreIds?.length ? right.genreIds : resolveGenreIds(right);
-
-    const leftMultiplier = leftGenreIds.reduce((maxWeight, genreId) => {
-      const nextWeight = weights[genreId];
-      return nextWeight ? Math.max(maxWeight, nextWeight) : maxWeight;
-    }, 1);
-
-    const rightMultiplier = rightGenreIds.reduce((maxWeight, genreId) => {
-      const nextWeight = weights[genreId];
-      return nextWeight ? Math.max(maxWeight, nextWeight) : maxWeight;
-    }, 1);
-
-    const leftScore = left.recommendationScore * leftMultiplier;
-    const rightScore = right.recommendationScore * rightMultiplier;
-
-    if (rightScore !== leftScore) {
-      return rightScore - leftScore;
-    }
-
-    return right.recommendationScore - left.recommendationScore;
-  });
-});
 
 const recommendedLists = computed<RecommendedCatalogList[]>(() => {
   const scoredLists = recommendLists(catalogLists, catalogMovies, state.profile, 6);
@@ -484,10 +414,6 @@ const dismissRecommendedMovie = (movieId: string) => {
   return persistState();
 };
 
-const setContext = (context: MoodContext) => {
-  currentContext.value = context;
-};
-
 const resetDismissedRecommendations = () => {
   if (state.dismissedRecommendationMovieIds.length === 0) {
     return Promise.resolve();
@@ -556,7 +482,6 @@ export const recommendationStore = {
   state: readonly(state),
   catalogMovies,
   catalogLists,
-  currentContext: readonly(currentContext),
   ratedMovieIds,
   pendingDetailedRatings,
   pendingPrimaryDetailedRatings,
@@ -565,14 +490,12 @@ export const recommendationStore = {
   shouldResumeTasteAnalysis: computed(() => primaryUnratedMovies.value.length > 0),
   ratedMoviesHistory,
   recommendedMovies,
-  rawRecommendedMovies,
   isRecommendationFallbackMode,
   recommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
   getNextRatingMovie,
   getPendingDetailMovie,
-  setContext,
   submitSwipeRating,
   dismissRecommendedMovie,
   resetDismissedRecommendations,

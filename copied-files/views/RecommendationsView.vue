@@ -8,25 +8,12 @@ import RecommendationMovieSheet from '@/components/recommendations/Recommendatio
 import { hasAdditionalTasteAnalysisMovies } from '@/data/rating';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type {
-  MoodContext,
-  RecommendedCatalogList,
-  RecommendedCatalogMovie
-} from '@/types/recommendation';
+import type { RecommendedCatalogList, RecommendedCatalogMovie } from '@/types/recommendation';
 
 const listStore = useListStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
-const selectedContext = computed(() => recommendationStore.currentContext.value);
-
-const contextOptions: Array<{ label: string; value: MoodContext }> = [
-  { label: '기본', value: 'normal' },
-  { label: '시험 끝', value: 'after_exam' },
-  { label: '학원 전', value: 'before_academy' },
-  { label: '자기 전', value: 'bed_time' },
-  { label: '친구와', value: 'with_friends' }
-];
 
 const hasMoreTasteAnalysis = computed(() =>
   hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
@@ -63,10 +50,6 @@ const saveRecommendedList = (list: RecommendedCatalogList) => {
 
 const openListsPage = () => {
   void router.push('/lists');
-};
-
-const setRecommendationContext = (context: MoodContext) => {
-  recommendationStore.setContext(context);
 };
 </script>
 
@@ -105,26 +88,6 @@ const setRecommendationContext = (context: MoodContext) => {
           @click="resetAlreadySeen"
         >
           이미 봄 초기화
-        </button>
-      </div>
-
-      <div
-        v-if="recommendationStore.state.profile.totalRatings > 0"
-        class="mt-4 flex flex-wrap gap-2"
-      >
-        <button
-          v-for="option in contextOptions"
-          :key="option.value"
-          type="button"
-          class="focus-ring inline-flex min-h-9 items-center justify-center border px-3 text-xs font-medium"
-          :class="
-            selectedContext === option.value
-              ? 'border-app-accent bg-app-accent text-white'
-              : 'border-app-line bg-app-panelSoft text-app-muted'
-          "
-          @click="setRecommendationContext(option.value)"
-        >
-          {{ option.label }}
         </button>
       </div>
     </section>

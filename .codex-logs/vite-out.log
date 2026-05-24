@@ -74,3 +74,7 @@
 [2mPM 4:42:33[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m
 [2mPM 4:43:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/RatingMovieCard.vue, /src/assets/styles/main.css[22m
 [2mPM 4:43:32[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/RatingMovieCard.vue[22m
+[2mPM 5:01:21[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/recommendation.ts[22m
+[2mPM 5:01:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 5:01:54[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 5:02:08[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RecommendationsView.vue, /src/assets/styles/main.css[22m

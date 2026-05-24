@@ -19,19 +19,19 @@ const isSaved = (movieId: string) => props.savedMovieIds.includes(movieId);
       <img
         :src="movie.posterUrl"
         :alt="movie.posterAlt"
-        class="h-[6.6rem] w-full rounded-[12px] border border-app-line object-cover"
+        class="h-[6.6rem] w-full border border-app-line object-cover"
         loading="lazy"
       />
-      <p class="mt-2 line-clamp-2 text-[11px] font-medium leading-4 text-white/88">
+      <p class="mt-2 line-clamp-2 text-[11px] font-medium leading-4 text-white">
         {{ movie.title }}
       </p>
       <button
         type="button"
-        class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center rounded-lg border px-2 text-[11px] font-semibold transition"
+        class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"
         :class="
           isSaved(movie.id)
-            ? 'border-app-accent/35 bg-app-accent/10 text-white'
-            : 'border-app-line bg-app-panelSoft text-white/88'
+            ? 'border-app-accent bg-app-accent text-white'
+            : 'border-app-line bg-app-panelSoft text-white'
         "
         @click="$emit('toggle-watch', movie.id)"
       >

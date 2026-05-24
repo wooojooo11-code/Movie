@@ -41,8 +41,8 @@ const posterClassName = computed(() =>
 
 const titleClassName = computed(() =>
   props.size === 'detail'
-    ? 'text-[26px] font-black leading-tight text-white'
-    : 'text-[32px] font-black leading-tight text-white'
+    ? 'text-[26px] font-semibold leading-tight text-white'
+    : 'text-[32px] font-semibold leading-tight text-white'
 );
 
 const onPointerDown = (event: PointerEvent) => {
@@ -132,13 +132,13 @@ const onPointerUp = (event: PointerEvent) => {
 
       <div class="w-full border-t border-app-line pt-4">
         <p class="mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-white">
-          {{ movie.releaseYear }} 쨌 {{ movie.genres.join(' 쨌 ') }}
+          {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
         </p>
         <h1 :class="titleClassName">
           {{ movie.title }}
         </h1>
         <p class="mt-3 text-sm font-medium text-[#dfe6f2]">
-          {{ movie.tags.join(' 쨌 ') }}
+          {{ movie.tags.join(' · ') }}
         </p>
       </div>
     </div>

@@ -18,22 +18,28 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
 </script>
 
 <template>
-  <div class="fixed inset-0 z-40 flex items-end bg-black/72 px-4 pb-4 pt-8" @click.self="$emit('close')">
-    <section class="mx-auto w-full max-w-[21rem] rounded-2xl border border-app-line bg-app-panel px-4 py-4 shadow-panel">
-      <div class="mx-auto mb-3 h-1 w-10 rounded-full bg-white/10" />
-
+  <div
+    class="fixed inset-0 z-40 flex items-end px-4 pb-4 pt-8"
+    style="background-color: rgba(0, 0, 0, 0.72)"
+    @click.self="$emit('close')"
+  >
+    <section
+      class="mx-auto w-full max-w-[21rem] border border-app-line px-4 py-4"
+      style="background-color: rgba(17, 19, 24, 0.96)"
+    >
       <div class="flex items-start justify-between gap-3">
         <div class="min-w-0">
-          <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">List</p>
-          <h3 class="mt-1.5 text-lg font-semibold leading-snug text-white">{{ list.title }}</h3>
+          <p class="text-xs text-app-muted">리스트</p>
+          <h3 class="mt-1 text-lg font-semibold leading-snug text-white">{{ list.title }}</h3>
           <p class="mt-2 text-sm text-app-muted">
-            저장 {{ formatCount(list.saveCount) }} · 평균 평점 {{ formatRating(list.averageRating) }}
+            저장 {{ formatCount(list.saveCount) }} · 평균 {{ formatRating(list.averageRating) }}
           </p>
         </div>
 
         <button
           type="button"
-          class="focus-ring inline-flex min-h-8 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-3 text-xs font-medium text-white/84"
+          class="focus-ring border border-app-line px-3 py-2 text-xs text-white"
+          style="background-color: rgba(21, 23, 28, 0.88)"
           @click="$emit('close')"
         >
           닫기
@@ -45,19 +51,24 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
           <img
             :src="movie.posterUrl"
             :alt="movie.posterAlt"
-            class="aspect-[4/5] w-full rounded-xl object-cover"
+            class="aspect-[4/5] w-full object-cover"
             loading="lazy"
           />
-          <p class="mt-1.5 line-clamp-2 text-xs font-medium leading-4 text-white/92">
+          <p class="mt-1.5 line-clamp-2 text-xs font-medium leading-4 text-white">
             {{ movie.title }}
           </p>
           <button
             type="button"
-            class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center rounded-lg border px-2 text-[11px] font-semibold transition"
+            class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"
             :class="
               isSaved(movie.id)
-                ? 'border-app-accent/35 bg-app-accent/10 text-white'
-                : 'border-app-line bg-app-panelSoft text-white/88'
+                ? 'border-app-accent bg-app-accent text-white'
+                : 'border-app-line text-white'
+            "
+            :style="
+              isSaved(movie.id)
+                ? undefined
+                : 'background-color: rgba(21, 23, 28, 0.88)'
             "
             @click="libraryStore.toggleMovie(movie.id)"
           >

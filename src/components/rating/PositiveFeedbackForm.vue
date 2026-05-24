@@ -98,7 +98,7 @@ const submitForm = () => {
 </script>
 
 <template>
-  <section class="rounded-2xl border border-app-line bg-app-panel p-4">
+  <section class="border border-app-line bg-app-panel p-4">
     <h2 class="text-lg font-semibold text-white">상세 평가</h2>
 
     <div class="mt-4">
@@ -106,7 +106,7 @@ const submitForm = () => {
       <HalfStarRating
         v-model="form.stars"
         size="md"
-        hint="반 별은 0.5점으로 저장돼요."
+        hint="반 별까지 고를 수 있어요."
         aria-label-prefix="영화 평점"
       />
     </div>
@@ -117,9 +117,9 @@ const submitForm = () => {
         <div
           v-for="category in reviewTagCategories"
           :key="category.label"
-          class="border-t border-white/5 pt-4 first:border-t-0 first:pt-0"
+          class="border-t border-app-line pt-4 first:border-t-0 first:pt-0"
         >
-          <p class="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-app-muted">
+          <p class="mb-2 text-xs font-semibold tracking-[0.08em] text-app-muted">
             {{ category.label }}
           </p>
           <div class="flex flex-wrap gap-2">
@@ -127,11 +127,11 @@ const submitForm = () => {
               v-for="tag in category.tags"
               :key="tag"
               type="button"
-              class="focus-ring rounded-full border px-3 py-2 text-sm font-medium transition-colors"
+              class="focus-ring border px-3 py-2 text-sm font-medium transition-colors"
               :class="
                 form.reviewTags.includes(tag)
-                  ? 'border-transparent bg-app-accent text-white'
-                  : 'border-app-line bg-white/5 text-app-muted'
+                  ? 'border-app-accent bg-app-accent text-white'
+                  : 'border-app-line bg-app-panelSoft text-app-muted'
               "
               @click="toggleReviewTag(tag)"
             >
@@ -144,20 +144,20 @@ const submitForm = () => {
       <textarea
         id="review"
         v-model="form.reviewText"
-        class="focus-ring mt-3 min-h-24 w-full resize-none rounded-2xl border border-app-line bg-white/5 px-4 py-3 text-sm text-white placeholder:text-app-muted"
+        class="focus-ring mt-3 min-h-24 w-full resize-none border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-white placeholder:text-app-muted"
         placeholder="짧게 메모를 남겨도 좋아요."
       />
     </div>
 
     <div class="mt-5">
       <label class="mb-2 block text-sm font-medium text-app-muted" for="favorite-character">
-        {{ props.questionText }}
+        {{ props.questionText || '가장 기억에 남는 캐릭터' }}
       </label>
       <div class="relative">
         <select
           id="favorite-character"
           v-model="form.favoriteCharacter"
-          class="focus-ring h-12 w-full appearance-none rounded-2xl border border-app-line bg-white/5 px-4 pr-11 text-sm text-white"
+          class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-white"
         >
           <option class="bg-app-panel text-white" :value="null">선택 안 함</option>
           <option
@@ -190,14 +190,14 @@ const submitForm = () => {
       <button
         v-if="props.showSkipButton"
         type="button"
-        class="focus-ring min-h-11 flex-1 rounded-lg border border-app-line bg-white/5 px-3 text-sm font-medium text-white"
+        class="focus-ring min-h-11 flex-1 border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-white"
         @click="$emit('skip')"
       >
         기억 안 남
       </button>
       <button
         type="button"
-        class="focus-ring min-h-11 rounded-lg bg-app-accent px-3 text-sm font-semibold text-white"
+        class="focus-ring min-h-11 border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
         :class="props.showSkipButton ? 'flex-[1.2]' : 'w-full'"
         @click="submitForm"
       >

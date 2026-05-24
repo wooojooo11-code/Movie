@@ -78,7 +78,7 @@ const setRecommendationContext = (context: MoodContext) => {
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Recommendation</p>
       <h1 class="mt-2 text-[25px] font-semibold leading-tight text-white">당신에게 맞을지도 몰라요</h1>
       <p class="mt-2 text-sm text-app-muted">
-        {{ recommendationStore.state.profile.totalRatings }}개 평가를 바탕으로 고르고 있어요.
+        {{ recommendationStore.state.profile.totalRatings }}개 평가를 바탕으로 골라두고 있어요.
       </p>
 
       <div class="mt-5 flex flex-wrap gap-2.5">
@@ -95,7 +95,7 @@ const setRecommendationContext = (context: MoodContext) => {
           :to="nextAdditionalBatchLink"
           class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white"
         >
-          더 분석하기
+          더 하기
         </RouterLink>
 
         <button
@@ -137,8 +137,8 @@ const setRecommendationContext = (context: MoodContext) => {
             <p class="mt-1 text-sm text-app-muted">
               {{
                 recommendationStore.isRecommendationFallbackMode.value
-                  ? '새 후보가 줄어서 봤던 영화도 다시 섞어두었어요.'
-                  : '포스터를 눌러서 바로 볼 수 있어요.'
+                  ? '새 영화가 줄어들어서, 봤던 영화까지 다시 골라두고 있어요.'
+                  : '포스터를 눌러 바로 살펴볼 수 있어요.'
               }}
             </p>
           </div>
@@ -164,7 +164,7 @@ const setRecommendationContext = (context: MoodContext) => {
           v-else
           class="border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm text-app-muted"
         >
-          지금 보여줄 영화가 없어요. 이미 봤어요를 비우거나 더 분석해보세요.
+          지금 보여줄 영화가 없어요. 이미 봤어요를 비우거나 취향분석을 더 해보세요.
         </div>
       </section>
 

@@ -2,11 +2,11 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
-import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
 import {
   getAdditionalRatingBatchByIndex,
   getFollowingAdditionalBatchIndex,
@@ -191,7 +191,7 @@ const detailRatingLink = computed(() =>
 const secondaryAction = computed<null | { label: string; to: string }>(() => {
   if (!isDetailMode.value && detailRatingLink.value) {
     return {
-      label: '상세 평가하러가기',
+      label: '상세 평가하러 가기',
       to: detailRatingLink.value
     };
   }
@@ -216,6 +216,26 @@ const stageLabel = computed(() => {
   }
 
   return isMoreMode.value ? '추가 취향분석 완료' : '취향분석 완료';
+});
+
+const completionTitle = computed(() => {
+  if (isDetailMode.value) {
+    return '상세 평가까지 마쳤어요.';
+  }
+
+  if (isMoreMode.value) {
+    return '다음 추천이 준비됐어요.';
+  }
+
+  return '추천을 시작할 수 있어요.';
+});
+
+const completionDescription = computed(() => {
+  if (isDetailMode.value) {
+    return '이제 추천으로 넘어가거나, 다음 배치를 더 보면서 취향을 넓혀볼 수 있어요.';
+  }
+
+  return '몇 개만 평가해도 취향이 보이기 시작해요. 원하면 다음 배치를 더 이어볼 수 있어요.';
 });
 
 const showSavedNotice = (movieTitle: string, type: 'detail' | 'primary') => {
@@ -368,7 +388,7 @@ onUnmounted(() => {
   >
     <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
 
-    <section v-if="savedNotice" class="rounded-2xl border border-app-line bg-app-panel px-4 py-3">
+    <section v-if="savedNotice" class="border border-app-line bg-app-panel px-4 py-3">
       <p class="text-sm font-semibold text-white">{{ savedNotice.movieTitle }} 저장됨</p>
       <p class="mt-1 text-sm text-app-muted">
         {{
@@ -385,7 +405,7 @@ onUnmounted(() => {
     >
       <RouterLink
         to="/recommendations"
-        class="focus-ring inline-flex min-h-10 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white/88"
+        class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white"
       >
         지금 추천 보기
       </RouterLink>
@@ -393,19 +413,14 @@ onUnmounted(() => {
 
     <template v-if="currentMovie">
       <template v-if="isDetailMode">
-        <section class="rounded-2xl border border-app-line bg-app-panel px-5 py-4">
-          <p class="text-sm font-semibold text-white">좋다고 한 영화만 다시 볼게요.</p>
+        <section class="border border-app-line bg-app-panel px-5 py-4">
+          <p class="text-sm font-semibold text-white">좋다고 고른 영화만 다시 볼게요.</p>
           <p class="mt-2 text-sm leading-6 text-app-muted">
             별점과 좋았던 포인트를 남기면 추천이 조금 더 또렷해져요.
           </p>
         </section>
 
-        <RatingMovieCard
-          :key="currentMovie.id"
-          :movie="currentMovie"
-          :interactive="false"
-          size="detail"
-        />
+        <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
 
         <div class="flex justify-end">
           <WatchToggleButton :movie-id="currentMovie.id" size="md" />
@@ -431,31 +446,21 @@ onUnmounted(() => {
       </template>
     </template>
 
-    <section v-else class="rounded-2xl border border-app-line bg-app-panel px-5 py-5">
+    <section v-else class="border border-app-line bg-app-panel px-5 py-5">
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">
         {{ isDetailMode ? 'Details' : isMoreMode ? 'More' : 'Done' }}
       </p>
       <h1 class="mt-2 text-2xl font-semibold text-white">
-        {{
-          isDetailMode
-            ? '상세 평가까지 저장했어요.'
-            : isMoreMode
-              ? '추천이 더 또렷해졌어요.'
-              : '추천을 시작할 준비가 됐어요.'
-        }}
+        {{ completionTitle }}
       </h1>
       <p class="mt-3 text-sm leading-6 text-app-muted">
-        {{
-          isDetailMode
-            ? '이제 추천으로 넘어가도 좋고, 더 보고 싶다면 다음 배치도 이어서 볼 수 있어요.'
-            : '몇 개만 더 쌓이면 취향이 더 선명해져요. 상세 평가는 원할 때만 이어서 하면 돼요.'
-        }}
+        {{ completionDescription }}
       </p>
 
       <div class="mt-5 flex flex-wrap gap-3">
         <RouterLink
           to="/recommendations"
-          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg bg-app-accent px-4 text-sm font-semibold text-white"
+          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
         >
           추천 보러 가기
         </RouterLink>
@@ -463,7 +468,7 @@ onUnmounted(() => {
         <RouterLink
           v-if="secondaryAction"
           :to="secondaryAction.to"
-          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white/88"
+          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white"
         >
           {{ secondaryAction.label }}
         </RouterLink>

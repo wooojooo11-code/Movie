@@ -21,8 +21,8 @@ const isSubmitting = ref(false);
 const isSaved = computed(() => libraryStore.savedMovieIds.value.includes(props.movieId));
 const sizeClassName = computed(() =>
   props.size === 'md'
-    ? 'min-h-9 rounded-lg px-3 text-sm font-medium'
-    : 'min-h-8 rounded-lg px-2 text-[11px] font-semibold'
+    ? 'min-h-9 px-3 text-sm font-medium'
+    : 'min-h-8 px-2 text-[11px] font-medium'
 );
 
 const toggle = async () => {
@@ -48,8 +48,8 @@ const toggle = async () => {
       props.fullWidth ? 'w-full' : '',
       sizeClassName,
       isSaved
-        ? 'border-app-accent/35 bg-app-accent/10 text-white'
-        : 'border-app-line bg-app-panelSoft text-white/88'
+        ? 'border-app-accent bg-app-accent text-white'
+        : 'border-app-line bg-app-panelSoft text-white'
     ]"
     :disabled="isSubmitting"
     @click="toggle"

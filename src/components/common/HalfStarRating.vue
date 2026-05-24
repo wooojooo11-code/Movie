@@ -26,12 +26,14 @@ const emit = defineEmits<{
 const starWrapClass = computed(() => (props.size === 'sm' ? 'h-8 w-6' : 'h-10 w-8'));
 const starIconClass = computed(() => (props.size === 'sm' ? 'h-6 w-6' : 'h-8 w-8'));
 const valueClass = computed(() =>
-  props.size === 'sm' ? 'min-w-[2.5rem] text-xs font-bold text-white' : 'min-w-[2.75rem] text-sm font-bold text-white'
+  props.size === 'sm'
+    ? 'min-w-[2.5rem] text-xs font-bold text-white'
+    : 'min-w-[2.75rem] text-sm font-bold text-white'
 );
-const hintClass = computed(() => (props.size === 'sm' ? 'mt-1 text-[11px] text-app-muted' : 'mt-2 text-xs text-app-muted'));
-const displayValue = computed(() =>
-  props.modelValue == null ? '미평가' : props.modelValue.toFixed(1)
+const hintClass = computed(() =>
+  props.size === 'sm' ? 'mt-1 text-[11px] text-app-muted' : 'mt-2 text-xs text-app-muted'
 );
+const displayValue = computed(() => (props.modelValue == null ? '미평가' : props.modelValue.toFixed(1)));
 
 const setStarRating = (rating: number) => {
   emit('update:modelValue', rating);
@@ -78,13 +80,13 @@ const getStarFillWidth = (starIndex: number) => {
 
           <button
             type="button"
-            class="focus-ring absolute inset-y-0 left-0 w-1/2 rounded-l-md"
+            class="focus-ring absolute inset-y-0 left-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star - 0.5}점 주기`"
             @click="setStarRating(star - 0.5)"
           ></button>
           <button
             type="button"
-            class="focus-ring absolute inset-y-0 right-0 w-1/2 rounded-r-md"
+            class="focus-ring absolute inset-y-0 right-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star}점 주기`"
             @click="setStarRating(star)"
           ></button>

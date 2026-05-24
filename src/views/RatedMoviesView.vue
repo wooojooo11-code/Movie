@@ -39,54 +39,51 @@ watch(
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="rounded-2xl border border-app-line bg-app-panel px-5 py-5">
-      <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">History</p>
-      <div class="mt-2 flex items-end justify-between gap-4">
+    <section class="border border-app-line bg-app-panel px-5 py-5">
+      <div class="flex items-end justify-between gap-4">
         <div>
           <h1 class="text-[25px] font-semibold leading-tight text-white">평가기록</h1>
-          <p class="mt-2 text-sm text-app-muted">봤던 영화와 남긴 평가를 다시 꺼내볼 수 있어요.</p>
+          <p class="mt-2 text-sm text-app-muted">봤던 영화와 남긴 평가를 다시 볼 수 있어요.</p>
         </div>
-        <span class="text-sm font-semibold text-white">{{ ratedMoviesHistory.length }}편</span>
+        <span class="text-sm font-medium text-white">{{ ratedMoviesHistory.length }}편</span>
       </div>
     </section>
 
     <section
       v-if="ratedMoviesHistory.length === 0"
-      class="rounded-2xl border border-app-line bg-app-panel px-5 py-5"
+      class="border border-app-line bg-app-panel px-5 py-5"
     >
-      <p class="text-sm font-semibold text-app-accent">아직 평가한 영화가 없어요.</p>
-      <p class="mt-2 text-sm leading-6 text-app-muted">
-        몇 편만 고르면 여기에 기록이 차곡차곡 쌓여요.
-      </p>
+      <p class="text-sm font-medium text-app-accent">아직 평가한 영화가 없어요.</p>
+      <p class="mt-2 text-sm leading-6 text-app-muted">몇 편만 고르면 여기서 다시 꺼내볼 수 있어요.</p>
       <RouterLink
         to="/rating"
-        class="focus-ring mt-5 inline-flex min-h-11 items-center justify-center rounded-lg bg-app-accent px-4 text-sm font-semibold text-white"
+        class="focus-ring mt-5 inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
       >
         취향분석 하러 가기
       </RouterLink>
     </section>
 
     <template v-else>
-      <section class="rounded-2xl border border-app-line bg-app-panel px-4 py-4">
+      <section class="border border-app-line bg-app-panel px-4 py-4">
         <div class="flex items-center justify-between gap-4">
           <div>
             <h2 class="text-base font-semibold text-white">보기 방식</h2>
-            <p class="mt-1 text-sm text-app-muted">원하는 방식으로 바로 바꿔볼 수 있어요.</p>
+            <p class="mt-1 text-sm text-app-muted">원하는 방식으로 바꿔볼 수 있어요.</p>
           </div>
 
-          <div class="inline-flex rounded-lg border border-app-line bg-app-panelSoft p-1">
+          <div class="inline-flex border border-app-line bg-app-panelSoft">
             <button
               type="button"
-              class="focus-ring rounded-md px-3 py-1.5 text-sm font-medium transition"
-              :class="viewMode === 'list' ? 'bg-white text-app-bg' : 'text-app-muted'"
+              class="focus-ring px-3 py-1.5 text-sm"
+              :class="viewMode === 'list' ? 'bg-app-accent text-white' : 'text-app-muted'"
               @click="viewMode = 'list'"
             >
               목록형
             </button>
             <button
               type="button"
-              class="focus-ring rounded-md px-3 py-1.5 text-sm font-medium transition"
-              :class="viewMode === 'grid' ? 'bg-white text-app-bg' : 'text-app-muted'"
+              class="focus-ring px-3 py-1.5 text-sm"
+              :class="viewMode === 'grid' ? 'bg-app-accent text-white' : 'text-app-muted'"
               @click="viewMode = 'grid'"
             >
               그리드형

@@ -22,16 +22,14 @@ const formatDate = (value: string) =>
 </script>
 
 <template>
-  <article class="rounded-[20px] border border-app-line bg-app-panel p-4">
+  <article class="border border-app-line bg-app-panel p-4">
     <div class="flex items-start justify-between gap-3">
       <div>
         <div class="flex flex-wrap items-center gap-2">
-          <h3 class="text-base font-bold leading-snug text-white">{{ list.title }}</h3>
+          <h3 class="text-base font-semibold leading-snug text-white">{{ list.title }}</h3>
           <span
-            class="rounded-full px-2.5 py-1 text-[11px] font-bold"
-            :class="
-              list.isPrivate ? 'bg-white/10 text-white/88' : 'bg-app-accent/15 text-white'
-            "
+            class="border px-2.5 py-1 text-[11px] text-white"
+            :class="list.isPrivate ? 'border-app-line bg-app-panelSoft' : 'border-app-accent bg-app-accent'"
           >
             {{ list.isPrivate ? '비공유' : '공유' }}
           </span>
@@ -41,7 +39,7 @@ const formatDate = (value: string) =>
           <template v-if="list.ratingCount > 0"> · 평점 {{ list.averageRating.toFixed(1) }}</template>
         </p>
       </div>
-      <p class="shrink-0 text-xs font-bold text-app-muted">{{ formatDate(list.updatedAt) }}</p>
+      <p class="shrink-0 text-xs text-app-muted">{{ formatDate(list.updatedAt) }}</p>
     </div>
 
     <ListMovieShelf
@@ -53,14 +51,14 @@ const formatDate = (value: string) =>
     <div class="mt-4 flex gap-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 text-sm font-bold text-white"
+        class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
         @click="$emit('edit', list.id)"
       >
         수정하기
       </button>
       <button
         type="button"
-        class="focus-ring inline-flex min-h-10 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 text-sm font-bold text-app-muted"
+        class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-app-muted"
         @click="$emit('delete', list.id)"
       >
         삭제

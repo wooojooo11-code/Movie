@@ -53,19 +53,18 @@ const handleResetDraft = () => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-6 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-xl"
   >
-    <section class="rounded-[22px] border border-app-line bg-app-panel px-5 py-5">
-      <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Lists</p>
-      <div class="mt-2 flex items-start justify-between gap-4">
+    <section class="border border-app-line bg-app-panel px-5 py-5">
+      <div class="flex items-start justify-between gap-4">
         <div>
-          <h1 class="text-[25px] font-semibold leading-tight text-white">리스트 만들기</h1>
+          <h1 class="text-[25px] font-semibold leading-tight text-white">리스트</h1>
           <p class="mt-2 text-sm text-app-muted">
-            영화를 모으고, 공유하고, 보고 싶은 영화도 같이 담아둘 수 있어요.
+            영화 모음도 만들고, 다른 사람이 저장한 리스트도 볼 수 있어요.
           </p>
         </div>
 
         <button
           type="button"
-          class="focus-ring inline-flex min-h-10 shrink-0 items-center justify-center rounded-lg bg-app-accent px-4 text-sm font-semibold text-white"
+          class="focus-ring inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
           @click="openCreateComposer"
         >
           리스트 만들기
@@ -79,7 +78,7 @@ const handleResetDraft = () => {
           <h2 class="text-lg font-semibold text-white">내 리스트</h2>
           <p class="mt-1 text-sm text-app-muted">비공유 리스트도 여기서 같이 관리해요.</p>
         </div>
-        <span class="text-xs font-bold text-app-muted">{{ listStore.myLists.value.length }}개</span>
+        <span class="text-xs font-medium text-app-muted">{{ listStore.myLists.value.length }}개</span>
       </div>
 
       <div v-if="listStore.myLists.value.length > 0" class="grid gap-3">
@@ -96,7 +95,7 @@ const handleResetDraft = () => {
 
       <div
         v-else
-        class="rounded-[18px] border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
+        class="border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
       >
         아직 만든 리스트가 없어요.
       </div>
@@ -106,9 +105,9 @@ const handleResetDraft = () => {
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">공유 리스트</h2>
-          <p class="mt-1 text-sm text-app-muted">저장하고 평점을 남길 수 있어요.</p>
+          <p class="mt-1 text-sm text-app-muted">저장하고 평점도 남길 수 있어요.</p>
         </div>
-        <span class="text-xs font-bold text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
+        <span class="text-xs font-medium text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
       </div>
 
       <div class="grid gap-3">
@@ -128,22 +127,21 @@ const handleResetDraft = () => {
 
   <div
     v-if="isComposerOpen"
-    class="fixed inset-0 z-40 flex items-end bg-black/70 px-4 pb-4 pt-8 sm:items-center"
+    class="fixed inset-0 z-40 flex items-end bg-black px-4 pb-4 pt-8 sm:items-center"
     @click.self="closeComposer"
   >
     <section
-      class="mx-auto flex max-h-[calc(100vh-2rem)] w-full max-w-xl flex-col overflow-hidden rounded-[24px] border border-app-line bg-[#101319] shadow-panel"
+      class="mx-auto flex max-h-[calc(100vh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
     >
       <div class="flex items-center justify-between border-b border-app-line px-5 py-4">
         <div>
-          <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Composer</p>
-          <h2 class="mt-1 text-lg font-semibold text-white">
+          <h2 class="text-lg font-semibold text-white">
             {{ listStore.state.draft.id ? '리스트 수정' : '새 리스트 만들기' }}
           </h2>
         </div>
         <button
           type="button"
-          class="focus-ring inline-flex min-h-9 items-center justify-center rounded-lg border border-app-line bg-white/5 px-3 text-sm font-medium text-white/88"
+          class="focus-ring inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
           @click="closeComposer"
         >
           닫기

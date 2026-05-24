@@ -16,7 +16,7 @@ const formatRating = (rating: number) => rating.toFixed(1);
 <template>
   <button
     type="button"
-    class="focus-ring w-full rounded-2xl border border-app-line bg-app-panel px-4 py-4 text-left transition hover:bg-app-panelSoft"
+    class="focus-ring w-full border border-app-line bg-app-panel px-4 py-4 text-left"
     @click="$emit('open', list)"
   >
     <div class="mb-3 flex gap-2">
@@ -25,16 +25,16 @@ const formatRating = (rating: number) => rating.toFixed(1);
         :key="movie.id"
         :src="movie.posterUrl"
         :alt="movie.posterAlt"
-        class="h-16 w-11 rounded-lg object-cover"
+        class="h-16 w-11 object-cover"
         loading="lazy"
       />
     </div>
 
-    <h3 class="line-clamp-2 text-base font-semibold leading-snug text-white">
+    <h3 class="line-clamp-2 text-base font-medium leading-snug text-white">
       {{ list.title }}
     </h3>
     <p class="mt-1.5 text-sm text-app-muted">
-      저장 {{ formatCount(list.saveCount) }} · 평균 평점 {{ formatRating(list.averageRating) }}
+      저장 {{ formatCount(list.saveCount) }} · 평균 {{ formatRating(list.averageRating) }}
     </p>
   </button>
 </template>

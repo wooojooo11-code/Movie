@@ -29,9 +29,9 @@ const isSaving = ref(false);
 
 const decisionLabels = {
   like: '재밌음',
-  dislike: '재미없음',
+  dislike: '별로',
   not_seen: '안 봄',
-  not_interested: '관심없음'
+  not_interested: '관심 없음'
 } as const;
 
 const currentQuestion = computed(() =>
@@ -160,38 +160,38 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="rounded-2xl border border-app-line bg-app-panel px-5 py-5">
-      <p class="text-sm font-semibold text-app-accent">평가기록 수정</p>
-      <h1 class="mt-2 text-[28px] font-extrabold leading-tight text-white">
+    <section class="border border-app-line bg-app-panel px-5 py-5">
+      <p class="text-sm font-semibold text-white">평가기록 수정</p>
+      <h1 class="mt-2 text-[28px] font-semibold leading-tight text-white">
         {{ movie?.title ?? '평가를 찾는 중이에요' }}
       </h1>
-      <p class="mt-3 text-sm leading-6 text-[#c8d1df]">
+      <p class="mt-3 text-sm leading-6 text-app-muted">
         {{
           currentDecisionLabel
-            ? `현재 저장된 평가는 ${currentDecisionLabel}이에요. 다시 고르면 바로 바뀌어요.`
+            ? `지금 기록된 평가는 ${currentDecisionLabel}이에요. 다시 고르면 바로 바뀌어요.`
             : '저장된 평가를 불러오고 있어요.'
         }}
       </p>
     </section>
 
-    <section v-if="!movie || !ratingRecord" class="rounded-2xl border border-app-line bg-app-panel p-5">
-      <p class="text-sm font-semibold text-app-accent">수정할 평가를 찾지 못했어요.</p>
+    <section v-if="!movie || !ratingRecord" class="border border-app-line bg-app-panel p-5">
+      <p class="text-sm font-semibold text-white">수정할 평가를 찾지 못했어요.</p>
       <p class="mt-2 text-sm leading-6 text-app-muted">
         이미 지워졌거나, 아직 기록으로 저장되지 않은 영화일 수 있어요.
       </p>
       <RouterLink
         to="/history"
-        class="focus-ring mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
+        class="focus-ring mt-5 inline-flex min-h-12 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-white"
       >
         평가기록으로 돌아가기
       </RouterLink>
     </section>
 
     <template v-else>
-      <section class="rounded-2xl border border-app-line bg-app-panel p-4">
-        <p class="text-sm font-semibold text-app-accent">평가를 다시 골라보세요.</p>
-        <p class="mt-2 text-sm leading-6 text-[#c8d1df]">
-          스와이프나 버튼으로 상태를 바꾸고, 재밌음이면 아래 상세 평가도 함께 수정할 수 있어요.
+      <section class="border border-app-line bg-app-panel p-4">
+        <p class="text-sm font-semibold text-white">평가를 다시 고를 수 있어요.</p>
+        <p class="mt-2 text-sm leading-6 text-app-muted">
+          1차 평가는 바로 바뀌고, 재밌음을 고르면 아래에서 상세 평가를 함께 수정할 수 있어요.
         </p>
       </section>
 
@@ -215,14 +215,14 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       <div class="flex gap-3">
         <button
           type="button"
-          class="focus-ring min-h-12 flex-1 rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
+          class="focus-ring min-h-12 flex-1 border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-white"
           @click="goBackToHistory"
         >
           취소
         </button>
         <RouterLink
           to="/history"
-          class="focus-ring inline-flex min-h-12 flex-1 items-center justify-center rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
+          class="focus-ring inline-flex min-h-12 flex-1 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-white"
         >
           기록으로 돌아가기
         </RouterLink>

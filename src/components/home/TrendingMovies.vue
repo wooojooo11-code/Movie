@@ -80,16 +80,12 @@ const closeMovie = () => {
 <template>
   <section id="trending-movies" aria-labelledby="trending-movies-title">
     <div class="mb-3 flex items-end justify-between gap-4">
-      <div>
-        <h2 id="trending-movies-title" class="text-lg font-semibold text-white">
-          인기 영화
-        </h2>
-      </div>
+      <h2 id="trending-movies-title" class="text-lg font-semibold text-white">인기 영화</h2>
 
       <div class="flex shrink-0 gap-2">
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center rounded-full border border-app-line bg-app-panel text-sm text-white/70"
+          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-white"
           aria-label="이전 영화 보기"
           @click="scrollByCard(-1)"
         >
@@ -97,7 +93,7 @@ const closeMovie = () => {
         </button>
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center rounded-full border border-app-line bg-app-panel text-sm text-white/70"
+          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-white"
           aria-label="다음 영화 보기"
           @click="scrollByCard(1)"
         >
@@ -108,7 +104,7 @@ const closeMovie = () => {
 
     <div
       ref="scroller"
-      class="scrollbar-hide -mx-4 flex touch-pan-x snap-x snap-mandatory gap-3.5 overflow-x-auto scroll-smooth px-4 pb-1 select-none"
+      class="scrollbar-hide -mx-4 flex touch-pan-x snap-x snap-mandatory gap-3.5 overflow-x-auto px-4 pb-1 select-none"
       :class="dragCursorClass"
       @pointerdown="onPointerDown"
       @pointermove="onPointerMove"

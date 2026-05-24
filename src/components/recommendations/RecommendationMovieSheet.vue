@@ -17,15 +17,20 @@ const visibleTags = computed(() => props.movie.tags.slice(0, 3));
 </script>
 
 <template>
-  <div class="fixed inset-0 z-40 flex items-end bg-black/72 px-4 pb-4 pt-8" @click.self="$emit('close')">
-    <section class="mx-auto w-full max-w-[18.75rem] rounded-2xl border border-app-line bg-app-panel px-4 py-4 shadow-panel">
-      <div class="mx-auto mb-2 h-1 w-8 rounded-full bg-white/10" />
-
-      <div class="flex items-start gap-2.5">
+  <div
+    class="fixed inset-0 z-40 flex items-end px-4 pb-4 pt-8"
+    style="background-color: rgba(0, 0, 0, 0.72)"
+    @click.self="$emit('close')"
+  >
+    <section
+      class="mx-auto w-full max-w-[19.3rem] border border-app-line px-4 py-4"
+      style="background-color: rgba(17, 19, 24, 0.96)"
+    >
+      <div class="flex items-start gap-3">
         <img
           :src="movie.posterUrl"
           :alt="movie.posterAlt"
-          class="h-[5.4rem] w-[3.55rem] shrink-0 rounded-[10px] object-cover"
+          class="h-20 w-[3.35rem] shrink-0 object-cover"
           loading="lazy"
         />
 
@@ -41,27 +46,30 @@ const visibleTags = computed(() => props.movie.tags.slice(0, 3));
             <span
               v-for="tag in visibleTags"
               :key="tag"
-              class="rounded-full bg-app-panelSoft px-1.5 py-1 text-[10px] font-medium text-white/78"
+              class="border border-app-line px-1.5 py-1 text-[10px] text-white"
+              style="background-color: rgba(21, 23, 28, 0.88)"
             >
               {{ tag }}
             </span>
           </div>
 
           <div class="mt-3 flex items-center gap-1.5">
-            <button
-              type="button"
-              class="focus-ring inline-flex min-h-8 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-3 text-[10px] font-medium text-white/88"
-              @click="$emit('close')"
-            >
-              닫기
-            </button>
             <WatchToggleButton :movie-id="movie.id" size="sm" />
             <button
               type="button"
-              class="focus-ring inline-flex min-h-8 items-center justify-center rounded-lg bg-app-accent px-3 text-[10px] font-semibold text-white"
+              class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-line px-3 text-[10px] text-white"
+              style="background-color: rgba(21, 23, 28, 0.88)"
               @click="$emit('already-seen', movie.id)"
             >
-              이미 봄
+              이미 봤어요
+            </button>
+            <button
+              type="button"
+              class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-line px-3 text-[10px] text-white"
+              style="background-color: rgba(21, 23, 28, 0.88)"
+              @click="$emit('close')"
+            >
+              닫기
             </button>
           </div>
         </div>

@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
+import ListMovieShelf from '@/components/lists/ListMovieShelf.vue';
 import type { ResolvedSharedListCard } from '@/types/lists';
 
 const props = defineProps<{
   list: ResolvedSharedListCard;
+  savedMovieIds: readonly string[];
   showSaveButton?: boolean;
 }>();
 
 const emit = defineEmits<{
   'toggle-save': [listId: string];
+  'toggle-watch': [movieId: string];
   rate: [payload: { listId: string; rating: number | null }];
 }>();
 
@@ -44,31 +47,16 @@ const clearRating = () => {
           {{ list.displayAverageRating.toFixed(1) }}
         </p>
       </div>
-      <span class="rounded-full bg-app-accent/15 px-2.5 py-1 text-xs font-bold text-[#ffdbe6]">
+      <span class="rounded-full bg-app-accent/15 px-2.5 py-1 text-xs font-bold text-white">
         공유
       </span>
     </div>
 
-    <div class="mt-4 flex gap-1.5 overflow-x-auto scrollbar-hide">
-      <img
-        v-for="movie in list.moviePreviews"
-        :key="movie.id"
-        :src="movie.posterUrl"
-        :alt="movie.posterAlt"
-        class="h-16 w-11 shrink-0 rounded-[10px] object-cover"
-        loading="lazy"
-      />
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      <span
-        v-for="movie in list.moviePreviews"
-        :key="`${list.id}-${movie.id}`"
-        class="rounded-full bg-white/5 px-2.5 py-1 text-xs font-bold text-[#dfe6f2]"
-      >
-        {{ movie.title }}
-      </span>
-    </div>
+    <ListMovieShelf
+      :movies="list.moviePreviews"
+      :saved-movie-ids="savedMovieIds"
+      @toggle-watch="$emit('toggle-watch', $event)"
+    />
 
     <div class="mt-4 flex gap-2">
       <button

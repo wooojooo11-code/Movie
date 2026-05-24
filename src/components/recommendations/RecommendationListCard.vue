@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useLibraryStore } from '@/services/libraryStore';
 import type { RecommendedCatalogList } from '@/types/recommendation';
 
 defineProps<{
@@ -11,45 +12,66 @@ defineEmits<{
   save: [list: RecommendedCatalogList];
 }>();
 
+const libraryStore = useLibraryStore();
+
 const formatCount = (count: number) => count.toLocaleString('ko-KR');
+const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.includes(movieId);
 </script>
 
 <template>
-  <article class="rounded-[20px] border border-app-line bg-app-panel px-4 pb-[18px] pt-4">
+  <article class="rounded-2xl border border-app-line bg-app-panel px-4 py-4">
     <div class="flex items-start justify-between gap-3">
-      <h3 class="line-clamp-2 text-base font-bold leading-snug text-white">
+      <h3 class="line-clamp-2 text-base font-semibold leading-snug text-white">
         {{ list.title }}
       </h3>
+      <span class="shrink-0 text-xs text-app-muted">{{ list.averageRating.toFixed(1) }}</span>
     </div>
-    <p class="mt-2 text-sm font-medium text-app-muted">
-      저장 {{ formatCount(list.saveCount) }} · 평균 평점 {{ list.averageRating.toFixed(1) }}
-    </p>
-    <div class="mt-3 flex flex-wrap gap-2">
-      <span
-        v-for="title in list.moviePreviewTitles"
-        :key="title"
-        class="rounded-full bg-white/5 px-2.5 py-1 text-xs font-bold text-[#dfe6f2]"
-      >
-        {{ title }}
-      </span>
+
+    <p class="mt-1.5 text-sm text-app-muted">저장 {{ formatCount(list.saveCount) }}</p>
+
+    <div class="mt-3 grid grid-cols-3 gap-2.5">
+      <article v-for="movie in list.moviePreviews" :key="movie.id" class="min-w-0">
+        <img
+          :src="movie.posterUrl"
+          :alt="movie.posterAlt"
+          class="h-16 w-11 rounded-lg object-cover"
+          loading="lazy"
+        />
+        <p class="mt-1.5 line-clamp-2 text-[11px] font-medium leading-4 text-white/88">
+          {{ movie.title }}
+        </p>
+        <button
+          type="button"
+          class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center rounded-lg border px-2 text-[11px] font-semibold transition"
+          :class="
+            isSavedMovie(movie.id)
+              ? 'border-app-accent/35 bg-app-accent/10 text-white'
+              : 'border-app-line bg-app-panelSoft text-white/88'
+          "
+          @click="libraryStore.toggleMovie(movie.id)"
+        >
+          {{ isSavedMovie(movie.id) ? '보관 중' : '보고싶어요' }}
+        </button>
+      </article>
     </div>
+
     <div class="mt-4 flex gap-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded-[14px] border px-4 text-sm font-bold"
+        class="focus-ring inline-flex min-h-9 flex-1 items-center justify-center rounded-lg border px-3 text-sm font-medium"
         :class="
           isSaved
-            ? 'border-app-accent/40 bg-app-accent/10 text-white'
-            : 'border-app-line bg-white/5 text-white'
+            ? 'border-app-line bg-app-panelSoft text-white/60'
+            : 'border-app-line bg-app-panelSoft text-white/88'
         "
         :disabled="isSaved"
         @click="$emit('save', list)"
       >
-        {{ isSaved ? '내 리스트에 저장됨' : '내 리스트에 저장' }}
+        {{ isSaved ? '저장됨' : '내 리스트에 저장' }}
       </button>
       <button
         type="button"
-        class="focus-ring inline-flex min-h-10 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 text-sm font-bold text-app-muted"
+        class="focus-ring inline-flex min-h-9 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-white/78"
         @click="$emit('openLists')"
       >
         리스트 보기

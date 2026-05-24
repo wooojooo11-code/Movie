@@ -558,7 +558,7 @@ export const catalogMovies: CatalogMovie[] = [
       "유머"
     ],
     "characters": [
-      "Oh Dae-Su",
+      "Oh Dae-su",
       "Lee Woo-jin",
       "Mi-do"
     ],
@@ -1679,26 +1679,21 @@ export const catalogMovies: CatalogMovie[] = [
   },
   {
     "id": "movie_79",
-    "title": "와호장룡",
+    "title": "The Making of 'Crouching Tiger, Hidden Dragon'",
     "genres": [
-      "모험",
-      "드라마",
-      "액션"
+      "다큐멘터리"
     ],
     "tags": [
-      "액션",
-      "탄탄한 스토리",
-      "배우들의 연기력",
-      "감동"
+      "다큐멘터리"
     ],
     "characters": [
-      "Li Mu Bai",
-      "Yu Shu Lien",
-      "Jen"
+      "Narrator",
+      "Self",
+      "Self"
     ],
     "releaseYear": 2000,
-    "posterUrl": "https://image.tmdb.org/t/p/w780/iCgq5JMo9BqqK8rDKOCJxE86ub9.jpg",
-    "posterAlt": "와호장룡 포스터"
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ocA3dH9gUDLUtCRg4HuAFCeAS3a.jpg",
+    "posterAlt": "The Making of 'Crouching Tiger, Hidden Dragon' 포스터"
   },
   {
     "id": "movie_80",
@@ -1818,14 +1813,14 @@ export const catalogMovies: CatalogMovie[] = [
     "title": "차이나타운",
     "genres": [
       "범죄",
-      "드라마",
-      "미스터리"
+      "미스터리",
+      "스릴러"
     ],
     "tags": [
       "긴장감",
       "탄탄한 스토리",
-      "배우들의 연기력",
-      "감동"
+      "반전",
+      "몰입감"
     ],
     "characters": [
       "J.J. 'Jake' Gittes",
@@ -2228,7 +2223,7 @@ export const catalogMovies: CatalogMovie[] = [
       "Older Allie"
     ],
     "releaseYear": 2004,
-    "posterUrl": "https://image.tmdb.org/t/p/w780/ntdgcdsmMuHd9s4oEKTvWDiUyU7.jpg",
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eFrBmd9XKOl8ZNGAcp5R6AVl9YF.jpg",
     "posterAlt": "노트북 포스터"
   },
   {
@@ -2625,9 +2620,9 @@ export const catalogMovies: CatalogMovie[] = [
     ],
     "tags": [
       "탄탄한 스토리",
-      "감동적인 음악",
-      "OST",
-      "배우들의 연기력"
+      "배우들의 연기력",
+      "감동",
+      "유머"
     ],
     "characters": [
       "Miranda Priestly",
@@ -2729,10 +2724,10 @@ export const catalogMovies: CatalogMovie[] = [
       "판타지"
     ],
     "tags": [
-      "감동",
       "연출",
       "세계관",
-      "유머"
+      "유머",
+      "캐릭터 매력"
     ],
     "characters": [
       "Barbie",
@@ -2764,6 +2759,117 @@ export const catalogMovies: CatalogMovie[] = [
     "releaseYear": 1998,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hSJ6swahAuZ8wM96lHDTwQPXUvZ.jpg",
     "posterAlt": "맥스군 사랑에 빠지다 포스터"
+  },
+  {
+    "id": "movie_129",
+    "title": "마션",
+    "genres": [
+      "SF",
+      "드라마",
+      "모험"
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "몰입감",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Mark Watney",
+      "Melissa Lewis",
+      "Annie Montrose"
+    ],
+    "releaseYear": 2015,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/uH8q40cjMAjrRHyPJMbQwAIJATb.jpg",
+    "posterAlt": "마션 포스터"
+  },
+  {
+    "id": "movie_130",
+    "title": "마이너리티 리포트",
+    "genres": [
+      "SF",
+      "액션",
+      "스릴러"
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Chief John Anderton",
+      "Agatha",
+      "Danny Witwer"
+    ],
+    "releaseYear": 2002,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/oaVX63mgvSN4MRN98sg5molfKBd.jpg",
+    "posterAlt": "마이너리티 리포트 포스터"
+  },
+  {
+    "id": "movie_131",
+    "title": "아바타",
+    "genres": [
+      "SF",
+      "액션",
+      "모험"
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Jake Sully",
+      "Neytiri",
+      "Dr. Grace Augustine"
+    ],
+    "releaseYear": 2009,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/m5lCha2XcbDowDoYHPc0DTNaCPU.jpg",
+    "posterAlt": "아바타 포스터"
+  },
+  {
+    "id": "movie_132",
+    "title": "더 록",
+    "genres": [
+      "액션",
+      "모험",
+      "스릴러"
+    ],
+    "tags": [
+      "액션",
+      "감동적인 음악",
+      "OST",
+      "몰입감"
+    ],
+    "characters": [
+      "John Patrick Mason",
+      "Dr. Stanley Goodspeed",
+      "Brigadier General Francis X. Hummel, USMC"
+    ],
+    "releaseYear": 1996,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/o9dnRLsS0EHqnTjGtndWfrQzeMh.jpg",
+    "posterAlt": "더 록 포스터"
+  },
+  {
+    "id": "movie_133",
+    "title": "스피드",
+    "genres": [
+      "액션",
+      "스릴러"
+    ],
+    "tags": [
+      "긴장감",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Jack Traven",
+      "Howard Payne",
+      "Annie"
+    ],
+    "releaseYear": 1994,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iZsKy0Q4z4bEMgQhXgnWaooJniN.jpg",
+    "posterAlt": "스피드 포스터"
   }
 ];
 

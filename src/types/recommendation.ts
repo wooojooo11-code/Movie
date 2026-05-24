@@ -3,9 +3,9 @@ import type {
   MovieList,
   RatingInput,
   ReviewTag,
-  SwipeStatus,
   ScoredMovie,
   ScoredMovieList,
+  SwipeStatus,
   UserPreferenceProfile
 } from '@/services/movie_recommendation_algorithm';
 
@@ -48,8 +48,16 @@ export interface RatedCatalogMovieRecord {
   ratingRecord: StoredRatingRecord;
 }
 
+export interface RecommendedMoviePreview {
+  id: string;
+  title: string;
+  posterAlt: string;
+  posterUrl: string;
+}
+
 export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {}
 
 export interface RecommendedCatalogList extends CatalogMovieList, ScoredMovieList {
+  moviePreviews: RecommendedMoviePreview[];
   moviePreviewTitles: string[];
 }

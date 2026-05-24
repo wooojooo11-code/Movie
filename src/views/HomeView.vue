@@ -8,7 +8,7 @@ import { popularLists, trendingMovies } from '@/data/home';
 <template>
   <main
     id="top"
-    class="mx-auto flex w-full max-w-md flex-col gap-9 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] sm:max-w-xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-8 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
     <HeroCTA />
     <TrendingMovies :movies="trendingMovies" />

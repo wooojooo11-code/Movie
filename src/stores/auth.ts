@@ -8,6 +8,7 @@ import {
   supabaseAuthStorageKey,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
+import { useLibraryStore } from '@/services/libraryStore';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
@@ -156,6 +157,7 @@ export const useAuthStore = defineStore('auth', {
       this.isInitialized = true;
     },
     async applySession(session: null | Session) {
+      const libraryStore = useLibraryStore();
       const recommendationStore = useRecommendationStore();
       const listStore = useListStore();
       const nickname = session?.user?.user_metadata.nickname as string | undefined;
@@ -168,6 +170,7 @@ export const useAuthStore = defineStore('auth', {
 
       await recommendationStore.setActiveUser(session?.user?.id ?? 'guest-user');
       await listStore.setActiveUser(session?.user?.id ?? 'guest-user', ownerName);
+      await libraryStore.setActiveUser(session?.user?.id ?? 'guest-user');
 
       if (!session?.user || !supabase) {
         this.ratingCount = null;
@@ -204,11 +207,7 @@ export const useAuthStore = defineStore('auth', {
       await this.applySession(session);
     },
     async syncSession(options?: { force?: boolean }) {
-      if (!supabase) {
-        return;
-      }
-
-      if (isSigningOut) {
+      if (!supabase || isSigningOut) {
         return;
       }
 
@@ -383,7 +382,7 @@ export const useAuthStore = defineStore('auth', {
           this.errorMessage = extractAuthMessage(error, '');
         }
       } catch {
-        // Some browsers leave the client in a stale state after returning from another site.
+        // Some browsers can leave the client in a stale state after returning from another site.
         // We still clear the local auth state so the user is not stuck.
       } finally {
         clearStoredSupabaseSession();

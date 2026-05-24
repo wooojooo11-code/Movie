@@ -19,15 +19,14 @@ defineEmits<{
 <template>
   <button
     type="button"
-    class="focus-ring group block w-full overflow-hidden border border-app-line bg-app-panel text-left"
-    :class="size === 'compact' ? 'rounded-[14px]' : 'rounded-[18px]'"
+    class="focus-ring poster-hover-card group block w-full overflow-hidden rounded-xl border border-app-line bg-app-panel text-left"
     :aria-label="`${movie.title} 정보 보기`"
     @click="$emit('open', movie)"
   >
     <img
       :src="movie.posterUrl"
       :alt="movie.posterAlt"
-      class="aspect-[4/5] w-full object-cover transition duration-200 group-active:scale-[0.98]"
+      class="poster-hover-image aspect-[4/5] w-full object-cover transition duration-200 group-active:scale-[0.985]"
       loading="lazy"
     />
   </button>

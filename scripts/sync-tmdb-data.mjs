@@ -140,7 +140,8 @@ const movieSeeds = [
   { id: 'movie_129', query: 'The Martian', year: 2015 },
   { id: 'movie_130', query: 'Minority Report', year: 2002 },
   { id: 'movie_131', query: 'Avatar', year: 2009 },
-  { id: 'movie_132', query: 'The Rock', year: 1996 }
+  { id: 'movie_132', query: 'The Rock', year: 1996 },
+  { id: 'movie_133', query: 'Speed', year: 1994 }
 ];
 
 const catalogLists = [

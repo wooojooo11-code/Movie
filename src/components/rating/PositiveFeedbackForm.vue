@@ -9,7 +9,7 @@ const props = withDefaults(
   defineProps<{
     characters: CharacterChoice[];
     questionText: string;
-    initialValue?: Partial<PositiveRatingInput> | null;
+    initialValue?: null | Partial<PositiveRatingInput>;
     showSkipButton?: boolean;
     submitLabel?: string;
   }>(),
@@ -56,7 +56,7 @@ const form = reactive<PositiveRatingInput>({
   questionText: ''
 });
 
-const applyInitialValue = (value?: Partial<PositiveRatingInput> | null) => {
+const applyInitialValue = (value?: null | Partial<PositiveRatingInput>) => {
   form.stars = value?.stars ?? 4.5;
   form.reviewTags = [...(value?.reviewTags ?? [])];
   form.favoriteCharacter = value?.favoriteCharacter ?? null;
@@ -98,28 +98,28 @@ const submitForm = () => {
 </script>
 
 <template>
-  <section class="rounded-[24px] border border-app-line bg-app-panel p-4">
-    <h2 class="text-lg font-extrabold text-white">좋았던 포인트</h2>
+  <section class="rounded-2xl border border-app-line bg-app-panel p-4">
+    <h2 class="text-lg font-semibold text-white">상세 평가</h2>
 
     <div class="mt-4">
-      <label class="mb-2 block text-sm font-bold text-app-muted">별점</label>
+      <label class="mb-2 block text-sm font-medium text-app-muted">별점</label>
       <HalfStarRating
         v-model="form.stars"
         size="md"
-        hint="별 반쪽은 0.5점, 별 하나는 1점으로 반영돼요."
+        hint="반 별은 0.5점으로 저장돼요."
         aria-label-prefix="영화 평점"
       />
     </div>
 
-    <div class="mt-4">
-      <p class="mb-2 block text-sm font-bold text-app-muted">좋았던 포인트</p>
+    <div class="mt-5">
+      <p class="mb-3 text-sm font-medium text-app-muted">좋았던 포인트</p>
       <div class="grid gap-4">
         <div
           v-for="category in reviewTagCategories"
           :key="category.label"
           class="border-t border-white/5 pt-4 first:border-t-0 first:pt-0"
         >
-          <p class="mb-2 text-xs font-bold uppercase tracking-[0.08em] text-app-muted">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-app-muted">
             {{ category.label }}
           </p>
           <div class="flex flex-wrap gap-2">
@@ -127,7 +127,7 @@ const submitForm = () => {
               v-for="tag in category.tags"
               :key="tag"
               type="button"
-              class="focus-ring rounded-full border px-3 py-2 text-sm font-bold"
+              class="focus-ring rounded-full border px-3 py-2 text-sm font-medium transition-colors"
               :class="
                 form.reviewTags.includes(tag)
                   ? 'border-transparent bg-app-accent text-white'
@@ -144,20 +144,20 @@ const submitForm = () => {
       <textarea
         id="review"
         v-model="form.reviewText"
-        class="focus-ring mt-3 min-h-24 w-full resize-none rounded-[16px] border border-app-line bg-white/5 px-4 py-3 text-sm text-white placeholder:text-app-muted"
-        placeholder="짧게 메모 남기기"
+        class="focus-ring mt-3 min-h-24 w-full resize-none rounded-2xl border border-app-line bg-white/5 px-4 py-3 text-sm text-white placeholder:text-app-muted"
+        placeholder="짧게 메모를 남겨도 좋아요."
       />
     </div>
 
-    <div class="mt-4">
-      <label class="mb-2 block text-sm font-bold text-app-muted" for="favorite-character">
+    <div class="mt-5">
+      <label class="mb-2 block text-sm font-medium text-app-muted" for="favorite-character">
         {{ props.questionText }}
       </label>
       <div class="relative">
         <select
           id="favorite-character"
           v-model="form.favoriteCharacter"
-          class="focus-ring h-12 w-full appearance-none rounded-[16px] border border-app-line bg-white/5 px-4 pr-11 text-sm text-white"
+          class="focus-ring h-12 w-full appearance-none rounded-2xl border border-app-line bg-white/5 px-4 pr-11 text-sm text-white"
         >
           <option class="bg-app-panel text-white" :value="null">선택 안 함</option>
           <option
@@ -186,18 +186,18 @@ const submitForm = () => {
       </div>
     </div>
 
-    <div class="mt-4 flex gap-2">
+    <div class="mt-5 flex gap-2">
       <button
         v-if="props.showSkipButton"
         type="button"
-        class="focus-ring min-h-12 flex-1 rounded-[16px] border border-app-line bg-white/5 px-3 text-sm font-extrabold text-white"
+        class="focus-ring min-h-11 flex-1 rounded-lg border border-app-line bg-white/5 px-3 text-sm font-medium text-white"
         @click="$emit('skip')"
       >
         기억 안 남
       </button>
       <button
         type="button"
-        class="app-gradient focus-ring min-h-12 rounded-[16px] px-3 text-sm font-extrabold text-white"
+        class="focus-ring min-h-11 rounded-lg bg-app-accent px-3 text-sm font-semibold text-white"
         :class="props.showSkipButton ? 'flex-[1.2]' : 'w-full'"
         @click="submitForm"
       >

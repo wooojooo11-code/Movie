@@ -31,7 +31,8 @@ const createEmptyDraft = (): DraftUserList => ({
 const searchableMovies = catalogMovies.map((movie) => ({
   ...movie,
   director: movieCreditsById[movie.id]?.director ?? '감독 미상',
-  cast: movieCreditsById[movie.id]?.cast ?? []
+  cast: movieCreditsById[movie.id]?.cast ?? [],
+  characters: movieCreditsById[movie.id]?.characters ?? movie.characters
 })) as SearchableCatalogMovie[];
 
 const movieMap = Object.fromEntries(searchableMovies.map((movie) => [movie.id, movie])) as Record<
@@ -195,7 +196,7 @@ const myLists = computed<ResolvedUserListCard[]>(() =>
     .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
     .map((list) => ({
       ...list,
-      moviePreviews: resolveMoviePreviews(list.movieIds).slice(0, 4)
+      moviePreviews: resolveMoviePreviews(list.movieIds)
     }))
 );
 
@@ -209,7 +210,7 @@ const sharedLists = computed<ResolvedSharedListCard[]>(() =>
 
     return {
       ...list,
-      moviePreviews: resolveMoviePreviews(list.movieIds).slice(0, 3),
+      moviePreviews: resolveMoviePreviews(list.movieIds),
       displaySaveCount: list.saveCount + (viewerSaved ? 1 : 0),
       displayAverageRating: ratingCount > 0 ? ratingTotal / ratingCount : 0,
       viewerSaved,
@@ -415,7 +416,7 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
   } catch (error) {
     remoteSyncStatus.value = 'error';
     remoteSyncErrorMessage.value =
-      'Supabase에서 리스트 기록을 불러오지 못했어요. 로컬에 남은 기록으로 계속 보여드릴게요.';
+      'Supabase에서 리스트 기록을 불러오지 못했어요. 로컬에 저장된 기록으로 이어서 보여드릴게요.';
     console.error('[listStore] Failed to load lists from Supabase.', error);
   }
 

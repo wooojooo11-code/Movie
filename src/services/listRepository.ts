@@ -20,9 +20,9 @@ const isClient = () => typeof window !== 'undefined';
 const getStorageKey = (userId: string) => `${STORAGE_PREFIX}:${userId}`;
 
 export interface ListRepository {
+  clear(userId: string): void;
   load(userId: string): ListsStateSnapshot | null;
   save(snapshot: ListsStateSnapshot): void;
-  clear(userId: string): void;
 }
 
 interface SupabaseUserListRow {
@@ -314,9 +314,7 @@ export const remoteListRepository = {
       return;
     }
 
-    const { error: deleteListsError } = await userListsRelation
-      .delete()
-      .eq(supabaseUserListsUserColumn, userId);
+    const { error: deleteListsError } = await userListsRelation.delete().eq(supabaseUserListsUserColumn, userId);
 
     if (deleteListsError) {
       throw deleteListsError;

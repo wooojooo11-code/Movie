@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
@@ -159,10 +160,8 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section
-      class="rounded-[24px] border border-app-line bg-[radial-gradient(circle_at_top_right,rgba(125,123,255,0.35),transparent_30%),radial-gradient(circle_at_left_bottom,rgba(255,93,143,0.24),transparent_28%),linear-gradient(180deg,#161a24,#10131b)] p-[22px]"
-    >
-      <p class="text-sm font-bold text-app-accent">평가기록 수정</p>
+    <section class="rounded-2xl border border-app-line bg-app-panel px-5 py-5">
+      <p class="text-sm font-semibold text-app-accent">평가기록 수정</p>
       <h1 class="mt-2 text-[28px] font-extrabold leading-tight text-white">
         {{ movie?.title ?? '평가를 찾는 중이에요' }}
       </h1>
@@ -175,31 +174,31 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       </p>
     </section>
 
-    <section
-      v-if="!movie || !ratingRecord"
-      class="rounded-[24px] border border-app-line bg-app-panel p-5"
-    >
-      <p class="text-sm font-bold text-app-accent">수정할 평가를 찾지 못했어요.</p>
+    <section v-if="!movie || !ratingRecord" class="rounded-2xl border border-app-line bg-app-panel p-5">
+      <p class="text-sm font-semibold text-app-accent">수정할 평가를 찾지 못했어요.</p>
       <p class="mt-2 text-sm leading-6 text-app-muted">
         이미 지워졌거나, 아직 기록으로 저장되지 않은 영화일 수 있어요.
       </p>
       <RouterLink
         to="/history"
-        class="focus-ring mt-5 inline-flex min-h-12 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
+        class="focus-ring mt-5 inline-flex min-h-12 items-center justify-center rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
       >
         평가기록으로 돌아가기
       </RouterLink>
     </section>
 
     <template v-else>
-      <section class="rounded-[20px] border border-app-line bg-app-panel p-4">
-        <p class="text-sm font-bold text-app-accent">평가를 다시 골라보세요</p>
+      <section class="rounded-2xl border border-app-line bg-app-panel p-4">
+        <p class="text-sm font-semibold text-app-accent">평가를 다시 골라보세요.</p>
         <p class="mt-2 text-sm leading-6 text-[#c8d1df]">
-          제스처나 버튼으로 상태를 바꾸고, 재밌음이면 아래 상세 내용도 같이 수정할 수 있어요.
+          스와이프나 버튼으로 상태를 바꾸고, 재밌음이면 아래 상세 평가도 함께 수정할 수 있어요.
         </p>
       </section>
 
-      <RatingMovieCard :movie="movie" @decide="saveDecision" />
+      <RatingMovieCard :movie="movie" size="detail" @decide="saveDecision" />
+      <div class="flex justify-end">
+        <WatchToggleButton :movie-id="movie.id" size="md" />
+      </div>
       <RatingActions @decide="saveDecision" />
 
       <PositiveFeedbackForm
@@ -216,14 +215,14 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       <div class="flex gap-3">
         <button
           type="button"
-          class="focus-ring min-h-12 flex-1 rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
+          class="focus-ring min-h-12 flex-1 rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
           @click="goBackToHistory"
         >
           취소
         </button>
         <RouterLink
           to="/history"
-          class="focus-ring inline-flex min-h-12 flex-1 items-center justify-center rounded-[16px] border border-app-line bg-white/5 px-4 text-sm font-extrabold text-white"
+          class="focus-ring inline-flex min-h-12 flex-1 items-center justify-center rounded-lg border border-app-line bg-white/5 px-4 text-sm font-semibold text-white"
         >
           기록으로 돌아가기
         </RouterLink>

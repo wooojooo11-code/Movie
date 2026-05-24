@@ -4,9 +4,9 @@
 
 :root {
   color-scheme: dark;
-  font-family: Inter, Pretendard, "Noto Sans KR", system-ui, sans-serif;
-  background: #0b0d12;
-  color: #f5f7fb;
+  font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif;
+  background: #0c0e12;
+  color: #f3f5f7;
 }
 
 * {
@@ -15,25 +15,23 @@
 
 html {
   min-width: 320px;
-  background: #0b0d12;
+  background: #0c0e12;
   scroll-behavior: smooth;
-  scroll-padding-top: 128px;
+  scroll-padding-top: 96px;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: #0b0d12;
+  background: #0c0e12;
 }
 
 button,
-input {
-  font: inherit;
-}
-
+input,
 select,
-option {
+option,
+textarea {
   font: inherit;
 }
 
@@ -57,7 +55,18 @@ a {
   }
 
   .app-gradient {
-    background-image: linear-gradient(135deg, #ff5d8f, #7d7bff);
+    background: #f06275;
+  }
+
+  .poster-hover-card {
+    position: relative;
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .poster-hover-image {
+    transition: transform 220ms ease;
   }
 }
 
@@ -67,7 +76,61 @@ a {
   }
 
   select option {
-    background-color: #121620;
-    color: #f5f7fb;
+    background-color: #111318;
+    color: #f3f5f7;
+  }
+
+  [class~='rounded'],
+  [class*=' rounded-'],
+  [class^='rounded-'],
+  [class*=' rounded-['],
+  [class^='rounded-['] {
+    border-radius: 0 !important;
+  }
+
+  [class*='bg-white/'],
+  [class*='bg-white/['],
+  [class*='bg-black/'],
+  [class*='bg-[#0c0e12]/'] {
+    background-image: none !important;
+    background-color: #111318 !important;
+  }
+
+  [class*='bg-app-accent/'] {
+    background-image: none !important;
+    background-color: #f06275 !important;
+  }
+
+  [class*='bg-gradient-to-'],
+  [class*='bg-[radial-gradient'] {
+    background-image: none !important;
+  }
+
+  [class*='text-white/'] {
+    color: #f3f5f7 !important;
+  }
+
+  [class*='border-white/'] {
+    border-color: #23262d !important;
+  }
+
+  [class*='border-app-accent/'] {
+    border-color: #f06275 !important;
+  }
+
+  [class*='backdrop-blur'] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .poster-hover-card:hover {
+      transform: translateY(-4px);
+      border-color: #f06275;
+    }
+
+    .poster-hover-card:hover .poster-hover-image {
+      transform: scale(1.03);
+    }
   }
 }

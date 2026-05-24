@@ -5,19 +5,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'Pretendard', '"Noto Sans KR"', 'system-ui', 'sans-serif']
+        sans: ['Pretendard', '"Noto Sans KR"', 'system-ui', 'sans-serif']
       },
       colors: {
         app: {
-          surface: '#0b0d12',
-          panel: '#121620',
-          panelSoft: '#161a24',
-          poster: '#191d28',
-          line: 'rgba(255, 255, 255, 0.08)',
-          accent: '#ff5d8f',
-          violet: '#7d7bff',
-          muted: '#9ea9bb'
+          surface: '#0c0e12',
+          panel: '#111318',
+          panelSoft: '#15171c',
+          poster: '#181b22',
+          line: '#23262d',
+          accent: '#f06275',
+          muted: '#98a0ad'
         }
+      },
+      boxShadow: {
+        panel: '0 12px 30px rgba(0, 0, 0, 0.24)'
       }
     }
   },

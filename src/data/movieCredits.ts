@@ -328,7 +328,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
   },
   "movie_26": {
     "characters": [
-      "Oh Dae-Su",
+      "Oh Dae-su",
       "Lee Woo-jin",
       "Mi-do"
     ],
@@ -989,16 +989,16 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
   },
   "movie_79": {
     "characters": [
-      "Li Mu Bai",
-      "Yu Shu Lien",
-      "Jen"
+      "Narrator",
+      "Self",
+      "Self"
     ],
     "cast": [
-      "주윤발",
-      "양자경",
-      "장쯔이"
+      "Ashton Smith",
+      "이안",
+      "양자경"
     ],
-    "director": "이안"
+    "director": "감독 미상"
   },
   "movie_80": {
     "characters": [
@@ -1320,7 +1320,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Isabelle"
     ],
     "cast": [
-      "Colin Baker",
+      "콜린 베이커",
       "Anthony D.P. Mann",
       "Charline Cleaver"
     ],
@@ -1572,7 +1572,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "오마르 시",
       "Anne Le Ny"
     ],
-    "director": "Éric Toledano"
+    "director": "Olivier Nakache"
   },
   "movie_126": {
     "characters": [
@@ -1612,5 +1612,70 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "올리비아 윌리엄스"
     ],
     "director": "웨스 앤더슨"
+  },
+  "movie_129": {
+    "characters": [
+      "Mark Watney",
+      "Melissa Lewis",
+      "Annie Montrose"
+    ],
+    "cast": [
+      "맷 데이먼",
+      "제시카 차스테인",
+      "크리스틴 위그"
+    ],
+    "director": "리들리 스콧"
+  },
+  "movie_130": {
+    "characters": [
+      "Chief John Anderton",
+      "Agatha",
+      "Danny Witwer"
+    ],
+    "cast": [
+      "톰 크루즈",
+      "사만다 모튼",
+      "콜린 파렐"
+    ],
+    "director": "스티븐 스필버그"
+  },
+  "movie_131": {
+    "characters": [
+      "Jake Sully",
+      "Neytiri",
+      "Dr. Grace Augustine"
+    ],
+    "cast": [
+      "샘 워싱턴",
+      "조 샐다나",
+      "시고니 위버"
+    ],
+    "director": "제임스 카메론"
+  },
+  "movie_132": {
+    "characters": [
+      "John Patrick Mason",
+      "Dr. Stanley Goodspeed",
+      "Brigadier General Francis X. Hummel, USMC"
+    ],
+    "cast": [
+      "숀 코너리",
+      "니콜라스 케이지",
+      "에드 해리스"
+    ],
+    "director": "마이클 베이"
+  },
+  "movie_133": {
+    "characters": [
+      "Jack Traven",
+      "Howard Payne",
+      "Annie"
+    ],
+    "cast": [
+      "키아누 리브스",
+      "데니스 호퍼",
+      "산드라 블록"
+    ],
+    "director": "쟝 드봉"
   }
 };

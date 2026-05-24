@@ -28,6 +28,11 @@ export const supabaseListInteractionsTable =
   import.meta.env.VITE_SUPABASE_LIST_INTERACTIONS_TABLE?.trim() || 'list_interactions';
 export const supabaseListInteractionsUserColumn =
   import.meta.env.VITE_SUPABASE_LIST_INTERACTIONS_USER_COLUMN?.trim() || 'user_id';
+export const supabaseMovieLibrarySchema = import.meta.env.VITE_SUPABASE_MOVIE_LIBRARY_SCHEMA?.trim() || 'public';
+export const supabaseMovieLibraryTable =
+  import.meta.env.VITE_SUPABASE_MOVIE_LIBRARY_TABLE?.trim() || 'movie_library_items';
+export const supabaseMovieLibraryUserColumn =
+  import.meta.env.VITE_SUPABASE_MOVIE_LIBRARY_USER_COLUMN?.trim() || 'user_id';
 
 export const supabase: SupabaseClient | null = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey, {
@@ -69,4 +74,12 @@ export const getSupabaseListInteractionsRelation = () => {
   }
 
   return supabase.schema(supabaseListInteractionsSchema).from(supabaseListInteractionsTable);
+};
+
+export const getSupabaseMovieLibraryRelation = () => {
+  if (!supabase) {
+    return null;
+  }
+
+  return supabase.schema(supabaseMovieLibrarySchema).from(supabaseMovieLibraryTable);
 };

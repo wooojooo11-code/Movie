@@ -55,40 +55,36 @@ const openListsPage = () => {
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-6 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-7 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section
-      class="rounded-[24px] border border-app-line bg-[radial-gradient(circle_at_top_right,rgba(125,123,255,0.35),transparent_30%),radial-gradient(circle_at_left_bottom,rgba(255,93,143,0.24),transparent_28%),linear-gradient(180deg,#161a24,#10131b)] p-[22px]"
-    >
-      <p class="text-sm font-bold text-app-accent">
-        {{ recommendationStore.state.profile.totalRatings }}개 취향분석 반영
-      </p>
-      <h1 class="mt-2 text-[28px] font-extrabold leading-tight text-white">취향 기반 추천</h1>
-      <p class="mt-3 text-sm leading-6 text-[#c8d1df]">
-        포스터를 눌러 작품 정보를 보고, 이미 본 영화는 바로 정리할 수 있어요.
+    <section class="rounded-2xl border border-app-line bg-app-panel px-5 py-5 shadow-panel">
+      <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Recommendation</p>
+      <h1 class="mt-2 text-[25px] font-semibold leading-tight text-white">당신에게 맞을지도 몰라요</h1>
+      <p class="mt-2 text-sm text-app-muted">
+        {{ recommendationStore.state.profile.totalRatings }}개 평가를 바탕으로 골랐어요.
       </p>
 
-      <div class="mt-5 flex flex-wrap gap-3">
+      <div class="mt-5 flex flex-wrap gap-2.5">
         <RouterLink
           v-if="recommendationStore.state.profile.totalRatings === 0"
           to="/rating"
-          class="app-gradient focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] px-4 py-[11px] text-sm font-bold text-white"
+          class="focus-ring inline-flex min-h-10 items-center justify-center rounded-lg bg-app-accent px-4 text-sm font-semibold text-white"
         >
-          먼저 취향분석 하러 가기
+          취향분석 시작
         </RouterLink>
 
         <RouterLink
           v-else-if="hasMoreTasteAnalysis && nextAdditionalBatchLink"
           :to="nextAdditionalBatchLink"
-          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
+          class="focus-ring inline-flex min-h-10 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white/88"
         >
-          취향 더 분석하기
+          더 분석하기
         </RouterLink>
 
         <button
           v-if="hasDismissedRecommendations"
           type="button"
-          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
+          class="focus-ring inline-flex min-h-10 items-center justify-center rounded-lg border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white/88"
           @click="resetAlreadySeen"
         >
           이미 봄 초기화
@@ -100,16 +96,16 @@ const openListsPage = () => {
       <section>
         <div class="mb-3 flex items-end justify-between gap-4">
           <div>
-            <h2 class="text-lg font-extrabold text-white">추천 영화</h2>
+            <h2 class="text-lg font-semibold text-white">당신에게 맞을지도 몰라요</h2>
             <p class="mt-1 text-sm text-app-muted">
               {{
                 recommendationStore.isRecommendationFallbackMode.value
-                  ? '새 후보가 모두 소진되어, 봤던 영화까지 포함해 다시 골라드리고 있어요.'
-                  : '한 번에 빠르게 훑어볼 수 있게 모아뒀어요.'
+                  ? '새 후보가 줄어서, 봤던 영화도 함께 섞어 두었어요.'
+                  : '포스터를 눌러서 더 볼 수 있어요.'
               }}
             </p>
           </div>
-          <span class="text-xs font-bold text-app-muted">
+          <span class="text-xs text-app-muted">
             {{ recommendationStore.recommendedMovies.value.length }}개
           </span>
         </div>
@@ -129,15 +125,15 @@ const openListsPage = () => {
 
         <div
           v-else
-          class="rounded-[20px] border border-dashed border-app-line bg-white/[0.03] px-4 py-5 text-sm text-app-muted"
+          class="rounded-2xl border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm text-app-muted"
         >
-          지금은 보여줄 추천 영화가 없어요. `이미 봄 초기화`를 누르거나 취향을 더 분석해 보세요.
+          지금은 보여줄 영화가 없어요. 이미 봄을 비우거나 더 분석해 보세요.
         </div>
       </section>
 
       <section>
-        <div class="mb-4 flex items-end justify-between gap-4">
-          <h2 class="text-lg font-extrabold text-white">추천 리스트</h2>
+        <div class="mb-3">
+          <h2 class="text-lg font-semibold text-white">사람들이 저장한 리스트</h2>
         </div>
 
         <div class="grid gap-3">

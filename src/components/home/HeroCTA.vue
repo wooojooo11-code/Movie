@@ -11,47 +11,52 @@ const hasMoreTasteAnalysis = computed(() =>
 );
 
 const shouldResumeTasteAnalysis = computed(() => recommendationStore.shouldResumeTasteAnalysis.value);
+
 const nextAdditionalBatchLink = computed(() => {
   const batchIndex = recommendationStore.nextAdditionalBatchIndex.value;
   return batchIndex == null ? null : `/rating?mode=more&batch=${batchIndex}`;
 });
 
+const primaryButtonTo = computed(() => {
+  if (shouldResumeTasteAnalysis.value) {
+    return '/rating';
+  }
+
+  if (recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis.value && nextAdditionalBatchLink.value) {
+    return nextAdditionalBatchLink.value;
+  }
+
+  return '/rating';
+});
+
 const primaryButtonLabel = computed(() => {
   if (shouldResumeTasteAnalysis.value) {
-    return '취향분석 이어서 하기';
+    return '이어서 하기';
   }
 
-  if (recommendationStore.state.profile.totalRatings > 0) {
-    return '취향분석 보러 가기';
+  if (recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis.value) {
+    return '더 하기';
   }
 
-  return '취향분석 하러 가기';
+  return '시작하기';
 });
 </script>
 
 <template>
-  <section aria-labelledby="home-cta-title" class="pt-7">
-    <div
-      class="rounded-[24px] border border-app-line bg-[radial-gradient(circle_at_top_right,rgba(125,123,255,0.35),transparent_30%),radial-gradient(circle_at_left_bottom,rgba(255,93,143,0.24),transparent_28%),linear-gradient(180deg,#161a24,#10131b)] p-[22px]"
-    >
-      <h1 id="home-cta-title" class="text-[28px] font-extrabold leading-tight text-white">
-        추천을 위한 취향분석 시작
+  <section aria-labelledby="home-cta-title" class="pt-2">
+    <div class="rounded-2xl border border-app-line bg-app-panel px-5 py-5 shadow-panel">
+      <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">For you</p>
+      <h1 id="home-cta-title" class="mt-2 text-[27px] font-bold leading-tight text-white">
+        10개만 평가하면 추천 시작
       </h1>
+      <p class="mt-2 text-sm text-app-muted">몇 개만 평가하면 취향이 보이기 시작해요.</p>
 
-      <div class="mt-6 flex flex-wrap gap-3">
+      <div class="mt-5 flex flex-wrap gap-2.5">
         <RouterLink
-          to="/rating"
-          class="app-gradient focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] px-4 py-[11px] text-sm font-bold text-white"
+          :to="primaryButtonTo"
+          class="focus-ring inline-flex min-h-10 items-center justify-center rounded-lg bg-app-accent px-4 text-sm font-semibold text-white"
         >
           {{ primaryButtonLabel }}
-        </RouterLink>
-
-        <RouterLink
-          v-if="recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis && nextAdditionalBatchLink"
-          :to="nextAdditionalBatchLink"
-          class="focus-ring inline-flex min-h-11 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 py-[11px] text-sm font-bold text-white"
-        >
-          취향 더 분석하기
         </RouterLink>
       </div>
     </div>

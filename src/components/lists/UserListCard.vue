@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import ListMovieShelf from '@/components/lists/ListMovieShelf.vue';
 import type { ResolvedUserListCard } from '@/types/lists';
 
 defineProps<{
   list: ResolvedUserListCard;
+  savedMovieIds: readonly string[];
 }>();
 
 defineEmits<{
   edit: [listId: string];
   delete: [listId: string];
+  'toggle-watch': [movieId: string];
 }>();
 
 const formatCount = (count: number) => count.toLocaleString('ko-KR');
@@ -27,30 +30,25 @@ const formatDate = (value: string) =>
           <span
             class="rounded-full px-2.5 py-1 text-[11px] font-bold"
             :class="
-              list.isPrivate ? 'bg-white/10 text-white' : 'bg-app-accent/15 text-[#ffdbe6]'
+              list.isPrivate ? 'bg-white/10 text-white/88' : 'bg-app-accent/15 text-white'
             "
           >
             {{ list.isPrivate ? '비공유' : '공유' }}
           </span>
         </div>
         <p class="mt-2 text-sm text-app-muted">
-          영화 {{ list.movieIds.length }}개 · 저장 {{ formatCount(list.saveCount) }}
+          영화 {{ list.movieIds.length }}편 · 저장 {{ formatCount(list.saveCount) }}
           <template v-if="list.ratingCount > 0"> · 평점 {{ list.averageRating.toFixed(1) }}</template>
         </p>
       </div>
       <p class="shrink-0 text-xs font-bold text-app-muted">{{ formatDate(list.updatedAt) }}</p>
     </div>
 
-    <div class="mt-4 flex gap-1.5 overflow-x-auto scrollbar-hide">
-      <img
-        v-for="movie in list.moviePreviews"
-        :key="movie.id"
-        :src="movie.posterUrl"
-        :alt="movie.posterAlt"
-        class="h-16 w-11 shrink-0 rounded-[10px] object-cover"
-        loading="lazy"
-      />
-    </div>
+    <ListMovieShelf
+      :movies="list.moviePreviews"
+      :saved-movie-ids="savedMovieIds"
+      @toggle-watch="$emit('toggle-watch', $event)"
+    />
 
     <div class="mt-4 flex gap-2">
       <button
@@ -58,7 +56,7 @@ const formatDate = (value: string) =>
         class="focus-ring inline-flex min-h-10 flex-1 items-center justify-center rounded-[14px] border border-app-line bg-white/5 px-4 text-sm font-bold text-white"
         @click="$emit('edit', list.id)"
       >
-        다시 편집
+        수정하기
       </button>
       <button
         type="button"

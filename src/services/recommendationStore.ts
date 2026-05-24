@@ -46,12 +46,7 @@ const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) 
 const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings']) =>
   (ratings ?? []).map((rating) => ({
     rawDecision: rating.rawDecision ?? rating.input.status,
-    detailCompleted:
-      rating.detailCompleted ??
-      (rating.input.status !== 'like' ||
-        rating.input.rating != null ||
-        rating.input.reviewTags.length > 0 ||
-        Boolean(rating.input.favoriteCharacter)),
+    detailCompleted: rating.detailCompleted ?? rating.input.status !== 'like',
     input: rating.input,
     questionText: rating.questionText ?? '',
     reviewText: rating.reviewText ?? ''
@@ -338,6 +333,16 @@ const recommendedLists = computed<RecommendedCatalogList[]>(() => {
   return scoredLists.map((list) => ({
     ...listMap[list.id],
     recommendationScore: list.recommendationScore,
+    moviePreviews: list.movieIds
+      .map((movieId) => movieMap[movieId])
+      .filter((movie): movie is CatalogMovie => Boolean(movie))
+      .slice(0, 3)
+      .map((movie) => ({
+        id: movie.id,
+        title: movie.title,
+        posterUrl: movie.posterUrl,
+        posterAlt: movie.posterAlt
+      })),
     moviePreviewTitles: list.movieIds
       .map((movieId) => movieMap[movieId]?.title)
       .filter((title): title is string => Boolean(title))

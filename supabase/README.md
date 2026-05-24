@@ -49,7 +49,19 @@ This updates the select policy on `public.user_lists` so authenticated users can
 - their own lists
 - other users' lists where `is_private = false`
 
-## 5. Environment variables
+## 5. Movie library table
+
+Run:
+
+- `supabase/migrations/202605231610_create_public_movie_library_items.sql`
+
+This creates:
+
+- `public.movie_library_items`
+- storage for movies saved with the `보고싶어요` action
+- RLS policies so each user can only read/write their own library
+
+## 6. Environment variables
 
 `.env.local` example:
 
@@ -72,9 +84,13 @@ VITE_SUPABASE_USER_LISTS_USER_COLUMN=user_id
 VITE_SUPABASE_LIST_INTERACTIONS_SCHEMA=public
 VITE_SUPABASE_LIST_INTERACTIONS_TABLE=list_interactions
 VITE_SUPABASE_LIST_INTERACTIONS_USER_COLUMN=user_id
+
+VITE_SUPABASE_MOVIE_LIBRARY_SCHEMA=public
+VITE_SUPABASE_MOVIE_LIBRARY_TABLE=movie_library_items
+VITE_SUPABASE_MOVIE_LIBRARY_USER_COLUMN=user_id
 ```
 
-## 6. Table purposes
+## 7. Table purposes
 
 ### `public.ratings`
 
@@ -109,3 +125,11 @@ Stores per-user reactions to shared lists:
 
 - saved state
 - personal rating
+
+### `public.movie_library_items`
+
+Stores movies saved to the user's library:
+
+- movie id
+- saved timestamp
+- source such as `want_to_watch`

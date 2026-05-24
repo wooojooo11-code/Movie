@@ -3,9 +3,17 @@ import { computed, ref } from 'vue';
 
 import type { RatingDecision, RatingMovie } from '@/types/rating';
 
-const props = defineProps<{
-  movie: RatingMovie;
-}>();
+const props = withDefaults(
+  defineProps<{
+    movie: RatingMovie;
+    interactive?: boolean;
+    size?: 'default' | 'detail';
+  }>(),
+  {
+    interactive: true,
+    size: 'default'
+  }
+);
 
 const emit = defineEmits<{
   decide: [decision: RatingDecision | 'not_interested'];
@@ -17,12 +25,31 @@ const deltaX = ref(0);
 const deltaY = ref(0);
 const isDragging = ref(false);
 
-const posterStyle = computed(() => ({
-  backgroundImage: `linear-gradient(160deg, rgba(43,49,64,0.55), rgba(11,13,18,0.94) 72%), url(${props.movie.posterUrl})`,
-  transform: `translate(${deltaX.value}px, ${deltaY.value}px) rotate(${deltaX.value / 24}deg)`
+const cardStyle = computed(() => ({
+  transform: props.interactive
+    ? `translate(${deltaX.value}px, ${deltaY.value}px) rotate(${deltaX.value / 24}deg)`
+    : 'translate(0, 0) rotate(0deg)'
 }));
 
+const containerClassName = computed(() =>
+  props.size === 'detail' ? 'min-h-[320px] p-4' : 'min-h-[420px] p-5'
+);
+
+const posterClassName = computed(() =>
+  props.size === 'detail' ? 'mb-4 h-[210px]' : 'mb-5 h-[260px]'
+);
+
+const titleClassName = computed(() =>
+  props.size === 'detail'
+    ? 'text-[26px] font-black leading-tight text-white'
+    : 'text-[32px] font-black leading-tight text-white'
+);
+
 const onPointerDown = (event: PointerEvent) => {
+  if (!props.interactive) {
+    return;
+  }
+
   isDragging.value = true;
   startX.value = event.clientX;
   startY.value = event.clientY;
@@ -32,7 +59,7 @@ const onPointerDown = (event: PointerEvent) => {
 };
 
 const onPointerMove = (event: PointerEvent) => {
-  if (!isDragging.value) {
+  if (!props.interactive || !isDragging.value) {
     return;
   }
 
@@ -46,7 +73,7 @@ const resetDrag = () => {
 };
 
 const onPointerUp = (event: PointerEvent) => {
-  if (!isDragging.value) {
+  if (!props.interactive || !isDragging.value) {
     return;
   }
 
@@ -83,23 +110,36 @@ const onPointerUp = (event: PointerEvent) => {
 
 <template>
   <article
-    class="touch-none select-none overflow-hidden rounded-[28px] border border-app-line bg-app-panel shadow-2xl shadow-black/25 transition-transform"
-    :class="{ 'transition-none': isDragging }"
-    :style="posterStyle"
+    class="select-none overflow-hidden border border-app-line bg-app-panel transition-transform"
+    :class="[
+      interactive ? 'touch-none cursor-grab active:cursor-grabbing' : 'cursor-default',
+      { 'transition-none': isDragging }
+    ]"
+    :style="cardStyle"
     @pointerdown="onPointerDown"
     @pointermove="onPointerMove"
     @pointerup="onPointerUp"
     @pointercancel="onPointerUp"
   >
-    <div class="flex min-h-[420px] items-end bg-cover bg-center p-6">
-      <div>
-        <p class="mb-3 inline-flex rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-xs font-bold text-white">
-          {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
+    <div class="flex flex-col bg-[#090b10]" :class="containerClassName">
+      <img
+        :src="movie.posterUrl"
+        :alt="movie.posterAlt"
+        class="w-full object-contain"
+        :class="posterClassName"
+        loading="lazy"
+      />
+
+      <div class="w-full border-t border-app-line pt-4">
+        <p class="mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-white">
+          {{ movie.releaseYear }} 쨌 {{ movie.genres.join(' 쨌 ') }}
         </p>
-        <h1 class="max-w-[85%] text-[32px] font-black leading-tight text-white">
+        <h1 :class="titleClassName">
           {{ movie.title }}
         </h1>
-        <p class="mt-3 text-sm font-medium text-[#dfe6f2]">{{ movie.tags.join(' · ') }}</p>
+        <p class="mt-3 text-sm font-medium text-[#dfe6f2]">
+          {{ movie.tags.join(' 쨌 ') }}
+        </p>
       </div>
     </div>
   </article>

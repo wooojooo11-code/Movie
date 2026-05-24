@@ -22,8 +22,10 @@ const closeList = () => {
 
 <template>
   <section id="lists" aria-labelledby="popular-lists-title">
-    <div class="mb-4 flex items-end justify-between gap-4">
-      <h2 id="popular-lists-title" class="text-lg font-extrabold text-white">인기 리스트</h2>
+    <div class="mb-3">
+      <h2 id="popular-lists-title" class="text-lg font-semibold text-white">
+        사람들이 저장한 리스트
+      </h2>
     </div>
 
     <div class="grid gap-3">

@@ -66,15 +66,6 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
 <template>
   <section :class="rootClassName">
     <div class="flex items-start justify-between gap-3">
-      <div>
-        <p class="text-sm font-semibold text-white">
-          {{ isEditing ? '리스트 수정' : '리스트 만들기' }}
-        </p>
-        <p class="mt-2 text-sm text-app-muted">
-          영화를 담고 바로 저장해보세요.
-        </p>
-      </div>
-
       <button
         type="button"
         class="focus-ring border px-3 py-1.5 text-xs font-semibold"
@@ -93,7 +84,6 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       <div class="flex items-center justify-between gap-3">
         <div>
           <h3 class="text-sm font-semibold text-white">영화 찾기</h3>
-          <p class="mt-1 text-sm text-app-muted">영화, 감독, 배우, 리스트 제목으로 찾을 수 있어요.</p>
         </div>
         <span
           v-if="isSearching"
@@ -298,7 +288,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
           v-else
           class="mt-3 border border-dashed border-app-line bg-app-panelSoft px-4 py-6 text-sm text-app-muted"
         >
-          위에서 영화를 찾고 담아보세요.
+          아직 담긴 영화가 없습니다.
         </div>
       </div>
     </div>

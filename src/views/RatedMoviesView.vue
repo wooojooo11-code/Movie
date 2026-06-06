@@ -43,7 +43,7 @@ watch(
       <div class="flex items-end justify-between gap-4">
         <div>
           <h1 class="text-[25px] font-semibold leading-tight text-white">평가기록</h1>
-          <p class="mt-2 text-sm text-app-muted">봤던 영화와 남긴 평가를 다시 볼 수 있어요.</p>
+          <p class="mt-2 text-sm text-app-muted">평가한 영화의 평가내용을 고칠수 있어요.</p>
         </div>
         <span class="text-sm font-medium text-white">{{ ratedMoviesHistory.length }}편</span>
       </div>
@@ -68,7 +68,6 @@ watch(
         <div class="flex items-center justify-between gap-4">
           <div>
             <h2 class="text-base font-semibold text-white">보기 방식</h2>
-            <p class="mt-1 text-sm text-app-muted">원하는 방식으로 바꿔볼 수 있어요.</p>
           </div>
 
           <div class="inline-flex border border-app-line bg-app-panelSoft">

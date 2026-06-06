@@ -2,9 +2,11 @@
 import { computed } from 'vue';
 
 import { hasAdditionalTasteAnalysisMovies } from '@/data/rating';
+import { usePwaPrompt } from '@/services/pwaPrompt';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
 const recommendationStore = useRecommendationStore();
+const pwaPrompt = usePwaPrompt();
 
 const hasMoreTasteAnalysis = computed(() =>
   hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
@@ -42,6 +44,10 @@ const primaryButtonLabel = computed(() => {
 
   return '시작하기';
 });
+
+const installApp = async () => {
+  await pwaPrompt.promptInstall();
+};
 </script>
 
 <template>
@@ -50,15 +56,22 @@ const primaryButtonLabel = computed(() => {
       <h1 id="home-cta-title" class="text-[26px] font-semibold leading-tight text-white">
         10개만 평가하면 추천 시작
       </h1>
-      <p class="mt-2 text-sm text-app-muted">몇 개만 평가하면 취향이 보이기 시작해요.</p>
-
-      <div class="mt-5">
+      <div class="mt-5 flex flex-wrap gap-2">
         <RouterLink
           :to="primaryButtonTo"
           class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
         >
           {{ primaryButtonLabel }}
         </RouterLink>
+
+        <button
+          v-if="pwaPrompt.isInstallable"
+          type="button"
+          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
+          @click="installApp"
+        >
+          앱으로 설치
+        </button>
       </div>
     </div>
   </section>

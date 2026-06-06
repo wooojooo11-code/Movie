@@ -99,14 +99,14 @@ const submitForm = () => {
 
 <template>
   <section class="border border-app-line bg-app-panel p-4">
-    <h2 class="text-lg font-semibold text-white">상세 평가</h2>
+    <h2 class="text-lg font-semibold text-[#15171c]">상세 평가</h2>
 
     <div class="mt-4">
       <label class="mb-2 block text-sm font-medium text-app-muted">별점</label>
       <HalfStarRating
         v-model="form.stars"
         size="md"
-        hint="반 별까지 고를 수 있어요."
+        hint="반 점 단위로 고를 수 있어요."
         aria-label-prefix="영화 평점"
       />
     </div>
@@ -131,7 +131,7 @@ const submitForm = () => {
               :class="
                 form.reviewTags.includes(tag)
                   ? 'border-app-accent bg-app-accent text-white'
-                  : 'border-app-line bg-app-panelSoft text-app-muted'
+                  : 'border-app-line bg-app-panelSoft text-[#15171c]'
               "
               @click="toggleReviewTag(tag)"
             >
@@ -144,7 +144,7 @@ const submitForm = () => {
       <textarea
         id="review"
         v-model="form.reviewText"
-        class="focus-ring mt-3 min-h-24 w-full resize-none border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-white placeholder:text-app-muted"
+        class="focus-ring mt-3 min-h-24 w-full resize-none border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-[#15171c] placeholder:text-app-muted"
         placeholder="짧게 메모를 남겨도 좋아요."
       />
     </div>
@@ -157,14 +157,14 @@ const submitForm = () => {
         <select
           id="favorite-character"
           v-model="form.favoriteCharacter"
-          class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-white"
+          class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-[#15171c]"
         >
-          <option class="bg-app-panel text-white" :value="null">선택 안 함</option>
+          <option class="bg-app-panel text-[#15171c]" :value="null">선택 안 함</option>
           <option
             v-for="character in props.characters"
             :key="character.name"
             :value="character.name"
-            class="bg-app-panel text-white"
+            class="bg-app-panel text-[#15171c]"
           >
             {{ character.name }} · {{ character.actorName ?? '배우 정보 없음' }}
           </option>
@@ -190,7 +190,7 @@ const submitForm = () => {
       <button
         v-if="props.showSkipButton"
         type="button"
-        class="focus-ring min-h-11 flex-1 border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-white"
+        class="focus-ring min-h-11 flex-1 border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
         @click="$emit('skip')"
       >
         기억 안 남

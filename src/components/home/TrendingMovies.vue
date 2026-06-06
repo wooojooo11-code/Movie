@@ -80,12 +80,12 @@ const closeMovie = () => {
 <template>
   <section id="trending-movies" aria-labelledby="trending-movies-title">
     <div class="mb-3 flex items-end justify-between gap-4">
-      <h2 id="trending-movies-title" class="text-lg font-semibold text-white">인기 영화</h2>
+      <h2 id="trending-movies-title" class="text-lg font-semibold text-[#15171c]">인기 영화</h2>
 
       <div class="flex shrink-0 gap-2">
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-white"
+          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
           aria-label="이전 영화 보기"
           @click="scrollByCard(-1)"
         >
@@ -93,7 +93,7 @@ const closeMovie = () => {
         </button>
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-white"
+          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
           aria-label="다음 영화 보기"
           @click="scrollByCard(1)"
         >

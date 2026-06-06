@@ -41,8 +41,8 @@ const posterClassName = computed(() =>
 
 const titleClassName = computed(() =>
   props.size === 'detail'
-    ? 'text-[26px] font-semibold leading-tight text-white'
-    : 'text-[32px] font-semibold leading-tight text-white'
+    ? 'text-[26px] font-semibold leading-tight text-[#15171c]'
+    : 'text-[32px] font-semibold leading-tight text-[#15171c]'
 );
 
 const onPointerDown = (event: PointerEvent) => {
@@ -121,23 +121,25 @@ const onPointerUp = (event: PointerEvent) => {
     @pointerup="onPointerUp"
     @pointercancel="onPointerUp"
   >
-    <div class="flex flex-col bg-[#090b10]" :class="containerClassName">
-      <img
-        :src="movie.posterUrl"
-        :alt="movie.posterAlt"
-        class="w-full object-contain"
-        :class="posterClassName"
-        loading="lazy"
-      />
+    <div class="flex flex-col bg-app-panel" :class="containerClassName">
+      <div class="flex items-center justify-center bg-app-poster">
+        <img
+          :src="movie.posterUrl"
+          :alt="movie.posterAlt"
+          class="w-full object-contain"
+          :class="posterClassName"
+          loading="lazy"
+        />
+      </div>
 
       <div class="w-full border-t border-app-line pt-4">
-        <p class="mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-white">
+        <p class="mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]">
           {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
         </p>
         <h1 :class="titleClassName">
           {{ movie.title }}
         </h1>
-        <p class="mt-3 text-sm font-medium text-[#dfe6f2]">
+        <p class="mt-3 text-sm font-medium text-app-muted">
           {{ movie.tags.join(' · ') }}
         </p>
       </div>

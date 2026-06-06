@@ -1,11 +1,19 @@
 import {
+  getSupabaseRecommendationContextRelation,
+  getSupabaseRecommendationContextWeightsRelation,
   getSupabaseRecommendationExclusionsRelation,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
+  supabaseRecommendationContextUserColumn,
   supabaseRecommendationExclusionsUserColumn,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
-import type { RecommendationStateSnapshot, StoredRatingRecord } from '@/types/recommendation';
+import type {
+  MoodContext,
+  RecommendationContextWeights,
+  RecommendationStateSnapshot,
+  StoredRatingRecord
+} from '@/types/recommendation';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 
 const STORAGE_PREFIX = 'movielist:recommendation-state';
@@ -43,10 +51,23 @@ interface SupabaseRecommendationExclusionRow {
   [key: string]: boolean | null | number | string | string[] | undefined;
 }
 
+interface SupabaseRecommendationContextRow {
+  current_context: null | RecommendationStateSnapshot['currentContext'];
+  updated_at: null | string;
+  user_id?: string;
+  [key: string]: boolean | null | number | string | string[] | undefined;
+}
+
+interface SupabaseRecommendationContextWeightRow {
+  context_key: null | MoodContext;
+  genre_id: null | number;
+  weight: null | number;
+}
+
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
 
 const getRowUserId = (
-  row: SupabaseRatingRow | SupabaseRecommendationExclusionRow,
+  row: SupabaseRatingRow | SupabaseRecommendationExclusionRow | SupabaseRecommendationContextRow,
   userColumn: string
 ) => {
   const value = row[userColumn];
@@ -92,6 +113,12 @@ const serializeRecommendationExclusionRow = (userId: string, movieId: string) =>
   reason: ALREADY_SEEN_REASON
 });
 
+const serializeRecommendationContextRow = (snapshot: RecommendationStateSnapshot) => ({
+  [supabaseRecommendationContextUserColumn]: snapshot.userId,
+  current_context: snapshot.currentContext,
+  updated_at: snapshot.currentContextUpdatedAt
+});
+
 export const localRecommendationRepository: RecommendationRepository = {
   load(userId) {
     if (!isClient()) {
@@ -122,7 +149,29 @@ export const localRecommendationRepository: RecommendationRepository = {
       return;
     }
 
-    window.localStorage.removeItem(getStorageKey(userId));
+    const existing = this.load(userId);
+
+    if (!existing) {
+      window.localStorage.removeItem(getStorageKey(userId));
+      return;
+    }
+
+    window.localStorage.setItem(
+      getStorageKey(userId),
+      JSON.stringify({
+        ...existing,
+        profile: {
+          userId,
+          genreScores: {},
+          tagScores: {},
+          reviewTagScores: {},
+          characterScores: {},
+          totalRatings: 0
+        },
+        ratings: [],
+        dismissedRecommendationMovieIds: []
+      } satisfies RecommendationStateSnapshot)
+    );
   }
 };
 
@@ -134,8 +183,9 @@ export const remoteRecommendationRepository = {
 
     const ratingsRelation = getSupabaseRatingsRelation() as any;
     const exclusionsRelation = getSupabaseRecommendationExclusionsRelation() as any;
+    const contextRelation = getSupabaseRecommendationContextRelation() as any;
 
-    if (!ratingsRelation || !exclusionsRelation) {
+    if (!ratingsRelation || !exclusionsRelation || !contextRelation) {
       return null;
     }
 
@@ -163,6 +213,11 @@ export const remoteRecommendationRepository = {
       .eq(supabaseRecommendationExclusionsUserColumn, userId)
       .eq('reason', ALREADY_SEEN_REASON);
 
+    const { data: contextData, error: contextError } = await contextRelation
+      .select([supabaseRecommendationContextUserColumn, 'current_context', 'updated_at'].join(', '))
+      .eq(supabaseRecommendationContextUserColumn, userId)
+      .maybeSingle();
+
     if (ratingsError) {
       throw ratingsError;
     }
@@ -170,6 +225,12 @@ export const remoteRecommendationRepository = {
     if (exclusionsError) {
       throw exclusionsError;
     }
+
+    if (contextError) {
+      throw contextError;
+    }
+
+    const contextRow = contextData as SupabaseRecommendationContextRow | null;
 
     return {
       userId,
@@ -184,7 +245,9 @@ export const remoteRecommendationRepository = {
       ratings: ((ratingsData ?? []) as unknown as SupabaseRatingRow[]).map(normalizeSupabaseRatingRow),
       dismissedRecommendationMovieIds: ((exclusionsData ?? []) as unknown as SupabaseRecommendationExclusionRow[])
         .filter((row) => row.reason === ALREADY_SEEN_REASON)
-        .map((row) => row.movie_id)
+        .map((row) => row.movie_id),
+      currentContext: contextRow?.current_context ?? 'normal',
+      currentContextUpdatedAt: contextRow?.updated_at ?? new Date(0).toISOString()
     };
   },
   async save(snapshot: RecommendationStateSnapshot): Promise<void> {
@@ -194,8 +257,9 @@ export const remoteRecommendationRepository = {
 
     const ratingsRelation = getSupabaseRatingsRelation() as any;
     const exclusionsRelation = getSupabaseRecommendationExclusionsRelation() as any;
+    const contextRelation = getSupabaseRecommendationContextRelation() as any;
 
-    if (!ratingsRelation || !exclusionsRelation) {
+    if (!ratingsRelation || !exclusionsRelation || !contextRelation) {
       return;
     }
 
@@ -230,6 +294,17 @@ export const remoteRecommendationRepository = {
         throw exclusionsInsertError;
       }
     }
+
+    const { error: contextSaveError } = await contextRelation.upsert(
+      serializeRecommendationContextRow(snapshot),
+      {
+        onConflict: supabaseRecommendationContextUserColumn
+      }
+    );
+
+    if (contextSaveError) {
+      throw contextSaveError;
+    }
   },
   async clear(userId: string): Promise<void> {
     if (!isRemoteSyncEnabled(userId)) {
@@ -257,5 +332,55 @@ export const remoteRecommendationRepository = {
     if (exclusionsDeleteError) {
       throw exclusionsDeleteError;
     }
+  }
+};
+
+const allowedContexts: MoodContext[] = [
+  'normal',
+  'after_exam',
+  'bed_time',
+  'with_friends',
+  'after_academy'
+];
+
+export const remoteRecommendationContextWeightsRepository = {
+  async load(): Promise<null | Partial<RecommendationContextWeights>> {
+    if (!isSupabaseConfigured) {
+      return null;
+    }
+
+    const relation = getSupabaseRecommendationContextWeightsRelation() as any;
+
+    if (!relation) {
+      return null;
+    }
+
+    const { data, error } = await relation
+      .select('context_key, genre_id, weight')
+      .order('context_key', { ascending: true })
+      .order('genre_id', { ascending: true });
+
+    if (error) {
+      throw error;
+    }
+
+    const groupedWeights: Partial<RecommendationContextWeights> = {};
+
+    for (const row of (data ?? []) as SupabaseRecommendationContextWeightRow[]) {
+      if (
+        !row.context_key ||
+        !allowedContexts.includes(row.context_key) ||
+        typeof row.genre_id !== 'number' ||
+        typeof row.weight !== 'number'
+      ) {
+        continue;
+      }
+
+      const contextWeights = groupedWeights[row.context_key] ?? {};
+      contextWeights[row.genre_id] = row.weight;
+      groupedWeights[row.context_key] = contextWeights;
+    }
+
+    return groupedWeights;
   }
 };

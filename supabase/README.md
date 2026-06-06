@@ -26,7 +26,19 @@ This creates:
 - storage for movies dismissed with the `already_seen` reason
 - RLS policies so each user can only read/write their own exclusions
 
-## 3. User lists tables
+## 3. Recommendation context table
+
+Run:
+
+- `supabase/migrations/202605281430_create_public_recommendation_context_settings.sql`
+
+This creates:
+
+- `public.recommendation_context_settings`
+- storage for the last selected recommendation context
+- RLS policies so each user can only read/write their own context row
+
+## 4. User lists tables
 
 Run:
 
@@ -38,7 +50,24 @@ This creates:
 - `public.list_interactions`
 - RLS policies for personal list ownership
 
-## 4. Allow reading shared lists
+## 5. Recommendation context weights table
+
+Run:
+
+- `supabase/migrations/202606041630_create_public_recommendation_context_weights.sql`
+
+This creates:
+
+- `public.recommendation_context_weights`
+- storage for genre weights used by each recommendation context
+- seeded default weights for:
+  - `normal`
+  - `bed_time`
+  - `after_academy`
+  - `after_exam`
+  - `with_friends`
+
+## 6. Allow reading shared lists
 
 Run:
 
@@ -49,7 +78,7 @@ This updates the select policy on `public.user_lists` so authenticated users can
 - their own lists
 - other users' lists where `is_private = false`
 
-## 5. Movie library table
+## 7. Movie library table
 
 Run:
 
@@ -58,10 +87,10 @@ Run:
 This creates:
 
 - `public.movie_library_items`
-- storage for movies saved with the `보고싶어요` action
+- storage for movies saved with the `want_to_watch` action
 - RLS policies so each user can only read/write their own library
 
-## 6. Environment variables
+## 8. Environment variables
 
 `.env.local` example:
 
@@ -77,6 +106,12 @@ VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_SCHEMA=public
 VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_TABLE=recommendation_exclusions
 VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_USER_COLUMN=user_id
 
+VITE_SUPABASE_RECOMMENDATION_CONTEXT_SCHEMA=public
+VITE_SUPABASE_RECOMMENDATION_CONTEXT_TABLE=recommendation_context_settings
+VITE_SUPABASE_RECOMMENDATION_CONTEXT_USER_COLUMN=user_id
+VITE_SUPABASE_RECOMMENDATION_CONTEXT_WEIGHTS_SCHEMA=public
+VITE_SUPABASE_RECOMMENDATION_CONTEXT_WEIGHTS_TABLE=recommendation_context_weights
+
 VITE_SUPABASE_USER_LISTS_SCHEMA=public
 VITE_SUPABASE_USER_LISTS_TABLE=user_lists
 VITE_SUPABASE_USER_LISTS_USER_COLUMN=user_id
@@ -90,7 +125,7 @@ VITE_SUPABASE_MOVIE_LIBRARY_TABLE=movie_library_items
 VITE_SUPABASE_MOVIE_LIBRARY_USER_COLUMN=user_id
 ```
 
-## 7. Table purposes
+## 9. Table purposes
 
 ### `public.ratings`
 
@@ -109,6 +144,26 @@ Stores recommendation exclusions such as:
 - `already_seen`
 
 This lets `already seen` recommendations stay hidden across devices for the same account.
+
+### `public.recommendation_context_settings`
+
+Stores the last recommendation context selected by the user:
+
+- `normal`
+- `after_exam`
+- `bed_time`
+- `with_friends`
+- `after_academy`
+
+### `public.recommendation_context_weights`
+
+Stores the genre weights for each recommendation context:
+
+- `context_key`
+- `genre_id`
+- `weight`
+
+The app reads these rows first and falls back to built-in defaults only if the table is empty or unavailable.
 
 ### `public.user_lists`
 

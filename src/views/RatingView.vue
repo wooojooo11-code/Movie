@@ -12,7 +12,6 @@ import {
   getFollowingAdditionalBatchIndex,
   getUnratedMoviesFromAdditionalBatch,
   getUnratedMoviesFromPool,
-  initialTasteAnalysisCount,
   primaryRatingMovies
 } from '@/data/rating';
 import { getCharacterChoices } from '@/services/movieCreditsService';
@@ -191,7 +190,7 @@ const detailRatingLink = computed(() =>
 const secondaryAction = computed<null | { label: string; to: string }>(() => {
   if (!isDetailMode.value && detailRatingLink.value) {
     return {
-      label: '상세 평가하러 가기',
+      label: '상세 평가하러가기',
       to: detailRatingLink.value
     };
   }
@@ -224,7 +223,7 @@ const completionTitle = computed(() => {
   }
 
   if (isMoreMode.value) {
-    return '다음 추천이 준비됐어요.';
+    return '다음 추천을 준비했어요.';
   }
 
   return '추천을 시작할 수 있어요.';
@@ -232,10 +231,10 @@ const completionTitle = computed(() => {
 
 const completionDescription = computed(() => {
   if (isDetailMode.value) {
-    return '이제 추천으로 넘어가거나, 다음 배치를 더 보면서 취향을 넓혀볼 수 있어요.';
+    return '';
   }
 
-  return '몇 개만 평가해도 취향이 보이기 시작해요. 원하면 다음 배치를 더 이어볼 수 있어요.';
+  return '';
 });
 
 const showSavedNotice = (movieTitle: string, type: 'detail' | 'primary') => {
@@ -389,12 +388,12 @@ onUnmounted(() => {
     <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
 
     <section v-if="savedNotice" class="border border-app-line bg-app-panel px-4 py-3">
-      <p class="text-sm font-semibold text-white">{{ savedNotice.movieTitle }} 저장됨</p>
+      <p class="text-sm font-semibold text-[#15171c]">{{ savedNotice.movieTitle }} 저장됨</p>
       <p class="mt-1 text-sm text-app-muted">
         {{
           savedNotice.type === 'detail'
-            ? '상세 평가를 저장했고, 다음 영화로 넘어가고 있어요.'
-            : '평가를 저장했고, 다음 영화로 넘어가고 있어요.'
+            ? '상세 평가를 저장했어요. 다음 영화로 갈게요.'
+            : '저장했어요. 다음 영화로 갈게요.'
         }}
       </p>
     </section>
@@ -405,7 +404,7 @@ onUnmounted(() => {
     >
       <RouterLink
         to="/recommendations"
-        class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white"
+        class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
       >
         지금 추천 보기
       </RouterLink>
@@ -414,10 +413,8 @@ onUnmounted(() => {
     <template v-if="currentMovie">
       <template v-if="isDetailMode">
         <section class="border border-app-line bg-app-panel px-5 py-4">
-          <p class="text-sm font-semibold text-white">좋다고 고른 영화만 다시 볼게요.</p>
-          <p class="mt-2 text-sm leading-6 text-app-muted">
-            별점과 좋았던 포인트를 남기면 추천이 조금 더 또렷해져요.
-          </p>
+          <p class="text-sm font-semibold text-[#15171c]">좋다고 고른 영화만 다시 볼게요.</p>
+          <p class="mt-2 text-sm leading-6 text-app-muted">별점과 포인트만 남겨주세요.</p>
         </section>
 
         <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
@@ -450,10 +447,10 @@ onUnmounted(() => {
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">
         {{ isDetailMode ? 'Details' : isMoreMode ? 'More' : 'Done' }}
       </p>
-      <h1 class="mt-2 text-2xl font-semibold text-white">
+      <h1 class="mt-2 text-2xl font-semibold text-[#15171c]">
         {{ completionTitle }}
       </h1>
-      <p class="mt-3 text-sm leading-6 text-app-muted">
+      <p v-if="completionDescription" class="mt-3 text-sm leading-6 text-app-muted">
         {{ completionDescription }}
       </p>
 
@@ -468,17 +465,13 @@ onUnmounted(() => {
         <RouterLink
           v-if="secondaryAction"
           :to="secondaryAction.to"
-          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-white"
+          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
         >
           {{ secondaryAction.label }}
         </RouterLink>
       </div>
 
-      <p v-if="!isDetailMode && !isMoreMode" class="mt-4 text-sm text-app-muted">
-        이번 배치 {{ initialTasteAnalysisCount }}개를 모두 평가했어요.
-      </p>
-
-      <p v-else-if="!isDetailMode && !nextAdditionalBatchLink" class="mt-4 text-sm text-app-muted">
+      <p v-if="!isDetailMode && isMoreMode && !nextAdditionalBatchLink" class="mt-4 text-sm text-app-muted">
         지금 준비한 추가 취향분석은 여기까지예요.
       </p>
     </section>

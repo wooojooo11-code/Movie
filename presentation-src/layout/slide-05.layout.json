@@ -1,0 +1,929 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/g9ann6",
+    "id": "g9ann6",
+    "slide": 5,
+    "layoutId": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6psfil0",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#F7F4EC",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/knih4byh",
+      "id": "2",
+      "bbox": [
+        -120,
+        -140,
+        360,
+        360
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(60, 145, 230, 0.13333)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d8bat47y",
+      "id": "3",
+      "bbox": [
+        980,
+        520,
+        260,
+        260
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 127, 106, 0.11765)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/29gr2p8n",
+      "id": "4",
+      "bbox": [
+        1040,
+        -90,
+        280,
+        220
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 209, 102, 0.14118)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vu9knih4",
+      "id": "5",
+      "name": "kicker-marker",
+      "bbox": [
+        72,
+        58,
+        14,
+        14
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#61D2B4",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kf6dcbul",
+      "id": "6",
+      "name": "kicker-label",
+      "bbox": [
+        94,
+        50,
+        250,
+        28
+      ],
+      "geometry": "rect",
+      "text": "04 PRACTICE",
+      "textPreview": "04 PRACTICE",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "color": "#3C91E6",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "04 PRACTICE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "04 PRACTICE",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Aptos",
+            "color": "#3C91E6",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "04 PRACTICE",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#3C91E6",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0z61032",
+      "id": "7",
+      "bbox": [
+        72,
+        92,
+        820,
+        84
+      ],
+      "geometry": "rect",
+      "text": "작은 습관이 모이면 디지털 시민의식은 일상이 됩니다.",
+      "textPreview": "작은 습관이 모이면 디지털 시민의식은 일상이 됩니다.",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 30,
+        "typeface": "Aptos Display",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "작은 습관이 모이면 디지털 시민의식은 일상이 됩니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "작은 습관이 모이면 디지털 시민의식은 일상이 됩니다.",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "typeface": "Aptos Display",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "작은 습관이 모이면 디지털 시민의식은 일상이 됩니다.",
+              "fontSize": 30,
+              "typeface": "Aptos Display",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2x4nap4r",
+      "id": "8",
+      "bbox": [
+        72,
+        176,
+        820,
+        46
+      ],
+      "geometry": "rect",
+      "text": "지금 바로 실천할 수 있는 행동 기준입니다.",
+      "textPreview": "지금 바로 실천할 수 있는 행동 기준입니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "지금 바로 실천할 수 있는 행동 기준입니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "지금 바로 실천할 수 있는 행동 기준입니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "지금 바로 실천할 수 있는 행동 기준입니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vixczed8",
+      "id": "9",
+      "bbox": [
+        72,
+        250,
+        520,
+        330
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D7E2F1",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmtwra5g",
+      "id": "10",
+      "bbox": [
+        92,
+        270,
+        36,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#3C91E6",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/61032lsz",
+      "id": "11",
+      "bbox": [
+        92,
+        288,
+        480,
+        36
+      ],
+      "geometry": "rect",
+      "text": "말과 정보",
+      "textPreview": "말과 정보",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "말과 정보"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "말과 정보",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "말과 정보",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsji5sne",
+      "id": "12",
+      "bbox": [
+        92,
+        332,
+        480,
+        232
+      ],
+      "geometry": "rect",
+      "text": "1. 댓글을 달기 전, 상대가 상처받지 않을지 한 번 더 생각하기\n\n2. 출처를 확인한 뒤 공유하기\n\n3. 사진이나 영상을 올릴 때 타인의 동의 구하기",
+      "textPreview": "1. 댓글을 달기 전, 상대가 상처받지 않을지 한 번 더 생각하기 |  | 2. 출처를 확인한 뒤 공유하기 |  | 3. 사진이나 영상을 올릴 때 타인의 동의 구하기",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1. 댓글을 달기 전, 상대가 상처받지 않을지 한 번 더 생각하기"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "2. 출처를 확인한 뒤 공유하기"
+          },
+          {
+            "index": 4,
+            "text": ""
+          },
+          {
+            "index": 5,
+            "text": "3. 사진이나 영상을 올릴 때 타인의 동의 구하기"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1. 댓글을 달기 전, 상대가 상처받지 않을지 한 번 더 생각하기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "1. 댓글을 달기 전, 상대가 상처받지 않을지 한 번 더 생각하기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "2. 출처를 확인한 뒤 공유하기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2. 출처를 확인한 뒤 공유하기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "3. 사진이나 영상을 올릴 때 타인의 동의 구하기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3. 사진이나 영상을 올릴 때 타인의 동의 구하기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7qpg3ex",
+      "id": "13",
+      "bbox": [
+        640,
+        250,
+        520,
+        330
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D7E2F1",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vy90je9c",
+      "id": "14",
+      "bbox": [
+        660,
+        270,
+        36,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#61D2B4",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6dcbulwv",
+      "id": "15",
+      "bbox": [
+        660,
+        288,
+        480,
+        36
+      ],
+      "geometry": "rect",
+      "text": "보안과 대응",
+      "textPreview": "보안과 대응",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "보안과 대응"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "보안과 대응",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "보안과 대응",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d4vmtwra",
+      "id": "16",
+      "bbox": [
+        660,
+        332,
+        480,
+        232
+      ],
+      "geometry": "rect",
+      "text": "1. 비밀번호를 주기적으로 바꾸고 중복 사용 줄이기\n\n2. 사이버폭력을 보면 캡처 후 신고하고 도움 요청하기\n\n3. AI 도구를 사용할 때는 사실 확인과 자기 생각 덧붙이기",
+      "textPreview": "1. 비밀번호를 주기적으로 바꾸고 중복 사용 줄이기 |  | 2. 사이버폭력을 보면 캡처 후 신고하고 도움 요청하기 |  | 3. AI 도구를 사용할 때는 사실 확인과 자기 생각 덧붙이기",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "1. 비밀번호를 주기적으로 바꾸고 중복 사용 줄이기"
+          },
+          {
+            "index": 2,
+            "text": ""
+          },
+          {
+            "index": 3,
+            "text": "2. 사이버폭력을 보면 캡처 후 신고하고 도움 요청하기"
+          },
+          {
+            "index": 4,
+            "text": ""
+          },
+          {
+            "index": 5,
+            "text": "3. AI 도구를 사용할 때는 사실 확인과 자기 생각 덧붙이기"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "1. 비밀번호를 주기적으로 바꾸고 중복 사용 줄이기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "1. 비밀번호를 주기적으로 바꾸고 중복 사용 줄이기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "2. 사이버폭력을 보면 캡처 후 신고하고 도움 요청하기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2. 사이버폭력을 보면 캡처 후 신고하고 도움 요청하기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "3. AI 도구를 사용할 때는 사실 확인과 자기 생각 덧붙이기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3. AI 도구를 사용할 때는 사실 확인과 자기 생각 덧붙이기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj2t83it",
+      "id": "17",
+      "bbox": [
+        72,
+        684,
+        240,
+        20
+      ],
+      "geometry": "rect",
+      "text": "Digital Citizenship",
+      "textPreview": "Digital Citizenship",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Digital Citizenship"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Digital Citizenship",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Digital Citizenship",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z25kb6xk",
+      "id": "18",
+      "bbox": [
+        1180,
+        684,
+        40,
+        20
+      ],
+      "geometry": "rect",
+      "text": "5",
+      "textPreview": "5",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "5"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "5",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "5",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

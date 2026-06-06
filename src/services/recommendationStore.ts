@@ -11,11 +11,13 @@ import {
 } from '@/services/movie_recommendation_algorithm';
 import {
   localRecommendationRepository,
+  remoteRecommendationContextWeightsRepository,
   remoteRecommendationRepository
 } from '@/services/recommendationRepository';
 import type {
   CatalogMovie,
   MoodContext,
+  RecommendationContextWeights,
   RatingFeedbackPayload,
   RatedCatalogMovieRecord,
   RecommendedCatalogList,
@@ -41,42 +43,77 @@ const GENRE_NAME_TO_TMDB_ID: Record<string, number> = {
   '스릴러': 53,
   SF: 878
 };
-const CONTEXT_WEIGHTS: Record<MoodContext, Record<number, number>> = {
+const DEFAULT_CONTEXT_WEIGHTS: RecommendationContextWeights = {
   normal: {},
   after_exam: {
-    28: 2.0,
-    878: 1.8,
     35: 1.5,
+    28: 1.8,
     9648: 0.8,
-    10749: 0.5
+    53: 0.8,
+    10749: 0.5,
+    878: 1.5
   },
   bed_time: {
-    10749: 2.0,
-    9648: 1.6,
     35: 1.0,
-    878: 0.5,
-    28: 0.2
+    28: 0.2,
+    9648: 1.6,
+    53: 1.6,
+    10749: 2.0,
+    878: 0.5
   },
   with_friends: {
     35: 2.0,
-    9648: 1.8,
     28: 1.3,
-    878: 0.8,
-    10749: 0.3
+    9648: 1.8,
+    53: 1.8,
+    10749: 0.3,
+    878: 0.8
   },
   after_academy: {
     35: 2.0,
     28: 1.5,
+    9648: 0.1,
+    53: 0.1,
     10749: 1.2,
-    878: 0.6,
-    9648: 0.1
+    878: 0.6
   }
+};
+
+const cloneDefaultContextWeights = (): RecommendationContextWeights => ({
+  normal: { ...DEFAULT_CONTEXT_WEIGHTS.normal },
+  after_exam: { ...DEFAULT_CONTEXT_WEIGHTS.after_exam },
+  bed_time: { ...DEFAULT_CONTEXT_WEIGHTS.bed_time },
+  with_friends: { ...DEFAULT_CONTEXT_WEIGHTS.with_friends },
+  after_academy: { ...DEFAULT_CONTEXT_WEIGHTS.after_academy }
+});
+
+const mergeContextWeights = (
+  remoteWeights: null | Partial<RecommendationContextWeights>
+): RecommendationContextWeights => {
+  const mergedWeights = cloneDefaultContextWeights();
+
+  if (!remoteWeights) {
+    return mergedWeights;
+  }
+
+  for (const context of Object.keys(mergedWeights) as MoodContext[]) {
+    if (remoteWeights[context]) {
+      mergedWeights[context] = {
+        ...mergedWeights[context],
+        ...remoteWeights[context]
+      };
+    }
+  }
+
+  return mergedWeights;
 };
 
 const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
   string,
   CatalogMovie
 >;
+const recommendationVisibleLimit = 10;
+const recommendationPoolLimit = catalogMovies.length;
 
 const resolveGenreIds = (movie: CatalogMovie) => {
   if (movie.genreIds?.length) {
@@ -96,7 +133,9 @@ const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) 
       return profile;
     }
 
-    return applyRatingToProfile(profile, movie, ratingRecord.input);
+    return applyRatingToProfile(profile, movie, ratingRecord.input, {
+      reviewText: ratingRecord.reviewText
+    });
   }, createEmptyUserPreferenceProfile(userId));
 
 const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings']) =>
@@ -108,6 +147,25 @@ const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings'])
     reviewText: rating.reviewText ?? ''
   }));
 
+const normalizeContext = (
+  value: RecommendationStateSnapshot['currentContext'] | undefined
+): MoodContext => {
+  const allowedContexts: MoodContext[] = [
+    'normal',
+    'after_exam',
+    'bed_time',
+    'with_friends',
+    'after_academy'
+  ];
+
+  return allowedContexts.includes(value as MoodContext) ? (value as MoodContext) : 'normal';
+};
+
+const normalizeContextUpdatedAt = (value: string | undefined) => {
+  const timestamp = value ? new Date(value).getTime() : NaN;
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : new Date(0).toISOString();
+};
+
 const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   const saved = localRecommendationRepository.load(userId);
 
@@ -116,7 +174,9 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
       userId,
       profile: createEmptyUserPreferenceProfile(userId),
       ratings: [],
-      dismissedRecommendationMovieIds: []
+      dismissedRecommendationMovieIds: [],
+      currentContext: 'normal',
+      currentContextUpdatedAt: new Date(0).toISOString()
     };
   }
 
@@ -126,7 +186,9 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
     userId,
     profile: buildProfileFromRatings(userId, normalizedRatings),
     ratings: normalizedRatings,
-    dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? []
+    dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
+    currentContext: normalizeContext(saved.currentContext),
+    currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
   };
 };
 
@@ -182,12 +244,19 @@ const mergeSnapshots = (
       ...remoteSnapshot.dismissedRecommendationMovieIds
     ])
   ];
+  const localContextTime = new Date(localSnapshot.currentContextUpdatedAt).getTime();
+  const remoteContextTime = new Date(remoteSnapshot.currentContextUpdatedAt).getTime();
+  const shouldUseRemoteContext = remoteContextTime > localContextTime;
 
   return {
     userId: localSnapshot.userId,
     profile: buildProfileFromRatings(localSnapshot.userId, mergedRatings),
     ratings: mergedRatings,
-    dismissedRecommendationMovieIds
+    dismissedRecommendationMovieIds,
+    currentContext: shouldUseRemoteContext ? remoteSnapshot.currentContext : localSnapshot.currentContext,
+    currentContextUpdatedAt: shouldUseRemoteContext
+      ? remoteSnapshot.currentContextUpdatedAt
+      : localSnapshot.currentContextUpdatedAt
   };
 };
 
@@ -238,6 +307,14 @@ const shouldResyncRemoteSnapshot = (
     }
   }
 
+  if (remoteSnapshot.currentContext !== mergedSnapshot.currentContext) {
+    return true;
+  }
+
+  if (remoteSnapshot.currentContextUpdatedAt !== mergedSnapshot.currentContextUpdatedAt) {
+    return true;
+  }
+
   return false;
 };
 
@@ -247,12 +324,16 @@ const state = reactive<RecommendationStateSnapshot>({
   userId: initialSnapshot.userId,
   profile: initialSnapshot.profile,
   ratings: initialSnapshot.ratings,
-  dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds
+  dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds,
+  currentContext: initialSnapshot.currentContext,
+  currentContextUpdatedAt: initialSnapshot.currentContextUpdatedAt
 });
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
-const currentContext = ref<MoodContext>('normal');
+const currentContext = ref<MoodContext>(initialSnapshot.currentContext);
+const currentContextUpdatedAt = ref(initialSnapshot.currentContextUpdatedAt);
+const contextWeights = ref<RecommendationContextWeights>(cloneDefaultContextWeights());
 let remoteSaveChain: Promise<void> = Promise.resolve();
 
 const getErrorMessage = (error: unknown, fallback: string) => {
@@ -268,6 +349,10 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.profile = snapshot.profile;
   state.ratings = snapshot.ratings;
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
+  state.currentContext = snapshot.currentContext;
+  state.currentContextUpdatedAt = snapshot.currentContextUpdatedAt;
+  currentContext.value = snapshot.currentContext;
+  currentContextUpdatedAt.value = snapshot.currentContextUpdatedAt;
 };
 
 const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
@@ -293,12 +378,24 @@ const enqueueRemoteTask = (task: () => Promise<void>, fallbackMessage: string) =
   return remoteSaveChain;
 };
 
+const loadRemoteContextWeights = async () => {
+  try {
+    const remoteWeights = await remoteRecommendationContextWeightsRepository.load();
+    contextWeights.value = mergeContextWeights(remoteWeights);
+  } catch (error) {
+    console.error('[recommendationStore] Failed to load recommendation context weights.', error);
+    contextWeights.value = cloneDefaultContextWeights();
+  }
+};
+
 const persistState = () => {
   const snapshot = {
     userId: state.userId,
     profile: state.profile,
     ratings: state.ratings,
-    dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds
+    dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
+    currentContext: currentContext.value,
+    currentContextUpdatedAt: currentContextUpdatedAt.value
   };
 
   localRecommendationRepository.save(snapshot);
@@ -306,7 +403,7 @@ const persistState = () => {
 
   return enqueueRemoteTask(
     () => remoteRecommendationRepository.save(snapshot),
-    '취향분석 결과를 Supabase ratings 테이블에 저장하지 못했어요.'
+    '추천 상태를 Supabase에 저장하지 못했어요.'
   );
 };
 
@@ -348,51 +445,55 @@ const excludedRecommendationMovieIds = computed(() => [
   ...state.dismissedRecommendationMovieIds
 ]);
 
-const freshRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
-  const scoredMovies = recommendMovies(catalogMovies, state.profile, {
-    excludeMovieIds: excludedRecommendationMovieIds.value,
-    limit: 10
-  });
-
-  return scoredMovies.map((movie) => ({
+const mapScoredMoviesToCatalogMovies = (movies: ReturnType<typeof recommendMovies>) =>
+  movies.map((movie) => ({
     ...movieMap[movie.id],
     genreIds: resolveGenreIds(movieMap[movie.id]),
     recommendationScore: movie.recommendationScore
   }));
+
+const freshRecommendationPool = computed<RecommendedCatalogMovie[]>(() => {
+  const scoredMovies = recommendMovies(catalogMovies, state.profile, {
+    excludeMovieIds: excludedRecommendationMovieIds.value,
+    limit: recommendationPoolLimit
+  });
+
+  return mapScoredMoviesToCatalogMovies(scoredMovies);
 });
 
-const rawRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
-  if (freshRecommendedMovies.value.length > 0) {
-    return freshRecommendedMovies.value;
+const fallbackRecommendationPool = computed<RecommendedCatalogMovie[]>(() => {
+  if (freshRecommendationPool.value.length > 0) {
+    return freshRecommendationPool.value;
   }
 
   const scoredMovies = recommendMovies(catalogMovies, state.profile, {
     excludeMovieIds: state.dismissedRecommendationMovieIds,
-    limit: 10
+    limit: recommendationPoolLimit
   });
 
-  return scoredMovies.map((movie) => ({
-    ...movieMap[movie.id],
-    genreIds: resolveGenreIds(movieMap[movie.id]),
-    recommendationScore: movie.recommendationScore
-  }));
+  return mapScoredMoviesToCatalogMovies(scoredMovies);
+});
+
+const rawRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+  return fallbackRecommendationPool.value.slice(0, recommendationVisibleLimit);
 });
 
 const isRecommendationFallbackMode = computed(
-  () => freshRecommendedMovies.value.length === 0 && rawRecommendedMovies.value.length > 0
+  () => freshRecommendationPool.value.length === 0 && rawRecommendedMovies.value.length > 0
 );
 
-const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
-  const baseMovies = rawRecommendedMovies.value;
+const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
+  const baseMovies = fallbackRecommendationPool.value;
   const context = currentContext.value;
 
   if (context === 'normal') {
-    return baseMovies;
+    return baseMovies.slice(0, recommendationVisibleLimit);
   }
 
-  const weights = CONTEXT_WEIGHTS[context];
+  const weights = contextWeights.value[context];
 
-  return [...baseMovies].sort((left, right) => {
+  return [...baseMovies]
+    .sort((left, right) => {
     const leftGenreIds = left.genreIds?.length ? left.genreIds : resolveGenreIds(left);
     const rightGenreIds = right.genreIds?.length ? right.genreIds : resolveGenreIds(right);
 
@@ -413,9 +514,12 @@ const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
       return rightScore - leftScore;
     }
 
-    return right.recommendationScore - left.recommendationScore;
-  });
+      return right.recommendationScore - left.recommendationScore;
+    })
+    .slice(0, recommendationVisibleLimit);
 });
+
+const recommendedMovies = computed<RecommendedCatalogMovie[]>(() => contextAwareRecommendedMovies.value);
 
 const recommendedLists = computed<RecommendedCatalogList[]>(() => {
   const scoredLists = recommendLists(catalogLists, catalogMovies, state.profile, 6);
@@ -509,7 +613,16 @@ const dismissRecommendedMovie = (movieId: string) => {
 };
 
 const setContext = (context: MoodContext) => {
+  if (currentContext.value === context) {
+    return Promise.resolve();
+  }
+
   currentContext.value = context;
+  currentContextUpdatedAt.value = new Date().toISOString();
+  state.currentContext = currentContext.value;
+  state.currentContextUpdatedAt = currentContextUpdatedAt.value;
+
+  return persistState();
 };
 
 const resetDismissedRecommendations = () => {
@@ -525,9 +638,18 @@ const resetTasteAnalysis = () => {
   state.profile = createEmptyUserPreferenceProfile(state.userId);
   state.ratings = [];
   state.dismissedRecommendationMovieIds = [];
+  state.currentContext = currentContext.value;
+  state.currentContextUpdatedAt = currentContextUpdatedAt.value;
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
-  localRecommendationRepository.clear(state.userId);
+  localRecommendationRepository.save({
+    userId: state.userId,
+    profile: state.profile,
+    ratings: [],
+    dismissedRecommendationMovieIds: [],
+    currentContext: currentContext.value,
+    currentContextUpdatedAt: currentContextUpdatedAt.value
+  });
 
   void enqueueRemoteTask(
     () => remoteRecommendationRepository.clear(state.userId),
@@ -553,7 +675,9 @@ const setActiveUser = async (userId: string) => {
       userId: normalizedUserId,
       profile: remoteSnapshot.profile,
       ratings: normalizeStoredRatings(remoteSnapshot.ratings),
-      dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? []
+      dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
+      currentContext: normalizeContext(remoteSnapshot.currentContext),
+      currentContextUpdatedAt: normalizeContextUpdatedAt(remoteSnapshot.currentContextUpdatedAt)
     };
     const mergedSnapshot = mergeSnapshots(localSnapshot, normalizedRemoteSnapshot);
 
@@ -563,7 +687,7 @@ const setActiveUser = async (userId: string) => {
     if (shouldResyncRemoteSnapshot(normalizedRemoteSnapshot, mergedSnapshot)) {
       void enqueueRemoteTask(
         () => remoteRecommendationRepository.save(mergedSnapshot),
-        '최신 취향분석 결과를 Supabase ratings 테이블과 다시 맞추지 못했어요.'
+        '최신 추천 상태를 Supabase와 다시 맞추지 못했어요.'
       );
     }
 
@@ -571,7 +695,7 @@ const setActiveUser = async (userId: string) => {
   } catch (error) {
     remoteSyncStatus.value = 'error';
     remoteSyncErrorMessage.value =
-      'Supabase ratings 테이블에서 취향분석 기록을 불러오지 못했어요. 로컬에 저장된 기록은 그대로 사용할게요.';
+      'Supabase에서 추천 상태를 불러오지 못했어요. 로컬에 저장된 기록은 그대로 사용할게요.';
     console.error('[recommendationStore] Failed to load ratings from Supabase.', error);
   }
 };
@@ -581,6 +705,7 @@ export const recommendationStore = {
   catalogMovies,
   catalogLists,
   currentContext: readonly(currentContext),
+  contextWeights: readonly(contextWeights),
   ratedMovieIds,
   pendingDetailedRatings,
   pendingPrimaryDetailedRatings,
@@ -588,6 +713,7 @@ export const recommendationStore = {
   nextAdditionalBatchIndex,
   shouldResumeTasteAnalysis: computed(() => primaryUnratedMovies.value.length > 0),
   ratedMoviesHistory,
+  contextAwareRecommendedMovies,
   recommendedMovies,
   rawRecommendedMovies,
   isRecommendationFallbackMode,
@@ -603,6 +729,8 @@ export const recommendationStore = {
   resetTasteAnalysis,
   setActiveUser
 };
+
+void loadRemoteContextWeights();
 
 export const useRecommendationStore = () => recommendationStore;
 

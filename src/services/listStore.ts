@@ -186,6 +186,34 @@ const resetSearchState = () => {
   state.isSearching = false;
 };
 
+type ImportableList = {
+  id: string;
+  title: string;
+  movieIds: readonly string[];
+};
+
+const createImportedUserList = (
+  list: ImportableList,
+  overrides?: Partial<Pick<UserMovieListRecord, 'averageRating' | 'createdAt' | 'isPrivate' | 'ratingCount' | 'saveCount' | 'updatedAt'>>
+): UserMovieListRecord => {
+  const now = new Date().toISOString();
+
+  return {
+    id: `user_list_${Date.now()}`,
+    ownerId: state.userId,
+    ownerName: state.ownerName,
+    title: list.title,
+    movieIds: [...list.movieIds],
+    saveCount: overrides?.saveCount ?? 1,
+    averageRating: overrides?.averageRating ?? 0,
+    ratingCount: overrides?.ratingCount ?? 0,
+    isPrivate: overrides?.isPrivate ?? false,
+    createdAt: overrides?.createdAt ?? now,
+    sourceListId: list.id,
+    updatedAt: overrides?.updatedAt ?? now
+  };
+};
+
 const selectedDraftMovies = computed(() => resolveMoviePreviews(state.draft.movieIds));
 const canSaveDraft = computed(
   () => state.draft.title.trim().length > 0 && state.draft.movieIds.length > 0
@@ -312,13 +340,55 @@ const deleteUserList = async (listId: string) => {
   }
 };
 
+const removeFromMyLists = async (listId: string) => {
+  const target = state.userLists.find((list) => list.id === listId);
+
+  if (!target) {
+    return;
+  }
+
+  if (target.sourceListId) {
+    const current = getInteraction(target.sourceListId);
+    const nextInteractions = [...state.interactions];
+    const existingIndex = nextInteractions.findIndex(
+      (interaction) => interaction.listId === target.sourceListId
+    );
+    const updated: ListInteractionRecord = {
+      listId: target.sourceListId,
+      saved: false,
+      personalRating: current?.personalRating ?? null
+    };
+
+    if (existingIndex >= 0) {
+      nextInteractions.splice(existingIndex, 1, updated);
+    } else {
+      nextInteractions.push(updated);
+    }
+
+    state.interactions = nextInteractions;
+  }
+
+  state.userLists = state.userLists.filter((list) => list.id !== listId);
+  await persistState();
+
+  if (state.draft.id === listId) {
+    resetDraft();
+  }
+
+  if (state.searchQuery.trim()) {
+    await refreshSearchResults();
+  }
+};
+
 const toggleSharedListSave = async (listId: string) => {
+  const sourceList = state.sharedCatalog.find((list) => list.id === listId);
   const current = getInteraction(listId);
   const nextInteractions = [...state.interactions];
   const existingIndex = nextInteractions.findIndex((interaction) => interaction.listId === listId);
+  const nextSaved = !(current?.saved ?? false);
   const updated: ListInteractionRecord = {
     listId,
-    saved: !(current?.saved ?? false),
+    saved: nextSaved,
     personalRating: current?.personalRating ?? null
   };
 
@@ -329,7 +399,28 @@ const toggleSharedListSave = async (listId: string) => {
   }
 
   state.interactions = nextInteractions;
+
+  if (sourceList) {
+    if (nextSaved) {
+      const alreadyImported = state.userLists.some((list) => list.sourceListId === listId);
+
+      if (!alreadyImported) {
+        state.userLists = [createImportedUserList(sourceList), ...state.userLists];
+      }
+    } else {
+      state.userLists = state.userLists.filter((list) => list.sourceListId !== listId);
+
+      if (state.draft.id && !state.userLists.some((list) => list.id === state.draft.id)) {
+        resetDraft();
+      }
+    }
+  }
+
   await persistState();
+
+  if (state.searchQuery.trim()) {
+    await refreshSearchResults();
+  }
 };
 
 const setSharedListRating = async (listId: string, rating: null | number) => {
@@ -362,21 +453,7 @@ const saveRecommendedList = async (list: { id: string; movieIds: readonly string
     return existing.id;
   }
 
-  const now = new Date().toISOString();
-  const nextRecord: UserMovieListRecord = {
-    id: `user_list_${Date.now()}`,
-    ownerId: state.userId,
-    ownerName: state.ownerName,
-    title: list.title,
-    movieIds: [...list.movieIds],
-    saveCount: 1,
-    averageRating: 0,
-    ratingCount: 0,
-    isPrivate: false,
-    createdAt: now,
-    sourceListId: list.id,
-    updatedAt: now
-  };
+  const nextRecord = createImportedUserList(list);
 
   state.userLists = [nextRecord, ...state.userLists];
   await persistState();
@@ -444,6 +521,7 @@ export const listStore = {
   saveDraft,
   editUserList,
   deleteUserList,
+  removeFromMyLists,
   hasImportedList,
   saveRecommendedList,
   toggleSharedListSave,

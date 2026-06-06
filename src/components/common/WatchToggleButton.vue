@@ -49,7 +49,7 @@ const toggle = async () => {
       sizeClassName,
       isSaved
         ? 'border-app-accent bg-app-accent text-white'
-        : 'border-app-line bg-app-panelSoft text-white'
+        : 'border-app-line bg-app-panelSoft text-[#15171c]'
     ]"
     :disabled="isSubmitting"
     @click="toggle"

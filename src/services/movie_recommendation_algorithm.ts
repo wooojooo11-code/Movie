@@ -74,6 +74,9 @@ const LIKE_BASE_WEIGHT = 3;
 const DISLIKE_BASE_WEIGHT = -2;
 const REVIEW_TAG_WEIGHT = 2;
 const CHARACTER_WEIGHT = 1;
+const REVIEW_TEXT_TAG_WEIGHT = 1;
+const REVIEW_TEXT_GENRE_WEIGHT = 1;
+const REVIEW_TEXT_REVIEW_TAG_WEIGHT = 1;
 
 const REVIEW_TAG_MATCH_MAP: Record<ReviewTag, string[]> = {
   액션: ['액션'],
@@ -98,6 +101,166 @@ const REVIEW_TAG_MATCH_MAP: Record<ReviewTag, string[]> = {
   여운: ['여운', '여운 있는 결말'],
   성장: ['성장'],
   모험: ['모험', '세계관']
+};
+
+const normalizeReviewText = (value: string) =>
+  value
+    .toLowerCase()
+    .normalize('NFKC')
+    .replace(/\s+/gu, '')
+    .replace(/[!?,.~"'`()[\]{}:;/-]+/gu, '');
+
+const REVIEW_TEXT_KEYWORD_RULES: Array<{
+  genres?: string[];
+  needles: string[];
+  reviewTags?: ReviewTag[];
+  tags?: string[];
+}> = [
+  {
+    needles: ['액션', '전투', '추격', '카체이싱', '시원하다', '박진감', '스릴있다'],
+    genres: ['액션'],
+    reviewTags: ['액션', '몰입감'],
+    tags: ['액션', '몰입감']
+  },
+  {
+    needles: ['연기', '배우', '호연', '연기력', '표정'],
+    reviewTags: ['배우들의 연기력'],
+    tags: ['배우들의 연기력']
+  },
+  {
+    needles: ['스토리', '서사', '각본', '전개', '구성', '촘촘하다'],
+    reviewTags: ['탄탄한 스토리'],
+    tags: ['탄탄한 스토리']
+  },
+  {
+    needles: ['영상미', '비주얼', '화면', '색감', '촬영', '미장센', '장면이예쁘다'],
+    reviewTags: ['영상미', '연출'],
+    tags: ['영상미', '연출']
+  },
+  {
+    needles: ['연출', '연출력', '디테일', '구도', '장면연출'],
+    reviewTags: ['연출'],
+    tags: ['연출']
+  },
+  {
+    needles: ['음악', 'ost', '사운드', 'bgm', '노래', '테마곡'],
+    reviewTags: ['감동적인 음악', 'OST'],
+    tags: ['감동적인 음악', 'OST']
+  },
+  {
+    needles: ['결말', '엔딩', '마지막장면', '끝나고도', '엔딩이좋다'],
+    reviewTags: ['여운 있는 결말', '여운'],
+    tags: ['여운 있는 결말', '여운']
+  },
+  {
+    needles: ['세계관', '설정', '우주', '미래', '시간여행', '디스토피아', '공상과학'],
+    genres: ['SF'],
+    reviewTags: ['세계관'],
+    tags: ['세계관']
+  },
+  {
+    needles: ['캐릭터', '주인공', '매력', '케미', '관계성'],
+    reviewTags: ['캐릭터 매력'],
+    tags: ['캐릭터 매력', '캐릭터']
+  },
+  {
+    needles: ['웃기다', '웃겼다', '유머', '코미디', '빵터졌다', '재치있다'],
+    genres: ['코미디'],
+    reviewTags: ['유머', '유쾌함'],
+    tags: ['유머', '유쾌함']
+  },
+  {
+    needles: ['몰입', '집중', '빠져든다', '순식간', '시간가는줄몰랐다'],
+    reviewTags: ['몰입감'],
+    tags: ['몰입감']
+  },
+  {
+    needles: ['긴장', '쫄깃', '손에땀', '불안', '서스펜스'],
+    genres: ['스릴러'],
+    reviewTags: ['긴장감'],
+    tags: ['긴장감']
+  },
+  {
+    needles: ['반전', '예상못', '뒤집힌다', '예측불가', '의외'],
+    genres: ['미스터리', '스릴러'],
+    reviewTags: ['반전'],
+    tags: ['반전']
+  },
+  {
+    needles: ['빠른전개', '템포', '속도감', '전개가빠르다'],
+    reviewTags: ['빠른전개'],
+    tags: ['빠른전개', '몰입감']
+  },
+  {
+    needles: ['감동', '울컥', '눈물', '먹먹', '뭉클'],
+    reviewTags: ['감동'],
+    tags: ['감동']
+  },
+  {
+    needles: ['여운', '계속생각난다', '곱씹게된다', '잔상이남는다'],
+    reviewTags: ['여운'],
+    tags: ['여운']
+  },
+  {
+    needles: ['성장', '성숙', '변화', '자라난다'],
+    reviewTags: ['성장'],
+    tags: ['성장']
+  },
+  {
+    needles: ['모험', '여정', '여행', '탐험'],
+    reviewTags: ['모험'],
+    tags: ['모험']
+  },
+  {
+    needles: ['설렌다', '설렘', '로맨스', '사랑', '연애', '케미가좋다'],
+    genres: ['로맨스'],
+    reviewTags: ['감동', '여운'],
+    tags: ['감동', '여운']
+  }
+];
+
+const extractReviewTextSignals = (reviewText: string) => {
+  const normalizedReviewText = normalizeReviewText(reviewText);
+
+  if (!normalizedReviewText) {
+    return {
+      genres: [] as string[],
+      reviewTags: [] as ReviewTag[],
+      tags: [] as string[]
+    };
+  }
+
+  const genres = new Set<string>();
+  const tags = new Set<string>();
+  const reviewTags = new Set<ReviewTag>();
+
+  for (const rule of REVIEW_TEXT_KEYWORD_RULES) {
+    const isMatched = rule.needles.some((needle) =>
+      normalizedReviewText.includes(normalizeReviewText(needle))
+    );
+
+    if (!isMatched) {
+      continue;
+    }
+
+    for (const genre of rule.genres ?? []) {
+      genres.add(genre);
+    }
+
+    for (const tag of rule.tags ?? []) {
+      tags.add(tag);
+    }
+
+    for (const reviewTag of rule.reviewTags ?? []) {
+      reviewTags.add(reviewTag);
+    }
+  }
+
+  return {
+    genres: [...genres],
+    reviewTags: [...reviewTags],
+    tags: [...tags]
+  };
 };
 
 export function createEmptyUserPreferenceProfile(userId: string): UserPreferenceProfile {
@@ -126,7 +289,10 @@ function getRatingWeight(rating: number | null): number {
 export function applyRatingToProfile(
   profile: UserPreferenceProfile,
   movie: Movie,
-  input: RatingInput
+  input: RatingInput,
+  options?: {
+    reviewText?: string;
+  }
 ): UserPreferenceProfile {
   const nextProfile: UserPreferenceProfile = {
     ...profile,
@@ -170,6 +336,20 @@ export function applyRatingToProfile(
 
   if (input.favoriteCharacter) {
     addScore(nextProfile.characterScores, input.favoriteCharacter, CHARACTER_WEIGHT);
+  }
+
+  const reviewTextSignals = extractReviewTextSignals(options?.reviewText ?? '');
+
+  for (const genre of reviewTextSignals.genres) {
+    addScore(nextProfile.genreScores, genre, REVIEW_TEXT_GENRE_WEIGHT);
+  }
+
+  for (const tag of reviewTextSignals.tags) {
+    addScore(nextProfile.tagScores, tag, REVIEW_TEXT_TAG_WEIGHT);
+  }
+
+  for (const reviewTag of reviewTextSignals.reviewTags) {
+    addScore(nextProfile.reviewTagScores, reviewTag, REVIEW_TEXT_REVIEW_TAG_WEIGHT);
   }
 
   return nextProfile;

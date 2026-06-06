@@ -1,0 +1,1005 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/f3p553",
+    "id": "f3p553",
+    "slide": 6,
+    "layoutId": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idonyd0z",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#F7F4EC",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "2",
+      "bbox": [
+        -120,
+        -140,
+        360,
+        360
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 209, 102, 0.13333)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "3",
+      "bbox": [
+        980,
+        520,
+        260,
+        260
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 127, 106, 0.11765)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6xkf6dc",
+      "id": "4",
+      "bbox": [
+        1040,
+        -90,
+        280,
+        220
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 209, 102, 0.14118)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/il0rqd4v",
+      "id": "5",
+      "name": "kicker-marker",
+      "bbox": [
+        72,
+        58,
+        14,
+        14
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#61D2B4",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tcj6tova",
+      "id": "6",
+      "name": "kicker-label",
+      "bbox": [
+        94,
+        50,
+        250,
+        28
+      ],
+      "geometry": "rect",
+      "text": "05 RISK",
+      "textPreview": "05 RISK",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "color": "#3C91E6",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "05 RISK"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "05 RISK",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Aptos",
+            "color": "#3C91E6",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "05 RISK",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#3C91E6",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rqd4vmt",
+      "id": "7",
+      "bbox": [
+        72,
+        92,
+        820,
+        84
+      ],
+      "geometry": "rect",
+      "text": "디지털 시민의식이 약해질수록 갈등, 왜곡, 유출 위험은 커집니다.",
+      "textPreview": "디지털 시민의식이 약해질수록 갈등, 왜곡, 유출 위험은 커집니다.",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 30,
+        "typeface": "Aptos Display",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "디지털 시민의식이 약해질수록 갈등, 왜곡, 유출 위험은"
+          },
+          {
+            "index": 2,
+            "text": "커집니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "디지털 시민의식이 약해질수록 갈등, 왜곡, 유출 위험은 커집니다.",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "typeface": "Aptos Display",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "디지털 시민의식이 약해질수록 갈등, 왜곡, 유출 위험은 커집니다.",
+              "fontSize": 30,
+              "typeface": "Aptos Display",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bi9s36hc",
+      "id": "8",
+      "bbox": [
+        72,
+        176,
+        820,
+        46
+      ],
+      "geometry": "rect",
+      "text": "문제를 알면 예방도 더 쉬워집니다.",
+      "textPreview": "문제를 알면 예방도 더 쉬워집니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "문제를 알면 예방도 더 쉬워집니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "문제를 알면 예방도 더 쉬워집니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "문제를 알면 예방도 더 쉬워집니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ixczed8v",
+      "id": "9",
+      "bbox": [
+        92,
+        264,
+        150,
+        26
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FF7F6A",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s72x4nap",
+      "id": "10",
+      "bbox": [
+        292,
+        250,
+        180,
+        32
+      ],
+      "geometry": "rect",
+      "text": "사이버폭력",
+      "textPreview": "사이버폭력",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "사이버폭력"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "사이버폭력",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "사이버폭력",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lszqtcj6",
+      "id": "11",
+      "bbox": [
+        472,
+        248,
+        620,
+        42
+      ],
+      "geometry": "rect",
+      "text": "익명성 뒤에 숨은 공격은 피해자의 일상과 자존감을 크게 흔듭니다.",
+      "textPreview": "익명성 뒤에 숨은 공격은 피해자의 일상과 자존감을 크게 흔듭니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "익명성 뒤에 숨은 공격은 피해자의 일상과 자존감을 크게 흔듭니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "익명성 뒤에 숨은 공격은 피해자의 일상과 자존감을 크게 흔듭니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "익명성 뒤에 숨은 공격은 피해자의 일상과 자존감을 크게 흔듭니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5gbq1or",
+      "id": "12",
+      "bbox": [
+        92,
+        374,
+        240,
+        26
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFD166",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m94fu18",
+      "id": "13",
+      "bbox": [
+        292,
+        360,
+        180,
+        32
+      ],
+      "geometry": "rect",
+      "text": "가짜 정보",
+      "textPreview": "가짜 정보",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "가짜 정보"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "가짜 정보",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "가짜 정보",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/sji5snel",
+      "id": "14",
+      "bbox": [
+        472,
+        358,
+        620,
+        42
+      ],
+      "geometry": "rect",
+      "text": "확인되지 않은 콘텐츠는 편견과 혼란을 빠르게 확산시킵니다.",
+      "textPreview": "확인되지 않은 콘텐츠는 편견과 혼란을 빠르게 확산시킵니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "확인되지 않은 콘텐츠는 편견과 혼란을 빠르게 확산시킵니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "확인되지 않은 콘텐츠는 편견과 혼란을 빠르게 확산시킵니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "확인되지 않은 콘텐츠는 편견과 혼란을 빠르게 확산시킵니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4byhgn2",
+      "id": "15",
+      "bbox": [
+        92,
+        484,
+        330,
+        26
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#3C91E6",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/adsji5sn",
+      "id": "16",
+      "bbox": [
+        292,
+        470,
+        180,
+        32
+      ],
+      "geometry": "rect",
+      "text": "개인정보 유출",
+      "textPreview": "개인정보 유출",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "개인정보 유출"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "개인정보 유출",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "개인정보 유출",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ylc7u54",
+      "id": "17",
+      "bbox": [
+        472,
+        468,
+        620,
+        42
+      ],
+      "geometry": "rect",
+      "text": "위치, 연락처, 사진 정보가 노출되면 사칭과 범죄로 이어질 수 있습니다.",
+      "textPreview": "위치, 연락처, 사진 정보가 노출되면 사칭과 범죄로 이어질 수 있습니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "위치, 연락처, 사진 정보가 노출되면 사칭과 범죄로 이어질 수 있습니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "위치, 연락처, 사진 정보가 노출되면 사칭과 범죄로 이어질 수 있습니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "위치, 연락처, 사진 정보가 노출되면 사칭과 범죄로 이어질 수 있습니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/svu9knih",
+      "id": "18",
+      "bbox": [
+        92,
+        602,
+        1040,
+        38
+      ],
+      "geometry": "rect",
+      "text": "예방 원칙: 멈추기 → 확인하기 → 기록하기 → 도움 요청하기",
+      "textPreview": "예방 원칙: 멈추기 → 확인하기 → 기록하기 → 도움 요청하기",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#3C91E6",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "예방 원칙: 멈추기 → 확인하기 → 기록하기 → 도움 요청하기"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "예방 원칙: 멈추기 → 확인하기 → 기록하기 → 도움 요청하기",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#3C91E6",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "예방 원칙: 멈추기 → 확인하기 → 기록하기 → 도움 요청하기",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#3C91E6",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hgn29gr2",
+      "id": "19",
+      "bbox": [
+        72,
+        684,
+        240,
+        20
+      ],
+      "geometry": "rect",
+      "text": "Digital Citizenship",
+      "textPreview": "Digital Citizenship",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Digital Citizenship"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Digital Citizenship",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Digital Citizenship",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l87ed8ba",
+      "id": "20",
+      "bbox": [
+        1180,
+        684,
+        40,
+        20
+      ],
+      "geometry": "rect",
+      "text": "6",
+      "textPreview": "6",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "6"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "6",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "6",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

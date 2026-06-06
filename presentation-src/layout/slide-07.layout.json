@@ -1,0 +1,1128 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/hg0bn7",
+    "id": "hg0bn7",
+    "slide": 7,
+    "layoutId": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos",
+      "Aptos Display"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "afdd0d40-3eb2-4391-a4ff-3f91ec1d0cf9",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "aa82d9f6-01b6-49cf-b4fb-23d08fe31cff",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/itgfmlkj",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#F7F4EC",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pkzupwb2",
+      "id": "2",
+      "bbox": [
+        -120,
+        -140,
+        360,
+        360
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(97, 210, 180, 0.13333)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0z61032l",
+      "id": "3",
+      "bbox": [
+        980,
+        520,
+        260,
+        260
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 127, 106, 0.11765)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/72x4nap4",
+      "id": "4",
+      "bbox": [
+        1040,
+        -90,
+        280,
+        220
+      ],
+      "geometry": "ellipse",
+      "fillColor": "rgba(255, 209, 102, 0.14118)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ih4byhgn",
+      "id": "5",
+      "name": "kicker-marker",
+      "bbox": [
+        72,
+        58,
+        14,
+        14
+      ],
+      "geometry": "ellipse",
+      "fillColor": "#61D2B4",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p8nqxs72",
+      "id": "6",
+      "name": "kicker-label",
+      "bbox": [
+        94,
+        50,
+        250,
+        28
+      ],
+      "geometry": "rect",
+      "text": "06 ACTION",
+      "textPreview": "06 ACTION",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "color": "#3C91E6",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "06 ACTION"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "06 ACTION",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Aptos",
+            "color": "#3C91E6",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "06 ACTION",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#3C91E6",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0nuxc3yl",
+      "id": "7",
+      "bbox": [
+        72,
+        92,
+        820,
+        84
+      ],
+      "geometry": "rect",
+      "text": "학교와 가정이 함께 기준을 세울 때 실천은 더 오래갑니다.",
+      "textPreview": "학교와 가정이 함께 기준을 세울 때 실천은 더 오래갑니다.",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 30,
+        "typeface": "Aptos Display",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "학교와 가정이 함께 기준을 세울 때 실천은 더 오래갑니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "학교와 가정이 함께 기준을 세울 때 실천은 더 오래갑니다.",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "typeface": "Aptos Display",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "학교와 가정이 함께 기준을 세울 때 실천은 더 오래갑니다.",
+              "fontSize": 30,
+              "typeface": "Aptos Display",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1kre1w",
+      "id": "8",
+      "bbox": [
+        72,
+        176,
+        820,
+        46
+      ],
+      "geometry": "rect",
+      "text": "개인 노력만으로는 한계가 있으므로 공동 규칙과 대화가 필요합니다.",
+      "textPreview": "개인 노력만으로는 한계가 있으므로 공동 규칙과 대화가 필요합니다.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "개인 노력만으로는 한계가 있으므로 공동 규칙과 대화가 필요합니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "개인 노력만으로는 한계가 있으므로 공동 규칙과 대화가 필요합니다.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "개인 노력만으로는 한계가 있으므로 공동 규칙과 대화가 필요합니다.",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8v6psf",
+      "id": "9",
+      "bbox": [
+        72,
+        270,
+        320,
+        260
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D7E2F1",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8v6psfil",
+      "id": "10",
+      "bbox": [
+        92,
+        290,
+        36,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#3C91E6",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xczed8v6",
+      "id": "11",
+      "bbox": [
+        92,
+        308,
+        280,
+        36
+      ],
+      "geometry": "rect",
+      "text": "학생",
+      "textPreview": "학생",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "학생"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "학생",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "학생",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qpg3ex0n",
+      "id": "12",
+      "bbox": [
+        92,
+        352,
+        280,
+        162
+      ],
+      "geometry": "rect",
+      "text": "친절한 언어 사용\n출처 확인 후 공유\n피해 상황 기록과 신고",
+      "textPreview": "친절한 언어 사용 | 출처 확인 후 공유 | 피해 상황 기록과 신고",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "친절한 언어 사용"
+          },
+          {
+            "index": 2,
+            "text": "출처 확인 후 공유"
+          },
+          {
+            "index": 3,
+            "text": "피해 상황 기록과 신고"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "친절한 언어 사용",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "친절한 언어 사용",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "출처 확인 후 공유",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "출처 확인 후 공유",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "피해 상황 기록과 신고",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "피해 상황 기록과 신고",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fa9w3m94",
+      "id": "13",
+      "bbox": [
+        430,
+        270,
+        320,
+        260
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D7E2F1",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8jqh0fep",
+      "id": "14",
+      "bbox": [
+        450,
+        290,
+        36,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#61D2B4",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nap4r6",
+      "id": "15",
+      "bbox": [
+        450,
+        308,
+        280,
+        36
+      ],
+      "geometry": "rect",
+      "text": "학교",
+      "textPreview": "학교",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "학교"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "학교",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "학교",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qd4vmtwr",
+      "id": "16",
+      "bbox": [
+        450,
+        352,
+        280,
+        162
+      ],
+      "geometry": "rect",
+      "text": "정기적인 디지털 윤리 교육\n학급 채팅 규칙 만들기\n사이버폭력 대응 체계 안내",
+      "textPreview": "정기적인 디지털 윤리 교육 | 학급 채팅 규칙 만들기 | 사이버폭력 대응 체계 안내",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "정기적인 디지털 윤리 교육"
+          },
+          {
+            "index": 2,
+            "text": "학급 채팅 규칙 만들기"
+          },
+          {
+            "index": 3,
+            "text": "사이버폭력 대응 체계 안내"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "정기적인 디지털 윤리 교육",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "정기적인 디지털 윤리 교육",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "학급 채팅 규칙 만들기",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "학급 채팅 규칙 만들기",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "사이버폭력 대응 체계 안내",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "사이버폭력 대응 체계 안내",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fyxobm58",
+      "id": "17",
+      "bbox": [
+        788,
+        270,
+        320,
+        260
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#D7E2F1",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/87ed8bat",
+      "id": "18",
+      "bbox": [
+        808,
+        290,
+        36,
+        6
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#FF7F6A",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xs72x4na",
+      "id": "19",
+      "bbox": [
+        808,
+        308,
+        280,
+        36
+      ],
+      "geometry": "rect",
+      "text": "가정",
+      "textPreview": "가정",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#12355B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "가정"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "가정",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#12355B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "가정",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#12355B",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwval87e",
+      "id": "20",
+      "bbox": [
+        808,
+        352,
+        280,
+        162
+      ],
+      "geometry": "rect",
+      "text": "대화 중심의 미디어 지도\n스크린 사용 습관 점검\n개인정보 보호 함께 실천",
+      "textPreview": "대화 중심의 미디어 지도 | 스크린 사용 습관 점검 | 개인정보 보호 함께 실천",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "대화 중심의 미디어 지도"
+          },
+          {
+            "index": 2,
+            "text": "스크린 사용 습관 점검"
+          },
+          {
+            "index": 3,
+            "text": "개인정보 보호 함께 실천"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "대화 중심의 미디어 지도",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "대화 중심의 미디어 지도",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "스크린 사용 습관 점검",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "스크린 사용 습관 점검",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "개인정보 보호 함께 실천",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "개인정보 보호 함께 실천",
+              "fontSize": 16,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wb2hwfyx",
+      "id": "21",
+      "bbox": [
+        72,
+        684,
+        240,
+        20
+      ],
+      "geometry": "rect",
+      "text": "Digital Citizenship",
+      "textPreview": "Digital Citizenship",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Digital Citizenship"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Digital Citizenship",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Digital Citizenship",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3q5o7qpg",
+      "id": "22",
+      "bbox": [
+        1180,
+        684,
+        40,
+        20
+      ],
+      "geometry": "rect",
+      "text": "7",
+      "textPreview": "7",
+      "resolvedFontSize": 10,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 10,
+        "typeface": "Aptos",
+        "color": "#5B6B83",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "7"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "7",
+          "resolvedTextStyle": {
+            "fontSize": 10,
+            "typeface": "Aptos",
+            "color": "#5B6B83",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "7",
+              "fontSize": 10,
+              "typeface": "Aptos",
+              "color": "#5B6B83"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "fillColor": "rgba(0, 0, 0, 0)",
+      "lineColor": "rgba(0, 0, 0, 0)",
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

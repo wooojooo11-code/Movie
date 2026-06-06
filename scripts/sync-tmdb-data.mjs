@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
 const DEFAULT_LANGUAGE = 'ko-KR';
 const DEFAULT_REGION = 'KR';
+const SEARCH_LANGUAGE = 'en-US';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 
@@ -15,12 +16,12 @@ const movieSeeds = [
   { id: 'movie_4', query: 'The Grand Budapest Hotel', year: 2014 },
   { id: 'movie_5', query: 'The Dark Knight', year: 2008 },
   { id: 'movie_6', query: 'Parasite', year: 2019 },
-  { id: 'movie_7', query: 'Spirited Away', year: 2001 },
+  { id: 'movie_7', query: 'Gattaca', year: 1997 },
   { id: 'movie_8', query: 'Gone Girl', year: 2014 },
   { id: 'movie_9', query: 'Whiplash', year: 2014 },
   { id: 'movie_10', query: 'John Wick', year: 2014 },
-  { id: 'movie_11', query: 'Inside Out', year: 2015 },
-  { id: 'movie_12', query: 'Soul', year: 2020 },
+  { id: 'movie_11', query: '12 Monkeys', year: 1995 },
+  { id: 'movie_12', query: 'Sunshine', year: 2007 },
   { id: 'movie_13', query: 'Her', year: 2013 },
   { id: 'movie_14', query: 'Ford v Ferrari', year: 2019 },
   { id: 'movie_15', query: 'In the Mood for Love', year: 2000 },
@@ -52,17 +53,17 @@ const movieSeeds = [
   { id: 'movie_41', query: 'The Prestige', year: 2006 },
   { id: 'movie_42', query: 'The Handmaiden', year: 2016 },
   { id: 'movie_43', query: 'Decision to Leave', year: 2022 },
-  { id: 'movie_44', query: 'Burning', year: 2018 },
+  { id: 'movie_44', query: 'Snowpiercer', year: 2013 },
   { id: 'movie_45', query: 'The Host', year: 2006 },
   { id: 'movie_46', query: 'Train to Busan', year: 2016 },
   { id: 'movie_47', query: 'The Wailing', year: 2016 },
-  { id: 'movie_48', query: 'Oppenheimer', year: 2023 },
-  { id: 'movie_49', query: 'The Social Network', year: 2010 },
+  { id: 'movie_48', query: 'Upgrade', year: 2018 },
+  { id: 'movie_49', query: 'Close Encounters of the Third Kind', year: 1977 },
   { id: 'movie_50', query: 'Little Women', year: 2019 },
-  { id: 'movie_51', query: 'Minari', year: 2020 },
+  { id: 'movie_51', query: 'Ad Astra', year: 2019 },
   { id: 'movie_52', query: 'Call Me by Your Name', year: 2017 },
   { id: 'movie_53', query: 'Portrait of a Lady on Fire', year: 2019 },
-  { id: 'movie_54', query: 'Coco', year: 2017 },
+  { id: 'movie_54', query: 'Brooklyn', year: 2015 },
   { id: 'movie_55', query: 'Toy Story 3', year: 2010 },
   { id: 'movie_56', query: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
   { id: 'movie_57', query: 'The Lord of the Rings: The Two Towers', year: 2002 },
@@ -72,7 +73,7 @@ const movieSeeds = [
   { id: 'movie_61', query: 'The Menu', year: 2022 },
   { id: 'movie_62', query: 'Nope', year: 2022 },
   { id: 'movie_63', query: 'Fight Club', year: 1999 },
-  { id: 'movie_64', query: 'The Shawshank Redemption', year: 1994 },
+  { id: 'movie_64', query: 'A Walk to Remember', year: 2002 },
   { id: 'movie_65', query: 'Gladiator', year: 2000 },
   { id: 'movie_66', query: 'Casino Royale', year: 2006 },
   { id: 'movie_67', query: 'Skyfall', year: 2012 },
@@ -141,7 +142,74 @@ const movieSeeds = [
   { id: 'movie_130', query: 'Minority Report', year: 2002 },
   { id: 'movie_131', query: 'Avatar', year: 2009 },
   { id: 'movie_132', query: 'The Rock', year: 1996 },
-  { id: 'movie_133', query: 'Speed', year: 1994 }
+  { id: 'movie_133', query: 'Speed', year: 1994 },
+  { id: 'movie_134', query: 'Back to the Future', year: 1985 },
+  { id: 'movie_135', query: 'Back to the Future Part II', year: 1989 },
+  { id: 'movie_136', query: 'Star Trek', year: 2009 },
+  { id: 'movie_137', query: 'Star Trek Into Darkness', year: 2013 },
+  { id: 'movie_138', query: 'District 9', year: 2009 },
+  { id: 'movie_139', query: 'Gravity', year: 2013 },
+  { id: 'movie_140', query: 'Moon', year: 2009 },
+  { id: 'movie_141', query: 'Looper', year: 2012 },
+  { id: 'movie_142', query: 'Children of Men', year: 2006 },
+  { id: 'movie_143', query: 'Ready Player One', year: 2018 },
+  { id: 'movie_144', query: 'Oblivion', year: 2013 },
+  { id: 'movie_145', query: 'A.I. Artificial Intelligence', year: 2001 },
+  { id: 'movie_146', query: 'War of the Worlds', year: 2005 },
+  { id: 'movie_147', query: 'The Day the Earth Stood Still', year: 2008 },
+  { id: 'movie_148', query: 'Source Code', year: 2011 },
+  { id: 'movie_149', query: 'I, Robot', year: 2004 },
+  { id: 'movie_150', query: 'Contact', year: 1997 },
+  { id: 'movie_151', query: 'Predator', year: 1987 },
+  { id: 'movie_152', query: 'The Fifth Element', year: 1997 },
+  { id: 'movie_153', query: 'WALL·E', year: 2008 },
+  { id: 'movie_154', query: 'Pretty Woman', year: 1990 },
+  { id: 'movie_155', query: 'The Holiday', year: 2006 },
+  { id: 'movie_156', query: "You've Got Mail", year: 1998 },
+  { id: 'movie_157', query: 'Crazy Rich Asians', year: 2018 },
+  { id: 'movie_158', query: 'Me Before You', year: 2016 },
+  { id: 'movie_159', query: '10 Things I Hate About You', year: 1999 },
+  { id: 'movie_160', query: 'Love Actually', year: 2003 },
+  { id: 'movie_161', query: 'The Big Sick', year: 2017 },
+  { id: 'movie_162', query: 'The Fault in Our Stars', year: 2014 },
+  { id: 'movie_163', query: 'Always Be My Maybe', year: 2019 },
+  { id: 'movie_164', query: 'My Sassy Girl', year: 2001 },
+  { id: 'movie_165', query: 'About Fate', year: 2022 },
+  { id: 'movie_166', query: 'How to Lose a Guy in 10 Days', year: 2003 },
+  { id: 'movie_167', query: 'The Vow', year: 2012 },
+  { id: 'movie_168', query: 'Crazy, Stupid, Love.', year: 2011 },
+  { id: 'movie_169', query: "Ferris Bueller's Day Off", year: 1986 },
+  { id: 'movie_170', query: 'Legally Blonde', year: 2001 },
+  { id: 'movie_171', query: 'Easy A', year: 2010 },
+  { id: 'movie_172', query: '21 Jump Street', year: 2012 },
+  { id: 'movie_173', query: 'The Hangover', year: 2009 },
+  { id: 'movie_174', query: 'Clueless', year: 1995 },
+  { id: 'movie_175', query: 'Anchorman: The Legend of Ron Burgundy', year: 2004 },
+  { id: 'movie_176', query: 'Office Space', year: 1999 },
+  { id: 'movie_177', query: 'Step Brothers', year: 2008 },
+  { id: 'movie_178', query: 'Game Night', year: 2018 },
+  { id: 'movie_179', query: 'Napoleon Dynamite', year: 2004 },
+  { id: 'movie_180', query: 'Pitch Perfect', year: 2012 },
+  { id: 'movie_181', query: 'The Mask', year: 1994 },
+  { id: 'movie_182', query: 'One Day', year: 2011 },
+  { id: 'movie_183', query: 'Raiders of the Lost Ark', year: 1981 },
+  { id: 'movie_184', query: 'John Wick: Chapter 2', year: 2017 },
+  { id: 'movie_185', query: 'John Wick: Chapter 3 - Parabellum', year: 2019 },
+  { id: 'movie_186', query: 'Taken', year: 2008 },
+  { id: 'movie_187', query: 'The Fugitive', year: 1993 },
+  { id: 'movie_188', query: 'The Road Warrior', year: 1981 },
+  { id: 'movie_189', query: 'The Last Samurai', year: 2003 },
+  { id: 'movie_190', query: 'Face/Off', year: 1997 },
+  { id: 'movie_191', query: 'RoboCop', year: 1987 },
+  { id: 'movie_192', query: 'Bad Boys', year: 1995 },
+  { id: 'movie_193', query: 'Nightcrawler', year: 2014 },
+  { id: 'movie_194', query: 'Wind River', year: 2017 },
+  { id: 'movie_195', query: 'Primal Fear', year: 1996 },
+  { id: 'movie_196', query: 'Insomnia', year: 2002 },
+  { id: 'movie_197', query: 'Identity', year: 2003 },
+  { id: 'movie_198', query: 'Gone Baby Gone', year: 2007 },
+  { id: 'movie_199', query: 'The Bone Collector', year: 1999 },
+  { id: 'movie_200', query: 'The Invisible Guest', year: 2016 }
 ];
 
 const catalogLists = [
@@ -314,6 +382,11 @@ const getPosterBase = async () => {
 };
 
 const normalizeText = (value) => value.toLowerCase();
+const normalizeTitle = (value) =>
+  normalizeText(String(value ?? ''))
+    .normalize('NFKC')
+    .replace(/&/gu, 'and')
+    .replace(/[^\p{L}\p{N}]+/gu, '');
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
@@ -322,13 +395,66 @@ const selectBestSearchResult = (results, seed) => {
     throw new Error(`No TMDB movie search result for "${seed.query}"`);
   }
 
-  const exactYearMatches = results.filter((item) =>
-    typeof item.release_date === 'string' && item.release_date.startsWith(String(seed.year))
-  );
-  const exactYearMatchWithPoster = exactYearMatches.find((item) => item.poster_path);
-  const anyMatchWithPoster = results.find((item) => item.poster_path);
+  const normalizedSeedTitle = normalizeTitle(seed.query);
 
-  return exactYearMatchWithPoster ?? anyMatchWithPoster ?? exactYearMatches[0] ?? results[0];
+  const scoredResults = results.map((item) => {
+    const normalizedTitle = normalizeTitle(item.title);
+    const normalizedOriginalTitle = normalizeTitle(item.original_title);
+    const releaseYear =
+      typeof item.release_date === 'string'
+        ? Number.parseInt(item.release_date.slice(0, 4), 10)
+        : Number.NaN;
+
+    let score = 0;
+
+    if (normalizedTitle === normalizedSeedTitle) {
+      score += 300;
+    } else if (normalizedTitle.includes(normalizedSeedTitle) || normalizedSeedTitle.includes(normalizedTitle)) {
+      score += 120;
+    }
+
+    if (normalizedOriginalTitle === normalizedSeedTitle) {
+      score += 260;
+    } else if (
+      normalizedOriginalTitle.includes(normalizedSeedTitle) ||
+      normalizedSeedTitle.includes(normalizedOriginalTitle)
+    ) {
+      score += 110;
+    }
+
+    if (!Number.isNaN(releaseYear)) {
+      const yearDistance = Math.abs(releaseYear - seed.year);
+
+      if (yearDistance === 0) {
+        score += 60;
+      } else if (yearDistance === 1) {
+        score += 18;
+      } else if (yearDistance === 2) {
+        score += 6;
+      }
+    }
+
+    if (item.poster_path) {
+      score += 20;
+    }
+
+    score += Math.min(Number(item.popularity ?? 0), 50) * 0.1;
+
+    return { item, score };
+  });
+
+  scoredResults.sort((left, right) => {
+    const leftHasPoster = Boolean(left.item.poster_path);
+    const rightHasPoster = Boolean(right.item.poster_path);
+
+    if (leftHasPoster !== rightHasPoster) {
+      return Number(rightHasPoster) - Number(leftHasPoster);
+    }
+
+    return right.score - left.score;
+  });
+
+  return scoredResults[0]?.item ?? results[0];
 };
 
 const deriveTags = (detail) => {
@@ -381,8 +507,7 @@ const deriveCredits = (detail) => {
 const fetchCatalogMovie = async (seed, posterBaseUrl) => {
   const searchResult = await tmdbFetch('/search/movie', {
     query: seed.query,
-    language: DEFAULT_LANGUAGE,
-    region: DEFAULT_REGION,
+    language: SEARCH_LANGUAGE,
     include_adult: 'false',
     year: seed.year
   });
@@ -407,6 +532,7 @@ const fetchCatalogMovie = async (seed, posterBaseUrl) => {
       id: seed.id,
       title,
       genres,
+      genreIds: detail.genres.map((genre) => genre.id),
       tags,
       characters: credits.characters,
       releaseYear: Number.parseInt(String(detail.release_date ?? '').slice(0, 4), 10) || seed.year,

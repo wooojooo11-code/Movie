@@ -10,6 +10,7 @@ import type {
 } from '@/services/movie_recommendation_algorithm';
 
 export type MoodContext = 'normal' | 'after_exam' | 'bed_time' | 'with_friends' | 'after_academy';
+export type RecommendationContextWeights = Record<MoodContext, Record<number, number>>;
 
 export interface CatalogMovie extends Movie {
   genreIds?: number[];
@@ -36,6 +37,8 @@ export interface RecommendationStateSnapshot {
   profile: UserPreferenceProfile;
   ratings: StoredRatingRecord[];
   dismissedRecommendationMovieIds: string[];
+  currentContext: MoodContext;
+  currentContextUpdatedAt: string;
 }
 
 export interface RatingFeedbackPayload {

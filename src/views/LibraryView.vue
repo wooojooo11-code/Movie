@@ -19,7 +19,6 @@ const libraryStore = useLibraryStore();
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">보고 싶은 영화</h2>
-          <p class="mt-1 text-sm text-app-muted">리스트에서 바로 담아둔 영화예요.</p>
         </div>
         <span class="text-xs font-bold text-app-muted">{{ libraryStore.savedMovies.value.length }}편</span>
       </div>

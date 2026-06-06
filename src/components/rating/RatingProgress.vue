@@ -17,7 +17,7 @@ const progressPercent = () => {
 <template>
   <section aria-label="취향분석 진행률" class="border border-app-line bg-app-panel p-4">
     <div class="mb-3 flex items-center justify-between">
-      <span class="text-sm font-medium text-white">
+      <span class="text-sm font-medium text-[#15171c]">
         {{ stageLabel ?? '취향분석 진행' }}
       </span>
       <span class="text-sm font-medium text-app-accent">{{ current }} / {{ total }}</span>

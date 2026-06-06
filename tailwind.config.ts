@@ -9,13 +9,13 @@ export default {
       },
       colors: {
         app: {
-          surface: '#0c0e12',
-          panel: '#111318',
-          panelSoft: '#15171c',
-          poster: '#181b22',
-          line: '#23262d',
+          surface: '#ffffff',
+          panel: '#ffffff',
+          panelSoft: '#f5f6f8',
+          poster: '#f0f2f5',
+          line: '#d9dde3',
           accent: '#f06275',
-          muted: '#98a0ad'
+          muted: '#5f6774'
         }
       },
       boxShadow: {

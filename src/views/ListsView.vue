@@ -76,7 +76,6 @@ const handleResetDraft = () => {
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">내 리스트</h2>
-          <p class="mt-1 text-sm text-app-muted">비공유 리스트도 여기서 같이 관리해요.</p>
         </div>
         <span class="text-xs font-medium text-app-muted">{{ listStore.myLists.value.length }}개</span>
       </div>
@@ -89,6 +88,7 @@ const handleResetDraft = () => {
           :saved-movie-ids="libraryStore.savedMovieIds.value"
           @edit="openEditComposer"
           @delete="listStore.deleteUserList"
+          @remove-from-my-lists="listStore.removeFromMyLists"
           @toggle-watch="libraryStore.toggleMovie"
         />
       </div>

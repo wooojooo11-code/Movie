@@ -1,14 +1,10 @@
 import { registerSW } from 'virtual:pwa-register';
 
-if (import.meta.env.PROD) {
+if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
   registerSW({
-    immediate: true
+    immediate: true,
+    onRegisterError(error) {
+      console.error('[PWA] Service worker registration failed.', error);
+    }
   });
-} else if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .getRegistrations()
-    .then((registrations) => registrations.forEach((registration) => registration.unregister()))
-    .catch(() => {
-      // Development should keep rendering even if a stale service worker cannot be removed.
-    });
 }

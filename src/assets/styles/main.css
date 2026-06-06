@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif;
-  background: #0c0e12;
-  color: #f3f5f7;
+  background: #ffffff;
+  color: #15171c;
 }
 
 * {
@@ -15,7 +15,7 @@
 
 html {
   min-width: 320px;
-  background: #0c0e12;
+  background: #ffffff;
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
@@ -24,7 +24,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: #0c0e12;
+  background: #ffffff;
 }
 
 button,
@@ -72,12 +72,12 @@ a {
 
 @layer base {
   select {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   select option {
-    background-color: #111318;
-    color: #f3f5f7;
+    background-color: #ffffff;
+    color: #15171c;
   }
 
   [class~='rounded'],
@@ -93,7 +93,7 @@ a {
   [class*='bg-black/'],
   [class*='bg-[#0c0e12]/'] {
     background-image: none !important;
-    background-color: #111318 !important;
+    background-color: #ffffff !important;
   }
 
   [class*='bg-app-accent/'] {
@@ -107,15 +107,21 @@ a {
   }
 
   [class*='text-white/'] {
-    color: #f3f5f7 !important;
+    color: #2b3038 !important;
   }
 
   [class*='border-white/'] {
-    border-color: #23262d !important;
+    border-color: #d9dde3 !important;
   }
 
   [class*='border-app-accent/'] {
     border-color: #f06275 !important;
+  }
+
+  [class~='text-white'],
+  [class*=' text-white'],
+  [class^='text-white'] {
+    color: #15171c !important;
   }
 
   [class*='backdrop-blur'] {

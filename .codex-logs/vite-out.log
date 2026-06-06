@@ -143,3 +143,19 @@
 [2mPM 5:33:35[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/recommendations/RecommendationMovieSheet.vue, /src/assets/styles/main.css[22m
 [2mPM 5:33:35[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/PopularListSheet.vue, /src/assets/styles/main.css[22m
 [2mPM 5:33:35[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/TrendingMovieSheet.vue, /src/assets/styles/main.css[22m
+[2mPM 11:08:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/types/recommendation.ts[22m
+[2mPM 11:08:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/lib/supabase.ts[22m
+[2mPM 11:09:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationRepository.ts[22m
+[2mPM 11:10:14[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 11:10:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/recommendationStore.ts[22m
+[2mPM 11:17:28[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 11:17:49[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/services/listStore.ts[22m
+[2mPM 11:19:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mtailwind.config.ts[22m
+[2mPM 11:19:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css[22m
+[2mPM 11:19:58[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.vue, /src/assets/styles/main.css[22m
+[2mPM 11:27:02[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2mPM 11:27:26[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2mPM 11:27:26[22m [36m[1m[vite][22m[39m server restarted.
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://172.30.1.81:[1m5173[22m/[39m

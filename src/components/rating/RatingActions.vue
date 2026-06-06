@@ -9,26 +9,26 @@ const actionButtons = [
   {
     decision: 'not_seen' as const,
     arrow: '↑',
-    label: '안 봄',
-    className: 'border border-app-line bg-app-panelSoft text-white'
+    label: '안 봤어요',
+    className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   },
   {
     decision: 'dislike' as const,
     arrow: '←',
-    label: '별로',
-    className: 'border border-app-line bg-app-panelSoft text-white'
+    label: '별로예요',
+    className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   },
   {
     decision: 'like' as const,
     arrow: '→',
-    label: '재밌음',
+    label: '재밌어요',
     className: 'border border-app-accent bg-app-accent text-white'
   },
   {
     decision: 'not_interested' as const,
     arrow: '↓',
-    label: '관심 없음',
-    className: 'border border-app-line bg-app-panelSoft text-white'
+    label: '관심 없어요',
+    className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   }
 ];
 </script>
@@ -44,7 +44,7 @@ const actionButtons = [
       @click="$emit('decide', actionButtons[0].decision)"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[0].arrow }}</span>
-      <span class="mt-1 text-[11px] text-white">{{ actionButtons[0].label }}</span>
+      <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[0].label }}</span>
     </button>
     <div />
 
@@ -56,7 +56,7 @@ const actionButtons = [
       @click="$emit('decide', actionButtons[1].decision)"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[1].arrow }}</span>
-      <span class="mt-1 text-[11px] text-white">{{ actionButtons[1].label }}</span>
+      <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[1].label }}</span>
     </button>
 
     <div class="flex min-h-[72px] items-center justify-center border border-app-line bg-app-panel px-2 text-center">
@@ -71,7 +71,7 @@ const actionButtons = [
       @click="$emit('decide', actionButtons[2].decision)"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[2].arrow }}</span>
-      <span class="mt-1 text-[11px] text-white">{{ actionButtons[2].label }}</span>
+      <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[2].label }}</span>
     </button>
 
     <div />
@@ -83,7 +83,7 @@ const actionButtons = [
       @click="$emit('decide', actionButtons[3].decision)"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[3].arrow }}</span>
-      <span class="mt-1 text-[11px] text-white">{{ actionButtons[3].label }}</span>
+      <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[3].label }}</span>
     </button>
     <div />
   </div>

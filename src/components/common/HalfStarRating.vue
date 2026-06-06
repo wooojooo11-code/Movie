@@ -27,8 +27,8 @@ const starWrapClass = computed(() => (props.size === 'sm' ? 'h-8 w-6' : 'h-10 w-
 const starIconClass = computed(() => (props.size === 'sm' ? 'h-6 w-6' : 'h-8 w-8'));
 const valueClass = computed(() =>
   props.size === 'sm'
-    ? 'min-w-[2.5rem] text-xs font-bold text-white'
-    : 'min-w-[2.75rem] text-sm font-bold text-white'
+    ? 'min-w-[2.5rem] text-xs font-bold text-[#15171c]'
+    : 'min-w-[2.75rem] text-sm font-bold text-[#15171c]'
 );
 const hintClass = computed(() =>
   props.size === 'sm' ? 'mt-1 text-[11px] text-app-muted' : 'mt-2 text-xs text-app-muted'
@@ -59,7 +59,7 @@ const getStarFillWidth = (starIndex: number) => {
     <div class="flex items-center gap-3">
       <div class="flex items-center gap-1">
         <div v-for="star in maxStars" :key="star" class="relative" :class="starWrapClass">
-          <div class="absolute inset-0 text-white/10">
+          <div class="absolute inset-0 text-[#d2d7df]">
             <svg viewBox="0 0 24 24" class="fill-current" :class="starIconClass">
               <path
                 d="M12 3.75L14.557 8.932L20.276 9.763L16.138 13.798L17.115 19.492L12 16.803L6.885 19.492L7.862 13.798L3.724 9.763L9.443 8.932L12 3.75Z"
@@ -83,13 +83,13 @@ const getStarFillWidth = (starIndex: number) => {
             class="focus-ring absolute inset-y-0 left-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star - 0.5}점 주기`"
             @click="setStarRating(star - 0.5)"
-          ></button>
+          />
           <button
             type="button"
             class="focus-ring absolute inset-y-0 right-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star}점 주기`"
             @click="setStarRating(star)"
-          ></button>
+          />
         </div>
       </div>
 

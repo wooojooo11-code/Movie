@@ -10,6 +10,7 @@ defineProps<{
 defineEmits<{
   edit: [listId: string];
   delete: [listId: string];
+  'remove-from-my-lists': [listId: string];
   'toggle-watch': [movieId: string];
 }>();
 
@@ -59,9 +60,9 @@ const formatDate = (value: string) =>
       <button
         type="button"
         class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-app-muted"
-        @click="$emit('delete', list.id)"
+        @click="list.sourceListId ? $emit('remove-from-my-lists', list.id) : $emit('delete', list.id)"
       >
-        삭제
+        {{ list.sourceListId ? '내 리스트에서 제외하기' : '삭제' }}
       </button>
     </div>
   </article>

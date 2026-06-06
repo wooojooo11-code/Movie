@@ -13,14 +13,53 @@ export default defineConfig({
       manifest: {
         name: 'MovieList',
         short_name: 'MovieList',
-        description: '영화 평가를 기반으로 추천과 유저 리스트를 만나는 모바일 우선 영화 앱',
-        theme_color: '#0b0d12',
-        background_color: '#0b0d12',
+        description: '영화를 평가하고 추천과 리스트를 관리하는 앱',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
         display: 'standalone',
         orientation: 'portrait',
         scope: '/',
         start_url: '/',
         lang: 'ko-KR',
+        categories: ['entertainment', 'lifestyle'],
+        shortcuts: [
+          {
+            name: '취향분석',
+            short_name: '취향분석',
+            url: '/rating',
+            icons: [
+              {
+                src: '/pwa-192x192.png',
+                sizes: '192x192',
+                type: 'image/png'
+              }
+            ]
+          },
+          {
+            name: '추천',
+            short_name: '추천',
+            url: '/recommendations',
+            icons: [
+              {
+                src: '/pwa-192x192.png',
+                sizes: '192x192',
+                type: 'image/png'
+              }
+            ]
+          },
+          {
+            name: '리스트',
+            short_name: '리스트',
+            url: '/lists',
+            icons: [
+              {
+                src: '/pwa-192x192.png',
+                sizes: '192x192',
+                type: 'image/png'
+              }
+            ]
+          }
+        ],
         icons: [
           {
             src: '/pwa-192x192.png',
@@ -62,7 +101,8 @@ export default defineConfig({
         ]
       },
       devOptions: {
-        enabled: false
+        enabled: true,
+        type: 'module'
       }
     })
   ],

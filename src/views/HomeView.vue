@@ -2,7 +2,8 @@
 import HeroCTA from '@/components/home/HeroCTA.vue';
 import PopularLists from '@/components/home/PopularLists.vue';
 import TrendingMovies from '@/components/home/TrendingMovies.vue';
-import { popularLists, trendingMovies } from '@/data/home';
+import { trendingMovies } from '@/data/home';
+import { popularLists } from '@/data/popularLists';
 </script>
 
 <template>

@@ -58,8 +58,12 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
     <div class="mt-4 flex gap-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-9 flex-1 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
-        :disabled="isSaved"
+        class="focus-ring inline-flex min-h-9 flex-1 items-center justify-center border px-3 text-sm"
+        :class="
+          isSaved
+            ? 'border-app-accent bg-app-accent text-white'
+            : 'border-app-line bg-app-panelSoft text-white'
+        "
         @click="$emit('save', list)"
       >
         {{ isSaved ? '저장됨' : '내 리스트에 저장' }}

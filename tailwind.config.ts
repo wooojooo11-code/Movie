@@ -14,7 +14,7 @@ export default {
           panelSoft: '#f5f6f8',
           poster: '#f0f2f5',
           line: '#d9dde3',
-          accent: '#f06275',
+          accent: '#739dc4',
           muted: '#5f6774'
         }
       },

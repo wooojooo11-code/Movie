@@ -212,6 +212,54 @@ const movieSeeds = [
   { id: 'movie_200', query: 'The Invisible Guest', year: 2016 }
 ];
 
+const TARGET_CATALOG_MOVIE_COUNT = 500;
+const buildPages = (count) => Array.from({ length: count }, (_, index) => index + 1);
+const discoverReleaseDateCutoff = new Date().toISOString().slice(0, 10);
+const additionalDiscoverBuckets = [
+  {
+    key: 'animation',
+    targetCount: 50,
+    withGenres: '16',
+    voteCountGte: 80,
+    pages: buildPages(8)
+  },
+  {
+    key: 'action',
+    targetCount: 50,
+    withGenres: '28',
+    voteCountGte: 150,
+    pages: buildPages(8)
+  },
+  {
+    key: 'thriller',
+    targetCount: 50,
+    withGenres: '53',
+    voteCountGte: 100,
+    pages: buildPages(8)
+  },
+  {
+    key: 'comedy',
+    targetCount: 50,
+    withGenres: '35',
+    voteCountGte: 100,
+    pages: buildPages(8)
+  },
+  {
+    key: 'romance',
+    targetCount: 50,
+    withGenres: '10749',
+    voteCountGte: 80,
+    pages: buildPages(8)
+  },
+  {
+    key: 'sf',
+    targetCount: 50,
+    withGenres: '878',
+    voteCountGte: 80,
+    pages: buildPages(8)
+  }
+];
+
 const catalogLists = [
   {
     id: 'list_1',
@@ -505,14 +553,25 @@ const deriveCredits = (detail) => {
 };
 
 const fetchCatalogMovie = async (seed, posterBaseUrl) => {
-  const searchResult = await tmdbFetch('/search/movie', {
-    query: seed.query,
-    language: SEARCH_LANGUAGE,
-    include_adult: 'false',
-    year: seed.year
-  });
-
-  const movieSummary = selectBestSearchResult(searchResult.results, seed);
+  const movieSummary =
+    typeof seed.tmdbId === 'number'
+      ? {
+          id: seed.tmdbId,
+          title: seed.query,
+          original_title: seed.query,
+          release_date: `${seed.year}-01-01`
+        }
+      : selectBestSearchResult(
+          (
+            await tmdbFetch('/search/movie', {
+              query: seed.query,
+              language: SEARCH_LANGUAGE,
+              include_adult: 'false',
+              year: seed.year
+            })
+          ).results,
+          seed
+        );
   const detail = await tmdbFetch(`/movie/${movieSummary.id}`, {
     language: DEFAULT_LANGUAGE,
     append_to_response: 'credits,keywords'
@@ -528,6 +587,7 @@ const fetchCatalogMovie = async (seed, posterBaseUrl) => {
   const tags = deriveTags(detail);
 
   return {
+    tmdbId: detail.id,
     catalogMovie: {
       id: seed.id,
       title,
@@ -543,6 +603,89 @@ const fetchCatalogMovie = async (seed, posterBaseUrl) => {
   };
 };
 
+const buildAdditionalSeed = (sequenceNumber, candidate) => ({
+  id: `movie_${sequenceNumber}`,
+  tmdbId: candidate.tmdbId,
+  query: candidate.query,
+  year: candidate.year
+});
+
+const discoverAdditionalCandidatesForBucket = async (bucket, excludedTmdbIds) => {
+  const candidates = [];
+
+  for (const page of bucket.pages) {
+    if (candidates.length >= bucket.targetCount) {
+      break;
+    }
+
+    console.log(`Discovering ${bucket.key} candidates (page ${page})`);
+
+    const response = await tmdbFetch('/discover/movie', {
+      language: DEFAULT_LANGUAGE,
+      include_adult: 'false',
+      sort_by: 'popularity.desc',
+      with_genres: bucket.withGenres,
+      page,
+      'vote_count.gte': bucket.voteCountGte,
+      'primary_release_date.lte': discoverReleaseDateCutoff
+    });
+
+    for (const result of response.results ?? []) {
+      if (candidates.length >= bucket.targetCount) {
+        break;
+      }
+
+      if (!result || typeof result.id !== 'number' || excludedTmdbIds.has(result.id) || !result.poster_path) {
+        continue;
+      }
+
+      const releaseYear =
+        typeof result.release_date === 'string'
+          ? Number.parseInt(result.release_date.slice(0, 4), 10)
+          : Number.NaN;
+
+      if (!Number.isFinite(releaseYear)) {
+        continue;
+      }
+
+      const title =
+        String(result.title ?? '').trim() ||
+        String(result.original_title ?? '').trim() ||
+        `TMDB movie ${result.id}`;
+
+      excludedTmdbIds.add(result.id);
+      candidates.push({
+        tmdbId: result.id,
+        query: title,
+        year: releaseYear
+      });
+    }
+  }
+
+  return candidates;
+};
+
+const discoverAdditionalMovieSeeds = async (startingSequenceNumber, excludedTmdbIds) => {
+  const additionalSeeds = [];
+
+  for (const bucket of additionalDiscoverBuckets) {
+    const bucketCandidates = await discoverAdditionalCandidatesForBucket(bucket, excludedTmdbIds);
+
+    if (bucketCandidates.length < bucket.targetCount) {
+      throw new Error(
+        `Could not find enough TMDB candidates for bucket "${bucket.key}". ` +
+          `Expected ${bucket.targetCount}, received ${bucketCandidates.length}.`
+      );
+    }
+
+    for (const candidate of bucketCandidates) {
+      additionalSeeds.push(buildAdditionalSeed(startingSequenceNumber + additionalSeeds.length, candidate));
+    }
+  }
+
+  return additionalSeeds.slice(0, Math.max(0, TARGET_CATALOG_MOVIE_COUNT - movieSeeds.length));
+};
+
 const toTypedTsExport = (importLine, exportName, typeName, value) =>
   `${importLine}\n\nexport const ${exportName}: ${typeName} = ${JSON.stringify(value, null, 2)};\n`;
 
@@ -550,12 +693,35 @@ const run = async () => {
   const posterBaseUrl = await getPosterBase();
   const catalogMovies = [];
   const movieCreditsById = {};
+  const usedTmdbIds = new Set();
 
   for (const seed of movieSeeds) {
     console.log(`Syncing ${seed.id}: ${seed.query} (${seed.year})`);
-    const { catalogMovie, credits } = await fetchCatalogMovie(seed, posterBaseUrl);
+    const { tmdbId, catalogMovie, credits } = await fetchCatalogMovie(seed, posterBaseUrl);
     catalogMovies.push(catalogMovie);
     movieCreditsById[seed.id] = credits;
+    usedTmdbIds.add(tmdbId);
+  }
+
+  const additionalSeedCount = Math.max(0, TARGET_CATALOG_MOVIE_COUNT - movieSeeds.length);
+
+  if (additionalSeedCount > 0) {
+    const additionalSeeds = await discoverAdditionalMovieSeeds(movieSeeds.length + 1, usedTmdbIds);
+
+    if (additionalSeeds.length < additionalSeedCount) {
+      throw new Error(
+        `Only generated ${additionalSeeds.length} additional seeds. ` +
+          `Target was ${additionalSeedCount}.`
+      );
+    }
+
+    for (const seed of additionalSeeds.slice(0, additionalSeedCount)) {
+      console.log(`Syncing ${seed.id}: ${seed.query} (${seed.year})`);
+      const { tmdbId, catalogMovie, credits } = await fetchCatalogMovie(seed, posterBaseUrl);
+      catalogMovies.push(catalogMovie);
+      movieCreditsById[seed.id] = credits;
+      usedTmdbIds.add(tmdbId);
+    }
   }
 
   await mkdir(srcDataDir, { recursive: true });

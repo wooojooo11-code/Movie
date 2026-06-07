@@ -169,6 +169,7 @@ export const localRecommendationRepository: RecommendationRepository = {
           totalRatings: 0
         },
         ratings: [],
+        additionalTasteAnalysisBatches: [],
         dismissedRecommendationMovieIds: []
       } satisfies RecommendationStateSnapshot)
     );
@@ -243,6 +244,7 @@ export const remoteRecommendationRepository = {
         totalRatings: 0
       },
       ratings: ((ratingsData ?? []) as unknown as SupabaseRatingRow[]).map(normalizeSupabaseRatingRow),
+      additionalTasteAnalysisBatches: [],
       dismissedRecommendationMovieIds: ((exclusionsData ?? []) as unknown as SupabaseRecommendationExclusionRow[])
         .filter((row) => row.reason === ALREADY_SEEN_REASON)
         .map((row) => row.movie_id),

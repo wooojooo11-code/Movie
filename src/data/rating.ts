@@ -241,6 +241,7 @@ export const primaryRatingMovies = ratingBatches[0] ?? [];
 export const ratingMovies = ratingBatches.flat();
 export const initialTasteAnalysisCount = primaryRatingMovies.length;
 export const tasteAnalysisBatchSize = genreQuotaPerBatch * totalGenreGroupCount;
+const primaryRatingMovieIdSet = new Set(primaryRatingMovies.map((movie) => movie.id));
 
 export const getUnratedMoviesFromPool = (
   ratedMovieIds: readonly string[],
@@ -291,3 +292,21 @@ export const getFollowingAdditionalBatchIndex = (
 
 export const hasAdditionalTasteAnalysisMovies = (ratedMovieIds: readonly string[]) =>
   getNextAdditionalBatchIndex(ratedMovieIds) !== null;
+
+export const buildAdditionalTasteAnalysisBatch = (
+  ratedMovieIds: readonly string[],
+  reservedMovieIds: readonly string[] = []
+) => {
+  const excludedMovieIds = new Set<string>([
+    ...ratedMovieIds,
+    ...reservedMovieIds,
+    ...primaryRatingMovieIdSet
+  ]);
+  const nextBatch = genreDisplayOrder.flatMap((groupKey) =>
+    groupedRatingMoviePools[groupKey]
+      .filter((movie) => !excludedMovieIds.has(movie.id))
+      .slice(0, genreQuotaPerBatch)
+  );
+
+  return nextBatch.length === tasteAnalysisBatchSize ? nextBatch : [];
+};

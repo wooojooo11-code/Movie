@@ -128,16 +128,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                 <p class="mt-1 truncate text-xs text-app-muted">
                   {{ result.movie.director }} · {{ result.movie.cast.join(', ') }}
                 </p>
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  <span
-                    v-for="field in result.matchedBy"
-                    :key="`${result.movie.id}-${field}`"
-                    class="border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-app-muted"
-                  >
-                    {{ matchLabelMap[field] }}
-                  </span>
-                </div>
-                <div class="mt-3 flex gap-2">
+                <div class="mt-2 flex gap-2">
                   <WatchToggleButton :movie-id="result.movie.id" size="sm" />
                   <button
                     type="button"

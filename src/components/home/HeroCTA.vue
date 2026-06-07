@@ -1,33 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { hasAdditionalTasteAnalysisMovies } from '@/data/rating';
 import { usePwaPrompt } from '@/services/pwaPrompt';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
 const recommendationStore = useRecommendationStore();
 const pwaPrompt = usePwaPrompt();
 
-const hasMoreTasteAnalysis = computed(() =>
-  hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
-);
-
-const nextAdditionalBatchLink = computed(() => {
-  const batchIndex = recommendationStore.nextAdditionalBatchIndex.value;
-  return batchIndex == null ? null : `/rating?mode=more&batch=${batchIndex}`;
-});
+const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
 
 const primaryButtonTo = computed(() => {
   if (recommendationStore.shouldResumeTasteAnalysis.value) {
     return '/rating';
   }
 
-  if (
-    recommendationStore.state.profile.totalRatings > 0 &&
-    hasMoreTasteAnalysis.value &&
-    nextAdditionalBatchLink.value
-  ) {
-    return nextAdditionalBatchLink.value;
+  if (recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis.value) {
+    return '/rating?mode=more';
   }
 
   return '/rating';

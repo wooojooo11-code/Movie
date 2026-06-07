@@ -151,7 +151,7 @@ export const trendingMovies: TrendingMovie[] = [
     cast: ['현빈', '박정민', '조우진', '전여빈'],
     rating: 7.3,
     posterUrl:
-      'http://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/12/thumb_x192/thn_24b5559eff184a7d803e4bbed9e45e2b.jpg&w=240&h=320&zc=0',
+      'https://image.tmdb.org/t/p/w780/oNA9eRaFCLlFKRZlzYEldPZlFpg.jpg',
     posterAlt: '하얼빈 포스터',
     similarMovies: getCatalogMoviePreviews(['movie_18', 'movie_48', 'movie_65'])
   },

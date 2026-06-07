@@ -55,7 +55,7 @@ a {
   }
 
   .app-gradient {
-    background: #f06275;
+    background: #739dc4;
   }
 
   .poster-hover-card {
@@ -85,7 +85,16 @@ a {
   [class^='rounded-'],
   [class*=' rounded-['],
   [class^='rounded-['] {
-    border-radius: 0 !important;
+    border-radius: 6px !important;
+  }
+
+  [class~='border'],
+  button,
+  input,
+  select,
+  textarea,
+  img {
+    border-radius: 6px;
   }
 
   [class*='bg-white/'],
@@ -98,7 +107,7 @@ a {
 
   [class*='bg-app-accent/'] {
     background-image: none !important;
-    background-color: #f06275 !important;
+    background-color: #739dc4 !important;
   }
 
   [class*='bg-gradient-to-'],
@@ -115,7 +124,7 @@ a {
   }
 
   [class*='border-app-accent/'] {
-    border-color: #f06275 !important;
+    border-color: #739dc4 !important;
   }
 
   [class~='text-white'],
@@ -132,7 +141,7 @@ a {
   @media (hover: hover) and (pointer: fine) {
     .poster-hover-card:hover {
       transform: translateY(-4px);
-      border-color: #f06275;
+      border-color: #739dc4;
     }
 
     .poster-hover-card:hover .poster-hover-image {

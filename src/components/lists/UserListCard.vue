@@ -32,7 +32,7 @@ const formatDate = (value: string) =>
             class="border px-2.5 py-1 text-[11px] text-white"
             :class="list.isPrivate ? 'border-app-line bg-app-panelSoft' : 'border-app-accent bg-app-accent'"
           >
-            {{ list.isPrivate ? '비공유' : '공유' }}
+            {{ list.isPrivate ? '비공개' : '공유' }}
           </span>
         </div>
         <p class="mt-2 text-sm text-app-muted">
@@ -62,7 +62,7 @@ const formatDate = (value: string) =>
         class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-app-muted"
         @click="list.sourceListId ? $emit('remove-from-my-lists', list.id) : $emit('delete', list.id)"
       >
-        {{ list.sourceListId ? '내 리스트에서 제외하기' : '삭제' }}
+        삭제
       </button>
     </div>
   </article>

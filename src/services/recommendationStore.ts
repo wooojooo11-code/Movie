@@ -1,7 +1,12 @@
 ﻿import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
-import { getNextAdditionalBatchIndex, primaryRatingMovies, ratingMovies } from '@/data/rating';
+import {
+  buildAdditionalTasteAnalysisBatch,
+  getUnratedMoviesFromPool,
+  primaryRatingMovies,
+  ratingMovies
+} from '@/data/rating';
 import {
   applyRatingToProfile,
   createEmptyUserPreferenceProfile,
@@ -15,6 +20,7 @@ import {
   remoteRecommendationRepository
 } from '@/services/recommendationRepository';
 import type {
+  AdditionalTasteAnalysisBatch,
   CatalogMovie,
   MoodContext,
   RecommendationContextWeights,
@@ -147,6 +153,24 @@ const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings'])
     reviewText: rating.reviewText ?? ''
   }));
 
+const normalizeAdditionalTasteAnalysisBatches = (
+  batches: RecommendationStateSnapshot['additionalTasteAnalysisBatches']
+) =>
+  (batches ?? [])
+    .map((batch) => ({
+      id: batch.id,
+      movieIds: [
+        ...new Set(
+          (batch.movieIds ?? []).filter((movieId): movieId is string => typeof movieId === 'string')
+        )
+      ],
+      createdAt:
+        typeof batch.createdAt === 'string' && Number.isFinite(new Date(batch.createdAt).getTime())
+          ? new Date(batch.createdAt).toISOString()
+          : new Date(0).toISOString()
+    }))
+    .filter((batch) => batch.movieIds.length > 0);
+
 const normalizeContext = (
   value: RecommendationStateSnapshot['currentContext'] | undefined
 ): MoodContext => {
@@ -174,6 +198,7 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
       userId,
       profile: createEmptyUserPreferenceProfile(userId),
       ratings: [],
+      additionalTasteAnalysisBatches: [],
       dismissedRecommendationMovieIds: [],
       currentContext: 'normal',
       currentContextUpdatedAt: new Date(0).toISOString()
@@ -186,6 +211,9 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
     userId,
     profile: buildProfileFromRatings(userId, normalizedRatings),
     ratings: normalizedRatings,
+    additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
+      saved.additionalTasteAnalysisBatches
+    ),
     dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
     currentContext: normalizeContext(saved.currentContext),
     currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
@@ -231,6 +259,27 @@ const mergeRatingRecords = (
   );
 };
 
+const mergeAdditionalTasteAnalysisBatches = (
+  localBatches: readonly AdditionalTasteAnalysisBatch[],
+  remoteBatches: readonly AdditionalTasteAnalysisBatch[]
+) => {
+  const mergedBatches = new Map<string, AdditionalTasteAnalysisBatch>();
+
+  for (const batch of [...localBatches, ...remoteBatches]) {
+    if (!mergedBatches.has(batch.id)) {
+      mergedBatches.set(batch.id, {
+        id: batch.id,
+        movieIds: [...batch.movieIds],
+        createdAt: batch.createdAt
+      });
+    }
+  }
+
+  return [...mergedBatches.values()].sort(
+    (left, right) => new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime()
+  );
+};
+
 const mergeSnapshots = (
   localSnapshot: RecommendationStateSnapshot,
   remoteSnapshot: RecommendationStateSnapshot
@@ -252,6 +301,10 @@ const mergeSnapshots = (
     userId: localSnapshot.userId,
     profile: buildProfileFromRatings(localSnapshot.userId, mergedRatings),
     ratings: mergedRatings,
+    additionalTasteAnalysisBatches: mergeAdditionalTasteAnalysisBatches(
+      localSnapshot.additionalTasteAnalysisBatches,
+      remoteSnapshot.additionalTasteAnalysisBatches
+    ),
     dismissedRecommendationMovieIds,
     currentContext: shouldUseRemoteContext ? remoteSnapshot.currentContext : localSnapshot.currentContext,
     currentContextUpdatedAt: shouldUseRemoteContext
@@ -324,6 +377,7 @@ const state = reactive<RecommendationStateSnapshot>({
   userId: initialSnapshot.userId,
   profile: initialSnapshot.profile,
   ratings: initialSnapshot.ratings,
+  additionalTasteAnalysisBatches: initialSnapshot.additionalTasteAnalysisBatches,
   dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds,
   currentContext: initialSnapshot.currentContext,
   currentContextUpdatedAt: initialSnapshot.currentContextUpdatedAt
@@ -348,6 +402,7 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.userId = snapshot.userId;
   state.profile = snapshot.profile;
   state.ratings = snapshot.ratings;
+  state.additionalTasteAnalysisBatches = snapshot.additionalTasteAnalysisBatches;
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
   state.currentContext = snapshot.currentContext;
   state.currentContextUpdatedAt = snapshot.currentContextUpdatedAt;
@@ -393,6 +448,7 @@ const persistState = () => {
     userId: state.userId,
     profile: state.profile,
     ratings: state.ratings,
+    additionalTasteAnalysisBatches: state.additionalTasteAnalysisBatches,
     dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
     currentContext: currentContext.value,
     currentContextUpdatedAt: currentContextUpdatedAt.value
@@ -439,7 +495,48 @@ const primaryUnratedMovies = computed(() =>
 const pendingPrimaryDetailedRatings = computed(() =>
   pendingDetailedRatings.value.filter((rating) => primaryRatingMovieIds.has(rating.input.movieId))
 );
-const nextAdditionalBatchIndex = computed(() => getNextAdditionalBatchIndex(ratedMovieIds.value));
+const getAdditionalTasteAnalysisBatchMoviesByRecord = (batch: AdditionalTasteAnalysisBatch) =>
+  batch.movieIds
+    .map((movieId) => movieMap[movieId])
+    .filter((movie): movie is CatalogMovie => Boolean(movie));
+
+const getAdditionalTasteAnalysisBatchMovies = (batchIndex: number) => {
+  const batch = state.additionalTasteAnalysisBatches[batchIndex];
+
+  if (!batch) {
+    return [];
+  }
+
+  return getAdditionalTasteAnalysisBatchMoviesByRecord(batch);
+};
+
+const additionalTasteAnalysisReservedMovieIds = computed(() =>
+  state.additionalTasteAnalysisBatches.flatMap((batch) => batch.movieIds)
+);
+
+const activeAdditionalTasteAnalysisBatchIndex = computed(() => {
+  const batchIndex = state.additionalTasteAnalysisBatches.findIndex((batch) => {
+    const batchMovies = getAdditionalTasteAnalysisBatchMoviesByRecord(batch);
+    return getUnratedMoviesFromPool(ratedMovieIds.value, batchMovies).length > 0;
+  });
+
+  return batchIndex >= 0 ? batchIndex : null;
+});
+
+const canCreateAdditionalTasteAnalysisBatch = computed(
+  () =>
+    buildAdditionalTasteAnalysisBatch(
+      ratedMovieIds.value,
+      additionalTasteAnalysisReservedMovieIds.value
+    ).length > 0
+);
+
+const hasAdditionalTasteAnalysisMovies = computed(
+  () =>
+    activeAdditionalTasteAnalysisBatchIndex.value !== null ||
+    canCreateAdditionalTasteAnalysisBatch.value
+);
+
 const excludedRecommendationMovieIds = computed(() => [
   ...ratedMovieIds.value,
   ...state.dismissedRecommendationMovieIds
@@ -586,6 +683,44 @@ const getPendingDetailMovie = () => {
   return movieMap[pendingRecord.input.movieId] ?? null;
 };
 
+const ensureAdditionalTasteAnalysisBatch = (requestedBatchIndex?: null | number) => {
+  if (
+    typeof requestedBatchIndex === 'number' &&
+    requestedBatchIndex >= 0 &&
+    requestedBatchIndex < state.additionalTasteAnalysisBatches.length
+  ) {
+    const requestedBatchMovies = getAdditionalTasteAnalysisBatchMovies(requestedBatchIndex);
+
+    if (getUnratedMoviesFromPool(ratedMovieIds.value, requestedBatchMovies).length > 0) {
+      return requestedBatchIndex;
+    }
+  }
+
+  if (activeAdditionalTasteAnalysisBatchIndex.value != null) {
+    return activeAdditionalTasteAnalysisBatchIndex.value;
+  }
+
+  const nextBatch = buildAdditionalTasteAnalysisBatch(
+    ratedMovieIds.value,
+    additionalTasteAnalysisReservedMovieIds.value
+  );
+
+  if (nextBatch.length === 0) {
+    return null;
+  }
+
+  const nextBatchRecord: AdditionalTasteAnalysisBatch = {
+    id: `additional-batch-${Date.now()}`,
+    movieIds: nextBatch.map((movie) => movie.id),
+    createdAt: new Date().toISOString()
+  };
+
+  state.additionalTasteAnalysisBatches = [...state.additionalTasteAnalysisBatches, nextBatchRecord];
+  void persistState();
+
+  return state.additionalTasteAnalysisBatches.length - 1;
+};
+
 const submitSwipeRating = (
   movie: CatalogMovie,
   input: RatingInput,
@@ -637,6 +772,7 @@ const resetDismissedRecommendations = () => {
 const resetTasteAnalysis = () => {
   state.profile = createEmptyUserPreferenceProfile(state.userId);
   state.ratings = [];
+  state.additionalTasteAnalysisBatches = [];
   state.dismissedRecommendationMovieIds = [];
   state.currentContext = currentContext.value;
   state.currentContextUpdatedAt = currentContextUpdatedAt.value;
@@ -646,6 +782,7 @@ const resetTasteAnalysis = () => {
     userId: state.userId,
     profile: state.profile,
     ratings: [],
+    additionalTasteAnalysisBatches: [],
     dismissedRecommendationMovieIds: [],
     currentContext: currentContext.value,
     currentContextUpdatedAt: currentContextUpdatedAt.value
@@ -675,6 +812,9 @@ const setActiveUser = async (userId: string) => {
       userId: normalizedUserId,
       profile: remoteSnapshot.profile,
       ratings: normalizeStoredRatings(remoteSnapshot.ratings),
+      additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
+        remoteSnapshot.additionalTasteAnalysisBatches
+      ),
       dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
       currentContext: normalizeContext(remoteSnapshot.currentContext),
       currentContextUpdatedAt: normalizeContextUpdatedAt(remoteSnapshot.currentContextUpdatedAt)
@@ -710,7 +850,8 @@ export const recommendationStore = {
   pendingDetailedRatings,
   pendingPrimaryDetailedRatings,
   primaryUnratedMovies,
-  nextAdditionalBatchIndex,
+  activeAdditionalTasteAnalysisBatchIndex,
+  hasAdditionalTasteAnalysisMovies,
   shouldResumeTasteAnalysis: computed(() => primaryUnratedMovies.value.length > 0),
   ratedMoviesHistory,
   contextAwareRecommendedMovies,
@@ -720,6 +861,8 @@ export const recommendationStore = {
   recommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
+  getAdditionalTasteAnalysisBatchMovies,
+  ensureAdditionalTasteAnalysisBatch,
   getNextRatingMovie,
   getPendingDetailMovie,
   setContext,

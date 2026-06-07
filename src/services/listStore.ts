@@ -448,13 +448,56 @@ const hasImportedList = (sourceListId: string) =>
 
 const saveRecommendedList = async (list: { id: string; movieIds: readonly string[]; title: string }) => {
   const existing = state.userLists.find((userList) => userList.sourceListId === list.id);
+  const currentInteraction = getInteraction(list.id);
+  const nextInteractions = [...state.interactions];
+  const existingInteractionIndex = nextInteractions.findIndex(
+    (interaction) => interaction.listId === list.id
+  );
 
   if (existing) {
-    return existing.id;
+    const updatedInteraction: ListInteractionRecord = {
+      listId: list.id,
+      saved: false,
+      personalRating: currentInteraction?.personalRating ?? null
+    };
+
+    if (existingInteractionIndex >= 0) {
+      nextInteractions.splice(existingInteractionIndex, 1, updatedInteraction);
+    } else {
+      nextInteractions.push(updatedInteraction);
+    }
+
+    state.interactions = nextInteractions;
+    state.userLists = state.userLists.filter((userList) => userList.sourceListId !== list.id);
+
+    if (state.draft.id && !state.userLists.some((userList) => userList.id === state.draft.id)) {
+      resetDraft();
+    }
+
+    await persistState();
+
+    if (state.searchQuery.trim()) {
+      await refreshSearchResults();
+    }
+
+    return null;
   }
 
-  const nextRecord = createImportedUserList(list);
+  const updatedInteraction: ListInteractionRecord = {
+    listId: list.id,
+    saved: true,
+    personalRating: currentInteraction?.personalRating ?? null
+  };
 
+  if (existingInteractionIndex >= 0) {
+    nextInteractions.splice(existingInteractionIndex, 1, updatedInteraction);
+  } else {
+    nextInteractions.push(updatedInteraction);
+  }
+
+  state.interactions = nextInteractions;
+
+  const nextRecord = createImportedUserList(list);
   state.userLists = [nextRecord, ...state.userLists];
   await persistState();
 

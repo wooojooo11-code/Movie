@@ -30,6 +30,7 @@ const currentQuestion = computed(() => getCharacterQuestionByGenre(props.movie.g
 const currentCharacterChoices = computed(() =>
   getCharacterChoices(props.movie.id, props.movie.characters)
 );
+
 const initialFeedback = computed(() => {
   const record = props.ratingRecord;
 
@@ -45,6 +46,8 @@ const initialFeedback = computed(() => {
     questionText: record.questionText
   };
 });
+
+const ratingButtonLabel = computed(() => (props.ratingRecord ? '평가 수정하기' : '평가하기'));
 
 const openRatingFlow = () => {
   isRatingFlowOpen.value = true;
@@ -103,14 +106,25 @@ watch(
 
           <div class="mt-3 flex flex-wrap items-center gap-1.5">
             <WatchToggleButton :movie-id="movie.id" size="sm" />
+
             <button
+              v-if="!alreadySeen"
               type="button"
               class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-[10px] text-[#15171c]"
-              :disabled="alreadySeen"
               @click="$emit('already-seen', movie.id)"
             >
-              {{ alreadySeen ? '이미 봤어요' : '이미 봤어요' }}
+              이미 봤어요
             </button>
+
+            <button
+              v-else
+              type="button"
+              class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-accent bg-app-accent px-3 text-[10px] text-white"
+              @click="openRatingFlow"
+            >
+              {{ ratingButtonLabel }}
+            </button>
+
             <button
               type="button"
               class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-[10px] text-[#15171c]"
@@ -118,21 +132,14 @@ watch(
             >
               닫기
             </button>
-            <button
-              v-if="alreadySeen"
-              type="button"
-              class="focus-ring inline-flex min-h-8 items-center justify-center border border-app-accent bg-app-accent px-3 text-[10px] text-white"
-              @click="openRatingFlow"
-            >
-              {{ ratingRecord ? '평가 수정하기' : '평가하기' }}
-            </button>
           </div>
         </div>
       </div>
 
       <section v-if="alreadySeen && isRatingFlowOpen" class="mt-4 border-t border-app-line pt-4">
         <div v-if="!isPositiveFeedbackOpen" class="grid gap-2">
-          <p class="text-xs font-medium text-app-muted">이 영화를 어떻게 봤는지 남길 수 있어요.</p>
+          <p class="text-xs font-medium text-app-muted">이 영화는 어떻게 느꼈는지 골라주세요.</p>
+
           <div class="grid grid-cols-2 gap-2">
             <button
               type="button"
@@ -140,7 +147,7 @@ watch(
               :disabled="props.isSavingRating"
               @click="choosePositiveRating"
             >
-              재밌었어요
+              좋았어요
             </button>
             <button
               type="button"

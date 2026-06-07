@@ -32,10 +32,17 @@ export interface StoredRatingRecord {
   questionText: string;
 }
 
+export interface AdditionalTasteAnalysisBatch {
+  id: string;
+  movieIds: string[];
+  createdAt: string;
+}
+
 export interface RecommendationStateSnapshot {
   userId: string;
   profile: UserPreferenceProfile;
   ratings: StoredRatingRecord[];
+  additionalTasteAnalysisBatches: AdditionalTasteAnalysisBatch[];
   dismissedRecommendationMovieIds: string[];
   currentContext: MoodContext;
   currentContextUpdatedAt: string;

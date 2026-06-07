@@ -2,11 +2,11 @@
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+import { popularRecommendedLists } from '@/data/popularLists';
 import RecommendationListCard from '@/components/recommendations/RecommendationListCard.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
-import { hasAdditionalTasteAnalysisMovies } from '@/data/rating';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import type { PositiveRatingInput } from '@/types/rating';
@@ -21,16 +21,11 @@ import type {
 const listStore = useListStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
-const selectedMovie = ref<RecommendedCatalogMovie | null>(null);
+const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 const isSavingRecommendationRating = ref(false);
 
 const selectedContext = computed(() => recommendationStore.currentContext.value);
-const hasMoreTasteAnalysis = computed(() =>
-  hasAdditionalTasteAnalysisMovies(recommendationStore.ratedMovieIds.value)
-);
-const hasDismissedRecommendations = computed(
-  () => recommendationStore.state.dismissedRecommendationMovieIds.length > 0
-);
+const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
 
 const contextOptions: Array<{ label: string; value: MoodContext }> = [
   { label: '기본', value: 'normal' },
@@ -39,11 +34,6 @@ const contextOptions: Array<{ label: string; value: MoodContext }> = [
   { label: '시험 끝', value: 'after_exam' },
   { label: '친구와', value: 'with_friends' }
 ];
-
-const nextAdditionalBatchLink = computed(() => {
-  const batchIndex = recommendationStore.nextAdditionalBatchIndex.value;
-  return batchIndex == null ? null : `/rating?mode=more&batch=${batchIndex}`;
-});
 
 const openMovieSheet = (movie: RecommendedCatalogMovie) => {
   selectedMovie.value = movie;
@@ -157,12 +147,8 @@ const handleRecommendationLike = async (feedback: PositiveRatingInput) => {
   });
 };
 
-const resetAlreadySeen = async () => {
-  await recommendationStore.resetDismissedRecommendations();
-};
-
 const saveRecommendedList = (list: RecommendedCatalogList) => {
-  listStore.saveRecommendedList(list);
+  void listStore.saveRecommendedList(list);
 };
 
 const openListsPage = () => {
@@ -180,7 +166,9 @@ const setRecommendationContext = (context: MoodContext) => {
   >
     <section class="border border-app-line bg-app-panel px-5 py-5">
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Recommendation</p>
-      <h1 class="mt-2 text-[25px] font-semibold leading-tight text-[#15171c]">당신에게 맞을지도 몰라요</h1>
+      <h1 class="mt-2 text-[25px] font-semibold leading-tight text-[#15171c]">
+        당신에게 맞을지도 몰라요
+      </h1>
       <p class="mt-2 text-sm text-app-muted">
         {{ recommendationStore.state.profile.totalRatings }}개 평가를 바탕으로 골랐어요.
       </p>
@@ -195,21 +183,12 @@ const setRecommendationContext = (context: MoodContext) => {
         </RouterLink>
 
         <RouterLink
-          v-else-if="hasMoreTasteAnalysis && nextAdditionalBatchLink"
-          :to="nextAdditionalBatchLink"
+          v-else-if="hasMoreTasteAnalysis"
+          to="/rating?mode=more"
           class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
         >
           더 하기
         </RouterLink>
-
-        <button
-          v-if="hasDismissedRecommendations"
-          type="button"
-          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
-          @click="resetAlreadySeen"
-        >
-          이미 봤어요 초기화
-        </button>
       </div>
 
       <div
@@ -279,7 +258,7 @@ const setRecommendationContext = (context: MoodContext) => {
 
         <div class="grid gap-3">
           <RecommendationListCard
-            v-for="list in recommendationStore.recommendedLists.value"
+            v-for="list in popularRecommendedLists"
             :key="list.id"
             :is-saved="listStore.hasImportedList(list.id)"
             :list="list"

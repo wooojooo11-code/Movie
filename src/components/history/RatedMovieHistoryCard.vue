@@ -40,6 +40,9 @@ const decisionLabel = computed(
 const decisionClassName = computed(
   () => decisionClassNames[props.entry.ratingRecord.rawDecision] ?? decisionClassNames.dislike
 );
+const characterLabel = computed(() =>
+  props.entry.ratingRecord.rawDecision === 'like' ? '좋아한 인물' : '아쉬웠던 인물'
+);
 
 const answeredAtLabel = computed(() => {
   const answeredAt = new Date(props.entry.ratingRecord.input.answeredAt);
@@ -209,7 +212,7 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
           </div>
 
           <div v-if="favoriteCharacter" class="grid gap-1">
-            <p class="text-[10px] text-app-muted">좋아한 인물</p>
+            <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
             <p class="text-[12px] leading-5 text-white">
               {{ favoriteCharacter }}
             </p>

@@ -618,7 +618,7 @@ const getTasteAnalysisSelectionSummary = (movieIds: readonly string[]) => {
         summary.likeCount += 1;
       }
 
-      if (rating.rawDecision === 'dislike') {
+      if (rating.rawDecision === 'dislike' || rating.rawDecision === 'not_interested') {
         summary.dislikeCount += 1;
       }
 

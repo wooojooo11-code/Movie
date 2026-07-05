@@ -22,11 +22,12 @@ const router = useRouter();
 const savedNotice = ref<null | { description: string; title: string }>(null);
 const manualSearchQuery = ref('');
 const manualSelectedMovie = ref<null | CatalogMovie>(null);
-const manualFeedbackMode = ref<null | 'negative' | 'positive'>(null);
+const manualFeedbackMode = ref<null | 'dislike' | 'not_interested' | 'positive'>(null);
 const activeAdditionalBatchIndex = ref<null | number>(null);
 const lastActivatedMoreModeKey = ref<null | string>(null);
 const isSavingManualDecision = ref(false);
 const isSavingPrimaryDecision = ref(false);
+const primaryNegativeDecision = ref<null | 'dislike' | 'not_interested'>(null);
 const primaryNegativeMovieId = ref<null | string>(null);
 const primaryNegativeFormContainer = ref<HTMLElement | null>(null);
 const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
@@ -92,6 +93,11 @@ const currentQuestion = computed(() =>
 const currentCharacterChoices = computed(() =>
   currentDetailMovie.value
     ? getCharacterChoices(currentDetailMovie.value.id, currentDetailMovie.value.characters)
+    : []
+);
+const currentRatingCharacterChoices = computed(() =>
+  currentRatingMovie.value
+    ? getCharacterChoices(currentRatingMovie.value.id, currentRatingMovie.value.characters)
     : []
 );
 
@@ -205,6 +211,7 @@ watch(
 watch(
   () => currentRatingMovie.value?.id,
   () => {
+    primaryNegativeDecision.value = null;
     primaryNegativeMovieId.value = null;
   }
 );
@@ -338,12 +345,14 @@ const savePrimaryMovieDecision = async (decision: RatingDecision | 'not_interest
     return;
   }
 
-  if (decision === 'dislike') {
+  if (decision === 'dislike' || decision === 'not_interested') {
+    primaryNegativeDecision.value = decision;
     primaryNegativeMovieId.value = movie.id;
     await scrollToContainer(primaryNegativeFormContainer);
     return;
   }
 
+  primaryNegativeDecision.value = null;
   primaryNegativeMovieId.value = null;
   isSavingPrimaryDecision.value = true;
 
@@ -371,7 +380,7 @@ const savePrimaryMovieDecision = async (decision: RatingDecision | 'not_interest
     const input: RatingInput = {
       movieId: movie.id,
       userId: recommendationStore.state.userId,
-      status: decision === 'not_interested' ? 'dislike' : decision,
+      status: decision,
       rating: null,
       reviewTags: [],
       favoriteCharacter: null,
@@ -410,17 +419,17 @@ const submitPrimaryNegativeFeedback = async (feedback: NegativeRatingInput) => {
       status: 'dislike',
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
-      favoriteCharacter: null,
+      favoriteCharacter: feedback.favoriteCharacter,
       answeredAt: new Date().toISOString()
     };
 
     await recommendationStore.submitSwipeRating(movie, input, {
-      rawDecision: 'dislike',
+      rawDecision: primaryNegativeDecision.value === 'not_interested' ? 'not_interested' : 'dislike',
       detailCompleted: true,
       feedback: {
         rating: feedback.stars,
         reviewTags: feedback.reviewTags,
-        favoriteCharacter: null,
+        favoriteCharacter: feedback.favoriteCharacter,
         reviewText: feedback.reviewText,
         questionText: ''
       }
@@ -428,6 +437,7 @@ const submitPrimaryNegativeFeedback = async (feedback: NegativeRatingInput) => {
 
     showSavedNotice(`${movie.title} 평가를 저장했어요.`, '별로 기록도 추천에 바로 반영할게요.');
   } finally {
+    primaryNegativeDecision.value = null;
     primaryNegativeMovieId.value = null;
     isSavingPrimaryDecision.value = false;
   }
@@ -516,8 +526,8 @@ const saveManualMovieDecision = async (decision: RatingDecision | 'not_intereste
     return;
   }
 
-  if (decision === 'dislike') {
-    manualFeedbackMode.value = 'negative';
+  if (decision === 'dislike' || decision === 'not_interested') {
+    manualFeedbackMode.value = decision;
     await scrollToContainer(manualFeedbackFormContainer);
     return;
   }
@@ -529,7 +539,7 @@ const saveManualMovieDecision = async (decision: RatingDecision | 'not_intereste
     const input: RatingInput = {
       movieId: movie.id,
       userId: recommendationStore.state.userId,
-      status: decision === 'not_interested' ? 'dislike' : decision,
+      status: decision,
       rating: null,
       reviewTags: [],
       favoriteCharacter: null,
@@ -590,26 +600,26 @@ const submitManualNegativeFeedback = async (feedback: NegativeRatingInput) => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'dislike',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacter: null,
-    answeredAt: new Date().toISOString()
-  };
-
-  await recommendationStore.submitSwipeRating(movie, input, {
-    rawDecision: 'dislike',
-    detailCompleted: true,
-    feedback: {
+    const input: RatingInput = {
+      movieId: movie.id,
+      userId: recommendationStore.state.userId,
+      status: 'dislike',
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
-      favoriteCharacter: null,
-      reviewText: feedback.reviewText,
-      questionText: ''
-    }
+      favoriteCharacter: feedback.favoriteCharacter,
+      answeredAt: new Date().toISOString()
+    };
+
+  await recommendationStore.submitSwipeRating(movie, input, {
+    rawDecision: manualFeedbackMode.value === 'not_interested' ? 'not_interested' : 'dislike',
+    detailCompleted: true,
+      feedback: {
+        rating: feedback.stars,
+        reviewTags: feedback.reviewTags,
+        favoriteCharacter: feedback.favoriteCharacter,
+        reviewText: feedback.reviewText,
+        questionText: ''
+      }
   });
 
   showSavedNotice(`${movie.title} 평가를 저장했어요.`, '별로 기록도 누적해서 추천에 반영할게요.');
@@ -709,6 +719,7 @@ onUnmounted(() => {
       <div v-if="showPrimaryNegativeFeedback" ref="primaryNegativeFormContainer">
         <NegativeFeedbackForm
           :key="`${currentMovie.id}-primary-negative`"
+          :characters="currentRatingCharacterChoices"
           submit-label="이 평가 저장하기"
           @submit="submitPrimaryNegativeFeedback"
         />
@@ -792,7 +803,11 @@ onUnmounted(() => {
           <RatingActions @decide="saveManualMovieDecision" />
 
           <div
-            v-if="manualFeedbackMode === 'positive' || manualFeedbackMode === 'negative'"
+            v-if="
+              manualFeedbackMode === 'positive' ||
+              manualFeedbackMode === 'dislike' ||
+              manualFeedbackMode === 'not_interested'
+            "
             ref="manualFeedbackFormContainer"
           >
             <PositiveFeedbackForm
@@ -808,6 +823,7 @@ onUnmounted(() => {
             <NegativeFeedbackForm
               v-else
               :key="`${manualSelectedMovie.id}-manual-negative`"
+              :characters="manualMovieCharacterChoices"
               submit-label="이 영화 평가 저장하기"
               @submit="submitManualNegativeFeedback"
             />

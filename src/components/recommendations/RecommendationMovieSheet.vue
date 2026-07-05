@@ -18,7 +18,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   close: [];
-  'rate-dislike-submit': [feedback: NegativeRatingInput];
+  'rate-dislike-submit': [feedback: NegativeRatingInput, rawDecision: 'dislike' | 'not_interested'];
   'rate-like-submit': [feedback: PositiveRatingInput];
 }>();
 
@@ -51,16 +51,20 @@ const initialFeedback = computed(() => {
 const initialNegativeFeedback = computed(() => {
   const record = props.ratingRecord;
 
-  if (!record || record.rawDecision !== 'dislike') {
+  if (!record || (record.rawDecision !== 'dislike' && record.rawDecision !== 'not_interested')) {
     return null;
   }
 
   return {
     stars: record.input.rating ?? null,
     reviewTags: [...record.input.reviewTags],
+    favoriteCharacter: record.input.favoriteCharacter,
     reviewText: record.reviewText
   };
 });
+const negativeRatingDecision = computed<'dislike' | 'not_interested'>(() =>
+  props.ratingRecord?.rawDecision === 'not_interested' ? 'not_interested' : 'dislike'
+);
 
 const ratingButtonLabel = computed(() =>
   props.ratingRecord ? '평가 수정하기' : '평가하기'
@@ -97,7 +101,7 @@ const openRatingFlow = () => {
     return;
   }
 
-  if (props.ratingRecord?.rawDecision === 'dislike') {
+  if (props.ratingRecord?.rawDecision === 'dislike' || props.ratingRecord?.rawDecision === 'not_interested') {
     ratingFlowMode.value = 'negative';
     return;
   }
@@ -281,9 +285,10 @@ watch(
 
         <NegativeFeedbackForm
           v-else
+          :characters="currentCharacterChoices"
           :initial-value="initialNegativeFeedback"
           submit-label="평가 저장하기"
-          @submit="emit('rate-dislike-submit', $event)"
+          @submit="emit('rate-dislike-submit', $event, negativeRatingDecision)"
         />
       </section>
     </section>

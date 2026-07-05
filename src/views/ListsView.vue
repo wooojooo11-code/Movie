@@ -151,7 +151,7 @@ const handleResetDraft = () => {
         영화 모음도 만들고, 다른 사람이 저장한 리스트도 볼 수 있어요.
       </p>
 
-      <div class="mt-4 grid grid-cols-[auto_minmax(0,1fr)] items-center gap-2.5">
+      <div class="mt-4 flex items-center justify-end gap-2">
         <button
           type="button"
           class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-3 text-sm font-medium text-white"
@@ -160,11 +160,11 @@ const handleResetDraft = () => {
           리스트 만들기
         </button>
 
-        <label class="ml-auto flex min-w-0 items-center justify-end gap-1.5 text-xs font-medium text-app-muted">
+        <label class="flex shrink-0 items-center gap-1 text-xs font-medium text-app-muted">
           <span class="whitespace-nowrap">정렬순</span>
           <select
             v-model="listSortOption"
-            class="focus-ring min-h-10 w-[5.75rem] border border-app-line bg-app-panelSoft px-2.5 text-sm text-white"
+            class="focus-ring min-h-10 w-[5.1rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
           >
             <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
               {{ option.label }}

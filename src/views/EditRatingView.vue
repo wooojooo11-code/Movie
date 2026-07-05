@@ -61,13 +61,14 @@ const initialFeedback = computed(() => {
 const initialNegativeFeedback = computed(() => {
   const record = ratingRecord.value;
 
-  if (!record || record.rawDecision !== 'dislike') {
+  if (!record || (record.rawDecision !== 'dislike' && record.rawDecision !== 'not_interested')) {
     return null;
   }
 
   return {
     stars: record.input.rating ?? null,
     reviewTags: [...record.input.reviewTags],
+    favoriteCharacter: record.input.favoriteCharacter,
     reviewText: record.reviewText
   };
 });
@@ -83,7 +84,9 @@ const currentDecisionLabel = computed(() => {
 });
 
 const showPositiveDetailForm = computed(() => draftDecision.value === 'like');
-const showNegativeDetailForm = computed(() => draftDecision.value === 'dislike');
+const showNegativeDetailForm = computed(
+  () => draftDecision.value === 'dislike' || draftDecision.value === 'not_interested'
+);
 
 const syncDraftDecision = () => {
   draftDecision.value = ratingRecord.value?.rawDecision ?? 'like';
@@ -114,7 +117,7 @@ const saveDecision = async (decision: RatingDecision | 'not_interested') => {
 
   draftDecision.value = decision;
 
-  if (decision === 'like' || decision === 'dislike') {
+  if (decision === 'like' || decision === 'dislike' || decision === 'not_interested') {
     await scrollToDetailForm();
     return;
   }
@@ -125,7 +128,7 @@ const saveDecision = async (decision: RatingDecision | 'not_interested') => {
     const input: RatingInput = {
       movieId: movie.value.id,
       userId: recommendationStore.state.userId,
-      status: decision === 'not_interested' ? 'dislike' : decision,
+      status: decision,
       rating: null,
       reviewTags: [],
       favoriteCharacter: null,
@@ -193,17 +196,17 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       status: 'dislike',
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
-      favoriteCharacter: null,
+      favoriteCharacter: feedback.favoriteCharacter,
       answeredAt: new Date().toISOString()
     };
 
     await recommendationStore.submitSwipeRating(movie.value, input, {
-      rawDecision: 'dislike',
+      rawDecision: draftDecision.value === 'not_interested' ? 'not_interested' : 'dislike',
       detailCompleted: true,
       feedback: {
         rating: feedback.stars,
         reviewTags: feedback.reviewTags,
-        favoriteCharacter: null,
+        favoriteCharacter: feedback.favoriteCharacter,
         reviewText: feedback.reviewText,
         questionText: ''
       }
@@ -251,7 +254,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       <section class="corner-hard border border-app-line bg-app-panel p-4">
         <p class="text-sm font-semibold text-white">평가를 다시 고를 수 있어요.</p>
         <p class="mt-2 text-sm leading-6 text-app-muted">
-          재밌음이나 별로를 고르면 아래에서 상세 평가를 함께 수정할 수 있어요.
+          재밌음, 별로, 관심없음을 고르면 아래에서 상세 평가를 함께 수정할 수 있어요.
         </p>
       </section>
 
@@ -279,6 +282,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
         <NegativeFeedbackForm
           v-else
           :key="`${movie.id}-${draftDecision}`"
+          :characters="currentCharacterChoices"
           :initial-value="initialNegativeFeedback"
           submit-label="변경 저장하기"
           @submit="submitNegativeFeedback"

@@ -421,6 +421,10 @@ export function applyRatingToProfile(
       addScore(nextProfile.reviewTagScores, reviewTag, -REVIEW_TAG_WEIGHT);
     }
 
+    if (input.favoriteCharacter) {
+      addScore(nextProfile.characterScores, input.favoriteCharacter, -CHARACTER_WEIGHT);
+    }
+
     const reviewTextSignals = extractReviewTextSignals(options?.reviewText ?? '');
 
     for (const genre of reviewTextSignals.genres) {

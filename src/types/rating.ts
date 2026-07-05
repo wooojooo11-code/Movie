@@ -21,6 +21,7 @@ export interface PositiveRatingInput {
 export interface NegativeRatingInput {
   stars: number | null;
   reviewTags: ReviewTag[];
+  favoriteCharacter: string | null;
   reviewText: string;
 }
 

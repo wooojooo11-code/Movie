@@ -85,7 +85,10 @@ const saveRecommendationRating = async (
   }
 };
 
-const handleRecommendationDislike = async (feedback: NegativeRatingInput) => {
+const handleRecommendationDislike = async (
+  feedback: NegativeRatingInput,
+  rawDecision: 'dislike' | 'not_interested' = 'dislike'
+) => {
   if (!selectedMovie.value) {
     return;
   }
@@ -93,7 +96,7 @@ const handleRecommendationDislike = async (feedback: NegativeRatingInput) => {
   const payload: RatingFeedbackPayload = {
     rating: feedback.stars,
     reviewTags: feedback.reviewTags,
-    favoriteCharacter: null,
+    favoriteCharacter: feedback.favoriteCharacter,
     reviewText: feedback.reviewText,
     questionText: ''
   };
@@ -104,12 +107,12 @@ const handleRecommendationDislike = async (feedback: NegativeRatingInput) => {
     status: 'dislike',
     rating: payload.rating,
     reviewTags: payload.reviewTags,
-    favoriteCharacter: null,
+    favoriteCharacter: payload.favoriteCharacter,
     answeredAt: new Date().toISOString()
   };
 
   await saveRecommendationRating(input, {
-    rawDecision: 'dislike',
+    rawDecision,
     detailCompleted: true,
     feedback: payload
   });

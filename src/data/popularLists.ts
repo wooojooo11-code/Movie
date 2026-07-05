@@ -1,4 +1,5 @@
 import { catalogLists, catalogMovies } from '@/data/catalog';
+import { getWatchProviderSummary } from '@/services/watchProviderSummary';
 import type { PopularList, PopularListMoviePreview } from '@/types/home';
 import type { RecommendedCatalogList } from '@/types/recommendation';
 
@@ -14,6 +15,7 @@ const getPopularListMoviePreviews = (movieIds: string[]): PopularListMoviePrevie
       releaseYear: movie.releaseYear,
       genres: movie.genres,
       summaryTags: movie.tags.slice(0, 2),
+      watchAvailabilityText: getWatchProviderSummary(movie),
       posterUrl: movie.posterUrl,
       posterAlt: movie.posterAlt
     }));
@@ -32,14 +34,13 @@ const topPopularCatalogLists = [...catalogLists]
   })
   .slice(0, 5);
 
-export const popularLists: PopularList[] = topPopularCatalogLists
-  .map((list) => ({
-    id: list.id,
-    title: list.title,
-    saveCount: list.saveCount,
-    averageRating: list.averageRating,
-    moviePreviews: getPopularListMoviePreviews(list.movieIds)
-  }));
+export const popularLists: PopularList[] = topPopularCatalogLists.map((list) => ({
+  id: list.id,
+  title: list.title,
+  saveCount: list.saveCount,
+  averageRating: list.averageRating,
+  moviePreviews: getPopularListMoviePreviews(list.movieIds)
+}));
 
 export const popularRecommendedLists: RecommendedCatalogList[] = topPopularCatalogLists.map((list) => ({
   ...list,

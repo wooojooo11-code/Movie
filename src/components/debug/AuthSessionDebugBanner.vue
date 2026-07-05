@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
 <template>
   <section
     v-if="state.isLocalRuntime"
-    class="mx-auto mt-3 w-full max-w-md rounded-2xl border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm text-amber-50 sm:max-w-xl"
+    class="corner-hard mx-auto mt-3 w-full max-w-md border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm text-amber-50 sm:max-w-xl"
   >
     <div class="flex items-start justify-between gap-3">
       <div class="min-w-0">
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
 
       <button
         type="button"
-        class="focus-ring shrink-0 rounded-xl border border-amber-200/30 bg-black/10 px-3 py-2 text-xs font-bold text-amber-50"
+        class="focus-ring corner-soft shrink-0 border border-amber-200/30 bg-black/10 px-3 py-2 text-xs font-bold text-amber-50"
         @click="refreshAll"
       >
         다시 확인

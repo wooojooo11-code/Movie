@@ -19,7 +19,7 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
 </script>
 
 <template>
-  <article class="border border-app-line bg-app-panel px-4 py-4">
+  <article class="corner-hard border border-app-line bg-app-panel px-4 py-4">
     <div class="flex items-start justify-between gap-3">
       <h3 class="line-clamp-2 text-base font-medium leading-snug text-white">
         {{ list.title }}
@@ -29,20 +29,20 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
 
     <p class="mt-1.5 text-sm text-app-muted">저장 {{ formatCount(list.saveCount) }}</p>
 
-    <div class="mt-3 grid grid-cols-3 gap-2.5">
-      <article v-for="movie in list.moviePreviews" :key="movie.id" class="min-w-0">
+    <div class="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-2.5">
+      <article v-for="movie in list.moviePreviews" :key="movie.id" class="flex min-w-0 w-[4.35rem] flex-col items-center">
         <img
           :src="movie.posterUrl"
           :alt="movie.posterAlt"
           class="h-16 w-11 object-cover"
           loading="lazy"
         />
-        <p class="mt-1.5 line-clamp-2 text-[11px] font-medium leading-4 text-white">
+        <p class="mt-1.5 line-clamp-2 text-center text-[11px] font-medium leading-4 text-white">
           {{ movie.title }}
         </p>
         <button
           type="button"
-          class="focus-ring mt-2 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"
+          class="focus-ring corner-soft mt-2 inline-flex min-h-7 max-w-full items-center justify-center border px-1.5 text-[10px] font-medium leading-none"
           :class="
             isSavedMovie(movie.id)
               ? 'border-app-accent bg-app-accent text-white'
@@ -55,10 +55,10 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
       </article>
     </div>
 
-    <div class="mt-4 flex gap-2">
+    <div class="mt-4 flex flex-wrap gap-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-9 flex-1 items-center justify-center border px-3 text-sm"
+        class="focus-ring corner-soft inline-flex min-h-8 shrink-0 items-center justify-center border px-2.5 text-xs whitespace-nowrap"
         :class="
           isSaved
             ? 'border-app-accent bg-app-accent text-white'
@@ -70,7 +70,7 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
       </button>
       <button
         type="button"
-        class="focus-ring inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
+        class="focus-ring corner-soft inline-flex min-h-8 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 text-xs whitespace-nowrap text-white"
         @click="$emit('openLists')"
       >
         리스트 보기

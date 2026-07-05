@@ -7,6 +7,25 @@ const DEFAULT_LANGUAGE = 'ko-KR';
 const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
+const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
+const TARGET_CATALOG_SIZE = 500;
+const DISCOVER_PAGE_LIMIT = 18;
+const DISCOVER_MIN_VOTE_COUNT = 100;
+const DISCOVER_CANDIDATE_MULTIPLIER = 4;
+const DETAIL_FETCH_CONCURRENCY = 4;
+const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
+const MAX_TAG_COUNT = 4;
+const MAX_GENRE_COUNT = 3;
+const MAX_CAST_COUNT = 3;
+
+const discoveryGenres = [
+  { key: '액션', tmdbGenreId: 28 },
+  { key: '로맨스', tmdbGenreId: 10749 },
+  { key: '코미디', tmdbGenreId: 35 },
+  { key: '추리', tmdbGenreId: 9648 },
+  { key: 'SF', tmdbGenreId: 878 },
+  { key: '애니메이션', tmdbGenreId: 16 }
+];
 
 const movieSeeds = [
   { id: 'movie_1', query: 'Mad Max: Fury Road', year: 2015 },
@@ -182,7 +201,7 @@ const catalogLists = [
   },
   {
     id: 'list_6',
-    title: '가볍게 웃고 싶은 날',
+    title: '가볍게 웃고 싶을 때',
     movieIds: ['movie_4', 'movie_16', 'movie_28'],
     saveCount: 1893,
     averageRating: 4.1
@@ -191,13 +210,16 @@ const catalogLists = [
 
 const reviewTagMatchers = [
   { tag: '액션', needles: ['action', 'car chase', 'fight', 'gun', 'martial arts', '폭발', '추격', '전투'] },
-  { tag: '긴장감', needles: ['thriller', 'serial killer', 'investigation', 'murder', 'suspense', '긴장', '살인', '수사', '추적'] },
+  {
+    tag: '긴장감',
+    needles: ['thriller', 'serial killer', 'investigation', 'murder', 'suspense', '긴장', '살인', '수사', '추적']
+  },
   { tag: '반전', needles: ['twist', 'betrayal', 'mystery', '반전', '비밀', '정체'] },
   { tag: '탄탄한 스토리', needles: ['based on novel', 'investigation', 'drama', 'story', 'plot', '서사', '이야기'] },
   { tag: '여운', needles: ['memory', 'grief', 'afterlife', 'melancholy', 'nostalgia', '여운', '추억'] },
   { tag: '감동', needles: ['hope', 'family', 'friendship', 'human spirit', '감동', '우정', '가족'] },
-  { tag: '감동적인 음악', needles: ['jazz', 'music', 'musician', 'concert', 'ost', '음악', '공연'] },
-  { tag: '배우들의 연기력', needles: ['performance', 'actor', 'character study', '실화', '연기'] },
+  { tag: '감성적인 음악', needles: ['jazz', 'music', 'musician', 'concert', 'ost', '음악', '공연'] },
+  { tag: '배우들의 연기력', needles: ['performance', 'actor', 'character study', '배우', '연기'] },
   { tag: '영상미', needles: ['visual', 'beautiful', 'dream', 'animation', 'cinematography', '영상미', '애니메이션'] },
   { tag: '연출', needles: ['director', 'stylized', 'mise-en-scene', '연출', '미장센'] },
   { tag: '세계관', needles: ['multiverse', 'fantasy world', 'parallel world', 'world', '세계관', '판타지'] },
@@ -217,14 +239,44 @@ const genreFallbackTags = {
   코미디: ['유머', '캐릭터 매력'],
   애니메이션: ['영상미', '세계관'],
   판타지: ['세계관', '영상미'],
-  음악: ['감동적인 음악', 'OST'],
+  음악: ['감성적인 음악', 'OST'],
   가족: ['감동', '캐릭터 매력']
+};
+
+const manualTmdbMovieIdOverrides = {
+  movie_6: 496243,
+  movie_7: 129,
+  movie_12: 508442,
+  movie_13: 152601,
+  movie_19: 38,
+  movie_22: 666277,
+  movie_25: 949,
+  movie_32: 122906,
+  movie_30: 372058,
+  movie_37: 438631,
+  movie_36: 329865,
+  movie_44: 491584,
+  movie_45: 1255,
+  movie_47: 293670,
+  movie_54: 354912,
+  movie_69: 94329,
+  movie_78: 579974,
+  movie_79: 146,
+  movie_93: 1933,
+  movie_95: 2649,
+  movie_101: 597,
+  movie_102: 194,
+  movie_105: 258480,
+  movie_117: 587792,
+  movie_123: 7326
 };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const repoRoot = path.resolve(__dirname, '..');
+const repoRoot = path.resolve(__dirname, '..', '..');
 const srcDataDir = path.join(repoRoot, 'src', 'data');
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const loadEnvFile = async (filename) => {
   try {
@@ -275,7 +327,7 @@ if (!bearerToken) {
   process.exit(1);
 }
 
-const tmdbFetch = async (pathname, searchParams = {}) => {
+const buildTmdbUrl = (pathname, searchParams = {}) => {
   const url = new URL(`${TMDB_API_BASE_URL}${pathname}`);
 
   for (const [key, value] of Object.entries(searchParams)) {
@@ -284,19 +336,41 @@ const tmdbFetch = async (pathname, searchParams = {}) => {
     }
   }
 
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${bearerToken}`,
-      accept: 'application/json'
-    }
-  });
+  return url;
+};
 
-  if (!response.ok) {
+const tmdbFetch = async (pathname, searchParams = {}) => {
+  const url = buildTmdbUrl(pathname, searchParams);
+  let lastError = null;
+
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
+        accept: 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      return response.json();
+    }
+
     const text = await response.text();
-    throw new Error(`TMDB request failed: ${response.status} ${response.statusText} ${text}`);
+    lastError = new Error(`TMDB request failed: ${response.status} ${response.statusText} ${text}`);
+
+    if (!RETRYABLE_STATUS_CODES.has(response.status) || attempt === 3) {
+      throw lastError;
+    }
+
+    const retryAfterHeader = response.headers.get('retry-after');
+    const retryAfterMs = Number.isFinite(Number(retryAfterHeader))
+      ? Number(retryAfterHeader) * 1000
+      : 700 * (attempt + 1);
+
+    await wait(retryAfterMs);
   }
 
-  return response.json();
+  throw lastError ?? new Error(`TMDB request failed for ${pathname}`);
 };
 
 const getPosterBase = async () => {
@@ -313,33 +387,88 @@ const getPosterBase = async () => {
   return `${baseUrl}${preferredSize}`;
 };
 
-const normalizeText = (value) => value.toLowerCase();
+const normalizeText = (value) => String(value ?? '').toLowerCase();
+const normalizeComparableText = (value) =>
+  String(value ?? '')
+    .normalize('NFKD')
+    .replace(/[^\p{L}\p{N}]+/gu, '')
+    .toLowerCase();
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
+
+const scoreSearchResult = (result, seed) => {
+  const queryText = normalizeComparableText(seed.query);
+  const titleText = normalizeComparableText(result.title);
+  const originalTitleText = normalizeComparableText(result.original_title);
+  const releaseYear = Number.parseInt(String(result.release_date ?? '').slice(0, 4), 10);
+  let score = 0;
+
+  if (titleText === queryText) {
+    score += 160;
+  } else if (titleText.includes(queryText) || queryText.includes(titleText)) {
+    score += 70;
+  }
+
+  if (originalTitleText === queryText) {
+    score += 200;
+  } else if (originalTitleText.includes(queryText) || queryText.includes(originalTitleText)) {
+    score += 90;
+  }
+
+  if (releaseYear === seed.year) {
+    score += 80;
+  } else if (Number.isFinite(releaseYear) && Math.abs(releaseYear - seed.year) <= 1) {
+    score += 30;
+  }
+
+  if (result.poster_path) {
+    score += 12;
+  } else {
+    score -= 60;
+  }
+
+  if (typeof result.vote_count === 'number') {
+    score += Math.min(result.vote_count / 250, 12);
+
+    if (result.vote_count === 0) {
+      score -= 35;
+    } else if (result.vote_count < 10) {
+      score -= 15;
+    }
+  }
+
+  if (typeof result.popularity === 'number') {
+    score += Math.min(result.popularity / 50, 8);
+  }
+
+  if (!Number.isFinite(releaseYear)) {
+    score -= 40;
+  }
+
+  return score;
+};
 
 const selectBestSearchResult = (results, seed) => {
   if (!Array.isArray(results) || results.length === 0) {
     throw new Error(`No TMDB movie search result for "${seed.query}"`);
   }
 
-  const exactYearMatches = results.filter((item) =>
-    typeof item.release_date === 'string' && item.release_date.startsWith(String(seed.year))
-  );
-  const exactYearMatchWithPoster = exactYearMatches.find((item) => item.poster_path);
-  const anyMatchWithPoster = results.find((item) => item.poster_path);
-
-  return exactYearMatchWithPoster ?? anyMatchWithPoster ?? exactYearMatches[0] ?? results[0];
+  return [...results].sort(
+    (left, right) => scoreSearchResult(right, seed) - scoreSearchResult(left, seed)
+  )[0];
 };
 
 const deriveTags = (detail) => {
   const rawKeywords = unique(
     (detail.keywords?.keywords ?? detail.keywords?.results ?? []).map((keyword) => keyword?.name?.trim())
   );
-  const keywordBlob = normalizeText(rawKeywords.join(' '));
+  const signalBlob = normalizeText(
+    [rawKeywords.join(' '), detail.overview ?? '', detail.tagline ?? '', detail.title ?? ''].join(' ')
+  );
   const tags = [];
 
   for (const matcher of reviewTagMatchers) {
-    if (matcher.needles.some((needle) => keywordBlob.includes(normalizeText(needle)))) {
+    if (matcher.needles.some((needle) => signalBlob.includes(normalizeText(needle)))) {
       tags.push(matcher.tag);
     }
   }
@@ -350,7 +479,7 @@ const deriveTags = (detail) => {
     }
   }
 
-  const normalizedTags = unique(tags).slice(0, 4);
+  const normalizedTags = unique(tags).slice(0, MAX_TAG_COUNT);
 
   if (normalizedTags.length > 0) {
     return normalizedTags;
@@ -362,59 +491,311 @@ const deriveTags = (detail) => {
 const deriveCredits = (detail) => {
   const cast = Array.isArray(detail.credits?.cast) ? detail.credits.cast : [];
   const crew = Array.isArray(detail.credits?.crew) ? detail.credits.crew : [];
-  const topCast = cast.filter((person) => person && person.name).slice(0, 3);
+  const topCast = cast.filter((person) => person && person.name).slice(0, MAX_CAST_COUNT);
 
   const characters = topCast.map((person) => person.character?.trim() || person.name.trim());
   const actorNames = topCast.map((person) => person.name.trim());
+  const fallbackCharacter =
+    actorNames[0] ??
+    detail.title?.trim() ??
+    detail.original_title?.trim() ??
+    '주요 인물';
   const director =
     crew.find((person) => person.job === 'Director')?.name?.trim() ??
     crew.find((person) => person.department === 'Directing')?.name?.trim() ??
     '감독 미상';
 
   return {
-    characters: characters.slice(0, 3),
-    cast: actorNames.slice(0, 3),
+    characters: unique(characters).slice(0, MAX_CAST_COUNT).length > 0
+      ? unique(characters).slice(0, MAX_CAST_COUNT)
+      : [fallbackCharacter],
+    cast: unique(actorNames).slice(0, MAX_CAST_COUNT),
     director
   };
 };
 
-const fetchCatalogMovie = async (seed, posterBaseUrl) => {
-  const searchResult = await tmdbFetch('/search/movie', {
-    query: seed.query,
-    language: DEFAULT_LANGUAGE,
-    region: DEFAULT_REGION,
-    include_adult: 'false',
-    year: seed.year
-  });
+const mapWatchProviders = (providers) => {
+  if (!Array.isArray(providers)) {
+    return [];
+  }
 
-  const movieSummary = selectBestSearchResult(searchResult.results, seed);
-  const detail = await tmdbFetch(`/movie/${movieSummary.id}`, {
+  return providers
+    .map((provider) => {
+      const providerId =
+        provider && typeof provider.provider_id === 'number' ? provider.provider_id : null;
+      const providerName =
+        provider && typeof provider.provider_name === 'string' ? provider.provider_name.trim() : '';
+      const logoPath =
+        provider && typeof provider.logo_path === 'string' ? provider.logo_path.trim() : null;
+
+      if (!providerId || !providerName) {
+        return null;
+      }
+
+      return {
+        providerId,
+        providerName,
+        logoPath,
+        logoUrl: logoPath ? `${TMDB_PROVIDER_LOGO_BASE_URL}${logoPath}` : null
+      };
+    })
+    .filter(Boolean);
+};
+
+const fetchWatchProviders = async (tmdbMovieId) => {
+  const payload = await tmdbFetch(`/movie/${tmdbMovieId}/watch/providers`, {
+    language: DEFAULT_LANGUAGE
+  });
+  const regionResult = payload.results?.[DEFAULT_REGION];
+
+  if (!regionResult) {
+    return null;
+  }
+
+  return {
+    region: DEFAULT_REGION,
+    link: typeof regionResult.link === 'string' ? regionResult.link : null,
+    flatrate: mapWatchProviders(regionResult.flatrate),
+    rent: mapWatchProviders(regionResult.rent),
+    buy: mapWatchProviders(regionResult.buy)
+  };
+};
+
+const fetchMovieDetail = async (tmdbMovieId) => {
+  const detail = await tmdbFetch(`/movie/${tmdbMovieId}`, {
     language: DEFAULT_LANGUAGE,
     append_to_response: 'credits,keywords'
   });
 
+  if (!detail.overview?.trim()) {
+    const fallbackDetail = await tmdbFetch(`/movie/${tmdbMovieId}`, {
+      language: 'en-US',
+      append_to_response: 'keywords'
+    });
+
+    detail.overview = fallbackDetail.overview?.trim() || '';
+    detail.keywords = detail.keywords ?? fallbackDetail.keywords;
+  }
+
+  return detail;
+};
+
+const buildCatalogMovie = async (seed, tmdbMovieId, detail, posterBaseUrl) => {
   if (!detail.poster_path) {
     throw new Error(`TMDB movie "${seed.query}" does not have a poster_path`);
   }
 
   const credits = deriveCredits(detail);
   const title = detail.title?.trim() || detail.original_title?.trim() || seed.query;
-  const genres = detail.genres.map((genre) => genre.name).slice(0, 3);
+  const genres = detail.genres.map((genre) => genre.name).slice(0, MAX_GENRE_COUNT);
   const tags = deriveTags(detail);
+  const watchProvidersKr = await fetchWatchProviders(tmdbMovieId);
 
   return {
     catalogMovie: {
       id: seed.id,
+      tmdbMovieId,
       title,
       genres,
+      genreIds: detail.genres.map((genre) => genre.id),
       tags,
       characters: credits.characters,
+      overview: detail.overview?.trim() || '',
       releaseYear: Number.parseInt(String(detail.release_date ?? '').slice(0, 4), 10) || seed.year,
       posterUrl: `${posterBaseUrl}${detail.poster_path}`,
-      posterAlt: `${title} 포스터`
+      posterAlt: `${title} 포스터`,
+      watchProvidersKr
     },
     credits
   };
+};
+
+const fetchCatalogMovie = async (seed, posterBaseUrl) => {
+  const overriddenMovieId = manualTmdbMovieIdOverrides[seed.id] ?? null;
+  const resolvedMovieId = overriddenMovieId
+    ? overriddenMovieId
+    : selectBestSearchResult(
+        (
+          await tmdbFetch('/search/movie', {
+            query: seed.query,
+            language: DEFAULT_LANGUAGE,
+            region: DEFAULT_REGION,
+            include_adult: 'false',
+            year: seed.year
+          })
+        ).results,
+        seed
+      ).id;
+  const detail = await fetchMovieDetail(resolvedMovieId);
+
+  return buildCatalogMovie(seed, resolvedMovieId, detail, posterBaseUrl);
+};
+
+const fetchCatalogMovieByTmdbMovieId = async (seed, posterBaseUrl) => {
+  const detail = await fetchMovieDetail(seed.tmdbMovieId);
+  return buildCatalogMovie(seed, seed.tmdbMovieId, detail, posterBaseUrl);
+};
+
+const buildDiscoverSearchParams = (tmdbGenreId, page) => ({
+  language: DEFAULT_LANGUAGE,
+  region: DEFAULT_REGION,
+  watch_region: DEFAULT_REGION,
+  with_watch_monetization_types: 'flatrate|rent|buy',
+  include_adult: 'false',
+  include_video: 'false',
+  sort_by: 'popularity.desc',
+  with_genres: String(tmdbGenreId),
+  'vote_count.gte': String(DISCOVER_MIN_VOTE_COUNT),
+  'release_date.lte': new Date().toISOString().slice(0, 10),
+  page
+});
+
+const collectDiscoverCandidatesForGenre = async (genre, excludedTmdbMovieIds, targetCount) => {
+  const seenTmdbMovieIds = new Set(excludedTmdbMovieIds);
+  const candidates = [];
+
+  for (let page = 1; page <= DISCOVER_PAGE_LIMIT && candidates.length < targetCount; page += 1) {
+    const payload = await tmdbFetch('/discover/movie', buildDiscoverSearchParams(genre.tmdbGenreId, page));
+    const results = Array.isArray(payload.results) ? payload.results : [];
+
+    for (const result of results) {
+      if (!result || typeof result.id !== 'number' || seenTmdbMovieIds.has(result.id)) {
+        continue;
+      }
+
+      if (!result.poster_path) {
+        continue;
+      }
+
+      const titleHint = result.title?.trim() || result.original_title?.trim();
+      const releaseYear = Number.parseInt(String(result.release_date ?? '').slice(0, 4), 10);
+
+      if (!titleHint || !Number.isFinite(releaseYear)) {
+        continue;
+      }
+
+      candidates.push({
+        sourceGenre: genre.key,
+        tmdbMovieId: result.id,
+        titleHint,
+        year: releaseYear
+      });
+      seenTmdbMovieIds.add(result.id);
+
+      if (candidates.length >= targetCount) {
+        break;
+      }
+    }
+
+    if (page >= Number(payload.total_pages ?? 0)) {
+      break;
+    }
+  }
+
+  return candidates;
+};
+
+const selectRoundRobinDiscoveryCandidates = (candidatesByGenre, excludedTmdbMovieIds, targetCount) => {
+  const genreCursors = new Map(discoveryGenres.map((genre) => [genre.key, 0]));
+  const usedTmdbMovieIds = new Set(excludedTmdbMovieIds);
+  const selectedCandidates = [];
+  let appendedInRound = true;
+
+  while (selectedCandidates.length < targetCount && appendedInRound) {
+    appendedInRound = false;
+
+    for (const genre of discoveryGenres) {
+      const bucket = candidatesByGenre[genre.key] ?? [];
+      let cursor = genreCursors.get(genre.key) ?? 0;
+
+      while (cursor < bucket.length && usedTmdbMovieIds.has(bucket[cursor].tmdbMovieId)) {
+        cursor += 1;
+      }
+
+      genreCursors.set(genre.key, cursor);
+
+      if (cursor >= bucket.length) {
+        continue;
+      }
+
+      const candidate = bucket[cursor];
+      genreCursors.set(genre.key, cursor + 1);
+      usedTmdbMovieIds.add(candidate.tmdbMovieId);
+      selectedCandidates.push(candidate);
+      appendedInRound = true;
+
+      if (selectedCandidates.length >= targetCount) {
+        break;
+      }
+    }
+  }
+
+  return selectedCandidates;
+};
+
+const buildDiscoveredMovieSeeds = async (excludedTmdbMovieIds, startIndex, targetCount) => {
+  if (targetCount <= 0) {
+    return [];
+  }
+
+  const candidateTargetPerGenre = Math.max(
+    90,
+    Math.ceil(targetCount / discoveryGenres.length) * DISCOVER_CANDIDATE_MULTIPLIER
+  );
+
+  const candidatesByGenre = Object.fromEntries(
+    await Promise.all(
+      discoveryGenres.map(async (genre) => {
+        console.log(`Collecting discover candidates for ${genre.key}...`);
+        return [
+          genre.key,
+          await collectDiscoverCandidatesForGenre(genre, excludedTmdbMovieIds, candidateTargetPerGenre)
+        ];
+      })
+    )
+  );
+
+  const selectedCandidates = selectRoundRobinDiscoveryCandidates(
+    candidatesByGenre,
+    excludedTmdbMovieIds,
+    targetCount
+  );
+
+  if (selectedCandidates.length < targetCount) {
+    throw new Error(
+      `Unable to collect enough unique discovered movies. Needed ${targetCount}, got ${selectedCandidates.length}.`
+    );
+  }
+
+  return selectedCandidates.map((candidate, index) => ({
+    id: `movie_${startIndex + index}`,
+    tmdbMovieId: candidate.tmdbMovieId,
+    query: candidate.titleHint,
+    year: candidate.year
+  }));
+};
+
+const mapWithConcurrency = async (items, concurrency, mapper) => {
+  if (items.length === 0) {
+    return [];
+  }
+
+  const results = new Array(items.length);
+  let nextIndex = 0;
+
+  const worker = async () => {
+    while (nextIndex < items.length) {
+      const currentIndex = nextIndex;
+      nextIndex += 1;
+      results[currentIndex] = await mapper(items[currentIndex], currentIndex);
+    }
+  };
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, items.length) }, () => worker())
+  );
+
+  return results;
 };
 
 const toTypedTsExport = (importLine, exportName, typeName, value) =>
@@ -422,15 +803,51 @@ const toTypedTsExport = (importLine, exportName, typeName, value) =>
 
 const run = async () => {
   const posterBaseUrl = await getPosterBase();
-  const catalogMovies = [];
-  const movieCreditsById = {};
+  const curatedCount = movieSeeds.length;
+  const autoExpandedCount = Math.max(0, TARGET_CATALOG_SIZE - curatedCount);
 
-  for (const seed of movieSeeds) {
-    console.log(`Syncing ${seed.id}: ${seed.query} (${seed.year})`);
-    const { catalogMovie, credits } = await fetchCatalogMovie(seed, posterBaseUrl);
-    catalogMovies.push(catalogMovie);
-    movieCreditsById[seed.id] = credits;
-  }
+  console.log(`Syncing curated catalog movies (${curatedCount})...`);
+
+  const curatedEntries = await mapWithConcurrency(
+    movieSeeds,
+    DETAIL_FETCH_CONCURRENCY,
+    async (seed, index) => {
+      console.log(`[curated ${index + 1}/${movieSeeds.length}] ${seed.query} (${seed.year})`);
+      return fetchCatalogMovie(seed, posterBaseUrl);
+    }
+  );
+
+  const curatedTmdbMovieIds = new Set(
+    curatedEntries.map((entry) => entry.catalogMovie.tmdbMovieId)
+  );
+
+  console.log(`Building ${autoExpandedCount} additional discovered movies...`);
+
+  const discoveredSeeds = await buildDiscoveredMovieSeeds(
+    curatedTmdbMovieIds,
+    curatedCount + 1,
+    autoExpandedCount
+  );
+
+  const discoveredEntries = await mapWithConcurrency(
+    discoveredSeeds,
+    DETAIL_FETCH_CONCURRENCY,
+    async (seed, index) => {
+      console.log(`[discover ${index + 1}/${discoveredSeeds.length}] ${seed.query} (${seed.year})`);
+      return fetchCatalogMovieByTmdbMovieId(seed, posterBaseUrl);
+    }
+  );
+
+  const combinedEntries = [...curatedEntries, ...discoveredEntries];
+  const catalogMovies = combinedEntries.map((entry) => entry.catalogMovie);
+  const movieCreditsById = Object.fromEntries(
+    combinedEntries.map((entry) => [entry.catalogMovie.id, entry.credits])
+  );
+  const watchProviderMovieCount = catalogMovies.filter((movie) => movie.watchProvidersKr).length;
+  const streamingMovieCount = catalogMovies.filter(
+    (movie) => (movie.watchProvidersKr?.flatrate.length ?? 0) > 0
+  ).length;
+  const overviewMovieCount = catalogMovies.filter((movie) => movie.overview.trim().length > 0).length;
 
   await mkdir(srcDataDir, { recursive: true });
 
@@ -453,6 +870,10 @@ const run = async () => {
   await writeFile(path.join(srcDataDir, 'catalog.ts'), catalogSource, 'utf8');
   await writeFile(path.join(srcDataDir, 'movieCredits.ts'), creditsSource, 'utf8');
 
+  console.log(`Stored ${catalogMovies.length} movies in catalog.`);
+  console.log(`Stored overviews for ${overviewMovieCount}/${catalogMovies.length} movies.`);
+  console.log(`Stored KR OTT data for ${watchProviderMovieCount}/${catalogMovies.length} movies.`);
+  console.log(`Stored KR streaming providers for ${streamingMovieCount}/${catalogMovies.length} movies.`);
   console.log('TMDB catalog sync complete.');
 };
 

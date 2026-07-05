@@ -80,13 +80,13 @@ const getStarFillWidth = (starIndex: number) => {
 
           <button
             type="button"
-            class="focus-ring absolute inset-y-0 left-0 w-1/2"
+            class="focus-ring corner-soft absolute inset-y-0 left-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star - 0.5}점 주기`"
             @click="setStarRating(star - 0.5)"
           />
           <button
             type="button"
-            class="focus-ring absolute inset-y-0 right-0 w-1/2"
+            class="focus-ring corner-soft absolute inset-y-0 right-0 w-1/2"
             :aria-label="`${ariaLabelPrefix} ${star}점 주기`"
             @click="setStarRating(star)"
           />

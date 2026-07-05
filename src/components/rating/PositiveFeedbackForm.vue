@@ -30,7 +30,6 @@ const reviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
     label: '스토리와 몰입감',
     tags: [
       '시간 가는 줄 몰랐어요',
-      '여운이 길게 남아요',
       '스토리가 탄탄하고 짜임새 있어요',
       '반전의 반전! 전개가 예측불가해요',
       '명대사가 가슴에 와닿아요'
@@ -50,7 +49,7 @@ const reviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
     tags: [
       '아무 생각 없이 웃기 좋아요',
       '심장이 쫄깃하고 긴장감 넘쳐요',
-      '마음이 편안해지고 힐링돼요',
+      '여운이 길게 남아요',
       '생각할 거리를 던져주는 영화예요'
     ]
   },
@@ -119,22 +118,32 @@ const submitForm = () => {
 </script>
 
 <template>
-  <section class="border border-app-line bg-app-panel p-4">
-    <h2 class="text-lg font-semibold text-[#15171c]">상세 평가</h2>
+  <section class="corner-hard border border-app-line bg-app-panel p-4">
+    <div class="flex items-center justify-between gap-3">
+      <h2 class="text-lg font-semibold text-[#15171c]">상세 평가</h2>
+      <button
+        v-if="props.showSkipButton"
+        type="button"
+        class="focus-ring corner-soft inline-flex min-h-9 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-xs font-medium text-[#15171c]"
+        @click="$emit('skip')"
+      >
+        건너뛰기
+      </button>
+    </div>
 
     <div class="mt-4">
       <label class="mb-2 block text-sm font-medium text-app-muted">별점</label>
       <HalfStarRating
         v-model="form.stars"
         size="md"
-        hint="반 별 단위로 고를 수 있어요"
-        aria-label-prefix="영화 평점"
+        hint="0.5점 단위로 고를 수 있어요"
+        aria-label-prefix="영화 별점"
       />
     </div>
 
     <div class="mt-5">
       <p class="mb-3 text-sm font-medium text-app-muted">어떤 점이 좋았나요</p>
-      <p class="mb-3 text-xs text-app-muted">최대 3개까지 고를 수 있어요</p>
+      <p class="mb-3 text-xs text-app-muted">최대 3개까지 고를 수 있어요.</p>
       <div class="grid gap-4">
         <div
           v-for="category in reviewTagCategories"
@@ -149,7 +158,7 @@ const submitForm = () => {
               v-for="tag in category.tags"
               :key="tag"
               type="button"
-              class="focus-ring border px-3 py-2 text-sm font-medium transition-colors"
+              class="focus-ring corner-pill border px-3 py-2 text-sm font-medium transition-colors"
               :class="
                 form.reviewTags.includes(tag)
                   ? 'border-app-accent bg-app-accent text-white'
@@ -173,7 +182,7 @@ const submitForm = () => {
 
     <div class="mt-5">
       <label class="mb-2 block text-sm font-medium text-app-muted" for="favorite-character">
-        {{ props.questionText || '가장 기억에 남는 캐릭터' }}
+        {{ props.questionText || '가장 기억에 남는 캐릭터는 누구였나요?' }}
       </label>
       <div class="relative">
         <select
@@ -208,19 +217,10 @@ const submitForm = () => {
       </div>
     </div>
 
-    <div class="mt-5 flex gap-2">
-      <button
-        v-if="props.showSkipButton"
-        type="button"
-        class="focus-ring min-h-11 flex-1 border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
-        @click="$emit('skip')"
-      >
-        기억 안 남
-      </button>
+    <div class="mt-5">
       <button
         type="button"
-        class="focus-ring min-h-11 border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
-        :class="props.showSkipButton ? 'flex-[1.2]' : 'w-full'"
+        class="focus-ring corner-soft min-h-11 w-full border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
         @click="submitForm"
       >
         {{ props.submitLabel }}

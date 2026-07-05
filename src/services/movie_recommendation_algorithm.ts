@@ -39,7 +39,17 @@ export type ReviewTag =
   | '연인/친구와 데이트용으로 딱이에요'
   | '가족과 함께 보기 좋아요'
   | '혼자 집중해서 보기 좋은 영화예요'
-  | 'N차 관람(재관람)하고 싶은 영화예요';
+  | 'N차 관람(재관람)하고 싶은 영화예요'
+  | '예고편이 다예요'
+  | '연기나 CG가 어색해요'
+  | '눈가리고 싶을 정도로 잔인해요'
+  | '스토리가 루즈하고 지루해요'
+  | '결말이 허무하고 개연성 없어요'
+  | '억지감동, 뻔한 신파극이에요'
+  | '무슨 내용인지 이해불가예요'
+  | '소문난 잔치에 먹을 게 없어요'
+  | '알바 리뷰에 속은 기분이에요'
+  | '내 2시간 돌려내요';
 
 export interface Movie {
   id: string;
@@ -134,7 +144,17 @@ const REVIEW_TAG_MATCH_MAP: Record<ReviewTag, string[]> = {
   '연인/친구와 데이트용으로 딱이에요': ['로맨스', '유쾌함'],
   '가족과 함께 보기 좋아요': ['감동', '유쾌함'],
   '혼자 집중해서 보기 좋은 영화예요': ['몰입감', '탄탄한 스토리'],
-  'N차 관람(재관람)하고 싶은 영화예요': ['캐릭터 매력', '영상미', '여운']
+  'N차 관람(재관람)하고 싶은 영화예요': ['캐릭터 매력', '영상미', '여운'],
+  '예고편이 다예요': ['탄탄한 스토리', '반전', '캐릭터 매력'],
+  '연기나 CG가 어색해요': ['배우들의 연기력', '영상미', '연출', '액션', '세계관'],
+  '눈가리고 싶을 정도로 잔인해요': ['공포', '스릴러', '액션', '긴장감'],
+  '스토리가 루즈하고 지루해요': ['탄탄한 스토리', '몰입감', '빠른전개'],
+  '결말이 허무하고 개연성 없어요': ['탄탄한 스토리', '여운', '감동'],
+  '억지감동, 뻔한 신파극이에요': ['감동', '여운', '로맨스'],
+  '무슨 내용인지 이해불가예요': ['탄탄한 스토리', '세계관'],
+  '소문난 잔치에 먹을 게 없어요': ['탄탄한 스토리', '몰입감', '캐릭터 매력'],
+  '알바 리뷰에 속은 기분이에요': ['탄탄한 스토리', '영상미'],
+  '내 2시간 돌려내요': ['몰입감', '빠른전개']
 };
 
 const normalizeReviewText = (value: string) =>
@@ -240,6 +260,59 @@ const REVIEW_TEXT_KEYWORD_RULES: Array<{
     genres: ['SF'],
     reviewTags: ['CG/액션 스케일이 압도적이에요'],
     tags: ['세계관']
+  },
+  {
+    needles: ['예고편이다', '예고편이다예요', '예고편만', '트레일러가다', '트레일러가전부'],
+    reviewTags: ['예고편이 다예요'],
+    tags: ['탄탄한 스토리']
+  },
+  {
+    needles: ['어색', '발연기', 'cg티', 'cg가어색', '연기가별로'],
+    genres: ['액션', 'SF'],
+    reviewTags: ['연기나 CG가 어색해요'],
+    tags: ['배우들의 연기력', '영상미']
+  },
+  {
+    needles: ['잔인', '고어', '잔혹', '피범벅'],
+    genres: ['공포', '스릴러'],
+    reviewTags: ['눈가리고 싶을 정도로 잔인해요'],
+    tags: ['긴장감']
+  },
+  {
+    needles: ['지루', '루즈', '루즈하다', '늘어진다'],
+    reviewTags: ['스토리가 루즈하고 지루해요'],
+    tags: ['탄탄한 스토리', '몰입감', '빠른전개']
+  },
+  {
+    needles: ['개연성없', '허무', '용두사미', '결말별로'],
+    reviewTags: ['결말이 허무하고 개연성 없어요'],
+    tags: ['탄탄한 스토리', '여운']
+  },
+  {
+    needles: ['억지감동', '신파', '뻔한신파', '뻔하다'],
+    genres: ['로맨스', '드라마'],
+    reviewTags: ['억지감동, 뻔한 신파극이에요'],
+    tags: ['감동', '여운']
+  },
+  {
+    needles: ['이해불가', '난해', '무슨내용', '이해안'],
+    reviewTags: ['무슨 내용인지 이해불가예요'],
+    tags: ['탄탄한 스토리', '세계관']
+  },
+  {
+    needles: ['소문난잔치', '먹을게없', '빈수레'],
+    reviewTags: ['소문난 잔치에 먹을 게 없어요'],
+    tags: ['탄탄한 스토리', '몰입감']
+  },
+  {
+    needles: ['알바리뷰', '속은기분', '낚였'],
+    reviewTags: ['알바 리뷰에 속은 기분이에요'],
+    tags: ['탄탄한 스토리']
+  },
+  {
+    needles: ['돌려내', '시간아깝', '내시간'],
+    reviewTags: ['내 2시간 돌려내요'],
+    tags: ['몰입감', '빠른전개']
   }
 ];
 
@@ -332,12 +405,34 @@ export function applyRatingToProfile(
   }
 
   if (input.status === 'dislike') {
+    const dislikeRatingWeight = Math.min(0, getRatingWeight(input.rating));
+    const totalDislikeWeight = DISLIKE_BASE_WEIGHT + dislikeRatingWeight;
+    const dislikeTagWeight = Math.min(-1, Math.ceil(totalDislikeWeight / 2));
+
     for (const genre of movie.genres) {
-      addScore(nextProfile.genreScores, genre, DISLIKE_BASE_WEIGHT);
+      addScore(nextProfile.genreScores, genre, totalDislikeWeight);
     }
 
     for (const tag of movie.tags) {
-      addScore(nextProfile.tagScores, tag, -1);
+      addScore(nextProfile.tagScores, tag, dislikeTagWeight);
+    }
+
+    for (const reviewTag of input.reviewTags) {
+      addScore(nextProfile.reviewTagScores, reviewTag, -REVIEW_TAG_WEIGHT);
+    }
+
+    const reviewTextSignals = extractReviewTextSignals(options?.reviewText ?? '');
+
+    for (const genre of reviewTextSignals.genres) {
+      addScore(nextProfile.genreScores, genre, -REVIEW_TEXT_GENRE_WEIGHT);
+    }
+
+    for (const tag of reviewTextSignals.tags) {
+      addScore(nextProfile.tagScores, tag, -REVIEW_TEXT_TAG_WEIGHT);
+    }
+
+    for (const reviewTag of reviewTextSignals.reviewTags) {
+      addScore(nextProfile.reviewTagScores, reviewTag, -REVIEW_TEXT_REVIEW_TAG_WEIGHT);
     }
 
     return nextProfile;

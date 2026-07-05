@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 import ListComposerCard from '@/components/lists/ListComposerCard.vue';
 import SharedListCard from '@/components/lists/SharedListCard.vue';
@@ -10,6 +10,99 @@ import { useListStore } from '@/services/listStore';
 const libraryStore = useLibraryStore();
 const listStore = useListStore();
 const isComposerOpen = ref(false);
+
+const LIST_SORT_STORAGE_KEY = 'movielist:lists-sort-option';
+const listSortOptions = [
+  { label: '최신순', value: 'latest' },
+  { label: '날짜순', value: 'date' },
+  { label: '이름순', value: 'name' },
+  { label: '평점수', value: 'rating_count' },
+  { label: '저장수', value: 'save_count' }
+] as const;
+
+type ListSortOption = (typeof listSortOptions)[number]['value'];
+
+const isListSortOption = (value: string): value is ListSortOption =>
+  listSortOptions.some((option) => option.value === value);
+
+const getInitialListSortOption = (): ListSortOption => {
+  if (typeof window === 'undefined') {
+    return 'latest';
+  }
+
+  const saved = window.localStorage.getItem(LIST_SORT_STORAGE_KEY);
+  return saved && isListSortOption(saved) ? saved : 'latest';
+};
+
+const listSortOption = ref<ListSortOption>(getInitialListSortOption());
+
+if (typeof window !== 'undefined') {
+  watch(listSortOption, (value) => {
+    window.localStorage.setItem(LIST_SORT_STORAGE_KEY, value);
+  });
+}
+
+const compareText = (left: string, right: string) => left.localeCompare(right, 'ko-KR');
+const getTimeValue = (value: string) => {
+  const time = new Date(value).getTime();
+  return Number.isFinite(time) ? time : 0;
+};
+
+const sortLists = <T extends { title: string }>(
+  lists: readonly T[],
+  option: ListSortOption,
+  controls: {
+    getRatingCount: (list: T) => number;
+    getSaveCount: (list: T) => number;
+    getUpdatedAt: (list: T) => string;
+  }
+) =>
+  [...lists].sort((left, right) => {
+    const leftUpdatedAt = getTimeValue(controls.getUpdatedAt(left));
+    const rightUpdatedAt = getTimeValue(controls.getUpdatedAt(right));
+
+    if (option === 'latest') {
+      return rightUpdatedAt - leftUpdatedAt || compareText(left.title, right.title);
+    }
+
+    if (option === 'date') {
+      return leftUpdatedAt - rightUpdatedAt || compareText(left.title, right.title);
+    }
+
+    if (option === 'name') {
+      return compareText(left.title, right.title) || rightUpdatedAt - leftUpdatedAt;
+    }
+
+    if (option === 'rating_count') {
+      return (
+        controls.getRatingCount(right) - controls.getRatingCount(left) ||
+        rightUpdatedAt - leftUpdatedAt ||
+        compareText(left.title, right.title)
+      );
+    }
+
+    return (
+      controls.getSaveCount(right) - controls.getSaveCount(left) ||
+      rightUpdatedAt - leftUpdatedAt ||
+      compareText(left.title, right.title)
+    );
+  });
+
+const sortedMyLists = computed(() =>
+  sortLists(listStore.myLists.value, listSortOption.value, {
+    getUpdatedAt: (list) => list.updatedAt,
+    getRatingCount: (list) => list.ratingCount,
+    getSaveCount: (list) => list.saveCount
+  })
+);
+
+const sortedSharedLists = computed(() =>
+  sortLists(listStore.sharedLists.value, listSortOption.value, {
+    getUpdatedAt: (list) => list.updatedAt,
+    getRatingCount: (list) => list.ratingCount + (list.viewerRating !== null ? 1 : 0),
+    getSaveCount: (list) => list.displaySaveCount
+  })
+);
 
 const searchListCards = computed(() =>
   listStore.state.listResults.map((result) => ({
@@ -53,22 +146,31 @@ const handleResetDraft = () => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-6 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-xl"
   >
-    <section class="border border-app-line bg-app-panel px-5 py-5">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <h1 class="text-[25px] font-semibold leading-tight text-white">리스트</h1>
-          <p class="mt-2 text-sm text-app-muted">
-            영화 모음도 만들고, 다른 사람이 저장한 리스트도 볼 수 있어요.
-          </p>
-        </div>
+    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
+      <p class="text-sm text-app-muted">
+        영화 모음도 만들고, 다른 사람이 저장한 리스트도 볼 수 있어요.
+      </p>
 
+      <div class="mt-4 grid grid-cols-[auto_minmax(0,1fr)] items-center gap-2.5">
         <button
           type="button"
-          class="focus-ring inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
+          class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-3 text-sm font-medium text-white"
           @click="openCreateComposer"
         >
           리스트 만들기
         </button>
+
+        <label class="ml-auto flex min-w-0 items-center justify-end gap-1.5 text-xs font-medium text-app-muted">
+          <span class="whitespace-nowrap">정렬순</span>
+          <select
+            v-model="listSortOption"
+            class="focus-ring min-h-10 w-[5.75rem] border border-app-line bg-app-panelSoft px-2.5 text-sm text-white"
+          >
+            <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </label>
       </div>
     </section>
 
@@ -82,7 +184,7 @@ const handleResetDraft = () => {
 
       <div v-if="listStore.myLists.value.length > 0" class="grid gap-3">
         <UserListCard
-          v-for="list in listStore.myLists.value"
+          v-for="list in sortedMyLists"
           :key="list.id"
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
@@ -95,7 +197,7 @@ const handleResetDraft = () => {
 
       <div
         v-else
-        class="border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
+        class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
       >
         아직 만든 리스트가 없어요.
       </div>
@@ -112,7 +214,7 @@ const handleResetDraft = () => {
 
       <div class="grid gap-3">
         <SharedListCard
-          v-for="list in listStore.sharedLists.value"
+          v-for="list in sortedSharedLists"
           :key="list.id"
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
@@ -127,11 +229,11 @@ const handleResetDraft = () => {
 
   <div
     v-if="isComposerOpen"
-    class="fixed inset-0 z-40 flex items-end bg-black px-4 pb-4 pt-8 sm:items-center"
+      class="fixed inset-0 z-40 flex items-end bg-black px-4 pb-4 pt-8 sm:items-center"
     @click.self="closeComposer"
   >
     <section
-      class="mx-auto flex max-h-[calc(100vh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
+      class="corner-hard mx-auto flex max-h-[calc(100vh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
     >
       <div class="flex items-center justify-between border-b border-app-line px-5 py-4">
         <div>
@@ -141,7 +243,7 @@ const handleResetDraft = () => {
         </div>
         <button
           type="button"
-          class="focus-ring inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
+          class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
           @click="closeComposer"
         >
           닫기
@@ -152,6 +254,8 @@ const handleResetDraft = () => {
         <ListComposerCard
           :title="listStore.state.draft.title"
           :is-private="listStore.state.draft.isPrivate"
+          :can-share="listStore.canShareDraft.value"
+          :share-restriction-reason="listStore.draftShareRestrictionReason.value"
           :movies="listStore.selectedDraftMovies.value"
           :can-save="listStore.canSaveDraft.value"
           :is-editing="Boolean(listStore.state.draft.id)"

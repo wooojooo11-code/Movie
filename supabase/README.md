@@ -7,12 +7,15 @@ Run these migrations in the Supabase SQL Editor.
 Run:
 
 - `supabase/migrations/202605091520_create_public_ratings.sql`
+- `supabase/migrations/202606201430_create_public_rating_history.sql`
 
 This creates:
 
 - `public.ratings`
+- `public.rating_history`
 - unique constraint on `(user_id, movie_id)`
 - RLS policies so each user can only read/write their own ratings
+- a separate history table so evaluated movies can stay saved even after taste-analysis reset
 
 ## 2. Recommendation exclusions table
 
@@ -101,6 +104,9 @@ VITE_SUPABASE_ANON_KEY=your_publishable_or_anon_key
 VITE_SUPABASE_RATINGS_SCHEMA=public
 VITE_SUPABASE_RATINGS_TABLE=ratings
 VITE_SUPABASE_RATINGS_USER_COLUMN=user_id
+VITE_SUPABASE_RATING_HISTORY_SCHEMA=public
+VITE_SUPABASE_RATING_HISTORY_TABLE=rating_history
+VITE_SUPABASE_RATING_HISTORY_USER_COLUMN=user_id
 
 VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_SCHEMA=public
 VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_TABLE=recommendation_exclusions
@@ -136,6 +142,14 @@ Stores taste-analysis results:
 - review tags
 - favorite character
 - memo fields
+
+### `public.rating_history`
+
+Stores the latest saved evaluation for each movie and user:
+
+- survives taste-analysis resets
+- powers the rated-history screen
+- keeps edit/review access to movies already evaluated before
 
 ### `public.recommendation_exclusions`
 

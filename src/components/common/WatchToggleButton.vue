@@ -43,7 +43,7 @@ const toggle = async () => {
 <template>
   <button
     type="button"
-    class="focus-ring inline-flex items-center justify-center border transition"
+    class="focus-ring corner-soft inline-flex items-center justify-center border transition"
     :class="[
       props.fullWidth ? 'w-full' : '',
       sizeClassName,

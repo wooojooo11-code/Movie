@@ -24,7 +24,7 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
     @click.self="$emit('close')"
   >
     <section
-      class="mx-auto w-full max-w-[23.5rem] border border-app-line px-4 py-4"
+      class="corner-hard mx-auto w-full max-w-[23.5rem] border border-app-line px-4 py-4"
       style="background-color: rgba(255, 255, 255, 0.96)"
     >
       <div class="flex items-start justify-between gap-3">
@@ -32,13 +32,13 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
           <p class="text-xs text-app-muted">리스트</p>
           <h3 class="mt-1 text-lg font-semibold leading-snug text-[#15171c]">{{ list.title }}</h3>
           <p class="mt-2 text-sm text-app-muted">
-            저장 {{ formatCount(list.saveCount) }} · 평균 {{ formatRating(list.averageRating) }}
+            평균 {{ formatRating(list.averageRating) }} · 저장 {{ formatCount(list.saveCount) }}
           </p>
         </div>
 
         <button
           type="button"
-          class="focus-ring border border-app-line bg-app-panelSoft px-3 py-2 text-xs text-[#15171c]"
+          class="focus-ring corner-soft border border-app-line bg-app-panelSoft px-3 py-2 text-xs text-[#15171c]"
           @click="$emit('close')"
         >
           닫기
@@ -50,7 +50,7 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
           <article
             v-for="movie in list.moviePreviews"
             :key="movie.id"
-            class="min-w-0 border border-app-line bg-app-panel p-2"
+            class="corner-hard min-w-0 border border-app-line bg-app-panel p-2"
           >
             <img
               :src="movie.posterUrl"
@@ -65,6 +65,12 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
               {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
             </p>
             <p
+              v-if="movie.watchAvailabilityText"
+              class="mt-1 text-[10px] leading-4 text-app-muted"
+            >
+              OTT · {{ movie.watchAvailabilityText }}
+            </p>
+            <p
               v-if="movie.summaryTags.length > 0"
               class="mt-1 line-clamp-1 text-[10px] leading-4 text-app-muted"
             >
@@ -72,7 +78,7 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
             </p>
             <button
               type="button"
-              class="focus-ring mt-1.5 inline-flex min-h-7 w-full items-center justify-center border px-1.5 text-[10px] font-medium"
+              class="focus-ring corner-soft mt-1.5 inline-flex min-h-7 w-full items-center justify-center border px-1.5 text-[10px] font-medium"
               :class="
                 isSaved(movie.id)
                   ? 'border-app-accent bg-app-accent text-white'

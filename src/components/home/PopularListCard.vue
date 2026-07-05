@@ -16,7 +16,7 @@ const formatRating = (rating: number) => rating.toFixed(1);
 <template>
   <button
     type="button"
-    class="focus-ring w-full border border-app-line bg-app-panel px-4 py-4 text-left"
+    class="focus-ring corner-hard w-full border border-app-line bg-app-panel px-4 py-4 text-left"
     @click="$emit('open', list)"
   >
     <div class="mb-3 flex gap-2">
@@ -34,7 +34,7 @@ const formatRating = (rating: number) => rating.toFixed(1);
       {{ list.title }}
     </h3>
     <p class="mt-1.5 text-sm text-app-muted">
-      저장 {{ formatCount(list.saveCount) }} · 평균 {{ formatRating(list.averageRating) }}
+      평균 {{ formatRating(list.averageRating) }} · 저장 {{ formatCount(list.saveCount) }}
     </p>
   </button>
 </template>

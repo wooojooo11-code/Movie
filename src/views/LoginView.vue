@@ -12,7 +12,7 @@ const router = useRouter();
 
 const state = reactive({
   mode: route.query.mode === 'signup' ? ('signup' as AuthMode) : ('login' as AuthMode),
-  email: '',
+  identifier: '',
   password: '',
   nickname: '',
   notice: ''
@@ -29,9 +29,13 @@ watch(
 const isSignupMode = computed(() => state.mode === 'signup');
 const pageTitle = computed(() => (isSignupMode.value ? '회원가입' : '로그인'));
 const submitLabel = computed(() => (isSignupMode.value ? '회원가입' : '로그인'));
+const identifierLabel = computed(() => (isSignupMode.value ? '아이디' : '아이디 또는 이메일'));
+const identifierPlaceholder = computed(() =>
+  isSignupMode.value ? 'moviefan123' : 'moviefan123 또는 you@example.com'
+);
 const canSubmit = computed(
   () =>
-    state.email.trim().length > 0 &&
+    state.identifier.trim().length > 0 &&
     state.password.trim().length >= 6 &&
     (!isSignupMode.value || state.nickname.trim().length > 0) &&
     authStore.isConfigured
@@ -70,7 +74,7 @@ const submit = async () => {
   try {
     if (isSignupMode.value) {
       const result = await authStore.signUp(
-        state.email.trim(),
+        state.identifier.trim(),
         state.password.trim(),
         state.nickname.trim()
       );
@@ -85,7 +89,7 @@ const submit = async () => {
       return;
     }
 
-    await authStore.signIn(state.email.trim(), state.password.trim());
+    await authStore.signIn(state.identifier.trim(), state.password.trim());
     void router.replace(resolveRedirectPath());
   } catch {
     // store message is shown below
@@ -97,18 +101,18 @@ const submit = async () => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="border border-app-line bg-app-panel px-5 py-5">
+    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
       <h1 class="text-[27px] font-semibold leading-tight text-white">{{ pageTitle }}</h1>
       <p class="mt-2 text-sm text-app-muted">
         취향분석 기록과 추천을 계정에 이어서 담아둘 수 있어요.
       </p>
     </section>
 
-    <section class="border border-app-line bg-app-panel px-5 py-5">
-      <div class="grid grid-cols-2 border border-app-line bg-app-panelSoft">
+    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
+      <div class="corner-pill grid grid-cols-2 border border-app-line bg-app-panelSoft">
         <button
           type="button"
-          class="focus-ring min-h-10 text-sm"
+          class="focus-ring corner-pill min-h-10 text-sm"
           :class="!isSignupMode ? 'bg-app-accent text-white' : 'text-app-muted'"
           @click="setMode('login')"
         >
@@ -116,7 +120,7 @@ const submit = async () => {
         </button>
         <button
           type="button"
-          class="focus-ring min-h-10 text-sm"
+          class="focus-ring corner-pill min-h-10 text-sm"
           :class="isSignupMode ? 'bg-app-accent text-white' : 'text-app-muted'"
           @click="setMode('signup')"
         >
@@ -126,14 +130,18 @@ const submit = async () => {
 
       <form class="mt-5 grid gap-4" @submit.prevent="submit">
         <div class="grid gap-2">
-          <label class="text-sm font-medium text-app-muted" for="auth-email">이메일</label>
+          <label class="text-sm font-medium text-app-muted" for="auth-identifier">
+            {{ identifierLabel }}
+          </label>
           <input
-            id="auth-email"
-            v-model.trim="state.email"
-            type="email"
-            autocomplete="email"
+            id="auth-identifier"
+            v-model.trim="state.identifier"
+            type="text"
+            autocomplete="username"
+            autocapitalize="none"
+            spellcheck="false"
             class="focus-ring h-12 border border-app-line bg-app-panelSoft px-4 text-sm text-white placeholder:text-app-muted"
-            placeholder="you@example.com"
+            :placeholder="identifierPlaceholder"
           />
         </div>
 
@@ -155,7 +163,7 @@ const submit = async () => {
             id="auth-password"
             v-model.trim="state.password"
             type="password"
-            autocomplete="current-password"
+            :autocomplete="isSignupMode ? 'new-password' : 'current-password'"
             class="focus-ring h-12 border border-app-line bg-app-panelSoft px-4 text-sm text-white placeholder:text-app-muted"
             placeholder="6자 이상 입력"
           />
@@ -163,21 +171,21 @@ const submit = async () => {
 
         <p
           v-if="!authStore.isConfigured"
-          class="border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-app-muted"
+          class="corner-hard border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-app-muted"
         >
           Supabase URL과 anon key가 아직 설정되지 않았어요. `.env.local`에
           `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`를 넣어 주세요.
         </p>
         <p
           v-else-if="authStore.errorMessage || state.notice"
-          class="border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-app-muted"
+          class="corner-hard border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-app-muted"
         >
           {{ authStore.errorMessage || state.notice }}
         </p>
 
         <button
           type="submit"
-          class="focus-ring min-h-11 border border-app-accent bg-app-accent px-4 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50"
+          class="focus-ring corner-soft min-h-11 border border-app-accent bg-app-accent px-4 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50"
           :disabled="!canSubmit || authStore.isSubmitting"
         >
           {{ authStore.isSubmitting ? '처리 중' : submitLabel }}

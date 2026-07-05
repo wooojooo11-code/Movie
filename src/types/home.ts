@@ -25,6 +25,7 @@ export interface PopularListMoviePreview {
   releaseYear: number;
   genres: string[];
   summaryTags: string[];
+  watchAvailabilityText: null | string;
   posterUrl: string;
   posterAlt: string;
 }

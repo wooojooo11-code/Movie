@@ -1,247 +1,103 @@
 import { catalogMovies } from '@/data/catalog';
+import type { TasteAnalysisGenre } from '@/types/recommendation';
 
 type RatingMovie = (typeof catalogMovies)[number];
-type TasteAnalysisGenreGroupKey = 'action' | 'comedy' | 'mystery' | 'romance' | 'sf';
 
-const ACTION_GENRE = '\uC561\uC158';
-const COMEDY_GENRE = '\uCF54\uBBF8\uB514';
-const MYSTERY_GENRE = '\uBBF8\uC2A4\uD130\uB9AC';
-const ROMANCE_GENRE = '\uB85C\uB9E8\uC2A4';
-const THRILLER_GENRE = '\uC2A4\uB9B4\uB7EC';
-const genreQuotaPerBatch = 4;
-
-const genreDisplayOrder: TasteAnalysisGenreGroupKey[] = [
-  'action',
-  'mystery',
-  'comedy',
-  'romance',
-  'sf'
-];
-const totalGenreGroupCount = genreDisplayOrder.length;
-
-// Assign scarcer groups first so later balanced batches stay possible.
-const genreAssignmentOrder: TasteAnalysisGenreGroupKey[] = [
-  'sf',
-  'romance',
-  'comedy',
-  'action',
-  'mystery'
+export const tasteAnalysisGenreOptions: TasteAnalysisGenre[] = [
+  '액션',
+  '애니메이션',
+  '로맨스',
+  '코미디',
+  '추리',
+  'SF'
 ];
 
-const genreMatchers: Record<TasteAnalysisGenreGroupKey, (movie: RatingMovie) => boolean> = {
-  action: (movie) => movie.genres.includes(ACTION_GENRE),
-  comedy: (movie) => movie.genres.includes(COMEDY_GENRE),
-  mystery: (movie) =>
-    movie.genres.includes(MYSTERY_GENRE) || movie.genres.includes(THRILLER_GENRE),
-  romance: (movie) => movie.genres.includes(ROMANCE_GENRE),
-  sf: (movie) => movie.genres.includes('SF')
+export const tasteAnalysisBatchSize = 20;
+export const minTasteAnalysisGenreSelection = 3;
+export const maxTasteAnalysisGenreSelection = 4;
+export const tasteAnalysisLikeSelectionTarget = 3;
+export const tasteAnalysisDislikeSelectionTarget = 3;
+
+const tasteAnalysisGenreAliases: Record<TasteAnalysisGenre, readonly string[]> = {
+  액션: ['액션'],
+  애니메이션: ['애니메이션'],
+  로맨스: ['로맨스'],
+  코미디: ['코미디'],
+  추리: ['추리', '미스터리'],
+  SF: ['SF']
 };
 
-const createEmptyGroupedPools = (): Record<TasteAnalysisGenreGroupKey, RatingMovie[]> => ({
-  action: [],
-  comedy: [],
-  mystery: [],
-  romance: [],
-  sf: []
-});
+const tasteAnalysisGenreSet = new Set<TasteAnalysisGenre>(tasteAnalysisGenreOptions);
 
-type FlowEdge = {
-  cap: number;
-  rev: number;
-  to: number;
+export const normalizeTasteAnalysisGenres = (
+  selectedGenres: readonly string[]
+): TasteAnalysisGenre[] => {
+  const dedupedGenres = new Set<TasteAnalysisGenre>();
+
+  for (const genre of selectedGenres) {
+    if (tasteAnalysisGenreSet.has(genre as TasteAnalysisGenre)) {
+      dedupedGenres.add(genre as TasteAnalysisGenre);
+      continue;
+    }
+
+    if (genre === '미스터리') {
+      dedupedGenres.add('추리');
+    }
+  }
+
+  return tasteAnalysisGenreOptions
+    .filter((genre) => dedupedGenres.has(genre))
+    .slice(0, maxTasteAnalysisGenreSelection);
 };
 
-const addFlowEdge = (graph: FlowEdge[][], from: number, to: number, cap: number) => {
-  const forwardEdge: FlowEdge = { to, rev: graph[to].length, cap };
-  const backwardEdge: FlowEdge = { to: from, rev: graph[from].length, cap: 0 };
-  graph[from].push(forwardEdge);
-  graph[to].push(backwardEdge);
-};
+const buildPrioritizedTasteAnalysisSequence = (selectedGenres: readonly string[]) => {
+  const normalizedGenres = normalizeTasteAnalysisGenres(selectedGenres);
+  const effectiveGenres =
+    normalizedGenres.length > 0 ? normalizedGenres : [...tasteAnalysisGenreOptions];
 
-const tryBuildBalancedGroupedPools = (quotaPerGroup: number) => {
-  const candidateMovies = catalogMovies.filter((movie) =>
-    genreDisplayOrder.some((groupKey) => genreMatchers[groupKey](movie))
+  const usedMovieIds = new Set<string>();
+  const prioritizedMovies: RatingMovie[] = [];
+  const genrePools = effectiveGenres.map((genre) =>
+    catalogMovies.filter((movie) =>
+      tasteAnalysisGenreAliases[genre].some((alias) => movie.genres.includes(alias))
+    )
   );
 
-  const sourceNode = 0;
-  const movieNodeStart = 1;
-  const groupNodeStart = movieNodeStart + candidateMovies.length;
-  const sinkNode = groupNodeStart + totalGenreGroupCount;
-  const graph: FlowEdge[][] = Array.from({ length: sinkNode + 1 }, () => []);
+  let appendedInPass = true;
 
-  candidateMovies.forEach((movie, movieIndex) => {
-    const movieNode = movieNodeStart + movieIndex;
+  while (appendedInPass) {
+    appendedInPass = false;
 
-    addFlowEdge(graph, sourceNode, movieNode, 1);
+    for (const pool of genrePools) {
+      const nextMovie = pool.find((movie) => !usedMovieIds.has(movie.id));
 
-    for (const groupKey of genreDisplayOrder) {
-      if (genreMatchers[groupKey](movie)) {
-        addFlowEdge(graph, movieNode, groupNodeStart + genreDisplayOrder.indexOf(groupKey), 1);
-      }
-    }
-  });
-
-  genreDisplayOrder.forEach((_, groupIndex) => {
-    addFlowEdge(graph, groupNodeStart + groupIndex, sinkNode, quotaPerGroup);
-  });
-
-  let maxFlow = 0;
-
-  while (true) {
-    const previous: Array<{ edgeIndex: number; node: number } | null> = Array.from(
-      { length: graph.length },
-      () => null
-    );
-    const queue = [sourceNode];
-    previous[sourceNode] = { node: -1, edgeIndex: -1 };
-
-    for (let queueIndex = 0; queueIndex < queue.length; queueIndex += 1) {
-      const node = queue[queueIndex];
-
-      for (let edgeIndex = 0; edgeIndex < graph[node].length; edgeIndex += 1) {
-        const edge = graph[node][edgeIndex];
-
-        if (edge.cap <= 0 || previous[edge.to] !== null) {
-          continue;
-        }
-
-        previous[edge.to] = { node, edgeIndex };
-        queue.push(edge.to);
-
-        if (edge.to === sinkNode) {
-          break;
-        }
-      }
-
-      if (previous[sinkNode] !== null) {
-        break;
-      }
-    }
-
-    if (previous[sinkNode] === null) {
-      break;
-    }
-
-    let pathCapacity = Number.POSITIVE_INFINITY;
-
-    for (let node = sinkNode; node !== sourceNode; ) {
-      const pathStep = previous[node];
-
-      if (!pathStep) {
-        pathCapacity = 0;
-        break;
-      }
-
-      pathCapacity = Math.min(pathCapacity, graph[pathStep.node][pathStep.edgeIndex].cap);
-      node = pathStep.node;
-    }
-
-    if (!Number.isFinite(pathCapacity) || pathCapacity <= 0) {
-      break;
-    }
-
-    for (let node = sinkNode; node !== sourceNode; ) {
-      const pathStep = previous[node];
-
-      if (!pathStep) {
-        break;
-      }
-
-      const edge = graph[pathStep.node][pathStep.edgeIndex];
-      edge.cap -= pathCapacity;
-      graph[node][edge.rev].cap += pathCapacity;
-      node = pathStep.node;
-    }
-
-    maxFlow += pathCapacity;
-  }
-
-  if (maxFlow !== quotaPerGroup * totalGenreGroupCount) {
-    return null;
-  }
-
-  const groupedPools = createEmptyGroupedPools();
-
-  candidateMovies.forEach((movie, movieIndex) => {
-    const movieNode = movieNodeStart + movieIndex;
-
-    for (const edge of graph[movieNode]) {
-      if (
-        edge.to >= groupNodeStart &&
-        edge.to < groupNodeStart + totalGenreGroupCount &&
-        edge.cap === 0
-      ) {
-        const groupKey = genreDisplayOrder[edge.to - groupNodeStart];
-        groupedPools[groupKey].push(movie);
-        break;
-      }
-    }
-  });
-
-  return groupedPools;
-};
-
-const buildBalancedGroupedPools = () => {
-  const candidateMovieCount = catalogMovies.filter((movie) =>
-    genreDisplayOrder.some((groupKey) => genreMatchers[groupKey](movie))
-  ).length;
-  const maximumQuotaPerGroup =
-    Math.floor(candidateMovieCount / totalGenreGroupCount / genreQuotaPerBatch) * genreQuotaPerBatch;
-
-  for (
-    let quotaPerGroup = maximumQuotaPerGroup;
-    quotaPerGroup >= genreQuotaPerBatch;
-    quotaPerGroup -= genreQuotaPerBatch
-  ) {
-    const groupedPools = tryBuildBalancedGroupedPools(quotaPerGroup);
-
-    if (groupedPools) {
-      return groupedPools;
-    }
-  }
-
-  const fallbackPools = createEmptyGroupedPools();
-  const assignedMovieIds = new Set<string>();
-
-  for (const groupKey of genreAssignmentOrder) {
-    for (const movie of catalogMovies) {
-      if (assignedMovieIds.has(movie.id) || !genreMatchers[groupKey](movie)) {
+      if (!nextMovie) {
         continue;
       }
 
-      fallbackPools[groupKey].push(movie);
-      assignedMovieIds.add(movie.id);
+      prioritizedMovies.push(nextMovie);
+      usedMovieIds.add(nextMovie.id);
+      appendedInPass = true;
     }
   }
 
-  return fallbackPools;
+  const fallbackMovies = catalogMovies.filter((movie) => !usedMovieIds.has(movie.id));
+  return [...prioritizedMovies, ...fallbackMovies];
 };
 
-const groupedRatingMoviePools = buildBalancedGroupedPools();
+const buildBatchFromSequence = (
+  selectedGenres: readonly string[],
+  excludedMovieIds: readonly string[] = []
+) => {
+  const excludedMovieIdSet = new Set(excludedMovieIds);
 
-const balancedBatchCount = Math.min(
-  ...genreDisplayOrder.map((groupKey) =>
-    Math.floor(groupedRatingMoviePools[groupKey].length / genreQuotaPerBatch)
-  )
-);
+  return buildPrioritizedTasteAnalysisSequence(selectedGenres)
+    .filter((movie) => !excludedMovieIdSet.has(movie.id))
+    .slice(0, tasteAnalysisBatchSize);
+};
 
-const buildBatchAtIndex = (batchIndex: number) =>
-  genreDisplayOrder.flatMap((groupKey) => {
-    const start = batchIndex * genreQuotaPerBatch;
-    return groupedRatingMoviePools[groupKey].slice(start, start + genreQuotaPerBatch);
-  });
-
-const ratingBatches = Array.from({ length: balancedBatchCount }, (_, batchIndex) =>
-  buildBatchAtIndex(batchIndex)
-).filter((batch) => batch.length === genreQuotaPerBatch * totalGenreGroupCount);
-
-const additionalRatingBatches = ratingBatches.slice(1);
-
-export const primaryRatingMovies = ratingBatches[0] ?? [];
-export const ratingMovies = ratingBatches.flat();
-export const initialTasteAnalysisCount = primaryRatingMovies.length;
-export const tasteAnalysisBatchSize = genreQuotaPerBatch * totalGenreGroupCount;
-const primaryRatingMovieIdSet = new Set(primaryRatingMovies.map((movie) => movie.id));
+export const getPrimaryRatingMovies = (selectedGenres: readonly string[]) =>
+  buildBatchFromSequence(selectedGenres);
 
 export const getUnratedMoviesFromPool = (
   ratedMovieIds: readonly string[],
@@ -251,62 +107,20 @@ export const getUnratedMoviesFromPool = (
   return pool.filter((movie) => !ratedIdSet.has(movie.id));
 };
 
-export const getAdditionalBatchCount = () => additionalRatingBatches.length;
-
-export const getAdditionalRatingBatchByIndex = (batchIndex: number) => {
-  const safeBatchIndex = Math.max(0, batchIndex);
-  return additionalRatingBatches[safeBatchIndex] ?? [];
-};
-
-export const getUnratedMoviesFromAdditionalBatch = (
-  ratedMovieIds: readonly string[],
-  batchIndex: number
-) => getUnratedMoviesFromPool(ratedMovieIds, getAdditionalRatingBatchByIndex(batchIndex));
-
-export const getNextAdditionalBatchIndex = (ratedMovieIds: readonly string[]) => {
-  const totalBatchCount = getAdditionalBatchCount();
-
-  for (let index = 0; index < totalBatchCount; index += 1) {
-    if (getUnratedMoviesFromAdditionalBatch(ratedMovieIds, index).length > 0) {
-      return index;
-    }
-  }
-
-  return null;
-};
-
-export const getFollowingAdditionalBatchIndex = (
-  ratedMovieIds: readonly string[],
-  currentBatchIndex: number
-) => {
-  const totalBatchCount = getAdditionalBatchCount();
-
-  for (let index = currentBatchIndex + 1; index < totalBatchCount; index += 1) {
-    if (getUnratedMoviesFromAdditionalBatch(ratedMovieIds, index).length > 0) {
-      return index;
-    }
-  }
-
-  return null;
-};
-
-export const hasAdditionalTasteAnalysisMovies = (ratedMovieIds: readonly string[]) =>
-  getNextAdditionalBatchIndex(ratedMovieIds) !== null;
-
-export const buildAdditionalTasteAnalysisBatch = (
+export const hasAdditionalTasteAnalysisMovies = (
+  selectedGenres: readonly string[],
   ratedMovieIds: readonly string[],
   reservedMovieIds: readonly string[] = []
-) => {
-  const excludedMovieIds = new Set<string>([
-    ...ratedMovieIds,
-    ...reservedMovieIds,
-    ...primaryRatingMovieIdSet
-  ]);
-  const nextBatch = genreDisplayOrder.flatMap((groupKey) =>
-    groupedRatingMoviePools[groupKey]
-      .filter((movie) => !excludedMovieIds.has(movie.id))
-      .slice(0, genreQuotaPerBatch)
-  );
+) =>
+  buildAdditionalTasteAnalysisBatch(selectedGenres, ratedMovieIds, reservedMovieIds).length > 0;
 
-  return nextBatch.length === tasteAnalysisBatchSize ? nextBatch : [];
-};
+export const buildAdditionalTasteAnalysisBatch = (
+  selectedGenres: readonly string[],
+  ratedMovieIds: readonly string[],
+  reservedMovieIds: readonly string[] = []
+): RatingMovie[] =>
+  buildBatchFromSequence(selectedGenres, [
+    ...getPrimaryRatingMovies(selectedGenres).map((movie) => movie.id),
+    ...ratedMovieIds,
+    ...reservedMovieIds
+  ]);

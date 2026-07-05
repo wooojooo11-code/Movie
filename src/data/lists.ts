@@ -11,11 +11,15 @@ const sharedOwners = [
 ];
 
 const ratingCounts = [312, 684, 458, 401, 537, 622];
+const now = Date.now();
+const buildTimestamp = (daysAgo: number) => new Date(now - daysAgo * 24 * 60 * 60 * 1000).toISOString();
 
 export const mockSharedLists: SharedMovieListRecord[] = catalogLists.map((list, index) => ({
   ...list,
   ...sharedOwners[index % sharedOwners.length],
+  createdAt: buildTimestamp(24 + index * 5),
   isPrivate: false,
   ratingCount: ratingCounts[index % ratingCounts.length],
+  updatedAt: buildTimestamp(index * 3),
   canBeReshared: false
 }));

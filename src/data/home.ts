@@ -38,6 +38,7 @@ const getPopularListMoviePreviews = (movieIds: string[]): PopularListMoviePrevie
       releaseYear: movie.releaseYear,
       genres: movie.genres,
       summaryTags: movie.tags.slice(0, 2),
+      watchAvailabilityText: null,
       posterUrl: movie.posterUrl,
       posterAlt: movie.posterAlt
     }));

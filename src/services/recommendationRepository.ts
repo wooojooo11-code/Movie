@@ -1,9 +1,11 @@
 import {
+  getSupabaseRatingHistoryRelation,
   getSupabaseRecommendationContextRelation,
   getSupabaseRecommendationContextWeightsRelation,
   getSupabaseRecommendationExclusionsRelation,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
+  supabaseRatingHistoryUserColumn,
   supabaseRecommendationContextUserColumn,
   supabaseRecommendationExclusionsUserColumn,
   supabaseRatingsUserColumn
@@ -17,16 +19,23 @@ import type {
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 
 const STORAGE_PREFIX = 'movielist:recommendation-state';
+const RATING_HISTORY_STORAGE_PREFIX = 'movielist:rating-history';
 const ALREADY_SEEN_REASON = 'already_seen';
 
 const isClient = () => typeof window !== 'undefined';
 
 const getStorageKey = (userId: string) => `${STORAGE_PREFIX}:${userId}`;
+const getRatingHistoryStorageKey = (userId: string) => `${RATING_HISTORY_STORAGE_PREFIX}:${userId}`;
 
 export interface RecommendationRepository {
   load(userId: string): RecommendationStateSnapshot | null;
   save(snapshot: RecommendationStateSnapshot): void;
   clear(userId: string): void;
+}
+
+interface RatingHistorySnapshot {
+  ratings: StoredRatingRecord[];
+  userId: string;
 }
 
 interface SupabaseRatingRow {
@@ -74,12 +83,15 @@ const getRowUserId = (
   return typeof value === 'string' && value.length > 0 ? value : row.user_id ?? '';
 };
 
-const normalizeSupabaseRatingRow = (row: SupabaseRatingRow): StoredRatingRecord => ({
+const normalizeSupabaseRatingRow = (
+  row: SupabaseRatingRow,
+  userColumn = supabaseRatingsUserColumn
+): StoredRatingRecord => ({
   rawDecision: row.raw_decision ?? row.status,
   detailCompleted: row.detail_completed ?? row.status !== 'like',
   input: {
     movieId: row.movie_id,
-    userId: getRowUserId(row, supabaseRatingsUserColumn),
+    userId: getRowUserId(row, userColumn),
     status: row.status,
     rating: row.rating,
     reviewTags: (row.review_tags ?? []) as RatingInput['reviewTags'],
@@ -92,9 +104,10 @@ const normalizeSupabaseRatingRow = (row: SupabaseRatingRow): StoredRatingRecord 
 
 const serializeSupabaseRatingRow = (
   userId: string,
-  rating: StoredRatingRecord
+  rating: StoredRatingRecord,
+  userColumn = supabaseRatingsUserColumn
 ): Record<string, boolean | null | number | string | string[]> => ({
-  [supabaseRatingsUserColumn]: userId,
+  [userColumn]: userId,
   movie_id: rating.input.movieId,
   status: rating.input.status,
   rating: rating.input.rating,
@@ -170,9 +183,67 @@ export const localRecommendationRepository: RecommendationRepository = {
         },
         ratings: [],
         additionalTasteAnalysisBatches: [],
-        dismissedRecommendationMovieIds: []
+        dismissedRecommendationMovieIds: [],
+        selectedTasteAnalysisGenres: existing.selectedTasteAnalysisGenres ?? []
       } satisfies RecommendationStateSnapshot)
     );
+  }
+};
+
+const parseRatingHistorySnapshot = (userId: string, raw: string): RatingHistorySnapshot | null => {
+  try {
+    const parsed = JSON.parse(raw) as StoredRatingRecord[] | RatingHistorySnapshot | null;
+
+    if (Array.isArray(parsed)) {
+      return {
+        userId,
+        ratings: parsed
+      };
+    }
+
+    if (
+      parsed &&
+      typeof parsed === 'object' &&
+      Array.isArray(parsed.ratings) &&
+      typeof parsed.userId === 'string'
+    ) {
+      return {
+        userId,
+        ratings: parsed.ratings
+      };
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+};
+
+export const localRatingHistoryRepository = {
+  load(userId: string): StoredRatingRecord[] | null {
+    if (!isClient()) {
+      return null;
+    }
+
+    const raw = window.localStorage.getItem(getRatingHistoryStorageKey(userId));
+
+    if (!raw) {
+      return null;
+    }
+
+    return parseRatingHistorySnapshot(userId, raw)?.ratings ?? null;
+  },
+  save(userId: string, ratings: readonly StoredRatingRecord[]) {
+    if (!isClient()) {
+      return;
+    }
+
+    const snapshot: RatingHistorySnapshot = {
+      userId,
+      ratings: [...ratings]
+    };
+
+    window.localStorage.setItem(getRatingHistoryStorageKey(userId), JSON.stringify(snapshot));
   }
 };
 
@@ -243,11 +314,14 @@ export const remoteRecommendationRepository = {
         characterScores: {},
         totalRatings: 0
       },
-      ratings: ((ratingsData ?? []) as unknown as SupabaseRatingRow[]).map(normalizeSupabaseRatingRow),
+      ratings: ((ratingsData ?? []) as unknown as SupabaseRatingRow[]).map((row) =>
+        normalizeSupabaseRatingRow(row, supabaseRatingsUserColumn)
+      ),
       additionalTasteAnalysisBatches: [],
       dismissedRecommendationMovieIds: ((exclusionsData ?? []) as unknown as SupabaseRecommendationExclusionRow[])
         .filter((row) => row.reason === ALREADY_SEEN_REASON)
         .map((row) => row.movie_id),
+      selectedTasteAnalysisGenres: [],
       currentContext: contextRow?.current_context ?? 'normal',
       currentContextUpdatedAt: contextRow?.updated_at ?? new Date(0).toISOString()
     };
@@ -308,6 +382,26 @@ export const remoteRecommendationRepository = {
       throw contextSaveError;
     }
   },
+  async deleteRatings(userId: string, movieIds: readonly string[]): Promise<void> {
+    if (!isRemoteSyncEnabled(userId) || movieIds.length === 0) {
+      return;
+    }
+
+    const ratingsRelation = getSupabaseRatingsRelation() as any;
+
+    if (!ratingsRelation) {
+      return;
+    }
+
+    const { error } = await ratingsRelation
+      .delete()
+      .eq(supabaseRatingsUserColumn, userId)
+      .in('movie_id', [...new Set(movieIds)]);
+
+    if (error) {
+      throw error;
+    }
+  },
   async clear(userId: string): Promise<void> {
     if (!isRemoteSyncEnabled(userId)) {
       return;
@@ -333,6 +427,69 @@ export const remoteRecommendationRepository = {
 
     if (exclusionsDeleteError) {
       throw exclusionsDeleteError;
+    }
+  }
+};
+
+export const remoteRatingHistoryRepository = {
+  async load(userId: string): Promise<StoredRatingRecord[]> {
+    if (!isRemoteSyncEnabled(userId)) {
+      return [];
+    }
+
+    const ratingHistoryRelation = getSupabaseRatingHistoryRelation() as any;
+
+    if (!ratingHistoryRelation) {
+      return [];
+    }
+
+    const { data, error } = await ratingHistoryRelation
+      .select(
+        [
+          supabaseRatingHistoryUserColumn,
+          'movie_id',
+          'status',
+          'rating',
+          'review_tags',
+          'favorite_character',
+          'answered_at',
+          'raw_decision',
+          'detail_completed',
+          'review_text',
+          'question_text'
+        ].join(', ')
+      )
+      .eq(supabaseRatingHistoryUserColumn, userId)
+      .order('answered_at', { ascending: true });
+
+    if (error) {
+      throw error;
+    }
+
+    return ((data ?? []) as unknown as SupabaseRatingRow[]).map((row) =>
+      normalizeSupabaseRatingRow(row, supabaseRatingHistoryUserColumn)
+    );
+  },
+  async save(userId: string, ratings: readonly StoredRatingRecord[]): Promise<void> {
+    if (!isRemoteSyncEnabled(userId) || ratings.length === 0) {
+      return;
+    }
+
+    const ratingHistoryRelation = getSupabaseRatingHistoryRelation() as any;
+
+    if (!ratingHistoryRelation) {
+      return;
+    }
+
+    const payload = ratings.map((rating) =>
+      serializeSupabaseRatingRow(userId, rating, supabaseRatingHistoryUserColumn)
+    );
+    const { error } = await ratingHistoryRelation.upsert(payload, {
+      onConflict: `${supabaseRatingHistoryUserColumn},movie_id`
+    });
+
+    if (error) {
+      throw error;
     }
   }
 };

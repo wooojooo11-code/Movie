@@ -153,7 +153,7 @@ export const mockListSearchService: ListSearchService = {
           return {
             type: 'list' as const,
             list,
-            source: 'createdAt' in list ? ('mine' as const) : ('shared' as const),
+            source: 'canBeReshared' in list ? ('shared' as const) : ('mine' as const),
             matchedBy,
             score: matchedBy.reduce((sum, field) => sum + LIST_MATCH_WEIGHT[field], 0)
           };

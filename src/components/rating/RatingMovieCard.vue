@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import { getWatchProviderLinks } from '@/services/watchProviderLinks';
 import type { RatingDecision, RatingMovie } from '@/types/rating';
 
 const props = withDefaults(
@@ -44,6 +45,46 @@ const titleClassName = computed(() =>
     ? 'text-[26px] font-semibold leading-tight text-[#15171c]'
     : 'text-[32px] font-semibold leading-tight text-[#15171c]'
 );
+const overviewText = computed(() => props.movie.overview.trim());
+const watchAvailability = computed(() => {
+  const providers = props.movie.watchProvidersKr;
+
+  if (!providers) {
+    return null;
+  }
+
+  if (providers.flatrate.length > 0) {
+    return {
+      label: '스트리밍',
+      providerNames: providers.flatrate.map((provider) => provider.providerName)
+    };
+  }
+
+  if (providers.rent.length > 0) {
+    return {
+      label: '대여',
+      providerNames: providers.rent.map((provider) => provider.providerName)
+    };
+  }
+
+  if (providers.buy.length > 0) {
+    return {
+      label: '구매',
+      providerNames: providers.buy.map((provider) => provider.providerName)
+    };
+  }
+
+  return null;
+});
+const watchAvailabilityText = computed(() => {
+  if (!watchAvailability.value) {
+    return '';
+  }
+
+  return `${watchAvailability.value.label} · ${watchAvailability.value.providerNames.slice(0, 4).join(' · ')}`;
+});
+const quickWatchLinks = computed(() => getWatchProviderLinks(props.movie).slice(0, 4));
+const tmdbWatchLink = computed(() => props.movie.watchProvidersKr?.link ?? null);
 
 const onPointerDown = (event: PointerEvent) => {
   if (!props.interactive) {
@@ -81,7 +122,7 @@ const onPointerUp = (event: PointerEvent) => {
   (event.currentTarget as HTMLElement).releasePointerCapture(event.pointerId);
 
   if (deltaY.value < -80 && Math.abs(deltaY.value) > Math.abs(deltaX.value)) {
-    emit('decide', 'not_seen');
+    emit('decide', 'like');
     resetDrag();
     return;
   }
@@ -110,7 +151,7 @@ const onPointerUp = (event: PointerEvent) => {
 
 <template>
   <article
-    class="select-none overflow-hidden border border-app-line bg-app-panel transition-transform"
+    class="corner-hard select-none overflow-hidden border border-app-line bg-app-panel transition-transform"
     :class="[
       interactive ? 'touch-none cursor-grab active:cursor-grabbing' : 'cursor-default',
       { 'transition-none': isDragging }
@@ -133,7 +174,9 @@ const onPointerUp = (event: PointerEvent) => {
       </div>
 
       <div class="w-full border-t border-app-line pt-4">
-        <p class="mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]">
+        <p
+          class="corner-pill mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]"
+        >
           {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
         </p>
         <h1 :class="titleClassName">
@@ -142,6 +185,50 @@ const onPointerUp = (event: PointerEvent) => {
         <p class="mt-3 text-sm font-medium text-app-muted">
           {{ movie.tags.join(' · ') }}
         </p>
+
+        <p v-if="overviewText" class="mt-4 whitespace-pre-wrap text-sm leading-6 text-[#3d424a]">
+          {{ overviewText }}
+        </p>
+
+        <div class="mt-4 border-t border-app-line pt-3">
+          <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">OTT</p>
+          <p v-if="watchAvailabilityText" class="mt-1 text-xs leading-5 text-[#15171c]">
+            {{ watchAvailabilityText }}
+          </p>
+          <p v-else class="mt-1 text-xs leading-5 text-app-muted">
+            현재 확인된 KR OTT 정보가 없어요.
+          </p>
+
+          <div v-if="quickWatchLinks.length > 0 || tmdbWatchLink" class="mt-2 flex flex-wrap gap-2">
+            <a
+              v-for="link in quickWatchLinks"
+              :key="link.key"
+              :href="link.href"
+              target="_blank"
+              rel="noreferrer"
+              class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center px-3 text-[10px] font-medium"
+              :class="link.accentClassName"
+              @click.stop
+              @pointerdown.stop
+              @pointerup.stop
+            >
+              {{ link.buttonLabel }}
+            </a>
+
+            <a
+              v-if="tmdbWatchLink"
+              :href="tmdbWatchLink"
+              target="_blank"
+              rel="noreferrer"
+              class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-[10px] font-medium text-[#15171c]"
+              @click.stop
+              @pointerdown.stop
+              @pointerup.stop
+            >
+              전체 OTT 보기
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </article>

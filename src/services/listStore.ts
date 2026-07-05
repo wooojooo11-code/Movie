@@ -40,6 +40,76 @@ const movieMap = Object.fromEntries(searchableMovies.map((movie) => [movie.id, m
   SearchableCatalogMovie
 >;
 
+const hasDuplicateMovieIds = (movieIds: readonly string[]) => new Set(movieIds).size !== movieIds.length;
+
+const getMovieIdsSignature = (movieIds: readonly string[]) => [...new Set(movieIds)].sort().join('|');
+
+type ShareRuleCandidate = Pick<SharedMovieListRecord | UserMovieListRecord, 'id' | 'movieIds'>;
+
+const hasDuplicateListSignature = (
+  listId: null | string,
+  movieIds: readonly string[],
+  candidates: readonly ShareRuleCandidate[]
+) => {
+  const signature = getMovieIdsSignature(movieIds);
+
+  if (!signature) {
+    return false;
+  }
+
+  return candidates.some(
+    (candidate) =>
+      candidate.id !== listId && getMovieIdsSignature(candidate.movieIds) === signature
+  );
+};
+
+const getShareRestrictionReason = ({
+  listId,
+  movieIds,
+  sharedLists,
+  userLists
+}: {
+  listId: null | string;
+  movieIds: readonly string[];
+  sharedLists: readonly SharedMovieListRecord[];
+  userLists: readonly UserMovieListRecord[];
+}) => {
+  if (hasDuplicateMovieIds(movieIds)) {
+    return '같은 영화가 두 번 들어간 리스트는 공유할 수 없어요.';
+  }
+
+  if (hasDuplicateListSignature(listId, movieIds, userLists)) {
+    return '중복된 리스트는 공유할 수 없어요.';
+  }
+
+  if (hasDuplicateListSignature(listId, movieIds, sharedLists)) {
+    return '이미 같은 리스트가 있어서 공유할 수 없어요.';
+  }
+
+  return null;
+};
+
+const applyUserListShareRules = (
+  userLists: readonly UserMovieListRecord[],
+  sharedLists: readonly SharedMovieListRecord[]
+) =>
+  userLists.map((list) => ({
+    ...list,
+    isPrivate:
+      list.isPrivate ||
+      Boolean(
+        getShareRestrictionReason({
+          listId: list.id,
+          movieIds: list.movieIds,
+          sharedLists,
+          userLists
+        })
+      )
+  }));
+
+const normalizeSharedCatalog = (lists: readonly SharedMovieListRecord[]) =>
+  lists.filter((list) => !hasDuplicateMovieIds(list.movieIds));
+
 const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null): ListsStateSnapshot => {
   if (!snapshot) {
     return {
@@ -53,6 +123,7 @@ const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null):
     userId,
     userLists: (snapshot.userLists ?? []).map((list) => ({
       ...list,
+      isPrivate: hasDuplicateMovieIds(list.movieIds) ? true : list.isPrivate,
       sourceListId: list.sourceListId ?? null
     })),
     interactions: snapshot.interactions ?? []
@@ -73,6 +144,10 @@ const state = reactive({
   listResults: [] as ListSearchResult[],
   isSearching: false
 });
+
+const applyCurrentUserShareRules = () => {
+  state.userLists = applyUserListShareRules(state.userLists, state.sharedCatalog);
+};
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
@@ -150,6 +225,8 @@ const refreshSearchResults = async () => {
 };
 
 const persistState = async () => {
+  applyCurrentUserShareRules();
+
   const snapshot: ListsStateSnapshot = {
     userId: state.userId,
     userLists: state.userLists,
@@ -165,7 +242,8 @@ const persistState = async () => {
   );
 
   if (state.userId !== FALLBACK_USER_ID) {
-    state.sharedCatalog = await remoteListRepository.loadSharedLists(state.userId);
+    state.sharedCatalog = normalizeSharedCatalog(await remoteListRepository.loadSharedLists(state.userId));
+    applyCurrentUserShareRules();
   }
 };
 
@@ -197,6 +275,16 @@ const createImportedUserList = (
   overrides?: Partial<Pick<UserMovieListRecord, 'averageRating' | 'createdAt' | 'isPrivate' | 'ratingCount' | 'saveCount' | 'updatedAt'>>
 ): UserMovieListRecord => {
   const now = new Date().toISOString();
+  const nextIsPrivate =
+    (overrides?.isPrivate ?? false) ||
+    Boolean(
+      getShareRestrictionReason({
+        listId: null,
+        movieIds: list.movieIds,
+        sharedLists: state.sharedCatalog,
+        userLists: state.userLists
+      })
+    );
 
   return {
     id: `user_list_${Date.now()}`,
@@ -204,10 +292,10 @@ const createImportedUserList = (
     ownerName: state.ownerName,
     title: list.title,
     movieIds: [...list.movieIds],
-    saveCount: overrides?.saveCount ?? 1,
+    saveCount: overrides?.saveCount ?? (nextIsPrivate ? 0 : 1),
     averageRating: overrides?.averageRating ?? 0,
     ratingCount: overrides?.ratingCount ?? 0,
-    isPrivate: overrides?.isPrivate ?? false,
+    isPrivate: nextIsPrivate,
     createdAt: overrides?.createdAt ?? now,
     sourceListId: list.id,
     updatedAt: overrides?.updatedAt ?? now
@@ -218,6 +306,21 @@ const selectedDraftMovies = computed(() => resolveMoviePreviews(state.draft.movi
 const canSaveDraft = computed(
   () => state.draft.title.trim().length > 0 && state.draft.movieIds.length > 0
 );
+const draftShareRestrictionReason = computed(() =>
+  getShareRestrictionReason({
+    listId: state.draft.id,
+    movieIds: state.draft.movieIds,
+    sharedLists: state.sharedCatalog,
+    userLists: state.userLists
+  })
+);
+const canShareDraft = computed(() => !draftShareRestrictionReason.value);
+
+const syncDraftPrivacyWithShareRule = () => {
+  if (draftShareRestrictionReason.value) {
+    state.draft.isPrivate = true;
+  }
+};
 
 const myLists = computed<ResolvedUserListCard[]>(() =>
   [...state.userLists]
@@ -258,10 +361,12 @@ const addMovieToDraft = (movieId: string) => {
   }
 
   state.draft.movieIds = [...state.draft.movieIds, movieId];
+  syncDraftPrivacyWithShareRule();
 };
 
 const removeMovieFromDraft = (movieId: string) => {
   state.draft.movieIds = state.draft.movieIds.filter((id) => id !== movieId);
+  syncDraftPrivacyWithShareRule();
 };
 
 const updateDraftTitle = (title: string) => {
@@ -269,6 +374,11 @@ const updateDraftTitle = (title: string) => {
 };
 
 const toggleDraftPrivacy = () => {
+  if (draftShareRestrictionReason.value) {
+    state.draft.isPrivate = true;
+    return;
+  }
+
   state.draft.isPrivate = !state.draft.isPrivate;
 };
 
@@ -280,6 +390,7 @@ const saveDraft = async () => {
   const now = new Date().toISOString();
   const existingIndex = state.userLists.findIndex((list) => list.id === state.draft.id);
   const currentList = existingIndex >= 0 ? state.userLists[existingIndex] : undefined;
+  const nextIsPrivate = state.draft.isPrivate || Boolean(draftShareRestrictionReason.value);
 
   const nextRecord: UserMovieListRecord = {
     id: currentList?.id ?? `user_list_${Date.now()}`,
@@ -287,10 +398,10 @@ const saveDraft = async () => {
     ownerName: currentList?.ownerName ?? state.ownerName,
     title: state.draft.title.trim(),
     movieIds: [...state.draft.movieIds],
-    saveCount: currentList?.saveCount ?? (state.draft.isPrivate ? 0 : 1),
+    saveCount: currentList?.saveCount ?? (nextIsPrivate ? 0 : 1),
     averageRating: currentList?.averageRating ?? 0,
     ratingCount: currentList?.ratingCount ?? 0,
-    isPrivate: state.draft.isPrivate,
+    isPrivate: nextIsPrivate,
     createdAt: currentList?.createdAt ?? now,
     sourceListId: currentList?.sourceListId ?? null,
     updatedAt: now
@@ -325,6 +436,7 @@ const editUserList = (listId: string) => {
     isPrivate: target.isPrivate,
     movieIds: [...target.movieIds]
   };
+  syncDraftPrivacyWithShareRule();
 };
 
 const deleteUserList = async (listId: string) => {
@@ -524,14 +636,15 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
 
     if (remoteSnapshot) {
       applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
-      localListRepository.save({
-        userId: normalizedUserId,
-        userLists: state.userLists,
-        interactions: state.interactions
-      });
     }
 
-    state.sharedCatalog = remoteSharedLists;
+    state.sharedCatalog = normalizeSharedCatalog(remoteSharedLists);
+    applyCurrentUserShareRules();
+    localListRepository.save({
+      userId: normalizedUserId,
+      userLists: state.userLists,
+      interactions: state.interactions
+    });
     remoteSyncStatus.value = 'success';
   } catch (error) {
     remoteSyncStatus.value = 'error';
@@ -550,6 +663,8 @@ export const listStore = {
   searchableMovies,
   selectedDraftMovies,
   canSaveDraft,
+  canShareDraft,
+  draftShareRestrictionReason,
   myLists,
   sharedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),

@@ -7,6 +7,9 @@
   font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif;
   background: #ffffff;
   color: #15171c;
+  --app-radius-soft: 10px;
+  --app-radius-hard: 0px;
+  --app-radius-pill: 999px;
 }
 
 * {
@@ -50,6 +53,18 @@ a {
 }
 
 @layer components {
+  .corner-soft {
+    border-radius: var(--app-radius-soft) !important;
+  }
+
+  .corner-hard {
+    border-radius: var(--app-radius-hard) !important;
+  }
+
+  .corner-pill {
+    border-radius: var(--app-radius-pill) !important;
+  }
+
   .focus-ring {
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
@@ -85,16 +100,25 @@ a {
   [class^='rounded-'],
   [class*=' rounded-['],
   [class^='rounded-['] {
-    border-radius: 6px !important;
+    border-radius: var(--app-radius-soft) !important;
   }
 
-  [class~='border'],
-  button,
+  [class~='rounded-full'],
+  [class*=' rounded-full'],
+  [class^='rounded-full'] {
+    border-radius: var(--app-radius-pill) !important;
+  }
+
+  [class~='rounded-none'],
+  [class*=' rounded-none'],
+  [class^='rounded-none'] {
+    border-radius: var(--app-radius-hard) !important;
+  }
+
   input,
   select,
-  textarea,
-  img {
-    border-radius: 6px;
+  textarea {
+    border-radius: var(--app-radius-soft);
   }
 
   [class*='bg-white/'],

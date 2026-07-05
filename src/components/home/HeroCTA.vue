@@ -4,34 +4,21 @@ import { computed } from 'vue';
 import { usePwaPrompt } from '@/services/pwaPrompt';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
-const recommendationStore = useRecommendationStore();
 const pwaPrompt = usePwaPrompt();
+const recommendationStore = useRecommendationStore();
 
-const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
-
-const primaryButtonTo = computed(() => {
-  if (recommendationStore.shouldResumeTasteAnalysis.value) {
-    return '/rating';
-  }
-
-  if (recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis.value) {
-    return '/rating?mode=more';
-  }
-
-  return '/rating';
-});
-
-const primaryButtonLabel = computed(() => {
-  if (recommendationStore.shouldResumeTasteAnalysis.value) {
-    return '이어서 하기';
-  }
-
-  if (recommendationStore.state.profile.totalRatings > 0 && hasMoreTasteAnalysis.value) {
-    return '더 하기';
-  }
-
-  return '시작하기';
-});
+const shouldContinueTasteAnalysis = computed(
+  () =>
+    recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value !== null ||
+    (recommendationStore.state.profile.totalRatings > 0 &&
+      recommendationStore.hasAdditionalTasteAnalysisMovies.value)
+);
+const primaryButtonTo = computed(() =>
+  shouldContinueTasteAnalysis.value ? '/rating?mode=more' : '/rating'
+);
+const primaryButtonLabel = computed(() =>
+  recommendationStore.state.profile.totalRatings > 0 ? '취향분석 이어하기' : '취향분석 시작하기'
+);
 
 const installApp = async () => {
   await pwaPrompt.promptInstall();
@@ -40,14 +27,15 @@ const installApp = async () => {
 
 <template>
   <section aria-labelledby="home-cta-title" class="pt-1">
-    <div class="border border-app-line bg-app-panel px-5 py-5">
+    <div class="corner-hard border border-app-line bg-app-panel px-5 py-5">
       <h1 id="home-cta-title" class="text-[26px] font-semibold leading-tight text-white">
-        10개만 평가하면 추천 시작
+        취향분석을 이어가 보세요
       </h1>
+
       <div class="mt-5 flex flex-wrap gap-2">
         <RouterLink
           :to="primaryButtonTo"
-          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"
         >
           {{ primaryButtonLabel }}
         </RouterLink>
@@ -55,7 +43,7 @@ const installApp = async () => {
         <button
           v-if="pwaPrompt.isInstallable"
           type="button"
-          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
           @click="installApp"
         >
           앱으로 설치

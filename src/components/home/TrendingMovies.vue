@@ -85,7 +85,7 @@ const closeMovie = () => {
       <div class="flex shrink-0 gap-2">
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
+          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
           aria-label="이전 영화 보기"
           @click="scrollByCard(-1)"
         >
@@ -93,7 +93,7 @@ const closeMovie = () => {
         </button>
         <button
           type="button"
-          class="focus-ring grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
+          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
           aria-label="다음 영화 보기"
           @click="scrollByCard(1)"
         >

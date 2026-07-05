@@ -3,9 +3,10 @@
 import { catalogLists, catalogMovies } from '@/data/catalog';
 import {
   buildAdditionalTasteAnalysisBatch,
-  getUnratedMoviesFromPool,
-  primaryRatingMovies,
-  ratingMovies
+  getPrimaryRatingMovies,
+  maxTasteAnalysisGenreSelection,
+  minTasteAnalysisGenreSelection,
+  normalizeTasteAnalysisGenres
 } from '@/data/rating';
 import {
   applyRatingToProfile,
@@ -15,7 +16,9 @@ import {
   type RatingInput
 } from '@/services/movie_recommendation_algorithm';
 import {
+  localRatingHistoryRepository,
   localRecommendationRepository,
+  remoteRatingHistoryRepository,
   remoteRecommendationContextWeightsRepository,
   remoteRecommendationRepository
 } from '@/services/recommendationRepository';
@@ -29,7 +32,8 @@ import type {
   RecommendedCatalogList,
   RecommendedCatalogMovie,
   RecommendationStateSnapshot,
-  StoredRatingRecord
+  StoredRatingRecord,
+  TasteAnalysisGenre
 } from '@/types/recommendation';
 
 const FALLBACK_USER_ID = 'guest-user';
@@ -144,7 +148,7 @@ const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) 
     });
   }, createEmptyUserPreferenceProfile(userId));
 
-const normalizeStoredRatings = (ratings: RecommendationStateSnapshot['ratings']) =>
+const normalizeStoredRatings = (ratings: readonly StoredRatingRecord[] | undefined | null) =>
   (ratings ?? []).map((rating) => ({
     rawDecision: rating.rawDecision ?? rating.input.status,
     detailCompleted: rating.detailCompleted ?? rating.input.status !== 'like',
@@ -190,6 +194,9 @@ const normalizeContextUpdatedAt = (value: string | undefined) => {
   return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : new Date(0).toISOString();
 };
 
+const normalizeSelectedTasteAnalysisGenres = (value: readonly string[] | undefined) =>
+  normalizeTasteAnalysisGenres(value ?? []);
+
 const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   const saved = localRecommendationRepository.load(userId);
 
@@ -200,6 +207,7 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
       ratings: [],
       additionalTasteAnalysisBatches: [],
       dismissedRecommendationMovieIds: [],
+      selectedTasteAnalysisGenres: [],
       currentContext: 'normal',
       currentContextUpdatedAt: new Date(0).toISOString()
     };
@@ -211,14 +219,19 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
     userId,
     profile: buildProfileFromRatings(userId, normalizedRatings),
     ratings: normalizedRatings,
-    additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
-      saved.additionalTasteAnalysisBatches
-    ),
-    dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
-    currentContext: normalizeContext(saved.currentContext),
-    currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
-  };
+      additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
+        saved.additionalTasteAnalysisBatches
+      ),
+      dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
+      selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
+        saved.selectedTasteAnalysisGenres
+      ),
+      currentContext: normalizeContext(saved.currentContext),
+      currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
+    };
 };
+
+const loadRatingHistory = (userId: string) => normalizeStoredRatings(localRatingHistoryRepository.load(userId));
 
 const getAnsweredAtTime = (record: StoredRatingRecord) => {
   const timestamp = new Date(record.input.answeredAt).getTime();
@@ -293,6 +306,10 @@ const mergeSnapshots = (
       ...remoteSnapshot.dismissedRecommendationMovieIds
     ])
   ];
+  const selectedTasteAnalysisGenres =
+    remoteSnapshot.selectedTasteAnalysisGenres.length > 0
+      ? remoteSnapshot.selectedTasteAnalysisGenres
+      : localSnapshot.selectedTasteAnalysisGenres;
   const localContextTime = new Date(localSnapshot.currentContextUpdatedAt).getTime();
   const remoteContextTime = new Date(remoteSnapshot.currentContextUpdatedAt).getTime();
   const shouldUseRemoteContext = remoteContextTime > localContextTime;
@@ -306,6 +323,7 @@ const mergeSnapshots = (
       remoteSnapshot.additionalTasteAnalysisBatches
     ),
     dismissedRecommendationMovieIds,
+    selectedTasteAnalysisGenres,
     currentContext: shouldUseRemoteContext ? remoteSnapshot.currentContext : localSnapshot.currentContext,
     currentContextUpdatedAt: shouldUseRemoteContext
       ? remoteSnapshot.currentContextUpdatedAt
@@ -325,24 +343,35 @@ const hasRatingRecordChanged = (left: StoredRatingRecord, right: StoredRatingRec
   left.input.reviewTags.length !== right.input.reviewTags.length ||
   left.input.reviewTags.some((tag, index) => tag !== right.input.reviewTags[index]);
 
+const hasRatingCollectionChanged = (
+  leftRecords: readonly StoredRatingRecord[],
+  rightRecords: readonly StoredRatingRecord[]
+) => {
+  if (leftRecords.length !== rightRecords.length) {
+    return true;
+  }
+
+  const rightRatingsByMovieId = new Map(
+    rightRecords.map((record) => [record.input.movieId, record] as const)
+  );
+
+  for (const leftRecord of leftRecords) {
+    const rightRecord = rightRatingsByMovieId.get(leftRecord.input.movieId);
+
+    if (!rightRecord || hasRatingRecordChanged(leftRecord, rightRecord)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const shouldResyncRemoteSnapshot = (
   remoteSnapshot: RecommendationStateSnapshot,
   mergedSnapshot: RecommendationStateSnapshot
 ) => {
-  if (remoteSnapshot.ratings.length !== mergedSnapshot.ratings.length) {
+  if (hasRatingCollectionChanged(remoteSnapshot.ratings, mergedSnapshot.ratings)) {
     return true;
-  }
-
-  const remoteRatingsByMovieId = new Map(
-    remoteSnapshot.ratings.map((record) => [record.input.movieId, record] as const)
-  );
-
-  for (const mergedRecord of mergedSnapshot.ratings) {
-    const remoteRecord = remoteRatingsByMovieId.get(mergedRecord.input.movieId);
-
-    if (!remoteRecord || hasRatingRecordChanged(remoteRecord, mergedRecord)) {
-      return true;
-    }
   }
 
   if (
@@ -371,7 +400,13 @@ const shouldResyncRemoteSnapshot = (
   return false;
 };
 
+const shouldResyncRatingHistory = (
+  remoteHistory: readonly StoredRatingRecord[],
+  mergedHistory: readonly StoredRatingRecord[]
+) => hasRatingCollectionChanged(remoteHistory, mergedHistory);
+
 const initialSnapshot = loadSnapshot(FALLBACK_USER_ID);
+const initialRatingHistory = loadRatingHistory(FALLBACK_USER_ID);
 
 const state = reactive<RecommendationStateSnapshot>({
   userId: initialSnapshot.userId,
@@ -379,8 +414,16 @@ const state = reactive<RecommendationStateSnapshot>({
   ratings: initialSnapshot.ratings,
   additionalTasteAnalysisBatches: initialSnapshot.additionalTasteAnalysisBatches,
   dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds,
+  selectedTasteAnalysisGenres: initialSnapshot.selectedTasteAnalysisGenres,
   currentContext: initialSnapshot.currentContext,
   currentContextUpdatedAt: initialSnapshot.currentContextUpdatedAt
+});
+const ratingHistoryState = reactive<{
+  ratings: StoredRatingRecord[];
+  userId: string;
+}>({
+  userId: initialSnapshot.userId,
+  ratings: initialRatingHistory
 });
 
 const remoteSyncErrorMessage = ref('');
@@ -404,10 +447,18 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.ratings = snapshot.ratings;
   state.additionalTasteAnalysisBatches = snapshot.additionalTasteAnalysisBatches;
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
+  state.selectedTasteAnalysisGenres = snapshot.selectedTasteAnalysisGenres;
   state.currentContext = snapshot.currentContext;
   state.currentContextUpdatedAt = snapshot.currentContextUpdatedAt;
   currentContext.value = snapshot.currentContext;
   currentContextUpdatedAt.value = snapshot.currentContextUpdatedAt;
+};
+
+const applyRatingHistory = (userId: string, ratings: readonly StoredRatingRecord[]) => {
+  ratingHistoryState.userId = userId;
+  ratingHistoryState.ratings = [...normalizeStoredRatings(ratings)].sort(
+    (left, right) => getAnsweredAtTime(left) - getAnsweredAtTime(right)
+  );
 };
 
 const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
@@ -443,28 +494,68 @@ const loadRemoteContextWeights = async () => {
   }
 };
 
-const persistState = () => {
-  const snapshot = {
-    userId: state.userId,
-    profile: state.profile,
-    ratings: state.ratings,
-    additionalTasteAnalysisBatches: state.additionalTasteAnalysisBatches,
-    dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
-    currentContext: currentContext.value,
-    currentContextUpdatedAt: currentContextUpdatedAt.value
-  };
+const buildSnapshot = (): RecommendationStateSnapshot => ({
+  userId: state.userId,
+  profile: state.profile,
+  ratings: state.ratings,
+  additionalTasteAnalysisBatches: state.additionalTasteAnalysisBatches,
+  dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
+  selectedTasteAnalysisGenres: state.selectedTasteAnalysisGenres,
+  currentContext: currentContext.value,
+  currentContextUpdatedAt: currentContextUpdatedAt.value
+});
+
+const persistState = (options?: {
+  historyRecords?: readonly StoredRatingRecord[];
+  removeMovieIds?: readonly string[];
+}) => {
+  const snapshot = buildSnapshot();
+  const historyRecords = normalizeStoredRatings(options?.historyRecords);
+  const mergedHistory =
+    historyRecords.length > 0
+      ? normalizeStoredRatings(mergeRatingRecords(ratingHistoryState.ratings, historyRecords))
+      : ratingHistoryState.ratings;
 
   localRecommendationRepository.save(snapshot);
+  if (historyRecords.length > 0) {
+    applyRatingHistory(snapshot.userId, mergedHistory);
+    localRatingHistoryRepository.save(snapshot.userId, mergedHistory);
+  }
   remoteSyncErrorMessage.value = '';
 
   return enqueueRemoteTask(
-    () => remoteRecommendationRepository.save(snapshot),
-    '추천 상태를 Supabase에 저장하지 못했어요.'
+    async () => {
+      if (options?.removeMovieIds?.length) {
+        await remoteRecommendationRepository.deleteRatings(snapshot.userId, options.removeMovieIds);
+      }
+
+      await remoteRecommendationRepository.save(snapshot);
+
+      if (historyRecords.length > 0) {
+        await remoteRatingHistoryRepository.save(snapshot.userId, historyRecords);
+      }
+    },
+    '평가 기록을 Supabase에 저장하지 못했어요.'
   );
 };
 
 const recomputeProfile = () => {
   state.profile = buildProfileFromRatings(state.userId, state.ratings);
+};
+
+const applyRatingRecords = (
+  nextRatings: readonly StoredRatingRecord[],
+  options?: {
+    historyRecords?: readonly StoredRatingRecord[];
+    removeMovieIds?: readonly string[];
+  }
+) => {
+  state.ratings = [...nextRatings].sort(
+    (left, right) => getAnsweredAtTime(left) - getAnsweredAtTime(right)
+  );
+  recomputeProfile();
+
+  return persistState(options);
 };
 
 const upsertRatingRecord = (record: StoredRatingRecord) => {
@@ -477,23 +568,77 @@ const upsertRatingRecord = (record: StoredRatingRecord) => {
     nextRatings.push(record);
   }
 
-  state.ratings = nextRatings;
-  recomputeProfile();
+  return applyRatingRecords(nextRatings, {
+    historyRecords: [record]
+  });
+};
 
-  return persistState();
+const replaceRatingsForMovies = (
+  movieIds: readonly string[],
+  records: readonly StoredRatingRecord[]
+) => {
+  const movieIdSet = new Set(movieIds);
+  const nextRatings = state.ratings.filter((rating) => !movieIdSet.has(rating.input.movieId));
+  nextRatings.push(...records);
+
+  return applyRatingRecords(nextRatings, {
+    historyRecords: records,
+    removeMovieIds: [...movieIdSet]
+  });
 };
 
 const ratedMovieIds = computed(() => state.ratings.map((rating) => rating.input.movieId));
+const selectedTasteAnalysisGenres = computed(() => state.selectedTasteAnalysisGenres);
+const primaryRatingMovies = computed(() =>
+  getPrimaryRatingMovies(selectedTasteAnalysisGenres.value)
+);
 const likedRatingRecords = computed(() => state.ratings.filter((rating) => rating.rawDecision === 'like'));
 const pendingDetailedRatings = computed(() =>
   likedRatingRecords.value.filter((rating) => !rating.detailCompleted)
 );
-const primaryRatingMovieIds = new Set(primaryRatingMovies.map((movie) => movie.id));
+const primaryRatingMovieIds = computed(
+  () => new Set(primaryRatingMovies.value.map((movie) => movie.id))
+);
 const primaryUnratedMovies = computed(() =>
-  primaryRatingMovies.filter((movie) => !ratedMovieIds.value.includes(movie.id))
+  primaryRatingMovies.value.filter((movie) => !ratedMovieIds.value.includes(movie.id))
 );
 const pendingPrimaryDetailedRatings = computed(() =>
-  pendingDetailedRatings.value.filter((rating) => primaryRatingMovieIds.has(rating.input.movieId))
+  pendingDetailedRatings.value.filter((rating) => primaryRatingMovieIds.value.has(rating.input.movieId))
+);
+const getTasteAnalysisSelectionSummary = (movieIds: readonly string[]) => {
+  const movieIdSet = new Set(movieIds);
+
+  return state.ratings.reduce(
+    (summary, rating) => {
+      if (!movieIdSet.has(rating.input.movieId)) {
+        return summary;
+      }
+
+      if (rating.rawDecision === 'like') {
+        summary.likeCount += 1;
+      }
+
+      if (rating.rawDecision === 'dislike') {
+        summary.dislikeCount += 1;
+      }
+
+      return summary;
+    },
+    {
+      likeCount: 0,
+      dislikeCount: 0
+    }
+  );
+};
+
+const isTasteAnalysisBatchComplete = (movieIds: readonly string[]) => {
+  const movieIdSet = new Set(movieIds);
+  return state.ratings.filter((rating) => movieIdSet.has(rating.input.movieId)).length >= movieIds.length;
+};
+
+const isPrimaryTasteAnalysisComplete = computed(() =>
+  primaryRatingMovies.value.length > 0 &&
+  isTasteAnalysisBatchComplete(primaryRatingMovies.value.map((movie) => movie.id))
 );
 const getAdditionalTasteAnalysisBatchMoviesByRecord = (batch: AdditionalTasteAnalysisBatch) =>
   batch.movieIds
@@ -516,8 +661,7 @@ const additionalTasteAnalysisReservedMovieIds = computed(() =>
 
 const activeAdditionalTasteAnalysisBatchIndex = computed(() => {
   const batchIndex = state.additionalTasteAnalysisBatches.findIndex((batch) => {
-    const batchMovies = getAdditionalTasteAnalysisBatchMoviesByRecord(batch);
-    return getUnratedMoviesFromPool(ratedMovieIds.value, batchMovies).length > 0;
+    return !isTasteAnalysisBatchComplete(batch.movieIds);
   });
 
   return batchIndex >= 0 ? batchIndex : null;
@@ -525,16 +669,26 @@ const activeAdditionalTasteAnalysisBatchIndex = computed(() => {
 
 const canCreateAdditionalTasteAnalysisBatch = computed(
   () =>
-    buildAdditionalTasteAnalysisBatch(
-      ratedMovieIds.value,
-      additionalTasteAnalysisReservedMovieIds.value
-    ).length > 0
+      isPrimaryTasteAnalysisComplete.value &&
+      buildAdditionalTasteAnalysisBatch(
+        selectedTasteAnalysisGenres.value,
+        ratedMovieIds.value,
+        additionalTasteAnalysisReservedMovieIds.value
+      ).length > 0
 );
 
 const hasAdditionalTasteAnalysisMovies = computed(
   () =>
-    activeAdditionalTasteAnalysisBatchIndex.value !== null ||
-    canCreateAdditionalTasteAnalysisBatch.value
+    isPrimaryTasteAnalysisComplete.value &&
+    (activeAdditionalTasteAnalysisBatchIndex.value !== null ||
+      canCreateAdditionalTasteAnalysisBatch.value)
+);
+const shouldResumeTasteAnalysis = computed(
+  () =>
+    primaryRatingMovies.value.length > 0 &&
+    (primaryUnratedMovies.value.length > 0 ||
+      pendingDetailedRatings.value.length > 0 ||
+      activeAdditionalTasteAnalysisBatchIndex.value !== null)
 );
 
 const excludedRecommendationMovieIds = computed(() => [
@@ -646,7 +800,7 @@ const recommendedLists = computed<RecommendedCatalogList[]>(() => {
 });
 
 const ratedMoviesHistory = computed<RatedCatalogMovieRecord[]>(() =>
-  [...state.ratings]
+  [...ratingHistoryState.ratings]
     .map((ratingRecord) => {
       const movie = movieMap[ratingRecord.input.movieId];
 
@@ -668,9 +822,32 @@ const ratedMoviesHistory = computed<RatedCatalogMovieRecord[]>(() =>
     })
 );
 
-const getNextRatingMovie = () => {
-  const ratedIds = new Set(ratedMovieIds.value);
-  return ratingMovies.find((movie) => !ratedIds.has(movie.id)) ?? null;
+const getStoredRatingRecord = (movieId: string) => {
+  const currentRecord = state.ratings.find((record) => record.input.movieId === movieId) ?? null;
+  const historyRecord =
+    ratingHistoryState.ratings.find((record) => record.input.movieId === movieId) ?? null;
+
+  if (!currentRecord) {
+    return historyRecord;
+  }
+
+  if (!historyRecord) {
+    return currentRecord;
+  }
+
+  return shouldReplaceRatingRecord(historyRecord, currentRecord) ? currentRecord : historyRecord;
+};
+
+const getNextRatingMovie = (options?: { additionalBatchIndex?: null | number }) => {
+  if (typeof options?.additionalBatchIndex === 'number') {
+    const nextBatchMovie = getAdditionalTasteAnalysisBatchMovies(options.additionalBatchIndex).find(
+      (movie) => !ratedMovieIds.value.includes(movie.id)
+    );
+
+    return nextBatchMovie ?? null;
+  }
+
+  return primaryUnratedMovies.value[0] ?? null;
 };
 
 const getPendingDetailMovie = () => {
@@ -689,9 +866,9 @@ const ensureAdditionalTasteAnalysisBatch = (requestedBatchIndex?: null | number)
     requestedBatchIndex >= 0 &&
     requestedBatchIndex < state.additionalTasteAnalysisBatches.length
   ) {
-    const requestedBatchMovies = getAdditionalTasteAnalysisBatchMovies(requestedBatchIndex);
+    const requestedBatch = state.additionalTasteAnalysisBatches[requestedBatchIndex];
 
-    if (getUnratedMoviesFromPool(ratedMovieIds.value, requestedBatchMovies).length > 0) {
+    if (requestedBatch && !isTasteAnalysisBatchComplete(requestedBatch.movieIds)) {
       return requestedBatchIndex;
     }
   }
@@ -701,6 +878,7 @@ const ensureAdditionalTasteAnalysisBatch = (requestedBatchIndex?: null | number)
   }
 
   const nextBatch = buildAdditionalTasteAnalysisBatch(
+    selectedTasteAnalysisGenres.value,
     ratedMovieIds.value,
     additionalTasteAnalysisReservedMovieIds.value
   );
@@ -747,6 +925,21 @@ const dismissRecommendedMovie = (movieId: string) => {
   return persistState();
 };
 
+const setTasteAnalysisGenres = (genres: readonly TasteAnalysisGenre[]) => {
+  const normalizedGenres = normalizeSelectedTasteAnalysisGenres(genres);
+  const hasSameSelection =
+    normalizedGenres.length === state.selectedTasteAnalysisGenres.length &&
+    normalizedGenres.every((genre, index) => genre === state.selectedTasteAnalysisGenres[index]);
+
+  if (hasSameSelection) {
+    return Promise.resolve();
+  }
+
+  state.selectedTasteAnalysisGenres = normalizedGenres;
+  state.additionalTasteAnalysisBatches = [];
+  return persistState();
+};
+
 const setContext = (context: MoodContext) => {
   if (currentContext.value === context) {
     return Promise.resolve();
@@ -784,6 +977,7 @@ const resetTasteAnalysis = () => {
     ratings: [],
     additionalTasteAnalysisBatches: [],
     dismissedRecommendationMovieIds: [],
+    selectedTasteAnalysisGenres: state.selectedTasteAnalysisGenres,
     currentContext: currentContext.value,
     currentContextUpdatedAt: currentContextUpdatedAt.value
   });
@@ -797,14 +991,32 @@ const resetTasteAnalysis = () => {
 const setActiveUser = async (userId: string) => {
   const normalizedUserId = userId || FALLBACK_USER_ID;
   const localSnapshot = loadSnapshot(normalizedUserId);
+  const localRatingHistory = loadRatingHistory(normalizedUserId);
   applySnapshot(localSnapshot);
+  applyRatingHistory(normalizedUserId, localRatingHistory);
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
 
   try {
-    const remoteSnapshot = await remoteRecommendationRepository.load(normalizedUserId);
+    const [remoteSnapshot, remoteRatingHistory] = await Promise.all([
+      remoteRecommendationRepository.load(normalizedUserId),
+      remoteRatingHistoryRepository.load(normalizedUserId)
+    ]);
+    const mergedRatingHistory = normalizeStoredRatings(
+      mergeRatingRecords(localRatingHistory, remoteRatingHistory)
+    );
+
+    applyRatingHistory(normalizedUserId, mergedRatingHistory);
+    localRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
 
     if (!remoteSnapshot) {
+      if (shouldResyncRatingHistory(remoteRatingHistory, mergedRatingHistory)) {
+        void enqueueRemoteTask(
+          () => remoteRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory),
+          '평가 이력을 Supabase와 다시 맞추지 못했어요.'
+        );
+      }
+
       return;
     }
 
@@ -816,6 +1028,9 @@ const setActiveUser = async (userId: string) => {
         remoteSnapshot.additionalTasteAnalysisBatches
       ),
       dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
+      selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
+        remoteSnapshot.selectedTasteAnalysisGenres
+      ),
       currentContext: normalizeContext(remoteSnapshot.currentContext),
       currentContextUpdatedAt: normalizeContextUpdatedAt(remoteSnapshot.currentContextUpdatedAt)
     };
@@ -823,11 +1038,30 @@ const setActiveUser = async (userId: string) => {
 
     applySnapshot(mergedSnapshot);
     localRecommendationRepository.save(mergedSnapshot);
+    applyRatingHistory(normalizedUserId, mergedRatingHistory);
+    localRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
 
-    if (shouldResyncRemoteSnapshot(normalizedRemoteSnapshot, mergedSnapshot)) {
+    const shouldResyncRecommendation = shouldResyncRemoteSnapshot(
+      normalizedRemoteSnapshot,
+      mergedSnapshot
+    );
+    const shouldResyncHistory = shouldResyncRatingHistory(
+      remoteRatingHistory,
+      mergedRatingHistory
+    );
+
+    if (shouldResyncRecommendation || shouldResyncHistory) {
       void enqueueRemoteTask(
-        () => remoteRecommendationRepository.save(mergedSnapshot),
-        '최신 추천 상태를 Supabase와 다시 맞추지 못했어요.'
+        async () => {
+          if (shouldResyncRecommendation) {
+            await remoteRecommendationRepository.save(mergedSnapshot);
+          }
+
+          if (shouldResyncHistory) {
+            await remoteRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
+          }
+        },
+        '최신 평가 상태를 Supabase와 다시 맞추지 못했어요.'
       );
     }
 
@@ -847,12 +1081,14 @@ export const recommendationStore = {
   currentContext: readonly(currentContext),
   contextWeights: readonly(contextWeights),
   ratedMovieIds,
+  selectedTasteAnalysisGenres,
+  primaryRatingMovies,
   pendingDetailedRatings,
   pendingPrimaryDetailedRatings,
   primaryUnratedMovies,
   activeAdditionalTasteAnalysisBatchIndex,
   hasAdditionalTasteAnalysisMovies,
-  shouldResumeTasteAnalysis: computed(() => primaryUnratedMovies.value.length > 0),
+  shouldResumeTasteAnalysis,
   ratedMoviesHistory,
   contextAwareRecommendedMovies,
   recommendedMovies,
@@ -865,6 +1101,9 @@ export const recommendationStore = {
   ensureAdditionalTasteAnalysisBatch,
   getNextRatingMovie,
   getPendingDetailMovie,
+  getStoredRatingRecord,
+  replaceRatingsForMovies,
+  setTasteAnalysisGenres,
   setContext,
   submitSwipeRating,
   dismissRecommendedMovie,

@@ -18,6 +18,12 @@ export interface PositiveRatingInput {
   questionText: string;
 }
 
+export interface NegativeRatingInput {
+  stars: number | null;
+  reviewTags: ReviewTag[];
+  reviewText: string;
+}
+
 export interface RatingResult {
   movieId: string;
   decision: SwipeStatus;

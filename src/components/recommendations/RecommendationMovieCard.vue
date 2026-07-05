@@ -19,7 +19,7 @@ defineEmits<{
 <template>
   <button
     type="button"
-    class="focus-ring poster-hover-card block w-full overflow-hidden border border-app-line bg-app-panel text-left"
+    class="focus-ring corner-hard poster-hover-card block w-full overflow-hidden border border-app-line bg-app-panel text-left"
     :aria-label="`${movie.title} 정보 보기`"
     @click="$emit('open', movie)"
   >

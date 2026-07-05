@@ -1,167 +1,102 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, nextTick, onUnmounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
+import NegativeFeedbackForm from '@/components/rating/NegativeFeedbackForm.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
-import { getUnratedMoviesFromPool, primaryRatingMovies } from '@/data/rating';
 import { getCharacterChoices } from '@/services/movieCreditsService';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { CatalogMovie } from '@/types/recommendation';
-import type { PositiveRatingInput, RatingDecision } from '@/types/rating';
+import type { CatalogMovie, StoredRatingRecord } from '@/types/recommendation';
+import type { NegativeRatingInput, PositiveRatingInput, RatingDecision } from '@/types/rating';
 
 const recommendationStore = useRecommendationStore();
 const route = useRoute();
 const router = useRouter();
 
-const savedNotice = ref<null | { movieTitle: string; type: 'detail' | 'primary' }>(null);
+const savedNotice = ref<null | { description: string; title: string }>(null);
 const manualSearchQuery = ref('');
 const manualSelectedMovie = ref<null | CatalogMovie>(null);
-const manualDetailMovie = ref<null | CatalogMovie>(null);
+const manualFeedbackMode = ref<null | 'negative' | 'positive'>(null);
+const activeAdditionalBatchIndex = ref<null | number>(null);
+const lastActivatedMoreModeKey = ref<null | string>(null);
+const isSavingManualDecision = ref(false);
+const isSavingPrimaryDecision = ref(false);
+const primaryNegativeMovieId = ref<null | string>(null);
+const primaryNegativeFormContainer = ref<HTMLElement | null>(null);
+const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
 let savedNoticeTimer: null | ReturnType<typeof setTimeout> = null;
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
-const requestedBatchIndex = computed(() => {
-  const rawBatch = route.query.batch;
+const likedRatingRecords = computed(() =>
+  recommendationStore.state.ratings.filter((rating) => rating.rawDecision === 'like')
+);
+const pendingDetailedRatings = computed(() => recommendationStore.pendingDetailedRatings.value);
+const activeRatingMovies = computed(() =>
+  activeAdditionalBatchIndex.value != null
+    ? recommendationStore.getAdditionalTasteAnalysisBatchMovies(activeAdditionalBatchIndex.value)
+    : recommendationStore.primaryRatingMovies.value
+);
+const activeRatingMovieIdSet = computed(() => new Set(activeRatingMovies.value.map((movie) => movie.id)));
+const activeRatedCount = computed(
+  () =>
+    recommendationStore.state.ratings.filter((rating) =>
+      activeRatingMovieIdSet.value.has(rating.input.movieId)
+    ).length
+);
+const currentRatingMovie = computed(() =>
+  activeAdditionalBatchIndex.value != null
+    ? recommendationStore.getNextRatingMovie({
+        additionalBatchIndex: activeAdditionalBatchIndex.value
+      })
+    : recommendationStore.getNextRatingMovie()
+);
+const currentDetailMovie = computed(() => recommendationStore.getPendingDetailMovie());
+const currentMovie = computed(() => (isDetailMode.value ? currentDetailMovie.value : currentRatingMovie.value));
 
-  if (rawBatch == null) {
+const currentDetailRecord = computed<null | StoredRatingRecord>(() => {
+  if (!currentDetailMovie.value) {
     return null;
   }
 
-  const parsedBatch = Number(rawBatch);
-  return Number.isFinite(parsedBatch) && parsedBatch >= 0 ? Math.floor(parsedBatch) : null;
-});
-const resolvedAdditionalBatchIndex = ref<null | number>(null);
+  const record =
+    recommendationStore.state.ratings.find(
+      (rating) =>
+        rating.input.movieId === currentDetailMovie.value?.id &&
+        rating.rawDecision === 'like' &&
+        !rating.detailCompleted
+    ) ?? null;
 
-const syncAdditionalBatchRoute = () => {
-  if (isMoreMode.value) {
-    const nextBatchIndex = recommendationStore.ensureAdditionalTasteAnalysisBatch(
-      requestedBatchIndex.value
-    );
-    resolvedAdditionalBatchIndex.value = nextBatchIndex;
+  if (!record) {
+    return null;
+  }
 
-    if (nextBatchIndex != null && requestedBatchIndex.value !== nextBatchIndex) {
-      void router.replace({
-        query: {
-          ...route.query,
-          batch: String(nextBatchIndex)
-        }
-      });
+  return {
+    ...record,
+    input: {
+      ...record.input,
+      reviewTags: [...record.input.reviewTags]
     }
-
-    return;
-  }
-
-  if (isDetailMode.value) {
-    resolvedAdditionalBatchIndex.value = requestedBatchIndex.value;
-    return;
-  }
-
-  resolvedAdditionalBatchIndex.value = null;
-};
-
-const currentMoviePool = computed(() => {
-  if (isDetailMode.value) {
-    return [];
-  }
-
-  if (!isMoreMode.value) {
-    return primaryRatingMovies;
-  }
-
-  if (resolvedAdditionalBatchIndex.value == null) {
-    return [];
-  }
-
-  return recommendationStore.getAdditionalTasteAnalysisBatchMovies(resolvedAdditionalBatchIndex.value);
-});
-
-const currentPoolMovieIds = computed(() => currentMoviePool.value.map((movie) => movie.id));
-const detailScopeMoviePool = computed(() => {
-  if (!isDetailMode.value) {
-    return [];
-  }
-
-  if (resolvedAdditionalBatchIndex.value == null) {
-    return primaryRatingMovies;
-  }
-
-  return recommendationStore.getAdditionalTasteAnalysisBatchMovies(resolvedAdditionalBatchIndex.value);
-});
-const detailScopeMovieIdSet = computed(() => new Set(detailScopeMoviePool.value.map((movie) => movie.id)));
-const detailScopePendingRatings = computed(() =>
-  recommendationStore.state.ratings.filter(
-    (rating) =>
-      rating.rawDecision === 'like' &&
-      !rating.detailCompleted &&
-      detailScopeMovieIdSet.value.has(rating.input.movieId)
-  )
-);
-const detailQueue = computed(() =>
-  detailScopePendingRatings.value
-    .map((ratingRecord) =>
-      recommendationStore.catalogMovies.find((movie) => movie.id === ratingRecord.input.movieId) ?? null
-    )
-    .filter((movie): movie is (typeof recommendationStore.catalogMovies)[number] => Boolean(movie))
-);
-const detailRecord = computed(() => detailScopePendingRatings.value[0] ?? null);
-const detailTotalCount = computed(
-  () =>
-    recommendationStore.state.ratings.filter(
-      (rating) => rating.rawDecision === 'like' && detailScopeMovieIdSet.value.has(rating.input.movieId)
-    ).length
-);
-const currentBatchPendingDetailCount = computed(() =>
-  recommendationStore.state.ratings.filter(
-    (rating) =>
-      rating.rawDecision === 'like' &&
-      !rating.detailCompleted &&
-      currentPoolMovieIds.value.includes(rating.input.movieId)
-  ).length
-);
-
-const totalCount = computed(() => {
-  if (isDetailMode.value) {
-    return detailTotalCount.value;
-  }
-
-  return currentMoviePool.value.length;
-});
-
-const completedCount = computed(() => {
-  if (isDetailMode.value) {
-    return Math.max(0, detailTotalCount.value - detailScopePendingRatings.value.length);
-  }
-
-  return recommendationStore.state.ratings.filter((rating) =>
-    currentPoolMovieIds.value.includes(rating.input.movieId)
-  ).length;
-});
-
-const currentMovie = computed(() => {
-  if (isDetailMode.value) {
-    return detailQueue.value[0] ?? null;
-  }
-
-  return getUnratedMoviesFromPool(recommendationStore.ratedMovieIds.value, currentMoviePool.value)[0] ?? null;
+  };
 });
 
 const currentQuestion = computed(() =>
-  currentMovie.value ? getCharacterQuestionByGenre(currentMovie.value.genres[0] ?? '') : ''
+  currentDetailMovie.value ? getCharacterQuestionByGenre(currentDetailMovie.value.genres[0] ?? '') : ''
 );
-
 const currentCharacterChoices = computed(() =>
-  currentMovie.value ? getCharacterChoices(currentMovie.value.id, currentMovie.value.characters) : []
+  currentDetailMovie.value
+    ? getCharacterChoices(currentDetailMovie.value.id, currentDetailMovie.value.characters)
+    : []
 );
 
 const initialFeedback = computed(() => {
-  const record = detailRecord.value;
+  const record = currentDetailRecord.value;
 
   if (!record) {
     return null;
@@ -175,6 +110,10 @@ const initialFeedback = computed(() => {
     questionText: record.questionText
   };
 });
+
+const showPrimaryNegativeFeedback = computed(
+  () => !isDetailMode.value && primaryNegativeMovieId.value === currentRatingMovie.value?.id
+);
 
 const searchableManualMovies = computed(() => {
   const query = manualSearchQuery.value.trim().toLocaleLowerCase();
@@ -190,6 +129,7 @@ const searchableManualMovies = computed(() => {
       const haystack = [
         movie.title,
         String(movie.releaseYear),
+        movie.overview,
         ...movie.genres,
         ...movie.tags,
         ...movie.characters
@@ -203,85 +143,166 @@ const searchableManualMovies = computed(() => {
 });
 
 const manualMovieQuestion = computed(() =>
-  manualDetailMovie.value ? getCharacterQuestionByGenre(manualDetailMovie.value.genres[0] ?? '') : ''
+  manualSelectedMovie.value ? getCharacterQuestionByGenre(manualSelectedMovie.value.genres[0] ?? '') : ''
 );
-
 const manualMovieCharacterChoices = computed(() =>
-  manualDetailMovie.value
-    ? getCharacterChoices(manualDetailMovie.value.id, manualDetailMovie.value.characters)
+  manualSelectedMovie.value
+    ? getCharacterChoices(manualSelectedMovie.value.id, manualSelectedMovie.value.characters)
     : []
 );
 
-const nextAdditionalBatchLink = computed(() => {
-  if (!recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
-    return null;
+const syncAdditionalBatchIndex = () => {
+  if (isDetailMode.value) {
+    activeAdditionalBatchIndex.value = null;
+    lastActivatedMoreModeKey.value = null;
+    return;
   }
 
-  return '/rating?mode=more';
-});
+  if (recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value != null) {
+    activeAdditionalBatchIndex.value = recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value;
 
-const detailRatingLink = computed(() =>
-  currentBatchPendingDetailCount.value > 0
-    ? isMoreMode.value
-      ? resolvedAdditionalBatchIndex.value == null
-        ? null
-        : `/rating?mode=detail&batch=${resolvedAdditionalBatchIndex.value}`
-      : '/rating?mode=detail'
-    : null
+    if (isMoreMode.value) {
+      lastActivatedMoreModeKey.value = route.fullPath;
+    } else {
+      lastActivatedMoreModeKey.value = null;
+    }
+
+    return;
+  }
+
+  if (isMoreMode.value) {
+    if (lastActivatedMoreModeKey.value !== route.fullPath) {
+      activeAdditionalBatchIndex.value = recommendationStore.ensureAdditionalTasteAnalysisBatch(
+        activeAdditionalBatchIndex.value
+      );
+      lastActivatedMoreModeKey.value = route.fullPath;
+      return;
+    }
+
+    activeAdditionalBatchIndex.value = null;
+    return;
+  }
+
+  lastActivatedMoreModeKey.value = null;
+  activeAdditionalBatchIndex.value = null;
+};
+
+watch(
+  [
+    isDetailMode,
+    isMoreMode,
+    () => route.fullPath,
+    () => recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value,
+    () => recommendationStore.hasAdditionalTasteAnalysisMovies.value,
+    () => recommendationStore.state.ratings.length
+  ],
+  () => {
+    syncAdditionalBatchIndex();
+  },
+  { immediate: true }
 );
 
-const secondaryAction = computed<null | { label: string; to: string }>(() => {
-  if (!isDetailMode.value && detailRatingLink.value) {
+watch(
+  () => currentRatingMovie.value?.id,
+  () => {
+    primaryNegativeMovieId.value = null;
+  }
+);
+
+const totalCount = computed(() => {
+  if (isDetailMode.value) {
+    return likedRatingRecords.value.length;
+  }
+
+  return activeRatingMovies.value.length;
+});
+
+const completedCount = computed(() => {
+  if (isDetailMode.value) {
+    return Math.max(0, likedRatingRecords.value.length - pendingDetailedRatings.value.length);
+  }
+
+  return activeRatedCount.value;
+});
+
+const stageLabel = computed(() => {
+  if (isDetailMode.value) {
+    return currentDetailMovie.value ? '좋아요 상세평가' : '상세평가 완료';
+  }
+
+  if (activeAdditionalBatchIndex.value != null) {
+    return currentRatingMovie.value ? '추가 취향분석 진행' : '추가 취향분석 완료';
+  }
+
+  return currentRatingMovie.value ? '취향분석 진행' : '취향분석 완료';
+});
+
+const completionTitle = computed(() => {
+  if (isDetailMode.value) {
+    return '상세 평가를 마쳤어요.';
+  }
+
+  if (activeAdditionalBatchIndex.value != null) {
+    return '추가 20편 평가가 끝났어요.';
+  }
+
+  return '취향분석이 끝났어요.';
+});
+
+const completionDescription = computed(() => {
+  if (isDetailMode.value) {
+    return '좋아요 이유까지 반영해서 추천을 더 정확하게 맞출게요.';
+  }
+
+  if (currentDetailMovie.value) {
+    return '좋아요로 남긴 영화는 마지막에 한 번에 상세 평가를 이어서 할 수 있어요.';
+  }
+
+  if (activeAdditionalBatchIndex.value != null) {
+    return '이번 20편 평가도 기존 취향기록에 누적했어요. 더 이어서 평가하거나 바로 추천을 볼 수 있어요.';
+  }
+
+  return '영화를 하나씩 남긴 평가를 바탕으로 추천을 준비했어요.';
+});
+
+const secondaryAction = computed<null | { isMoreAction?: boolean; label: string; to: string }>(() => {
+  if (!isDetailMode.value && currentDetailMovie.value) {
     return {
       label: '상세 평가하러 가기',
-      to: detailRatingLink.value
+      to: '/rating?mode=detail'
     };
   }
 
-  if (nextAdditionalBatchLink.value) {
+  if (!isDetailMode.value && recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
     return {
-      label: '더 분석하기',
-      to: nextAdditionalBatchLink.value
+      label: '다음 20편 평가하기',
+      to: '/rating?mode=more',
+      isMoreAction: true
+    };
+  }
+
+  if (isDetailMode.value && currentRatingMovie.value) {
+    return {
+      label: '평가 이어가기',
+      to: activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating'
     };
   }
 
   return null;
 });
 
-const stageLabel = computed(() => {
-  if (isDetailMode.value) {
-    return currentMovie.value ? '상세 평가' : '상세 평가 완료';
-  }
+const openNextAdditionalTasteAnalysis = async () => {
+  await router.push({
+    path: '/rating',
+    query: {
+      mode: 'more',
+      batch: String(Date.now())
+    }
+  });
+};
 
-  if (currentMovie.value) {
-    return isMoreMode.value ? '추가 취향분석' : '취향분석';
-  }
-
-  return isMoreMode.value ? '추가 취향분석 완료' : '취향분석 완료';
-});
-
-const completionTitle = computed(() => {
-  if (isDetailMode.value) {
-    return '상세 평가까지 마쳤어요.';
-  }
-
-  if (isMoreMode.value) {
-    return '다음 추천을 준비해뒀어요.';
-  }
-
-  return '추천을 시작할 준비가 됐어요.';
-});
-
-const completionDescription = computed(() => {
-  if (isDetailMode.value) {
-    return '';
-  }
-
-  return '';
-});
-
-const showSavedNotice = (movieTitle: string, type: 'detail' | 'primary') => {
-  savedNotice.value = { movieTitle, type };
+const showSavedNotice = (title: string, description: string) => {
+  savedNotice.value = { title, description };
 
   if (savedNoticeTimer) {
     clearTimeout(savedNoticeTimer);
@@ -297,38 +318,123 @@ const showSavedNotice = (movieTitle: string, type: 'detail' | 'primary') => {
   }
 };
 
-const resetManualRatingFlow = () => {
-  manualSelectedMovie.value = null;
-  manualDetailMovie.value = null;
+const scrollToContainer = async (containerRef: { value: HTMLElement | null }) => {
+  await nextTick();
+  containerRef.value?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
 };
 
-const saveSwipeDecision = async (decision: RatingDecision | 'not_interested') => {
-  const movie = currentMovie.value;
+const resetManualRatingFlow = () => {
+  manualSelectedMovie.value = null;
+  manualFeedbackMode.value = null;
+};
 
-  if (!movie) {
+const savePrimaryMovieDecision = async (decision: RatingDecision | 'not_interested') => {
+  const movie = currentRatingMovie.value;
+
+  if (!movie || isDetailMode.value || isSavingPrimaryDecision.value) {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: decision === 'not_interested' ? 'dislike' : decision,
-    rating: null,
-    reviewTags: [],
-    favoriteCharacter: null,
-    answeredAt: new Date().toISOString()
-  };
+  if (decision === 'dislike') {
+    primaryNegativeMovieId.value = movie.id;
+    await scrollToContainer(primaryNegativeFormContainer);
+    return;
+  }
 
-  await recommendationStore.submitSwipeRating(movie, input, {
-    rawDecision: decision,
-    detailCompleted: decision !== 'like'
-  });
+  primaryNegativeMovieId.value = null;
+  isSavingPrimaryDecision.value = true;
 
-  showSavedNotice(movie.title, 'primary');
+  try {
+    if (decision === 'like') {
+      const input: RatingInput = {
+        movieId: movie.id,
+        userId: recommendationStore.state.userId,
+        status: 'like',
+        rating: null,
+        reviewTags: [],
+        favoriteCharacter: null,
+        answeredAt: new Date().toISOString()
+      };
+
+      await recommendationStore.submitSwipeRating(movie, input, {
+        rawDecision: 'like',
+        detailCompleted: false
+      });
+
+      showSavedNotice(`${movie.title} 좋아요를 저장했어요.`, '상세 평가는 마지막에 한 번에 이어서 할 수 있어요.');
+      return;
+    }
+
+    const input: RatingInput = {
+      movieId: movie.id,
+      userId: recommendationStore.state.userId,
+      status: decision === 'not_interested' ? 'dislike' : decision,
+      rating: null,
+      reviewTags: [],
+      favoriteCharacter: null,
+      answeredAt: new Date().toISOString()
+    };
+
+    await recommendationStore.submitSwipeRating(movie, input, {
+      rawDecision: decision,
+      detailCompleted: true
+    });
+
+    showSavedNotice(`${movie.title} 평가를 저장했어요.`, '추천 결과에도 바로 반영할게요.');
+  } finally {
+    isSavingPrimaryDecision.value = false;
+  }
+};
+
+const submitPrimaryNegativeFeedback = async (feedback: NegativeRatingInput) => {
+  const movie = currentRatingMovie.value;
+
+  if (
+    !movie ||
+    isDetailMode.value ||
+    isSavingPrimaryDecision.value ||
+    primaryNegativeMovieId.value !== movie.id
+  ) {
+    return;
+  }
+
+  isSavingPrimaryDecision.value = true;
+
+  try {
+    const input: RatingInput = {
+      movieId: movie.id,
+      userId: recommendationStore.state.userId,
+      status: 'dislike',
+      rating: feedback.stars,
+      reviewTags: feedback.reviewTags,
+      favoriteCharacter: null,
+      answeredAt: new Date().toISOString()
+    };
+
+    await recommendationStore.submitSwipeRating(movie, input, {
+      rawDecision: 'dislike',
+      detailCompleted: true,
+      feedback: {
+        rating: feedback.stars,
+        reviewTags: feedback.reviewTags,
+        favoriteCharacter: null,
+        reviewText: feedback.reviewText,
+        questionText: ''
+      }
+    });
+
+    showSavedNotice(`${movie.title} 평가를 저장했어요.`, '별로 기록도 추천에 바로 반영할게요.');
+  } finally {
+    primaryNegativeMovieId.value = null;
+    isSavingPrimaryDecision.value = false;
+  }
 };
 
 const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
-  const movie = currentMovie.value;
+  const movie = currentDetailMovie.value;
 
   if (!movie) {
     return;
@@ -356,11 +462,15 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     }
   });
 
-  showSavedNotice(movie.title, 'detail');
+  if (!recommendationStore.getPendingDetailMovie()) {
+    await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
+  }
+
+  showSavedNotice('상세 평가를 저장했어요.', '다음 추천에도 바로 반영할게요.');
 };
 
 const skipPositiveFeedback = async () => {
-  const movie = currentMovie.value;
+  const movie = currentDetailMovie.value;
 
   if (!movie) {
     return;
@@ -370,7 +480,7 @@ const skipPositiveFeedback = async () => {
     movieId: movie.id,
     userId: recommendationStore.state.userId,
     status: 'like',
-    rating: null,
+    rating: currentDetailRecord.value?.input.rating ?? null,
     reviewTags: [],
     favoriteCharacter: null,
     answeredAt: new Date().toISOString()
@@ -381,53 +491,71 @@ const skipPositiveFeedback = async () => {
     detailCompleted: true
   });
 
-  showSavedNotice(movie.title, 'detail');
+  if (!recommendationStore.getPendingDetailMovie()) {
+    await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
+  }
+
+  showSavedNotice('상세 평가를 건너뛰었어요.', '나중에 평가기록에서 다시 수정할 수 있어요.');
 };
 
 const selectManualMovie = (movie: CatalogMovie) => {
   manualSelectedMovie.value = movie;
-  manualDetailMovie.value = null;
+  manualFeedbackMode.value = null;
 };
 
 const saveManualMovieDecision = async (decision: RatingDecision | 'not_interested') => {
+  const movie = manualSelectedMovie.value;
+
+  if (!movie || isSavingManualDecision.value) {
+    return;
+  }
+
+  if (decision === 'like') {
+    manualFeedbackMode.value = 'positive';
+    await scrollToContainer(manualFeedbackFormContainer);
+    return;
+  }
+
+  if (decision === 'dislike') {
+    manualFeedbackMode.value = 'negative';
+    await scrollToContainer(manualFeedbackFormContainer);
+    return;
+  }
+
+  manualFeedbackMode.value = null;
+  isSavingManualDecision.value = true;
+
+  try {
+    const input: RatingInput = {
+      movieId: movie.id,
+      userId: recommendationStore.state.userId,
+      status: decision === 'not_interested' ? 'dislike' : decision,
+      rating: null,
+      reviewTags: [],
+      favoriteCharacter: null,
+      answeredAt: new Date().toISOString()
+    };
+
+    await recommendationStore.submitSwipeRating(movie, input, {
+      rawDecision: decision,
+      detailCompleted: true
+    });
+
+    showSavedNotice(`${movie.title} 평가를 저장했어요.`, '누적 취향기록에도 바로 반영했어요.');
+    resetManualRatingFlow();
+    manualSearchQuery.value = '';
+  } finally {
+    isSavingManualDecision.value = false;
+  }
+};
+
+const submitManualPositiveFeedback = async (feedback: PositiveRatingInput) => {
   const movie = manualSelectedMovie.value;
 
   if (!movie) {
     return;
   }
 
-  if (decision === 'like') {
-    manualDetailMovie.value = movie;
-    return;
-  }
-
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: decision === 'not_interested' ? 'dislike' : decision,
-    rating: null,
-    reviewTags: [],
-    favoriteCharacter: null,
-    answeredAt: new Date().toISOString()
-  };
-
-  await recommendationStore.submitSwipeRating(movie, input, {
-    rawDecision: decision,
-    detailCompleted: true
-  });
-
-  showSavedNotice(movie.title, 'primary');
-  resetManualRatingFlow();
-  manualSearchQuery.value = '';
-};
-
-const submitManualPositiveFeedback = async (feedback: PositiveRatingInput) => {
-  const movie = manualDetailMovie.value;
-
-  if (!movie) {
-    return;
-  }
-
   const input: RatingInput = {
     movieId: movie.id,
     userId: recommendationStore.state.userId,
@@ -450,13 +578,47 @@ const submitManualPositiveFeedback = async (feedback: PositiveRatingInput) => {
     }
   });
 
-  showSavedNotice(movie.title, 'detail');
+  showSavedNotice(`${movie.title} 평가를 저장했어요.`, '좋아요 이유까지 누적해서 추천에 반영할게요.');
+  resetManualRatingFlow();
+  manualSearchQuery.value = '';
+};
+
+const submitManualNegativeFeedback = async (feedback: NegativeRatingInput) => {
+  const movie = manualSelectedMovie.value;
+
+  if (!movie) {
+    return;
+  }
+
+  const input: RatingInput = {
+    movieId: movie.id,
+    userId: recommendationStore.state.userId,
+    status: 'dislike',
+    rating: feedback.stars,
+    reviewTags: feedback.reviewTags,
+    favoriteCharacter: null,
+    answeredAt: new Date().toISOString()
+  };
+
+  await recommendationStore.submitSwipeRating(movie, input, {
+    rawDecision: 'dislike',
+    detailCompleted: true,
+    feedback: {
+      rating: feedback.stars,
+      reviewTags: feedback.reviewTags,
+      favoriteCharacter: null,
+      reviewText: feedback.reviewText,
+      questionText: ''
+    }
+  });
+
+  showSavedNotice(`${movie.title} 평가를 저장했어요.`, '별로 기록도 누적해서 추천에 반영할게요.');
   resetManualRatingFlow();
   manualSearchQuery.value = '';
 };
 
 const skipManualPositiveFeedback = async () => {
-  const movie = manualDetailMovie.value;
+  const movie = manualSelectedMovie.value;
 
   if (!movie) {
     return;
@@ -477,59 +639,24 @@ const skipManualPositiveFeedback = async () => {
     detailCompleted: true
   });
 
-  showSavedNotice(movie.title, 'detail');
+  showSavedNotice(`${movie.title} 평가를 저장했어요.`, '간단한 좋아요 기록으로도 누적 반영됐어요.');
   resetManualRatingFlow();
   manualSearchQuery.value = '';
 };
 
-const handleKeydown = (event: KeyboardEvent) => {
-  if (isDetailMode.value || !currentMovie.value) {
-    return;
-  }
-
-  const target = event.target as HTMLElement | null;
-
-  if (target && ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) {
-    return;
-  }
-
-  if (event.key === 'ArrowLeft') {
-    event.preventDefault();
-    void saveSwipeDecision('dislike');
-  }
-
-  if (event.key === 'ArrowRight') {
-    event.preventDefault();
-    void saveSwipeDecision('like');
-  }
-
-  if (event.key === 'ArrowUp') {
-    event.preventDefault();
-    void saveSwipeDecision('not_seen');
-  }
-
-  if (event.key === 'ArrowDown') {
-    event.preventDefault();
-    void saveSwipeDecision('not_interested');
-  }
-};
-
 watch(
-  [() => route.query.mode, () => route.query.batch, () => recommendationStore.state.userId],
-  () => {
-    syncAdditionalBatchRoute();
+  () => route.query.reset,
+  async (resetValue) => {
+    if (!resetValue) {
+      return;
+    }
+
+    await router.replace('/rating');
   },
   { immediate: true }
 );
 
-onMounted(() => {
-  syncAdditionalBatchRoute();
-  window.addEventListener('keydown', handleKeydown);
-});
-
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-
   if (savedNoticeTimer) {
     clearTimeout(savedNoticeTimer);
   }
@@ -542,106 +669,101 @@ onUnmounted(() => {
   >
     <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
 
-    <section v-if="savedNotice" class="border border-app-line bg-app-panel px-4 py-3">
-      <p class="text-sm font-semibold text-[#15171c]">{{ savedNotice.movieTitle }} 저장됨</p>
-      <p class="mt-1 text-sm text-app-muted">
-        {{
-          savedNotice.type === 'detail'
-            ? '상세 평가를 저장했어요. 다음 흐름에 바로 반영할게요.'
-            : '평가를 저장했어요. 다음 영화로 이어갈게요.'
-        }}
-      </p>
+    <section v-if="savedNotice" class="corner-hard border border-app-line bg-app-panel px-4 py-3">
+      <p class="text-sm font-semibold text-[#15171c]">{{ savedNotice.title }}</p>
+      <p class="mt-1 text-sm text-app-muted">{{ savedNotice.description }}</p>
     </section>
 
-    <section
-      v-if="!isDetailMode && isMoreMode && recommendationStore.state.profile.totalRatings > 0"
-      class="flex justify-end"
-    >
-      <RouterLink
-        to="/recommendations"
-        class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
-      >
-        지금 추천 보기
-      </RouterLink>
-    </section>
+    <template v-if="isDetailMode && currentMovie">
+      <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
 
-    <template v-if="currentMovie">
-      <template v-if="isDetailMode">
-        <section class="border border-app-line bg-app-panel px-5 py-4">
-          <p class="text-sm font-semibold text-[#15171c]">좋아요를 누른 영화의 상세 평가예요.</p>
-          <p class="mt-2 text-sm leading-6 text-app-muted">별점과 감상을 더 남기면 추천 정확도가 올라가요.</p>
-        </section>
+      <div class="flex justify-end">
+        <WatchToggleButton :movie-id="currentMovie.id" size="md" />
+      </div>
 
-        <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
-
-        <div class="flex justify-end">
-          <WatchToggleButton :movie-id="currentMovie.id" size="md" />
-        </div>
-
-        <PositiveFeedbackForm
-          :key="`${currentMovie.id}-detail`"
-          :characters="currentCharacterChoices"
-          :question-text="currentQuestion"
-          :initial-value="initialFeedback"
-          submit-label="상세 평가 저장하기"
-          @skip="skipPositiveFeedback"
-          @submit="submitPositiveFeedback"
-        />
-      </template>
-
-      <template v-else>
-        <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" @decide="saveSwipeDecision" />
-        <div class="flex justify-end">
-          <WatchToggleButton :movie-id="currentMovie.id" size="md" />
-        </div>
-        <RatingActions @decide="saveSwipeDecision" />
-      </template>
+      <PositiveFeedbackForm
+        :key="`${currentMovie.id}-detail`"
+        :characters="currentCharacterChoices"
+        :question-text="currentQuestion"
+        :initial-value="initialFeedback"
+        submit-label="상세 평가 저장하기"
+        @skip="skipPositiveFeedback"
+        @submit="submitPositiveFeedback"
+      />
     </template>
 
-    <section v-else class="border border-app-line bg-app-panel px-5 py-5">
+    <template v-else-if="currentMovie">
+      <RatingMovieCard
+        :key="`${currentMovie.id}-${showPrimaryNegativeFeedback ? 'negative' : 'primary'}`"
+        :movie="currentMovie"
+        :interactive="!showPrimaryNegativeFeedback"
+        @decide="savePrimaryMovieDecision"
+      />
+
+      <div class="flex justify-end">
+        <WatchToggleButton :movie-id="currentMovie.id" size="md" />
+      </div>
+
+      <RatingActions @decide="savePrimaryMovieDecision" />
+
+      <div v-if="showPrimaryNegativeFeedback" ref="primaryNegativeFormContainer">
+        <NegativeFeedbackForm
+          :key="`${currentMovie.id}-primary-negative`"
+          submit-label="이 평가 저장하기"
+          @submit="submitPrimaryNegativeFeedback"
+        />
+      </div>
+    </template>
+
+    <section v-else class="corner-hard border border-app-line bg-app-panel px-5 py-5">
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">
-        {{ isDetailMode ? 'Details' : isMoreMode ? 'More' : 'Done' }}
+        {{ isDetailMode ? 'Details' : 'Done' }}
       </p>
       <h1 class="mt-2 text-2xl font-semibold text-[#15171c]">
         {{ completionTitle }}
       </h1>
-      <p v-if="completionDescription" class="mt-3 text-sm leading-6 text-app-muted">
+      <p class="mt-3 text-sm leading-6 text-app-muted">
         {{ completionDescription }}
       </p>
 
       <div class="mt-5 flex flex-wrap gap-3">
         <RouterLink
           to="/recommendations"
-          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
+          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
         >
           추천 보러 가기
         </RouterLink>
 
+        <button
+          v-if="secondaryAction?.isMoreAction"
+          type="button"
+          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
+          @click="openNextAdditionalTasteAnalysis"
+        >
+          {{ secondaryAction.label }}
+        </button>
+
         <RouterLink
-          v-if="secondaryAction"
+          v-else-if="secondaryAction"
           :to="secondaryAction.to"
-          class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
+          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
         >
           {{ secondaryAction.label }}
         </RouterLink>
       </div>
-
-      <p v-if="!isDetailMode && isMoreMode && !nextAdditionalBatchLink" class="mt-4 text-sm text-app-muted">
-        지금 준비된 추가 취향분석은 여기까지예요.
-      </p>
 
       <section v-if="!isDetailMode" class="mt-6 border-t border-app-line pt-5">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h2 class="text-lg font-semibold text-[#15171c]">직접 영화 찾아서 평가하기</h2>
             <p class="mt-1 text-sm leading-6 text-app-muted">
-              보고 싶은 영화를 검색해서 바로 평가하면 추천이 더 정교해져요.
+              보고 싶었던 영화를 검색해서 바로 평가하면 추천을 더 빨리 다듬을 수 있어요.
             </p>
           </div>
           <button
-            v-if="manualSelectedMovie || manualDetailMovie"
+            v-if="manualSelectedMovie"
             type="button"
-            class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
+            class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
             @click="resetManualRatingFlow"
           >
             닫기
@@ -652,36 +774,44 @@ onUnmounted(() => {
           <input
             v-model="manualSearchQuery"
             type="search"
-            placeholder="영화 제목, 장르, 태그로 검색"
+            placeholder="영화 제목, 장르, 줄거리로 검색"
             class="focus-ring h-12 w-full border border-app-line bg-app-panelSoft px-4 text-sm text-[#15171c] placeholder:text-app-muted"
           />
         </div>
 
-        <div v-if="manualDetailMovie" class="mt-4 space-y-4">
-          <RatingMovieCard :key="`${manualDetailMovie.id}-manual-detail`" :movie="manualDetailMovie" :interactive="false" size="detail" />
-          <div class="flex justify-end">
-            <WatchToggleButton :movie-id="manualDetailMovie.id" size="md" />
-          </div>
-          <PositiveFeedbackForm
-            :key="`${manualDetailMovie.id}-manual-feedback`"
-            :characters="manualMovieCharacterChoices"
-            :question-text="manualMovieQuestion"
-            submit-label="이 영화 평가 저장하기"
-            @skip="skipManualPositiveFeedback"
-            @submit="submitManualPositiveFeedback"
-          />
-        </div>
-
-        <div v-else-if="manualSelectedMovie" class="mt-4 space-y-4">
+        <div v-if="manualSelectedMovie" class="mt-4 space-y-4">
           <RatingMovieCard
-            :key="`${manualSelectedMovie.id}-manual-primary`"
+            :key="`${manualSelectedMovie.id}-${manualFeedbackMode ?? 'manual-primary'}`"
             :movie="manualSelectedMovie"
+            :interactive="manualFeedbackMode == null"
             @decide="saveManualMovieDecision"
           />
           <div class="flex justify-end">
             <WatchToggleButton :movie-id="manualSelectedMovie.id" size="md" />
           </div>
           <RatingActions @decide="saveManualMovieDecision" />
+
+          <div
+            v-if="manualFeedbackMode === 'positive' || manualFeedbackMode === 'negative'"
+            ref="manualFeedbackFormContainer"
+          >
+            <PositiveFeedbackForm
+              v-if="manualFeedbackMode === 'positive'"
+              :key="`${manualSelectedMovie.id}-manual-feedback`"
+              :characters="manualMovieCharacterChoices"
+              :question-text="manualMovieQuestion"
+              submit-label="이 영화 평가 저장하기"
+              @skip="skipManualPositiveFeedback"
+              @submit="submitManualPositiveFeedback"
+            />
+
+            <NegativeFeedbackForm
+              v-else
+              :key="`${manualSelectedMovie.id}-manual-negative`"
+              submit-label="이 영화 평가 저장하기"
+              @submit="submitManualNegativeFeedback"
+            />
+          </div>
         </div>
 
         <div v-else class="mt-4 space-y-3">
@@ -689,27 +819,31 @@ onUnmounted(() => {
             v-for="movie in searchableManualMovies"
             :key="movie.id"
             type="button"
-            class="focus-ring flex w-full items-center gap-3 border border-app-line bg-app-panelSoft p-3 text-left transition-colors hover:bg-app-panel"
+            class="focus-ring corner-hard flex w-full items-center gap-3 border border-app-line bg-app-panelSoft p-3 text-left transition-colors hover:bg-app-panel"
             @click="selectManualMovie(movie)"
           >
             <img
               :src="movie.posterUrl"
               :alt="movie.posterAlt"
-              class="h-20 w-14 flex-none object-cover"
+            class="corner-soft h-20 w-14 flex-none object-cover"
               loading="lazy"
             />
             <div class="min-w-0 flex-1">
               <p class="text-sm font-semibold text-[#15171c]">{{ movie.title }}</p>
-              <p class="mt-1 text-xs text-app-muted">{{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}</p>
-              <p class="mt-2 line-clamp-2 text-xs text-app-muted">{{ movie.tags.join(' · ') }}</p>
+              <p class="mt-1 text-xs text-app-muted">
+                {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
+              </p>
+              <p class="mt-2 line-clamp-2 text-xs text-app-muted">
+                {{ movie.overview || movie.tags.join(' · ') }}
+              </p>
             </div>
           </button>
 
           <p
             v-if="searchableManualMovies.length === 0"
-            class="border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
+            class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
           >
-            아직 평가하지 않은 영화 중에서 검색 결과가 없어요.
+            아직 평가하지 않은 영화 중에서는 검색 결과가 없어요.
           </p>
         </div>
       </section>

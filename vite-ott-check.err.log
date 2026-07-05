@@ -1,0 +1,77 @@
+warnings
+  One of the glob patterns doesn't match any files. Please remove or fix the following: {
+  "globDirectory": "C:/Users/woojo/OneDrive/Desktop/Movie/dev-dist",
+  "globPattern": "**/*.{js,css,html,ico,png,svg,webp}",
+  "globIgnores": [
+    "**/node_modules/**/*",
+    "sw.js",
+    "workbox-*.js"
+  ]
+}
+
+[2mPM 12:45:20[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/Users/woojo/OneDrive/Desktop/Movie/src/views/ListsView.vue[39m:150:7
+[33m  148|    >
+  149|      <section class="border border-app-line bg-app-panel px-5 py-5">
+  150|        <div class="flex flex-col gap-4">
+     |         ^
+  151|          <div class="flex items-start justify-between gap-4">
+  152|          <div>[39m
+      at createCompilerError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+      at async handleHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:39266:33)
+      at async onHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38658:7)
+      at async FSWatcher.<anonymous> (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38695:5)
+[2mPM 12:46:16[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/Users/woojo/OneDrive/Desktop/Movie/src/views/ListsView.vue[39m:150:7
+[33m  148|    >
+  149|      <section class="border border-app-line bg-app-panel px-5 py-5">
+  150|        <div class="flex flex-col gap-4">
+     |         ^
+  151|          <div class="flex items-start justify-between gap-4">
+  152|          <div>[39m
+      at createCompilerError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+      at async handleHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:39266:33)
+      at async onHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38658:7)
+      at async FSWatcher.<anonymous> (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38695:5)
+[2mPM 12:46:49[22m [31m[1m[vite][22m[39m [31mInternal server error: Element is missing end tag.[39m
+  Plugin: [35mvite:vue[39m
+  File: [36mC:/Users/woojo/OneDrive/Desktop/Movie/src/views/ListsView.vue[39m:150:7
+[33m  148|    >
+  149|      <section class="border border-app-line bg-app-panel px-5 py-5">
+  150|        <div class="flex flex-col gap-4">
+     |         ^
+  151|          <div class="flex items-start justify-between gap-4">
+  152|          <div>[39m
+      at createCompilerError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1378:17)
+      at emitError (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3014:5)
+      at Object.onclosetag (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:2381:13)
+      at Tokenizer.stateInClosingTagName (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:799:16)
+      at Tokenizer.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:1157:16)
+      at Object.baseParse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-core\dist\compiler-core.cjs.js:3053:13)
+      at Object.parse (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-dom\dist\compiler-dom.cjs.js:910:23)
+      at Object.parse$1 [as parse] (C:\Users\woojo\OneDrive\Desktop\Movie\node_modules\@vue\compiler-sfc\dist\compiler-sfc.cjs.js:1824:24)
+      at createDescriptor (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:71:43)
+      at handleHotUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/@vitejs/plugin-vue/dist/index.mjs:2198:26)
+      at async handleHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:39266:33)
+      at async onHMRUpdate (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38658:7)
+      at async FSWatcher.<anonymous> (file:///C:/Users/woojo/OneDrive/Desktop/Movie/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:38695:5)

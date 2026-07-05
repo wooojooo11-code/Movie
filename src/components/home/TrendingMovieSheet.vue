@@ -17,7 +17,7 @@ defineEmits<{
     @click.self="$emit('close')"
   >
     <section
-      class="mx-auto w-full max-w-[23rem] border border-app-line px-4 py-4"
+      class="corner-hard mx-auto w-full max-w-[23rem] border border-app-line px-4 py-4"
       style="background-color: rgba(255, 255, 255, 0.96)"
     >
       <div class="flex items-start gap-3">
@@ -40,7 +40,7 @@ defineEmits<{
 
             <button
               type="button"
-              class="focus-ring border border-app-line bg-app-panelSoft px-3 py-2 text-xs text-[#15171c]"
+              class="focus-ring corner-soft border border-app-line bg-app-panelSoft px-3 py-2 text-xs text-[#15171c]"
               @click="$emit('close')"
             >
               닫기
@@ -84,7 +84,7 @@ defineEmits<{
             <img
               :src="similarMovie.posterUrl"
               :alt="similarMovie.posterAlt"
-              class="aspect-[4/5] w-full border border-app-line object-cover"
+              class="corner-soft aspect-[4/5] w-full border border-app-line object-cover"
               loading="lazy"
             />
             <p class="mt-2 line-clamp-2 text-[12px] leading-4 text-[#15171c]">

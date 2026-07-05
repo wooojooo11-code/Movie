@@ -9,7 +9,7 @@ import RecommendationMovieSheet from '@/components/recommendations/Recommendatio
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { PositiveRatingInput } from '@/types/rating';
+import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type {
   MoodContext,
   RatingFeedbackPayload,
@@ -43,19 +43,12 @@ const closeMovieSheet = () => {
   selectedMovie.value = null;
 };
 
-const selectedMovieAlreadySeen = computed(() =>
-  selectedMovie.value
-    ? recommendationStore.state.dismissedRecommendationMovieIds.includes(selectedMovie.value.id)
-    : false
-);
-
 const selectedMovieRatingRecord = computed(() => {
   if (!selectedMovie.value) {
     return null;
   }
 
-  const record =
-    recommendationStore.state.ratings.find((entry) => entry.input.movieId === selectedMovie.value?.id) ?? null;
+  const record = recommendationStore.getStoredRatingRecord(selectedMovie.value.id);
 
   if (!record) {
     return null;
@@ -69,10 +62,6 @@ const selectedMovieRatingRecord = computed(() => {
     }
   } satisfies StoredRatingRecord;
 });
-
-const handleAlreadySeen = async (movieId: string) => {
-  await recommendationStore.dismissRecommendedMovie(movieId);
-};
 
 const saveRecommendationRating = async (
   input: RatingInput,
@@ -96,24 +85,33 @@ const saveRecommendationRating = async (
   }
 };
 
-const handleRecommendationDislike = async () => {
+const handleRecommendationDislike = async (feedback: NegativeRatingInput) => {
   if (!selectedMovie.value) {
     return;
   }
+
+  const payload: RatingFeedbackPayload = {
+    rating: feedback.stars,
+    reviewTags: feedback.reviewTags,
+    favoriteCharacter: null,
+    reviewText: feedback.reviewText,
+    questionText: ''
+  };
 
   const input: RatingInput = {
     movieId: selectedMovie.value.id,
     userId: recommendationStore.state.userId,
     status: 'dislike',
-    rating: null,
-    reviewTags: [],
+    rating: payload.rating,
+    reviewTags: payload.reviewTags,
     favoriteCharacter: null,
     answeredAt: new Date().toISOString()
   };
 
   await saveRecommendationRating(input, {
     rawDecision: 'dislike',
-    detailCompleted: true
+    detailCompleted: true,
+    feedback: payload
   });
 };
 
@@ -164,9 +162,8 @@ const setRecommendationContext = (context: MoodContext) => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-7 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="border border-app-line bg-app-panel px-5 py-5">
-      <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">Recommendation</p>
-      <h1 class="mt-2 text-[25px] font-semibold leading-tight text-[#15171c]">
+    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
+      <h1 class="text-[25px] font-semibold leading-tight text-[#15171c]">
         당신에게 맞을지도 몰라요
       </h1>
       <p class="mt-2 text-sm text-app-muted">
@@ -177,7 +174,7 @@ const setRecommendationContext = (context: MoodContext) => {
         <RouterLink
           v-if="recommendationStore.state.profile.totalRatings === 0"
           to="/rating"
-          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
         >
           취향분석 시작
         </RouterLink>
@@ -185,8 +182,13 @@ const setRecommendationContext = (context: MoodContext) => {
         <RouterLink
           v-else-if="hasMoreTasteAnalysis"
           to="/rating?mode=more"
-          class="focus-ring inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center gap-2 border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#15171c]"
         >
+          <span
+            class="corner-pill inline-flex h-5 w-5 items-center justify-center border border-app-line text-[13px] leading-none text-[#15171c]"
+          >
+            +
+          </span>
           더 하기
         </RouterLink>
       </div>
@@ -199,10 +201,10 @@ const setRecommendationContext = (context: MoodContext) => {
           v-for="option in contextOptions"
           :key="option.value"
           type="button"
-          class="focus-ring inline-flex min-h-9 items-center justify-center border px-3 text-xs font-medium"
+          class="focus-ring corner-pill inline-flex min-h-8 items-center justify-center border px-3.5 text-xs font-medium"
           :class="
             selectedContext === option.value
-              ? 'border-app-accent bg-app-accent text-white'
+              ? 'border-app-accent bg-app-accent text-white shadow-[0_6px_18px_rgba(224,122,36,0.24)]'
               : 'border-app-line bg-app-panelSoft text-app-muted'
           "
           @click="setRecommendationContext(option.value)"
@@ -245,7 +247,7 @@ const setRecommendationContext = (context: MoodContext) => {
 
         <div
           v-else
-          class="border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm text-app-muted"
+          class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm text-app-muted"
         >
           볼 영화가 없어요. 취향분석을 더 해보세요.
         </div>
@@ -253,7 +255,7 @@ const setRecommendationContext = (context: MoodContext) => {
 
       <section>
         <div class="mb-3">
-          <h2 class="text-lg font-semibold text-[#15171c]">사람들이 저장한 리스트</h2>
+          <h2 class="text-lg font-semibold text-[#15171c]">사람들이 픽한 리스트</h2>
         </div>
 
         <div class="grid gap-3">
@@ -271,14 +273,12 @@ const setRecommendationContext = (context: MoodContext) => {
 
     <RecommendationMovieSheet
       v-if="selectedMovie"
-      :already-seen="selectedMovieAlreadySeen"
       :is-saving-rating="isSavingRecommendationRating"
       :movie="selectedMovie"
       :rating-record="selectedMovieRatingRecord"
-      @rate-decision="handleRecommendationDislike"
+      @rate-dislike-submit="handleRecommendationDislike"
       @rate-like-submit="handleRecommendationLike"
       @close="closeMovieSheet"
-      @already-seen="handleAlreadySeen"
     />
   </main>
 </template>

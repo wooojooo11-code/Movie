@@ -17,6 +17,7 @@ let isSigningOut = false;
 let sessionSyncIntervalId: null | ReturnType<typeof setInterval> = null;
 let sessionSyncPromise: null | Promise<void> = null;
 let lastSessionSyncAt = 0;
+const AUTH_IDENTIFIER_DOMAIN = 'login.movielist.local';
 
 interface AuthState {
   errorMessage: string;
@@ -44,6 +45,26 @@ const getEmailRedirectTo = () => {
   }
 
   return `${window.location.origin}/login`;
+};
+
+const isEmailAddress = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const encodeIdentifierForEmail = (value: string) =>
+  encodeURIComponent(value.trim().toLocaleLowerCase())
+    .replace(/%/g, '_')
+    .replace(/[^a-z0-9._~-]/g, '_');
+
+const resolveAuthCredentials = (identifier: string) => {
+  const trimmedIdentifier = identifier.trim();
+  const usesEmailAddress = isEmailAddress(trimmedIdentifier);
+
+  return {
+    email: usesEmailAddress
+      ? trimmedIdentifier
+      : `${encodeIdentifierForEmail(trimmedIdentifier)}@${AUTH_IDENTIFIER_DOMAIN}`,
+    loginId: usesEmailAddress ? null : trimmedIdentifier,
+    usesEmailAddress
+  };
 };
 
 const hasStoredSupabaseSession = () => {
@@ -81,10 +102,11 @@ export const useAuthStore = defineStore('auth', {
         return '';
       }
 
+      const loginId = state.user.user_metadata.login_id as string | undefined;
       const nickname = state.user.user_metadata.nickname as string | undefined;
       const fullName = state.user.user_metadata.full_name as string | undefined;
 
-      return nickname?.trim() || fullName?.trim() || state.user.email || '';
+      return nickname?.trim() || fullName?.trim() || loginId?.trim() || state.user.email || '';
     },
     isAuthenticated: (state) => Boolean(state.user),
     shouldStartRatingFlow: (state) => state.ratingCount === 0
@@ -160,9 +182,11 @@ export const useAuthStore = defineStore('auth', {
       const libraryStore = useLibraryStore();
       const recommendationStore = useRecommendationStore();
       const listStore = useListStore();
+      const loginId = session?.user?.user_metadata.login_id as string | undefined;
       const nickname = session?.user?.user_metadata.nickname as string | undefined;
       const fullName = session?.user?.user_metadata.full_name as string | undefined;
-      const ownerName = nickname?.trim() || fullName?.trim() || session?.user?.email || '나';
+      const ownerName =
+        nickname?.trim() || fullName?.trim() || loginId?.trim() || session?.user?.email || '나';
 
       this.session = session;
       this.user = session?.user ?? null;
@@ -299,7 +323,7 @@ export const useAuthStore = defineStore('auth', {
 
       return fallbackPath;
     },
-    async signIn(email: string, password: string) {
+    async signIn(identifier: string, password: string) {
       if (!supabase) {
         throw new Error('Supabase 환경 변수가 아직 설정되지 않았어요.');
       }
@@ -308,6 +332,7 @@ export const useAuthStore = defineStore('auth', {
       this.errorMessage = '';
 
       try {
+        const { email } = resolveAuthCredentials(identifier);
         const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password
@@ -326,7 +351,7 @@ export const useAuthStore = defineStore('auth', {
         this.isSubmitting = false;
       }
     },
-    async signUp(email: string, password: string, nickname: string) {
+    async signUp(identifier: string, password: string, nickname: string) {
       if (!supabase) {
         throw new Error('Supabase 환경 변수가 아직 설정되지 않았어요.');
       }
@@ -335,11 +360,13 @@ export const useAuthStore = defineStore('auth', {
       this.errorMessage = '';
 
       try {
+        const { email, loginId, usesEmailAddress } = resolveAuthCredentials(identifier);
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: {
             data: {
+              ...(loginId ? { login_id: loginId } : {}),
               nickname,
               full_name: nickname
             },
@@ -351,11 +378,17 @@ export const useAuthStore = defineStore('auth', {
           throw error;
         }
 
+        if (!data.session && !usesEmailAddress) {
+          throw new Error(
+            '현재 설정에서는 아이디 가입 직후 메일 확인이 필요해요. Supabase 메일 확인 설정을 바꾸거나 이메일로 가입해 주세요.'
+          );
+        }
+
         await this.reconcileResolvedSession(data.session);
 
         return {
           needsEmailConfirmation: !data.session,
-          redirectPath: data.session ? this.getPostLoginPath('/') : '/login'
+          redirectPath: data.session ? '/' : '/login'
         };
       } catch (error) {
         this.errorMessage = extractAuthMessage(error, '회원가입에 실패했어요.');

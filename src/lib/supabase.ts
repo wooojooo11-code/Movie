@@ -11,6 +11,12 @@ export const supabaseRatingsSchema = import.meta.env.VITE_SUPABASE_RATINGS_SCHEM
 export const supabaseRatingsTable = import.meta.env.VITE_SUPABASE_RATINGS_TABLE?.trim() || 'ratings';
 export const supabaseRatingsUserColumn =
   import.meta.env.VITE_SUPABASE_RATINGS_USER_COLUMN?.trim() || 'user_id';
+export const supabaseRatingHistorySchema =
+  import.meta.env.VITE_SUPABASE_RATING_HISTORY_SCHEMA?.trim() || 'public';
+export const supabaseRatingHistoryTable =
+  import.meta.env.VITE_SUPABASE_RATING_HISTORY_TABLE?.trim() || 'rating_history';
+export const supabaseRatingHistoryUserColumn =
+  import.meta.env.VITE_SUPABASE_RATING_HISTORY_USER_COLUMN?.trim() || 'user_id';
 export const supabaseRecommendationExclusionsSchema =
   import.meta.env.VITE_SUPABASE_RECOMMENDATION_EXCLUSIONS_SCHEMA?.trim() || 'public';
 export const supabaseRecommendationExclusionsTable =
@@ -60,6 +66,14 @@ export const getSupabaseRatingsRelation = () => {
   }
 
   return supabase.schema(supabaseRatingsSchema).from(supabaseRatingsTable);
+};
+
+export const getSupabaseRatingHistoryRelation = () => {
+  if (!supabase) {
+    return null;
+  }
+
+  return supabase.schema(supabaseRatingHistorySchema).from(supabaseRatingHistoryTable);
 };
 
 export const getSupabaseRecommendationExclusionsRelation = () => {

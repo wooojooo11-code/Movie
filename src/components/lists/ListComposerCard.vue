@@ -13,6 +13,8 @@ const props = withDefaults(
   defineProps<{
     title: string;
     isPrivate: boolean;
+    canShare?: boolean;
+    shareRestrictionReason?: null | string;
     movies: readonly DeepReadonly<SearchableCatalogMovie>[];
     canSave: boolean;
     isEditing: boolean;
@@ -24,6 +26,8 @@ const props = withDefaults(
     isFramed?: boolean;
   }>(),
   {
+    canShare: true,
+    shareRestrictionReason: null,
     isFramed: true
   }
 );
@@ -49,7 +53,7 @@ const matchLabelMap: Record<SearchMatchField, string> = {
 };
 
 const rootClassName = computed(() =>
-  props.isFramed ? 'border border-app-line bg-app-panel p-4' : ''
+  props.isFramed ? 'corner-hard border border-app-line bg-app-panel p-4' : ''
 );
 
 const handleTitleInput = (event: Event) => {
@@ -68,17 +72,22 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
     <div class="flex items-start justify-between gap-3">
       <button
         type="button"
-        class="focus-ring border px-3 py-1.5 text-xs font-semibold"
+        class="focus-ring corner-pill border px-3 py-1.5 text-xs font-semibold"
         :class="
           isPrivate
             ? 'border-app-line bg-app-panelSoft text-app-muted'
             : 'border-app-accent bg-app-accent text-white'
         "
+        :disabled="Boolean(shareRestrictionReason)"
         @click="emit('toggle-private')"
       >
         {{ isPrivate ? '비공유' : '공유' }}
       </button>
     </div>
+
+    <p v-if="shareRestrictionReason" class="mt-2 text-xs text-app-muted">
+      {{ shareRestrictionReason }}
+    </p>
 
     <div class="mt-5 border-t border-app-line pt-4">
       <div class="flex items-center justify-between gap-3">
@@ -87,7 +96,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
         </div>
         <span
           v-if="isSearching"
-          class="border border-app-line bg-app-panelSoft px-2.5 py-1 text-xs font-semibold text-app-muted"
+          class="corner-pill border border-app-line bg-app-panelSoft px-2.5 py-1 text-xs font-semibold text-app-muted"
         >
           찾는 중
         </span>
@@ -115,7 +124,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
             <article
               v-for="result in movieResults"
               :key="result.movie.id"
-              class="flex items-center gap-3 border border-app-line bg-app-panelSoft p-3"
+              class="corner-hard flex items-center gap-3 border border-app-line bg-app-panelSoft p-3"
             >
               <img
                 :src="result.movie.posterUrl"
@@ -132,7 +141,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                   <WatchToggleButton :movie-id="result.movie.id" size="sm" />
                   <button
                     type="button"
-                    class="focus-ring inline-flex min-h-8 items-center justify-center border px-3 text-[11px] font-semibold"
+                    class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border px-3 text-[11px] font-semibold"
                     :class="
                       isMovieSelected(result.movie.id)
                         ? 'border-app-line bg-app-panel text-app-muted'
@@ -150,7 +159,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
 
           <div
             v-else
-            class="border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
+            class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
           >
             맞는 영화가 없어요.
           </div>
@@ -166,14 +175,14 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
             <article
               v-for="result in listResults"
               :key="`${result.source}-${result.list.id}`"
-              class="border border-app-line bg-app-panelSoft p-4"
+              class="corner-hard border border-app-line bg-app-panelSoft p-4"
             >
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <div class="flex flex-wrap items-center gap-2">
                     <h4 class="text-sm font-semibold text-white">{{ result.list.title }}</h4>
                     <span
-                      class="border px-2.5 py-1 text-[11px] font-semibold"
+                      class="corner-pill border px-2.5 py-1 text-[11px] font-semibold"
                       :class="
                         result.source === 'mine'
                           ? 'border-app-line bg-app-panel text-app-muted'
@@ -184,8 +193,8 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                     </span>
                   </div>
                   <p class="mt-2 text-xs text-app-muted">
-                    {{ result.list.ownerName }} · 저장 {{ result.list.saveCount.toLocaleString('ko-KR') }} · 평균
-                    {{ result.list.averageRating.toFixed(1) }}
+                    {{ result.list.ownerName }} · 평균 {{ result.list.averageRating.toFixed(1) }} · 저장
+                    {{ result.list.saveCount.toLocaleString('ko-KR') }}
                   </p>
                 </div>
               </div>
@@ -194,14 +203,14 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                 <span
                   v-for="field in result.matchedBy"
                   :key="`${result.list.id}-${field}`"
-                  class="border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-app-muted"
+                  class="corner-pill border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-app-muted"
                 >
                   {{ matchLabelMap[field] }}
                 </span>
                 <span
                   v-for="movieTitle in result.movieTitles"
                   :key="`${result.list.id}-${movieTitle}`"
-                  class="border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-white"
+                  class="corner-pill border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-white"
                 >
                   {{ movieTitle }}
                 </span>
@@ -211,7 +220,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
 
           <div
             v-else
-            class="border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
+            class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
           >
             맞는 리스트가 없어요.
           </div>
@@ -237,7 +246,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
           <button
             v-if="isEditing || movies.length > 0 || title"
             type="button"
-            class="focus-ring border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-semibold text-app-muted"
+            class="focus-ring corner-soft border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-semibold text-app-muted"
             @click="emit('reset')"
           >
             초기화
@@ -248,7 +257,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
           <article
             v-for="movie in movies"
             :key="movie.id"
-            class="flex items-center gap-3 border border-app-line bg-app-panelSoft p-3"
+            class="corner-hard flex items-center gap-3 border border-app-line bg-app-panelSoft p-3"
           >
             <img
               :src="movie.posterUrl"
@@ -265,7 +274,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                 <WatchToggleButton :movie-id="movie.id" size="sm" />
                 <button
                   type="button"
-                  class="focus-ring border border-app-line bg-app-panel px-3 py-2 text-[11px] font-semibold text-white"
+                  class="focus-ring corner-soft border border-app-line bg-app-panel px-3 py-2 text-[11px] font-semibold text-white"
                   @click="emit('remove-movie', movie.id)"
                 >
                   삭제
@@ -277,7 +286,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
 
         <div
           v-else
-          class="mt-3 border border-dashed border-app-line bg-app-panelSoft px-4 py-6 text-sm text-app-muted"
+          class="corner-hard mt-3 border border-dashed border-app-line bg-app-panelSoft px-4 py-6 text-sm text-app-muted"
         >
           아직 담긴 영화가 없습니다.
         </div>
@@ -287,7 +296,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
     <div class="mt-4 flex gap-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-11 flex-1 items-center justify-center border border-app-accent bg-app-accent px-4 py-[11px] text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
+        class="focus-ring corner-soft inline-flex min-h-11 flex-1 items-center justify-center border border-app-accent bg-app-accent px-4 py-[11px] text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
         :disabled="!canSave"
         @click="emit('save')"
       >
@@ -295,7 +304,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       </button>
       <button
         type="button"
-        class="focus-ring inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 py-[11px] text-sm font-semibold text-white"
+        class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 py-[11px] text-sm font-semibold text-white"
         @click="emit('reset')"
       >
         새 리스트

@@ -49,10 +49,10 @@ const onTouchEnd = () => {
 </script>
 
 <template>
-  <article class="w-[148px] shrink-0 snap-start border border-app-line bg-app-panel sm:w-[164px]">
+  <article class="corner-hard w-[148px] shrink-0 snap-start border border-app-line bg-app-panel sm:w-[164px]">
     <button
       type="button"
-      class="focus-ring poster-hover-card block w-full overflow-hidden text-left"
+      class="focus-ring corner-hard poster-hover-card block w-full overflow-hidden text-left"
       style="touch-action: manipulation"
       @click.stop="openMovie"
       @touchstart.passive="onTouchStart"
@@ -69,7 +69,7 @@ const onTouchEnd = () => {
         />
 
         <span
-          class="absolute left-2 top-2 border border-app-line bg-app-surface px-2 py-1 text-[11px] font-medium text-[#15171c]"
+          class="corner-pill absolute left-2 top-2 border border-app-line bg-app-surface px-2 py-1 text-[11px] font-medium text-[#15171c]"
         >
           {{ movie.rank }}
         </span>
@@ -88,7 +88,7 @@ const onTouchEnd = () => {
     <div class="border-t border-app-line p-2">
       <button
         type="button"
-        class="focus-ring inline-flex min-h-8 w-full items-center justify-center border border-app-line bg-app-panelSoft px-2 text-[11px] font-medium text-[#15171c]"
+        class="focus-ring corner-soft inline-flex min-h-8 w-full items-center justify-center border border-app-line bg-app-panelSoft px-2 text-[11px] font-medium text-[#15171c]"
         style="touch-action: manipulation"
         @click.stop="openMovie"
         @pointerdown.stop.prevent="openMovie"

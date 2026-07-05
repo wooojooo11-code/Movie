@@ -11,12 +11,37 @@ import type {
 
 export type MoodContext = 'normal' | 'after_exam' | 'bed_time' | 'with_friends' | 'after_academy';
 export type RecommendationContextWeights = Record<MoodContext, Record<number, number>>;
+export type TasteAnalysisGenre =
+  | '액션'
+  | '애니메이션'
+  | '로맨스'
+  | '코미디'
+  | '추리'
+  | 'SF'
+
+export interface CatalogMovieWatchProvider {
+  logoPath: null | string;
+  logoUrl: null | string;
+  providerId: number;
+  providerName: string;
+}
+
+export interface CatalogMovieWatchProviders {
+  buy: CatalogMovieWatchProvider[];
+  flatrate: CatalogMovieWatchProvider[];
+  link: null | string;
+  region: 'KR';
+  rent: CatalogMovieWatchProvider[];
+}
 
 export interface CatalogMovie extends Movie {
   genreIds?: number[];
+  overview: string;
   releaseYear: number;
+  tmdbMovieId: number;
   posterUrl: string;
   posterAlt: string;
+  watchProvidersKr: CatalogMovieWatchProviders | null;
 }
 
 export interface CatalogMovieList extends MovieList {
@@ -44,12 +69,13 @@ export interface RecommendationStateSnapshot {
   ratings: StoredRatingRecord[];
   additionalTasteAnalysisBatches: AdditionalTasteAnalysisBatch[];
   dismissedRecommendationMovieIds: string[];
+  selectedTasteAnalysisGenres: TasteAnalysisGenre[];
   currentContext: MoodContext;
   currentContextUpdatedAt: string;
 }
 
 export interface RatingFeedbackPayload {
-  rating: number;
+  rating: number | null;
   reviewTags: ReviewTag[];
   favoriteCharacter: string | null;
   reviewText: string;

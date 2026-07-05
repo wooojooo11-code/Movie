@@ -27,18 +27,28 @@ const activeAdditionalBatchIndex = ref<null | number>(null);
 const lastActivatedMoreModeKey = ref<null | string>(null);
 const isSavingManualDecision = ref(false);
 const isSavingPrimaryDecision = ref(false);
-const primaryNegativeDecision = ref<null | 'dislike' | 'not_interested'>(null);
-const primaryNegativeMovieId = ref<null | string>(null);
-const primaryNegativeFormContainer = ref<HTMLElement | null>(null);
 const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
 let savedNoticeTimer: null | ReturnType<typeof setTimeout> = null;
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
-const likedRatingRecords = computed(() =>
-  recommendationStore.state.ratings.filter((rating) => rating.rawDecision === 'like')
-);
 const pendingDetailedRatings = computed(() => recommendationStore.pendingDetailedRatings.value);
+const tasteAnalysisMovieIdSet = computed(
+  () =>
+    new Set([
+      ...recommendationStore.primaryRatingMovies.value.map((movie) => movie.id),
+      ...recommendationStore.state.additionalTasteAnalysisBatches.flatMap((batch) => batch.movieIds)
+    ])
+);
+const detailRatingRecords = computed(() =>
+  recommendationStore.state.ratings.filter(
+    (rating) =>
+      tasteAnalysisMovieIdSet.value.has(rating.input.movieId) && rating.rawDecision !== 'not_seen'
+  )
+);
+const pendingDetailedTasteAnalysisRatings = computed(() =>
+  pendingDetailedRatings.value.filter((rating) => tasteAnalysisMovieIdSet.value.has(rating.input.movieId))
+);
 const activeRatingMovies = computed(() =>
   activeAdditionalBatchIndex.value != null
     ? recommendationStore.getAdditionalTasteAnalysisBatchMovies(activeAdditionalBatchIndex.value)
@@ -70,7 +80,7 @@ const currentDetailRecord = computed<null | StoredRatingRecord>(() => {
     recommendationStore.state.ratings.find(
       (rating) =>
         rating.input.movieId === currentDetailMovie.value?.id &&
-        rating.rawDecision === 'like' &&
+        rating.rawDecision !== 'not_seen' &&
         !rating.detailCompleted
     ) ?? null;
 
@@ -95,16 +105,12 @@ const currentCharacterChoices = computed(() =>
     ? getCharacterChoices(currentDetailMovie.value.id, currentDetailMovie.value.characters)
     : []
 );
-const currentRatingCharacterChoices = computed(() =>
-  currentRatingMovie.value
-    ? getCharacterChoices(currentRatingMovie.value.id, currentRatingMovie.value.characters)
-    : []
-);
+const isCurrentDetailPositive = computed(() => currentDetailRecord.value?.rawDecision === 'like');
 
 const initialFeedback = computed(() => {
   const record = currentDetailRecord.value;
 
-  if (!record) {
+  if (!record || record.rawDecision !== 'like') {
     return null;
   }
 
@@ -117,9 +123,20 @@ const initialFeedback = computed(() => {
   };
 });
 
-const showPrimaryNegativeFeedback = computed(
-  () => !isDetailMode.value && primaryNegativeMovieId.value === currentRatingMovie.value?.id
-);
+const initialNegativeFeedback = computed(() => {
+  const record = currentDetailRecord.value;
+
+  if (!record || record.rawDecision === 'like' || record.rawDecision === 'not_seen') {
+    return null;
+  }
+
+  return {
+    stars: record.input.rating ?? null,
+    reviewTags: [...record.input.reviewTags],
+    favoriteCharacter: record.input.favoriteCharacter,
+    reviewText: record.reviewText
+  };
+});
 
 const searchableManualMovies = computed(() => {
   const query = manualSearchQuery.value.trim().toLocaleLowerCase();
@@ -208,17 +225,9 @@ watch(
   { immediate: true }
 );
 
-watch(
-  () => currentRatingMovie.value?.id,
-  () => {
-    primaryNegativeDecision.value = null;
-    primaryNegativeMovieId.value = null;
-  }
-);
-
 const totalCount = computed(() => {
   if (isDetailMode.value) {
-    return likedRatingRecords.value.length;
+    return detailRatingRecords.value.length;
   }
 
   return activeRatingMovies.value.length;
@@ -226,7 +235,7 @@ const totalCount = computed(() => {
 
 const completedCount = computed(() => {
   if (isDetailMode.value) {
-    return Math.max(0, likedRatingRecords.value.length - pendingDetailedRatings.value.length);
+    return Math.max(0, detailRatingRecords.value.length - pendingDetailedTasteAnalysisRatings.value.length);
   }
 
   return activeRatedCount.value;
@@ -234,7 +243,7 @@ const completedCount = computed(() => {
 
 const stageLabel = computed(() => {
   if (isDetailMode.value) {
-    return currentDetailMovie.value ? '좋아요 상세평가' : '상세평가 완료';
+    return currentDetailMovie.value ? '상세 평가 진행' : '상세 평가 완료';
   }
 
   if (activeAdditionalBatchIndex.value != null) {
@@ -258,11 +267,11 @@ const completionTitle = computed(() => {
 
 const completionDescription = computed(() => {
   if (isDetailMode.value) {
-    return '좋아요 이유까지 반영해서 추천을 더 정확하게 맞출게요.';
+    return '남겨준 감상을 더 자세히 반영해서 추천을 더 정확하게 맞출게요.';
   }
 
   if (currentDetailMovie.value) {
-    return '좋아요로 남긴 영화는 마지막에 한 번에 상세 평가를 이어서 할 수 있어요.';
+    return '좋아요, 재미없음, 관심없음으로 남긴 영화들을 마지막에 한 번에 상세 평가할 수 있어요.';
   }
 
   if (activeAdditionalBatchIndex.value != null) {
@@ -345,42 +354,13 @@ const savePrimaryMovieDecision = async (decision: RatingDecision | 'not_interest
     return;
   }
 
-  if (decision === 'dislike' || decision === 'not_interested') {
-    primaryNegativeDecision.value = decision;
-    primaryNegativeMovieId.value = movie.id;
-    await scrollToContainer(primaryNegativeFormContainer);
-    return;
-  }
-
-  primaryNegativeDecision.value = null;
-  primaryNegativeMovieId.value = null;
   isSavingPrimaryDecision.value = true;
 
   try {
-    if (decision === 'like') {
-      const input: RatingInput = {
-        movieId: movie.id,
-        userId: recommendationStore.state.userId,
-        status: 'like',
-        rating: null,
-        reviewTags: [],
-        favoriteCharacter: null,
-        answeredAt: new Date().toISOString()
-      };
-
-      await recommendationStore.submitSwipeRating(movie, input, {
-        rawDecision: 'like',
-        detailCompleted: false
-      });
-
-      showSavedNotice(`${movie.title} 좋아요를 저장했어요.`, '상세 평가는 마지막에 한 번에 이어서 할 수 있어요.');
-      return;
-    }
-
     const input: RatingInput = {
       movieId: movie.id,
       userId: recommendationStore.state.userId,
-      status: decision,
+      status: decision === 'like' ? 'like' : decision === 'not_seen' ? 'not_seen' : 'dislike',
       rating: null,
       reviewTags: [],
       favoriteCharacter: null,
@@ -389,58 +369,58 @@ const savePrimaryMovieDecision = async (decision: RatingDecision | 'not_interest
 
     await recommendationStore.submitSwipeRating(movie, input, {
       rawDecision: decision,
-      detailCompleted: true
+      detailCompleted: decision === 'not_seen'
     });
 
-    showSavedNotice(`${movie.title} 평가를 저장했어요.`, '추천 결과에도 바로 반영할게요.');
+    if (decision === 'not_seen') {
+      showSavedNotice(`${movie.title} 평가를 저장했어요.`, '추천 결과에도 바로 반영할게요.');
+      return;
+    }
+
+    showSavedNotice(
+      `${movie.title} 평가를 저장했어요.`,
+      '상세 평가는 마지막에 한 번에 이어서 남길 수 있어요.'
+    );
   } finally {
     isSavingPrimaryDecision.value = false;
   }
 };
 
-const submitPrimaryNegativeFeedback = async (feedback: NegativeRatingInput) => {
-  const movie = currentRatingMovie.value;
+const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
+  const movie = currentDetailMovie.value;
+  const record = currentDetailRecord.value;
 
-  if (
-    !movie ||
-    isDetailMode.value ||
-    isSavingPrimaryDecision.value ||
-    primaryNegativeMovieId.value !== movie.id
-  ) {
+  if (!movie || !record || record.rawDecision === 'like' || record.rawDecision === 'not_seen') {
     return;
   }
 
-  isSavingPrimaryDecision.value = true;
+  const input: RatingInput = {
+    movieId: movie.id,
+    userId: recommendationStore.state.userId,
+    status: 'dislike',
+    rating: feedback.stars,
+    reviewTags: feedback.reviewTags,
+    favoriteCharacter: feedback.favoriteCharacter,
+    answeredAt: new Date().toISOString()
+  };
 
-  try {
-    const input: RatingInput = {
-      movieId: movie.id,
-      userId: recommendationStore.state.userId,
-      status: 'dislike',
+  await recommendationStore.submitSwipeRating(movie, input, {
+    rawDecision: record.rawDecision,
+    detailCompleted: true,
+    feedback: {
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
       favoriteCharacter: feedback.favoriteCharacter,
-      answeredAt: new Date().toISOString()
-    };
+      reviewText: feedback.reviewText,
+      questionText: ''
+    }
+  });
 
-    await recommendationStore.submitSwipeRating(movie, input, {
-      rawDecision: primaryNegativeDecision.value === 'not_interested' ? 'not_interested' : 'dislike',
-      detailCompleted: true,
-      feedback: {
-        rating: feedback.stars,
-        reviewTags: feedback.reviewTags,
-        favoriteCharacter: feedback.favoriteCharacter,
-        reviewText: feedback.reviewText,
-        questionText: ''
-      }
-    });
-
-    showSavedNotice(`${movie.title} 평가를 저장했어요.`, '별로 기록도 추천에 바로 반영할게요.');
-  } finally {
-    primaryNegativeDecision.value = null;
-    primaryNegativeMovieId.value = null;
-    isSavingPrimaryDecision.value = false;
+  if (!recommendationStore.getPendingDetailMovie()) {
+    await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
   }
+
+  showSavedNotice('상세 평가를 저장했어요.', '별로 기록도 추천에 더 자세히 반영할게요.');
 };
 
 const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
@@ -692,6 +672,7 @@ onUnmounted(() => {
       </div>
 
       <PositiveFeedbackForm
+        v-if="isCurrentDetailPositive"
         :key="`${currentMovie.id}-detail`"
         :characters="currentCharacterChoices"
         :question-text="currentQuestion"
@@ -700,13 +681,22 @@ onUnmounted(() => {
         @skip="skipPositiveFeedback"
         @submit="submitPositiveFeedback"
       />
+
+      <NegativeFeedbackForm
+        v-else
+        :key="`${currentMovie.id}-detail-negative`"
+        :characters="currentCharacterChoices"
+        :initial-value="initialNegativeFeedback"
+        submit-label="상세 평가 저장하기"
+        @submit="submitNegativeFeedback"
+      />
     </template>
 
     <template v-else-if="currentMovie">
       <RatingMovieCard
-        :key="`${currentMovie.id}-${showPrimaryNegativeFeedback ? 'negative' : 'primary'}`"
+        :key="`${currentMovie.id}-primary`"
         :movie="currentMovie"
-        :interactive="!showPrimaryNegativeFeedback"
+        :interactive="true"
         @decide="savePrimaryMovieDecision"
       />
 
@@ -715,15 +705,6 @@ onUnmounted(() => {
       </div>
 
       <RatingActions @decide="savePrimaryMovieDecision" />
-
-      <div v-if="showPrimaryNegativeFeedback" ref="primaryNegativeFormContainer">
-        <NegativeFeedbackForm
-          :key="`${currentMovie.id}-primary-negative`"
-          :characters="currentRatingCharacterChoices"
-          submit-label="이 평가 저장하기"
-          @submit="submitPrimaryNegativeFeedback"
-        />
-      </div>
     </template>
 
     <section v-else class="corner-hard border border-app-line bg-app-panel px-5 py-5">

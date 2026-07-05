@@ -592,9 +592,11 @@ const selectedTasteAnalysisGenres = computed(() => state.selectedTasteAnalysisGe
 const primaryRatingMovies = computed(() =>
   getPrimaryRatingMovies(selectedTasteAnalysisGenres.value)
 );
-const likedRatingRecords = computed(() => state.ratings.filter((rating) => rating.rawDecision === 'like'));
+const detailEligibleRatingRecords = computed(() =>
+  state.ratings.filter((rating) => rating.rawDecision !== 'not_seen')
+);
 const pendingDetailedRatings = computed(() =>
-  likedRatingRecords.value.filter((rating) => !rating.detailCompleted)
+  detailEligibleRatingRecords.value.filter((rating) => !rating.detailCompleted)
 );
 const primaryRatingMovieIds = computed(
   () => new Set(primaryRatingMovies.value.map((movie) => movie.id))

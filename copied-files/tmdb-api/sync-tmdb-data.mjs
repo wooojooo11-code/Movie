@@ -16,7 +16,7 @@ const DETAIL_FETCH_CONCURRENCY = 4;
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
 const MAX_TAG_COUNT = 4;
 const MAX_GENRE_COUNT = 3;
-const MAX_CAST_COUNT = 3;
+const MAX_CAST_COUNT = 10;
 
 const discoveryGenres = [
   { key: '액션', tmdbGenreId: 28 },

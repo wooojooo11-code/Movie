@@ -251,13 +251,6 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
     </section>
 
     <template v-else>
-      <section class="corner-hard border border-app-line bg-app-panel p-4">
-        <p class="text-sm font-semibold text-white">평가를 다시 고를 수 있어요.</p>
-        <p class="mt-2 text-sm leading-6 text-app-muted">
-          재밌음, 별로, 관심없음을 고르면 아래에서 상세 평가를 함께 수정할 수 있어요.
-        </p>
-      </section>
-
       <RatingMovieCard :movie="movie" size="detail" @decide="saveDecision" />
       <div class="flex justify-end">
         <WatchToggleButton :movie-id="movie.id" size="md" />

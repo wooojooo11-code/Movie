@@ -1,3 +1,5 @@
+import { NO_FAVORITE_CHARACTER } from '@/types/rating';
+
 export type SwipeStatus = 'not_seen' | 'dislike' | 'like';
 
 export type ReviewTag =
@@ -104,6 +106,9 @@ const CHARACTER_WEIGHT = 1;
 const REVIEW_TEXT_TAG_WEIGHT = 1;
 const REVIEW_TEXT_GENRE_WEIGHT = 1;
 const REVIEW_TEXT_REVIEW_TAG_WEIGHT = 1;
+
+const hasMeaningfulFavoriteCharacter = (favoriteCharacter: null | string): favoriteCharacter is string =>
+  Boolean(favoriteCharacter && favoriteCharacter !== NO_FAVORITE_CHARACTER);
 
 const REVIEW_TAG_MATCH_MAP: Record<ReviewTag, string[]> = {
   액션: ['액션'],
@@ -421,7 +426,7 @@ export function applyRatingToProfile(
       addScore(nextProfile.reviewTagScores, reviewTag, -REVIEW_TAG_WEIGHT);
     }
 
-    if (input.favoriteCharacter) {
+    if (hasMeaningfulFavoriteCharacter(input.favoriteCharacter)) {
       addScore(nextProfile.characterScores, input.favoriteCharacter, -CHARACTER_WEIGHT);
     }
 
@@ -457,7 +462,7 @@ export function applyRatingToProfile(
     addScore(nextProfile.reviewTagScores, reviewTag, REVIEW_TAG_WEIGHT);
   }
 
-  if (input.favoriteCharacter) {
+  if (hasMeaningfulFavoriteCharacter(input.favoriteCharacter)) {
     addScore(nextProfile.characterScores, input.favoriteCharacter, CHARACTER_WEIGHT);
   }
 

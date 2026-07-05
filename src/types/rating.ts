@@ -5,6 +5,8 @@ export type RatingDecision = SwipeStatus;
 
 export type RatingMovie = CatalogMovie;
 
+export const NO_FAVORITE_CHARACTER = '선택안함';
+
 export interface CharacterChoice {
   name: string;
   actorName: string | null;

@@ -4,6 +4,7 @@ import { computed } from 'vue';
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
 import { getWatchProviderLinks } from '@/services/watchProviderLinks';
 import type { RatedCatalogMovieRecord } from '@/types/recommendation';
+import { NO_FAVORITE_CHARACTER } from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
@@ -67,6 +68,15 @@ const overviewText = computed(() => props.entry.movie.overview.trim() || null);
 const questionText = computed(() => props.entry.ratingRecord.questionText.trim() || null);
 const reviewText = computed(() => props.entry.ratingRecord.reviewText.trim() || null);
 const favoriteCharacter = computed(() => props.entry.ratingRecord.input.favoriteCharacter?.trim() || null);
+const favoriteCharacterDisplay = computed(() => {
+  if (favoriteCharacter.value) {
+    return favoriteCharacter.value;
+  }
+
+  return props.entry.ratingRecord.detailCompleted && props.entry.ratingRecord.rawDecision !== 'not_seen'
+    ? NO_FAVORITE_CHARACTER
+    : null;
+});
 const genresLabel = computed(() => props.entry.movie.genres.join(' · '));
 const compactMetaLabel = computed(() =>
   [String(props.entry.movie.releaseYear), props.entry.movie.genres[0] ?? null].filter(Boolean).join(' · ')
@@ -83,7 +93,7 @@ const listMetaItems = computed(() =>
 const hasListFeedbackSection = computed(
   () =>
     props.entry.ratingRecord.input.reviewTags.length > 0 ||
-    Boolean(favoriteCharacter.value) ||
+    Boolean(favoriteCharacterDisplay.value) ||
     Boolean(reviewText.value) ||
     Boolean(questionText.value)
 );
@@ -211,10 +221,10 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
             </div>
           </div>
 
-          <div v-if="favoriteCharacter" class="grid gap-1">
+          <div v-if="favoriteCharacterDisplay" class="grid gap-1">
             <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
             <p class="text-[12px] leading-5 text-white">
-              {{ favoriteCharacter }}
+              {{ favoriteCharacterDisplay }}
             </p>
           </div>
 

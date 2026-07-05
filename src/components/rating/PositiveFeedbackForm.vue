@@ -3,7 +3,7 @@ import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
-import type { CharacterChoice, PositiveRatingInput } from '@/types/rating';
+import { NO_FAVORITE_CHARACTER, type CharacterChoice, type PositiveRatingInput } from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
@@ -67,7 +67,7 @@ const reviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
 const form = reactive<PositiveRatingInput>({
   stars: 4.5,
   reviewTags: [],
-  favoriteCharacter: null,
+  favoriteCharacter: NO_FAVORITE_CHARACTER,
   reviewText: '',
   questionText: ''
 });
@@ -75,7 +75,7 @@ const form = reactive<PositiveRatingInput>({
 const applyInitialValue = (value?: null | Partial<PositiveRatingInput>) => {
   form.stars = value?.stars ?? 4.5;
   form.reviewTags = [...(value?.reviewTags ?? [])];
-  form.favoriteCharacter = value?.favoriteCharacter ?? null;
+  form.favoriteCharacter = value?.favoriteCharacter ?? NO_FAVORITE_CHARACTER;
   form.reviewText = value?.reviewText ?? '';
   form.questionText = value?.questionText ?? '';
 };
@@ -190,7 +190,7 @@ const submitForm = () => {
           v-model="form.favoriteCharacter"
           class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-[#15171c]"
         >
-          <option class="bg-app-panel text-[#15171c]" :value="null">선택 안 함</option>
+          <option class="bg-app-panel text-[#15171c]" :value="NO_FAVORITE_CHARACTER">선택안함</option>
           <option
             v-for="character in props.characters"
             :key="character.name"

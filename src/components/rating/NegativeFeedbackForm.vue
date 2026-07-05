@@ -3,7 +3,7 @@ import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
-import type { CharacterChoice, NegativeRatingInput } from '@/types/rating';
+import { NO_FAVORITE_CHARACTER, type CharacterChoice, type NegativeRatingInput } from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
@@ -52,14 +52,14 @@ const negativeReviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> =
 const form = reactive<NegativeRatingInput>({
   stars: null,
   reviewTags: [],
-  favoriteCharacter: null,
+  favoriteCharacter: NO_FAVORITE_CHARACTER,
   reviewText: ''
 });
 
 const applyInitialValue = (value?: null | Partial<NegativeRatingInput>) => {
   form.stars = value?.stars ?? null;
   form.reviewTags = [...(value?.reviewTags ?? [])];
-  form.favoriteCharacter = value?.favoriteCharacter ?? null;
+  form.favoriteCharacter = value?.favoriteCharacter ?? NO_FAVORITE_CHARACTER;
   form.reviewText = value?.reviewText ?? '';
 };
 
@@ -173,7 +173,7 @@ const submitForm = () => {
           v-model="form.favoriteCharacter"
           class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-[#15171c]"
         >
-          <option class="bg-app-panel text-[#15171c]" :value="null">선택 안 함</option>
+          <option class="bg-app-panel text-[#15171c]" :value="NO_FAVORITE_CHARACTER">선택안함</option>
           <option
             v-for="character in props.characters"
             :key="character.name"

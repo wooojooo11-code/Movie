@@ -207,7 +207,7 @@ const setRecommendationContext = (context: MoodContext) => {
           class="focus-ring corner-pill inline-flex min-h-8 items-center justify-center border px-3.5 text-xs font-medium"
           :class="
             selectedContext === option.value
-              ? 'border-app-accent bg-app-accent text-white shadow-[0_6px_18px_rgba(224,122,36,0.24)]'
+              ? 'border-app-accent bg-app-accent text-white'
               : 'border-app-line bg-app-panelSoft text-app-muted'
           "
           @click="setRecommendationContext(option.value)"

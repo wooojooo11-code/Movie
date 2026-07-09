@@ -3,22 +3,30 @@ import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
-import { NO_FAVORITE_CHARACTER, type CharacterChoice, type NegativeRatingInput } from '@/types/rating';
+import {
+  MAX_FAVORITE_CAST_CHOICES,
+  normalizeFavoriteCharacters,
+  type CharacterChoice,
+  type NegativeRatingInput
+} from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
     characters: CharacterChoice[];
     initialValue?: null | Partial<NegativeRatingInput>;
+    showSkipButton?: boolean;
     submitLabel?: string;
   }>(),
   {
     initialValue: null,
+    showSkipButton: true,
     submitLabel: '평가 저장하기'
   }
 );
 
 const emit = defineEmits<{
   submit: [feedback: NegativeRatingInput];
+  skip: [];
 }>();
 
 const negativeReviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
@@ -52,14 +60,18 @@ const negativeReviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> =
 const form = reactive<NegativeRatingInput>({
   stars: null,
   reviewTags: [],
-  favoriteCharacter: NO_FAVORITE_CHARACTER,
+  favoriteCharacters: [],
   reviewText: ''
 });
 
 const applyInitialValue = (value?: null | Partial<NegativeRatingInput>) => {
   form.stars = value?.stars ?? null;
   form.reviewTags = [...(value?.reviewTags ?? [])];
-  form.favoriteCharacter = value?.favoriteCharacter ?? NO_FAVORITE_CHARACTER;
+  form.favoriteCharacters = normalizeFavoriteCharacters(
+    value?.favoriteCharacters ??
+      (value as Partial<NegativeRatingInput> & { favoriteCharacter?: null | string | string[] })
+        ?.favoriteCharacter
+  );
   form.reviewText = value?.reviewText ?? '';
 };
 
@@ -89,11 +101,26 @@ const toggleReviewTag = (tag: ReviewTag) => {
   form.reviewTags.push(tag);
 };
 
+const toggleFavoriteCharacter = (name: string) => {
+  const currentIndex = form.favoriteCharacters.indexOf(name);
+
+  if (currentIndex >= 0) {
+    form.favoriteCharacters.splice(currentIndex, 1);
+    return;
+  }
+
+  if (form.favoriteCharacters.length >= MAX_FAVORITE_CAST_CHOICES) {
+    return;
+  }
+
+  form.favoriteCharacters.push(name);
+};
+
 const submitForm = () => {
   emit('submit', {
     stars: form.stars,
     reviewTags: [...form.reviewTags],
-    favoriteCharacter: form.favoriteCharacter,
+    favoriteCharacters: [...form.favoriteCharacters],
     reviewText: form.reviewText.trim()
   });
 };
@@ -101,7 +128,17 @@ const submitForm = () => {
 
 <template>
   <section class="corner-hard border border-app-line bg-app-panel p-4">
-    <h2 class="text-lg font-semibold text-[#15171c]">별로였던 이유</h2>
+    <div class="flex items-center justify-between gap-3">
+      <h2 class="text-lg font-semibold text-[#15171c]">별로였던 이유</h2>
+      <button
+        v-if="props.showSkipButton"
+        type="button"
+        class="focus-ring corner-soft inline-flex min-h-9 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-xs font-medium text-[#15171c]"
+        @click="$emit('skip')"
+      >
+        건너뛰기
+      </button>
+    </div>
 
     <div class="mt-4">
       <div class="mb-2 flex items-center justify-between gap-3">
@@ -164,40 +201,54 @@ const submitForm = () => {
     </div>
 
     <div class="mt-5">
-      <label class="mb-2 block text-sm font-medium text-app-muted" for="negative-character">
-        제일 아쉬웠던 역할/배우는 누구였나요?
-      </label>
-      <div class="relative">
-        <select
-          id="negative-character"
-          v-model="form.favoriteCharacter"
-          class="focus-ring h-12 w-full appearance-none border border-app-line bg-app-panelSoft px-4 pr-11 text-sm text-[#15171c]"
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <label class="block text-sm font-medium text-app-muted">
+          아쉬웠던 배우/역할은 누구였나요?
+        </label>
+        <button
+          v-if="form.favoriteCharacters.length > 0"
+          type="button"
+          class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 text-[11px] font-medium text-[#15171c]"
+          @click="form.favoriteCharacters = []"
         >
-          <option class="bg-app-panel text-[#15171c]" :value="NO_FAVORITE_CHARACTER">선택안함</option>
-          <option
-            v-for="character in props.characters"
-            :key="character.name"
-            :value="character.name"
-            class="bg-app-panel text-[#15171c]"
-          >
-            {{ character.name }} · {{ character.actorName ?? '배우 정보 없음' }}
-          </option>
-        </select>
-        <span
-          class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-app-muted"
-          aria-hidden="true"
-        >
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M5 7.5L10 12.5L15 7.5"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.8"
-            />
-          </svg>
-        </span>
+          선택 지우기
+        </button>
       </div>
+      <p class="mb-3 text-xs text-app-muted">
+        최대 {{ MAX_FAVORITE_CAST_CHOICES }}명까지 고를 수 있어요.
+      </p>
+
+      <div v-if="props.characters.length > 0" class="grid gap-2">
+        <button
+          v-for="character in props.characters"
+          :key="character.name"
+          type="button"
+          class="focus-ring corner-soft w-full border px-3 py-3 text-left text-sm transition-colors"
+          :class="
+            form.favoriteCharacters.includes(character.name)
+              ? 'border-app-accent bg-app-accent text-white'
+              : 'border-app-line bg-app-panelSoft text-[#15171c]'
+          "
+          @click="toggleFavoriteCharacter(character.name)"
+        >
+          <span class="block font-semibold">
+            {{ character.actorName ?? '배우 정보 없음' }}
+          </span>
+          <span
+            class="mt-1 block text-xs"
+            :class="form.favoriteCharacters.includes(character.name) ? 'text-white/80' : 'text-app-muted'"
+          >
+            {{ character.name }} 역
+          </span>
+        </button>
+      </div>
+
+      <p
+        v-else
+        class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-4 text-sm text-app-muted"
+      >
+        선택할 배우 정보를 아직 찾지 못했어요.
+      </p>
     </div>
 
     <div class="mt-5">

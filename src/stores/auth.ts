@@ -318,7 +318,7 @@ export const useAuthStore = defineStore('auth', {
       const recommendationStore = useRecommendationStore();
 
       if (this.ratingCount === 0 || recommendationStore.shouldResumeTasteAnalysis.value) {
-        return '/rating';
+        return recommendationStore.resumeTasteAnalysisPath.value;
       }
 
       return fallbackPath;

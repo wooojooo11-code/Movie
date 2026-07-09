@@ -11,7 +11,13 @@ import { getCharacterChoices } from '@/services/movieCreditsService';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { NegativeRatingInput, PositiveRatingInput, RatingDecision } from '@/types/rating';
+import type {
+  NegativeRatingInput,
+  PositiveRatingInput,
+  RatingDirection,
+  RatingDecision,
+  RatingSelection
+} from '@/types/rating';
 
 const route = useRoute();
 const router = useRouter();
@@ -24,8 +30,13 @@ const movie = computed(() =>
 const ratingRecord = computed(() => recommendationStore.getStoredRatingRecord(movieId.value));
 
 const draftDecision = ref<RatingDecision | 'not_interested'>('like');
+const draftDirection = ref<null | RatingDirection>(null);
 const isSaving = ref(false);
 const detailFormContainer = ref<HTMLElement | null>(null);
+
+const historySelectedDirectionClassName = 'border-[#d97706] bg-[#d97706] text-white';
+const historySelectedDescriptionClassName = 'text-[#fff1dd]';
+const historySelectedEnterBadgeClassName = 'border border-[#fed7aa] bg-[#fff7ed] text-[#9a3412]';
 
 const decisionLabels = {
   like: '재밌음',
@@ -52,7 +63,7 @@ const initialFeedback = computed(() => {
   return {
     stars: record.input.rating ?? 4.5,
     reviewTags: [...record.input.reviewTags],
-    favoriteCharacter: record.input.favoriteCharacter,
+    favoriteCharacters: [...record.input.favoriteCharacters],
     reviewText: record.reviewText,
     questionText: record.questionText
   };
@@ -68,7 +79,7 @@ const initialNegativeFeedback = computed(() => {
   return {
     stars: record.input.rating ?? null,
     reviewTags: [...record.input.reviewTags],
-    favoriteCharacter: record.input.favoriteCharacter,
+    favoriteCharacters: [...record.input.favoriteCharacters],
     reviewText: record.reviewText
   };
 });
@@ -90,6 +101,7 @@ const showNegativeDetailForm = computed(
 
 const syncDraftDecision = () => {
   draftDecision.value = ratingRecord.value?.rawDecision ?? 'like';
+  draftDirection.value = ratingRecord.value?.rawDirection ?? null;
 };
 
 syncDraftDecision();
@@ -110,12 +122,32 @@ const scrollToDetailForm = async () => {
   });
 };
 
-const saveDecision = async (decision: RatingDecision | 'not_interested') => {
+const fallbackDirectionByDecision: Record<RatingSelection['decision'], RatingDirection> = {
+  like: 'right',
+  dislike: 'left',
+  not_interested: 'down',
+  not_seen: 'enter'
+};
+
+const normalizeSelection = (
+  selection: RatingSelection | RatingSelection['decision']
+): RatingSelection =>
+  typeof selection === 'string'
+    ? {
+        decision: selection,
+        direction: fallbackDirectionByDecision[selection]
+      }
+    : selection;
+
+const saveDecision = async (selection: RatingSelection | RatingSelection['decision']) => {
   if (!movie.value || isSaving.value) {
     return;
   }
 
+  const { decision, direction } = normalizeSelection(selection);
+
   draftDecision.value = decision;
+  draftDirection.value = direction;
 
   if (decision === 'like' || decision === 'dislike' || decision === 'not_interested') {
     await scrollToDetailForm();
@@ -131,12 +163,13 @@ const saveDecision = async (decision: RatingDecision | 'not_interested') => {
       status: decision,
       rating: null,
       reviewTags: [],
-      favoriteCharacter: null,
+      favoriteCharacters: [],
       answeredAt: new Date().toISOString()
     };
 
     await recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: decision,
+      rawDirection: direction,
       detailCompleted: true
     });
 
@@ -160,17 +193,18 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       status: 'like',
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
-      favoriteCharacter: feedback.favoriteCharacter,
+      favoriteCharacters: feedback.favoriteCharacters,
       answeredAt: new Date().toISOString()
     };
 
     await recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: 'like',
+      rawDirection: draftDirection.value,
       detailCompleted: true,
       feedback: {
         rating: feedback.stars,
         reviewTags: feedback.reviewTags,
-        favoriteCharacter: feedback.favoriteCharacter,
+        favoriteCharacters: feedback.favoriteCharacters,
         reviewText: feedback.reviewText,
         questionText: ''
       }
@@ -196,17 +230,18 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       status: 'dislike',
       rating: feedback.stars,
       reviewTags: feedback.reviewTags,
-      favoriteCharacter: feedback.favoriteCharacter,
+      favoriteCharacters: feedback.favoriteCharacters,
       answeredAt: new Date().toISOString()
     };
 
     await recommendationStore.submitSwipeRating(movie.value, input, {
       rawDecision: draftDecision.value === 'not_interested' ? 'not_interested' : 'dislike',
+      rawDirection: draftDirection.value,
       detailCompleted: true,
       feedback: {
         rating: feedback.stars,
         reviewTags: feedback.reviewTags,
-        favoriteCharacter: feedback.favoriteCharacter,
+        favoriteCharacters: feedback.favoriteCharacters,
         reviewText: feedback.reviewText,
         questionText: ''
       }
@@ -255,7 +290,13 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       <div class="flex justify-end">
         <WatchToggleButton :movie-id="movie.id" size="md" />
       </div>
-      <RatingActions @decide="saveDecision" />
+      <RatingActions
+        :active-direction="draftDirection"
+        :selected-button-class-name="historySelectedDirectionClassName"
+        :selected-description-class-name="historySelectedDescriptionClassName"
+        :selected-enter-badge-class-name="historySelectedEnterBadgeClassName"
+        @decide="saveDecision"
+      />
 
       <div
         v-if="showPositiveDetailForm || showNegativeDetailForm"
@@ -277,6 +318,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
           :key="`${movie.id}-${draftDecision}`"
           :characters="currentCharacterChoices"
           :initial-value="initialNegativeFeedback"
+          :show-skip-button="false"
           submit-label="변경 저장하기"
           @submit="submitNegativeFeedback"
         />

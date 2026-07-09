@@ -27,8 +27,24 @@ export interface LibraryRepository {
   save(snapshot: LibraryStateSnapshot): void;
 }
 
+let hasMovieLibraryTable: boolean | null = null;
+
 const isRemoteSyncEnabled = (userId: string) =>
   isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
+
+const getSupabaseErrorCode = (error: unknown) =>
+  error && typeof error === 'object' && 'code' in error && typeof error.code === 'string'
+    ? error.code
+    : '';
+
+const getSupabaseErrorMessage = (error: unknown) =>
+  error && typeof error === 'object' && 'message' in error && typeof error.message === 'string'
+    ? error.message
+    : '';
+
+const isMissingSupabaseTableError = (error: unknown, tableName: string) =>
+  getSupabaseErrorCode(error) === 'PGRST205' &&
+  getSupabaseErrorMessage(error).includes(`'public.${tableName}'`);
 
 const getRowUserId = (row: SupabaseMovieLibraryRow, userColumn: string) => {
   const value = row[userColumn];
@@ -91,6 +107,10 @@ export const remoteLibraryRepository = {
       return null;
     }
 
+    if (hasMovieLibraryTable === false) {
+      return null;
+    }
+
     const relation = getSupabaseMovieLibraryRelation() as any;
 
     if (!relation) {
@@ -102,9 +122,16 @@ export const remoteLibraryRepository = {
       .eq(supabaseMovieLibraryUserColumn, userId)
       .order('saved_at', { ascending: false });
 
+    if (error && isMissingSupabaseTableError(error, 'movie_library_items')) {
+      hasMovieLibraryTable = false;
+      return null;
+    }
+
     if (error) {
       throw error;
     }
+
+    hasMovieLibraryTable = true;
 
     return {
       userId,
@@ -113,6 +140,10 @@ export const remoteLibraryRepository = {
   },
   async save(snapshot: LibraryStateSnapshot): Promise<void> {
     if (!isRemoteSyncEnabled(snapshot.userId)) {
+      return;
+    }
+
+    if (hasMovieLibraryTable === false) {
       return;
     }
 
@@ -126,9 +157,16 @@ export const remoteLibraryRepository = {
 
     const { error: deleteError } = await relation.delete().eq(supabaseMovieLibraryUserColumn, snapshot.userId);
 
+    if (deleteError && isMissingSupabaseTableError(deleteError, 'movie_library_items')) {
+      hasMovieLibraryTable = false;
+      return;
+    }
+
     if (deleteError) {
       throw deleteError;
     }
+
+    hasMovieLibraryTable = true;
 
     if (payload.length === 0) {
       return;
@@ -136,12 +174,21 @@ export const remoteLibraryRepository = {
 
     const { error: insertError } = await relation.insert(payload);
 
+    if (insertError && isMissingSupabaseTableError(insertError, 'movie_library_items')) {
+      hasMovieLibraryTable = false;
+      return;
+    }
+
     if (insertError) {
       throw insertError;
     }
   },
   async clear(userId: string): Promise<void> {
     if (!isRemoteSyncEnabled(userId)) {
+      return;
+    }
+
+    if (hasMovieLibraryTable === false) {
       return;
     }
 
@@ -153,8 +200,15 @@ export const remoteLibraryRepository = {
 
     const { error } = await relation.delete().eq(supabaseMovieLibraryUserColumn, userId);
 
+    if (error && isMissingSupabaseTableError(error, 'movie_library_items')) {
+      hasMovieLibraryTable = false;
+      return;
+    }
+
     if (error) {
       throw error;
     }
+
+    hasMovieLibraryTable = true;
   }
 };

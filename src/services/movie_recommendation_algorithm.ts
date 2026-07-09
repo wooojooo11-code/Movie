@@ -1,4 +1,4 @@
-import { NO_FAVORITE_CHARACTER } from '@/types/rating';
+import { NO_FAVORITE_CHARACTER, normalizeFavoriteCharacters } from '@/types/rating';
 
 export type SwipeStatus = 'not_seen' | 'dislike' | 'like';
 
@@ -73,7 +73,7 @@ export interface RatingInput {
   status: SwipeStatus;
   rating: number | null;
   reviewTags: ReviewTag[];
-  favoriteCharacter: string | null;
+  favoriteCharacters: string[];
   answeredAt: string;
 }
 
@@ -107,8 +107,8 @@ const REVIEW_TEXT_TAG_WEIGHT = 1;
 const REVIEW_TEXT_GENRE_WEIGHT = 1;
 const REVIEW_TEXT_REVIEW_TAG_WEIGHT = 1;
 
-const hasMeaningfulFavoriteCharacter = (favoriteCharacter: null | string): favoriteCharacter is string =>
-  Boolean(favoriteCharacter && favoriteCharacter !== NO_FAVORITE_CHARACTER);
+const getMeaningfulFavoriteCharacters = (favoriteCharacters: readonly string[]) =>
+  favoriteCharacters.filter((favoriteCharacter) => favoriteCharacter && favoriteCharacter !== NO_FAVORITE_CHARACTER);
 
 const REVIEW_TAG_MATCH_MAP: Record<ReviewTag, string[]> = {
   액션: ['액션'],
@@ -426,8 +426,10 @@ export function applyRatingToProfile(
       addScore(nextProfile.reviewTagScores, reviewTag, -REVIEW_TAG_WEIGHT);
     }
 
-    if (hasMeaningfulFavoriteCharacter(input.favoriteCharacter)) {
-      addScore(nextProfile.characterScores, input.favoriteCharacter, -CHARACTER_WEIGHT);
+    for (const favoriteCharacter of getMeaningfulFavoriteCharacters(
+      normalizeFavoriteCharacters(input.favoriteCharacters)
+    )) {
+      addScore(nextProfile.characterScores, favoriteCharacter, -CHARACTER_WEIGHT);
     }
 
     const reviewTextSignals = extractReviewTextSignals(options?.reviewText ?? '');
@@ -462,8 +464,10 @@ export function applyRatingToProfile(
     addScore(nextProfile.reviewTagScores, reviewTag, REVIEW_TAG_WEIGHT);
   }
 
-  if (hasMeaningfulFavoriteCharacter(input.favoriteCharacter)) {
-    addScore(nextProfile.characterScores, input.favoriteCharacter, CHARACTER_WEIGHT);
+  for (const favoriteCharacter of getMeaningfulFavoriteCharacters(
+    normalizeFavoriteCharacters(input.favoriteCharacters)
+  )) {
+    addScore(nextProfile.characterScores, favoriteCharacter, CHARACTER_WEIGHT);
   }
 
   const reviewTextSignals = extractReviewTextSignals(options?.reviewText ?? '');
@@ -628,7 +632,7 @@ export function exampleUsage() {
     status: 'like',
     rating: 4.5,
     reviewTags: ['시간 가는 줄 몰랐어요', 'CG/액션 스케일이 압도적이에요'],
-    favoriteCharacter: '민재',
+    favoriteCharacters: ['민재'],
     answeredAt: new Date().toISOString()
   };
 
@@ -638,7 +642,7 @@ export function exampleUsage() {
     status: 'dislike',
     rating: null,
     reviewTags: [],
-    favoriteCharacter: null,
+    favoriteCharacters: [],
     answeredAt: new Date().toISOString()
   };
 

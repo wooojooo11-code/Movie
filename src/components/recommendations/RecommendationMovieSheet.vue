@@ -42,7 +42,7 @@ const initialFeedback = computed(() => {
   return {
     stars: record.input.rating ?? 4.5,
     reviewTags: [...record.input.reviewTags],
-    favoriteCharacter: record.input.favoriteCharacter,
+    favoriteCharacters: [...record.input.favoriteCharacters],
     reviewText: record.reviewText,
     questionText: record.questionText
   };
@@ -58,7 +58,7 @@ const initialNegativeFeedback = computed(() => {
   return {
     stars: record.input.rating ?? null,
     reviewTags: [...record.input.reviewTags],
-    favoriteCharacter: record.input.favoriteCharacter,
+    favoriteCharacters: [...record.input.favoriteCharacters],
     reviewText: record.reviewText
   };
 });
@@ -287,6 +287,7 @@ watch(
           v-else
           :characters="currentCharacterChoices"
           :initial-value="initialNegativeFeedback"
+          :show-skip-button="false"
           submit-label="평가 저장하기"
           @submit="emit('rate-dislike-submit', $event, negativeRatingDecision)"
         />

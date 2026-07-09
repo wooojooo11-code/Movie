@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
+import { getCharacterChoices } from '@/services/movieCreditsService';
 import { getWatchProviderLinks } from '@/services/watchProviderLinks';
 import type { RatedCatalogMovieRecord } from '@/types/recommendation';
 import { NO_FAVORITE_CHARACTER } from '@/types/rating';
@@ -42,7 +43,7 @@ const decisionClassName = computed(
   () => decisionClassNames[props.entry.ratingRecord.rawDecision] ?? decisionClassNames.dislike
 );
 const characterLabel = computed(() =>
-  props.entry.ratingRecord.rawDecision === 'like' ? '좋아한 인물' : '아쉬웠던 인물'
+  props.entry.ratingRecord.rawDecision === 'like' ? '좋아한 배우/역할' : '아쉬웠던 배우/역할'
 );
 
 const answeredAtLabel = computed(() => {
@@ -67,15 +68,22 @@ const starLabel = computed(() => {
 const overviewText = computed(() => props.entry.movie.overview.trim() || null);
 const questionText = computed(() => props.entry.ratingRecord.questionText.trim() || null);
 const reviewText = computed(() => props.entry.ratingRecord.reviewText.trim() || null);
-const favoriteCharacter = computed(() => props.entry.ratingRecord.input.favoriteCharacter?.trim() || null);
-const favoriteCharacterDisplay = computed(() => {
-  if (favoriteCharacter.value) {
-    return favoriteCharacter.value;
+const characterChoices = computed(() =>
+  getCharacterChoices(props.entry.movie.id, props.entry.movie.characters)
+);
+const favoriteCharactersDisplay = computed(() => {
+  if (props.entry.ratingRecord.input.favoriteCharacters.length > 0) {
+    return props.entry.ratingRecord.input.favoriteCharacters.map((favoriteCharacter) => {
+      const matchedChoice = characterChoices.value.find((character) => character.name === favoriteCharacter);
+      return matchedChoice?.actorName
+        ? `${matchedChoice.actorName} · ${matchedChoice.name}`
+        : favoriteCharacter;
+    });
   }
 
   return props.entry.ratingRecord.detailCompleted && props.entry.ratingRecord.rawDecision !== 'not_seen'
-    ? NO_FAVORITE_CHARACTER
-    : null;
+    ? [NO_FAVORITE_CHARACTER]
+    : [];
 });
 const genresLabel = computed(() => props.entry.movie.genres.join(' · '));
 const compactMetaLabel = computed(() =>
@@ -93,7 +101,7 @@ const listMetaItems = computed(() =>
 const hasListFeedbackSection = computed(
   () =>
     props.entry.ratingRecord.input.reviewTags.length > 0 ||
-    Boolean(favoriteCharacterDisplay.value) ||
+    favoriteCharactersDisplay.value.length > 0 ||
     Boolean(reviewText.value) ||
     Boolean(questionText.value)
 );
@@ -221,11 +229,17 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
             </div>
           </div>
 
-          <div v-if="favoriteCharacterDisplay" class="grid gap-1">
+          <div v-if="favoriteCharactersDisplay.length > 0" class="grid gap-1.5">
             <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
-            <p class="text-[12px] leading-5 text-white">
-              {{ favoriteCharacterDisplay }}
-            </p>
+            <div class="flex flex-wrap gap-1">
+              <span
+                v-for="favoriteCharacter in favoriteCharactersDisplay"
+                :key="favoriteCharacter"
+                class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
+              >
+                {{ favoriteCharacter }}
+              </span>
+            </div>
           </div>
 
           <div v-if="reviewText" class="grid gap-1">

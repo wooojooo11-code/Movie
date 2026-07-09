@@ -35,6 +35,7 @@ import type {
   StoredRatingRecord,
   TasteAnalysisGenre
 } from '@/types/recommendation';
+import { normalizeFavoriteCharacters } from '@/types/rating';
 
 const FALLBACK_USER_ID = 'guest-user';
 
@@ -149,13 +150,26 @@ const buildProfileFromRatings = (userId: string, ratings: StoredRatingRecord[]) 
   }, createEmptyUserPreferenceProfile(userId));
 
 const normalizeStoredRatings = (ratings: readonly StoredRatingRecord[] | undefined | null) =>
-  (ratings ?? []).map((rating) => ({
-    rawDecision: rating.rawDecision ?? rating.input.status,
-    detailCompleted: rating.detailCompleted ?? rating.input.status !== 'like',
-    input: rating.input,
-    questionText: rating.questionText ?? '',
-    reviewText: rating.reviewText ?? ''
-  }));
+  (ratings ?? []).map((rating) => {
+    const normalizedInput = rating.input as RatingInput & {
+      favoriteCharacter?: null | string | string[];
+      favoriteCharacters?: null | string | string[];
+    };
+
+    return {
+      rawDecision: rating.rawDecision ?? rating.input.status,
+      rawDirection: rating.rawDirection ?? null,
+      detailCompleted: rating.detailCompleted ?? rating.input.status !== 'like',
+      input: {
+        ...rating.input,
+        favoriteCharacters: normalizeFavoriteCharacters(
+          normalizedInput.favoriteCharacters ?? normalizedInput.favoriteCharacter
+        )
+      },
+      questionText: rating.questionText ?? '',
+      reviewText: rating.reviewText ?? ''
+    };
+  });
 
 const normalizeAdditionalTasteAnalysisBatches = (
   batches: RecommendationStateSnapshot['additionalTasteAnalysisBatches']
@@ -333,10 +347,14 @@ const mergeSnapshots = (
 
 const hasRatingRecordChanged = (left: StoredRatingRecord, right: StoredRatingRecord) =>
   left.rawDecision !== right.rawDecision ||
+  left.rawDirection !== right.rawDirection ||
   left.detailCompleted !== right.detailCompleted ||
   left.input.status !== right.input.status ||
   left.input.rating !== right.input.rating ||
-  left.input.favoriteCharacter !== right.input.favoriteCharacter ||
+  left.input.favoriteCharacters.length !== right.input.favoriteCharacters.length ||
+  left.input.favoriteCharacters.some(
+    (favoriteCharacter, index) => favoriteCharacter !== right.input.favoriteCharacters[index]
+  ) ||
   left.input.answeredAt !== right.input.answeredAt ||
   left.reviewText !== right.reviewText ||
   left.questionText !== right.questionText ||
@@ -692,6 +710,25 @@ const shouldResumeTasteAnalysis = computed(
       pendingDetailedRatings.value.length > 0 ||
       activeAdditionalTasteAnalysisBatchIndex.value !== null)
 );
+const resumeTasteAnalysisPath = computed(() => {
+  if (primaryUnratedMovies.value.length > 0) {
+    return '/rating';
+  }
+
+  if (activeAdditionalTasteAnalysisBatchIndex.value !== null) {
+    return '/rating?mode=more';
+  }
+
+  if (pendingDetailedRatings.value.length > 0) {
+    return '/rating?mode=detail';
+  }
+
+  if (hasAdditionalTasteAnalysisMovies.value) {
+    return '/rating?mode=more';
+  }
+
+  return '/rating';
+});
 
 const excludedRecommendationMovieIds = computed(() => [
   ...ratedMovieIds.value,
@@ -906,12 +943,14 @@ const submitSwipeRating = (
   input: RatingInput,
   options?: {
     rawDecision: StoredRatingRecord['rawDecision'];
+    rawDirection?: StoredRatingRecord['rawDirection'];
     detailCompleted: boolean;
     feedback?: RatingFeedbackPayload;
   }
 ) =>
   upsertRatingRecord({
     rawDecision: options?.rawDecision ?? input.status,
+    rawDirection: options?.rawDirection ?? null,
     detailCompleted: options?.detailCompleted ?? input.status !== 'like',
     input,
     reviewText: options?.feedback?.reviewText ?? '',
@@ -1091,6 +1130,7 @@ export const recommendationStore = {
   activeAdditionalTasteAnalysisBatchIndex,
   hasAdditionalTasteAnalysisMovies,
   shouldResumeTasteAnalysis,
+  resumeTasteAnalysisPath,
   ratedMoviesHistory,
   contextAwareRecommendedMovies,
   recommendedMovies,

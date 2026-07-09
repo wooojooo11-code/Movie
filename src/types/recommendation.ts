@@ -8,6 +8,7 @@ import type {
   SwipeStatus,
   UserPreferenceProfile
 } from '@/services/movie_recommendation_algorithm';
+import type { RatingDirection } from '@/types/rating';
 
 export type MoodContext = 'normal' | 'after_exam' | 'bed_time' | 'with_friends' | 'after_academy';
 export type RecommendationContextWeights = Record<MoodContext, Record<number, number>>;
@@ -51,6 +52,7 @@ export interface CatalogMovieList extends MovieList {
 
 export interface StoredRatingRecord {
   rawDecision: SwipeStatus | 'not_interested';
+  rawDirection: null | RatingDirection;
   detailCompleted: boolean;
   input: RatingInput;
   reviewText: string;
@@ -77,7 +79,7 @@ export interface RecommendationStateSnapshot {
 export interface RatingFeedbackPayload {
   rating: number | null;
   reviewTags: ReviewTag[];
-  favoriteCharacter: string | null;
+  favoriteCharacters: string[];
   reviewText: string;
   questionText: string;
 }

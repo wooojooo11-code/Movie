@@ -1,15 +1,41 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue';
+import { computed, onMounted, onUnmounted } from 'vue';
 
-import type { RatingDecision } from '@/types/rating';
+import type { RatingDecision, RatingDirection, RatingSelection } from '@/types/rating';
+
+const props = withDefaults(
+  defineProps<{
+    activeDirection?: null | RatingDirection;
+    selectedButtonClassName?: string;
+    selectedDescriptionClassName?: string;
+    selectedEnterBadgeClassName?: string;
+  }>(),
+  {
+    activeDirection: null,
+    selectedButtonClassName: 'border-[#15171c] bg-[#15171c] text-[#ffffff]',
+    selectedDescriptionClassName: 'text-[#d9dde3]',
+    selectedEnterBadgeClassName: 'border border-[#15171c] bg-[#15171c] text-[#ffffff]'
+  }
+);
 
 const emit = defineEmits<{
-  decide: [decision: RatingDecision | 'not_interested'];
+  decide: [selection: RatingSelection];
 }>();
 
-const actionButtons = [
+type ActionButton = {
+  arrow: string;
+  className: string;
+  decision: RatingDecision | 'not_interested';
+  description?: string;
+  direction: RatingDirection;
+  label: string;
+  shortcut: string;
+};
+
+const actionButtons: ActionButton[] = [
   {
     decision: 'like' as const,
+    direction: 'up' as const,
     arrow: '↑',
     shortcut: 'ArrowUp',
     label: '관심있음',
@@ -17,13 +43,15 @@ const actionButtons = [
   },
   {
     decision: 'dislike' as const,
+    direction: 'left' as const,
     arrow: '←',
     shortcut: 'ArrowLeft',
-    label: '재미없음',
+    label: '별로였음',
     className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   },
   {
     decision: 'like' as const,
+    direction: 'right' as const,
     arrow: '→',
     shortcut: 'ArrowRight',
     label: '재밌음',
@@ -31,6 +59,7 @@ const actionButtons = [
   },
   {
     decision: 'not_interested' as const,
+    direction: 'down' as const,
     arrow: '↓',
     shortcut: 'ArrowDown',
     label: '관심없음',
@@ -38,6 +67,7 @@ const actionButtons = [
   },
   {
     decision: 'not_seen' as const,
+    direction: 'enter' as const,
     arrow: 'Enter',
     shortcut: 'Enter',
     label: '안 봄',
@@ -46,13 +76,17 @@ const actionButtons = [
   }
 ];
 
-const keyboardDecisionByKey = {
-  ArrowDown: 'not_interested',
-  ArrowLeft: 'dislike',
-  ArrowRight: 'like',
-  ArrowUp: 'like',
-  Enter: 'not_seen'
-} as const satisfies Record<string, RatingDecision | 'not_interested'>;
+const defaultEnterBadgeClassName = 'border border-app-line bg-app-panelSoft text-[#15171c]';
+
+const keyboardSelectionByKey = {
+  ArrowDown: { decision: 'not_interested', direction: 'down' },
+  ArrowLeft: { decision: 'dislike', direction: 'left' },
+  ArrowRight: { decision: 'like', direction: 'right' },
+  ArrowUp: { decision: 'like', direction: 'up' },
+  Enter: { decision: 'not_seen', direction: 'enter' }
+} as const satisfies Record<string, RatingSelection>;
+
+const activeDirection = computed(() => props.activeDirection ?? null);
 
 const isEditableTarget = (target: EventTarget | null) => {
   if (!(target instanceof HTMLElement)) {
@@ -61,6 +95,23 @@ const isEditableTarget = (target: EventTarget | null) => {
 
   return Boolean(target.closest('input, textarea, select, [contenteditable="true"]'));
 };
+
+const isActiveDirection = (direction: RatingDirection) => activeDirection.value === direction;
+
+const getButtonClassName = (button: ActionButton) =>
+  isActiveDirection(button.direction) ? props.selectedButtonClassName : button.className;
+
+const getEnterBadgeClassName = (button: ActionButton) =>
+  isActiveDirection(button.direction) ? props.selectedEnterBadgeClassName : defaultEnterBadgeClassName;
+
+const getDescriptionClassName = (button: ActionButton) =>
+  isActiveDirection(button.direction) ? props.selectedDescriptionClassName : 'text-app-muted';
+
+const emitSelection = (button: ActionButton) =>
+  emit('decide', {
+    decision: button.decision,
+    direction: button.direction
+  });
 
 const handleKeyboardDecision = (event: KeyboardEvent) => {
   if (
@@ -75,14 +126,14 @@ const handleKeyboardDecision = (event: KeyboardEvent) => {
     return;
   }
 
-  const decision = keyboardDecisionByKey[event.key as keyof typeof keyboardDecisionByKey];
+  const selection = keyboardSelectionByKey[event.key as keyof typeof keyboardSelectionByKey];
 
-  if (!decision) {
+  if (!selection) {
     return;
   }
 
   event.preventDefault();
-  emit('decide', decision);
+  emit('decide', selection);
 };
 
 onMounted(() => {
@@ -106,8 +157,8 @@ onUnmounted(() => {
       :aria-label="actionButtons[0].label"
       :aria-keyshortcuts="actionButtons[0].shortcut"
       class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="actionButtons[0].className"
-      @click="emit('decide', actionButtons[0].decision)"
+      :class="getButtonClassName(actionButtons[0])"
+      @click="emitSelection(actionButtons[0])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[0].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[0].label }}</span>
@@ -119,8 +170,8 @@ onUnmounted(() => {
       :aria-label="actionButtons[1].label"
       :aria-keyshortcuts="actionButtons[1].shortcut"
       class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="actionButtons[1].className"
-      @click="emit('decide', actionButtons[1].decision)"
+      :class="getButtonClassName(actionButtons[1])"
+      @click="emitSelection(actionButtons[1])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[1].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[1].label }}</span>
@@ -131,14 +182,19 @@ onUnmounted(() => {
       :aria-label="actionButtons[4].label"
       :aria-keyshortcuts="actionButtons[4].shortcut"
       class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center px-2 text-center"
-      :class="actionButtons[4].className"
-      @click="emit('decide', actionButtons[4].decision)"
+      :class="getButtonClassName(actionButtons[4])"
+      @click="emitSelection(actionButtons[4])"
     >
-      <span class="corner-pill border border-app-line bg-app-panelSoft px-2.5 py-1 text-[10px] font-semibold leading-none text-[#15171c]">
+      <span
+        class="corner-pill px-2.5 py-1 text-[10px] font-semibold leading-none"
+        :class="getEnterBadgeClassName(actionButtons[4])"
+      >
         {{ actionButtons[4].arrow }}
       </span>
       <span class="mt-2 text-[11px] font-semibold text-inherit">{{ actionButtons[4].label }}</span>
-      <span class="mt-1 text-[10px] leading-4 text-app-muted">{{ actionButtons[4].description }}</span>
+      <span class="mt-1 text-[10px] leading-4" :class="getDescriptionClassName(actionButtons[4])">
+        {{ actionButtons[4].description }}
+      </span>
     </button>
 
     <button
@@ -146,8 +202,8 @@ onUnmounted(() => {
       :aria-label="actionButtons[2].label"
       :aria-keyshortcuts="actionButtons[2].shortcut"
       class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="actionButtons[2].className"
-      @click="emit('decide', actionButtons[2].decision)"
+      :class="getButtonClassName(actionButtons[2])"
+      @click="emitSelection(actionButtons[2])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[2].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[2].label }}</span>
@@ -159,8 +215,8 @@ onUnmounted(() => {
       :aria-label="actionButtons[3].label"
       :aria-keyshortcuts="actionButtons[3].shortcut"
       class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="actionButtons[3].className"
-      @click="emit('decide', actionButtons[3].decision)"
+      :class="getButtonClassName(actionButtons[3])"
+      @click="emitSelection(actionButtons[3])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[3].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[3].label }}</span>

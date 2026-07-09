@@ -9,13 +9,7 @@ const authStore = useAuthStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
 
-const tasteAnalysisTo = computed(() =>
-  recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value !== null ||
-  (recommendationStore.state.profile.totalRatings > 0 &&
-    recommendationStore.hasAdditionalTasteAnalysisMovies.value)
-    ? '/rating?mode=more'
-    : '/rating'
-);
+const tasteAnalysisTo = computed(() => recommendationStore.resumeTasteAnalysisPath.value);
 
 const signOut = async () => {
   try {

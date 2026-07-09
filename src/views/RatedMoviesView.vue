@@ -34,7 +34,7 @@ const filteredRatedMoviesHistory = computed(() => {
       ...movie.tags,
       ...movie.characters,
       ...ratingRecord.input.reviewTags,
-      ratingRecord.input.favoriteCharacter,
+      ...ratingRecord.input.favoriteCharacters,
       ratingRecord.reviewText,
       ratingRecord.questionText
     ]

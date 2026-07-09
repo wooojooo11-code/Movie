@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 
 import { getWatchProviderLinks } from '@/services/watchProviderLinks';
-import type { RatingDecision, RatingMovie } from '@/types/rating';
+import type { RatingMovie, RatingSelection } from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
@@ -17,7 +17,7 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  decide: [decision: RatingDecision | 'not_interested'];
+  decide: [selection: RatingSelection];
 }>();
 
 const startX = ref(0);
@@ -113,6 +113,11 @@ const resetDrag = () => {
   deltaY.value = 0;
 };
 
+const emitDecision = (selection: RatingSelection) => {
+  emit('decide', selection);
+  resetDrag();
+};
+
 const onPointerUp = (event: PointerEvent) => {
   if (!props.interactive || !isDragging.value) {
     return;
@@ -122,26 +127,22 @@ const onPointerUp = (event: PointerEvent) => {
   (event.currentTarget as HTMLElement).releasePointerCapture(event.pointerId);
 
   if (deltaY.value < -80 && Math.abs(deltaY.value) > Math.abs(deltaX.value)) {
-    emit('decide', 'like');
-    resetDrag();
+    emitDecision({ decision: 'like', direction: 'up' });
     return;
   }
 
   if (deltaX.value > 80) {
-    emit('decide', 'like');
-    resetDrag();
+    emitDecision({ decision: 'like', direction: 'right' });
     return;
   }
 
   if (deltaX.value < -80) {
-    emit('decide', 'dislike');
-    resetDrag();
+    emitDecision({ decision: 'dislike', direction: 'left' });
     return;
   }
 
   if (deltaY.value > 80 && Math.abs(deltaY.value) > Math.abs(deltaX.value)) {
-    emit('decide', 'not_interested');
-    resetDrag();
+    emitDecision({ decision: 'not_interested', direction: 'down' });
     return;
   }
 

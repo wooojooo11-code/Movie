@@ -7,15 +7,7 @@ import { useRecommendationStore } from '@/services/recommendationStore';
 const pwaPrompt = usePwaPrompt();
 const recommendationStore = useRecommendationStore();
 
-const shouldContinueTasteAnalysis = computed(
-  () =>
-    recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value !== null ||
-    (recommendationStore.state.profile.totalRatings > 0 &&
-      recommendationStore.hasAdditionalTasteAnalysisMovies.value)
-);
-const primaryButtonTo = computed(() =>
-  shouldContinueTasteAnalysis.value ? '/rating?mode=more' : '/rating'
-);
+const primaryButtonTo = computed(() => recommendationStore.resumeTasteAnalysisPath.value);
 const primaryButtonLabel = computed(() =>
   recommendationStore.state.profile.totalRatings > 0 ? '취향분석 이어하기' : '취향분석 시작하기'
 );

@@ -17,6 +17,7 @@ import type {
   StoredRatingRecord
 } from '@/types/recommendation';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
+import { normalizeFavoriteCharacters } from '@/types/rating';
 
 const STORAGE_PREFIX = 'movielist:recommendation-state';
 const RATING_HISTORY_STORAGE_PREFIX = 'movielist:rating-history';
@@ -44,6 +45,7 @@ interface SupabaseRatingRow {
   favorite_character: string | null;
   movie_id: string;
   question_text: string | null;
+  raw_direction: null | StoredRatingRecord['rawDirection'];
   rating: null | number;
   raw_decision: null | StoredRatingRecord['rawDecision'];
   review_tags: null | string[];
@@ -73,7 +75,46 @@ interface SupabaseRecommendationContextWeightRow {
   weight: null | number;
 }
 
+let hasRatingHistoryTable: boolean | null = null;
+let hasRecommendationContextWeightsTable: boolean | null = null;
+let supportsRatingsRawDirectionColumn: boolean | null = null;
+let supportsRatingHistoryRawDirectionColumn: boolean | null = null;
+
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
+
+const getSupabaseErrorCode = (error: unknown) =>
+  error && typeof error === 'object' && 'code' in error && typeof error.code === 'string'
+    ? error.code
+    : '';
+
+const getSupabaseErrorMessage = (error: unknown) =>
+  error && typeof error === 'object' && 'message' in error && typeof error.message === 'string'
+    ? error.message
+    : '';
+
+const isMissingSupabaseTableError = (error: unknown, tableName: string) =>
+  getSupabaseErrorCode(error) === 'PGRST205' &&
+  getSupabaseErrorMessage(error).includes(`'public.${tableName}'`);
+
+const isMissingSupabaseColumnError = (error: unknown, tableName: string, columnName: string) =>
+  getSupabaseErrorCode(error) === '42703' &&
+  getSupabaseErrorMessage(error).includes(`column ${tableName}.${columnName} does not exist`);
+
+const buildSupabaseRatingSelectColumns = (userColumn: string, includeRawDirection: boolean) =>
+  [
+    userColumn,
+    'movie_id',
+    'status',
+    'rating',
+    'review_tags',
+    'favorite_character',
+    'answered_at',
+    'raw_decision',
+    ...(includeRawDirection ? ['raw_direction'] : []),
+    'detail_completed',
+    'review_text',
+    'question_text'
+  ].join(', ');
 
 const getRowUserId = (
   row: SupabaseRatingRow | SupabaseRecommendationExclusionRow | SupabaseRecommendationContextRow,
@@ -83,11 +124,34 @@ const getRowUserId = (
   return typeof value === 'string' && value.length > 0 ? value : row.user_id ?? '';
 };
 
+const deserializeFavoriteCharacters = (value: null | string) => {
+  if (!value) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(value);
+    if (Array.isArray(parsed)) {
+      return normalizeFavoriteCharacters(parsed);
+    }
+  } catch {
+    // Fall through to legacy single-value support.
+  }
+
+  return normalizeFavoriteCharacters(value);
+};
+
+const serializeFavoriteCharacters = (favoriteCharacters: readonly string[]) => {
+  const normalized = normalizeFavoriteCharacters(favoriteCharacters);
+  return normalized.length > 0 ? JSON.stringify(normalized) : null;
+};
+
 const normalizeSupabaseRatingRow = (
   row: SupabaseRatingRow,
   userColumn = supabaseRatingsUserColumn
 ): StoredRatingRecord => ({
   rawDecision: row.raw_decision ?? row.status,
+  rawDirection: row.raw_direction ?? null,
   detailCompleted: row.detail_completed ?? row.status !== 'like',
   input: {
     movieId: row.movie_id,
@@ -95,7 +159,7 @@ const normalizeSupabaseRatingRow = (
     status: row.status,
     rating: row.rating,
     reviewTags: (row.review_tags ?? []) as RatingInput['reviewTags'],
-    favoriteCharacter: row.favorite_character,
+    favoriteCharacters: deserializeFavoriteCharacters(row.favorite_character),
     answeredAt: row.answered_at ?? new Date(0).toISOString()
   },
   reviewText: row.review_text ?? '',
@@ -105,20 +169,29 @@ const normalizeSupabaseRatingRow = (
 const serializeSupabaseRatingRow = (
   userId: string,
   rating: StoredRatingRecord,
-  userColumn = supabaseRatingsUserColumn
-): Record<string, boolean | null | number | string | string[]> => ({
-  [userColumn]: userId,
-  movie_id: rating.input.movieId,
-  status: rating.input.status,
-  rating: rating.input.rating,
-  review_tags: [...rating.input.reviewTags],
-  favorite_character: rating.input.favoriteCharacter,
-  answered_at: rating.input.answeredAt,
-  raw_decision: rating.rawDecision,
-  detail_completed: rating.detailCompleted,
-  review_text: rating.reviewText,
-  question_text: rating.questionText
-});
+  userColumn = supabaseRatingsUserColumn,
+  includeRawDirection = true
+): Record<string, boolean | null | number | string | string[]> => {
+  const row: Record<string, boolean | null | number | string | string[]> = {
+    [userColumn]: userId,
+    movie_id: rating.input.movieId,
+    status: rating.input.status,
+    rating: rating.input.rating,
+    review_tags: [...rating.input.reviewTags],
+    favorite_character: serializeFavoriteCharacters(rating.input.favoriteCharacters),
+    answered_at: rating.input.answeredAt,
+    raw_decision: rating.rawDecision,
+    detail_completed: rating.detailCompleted,
+    review_text: rating.reviewText,
+    question_text: rating.questionText
+  };
+
+  if (includeRawDirection) {
+    row.raw_direction = rating.rawDirection;
+  }
+
+  return row;
+};
 
 const serializeRecommendationExclusionRow = (userId: string, movieId: string) => ({
   [supabaseRecommendationExclusionsUserColumn]: userId,
@@ -261,24 +334,31 @@ export const remoteRecommendationRepository = {
       return null;
     }
 
-    const { data: ratingsData, error: ratingsError } = await ratingsRelation
-      .select(
-        [
-          supabaseRatingsUserColumn,
-          'movie_id',
-          'status',
-          'rating',
-          'review_tags',
-          'favorite_character',
-          'answered_at',
-          'raw_decision',
-          'detail_completed',
-          'review_text',
-          'question_text'
-        ].join(', ')
-      )
+    const shouldReadRatingsRawDirection = supportsRatingsRawDirectionColumn !== false;
+    let {
+      data: ratingsData,
+      error: ratingsError
+    } = await ratingsRelation
+      .select(buildSupabaseRatingSelectColumns(supabaseRatingsUserColumn, shouldReadRatingsRawDirection))
       .eq(supabaseRatingsUserColumn, userId)
       .order('answered_at', { ascending: true });
+
+    if (
+      ratingsError &&
+      shouldReadRatingsRawDirection &&
+      isMissingSupabaseColumnError(ratingsError, 'ratings', 'raw_direction')
+    ) {
+      supportsRatingsRawDirectionColumn = false;
+      ({
+        data: ratingsData,
+        error: ratingsError
+      } = await ratingsRelation
+        .select(buildSupabaseRatingSelectColumns(supabaseRatingsUserColumn, false))
+        .eq(supabaseRatingsUserColumn, userId)
+        .order('answered_at', { ascending: true }));
+    } else if (!ratingsError && shouldReadRatingsRawDirection) {
+      supportsRatingsRawDirectionColumn = true;
+    }
 
     const { data: exclusionsData, error: exclusionsError } = await exclusionsRelation
       .select([supabaseRecommendationExclusionsUserColumn, 'movie_id', 'reason'].join(', '))
@@ -339,15 +419,39 @@ export const remoteRecommendationRepository = {
       return;
     }
 
-    const ratingsPayload = snapshot.ratings.map((rating) => serializeSupabaseRatingRow(snapshot.userId, rating));
+    const shouldWriteRatingsRawDirection = supportsRatingsRawDirectionColumn !== false;
+    let ratingsPayload = snapshot.ratings.map((rating) =>
+      serializeSupabaseRatingRow(
+        snapshot.userId,
+        rating,
+        supabaseRatingsUserColumn,
+        shouldWriteRatingsRawDirection
+      )
+    );
     const exclusionsPayload = snapshot.dismissedRecommendationMovieIds.map((movieId) =>
       serializeRecommendationExclusionRow(snapshot.userId, movieId)
     );
 
     if (ratingsPayload.length > 0) {
-      const { error: ratingsSaveError } = await ratingsRelation.upsert(ratingsPayload, {
+      let { error: ratingsSaveError } = await ratingsRelation.upsert(ratingsPayload, {
         onConflict: `${supabaseRatingsUserColumn},movie_id`
       });
+
+      if (
+        ratingsSaveError &&
+        shouldWriteRatingsRawDirection &&
+        isMissingSupabaseColumnError(ratingsSaveError, 'ratings', 'raw_direction')
+      ) {
+        supportsRatingsRawDirectionColumn = false;
+        ratingsPayload = snapshot.ratings.map((rating) =>
+          serializeSupabaseRatingRow(snapshot.userId, rating, supabaseRatingsUserColumn, false)
+        );
+        ({ error: ratingsSaveError } = await ratingsRelation.upsert(ratingsPayload, {
+          onConflict: `${supabaseRatingsUserColumn},movie_id`
+        }));
+      } else if (!ratingsSaveError && shouldWriteRatingsRawDirection) {
+        supportsRatingsRawDirectionColumn = true;
+      }
 
       if (ratingsSaveError) {
         throw ratingsSaveError;
@@ -437,34 +541,56 @@ export const remoteRatingHistoryRepository = {
       return [];
     }
 
+    if (hasRatingHistoryTable === false) {
+      return [];
+    }
+
     const ratingHistoryRelation = getSupabaseRatingHistoryRelation() as any;
 
     if (!ratingHistoryRelation) {
       return [];
     }
 
-    const { data, error } = await ratingHistoryRelation
+    const shouldReadRatingHistoryRawDirection = supportsRatingHistoryRawDirectionColumn !== false;
+    let { data, error } = await ratingHistoryRelation
       .select(
-        [
+        buildSupabaseRatingSelectColumns(
           supabaseRatingHistoryUserColumn,
-          'movie_id',
-          'status',
-          'rating',
-          'review_tags',
-          'favorite_character',
-          'answered_at',
-          'raw_decision',
-          'detail_completed',
-          'review_text',
-          'question_text'
-        ].join(', ')
+          shouldReadRatingHistoryRawDirection
+        )
       )
       .eq(supabaseRatingHistoryUserColumn, userId)
       .order('answered_at', { ascending: true });
 
+    if (error && isMissingSupabaseTableError(error, 'rating_history')) {
+      hasRatingHistoryTable = false;
+      return [];
+    }
+
+    if (
+      error &&
+      shouldReadRatingHistoryRawDirection &&
+      isMissingSupabaseColumnError(error, 'rating_history', 'raw_direction')
+    ) {
+      supportsRatingHistoryRawDirectionColumn = false;
+      ({ data, error } = await ratingHistoryRelation
+        .select(buildSupabaseRatingSelectColumns(supabaseRatingHistoryUserColumn, false))
+        .eq(supabaseRatingHistoryUserColumn, userId)
+        .order('answered_at', { ascending: true }));
+    } else if (!error && shouldReadRatingHistoryRawDirection) {
+      supportsRatingHistoryRawDirectionColumn = true;
+    }
+
+    if (error && isMissingSupabaseTableError(error, 'rating_history')) {
+      hasRatingHistoryTable = false;
+      return [];
+    }
+
     if (error) {
       throw error;
     }
+
+    hasRatingHistoryTable = true;
 
     return ((data ?? []) as unknown as SupabaseRatingRow[]).map((row) =>
       normalizeSupabaseRatingRow(row, supabaseRatingHistoryUserColumn)
@@ -475,22 +601,60 @@ export const remoteRatingHistoryRepository = {
       return;
     }
 
+    if (hasRatingHistoryTable === false) {
+      return;
+    }
+
     const ratingHistoryRelation = getSupabaseRatingHistoryRelation() as any;
 
     if (!ratingHistoryRelation) {
       return;
     }
 
-    const payload = ratings.map((rating) =>
-      serializeSupabaseRatingRow(userId, rating, supabaseRatingHistoryUserColumn)
+    const shouldWriteRatingHistoryRawDirection = supportsRatingHistoryRawDirectionColumn !== false;
+    let payload = ratings.map((rating) =>
+      serializeSupabaseRatingRow(
+        userId,
+        rating,
+        supabaseRatingHistoryUserColumn,
+        shouldWriteRatingHistoryRawDirection
+      )
     );
-    const { error } = await ratingHistoryRelation.upsert(payload, {
+    let { error } = await ratingHistoryRelation.upsert(payload, {
       onConflict: `${supabaseRatingHistoryUserColumn},movie_id`
     });
+
+    if (error && isMissingSupabaseTableError(error, 'rating_history')) {
+      hasRatingHistoryTable = false;
+      return;
+    }
+
+    if (
+      error &&
+      shouldWriteRatingHistoryRawDirection &&
+      isMissingSupabaseColumnError(error, 'rating_history', 'raw_direction')
+    ) {
+      supportsRatingHistoryRawDirectionColumn = false;
+      payload = ratings.map((rating) =>
+        serializeSupabaseRatingRow(userId, rating, supabaseRatingHistoryUserColumn, false)
+      );
+      ({ error } = await ratingHistoryRelation.upsert(payload, {
+        onConflict: `${supabaseRatingHistoryUserColumn},movie_id`
+      }));
+    } else if (!error && shouldWriteRatingHistoryRawDirection) {
+      supportsRatingHistoryRawDirectionColumn = true;
+    }
+
+    if (error && isMissingSupabaseTableError(error, 'rating_history')) {
+      hasRatingHistoryTable = false;
+      return;
+    }
 
     if (error) {
       throw error;
     }
+
+    hasRatingHistoryTable = true;
   }
 };
 
@@ -508,6 +672,10 @@ export const remoteRecommendationContextWeightsRepository = {
       return null;
     }
 
+    if (hasRecommendationContextWeightsTable === false) {
+      return null;
+    }
+
     const relation = getSupabaseRecommendationContextWeightsRelation() as any;
 
     if (!relation) {
@@ -519,9 +687,16 @@ export const remoteRecommendationContextWeightsRepository = {
       .order('context_key', { ascending: true })
       .order('genre_id', { ascending: true });
 
+    if (error && isMissingSupabaseTableError(error, 'recommendation_context_weights')) {
+      hasRecommendationContextWeightsTable = false;
+      return null;
+    }
+
     if (error) {
       throw error;
     }
+
+    hasRecommendationContextWeightsTable = true;
 
     const groupedWeights: Partial<RecommendationContextWeights> = {};
 

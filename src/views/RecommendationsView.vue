@@ -58,7 +58,8 @@ const selectedMovieRatingRecord = computed(() => {
     ...record,
     input: {
       ...record.input,
-      reviewTags: [...record.input.reviewTags]
+      reviewTags: [...record.input.reviewTags],
+      favoriteCharacters: [...record.input.favoriteCharacters]
     }
   } satisfies StoredRatingRecord;
 });
@@ -96,7 +97,7 @@ const handleRecommendationDislike = async (
   const payload: RatingFeedbackPayload = {
     rating: feedback.stars,
     reviewTags: feedback.reviewTags,
-    favoriteCharacter: feedback.favoriteCharacter,
+    favoriteCharacters: feedback.favoriteCharacters,
     reviewText: feedback.reviewText,
     questionText: ''
   };
@@ -107,7 +108,7 @@ const handleRecommendationDislike = async (
     status: 'dislike',
     rating: payload.rating,
     reviewTags: payload.reviewTags,
-    favoriteCharacter: payload.favoriteCharacter,
+    favoriteCharacters: payload.favoriteCharacters,
     answeredAt: new Date().toISOString()
   };
 
@@ -126,7 +127,7 @@ const handleRecommendationLike = async (feedback: PositiveRatingInput) => {
   const payload: RatingFeedbackPayload = {
     rating: feedback.stars,
     reviewTags: feedback.reviewTags,
-    favoriteCharacter: feedback.favoriteCharacter,
+    favoriteCharacters: feedback.favoriteCharacters,
     reviewText: feedback.reviewText,
     questionText: feedback.questionText
   };
@@ -137,7 +138,7 @@ const handleRecommendationLike = async (feedback: PositiveRatingInput) => {
     status: 'like',
     rating: payload.rating,
     reviewTags: payload.reviewTags,
-    favoriteCharacter: payload.favoriteCharacter,
+    favoriteCharacters: payload.favoriteCharacters,
     answeredAt: new Date().toISOString()
   };
 

@@ -44,6 +44,9 @@ const hasDuplicateMovieIds = (movieIds: readonly string[]) => new Set(movieIds).
 
 const getMovieIdsSignature = (movieIds: readonly string[]) => [...new Set(movieIds)].sort().join('|');
 
+const areMovieIdsEqual = (left: readonly string[], right: readonly string[]) =>
+  left.length === right.length && left.every((movieId, index) => movieId === right[index]);
+
 type ShareRuleCandidate = Pick<SharedMovieListRecord | UserMovieListRecord, 'id' | 'movieIds'>;
 
 const hasDuplicateListSignature = (
@@ -130,6 +133,43 @@ const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null):
   };
 };
 
+const syncImportedUserListsWithSharedCatalog = (
+  userLists: readonly UserMovieListRecord[],
+  sharedLists: readonly SharedMovieListRecord[]
+) => {
+  const sharedListMap = new Map(sharedLists.map((list) => [list.id, list]));
+  let didChange = false;
+
+  const nextUserLists = userLists.map((list) => {
+    if (!list.sourceListId) {
+      return list;
+    }
+
+    const sourceList = sharedListMap.get(list.sourceListId);
+
+    if (!sourceList) {
+      return list;
+    }
+
+    if (list.title === sourceList.title && areMovieIdsEqual(list.movieIds, sourceList.movieIds)) {
+      return list;
+    }
+
+    didChange = true;
+
+    return {
+      ...list,
+      title: sourceList.title,
+      movieIds: [...sourceList.movieIds]
+    };
+  });
+
+  return {
+    didChange,
+    userLists: nextUserLists
+  };
+};
+
 const initialSnapshot = normalizeSnapshot(FALLBACK_USER_ID, localListRepository.load(FALLBACK_USER_ID));
 
 const state = reactive({
@@ -148,6 +188,34 @@ const state = reactive({
 const applyCurrentUserShareRules = () => {
   state.userLists = applyUserListShareRules(state.userLists, state.sharedCatalog);
 };
+
+const buildSnapshot = (): ListsStateSnapshot => ({
+  userId: state.userId,
+  userLists: state.userLists,
+  interactions: state.interactions
+});
+
+const getSnapshotFingerprint = (snapshot: ListsStateSnapshot = buildSnapshot()) =>
+  JSON.stringify(snapshot);
+
+const persistSnapshotLocally = () => {
+  localListRepository.save(buildSnapshot());
+};
+
+const syncImportedListsFromSharedCatalog = () => {
+  const { didChange, userLists } = syncImportedUserListsWithSharedCatalog(
+    state.userLists,
+    state.sharedCatalog
+  );
+
+  if (didChange) {
+    state.userLists = userLists;
+  }
+
+  return didChange;
+};
+
+const REMOTE_SAVE_FAILURE_MESSAGE = '리스트 변경 내용을 Supabase에 저장하지 못했어요.';
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
@@ -174,7 +242,10 @@ const applySnapshot = (snapshot: ListsStateSnapshot) => {
   state.isSearching = false;
 };
 
-const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
+const runRemoteTask = async (
+  task: () => Promise<void>,
+  _fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
+) => {
   remoteSyncStatus.value = 'syncing';
 
   try {
@@ -182,17 +253,20 @@ const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string)
     remoteSyncStatus.value = 'success';
   } catch (error) {
     remoteSyncStatus.value = 'error';
-    remoteSyncErrorMessage.value = getErrorMessage(error, fallbackMessage);
+    remoteSyncErrorMessage.value = getErrorMessage(error, REMOTE_SAVE_FAILURE_MESSAGE);
     console.error('[listStore] Supabase list sync failed.', error);
   }
 };
 
-const enqueueRemoteTask = (task: () => Promise<void>, fallbackMessage: string) => {
+const enqueueRemoteTask = (
+  task: () => Promise<void>,
+  _fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
+) => {
   remoteSaveChain = remoteSaveChain
     .catch(() => {
       // Previous failures already updated the error state.
     })
-    .then(() => runRemoteTask(task, fallbackMessage));
+    .then(() => runRemoteTask(task));
 
   return remoteSaveChain;
 };
@@ -225,13 +299,11 @@ const refreshSearchResults = async () => {
 };
 
 const persistState = async () => {
+  syncImportedListsFromSharedCatalog();
   applyCurrentUserShareRules();
 
-  const snapshot: ListsStateSnapshot = {
-    userId: state.userId,
-    userLists: state.userLists,
-    interactions: state.interactions
-  };
+  const snapshot = buildSnapshot();
+  const savedSnapshotFingerprint = getSnapshotFingerprint(snapshot);
 
   localListRepository.save(snapshot);
   remoteSyncErrorMessage.value = '';
@@ -243,7 +315,13 @@ const persistState = async () => {
 
   if (state.userId !== FALLBACK_USER_ID) {
     state.sharedCatalog = normalizeSharedCatalog(await remoteListRepository.loadSharedLists(state.userId));
+    syncImportedListsFromSharedCatalog();
     applyCurrentUserShareRules();
+    persistSnapshotLocally();
+
+    if (getSnapshotFingerprint() !== savedSnapshotFingerprint) {
+      await enqueueRemoteTask(() => remoteListRepository.save(buildSnapshot()));
+    }
   }
 };
 
@@ -426,7 +504,7 @@ const saveDraft = async () => {
 const editUserList = (listId: string) => {
   const target = state.userLists.find((list) => list.id === listId);
 
-  if (!target) {
+  if (!target || target.sourceListId) {
     return;
   }
 
@@ -638,13 +716,23 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
       applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
     }
 
+    const snapshotFingerprintBeforeSharedSync = getSnapshotFingerprint();
     state.sharedCatalog = normalizeSharedCatalog(remoteSharedLists);
+    const didSyncImportedLists = syncImportedListsFromSharedCatalog();
     applyCurrentUserShareRules();
-    localListRepository.save({
-      userId: normalizedUserId,
-      userLists: state.userLists,
-      interactions: state.interactions
-    });
+    persistSnapshotLocally();
+
+    if (!didSyncImportedLists && getSnapshotFingerprint() !== snapshotFingerprintBeforeSharedSync) {
+      await enqueueRemoteTask(() => remoteListRepository.save(buildSnapshot()));
+    }
+
+    if (didSyncImportedLists) {
+      await enqueueRemoteTask(
+        () => remoteListRepository.save(buildSnapshot()),
+        '由ъ뒪??蹂寃??댁슜??Supabase????ν븯吏 紐삵뻽?댁슂.'
+      );
+    }
+
     remoteSyncStatus.value = 'success';
   } catch (error) {
     remoteSyncStatus.value = 'error';

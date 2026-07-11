@@ -69,10 +69,6 @@ a {
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
 
-  .app-gradient {
-    background: #739dc4;
-  }
-
   .poster-hover-card {
     position: relative;
     transition:
@@ -135,8 +131,16 @@ a {
   }
 
   [class*='bg-gradient-to-'],
-  [class*='bg-[radial-gradient'] {
+  [class*='bg-[linear-gradient'],
+  [class*='bg-[radial-gradient'],
+  [class*='from-'],
+  [class*='via-'],
+  [class*='to-'] {
     background-image: none !important;
+  }
+
+  [class*='shadow-'] {
+    box-shadow: none !important;
   }
 
   [class*='text-white/'] {

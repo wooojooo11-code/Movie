@@ -7,3 +7,27 @@
 
   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
   [32m➜[39m  [1mNetwork[22m: [36mhttp://172.30.14.243:[1m5173[22m/[39m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/HeroCTA.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RecommendationsView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/history/RatedMovieHistoryCard.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatedMoviesView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/LibraryView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:35:47[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/LoginView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:37:42[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:37:53[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:39:16[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:47:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/UserListCard.vue, /src/assets/styles/main.css[22m
+[2mPM 12:47:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/PositiveFeedbackForm.vue, /src/assets/styles/main.css[22m
+[2mPM 12:47:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/RatingView.vue, /src/assets/styles/main.css[22m
+[2mPM 12:47:48[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/NegativeFeedbackForm.vue, /src/assets/styles/main.css[22m
+[2mPM 12:50:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/PositiveFeedbackForm.vue, /src/assets/styles/main.css[22m
+[2mPM 12:50:55[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/rating/NegativeFeedbackForm.vue, /src/assets/styles/main.css[22m
+[2mPM 1:00:57[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/UserListCard.vue, /src/assets/styles/main.css[22m
+[2mPM 1:01:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2msrc/router/index.ts[22m
+[2mPM 1:01:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
+[2mPM 1:01:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/home/Header.vue, /src/assets/styles/main.css[22m
+[2mPM 1:01:07[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/LibraryView.vue, /src/assets/styles/main.css[22m
+[2mPM 1:01:31[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/views/ListsView.vue, /src/assets/styles/main.css[22m
+[2mPM 1:01:37[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/lists/ListMovieShelf.vue, /src/assets/styles/main.css[22m

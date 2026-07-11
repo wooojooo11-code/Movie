@@ -54,15 +54,14 @@ const formatDate = (value: string) =>
       <button
         v-if="!list.sourceListId"
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-10 flex-1 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
+        class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-xs text-white"
         @click="$emit('edit', list.id)"
       >
         수정하기
       </button>
       <button
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-app-muted"
-        :class="{ 'flex-1': list.sourceListId }"
+        class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-xs text-app-muted"
         @click="list.sourceListId ? $emit('remove-from-my-lists', list.id) : $emit('delete', list.id)"
       >
         삭제

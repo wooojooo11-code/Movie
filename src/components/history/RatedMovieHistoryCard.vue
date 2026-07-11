@@ -126,14 +126,14 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
 
         <div class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-2.5">
           <span
-            class="corner-pill border px-2 py-1 text-[10px] font-medium shadow-[0_10px_24px_rgba(0,0,0,0.28)]"
+            class="corner-pill border px-2 py-1 text-[10px] font-medium"
             :class="decisionClassName"
           >
             {{ decisionLabel }}
           </span>
           <span
             v-if="starLabel"
-              class="corner-pill border border-app-line bg-[#15171c]/90 px-2 py-1 text-[10px] font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.28)]"
+              class="corner-pill border border-app-line bg-[#15171c]/90 px-2 py-1 text-[10px] font-medium text-white"
           >
             {{ starLabel }}
           </span>
@@ -189,8 +189,8 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
         </div>
       </div>
 
-        <div class="mt-4 grid gap-3">
-        <div class="corner-hard grid gap-2 border border-app-line bg-app-panelSoft px-3 py-3">
+      <div class="mt-4 grid gap-3">
+        <div class="grid gap-2 border-t border-app-line pt-3">
           <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">영화 정보</p>
           <dl class="grid gap-2 text-[12px] text-white">
             <div v-for="item in listMetaItems" :key="item.label" class="grid gap-1">
@@ -206,7 +206,7 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
           </div>
         </div>
 
-        <div v-if="hasListFeedbackSection" class="corner-hard grid gap-3 border border-app-line bg-app-panelSoft px-3 py-3">
+        <div v-if="hasListFeedbackSection" class="grid gap-3 border-t border-app-line pt-3">
           <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">내 평가</p>
 
           <div v-if="questionText" class="grid gap-1">
@@ -253,7 +253,7 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
 
       <div
         v-if="quickWatchLinks.length > 0 || tmdbWatchLink"
-        class="corner-hard mt-4 grid gap-2 border border-app-line bg-app-panelSoft px-3 py-3"
+        class="mt-4 grid gap-2 border-t border-app-line pt-3"
       >
         <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">OTT 바로가기</p>
         <div class="flex flex-wrap gap-1.5">

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 
+import LibraryMovieCard from '@/components/library/LibraryMovieCard.vue';
 import ListComposerCard from '@/components/lists/ListComposerCard.vue';
 import SharedListCard from '@/components/lists/SharedListCard.vue';
 import UserListCard from '@/components/lists/UserListCard.vue';
@@ -146,32 +147,26 @@ const handleResetDraft = () => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-6 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-xl"
   >
-    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
-      <p class="text-sm text-app-muted">
-        영화 모음도 만들고, 다른 사람이 저장한 리스트도 볼 수 있어요.
-      </p>
+    <section class="flex items-center justify-end gap-2">
+      <button
+        type="button"
+        class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-2.5 text-xs font-medium text-white"
+        @click="openCreateComposer"
+      >
+        리스트 만들기
+      </button>
 
-      <div class="mt-4 flex items-center justify-end gap-2">
-        <button
-          type="button"
-          class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-3 text-sm font-medium text-white"
-          @click="openCreateComposer"
+      <label class="flex shrink-0 items-center gap-1 text-xs font-medium text-app-muted">
+        <span class="whitespace-nowrap">정렬순</span>
+        <select
+          v-model="listSortOption"
+          class="focus-ring min-h-10 w-[5.1rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
         >
-          리스트 만들기
-        </button>
-
-        <label class="flex shrink-0 items-center gap-1 text-xs font-medium text-app-muted">
-          <span class="whitespace-nowrap">정렬순</span>
-          <select
-            v-model="listSortOption"
-            class="focus-ring min-h-10 w-[5.1rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
-          >
-            <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
-              {{ option.label }}
-            </option>
-          </select>
-        </label>
-      </div>
+          <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
+            {{ option.label }}
+          </option>
+        </select>
+      </label>
     </section>
 
     <section class="grid gap-3">
@@ -203,11 +198,35 @@ const handleResetDraft = () => {
       </div>
     </section>
 
+    <section id="library" class="grid scroll-mt-32 gap-3">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-semibold text-white">보관함</h2>
+        </div>
+        <span class="text-xs font-medium text-app-muted">{{ libraryStore.savedMovies.value.length }}개</span>
+      </div>
+
+      <div
+        v-if="libraryStore.savedMovies.value.length === 0"
+        class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
+      >
+        아직 보관한 영화가 없어요.
+      </div>
+
+      <div v-else class="grid grid-cols-2 gap-3">
+        <LibraryMovieCard
+          v-for="item in libraryStore.savedMovies.value"
+          :key="item.movieId"
+          :item="item"
+          @remove="libraryStore.removeMovie"
+        />
+      </div>
+    </section>
+
     <section class="grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">공유 리스트</h2>
-          <p class="mt-1 text-sm text-app-muted">저장하고 평점도 남길 수 있어요.</p>
         </div>
         <span class="text-xs font-medium text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
       </div>

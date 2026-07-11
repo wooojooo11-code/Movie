@@ -62,12 +62,6 @@ const readStoredViewMode = (): HistoryViewMode => {
 };
 
 const viewMode = ref<HistoryViewMode>(readStoredViewMode());
-const viewModeDescription = computed(() =>
-  viewMode.value === 'grid'
-    ? '이미지 중심 · 직관적인 구경 및 탐색'
-    : '텍스트 중심 · 정확한 정보 읽기 및 선택'
-);
-
 watch(
   viewMode,
   (mode) => {
@@ -85,15 +79,13 @@ watch(
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <p class="text-sm text-app-muted">평가한 영화를 검색해서 바로 수정할 수 있어요.</p>
-        </div>
+    <section class="grid gap-3">
+      <div class="flex items-center justify-between gap-4">
+        <h1 class="text-xl font-semibold text-[#15171c]">평가 기록</h1>
         <span class="text-sm font-medium text-white">{{ historyCountLabel }}</span>
       </div>
 
-      <div v-if="ratedMoviesHistory.length > 0" class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div v-if="ratedMoviesHistory.length > 0" class="flex flex-col gap-3 sm:flex-row sm:items-center">
         <label class="block flex-1">
           <span class="sr-only">평가기록 검색</span>
           <input
@@ -127,11 +119,7 @@ watch(
         </div>
       </div>
 
-      <p v-if="ratedMoviesHistory.length > 0" class="mt-3 text-xs font-medium text-app-muted">
-        {{ viewModeDescription }}
-      </p>
-
-      <p v-if="ratedMoviesHistory.length > 0 && hasActiveSearch" class="mt-2 text-xs text-app-muted">
+      <p v-if="ratedMoviesHistory.length > 0 && hasActiveSearch" class="text-xs text-app-muted">
         {{ `전체 ${ratedMoviesHistory.length}편 중 ${filteredRatedMoviesHistory.length}편이 보여요.` }}
       </p>
     </section>
@@ -141,7 +129,6 @@ watch(
       class="corner-hard border border-app-line bg-app-panel px-5 py-5"
     >
       <p class="text-sm font-medium text-app-accent">아직 평가한 영화가 없어요.</p>
-      <p class="mt-2 text-sm leading-6 text-app-muted">몇 편만 고르면 여기서 다시 꺼내볼 수 있어요.</p>
       <RouterLink
         to="/rating"
         class="focus-ring corner-soft mt-5 inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-medium text-white"

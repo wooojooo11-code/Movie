@@ -191,15 +191,17 @@ const setRecommendationContext = (context: MoodContext) => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-7 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
-      <h1 class="text-[25px] font-semibold leading-tight text-[#15171c]">
-        당신에게 맞을지도 몰라요
-      </h1>
-      <p class="mt-2 text-sm text-app-muted">
-        {{ recommendationStore.state.profile.totalRatings }}개 평가를 바탕으로 골랐어요.
-      </p>
+    <section class="grid gap-4">
+      <div class="flex items-start justify-between gap-4">
+        <h1 class="text-[25px] font-semibold leading-tight text-[#15171c]">
+          당신에게 맞을지도 몰라요
+        </h1>
+        <span class="shrink-0 text-xs font-medium text-app-muted">
+          {{ recommendationStore.state.profile.totalRatings }}개 평가
+        </span>
+      </div>
 
-      <div class="mt-5 flex flex-wrap gap-2.5">
+      <div class="flex flex-wrap gap-2.5">
         <RouterLink
           v-if="recommendationStore.state.profile.totalRatings === 0"
           to="/rating"
@@ -247,16 +249,7 @@ const setRecommendationContext = (context: MoodContext) => {
     <template v-if="recommendationStore.state.profile.totalRatings > 0">
       <section>
         <div class="mb-3 flex items-end justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold text-[#15171c]">당신에게 맞을지도 몰라요</h2>
-            <p class="mt-1 text-sm text-app-muted">
-              {{
-                recommendationStore.isRecommendationFallbackMode.value
-                  ? '봤던 영화도 함께 골랐어요.'
-                  : '포스터를 눌러 볼 수 있어요.'
-              }}
-            </p>
-          </div>
+          <h2 class="text-lg font-semibold text-[#15171c]">추천 영화</h2>
           <span class="text-xs text-app-muted">
             {{ recommendationStore.contextAwareRecommendedMovies.value.length }}개
           </span>

@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import EditRatingView from '@/views/EditRatingView.vue';
 import HomeView from '@/views/HomeView.vue';
-import LibraryView from '@/views/LibraryView.vue';
 import ListsView from '@/views/ListsView.vue';
 import LoginView from '@/views/LoginView.vue';
 import RatedMoviesView from '@/views/RatedMoviesView.vue';
@@ -62,9 +61,9 @@ const router = createRouter({
     {
       path: '/library',
       name: 'library',
-      component: LibraryView,
-      meta: {
-        requiresAuth: true
+      redirect: {
+        name: 'lists',
+        hash: '#library'
       }
     },
     {

@@ -37,7 +37,7 @@ const movieCards = computed(() =>
       </p>
       <p
         v-if="entry.watchAvailabilityText"
-        class="mt-1 line-clamp-2 text-[10px] leading-4 text-app-muted"
+        class="mt-1 text-[10px] leading-4 text-app-muted"
       >
         OTT · {{ entry.watchAvailabilityText }}
       </p>

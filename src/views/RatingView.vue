@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onUnmounted, ref, watch } from 'vue';
+import { computed, nextTick, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
@@ -33,12 +33,7 @@ const activeAdditionalBatchIndex = ref<null | number>(null);
 const isSavingManualDecision = ref(false);
 const isSavingPrimaryDecision = ref(false);
 const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
-const detailCompletionNotice = ref<null | {
-  movieTitle: string;
-  remainingCount: number;
-}>(null);
-let detailCompletionNoticeTimer: null | ReturnType<typeof setTimeout> = null;
-const DETAIL_COMPLETION_NOTICE_MS = 3200;
+const detailFlowTop = ref<HTMLElement | null>(null);
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
@@ -371,47 +366,13 @@ const scrollToContainer = async (containerRef: { value: HTMLElement | null }) =>
   });
 };
 
-const clearDetailCompletionNotice = () => {
-  if (detailCompletionNoticeTimer) {
-    clearTimeout(detailCompletionNoticeTimer);
-    detailCompletionNoticeTimer = null;
-  }
-
-  detailCompletionNotice.value = null;
-};
-
-const showDetailCompletionNotice = (movie: CatalogMovie) => {
-  const nextDetailMovie = recommendationStore.getPendingDetailMovie();
-
-  if (!isDetailMode.value || !nextDetailMovie) {
-    clearDetailCompletionNotice();
+const scrollToNextDetailMovie = async () => {
+  if (!isDetailMode.value || !recommendationStore.getPendingDetailMovie()) {
     return;
   }
 
-  if (detailCompletionNoticeTimer) {
-    clearTimeout(detailCompletionNoticeTimer);
-  }
-
-  detailCompletionNotice.value = {
-    movieTitle: movie.title,
-    remainingCount: pendingDetailedRatings.value.length
-  };
-
-  detailCompletionNoticeTimer = setTimeout(() => {
-    detailCompletionNotice.value = null;
-    detailCompletionNoticeTimer = null;
-  }, DETAIL_COMPLETION_NOTICE_MS);
+  await scrollToContainer(detailFlowTop);
 };
-
-watch(isDetailMode, (detailMode) => {
-  if (!detailMode) {
-    clearDetailCompletionNotice();
-  }
-});
-
-onUnmounted(() => {
-  clearDetailCompletionNotice();
-});
 
 const fallbackDirectionByDecision: Record<RatingSelection['decision'], RatingDirection> = {
   like: 'right',
@@ -502,7 +463,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       questionText: ''
     }
   });
-  showDetailCompletionNotice(movie);
+  await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -538,7 +499,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       questionText: ''
     }
   });
-  showDetailCompletionNotice(movie);
+  await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -567,7 +528,7 @@ const skipPositiveFeedback = async () => {
     rawDirection: currentDetailRecord.value?.rawDirection ?? null,
     detailCompleted: true
   });
-  showDetailCompletionNotice(movie);
+  await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -597,7 +558,7 @@ const skipNegativeFeedback = async () => {
     rawDirection: record.rawDirection,
     detailCompleted: true
   });
-  showDetailCompletionNotice(movie);
+  await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -799,22 +760,10 @@ watch(
   >
     <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
 
-    <section
-      v-if="isDetailMode && detailCompletionNotice"
-      role="status"
-      aria-live="polite"
-      class="corner-hard border border-app-accent bg-app-panelSoft px-4 py-3"
-    >
-      <p class="break-words text-sm font-semibold text-[#15171c]">
-        {{ detailCompletionNotice.movieTitle }} 상세 평가 저장됨
-      </p>
-      <p class="mt-1 text-xs leading-5 text-app-muted">
-        다음 영화로 넘어왔어요. 남은 상세 평가 {{ detailCompletionNotice.remainingCount }}편
-      </p>
-    </section>
-
     <template v-if="isDetailMode && currentMovie">
-      <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
+      <div ref="detailFlowTop">
+        <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
+      </div>
 
       <div class="flex justify-end">
         <WatchToggleButton :movie-id="currentMovie.id" size="md" />
@@ -826,6 +775,7 @@ watch(
         :characters="currentCharacterChoices"
         :question-text="currentQuestion"
         :initial-value="initialFeedback"
+        compact-controls
         submit-label="상세 평가 저장하기"
         @skip="skipPositiveFeedback"
         @submit="submitPositiveFeedback"
@@ -836,6 +786,7 @@ watch(
         :key="`${currentMovie.id}-detail-negative`"
         :characters="currentCharacterChoices"
         :initial-value="initialNegativeFeedback"
+        compact-controls
         submit-label="상세 평가 저장하기"
         @skip="skipNegativeFeedback"
         @submit="submitNegativeFeedback"
@@ -945,6 +896,7 @@ watch(
               :key="`${manualSelectedMovie.id}-manual-feedback`"
               :characters="manualMovieCharacterChoices"
               :question-text="manualMovieQuestion"
+              compact-controls
               submit-label="이 영화 평가 저장하기"
               @skip="skipManualPositiveFeedback"
               @submit="submitManualPositiveFeedback"
@@ -954,6 +906,7 @@ watch(
               v-else
               :key="`${manualSelectedMovie.id}-manual-negative`"
               :characters="manualMovieCharacterChoices"
+              compact-controls
               submit-label="이 영화 평가 저장하기"
               @skip="skipManualNegativeFeedback"
               @submit="submitManualNegativeFeedback"

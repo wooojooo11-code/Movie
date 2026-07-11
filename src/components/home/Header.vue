@@ -110,13 +110,6 @@ const signOut = async () => {
         >
           리스트
         </RouterLink>
-        <RouterLink
-          to="/library"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
-        >
-          보관함
-        </RouterLink>
       </nav>
     </div>
   </header>

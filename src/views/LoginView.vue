@@ -101,12 +101,9 @@ const submit = async () => {
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
+    <header class="pt-1">
       <h1 class="text-[27px] font-semibold leading-tight text-white">{{ pageTitle }}</h1>
-      <p class="mt-2 text-sm text-app-muted">
-        취향분석 기록과 추천을 계정에 이어서 담아둘 수 있어요.
-      </p>
-    </section>
+    </header>
 
     <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
       <div class="corner-pill grid grid-cols-2 border border-app-line bg-app-panelSoft">

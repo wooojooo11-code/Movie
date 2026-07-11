@@ -17,8 +17,10 @@ const props = withDefaults(
     initialValue?: null | Partial<PositiveRatingInput>;
     showSkipButton?: boolean;
     submitLabel?: string;
+    compactControls?: boolean;
   }>(),
   {
+    compactControls: false,
     initialValue: null,
     showSkipButton: true,
     submitLabel: '저장하기'
@@ -227,20 +229,26 @@ const submitForm = () => {
           v-for="character in props.characters"
           :key="character.name"
           type="button"
-          class="focus-ring corner-soft w-full border px-3 py-3 text-left text-sm transition-colors"
-          :class="
+          class="focus-ring corner-soft border text-left transition-colors"
+          :class="[
+            props.compactControls
+              ? 'w-full max-w-[14rem] justify-self-start px-2 py-1.5 text-[11px] leading-tight'
+              : 'w-full px-3 py-3 text-sm',
             form.favoriteCharacters.includes(character.name)
               ? 'border-app-accent bg-app-accent text-white'
               : 'border-app-line bg-app-panelSoft text-[#15171c]'
-          "
+          ]"
           @click="toggleFavoriteCharacter(character.name)"
         >
           <span class="block font-semibold">
             {{ character.actorName ?? '배우 정보 없음' }}
           </span>
           <span
-            class="mt-1 block text-xs"
-            :class="form.favoriteCharacters.includes(character.name) ? 'text-white/80' : 'text-app-muted'"
+            class="block"
+            :class="[
+              props.compactControls ? 'mt-0.5 text-[10px]' : 'mt-1 text-xs',
+              form.favoriteCharacters.includes(character.name) ? 'text-white/80' : 'text-app-muted'
+            ]"
           >
             {{ character.name }} 역
           </span>
@@ -255,10 +263,15 @@ const submitForm = () => {
       </p>
     </div>
 
-    <div class="mt-5">
+    <div :class="props.compactControls ? 'mt-5 flex justify-center' : 'mt-5'">
       <button
         type="button"
-        class="focus-ring corner-soft min-h-11 w-full border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
+        class="focus-ring corner-soft border border-app-accent bg-app-accent font-semibold text-white"
+        :class="
+          props.compactControls
+            ? 'inline-flex min-h-10 items-center justify-center px-4 text-xs'
+            : 'min-h-11 w-full px-3 text-sm'
+        "
         @click="submitForm"
       >
         {{ props.submitLabel }}

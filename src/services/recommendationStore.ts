@@ -27,6 +27,7 @@ import type {
   CatalogMovie,
   MoodContext,
   RecommendationContextWeights,
+  RatingResumeSurface,
   RatingFeedbackPayload,
   RatedCatalogMovieRecord,
   RecommendedCatalogList,
@@ -125,6 +126,14 @@ const movieMap = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movi
 >;
 const recommendationVisibleLimit = 10;
 const recommendationPoolLimit = catalogMovies.length;
+const ratingResumeSurfacePathMap: Record<RatingResumeSurface, string> = {
+  primary: '/rating',
+  primary_completion: '/rating',
+  detail: '/rating?mode=detail',
+  detail_completion: '/rating?mode=detail',
+  more: '/rating?mode=more',
+  more_completion: '/rating?mode=more'
+};
 
 const resolveGenreIds = (movie: CatalogMovie) => {
   if (movie.genreIds?.length) {
@@ -211,6 +220,47 @@ const normalizeContextUpdatedAt = (value: string | undefined) => {
 const normalizeSelectedTasteAnalysisGenres = (value: readonly string[] | undefined) =>
   normalizeTasteAnalysisGenres(value ?? []);
 
+const ratingResumeSurfaces: RatingResumeSurface[] = [
+  'primary',
+  'primary_completion',
+  'detail',
+  'detail_completion',
+  'more',
+  'more_completion'
+];
+
+const isRatingResumeSurface = (value: unknown): value is RatingResumeSurface =>
+  ratingResumeSurfaces.includes(value as RatingResumeSurface);
+
+const getLegacyRatingResumeSurface = (snapshot: Pick<
+  RecommendationStateSnapshot,
+  'additionalTasteAnalysisBatches' | 'ratings' | 'selectedTasteAnalysisGenres'
+>): RatingResumeSurface => {
+  const ratedMovieIdSet = new Set(snapshot.ratings.map((rating) => rating.input.movieId));
+  const hasIncompleteAdditionalBatch = snapshot.additionalTasteAnalysisBatches.some((batch) =>
+    batch.movieIds.some((movieId) => !ratedMovieIdSet.has(movieId))
+  );
+
+  if (hasIncompleteAdditionalBatch) {
+    return 'more';
+  }
+
+  const primaryMovies = getPrimaryRatingMovies(snapshot.selectedTasteAnalysisGenres);
+  const isPrimaryComplete =
+    primaryMovies.length > 0 && primaryMovies.every((movie) => ratedMovieIdSet.has(movie.id));
+
+  return isPrimaryComplete ? 'primary_completion' : 'primary';
+};
+
+const normalizeRatingResumeSurface = (
+  value: unknown,
+  snapshot: Pick<
+    RecommendationStateSnapshot,
+    'additionalTasteAnalysisBatches' | 'ratings' | 'selectedTasteAnalysisGenres'
+  >
+): RatingResumeSurface =>
+  isRatingResumeSurface(value) ? value : getLegacyRatingResumeSurface(snapshot);
+
 const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   const saved = localRecommendationRepository.load(userId);
 
@@ -220,6 +270,7 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
       profile: createEmptyUserPreferenceProfile(userId),
       ratings: [],
       additionalTasteAnalysisBatches: [],
+      ratingResumeSurface: 'primary',
       dismissedRecommendationMovieIds: [],
       selectedTasteAnalysisGenres: [],
       currentContext: 'normal',
@@ -228,21 +279,32 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   }
 
   const normalizedRatings = normalizeStoredRatings(saved.ratings);
+  const normalizedAdditionalTasteAnalysisBatches = normalizeAdditionalTasteAnalysisBatches(
+    saved.additionalTasteAnalysisBatches
+  );
+  const normalizedSelectedTasteAnalysisGenres = normalizeSelectedTasteAnalysisGenres(
+    saved.selectedTasteAnalysisGenres
+  );
+  const ratingResumeSurface = normalizeRatingResumeSurface(
+    (saved as Partial<RecommendationStateSnapshot>).ratingResumeSurface,
+    {
+      ratings: normalizedRatings,
+      additionalTasteAnalysisBatches: normalizedAdditionalTasteAnalysisBatches,
+      selectedTasteAnalysisGenres: normalizedSelectedTasteAnalysisGenres
+    }
+  );
 
   return {
     userId,
     profile: buildProfileFromRatings(userId, normalizedRatings),
     ratings: normalizedRatings,
-      additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
-        saved.additionalTasteAnalysisBatches
-      ),
-      dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
-      selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
-        saved.selectedTasteAnalysisGenres
-      ),
-      currentContext: normalizeContext(saved.currentContext),
-      currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
-    };
+    additionalTasteAnalysisBatches: normalizedAdditionalTasteAnalysisBatches,
+    ratingResumeSurface,
+    dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
+    selectedTasteAnalysisGenres: normalizedSelectedTasteAnalysisGenres,
+    currentContext: normalizeContext(saved.currentContext),
+    currentContextUpdatedAt: normalizeContextUpdatedAt(saved.currentContextUpdatedAt)
+  };
 };
 
 const loadRatingHistory = (userId: string) => normalizeStoredRatings(localRatingHistoryRepository.load(userId));
@@ -336,6 +398,7 @@ const mergeSnapshots = (
       localSnapshot.additionalTasteAnalysisBatches,
       remoteSnapshot.additionalTasteAnalysisBatches
     ),
+    ratingResumeSurface: localSnapshot.ratingResumeSurface,
     dismissedRecommendationMovieIds,
     selectedTasteAnalysisGenres,
     currentContext: shouldUseRemoteContext ? remoteSnapshot.currentContext : localSnapshot.currentContext,
@@ -431,6 +494,7 @@ const state = reactive<RecommendationStateSnapshot>({
   profile: initialSnapshot.profile,
   ratings: initialSnapshot.ratings,
   additionalTasteAnalysisBatches: initialSnapshot.additionalTasteAnalysisBatches,
+  ratingResumeSurface: initialSnapshot.ratingResumeSurface,
   dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds,
   selectedTasteAnalysisGenres: initialSnapshot.selectedTasteAnalysisGenres,
   currentContext: initialSnapshot.currentContext,
@@ -464,6 +528,7 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.profile = snapshot.profile;
   state.ratings = snapshot.ratings;
   state.additionalTasteAnalysisBatches = snapshot.additionalTasteAnalysisBatches;
+  state.ratingResumeSurface = snapshot.ratingResumeSurface;
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
   state.selectedTasteAnalysisGenres = snapshot.selectedTasteAnalysisGenres;
   state.currentContext = snapshot.currentContext;
@@ -517,6 +582,7 @@ const buildSnapshot = (): RecommendationStateSnapshot => ({
   profile: state.profile,
   ratings: state.ratings,
   additionalTasteAnalysisBatches: state.additionalTasteAnalysisBatches,
+  ratingResumeSurface: state.ratingResumeSurface,
   dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
   selectedTasteAnalysisGenres: state.selectedTasteAnalysisGenres,
   currentContext: currentContext.value,
@@ -713,20 +779,8 @@ const shouldResumeTasteAnalysis = computed(
       activeAdditionalTasteAnalysisBatchIndex.value !== null)
 );
 const resumeTasteAnalysisPath = computed(() => {
-  if (primaryUnratedMovies.value.length > 0) {
-    return '/rating';
-  }
-
-  if (activeAdditionalTasteAnalysisBatchIndex.value !== null) {
-    return '/rating?mode=more';
-  }
-
-  if (pendingDetailedRatings.value.length > 0) {
-    return '/rating?mode=detail';
-  }
-
-  if (hasAdditionalTasteAnalysisMovies.value) {
-    return '/rating?mode=more';
+  if (primaryRatingMovies.value.length > 0) {
+    return ratingResumeSurfacePathMap[state.ratingResumeSurface];
   }
 
   return '/rating';
@@ -982,7 +1036,17 @@ const setTasteAnalysisGenres = (genres: readonly TasteAnalysisGenre[]) => {
 
   state.selectedTasteAnalysisGenres = normalizedGenres;
   state.additionalTasteAnalysisBatches = [];
+  state.ratingResumeSurface = 'primary';
   return persistState();
+};
+
+const setRatingResumeSurface = (surface: RatingResumeSurface) => {
+  if (state.ratingResumeSurface === surface) {
+    return;
+  }
+
+  state.ratingResumeSurface = surface;
+  localRecommendationRepository.save(buildSnapshot());
 };
 
 const setContext = (context: MoodContext) => {
@@ -1011,21 +1075,13 @@ const resetTasteAnalysis = () => {
   state.profile = createEmptyUserPreferenceProfile(state.userId);
   state.ratings = [];
   state.additionalTasteAnalysisBatches = [];
+  state.ratingResumeSurface = 'primary';
   state.dismissedRecommendationMovieIds = [];
   state.currentContext = currentContext.value;
   state.currentContextUpdatedAt = currentContextUpdatedAt.value;
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
-  localRecommendationRepository.save({
-    userId: state.userId,
-    profile: state.profile,
-    ratings: [],
-    additionalTasteAnalysisBatches: [],
-    dismissedRecommendationMovieIds: [],
-    selectedTasteAnalysisGenres: state.selectedTasteAnalysisGenres,
-    currentContext: currentContext.value,
-    currentContextUpdatedAt: currentContextUpdatedAt.value
-  });
+  localRecommendationRepository.save(buildSnapshot());
 
   void enqueueRemoteTask(
     () => remoteRecommendationRepository.clear(state.userId),
@@ -1072,6 +1128,7 @@ const setActiveUser = async (userId: string) => {
       additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
         remoteSnapshot.additionalTasteAnalysisBatches
       ),
+      ratingResumeSurface: localSnapshot.ratingResumeSurface,
       dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
       selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
         remoteSnapshot.selectedTasteAnalysisGenres
@@ -1149,6 +1206,7 @@ export const recommendationStore = {
   getPendingDetailMovie,
   getStoredRatingRecord,
   replaceRatingsForMovies,
+  setRatingResumeSurface,
   setTasteAnalysisGenres,
   setContext,
   submitSwipeRating,

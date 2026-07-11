@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue';
+import { computed, nextTick, onUnmounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
@@ -12,7 +12,7 @@ import { getCharacterChoices } from '@/services/movieCreditsService';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { CatalogMovie, StoredRatingRecord } from '@/types/recommendation';
+import type { CatalogMovie, RatingResumeSurface, StoredRatingRecord } from '@/types/recommendation';
 import { getDetailedRatingFeedbackMode, toStoredRatingStatus } from '@/types/rating';
 import type {
   NegativeRatingInput,
@@ -30,10 +30,15 @@ const manualSelectedMovie = ref<null | CatalogMovie>(null);
 const manualFeedbackMode = ref<null | 'dislike' | 'positive'>(null);
 const manualRatingDirection = ref<null | RatingDirection>(null);
 const activeAdditionalBatchIndex = ref<null | number>(null);
-const lastActivatedMoreModeKey = ref<null | string>(null);
 const isSavingManualDecision = ref(false);
 const isSavingPrimaryDecision = ref(false);
 const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
+const detailCompletionNotice = ref<null | {
+  movieTitle: string;
+  remainingCount: number;
+}>(null);
+let detailCompletionNoticeTimer: null | ReturnType<typeof setTimeout> = null;
+const DETAIL_COMPLETION_NOTICE_MS = 3200;
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
@@ -76,6 +81,25 @@ const currentRatingMovie = computed(() =>
 );
 const currentDetailMovie = computed(() => recommendationStore.getPendingDetailMovie());
 const currentMovie = computed(() => (isDetailMode.value ? currentDetailMovie.value : currentRatingMovie.value));
+const isAdditionalTasteAnalysisSurface = computed(() => {
+  const surface = recommendationStore.state.ratingResumeSurface;
+
+  return (
+    isMoreMode.value &&
+    (activeAdditionalBatchIndex.value != null || surface === 'more' || surface === 'more_completion')
+  );
+});
+const currentRatingResumeSurface = computed<null | RatingResumeSurface>(() => {
+  if (isDetailMode.value) {
+    return currentMovie.value ? 'detail' : 'detail_completion';
+  }
+
+  if (isAdditionalTasteAnalysisSurface.value) {
+    return currentMovie.value ? 'more' : 'more_completion';
+  }
+
+  return currentMovie.value ? 'primary' : 'primary_completion';
+});
 
 const currentDetailRecord = computed<null | StoredRatingRecord>(() => {
   if (!currentDetailMovie.value) {
@@ -188,34 +212,17 @@ const manualMovieCharacterChoices = computed(() =>
 const syncAdditionalBatchIndex = () => {
   if (isDetailMode.value) {
     activeAdditionalBatchIndex.value = null;
-    lastActivatedMoreModeKey.value = null;
     return;
   }
 
   if (recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value != null) {
     activeAdditionalBatchIndex.value = recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value;
-
-    if (isMoreMode.value) {
-      lastActivatedMoreModeKey.value = route.fullPath;
-    } else {
-      lastActivatedMoreModeKey.value = null;
-    }
-
     return;
   }
 
   if (isMoreMode.value) {
     if (pendingDetailedRatings.value.length > 0) {
       activeAdditionalBatchIndex.value = null;
-      lastActivatedMoreModeKey.value = null;
-      return;
-    }
-
-    if (lastActivatedMoreModeKey.value !== route.fullPath) {
-      activeAdditionalBatchIndex.value = recommendationStore.ensureAdditionalTasteAnalysisBatch(
-        activeAdditionalBatchIndex.value
-      );
-      lastActivatedMoreModeKey.value = route.fullPath;
       return;
     }
 
@@ -223,7 +230,6 @@ const syncAdditionalBatchIndex = () => {
     return;
   }
 
-  lastActivatedMoreModeKey.value = null;
   activeAdditionalBatchIndex.value = null;
 };
 
@@ -243,17 +249,13 @@ watch(
 );
 
 watch(
-  [
-    isMoreMode,
-    () => recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value,
-    () => pendingDetailedRatings.value.length
-  ],
-  async ([moreMode, activeBatchIndex, pendingDetailCount]) => {
-    if (!moreMode || activeBatchIndex != null || pendingDetailCount === 0) {
+  currentRatingResumeSurface,
+  (surface) => {
+    if (!surface) {
       return;
     }
 
-    await router.replace('/rating?mode=detail');
+    recommendationStore.setRatingResumeSurface(surface);
   },
   { immediate: true }
 );
@@ -279,7 +281,7 @@ const stageLabel = computed(() => {
     return currentDetailMovie.value ? '상세 평가 진행' : '상세 평가 완료';
   }
 
-  if (activeAdditionalBatchIndex.value != null) {
+  if (isAdditionalTasteAnalysisSurface.value) {
     return currentRatingMovie.value ? '추가 취향분석 진행' : '추가 취향분석 완료';
   }
 
@@ -291,7 +293,7 @@ const completionTitle = computed(() => {
     return '상세 평가를 마쳤어요.';
   }
 
-  if (activeAdditionalBatchIndex.value != null) {
+  if (isAdditionalTasteAnalysisSurface.value) {
     return '추가 20편 평가가 끝났어요.';
   }
 
@@ -307,7 +309,7 @@ const completionDescription = computed(() => {
     return '재밌음과 재미없음으로 남긴 영화들을 마지막에 한 번에 상세 평가할 수 있어요.';
   }
 
-  if (activeAdditionalBatchIndex.value != null) {
+  if (isAdditionalTasteAnalysisSurface.value) {
     return '이번 20편 평가도 기존 취향기록에 누적했어요. 더 이어서 평가하거나 바로 추천을 볼 수 있어요.';
   }
 
@@ -341,6 +343,17 @@ const secondaryAction = computed<null | { isMoreAction?: boolean; label: string;
 });
 
 const openNextAdditionalTasteAnalysis = async () => {
+  const nextBatchIndex = recommendationStore.ensureAdditionalTasteAnalysisBatch(
+    recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value
+  );
+
+  if (nextBatchIndex == null) {
+    return;
+  }
+
+  activeAdditionalBatchIndex.value = nextBatchIndex;
+  recommendationStore.setRatingResumeSurface('more');
+
   await router.push({
     path: '/rating',
     query: {
@@ -357,6 +370,48 @@ const scrollToContainer = async (containerRef: { value: HTMLElement | null }) =>
     block: 'start'
   });
 };
+
+const clearDetailCompletionNotice = () => {
+  if (detailCompletionNoticeTimer) {
+    clearTimeout(detailCompletionNoticeTimer);
+    detailCompletionNoticeTimer = null;
+  }
+
+  detailCompletionNotice.value = null;
+};
+
+const showDetailCompletionNotice = (movie: CatalogMovie) => {
+  const nextDetailMovie = recommendationStore.getPendingDetailMovie();
+
+  if (!isDetailMode.value || !nextDetailMovie) {
+    clearDetailCompletionNotice();
+    return;
+  }
+
+  if (detailCompletionNoticeTimer) {
+    clearTimeout(detailCompletionNoticeTimer);
+  }
+
+  detailCompletionNotice.value = {
+    movieTitle: movie.title,
+    remainingCount: pendingDetailedRatings.value.length
+  };
+
+  detailCompletionNoticeTimer = setTimeout(() => {
+    detailCompletionNotice.value = null;
+    detailCompletionNoticeTimer = null;
+  }, DETAIL_COMPLETION_NOTICE_MS);
+};
+
+watch(isDetailMode, (detailMode) => {
+  if (!detailMode) {
+    clearDetailCompletionNotice();
+  }
+});
+
+onUnmounted(() => {
+  clearDetailCompletionNotice();
+});
 
 const fallbackDirectionByDecision: Record<RatingSelection['decision'], RatingDirection> = {
   like: 'right',
@@ -447,6 +502,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       questionText: ''
     }
   });
+  showDetailCompletionNotice(movie);
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -482,6 +538,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       questionText: ''
     }
   });
+  showDetailCompletionNotice(movie);
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -510,6 +567,7 @@ const skipPositiveFeedback = async () => {
     rawDirection: currentDetailRecord.value?.rawDirection ?? null,
     detailCompleted: true
   });
+  showDetailCompletionNotice(movie);
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -539,6 +597,7 @@ const skipNegativeFeedback = async () => {
     rawDirection: record.rawDirection,
     detailCompleted: true
   });
+  showDetailCompletionNotice(movie);
 
   if (!recommendationStore.getPendingDetailMovie()) {
     await router.replace(activeAdditionalBatchIndex.value != null ? '/rating?mode=more' : '/rating');
@@ -739,6 +798,20 @@ watch(
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
     <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
+
+    <section
+      v-if="isDetailMode && detailCompletionNotice"
+      role="status"
+      aria-live="polite"
+      class="corner-hard border border-app-accent bg-app-panelSoft px-4 py-3"
+    >
+      <p class="break-words text-sm font-semibold text-[#15171c]">
+        {{ detailCompletionNotice.movieTitle }} 상세 평가 저장됨
+      </p>
+      <p class="mt-1 text-xs leading-5 text-app-muted">
+        다음 영화로 넘어왔어요. 남은 상세 평가 {{ detailCompletionNotice.remainingCount }}편
+      </p>
+    </section>
 
     <template v-if="isDetailMode && currentMovie">
       <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />

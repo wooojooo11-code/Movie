@@ -154,6 +154,34 @@ const openListsPage = () => {
   void router.push('/lists');
 };
 
+const openMoreTasteAnalysis = async () => {
+  if (
+    recommendationStore.pendingDetailedRatings.value.length > 0 &&
+    recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value == null
+  ) {
+    recommendationStore.setRatingResumeSurface('detail');
+    await router.push('/rating?mode=detail');
+    return;
+  }
+
+  const nextBatchIndex = recommendationStore.ensureAdditionalTasteAnalysisBatch(
+    recommendationStore.activeAdditionalTasteAnalysisBatchIndex.value
+  );
+
+  if (nextBatchIndex == null) {
+    return;
+  }
+
+  recommendationStore.setRatingResumeSurface('more');
+  await router.push({
+    path: '/rating',
+    query: {
+      mode: 'more',
+      batch: String(Date.now())
+    }
+  });
+};
+
 const setRecommendationContext = (context: MoodContext) => {
   void recommendationStore.setContext(context);
 };
@@ -180,10 +208,11 @@ const setRecommendationContext = (context: MoodContext) => {
           취향분석 시작
         </RouterLink>
 
-        <RouterLink
+        <button
           v-else-if="hasMoreTasteAnalysis"
-          to="/rating?mode=more"
+          type="button"
           class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center gap-2 border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#15171c]"
+          @click="openMoreTasteAnalysis"
         >
           <span
             class="corner-pill inline-flex h-5 w-5 items-center justify-center border border-app-line text-[13px] leading-none text-[#15171c]"
@@ -191,7 +220,7 @@ const setRecommendationContext = (context: MoodContext) => {
             +
           </span>
           더 하기
-        </RouterLink>
+        </button>
       </div>
 
       <div

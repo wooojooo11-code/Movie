@@ -12,6 +12,13 @@ import type { RatingDirection } from '@/types/rating';
 
 export type MoodContext = 'normal' | 'after_exam' | 'bed_time' | 'with_friends' | 'after_academy';
 export type RecommendationContextWeights = Record<MoodContext, Record<number, number>>;
+export type RatingResumeSurface =
+  | 'primary'
+  | 'primary_completion'
+  | 'detail'
+  | 'detail_completion'
+  | 'more'
+  | 'more_completion';
 export type TasteAnalysisGenre =
   | '액션'
   | '애니메이션'
@@ -70,6 +77,7 @@ export interface RecommendationStateSnapshot {
   profile: UserPreferenceProfile;
   ratings: StoredRatingRecord[];
   additionalTasteAnalysisBatches: AdditionalTasteAnalysisBatch[];
+  ratingResumeSurface: RatingResumeSurface;
   dismissedRecommendationMovieIds: string[];
   selectedTasteAnalysisGenres: TasteAnalysisGenre[];
   currentContext: MoodContext;

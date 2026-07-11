@@ -266,7 +266,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       <h1 class="mt-2 text-[28px] font-semibold leading-tight text-white">
         {{ movie?.title ?? '평가를 찾는 중이에요' }}
       </h1>
-      <p class="mt-3 text-sm leading-6 text-app-muted">
+      <p v-if="false" class="mt-3 text-sm leading-6 text-app-muted">
         {{
           currentDecisionLabel
             ? `지금 기록된 평가는 ${currentDecisionLabel}이에요. 다시 고르면 바로 바뀌어요.`

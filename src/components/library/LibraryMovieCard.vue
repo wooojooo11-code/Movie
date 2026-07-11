@@ -26,7 +26,7 @@ const watchAvailabilityText = computed(() => getWatchProviderSummary(props.item.
     <img
       :src="item.movie.posterUrl"
       :alt="item.movie.posterAlt"
-      class="corner-soft mx-auto aspect-[4/5] w-[82%] border border-app-line object-cover"
+      class="corner-soft mx-auto aspect-[4/5] w-[10%] border border-app-line object-cover"
       loading="lazy"
     />
     <div class="mt-3">

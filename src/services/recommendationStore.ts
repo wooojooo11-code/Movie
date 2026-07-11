@@ -35,7 +35,7 @@ import type {
   StoredRatingRecord,
   TasteAnalysisGenre
 } from '@/types/recommendation';
-import { normalizeFavoriteCharacters } from '@/types/rating';
+import { normalizeFavoriteCharacters, requiresDetailedRatingFeedback } from '@/types/rating';
 
 const FALLBACK_USER_ID = 'guest-user';
 
@@ -611,7 +611,9 @@ const primaryRatingMovies = computed(() =>
   getPrimaryRatingMovies(selectedTasteAnalysisGenres.value)
 );
 const detailEligibleRatingRecords = computed(() =>
-  state.ratings.filter((rating) => rating.rawDecision !== 'not_seen')
+  state.ratings.filter((rating) =>
+    requiresDetailedRatingFeedback(rating.rawDecision, rating.rawDirection)
+  )
 );
 const pendingDetailedRatings = computed(() =>
   detailEligibleRatingRecords.value.filter((rating) => !rating.detailCompleted)
@@ -951,7 +953,9 @@ const submitSwipeRating = (
   upsertRatingRecord({
     rawDecision: options?.rawDecision ?? input.status,
     rawDirection: options?.rawDirection ?? null,
-    detailCompleted: options?.detailCompleted ?? input.status !== 'like',
+    detailCompleted:
+      options?.detailCompleted ??
+      !requiresDetailedRatingFeedback(options?.rawDecision ?? input.status, options?.rawDirection ?? null),
     input,
     reviewText: options?.feedback?.reviewText ?? '',
     questionText: options?.feedback?.questionText ?? ''

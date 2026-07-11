@@ -86,10 +86,7 @@ const saveRecommendationRating = async (
   }
 };
 
-const handleRecommendationDislike = async (
-  feedback: NegativeRatingInput,
-  rawDecision: 'dislike' | 'not_interested' = 'dislike'
-) => {
+const handleRecommendationDislike = async (feedback: NegativeRatingInput) => {
   if (!selectedMovie.value) {
     return;
   }
@@ -113,7 +110,7 @@ const handleRecommendationDislike = async (
   };
 
   await saveRecommendationRating(input, {
-    rawDecision,
+    rawDecision: 'dislike',
     detailCompleted: true,
     feedback: payload
   });

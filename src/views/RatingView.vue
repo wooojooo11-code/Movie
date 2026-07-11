@@ -13,6 +13,7 @@ import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import type { CatalogMovie, StoredRatingRecord } from '@/types/recommendation';
+import { getDetailedRatingFeedbackMode, toStoredRatingStatus } from '@/types/rating';
 import type {
   NegativeRatingInput,
   PositiveRatingInput,
@@ -26,7 +27,7 @@ const router = useRouter();
 
 const manualSearchQuery = ref('');
 const manualSelectedMovie = ref<null | CatalogMovie>(null);
-const manualFeedbackMode = ref<null | 'dislike' | 'not_interested' | 'positive'>(null);
+const manualFeedbackMode = ref<null | 'dislike' | 'positive'>(null);
 const manualRatingDirection = ref<null | RatingDirection>(null);
 const activeAdditionalBatchIndex = ref<null | number>(null);
 const lastActivatedMoreModeKey = ref<null | string>(null);
@@ -47,7 +48,8 @@ const tasteAnalysisMovieIdSet = computed(
 const detailRatingRecords = computed(() =>
   recommendationStore.state.ratings.filter(
     (rating) =>
-      tasteAnalysisMovieIdSet.value.has(rating.input.movieId) && rating.rawDecision !== 'not_seen'
+      tasteAnalysisMovieIdSet.value.has(rating.input.movieId) &&
+      getDetailedRatingFeedbackMode(rating.rawDecision, rating.rawDirection) != null
   )
 );
 const pendingDetailedTasteAnalysisRatings = computed(() =>
@@ -110,12 +112,16 @@ const currentCharacterChoices = computed(() =>
     ? getCharacterChoices(currentDetailMovie.value.id, currentDetailMovie.value.characters)
     : []
 );
-const isCurrentDetailPositive = computed(() => currentDetailRecord.value?.rawDecision === 'like');
+const currentDetailFeedbackMode = computed(() => {
+  const record = currentDetailRecord.value;
+  return record ? getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) : null;
+});
+const isCurrentDetailPositive = computed(() => currentDetailFeedbackMode.value === 'positive');
 
 const initialFeedback = computed(() => {
   const record = currentDetailRecord.value;
 
-  if (!record || record.rawDecision !== 'like') {
+  if (!record || currentDetailFeedbackMode.value !== 'positive') {
     return null;
   }
 
@@ -131,7 +137,7 @@ const initialFeedback = computed(() => {
 const initialNegativeFeedback = computed(() => {
   const record = currentDetailRecord.value;
 
-  if (!record || record.rawDecision === 'like' || record.rawDecision === 'not_seen') {
+  if (!record || currentDetailFeedbackMode.value !== 'negative') {
     return null;
   }
 
@@ -298,7 +304,7 @@ const completionDescription = computed(() => {
   }
 
   if (currentDetailMovie.value) {
-    return '좋아요, 재미없음, 관심없음으로 남긴 영화들을 마지막에 한 번에 상세 평가할 수 있어요.';
+    return '재밌음과 재미없음으로 남긴 영화들을 마지막에 한 번에 상세 평가할 수 있어요.';
   }
 
   if (activeAdditionalBatchIndex.value != null) {
@@ -390,7 +396,7 @@ const savePrimaryMovieDecision = async (selection: RatingSelection | RatingSelec
     const input: RatingInput = {
       movieId: movie.id,
       userId: recommendationStore.state.userId,
-      status: decision === 'like' ? 'like' : decision === 'not_seen' ? 'not_seen' : 'dislike',
+      status: toStoredRatingStatus(decision),
       rating: null,
       reviewTags: [],
       favoriteCharacters: [],
@@ -400,7 +406,7 @@ const savePrimaryMovieDecision = async (selection: RatingSelection | RatingSelec
     await recommendationStore.submitSwipeRating(movie, input, {
       rawDecision: decision,
       rawDirection: direction,
-      detailCompleted: decision === 'not_seen'
+      detailCompleted: getDetailedRatingFeedbackMode(decision, direction) == null
     });
 
     if (decision === 'not_seen') {
@@ -415,7 +421,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
   const movie = currentDetailMovie.value;
   const record = currentDetailRecord.value;
 
-  if (!movie || !record || record.rawDecision === 'like' || record.rawDecision === 'not_seen') {
+  if (!movie || !record || getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) !== 'negative') {
     return;
   }
 
@@ -514,7 +520,7 @@ const skipNegativeFeedback = async () => {
   const movie = currentDetailMovie.value;
   const record = currentDetailRecord.value;
 
-  if (!movie || !record || record.rawDecision === 'like' || record.rawDecision === 'not_seen') {
+  if (!movie || !record || getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) !== 'negative') {
     return;
   }
 
@@ -553,16 +559,17 @@ const saveManualMovieDecision = async (selection: RatingSelection | RatingSelect
   }
 
   const { decision, direction } = normalizeSelection(selection);
+  const feedbackMode = getDetailedRatingFeedbackMode(decision, direction);
 
-  if (decision === 'like') {
+  if (feedbackMode === 'positive') {
     manualFeedbackMode.value = 'positive';
     manualRatingDirection.value = direction;
     await scrollToContainer(manualFeedbackFormContainer);
     return;
   }
 
-  if (decision === 'dislike' || decision === 'not_interested') {
-    manualFeedbackMode.value = decision;
+  if (feedbackMode === 'negative') {
+    manualFeedbackMode.value = 'dislike';
     manualRatingDirection.value = direction;
     await scrollToContainer(manualFeedbackFormContainer);
     return;
@@ -576,7 +583,7 @@ const saveManualMovieDecision = async (selection: RatingSelection | RatingSelect
     const input: RatingInput = {
       movieId: movie.id,
       userId: recommendationStore.state.userId,
-      status: decision,
+      status: toStoredRatingStatus(decision),
       rating: null,
       reviewTags: [],
       favoriteCharacters: [],
@@ -646,7 +653,7 @@ const submitManualNegativeFeedback = async (feedback: NegativeRatingInput) => {
   };
 
   await recommendationStore.submitSwipeRating(movie, input, {
-    rawDecision: manualFeedbackMode.value === 'not_interested' ? 'not_interested' : 'dislike',
+    rawDecision: 'dislike',
     rawDirection: manualRatingDirection.value,
     detailCompleted: true,
       feedback: {
@@ -690,7 +697,7 @@ const skipManualPositiveFeedback = async () => {
 const skipManualNegativeFeedback = async () => {
   const movie = manualSelectedMovie.value;
 
-  if (!movie || (manualFeedbackMode.value !== 'dislike' && manualFeedbackMode.value !== 'not_interested')) {
+  if (!movie || manualFeedbackMode.value !== 'dislike') {
     return;
   }
 
@@ -705,7 +712,7 @@ const skipManualNegativeFeedback = async () => {
   };
 
   await recommendationStore.submitSwipeRating(movie, input, {
-    rawDecision: manualFeedbackMode.value,
+    rawDecision: 'dislike',
     rawDirection: manualRatingDirection.value,
     detailCompleted: true
   });
@@ -856,8 +863,7 @@ watch(
           <div
             v-if="
               manualFeedbackMode === 'positive' ||
-              manualFeedbackMode === 'dislike' ||
-              manualFeedbackMode === 'not_interested'
+              manualFeedbackMode === 'dislike'
             "
             ref="manualFeedbackFormContainer"
           >

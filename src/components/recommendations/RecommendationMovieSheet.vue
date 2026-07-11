@@ -7,6 +7,7 @@ import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import { getCharacterChoices } from '@/services/movieCreditsService';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { getWatchProviderLinks } from '@/services/watchProviderLinks';
+import { getDetailedRatingFeedbackMode } from '@/types/rating';
 import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type { RecommendedCatalogMovie, StoredRatingRecord } from '@/types/recommendation';
 
@@ -18,7 +19,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   close: [];
-  'rate-dislike-submit': [feedback: NegativeRatingInput, rawDecision: 'dislike' | 'not_interested'];
+  'rate-dislike-submit': [feedback: NegativeRatingInput];
   'rate-like-submit': [feedback: PositiveRatingInput];
 }>();
 
@@ -31,11 +32,15 @@ const currentQuestion = computed(() => getCharacterQuestionByGenre(props.movie.g
 const currentCharacterChoices = computed(() =>
   getCharacterChoices(props.movie.id, props.movie.characters)
 );
+const currentRatingFlowMode = computed(() => {
+  const record = props.ratingRecord;
+  return record ? getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) : null;
+});
 
 const initialFeedback = computed(() => {
   const record = props.ratingRecord;
 
-  if (!record || record.rawDecision !== 'like') {
+  if (!record || currentRatingFlowMode.value !== 'positive') {
     return null;
   }
 
@@ -51,7 +56,7 @@ const initialFeedback = computed(() => {
 const initialNegativeFeedback = computed(() => {
   const record = props.ratingRecord;
 
-  if (!record || (record.rawDecision !== 'dislike' && record.rawDecision !== 'not_interested')) {
+  if (!record || currentRatingFlowMode.value !== 'negative') {
     return null;
   }
 
@@ -62,9 +67,6 @@ const initialNegativeFeedback = computed(() => {
     reviewText: record.reviewText
   };
 });
-const negativeRatingDecision = computed<'dislike' | 'not_interested'>(() =>
-  props.ratingRecord?.rawDecision === 'not_interested' ? 'not_interested' : 'dislike'
-);
 
 const ratingButtonLabel = computed(() =>
   props.ratingRecord ? '평가 수정하기' : '평가하기'
@@ -96,13 +98,8 @@ const watchProviderSections = computed(() => {
 });
 
 const openRatingFlow = () => {
-  if (props.ratingRecord?.rawDecision === 'like') {
-    ratingFlowMode.value = 'positive';
-    return;
-  }
-
-  if (props.ratingRecord?.rawDecision === 'dislike' || props.ratingRecord?.rawDecision === 'not_interested') {
-    ratingFlowMode.value = 'negative';
+  if (currentRatingFlowMode.value != null) {
+    ratingFlowMode.value = currentRatingFlowMode.value;
     return;
   }
 
@@ -289,7 +286,7 @@ watch(
           :initial-value="initialNegativeFeedback"
           :show-skip-button="false"
           submit-label="평가 저장하기"
-          @submit="emit('rate-dislike-submit', $event, negativeRatingDecision)"
+          @submit="emit('rate-dislike-submit', $event)"
         />
       </section>
     </section>

@@ -11,6 +11,7 @@ import { getCharacterChoices } from '@/services/movieCreditsService';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
+import { getDetailedRatingFeedbackMode, toStoredRatingStatus } from '@/types/rating';
 import type {
   NegativeRatingInput,
   PositiveRatingInput,
@@ -56,7 +57,7 @@ const currentCharacterChoices = computed(() =>
 const initialFeedback = computed(() => {
   const record = ratingRecord.value;
 
-  if (!record || record.rawDecision !== 'like') {
+  if (!record || getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) !== 'positive') {
     return null;
   }
 
@@ -72,7 +73,7 @@ const initialFeedback = computed(() => {
 const initialNegativeFeedback = computed(() => {
   const record = ratingRecord.value;
 
-  if (!record || (record.rawDecision !== 'dislike' && record.rawDecision !== 'not_interested')) {
+  if (!record || getDetailedRatingFeedbackMode(record.rawDecision, record.rawDirection) !== 'negative') {
     return null;
   }
 
@@ -94,10 +95,11 @@ const currentDecisionLabel = computed(() => {
   return decisionLabels[record.rawDecision] ?? record.rawDecision;
 });
 
-const showPositiveDetailForm = computed(() => draftDecision.value === 'like');
-const showNegativeDetailForm = computed(
-  () => draftDecision.value === 'dislike' || draftDecision.value === 'not_interested'
+const draftFeedbackMode = computed(() =>
+  getDetailedRatingFeedbackMode(draftDecision.value, draftDirection.value)
 );
+const showPositiveDetailForm = computed(() => draftFeedbackMode.value === 'positive');
+const showNegativeDetailForm = computed(() => draftFeedbackMode.value === 'negative');
 
 const syncDraftDecision = () => {
   draftDecision.value = ratingRecord.value?.rawDecision ?? 'like';
@@ -145,11 +147,12 @@ const saveDecision = async (selection: RatingSelection | RatingSelection['decisi
   }
 
   const { decision, direction } = normalizeSelection(selection);
+  const feedbackMode = getDetailedRatingFeedbackMode(decision, direction);
 
   draftDecision.value = decision;
   draftDirection.value = direction;
 
-  if (decision === 'like' || decision === 'dislike' || decision === 'not_interested') {
+  if (feedbackMode != null) {
     await scrollToDetailForm();
     return;
   }
@@ -160,7 +163,7 @@ const saveDecision = async (selection: RatingSelection | RatingSelection['decisi
     const input: RatingInput = {
       movieId: movie.value.id,
       userId: recommendationStore.state.userId,
-      status: decision,
+      status: toStoredRatingStatus(decision),
       rating: null,
       reviewTags: [],
       favoriteCharacters: [],
@@ -235,7 +238,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
     };
 
     await recommendationStore.submitSwipeRating(movie.value, input, {
-      rawDecision: draftDecision.value === 'not_interested' ? 'not_interested' : 'dislike',
+      rawDecision: 'dislike',
       rawDirection: draftDirection.value,
       detailCompleted: true,
       feedback: {

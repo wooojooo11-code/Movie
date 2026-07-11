@@ -11,6 +11,30 @@ export interface RatingSelection {
   direction: RatingDirection;
 }
 
+export const toStoredRatingStatus = (
+  decision: RatingDecision | 'not_interested'
+): SwipeStatus => (decision === 'not_interested' ? 'dislike' : decision);
+
+export const getDetailedRatingFeedbackMode = (
+  decision: RatingDecision | 'not_interested',
+  direction: null | RatingDirection
+) => {
+  if (decision === 'like' && direction === 'right') {
+    return 'positive' as const;
+  }
+
+  if (decision === 'dislike') {
+    return 'negative' as const;
+  }
+
+  return null;
+};
+
+export const requiresDetailedRatingFeedback = (
+  decision: RatingDecision | 'not_interested',
+  direction: null | RatingDirection
+) => getDetailedRatingFeedbackMode(decision, direction) != null;
+
 export const NO_FAVORITE_CHARACTER = '선택안함';
 export const MAX_FAVORITE_CAST_CHOICES = 3;
 

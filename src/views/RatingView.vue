@@ -798,6 +798,8 @@ watch(
         :key="`${currentMovie.id}-primary`"
         :movie="currentMovie"
         :interactive="true"
+        size="compact"
+        class="mx-auto w-[90%] sm:w-full"
         @decide="savePrimaryMovieDecision"
       />
 

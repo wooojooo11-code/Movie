@@ -248,13 +248,13 @@ const handleResetDraft = () => {
 
   <div
     v-if="isComposerOpen"
-      class="fixed inset-0 z-40 flex items-end bg-black px-4 pb-4 pt-8 sm:items-center"
+    class="fixed inset-0 z-40 flex items-center bg-black px-4 py-4"
     @click.self="closeComposer"
   >
     <section
-      class="corner-hard mx-auto flex max-h-[calc(100vh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
+      class="corner-hard mx-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
     >
-      <div class="flex items-center justify-between border-b border-app-line px-5 py-4">
+      <div class="flex items-center justify-between border-b border-app-line px-4 py-3 sm:px-5 sm:py-4">
         <div>
           <h2 class="text-lg font-semibold text-white">
             {{ listStore.state.draft.id ? '리스트 수정' : '새 리스트 만들기' }}
@@ -269,7 +269,7 @@ const handleResetDraft = () => {
         </button>
       </div>
 
-      <div class="overflow-y-auto px-5 py-5">
+      <div class="min-h-0 overflow-y-auto px-4 py-4 sm:px-5 sm:py-5">
         <ListComposerCard
           :title="listStore.state.draft.title"
           :is-private="listStore.state.draft.isPrivate"

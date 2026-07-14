@@ -65,7 +65,6 @@ const starLabel = computed(() => {
   return rating == null ? null : `${rating.toFixed(1)}점`;
 });
 
-const overviewText = computed(() => props.entry.movie.overview.trim() || null);
 const questionText = computed(() => props.entry.ratingRecord.questionText.trim() || null);
 const reviewText = computed(() => props.entry.ratingRecord.reviewText.trim() || null);
 const characterChoices = computed(() =>
@@ -85,25 +84,16 @@ const favoriteCharactersDisplay = computed(() => {
     ? [NO_FAVORITE_CHARACTER]
     : [];
 });
-const genresLabel = computed(() => props.entry.movie.genres.join(' · '));
 const compactMetaLabel = computed(() =>
   [String(props.entry.movie.releaseYear), props.entry.movie.genres[0] ?? null].filter(Boolean).join(' · ')
 );
 
-const listMetaItems = computed(() =>
+const ratingSummaryItems = computed(() =>
   [
-    { label: '개봉', value: String(props.entry.movie.releaseYear) },
-    { label: '장르', value: genresLabel.value || null },
+    { label: '평가', value: decisionLabel.value },
+    { label: '별점', value: starLabel.value },
     { label: '평가일', value: answeredAtLabel.value }
   ].filter((item): item is { label: string; value: string } => Boolean(item.value))
-);
-
-const hasListFeedbackSection = computed(
-  () =>
-    props.entry.ratingRecord.input.reviewTags.length > 0 ||
-    favoriteCharactersDisplay.value.length > 0 ||
-    Boolean(reviewText.value) ||
-    Boolean(questionText.value)
 );
 
 const quickWatchLinks = computed(() => getWatchProviderLinks(props.entry.movie).slice(0, 3));

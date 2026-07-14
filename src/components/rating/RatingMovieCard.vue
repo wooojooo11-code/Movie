@@ -8,7 +8,7 @@ const props = withDefaults(
   defineProps<{
     movie: RatingMovie;
     interactive?: boolean;
-    size?: 'default' | 'detail';
+    size?: 'compact' | 'default' | 'detail';
   }>(),
   {
     interactive: true,
@@ -32,19 +32,41 @@ const cardStyle = computed(() => ({
     : 'translate(0, 0) rotate(0deg)'
 }));
 
-const containerClassName = computed(() =>
-  props.size === 'detail' ? 'min-h-[320px] p-4' : 'min-h-[420px] p-5'
-);
+const containerClassName = computed(() => {
+  if (props.size === 'detail') {
+    return 'min-h-[320px] p-4';
+  }
 
-const posterClassName = computed(() =>
-  props.size === 'detail' ? 'mb-4 h-[210px]' : 'mb-5 h-[260px]'
-);
+  if (props.size === 'compact') {
+    return 'min-h-[380px] p-4 sm:min-h-[420px] sm:p-5';
+  }
 
-const titleClassName = computed(() =>
-  props.size === 'detail'
-    ? 'text-[26px] font-semibold leading-tight text-[#15171c]'
-    : 'text-[32px] font-semibold leading-tight text-[#15171c]'
-);
+  return 'min-h-[420px] p-5';
+});
+
+const posterClassName = computed(() => {
+  if (props.size === 'detail') {
+    return 'mb-4 h-[210px]';
+  }
+
+  if (props.size === 'compact') {
+    return 'mb-4 h-[228px] sm:mb-5 sm:h-[260px]';
+  }
+
+  return 'mb-5 h-[260px]';
+});
+
+const titleClassName = computed(() => {
+  if (props.size === 'detail') {
+    return 'text-[26px] font-semibold leading-tight text-[#15171c]';
+  }
+
+  if (props.size === 'compact') {
+    return 'text-[28px] font-semibold leading-tight text-[#15171c] sm:text-[32px]';
+  }
+
+  return 'text-[32px] font-semibold leading-tight text-[#15171c]';
+});
 const overviewText = computed(() => props.movie.overview.trim());
 const watchAvailability = computed(() => {
   const providers = props.movie.watchProvidersKr;

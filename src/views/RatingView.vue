@@ -799,7 +799,7 @@ watch(
         :movie="currentMovie"
         :interactive="true"
         size="compact"
-        class="mx-auto w-[90%] sm:w-full"
+        class="mx-auto w-[82%] sm:w-full"
         @decide="savePrimaryMovieDecision"
       />
 

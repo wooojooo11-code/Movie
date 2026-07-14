@@ -173,71 +173,56 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
           <h2 class="mt-2 text-[15px] font-semibold leading-6 text-white">
             {{ entry.movie.title }}
           </h2>
-          <p class="mt-1 text-[12px] text-app-muted">
-            {{ compactMetaLabel }}
-          </p>
         </div>
       </div>
 
-      <div class="mt-4 grid gap-3">
-        <div class="grid gap-2 border-t border-app-line pt-3">
-          <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">영화 정보</p>
-          <dl class="grid gap-2 text-[12px] text-white">
-            <div v-for="item in listMetaItems" :key="item.label" class="grid gap-1">
-              <dt class="text-[10px] text-app-muted">{{ item.label }}</dt>
-              <dd class="leading-5 text-white">{{ item.value }}</dd>
-            </div>
-          </dl>
-          <div v-if="overviewText" class="grid gap-1">
-            <p class="text-[10px] text-app-muted">줄거리</p>
-            <p class="whitespace-pre-wrap text-[12px] leading-6 text-white">
-              {{ overviewText }}
-            </p>
+      <div class="mt-4 grid gap-3 border-t border-app-line pt-3">
+        <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">내 평가</p>
+        <dl class="grid gap-2 text-[12px] text-white">
+          <div v-for="item in ratingSummaryItems" :key="item.label" class="grid gap-1">
+            <dt class="text-[10px] text-app-muted">{{ item.label }}</dt>
+            <dd class="leading-5 text-white">{{ item.value }}</dd>
+          </div>
+        </dl>
+
+        <div v-if="questionText" class="grid gap-1">
+          <p class="text-[10px] text-app-muted">좋아요 이유</p>
+          <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
+            {{ questionText }}
+          </p>
+        </div>
+
+        <div v-if="entry.ratingRecord.input.reviewTags.length > 0" class="grid gap-1.5">
+          <p class="text-[10px] text-app-muted">선택한 감상</p>
+          <div class="flex flex-wrap gap-1">
+            <span
+              v-for="tag in entry.ratingRecord.input.reviewTags"
+              :key="tag"
+              class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
+            >
+              {{ tag }}
+            </span>
           </div>
         </div>
 
-        <div v-if="hasListFeedbackSection" class="grid gap-3 border-t border-app-line pt-3">
-          <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">내 평가</p>
-
-          <div v-if="questionText" class="grid gap-1">
-            <p class="text-[10px] text-app-muted">좋아요 이유</p>
-            <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
-              {{ questionText }}
-            </p>
+        <div v-if="favoriteCharactersDisplay.length > 0" class="grid gap-1.5">
+          <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
+          <div class="flex flex-wrap gap-1">
+            <span
+              v-for="favoriteCharacter in favoriteCharactersDisplay"
+              :key="favoriteCharacter"
+              class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
+            >
+              {{ favoriteCharacter }}
+            </span>
           </div>
+        </div>
 
-          <div v-if="entry.ratingRecord.input.reviewTags.length > 0" class="grid gap-1.5">
-            <p class="text-[10px] text-app-muted">선택한 감상</p>
-            <div class="flex flex-wrap gap-1">
-              <span
-                v-for="tag in entry.ratingRecord.input.reviewTags"
-                :key="tag"
-                class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </div>
-
-          <div v-if="favoriteCharactersDisplay.length > 0" class="grid gap-1.5">
-            <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
-            <div class="flex flex-wrap gap-1">
-              <span
-                v-for="favoriteCharacter in favoriteCharactersDisplay"
-                :key="favoriteCharacter"
-                class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
-              >
-                {{ favoriteCharacter }}
-              </span>
-            </div>
-          </div>
-
-          <div v-if="reviewText" class="grid gap-1">
-            <p class="text-[10px] text-app-muted">메모</p>
-            <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
-              {{ reviewText }}
-            </p>
-          </div>
+        <div v-if="reviewText" class="grid gap-1">
+          <p class="text-[10px] text-app-muted">메모</p>
+          <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
+            {{ reviewText }}
+          </p>
         </div>
       </div>
 

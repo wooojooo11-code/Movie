@@ -221,7 +221,7 @@ const setRecommendationContext = (context: MoodContext) => {
           >
             +
           </span>
-          더 하기
+          취향분석 더하기
         </button>
       </div>
 

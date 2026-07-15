@@ -89,7 +89,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       {{ shareRestrictionReason }}
     </p>
 
-    <div class="mt-5 border-t border-app-line pt-4">
+    <div class="mt-3 border-t border-app-line pt-3">
       <div class="flex items-center justify-between gap-3">
         <div>
           <h3 class="text-sm font-semibold text-white">영화 찾기</h3>
@@ -102,13 +102,13 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
         </span>
       </div>
 
-      <label class="mt-4 block">
+      <label class="mt-3 block">
         <span class="sr-only">영화 또는 리스트 검색</span>
         <input
           :value="searchQuery"
           type="search"
           placeholder="영화, 감독, 배우, 리스트 검색"
-          class="focus-ring h-12 w-full border border-app-line bg-app-panelSoft px-4 text-sm text-white placeholder:text-app-muted"
+          class="focus-ring h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
           @input="handleSearchInput"
         />
       </label>
@@ -228,19 +228,19 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       </div>
     </div>
 
-    <div class="mt-5 border-t border-app-line pt-4">
+    <div class="mt-3 border-t border-app-line pt-3">
       <label class="block">
         <span class="mb-2 block text-xs font-semibold text-app-muted">리스트 제목</span>
         <input
           :value="title"
           type="text"
           placeholder="비 오는 날 보기 좋은 영화"
-          class="focus-ring h-12 w-full border border-app-line bg-app-panelSoft px-4 text-sm text-white placeholder:text-app-muted"
+          class="focus-ring h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
           @input="handleTitleInput"
         />
       </label>
 
-      <div class="mt-4">
+      <div class="mt-3">
         <div class="flex items-center justify-between gap-3">
           <span class="text-xs font-semibold text-app-muted">담은 영화 {{ movies.length }}개</span>
           <button
@@ -286,17 +286,17 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
 
         <div
           v-else
-          class="corner-hard mt-3 border border-dashed border-app-line bg-app-panelSoft px-4 py-6 text-sm text-app-muted"
+          class="corner-hard mt-3 border border-dashed border-app-line bg-app-panelSoft px-3 py-4 text-sm text-app-muted"
         >
           아직 담긴 영화가 없습니다.
         </div>
       </div>
     </div>
 
-    <div class="mt-4 flex gap-2">
+    <div class="mt-3 flex gap-2">
       <button
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-11 flex-1 items-center justify-center border border-app-accent bg-app-accent px-4 py-[11px] text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
+        class="focus-ring corner-soft inline-flex min-h-10 flex-1 items-center justify-center border border-app-accent bg-app-accent px-3 py-2.5 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
         :disabled="!canSave"
         @click="emit('save')"
       >
@@ -304,7 +304,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       </button>
       <button
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 py-[11px] text-sm font-semibold text-white"
+        class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 py-2.5 text-sm font-semibold text-white"
         @click="emit('reset')"
       >
         새 리스트

@@ -252,24 +252,24 @@ const handleResetDraft = () => {
     @click.self="closeComposer"
   >
     <section
-      class="corner-hard mx-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel"
+      class="corner-hard mx-auto flex max-h-[84dvh] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel sm:max-h-[calc(100dvh-2rem)]"
     >
-      <div class="flex items-center justify-between border-b border-app-line px-4 py-3 sm:px-5 sm:py-4">
+      <div class="flex items-center justify-between border-b border-app-line px-3 py-2.5 sm:px-5 sm:py-4">
         <div>
-          <h2 class="text-lg font-semibold text-white">
+          <h2 class="text-base font-semibold text-white sm:text-lg">
             {{ listStore.state.draft.id ? '리스트 수정' : '새 리스트 만들기' }}
           </h2>
         </div>
         <button
           type="button"
-          class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm text-white"
+          class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 text-xs text-white sm:min-h-9 sm:px-3 sm:text-sm"
           @click="closeComposer"
         >
           닫기
         </button>
       </div>
 
-      <div class="min-h-0 overflow-y-auto px-4 py-4 sm:px-5 sm:py-5">
+      <div class="min-h-0 overflow-y-auto px-3 py-3 sm:px-5 sm:py-5">
         <ListComposerCard
           :title="listStore.state.draft.title"
           :is-private="listStore.state.draft.isPrivate"

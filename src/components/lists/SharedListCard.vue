@@ -33,7 +33,7 @@ const clearRating = () => {
 </script>
 
 <template>
-  <article class="corner-hard border border-app-line bg-app-panel p-4">
+  <article class="corner-hard min-w-0 max-w-full border border-app-line bg-app-panel p-4">
     <div class="flex items-start justify-between gap-3">
       <div>
         <h3 class="text-base font-semibold leading-snug text-white">{{ list.title }}</h3>
@@ -55,7 +55,7 @@ const clearRating = () => {
       @toggle-watch="$emit('toggle-watch', $event)"
     />
 
-    <div class="mt-4 flex gap-2">
+    <div class="mt-3 flex items-center gap-2">
       <button
         v-if="showSaveButton !== false"
         type="button"
@@ -70,8 +70,8 @@ const clearRating = () => {
         {{ list.viewerSaved ? '저장됨' : '저장' }}
       </button>
 
-      <div class="corner-hard min-w-0 flex-1 border border-app-line bg-app-panelSoft px-3 py-2.5">
-        <div class="flex items-center justify-between gap-3">
+      <div class="ml-auto flex min-w-0 items-center gap-2">
+        <div class="flex shrink-0 items-center gap-2">
           <span class="text-xs font-medium text-app-muted">평가하기</span>
           <button
             v-if="list.viewerRating !== null"
@@ -82,10 +82,11 @@ const clearRating = () => {
             지우기
           </button>
         </div>
-        <div class="mt-2">
+        <div class="shrink-0">
           <HalfStarRating
             :model-value="list.viewerRating"
             size="sm"
+            :show-value="false"
             aria-label-prefix="리스트 평점"
             @update:model-value="setRating"
           />

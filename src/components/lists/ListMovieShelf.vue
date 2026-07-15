@@ -24,7 +24,7 @@ const movieCards = computed(() =>
 </script>
 
 <template>
-  <div class="mt-4 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+  <div class="mt-4 flex min-w-0 max-w-full gap-2 overflow-x-auto pb-1 scrollbar-hide">
     <article v-for="entry in movieCards" :key="entry.movie.id" class="w-[4.9rem] shrink-0">
       <img
         :src="entry.movie.posterUrl"

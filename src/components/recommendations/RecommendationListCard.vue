@@ -73,7 +73,7 @@ const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.inclu
         class="focus-ring corner-soft inline-flex min-h-8 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 text-xs whitespace-nowrap text-white"
         @click="$emit('openLists')"
       >
-        리스트 보기
+        리스트 창으로 가기
       </button>
     </div>
   </article>

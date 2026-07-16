@@ -77,36 +77,36 @@ const signOut = async () => {
       <nav aria-label="주요 메뉴" class="flex items-center gap-2 overflow-x-auto whitespace-nowrap text-sm">
         <RouterLink
           to="/"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           홈
         </RouterLink>
         <RouterLink
           :to="tasteAnalysisTo"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           취향분석
         </RouterLink>
         <RouterLink
           to="/recommendations"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           추천
         </RouterLink>
         <RouterLink
           to="/history"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           평가기록
         </RouterLink>
         <RouterLink
           to="/lists"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted"
-          active-class="border-app-line bg-app-panel text-white"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           리스트
         </RouterLink>

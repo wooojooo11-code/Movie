@@ -4,6 +4,9 @@ import PopularLists from '@/components/home/PopularLists.vue';
 import TrendingMovies from '@/components/home/TrendingMovies.vue';
 import { trendingMovies } from '@/data/home';
 import { popularLists } from '@/data/popularLists';
+import { useAuthStore } from '@/stores/auth';
+
+const authStore = useAuthStore();
 </script>
 
 <template>
@@ -13,6 +16,6 @@ import { popularLists } from '@/data/popularLists';
   >
     <HeroCTA />
     <TrendingMovies :movies="trendingMovies" />
-    <PopularLists :lists="popularLists" />
+    <PopularLists v-if="authStore.isAuthenticated" :lists="popularLists" />
   </main>
 </template>

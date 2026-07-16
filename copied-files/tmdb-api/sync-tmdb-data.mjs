@@ -8,7 +8,8 @@ const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
-const TARGET_CATALOG_SIZE = 500;
+const TARGET_CATALOG_SIZE = 510;
+const FIRST_DISCOVERED_MOVIE_INDEX = 134;
 const DISCOVER_PAGE_LIMIT = 18;
 const DISCOVER_MIN_VOTE_COUNT = 100;
 const DISCOVER_CANDIDATE_MULTIPLIER = 4;
@@ -160,7 +161,17 @@ const movieSeeds = [
   { id: 'movie_130', query: 'Minority Report', year: 2002 },
   { id: 'movie_131', query: 'Avatar', year: 2009 },
   { id: 'movie_132', query: 'The Rock', year: 1996 },
-  { id: 'movie_133', query: 'Speed', year: 1994 }
+  { id: 'movie_133', query: 'Speed', year: 1994 },
+  { id: 'movie_501', query: 'The Spirit of the Beehive', year: 1973 },
+  { id: 'movie_502', query: 'Still Walking', year: 2008 },
+  { id: 'movie_503', query: 'Goodbye, Dragon Inn', year: 2003 },
+  { id: 'movie_504', query: 'The Long Day Closes', year: 1992 },
+  { id: 'movie_505', query: 'Playtime', year: 1967 },
+  { id: 'movie_506', query: 'La Ciénaga', year: 2001 },
+  { id: 'movie_507', query: 'The Great Buddha+', year: 2017 },
+  { id: 'movie_508', query: 'The Gleaners and I', year: 2000 },
+  { id: 'movie_509', query: "Where Is the Friend's House?", year: 1987 },
+  { id: 'movie_510', query: 'A Brighter Summer Day', year: 1991 }
 ];
 
 const catalogLists = [
@@ -825,7 +836,7 @@ const run = async () => {
 
   const discoveredSeeds = await buildDiscoveredMovieSeeds(
     curatedTmdbMovieIds,
-    curatedCount + 1,
+    FIRST_DISCOVERED_MOVIE_INDEX,
     autoExpandedCount
   );
 

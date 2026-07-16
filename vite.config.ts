@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['app-icon.svg', 'apple-touch-icon.png', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'MovieList',
-        short_name: 'MovieList',
+        name: 'Moodie',
+        short_name: 'Moodie',
         description: '영화를 평가하고 추천과 리스트를 관리하는 앱',
         theme_color: '#ffffff',
         background_color: '#ffffff',

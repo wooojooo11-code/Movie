@@ -31,7 +31,7 @@ const signOut = async () => {
           >
             M
           </span>
-          <span class="truncate text-base font-semibold text-white">MovieList</span>
+          <span class="truncate text-base font-semibold text-white">Moodie</span>
         </RouterLink>
 
         <div class="flex items-center gap-2">

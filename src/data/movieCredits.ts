@@ -9,7 +9,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Immortan Joe",
       "Slit",
       "Rictus Erectus",
-      "Toast the Knowing",
+      "Toast the Knowing"
     ],
     "cast": [
       "톰 하디",
@@ -18,7 +18,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "휴 키스 -번",
       "조쉬 헬먼",
       "네이선 존스",
-      "조이 크래비츠",
+      "조이 크래비츠"
     ],
     "director": "조지 밀러"
   },
@@ -30,7 +30,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Linda Drysdale",
       "Walt Thrombey",
       "Richard Drysdale",
-      "Joni Thrombey",
+      "Joni Thrombey"
     ],
     "cast": [
       "다니엘 크레이그",
@@ -39,7 +39,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이미 리 커티스",
       "마이클 섀넌",
       "돈 존슨",
-      "토니 콜렛",
+      "토니 콜렛"
     ],
     "director": "라이언 존슨"
   },
@@ -51,7 +51,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Laura",
       "Greg",
       "Tracy",
-      "Caitlin",
+      "Caitlin"
     ],
     "cast": [
       "라이언 고슬링",
@@ -60,7 +60,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로즈메리 디윗",
       "핀 위트록",
       "Callie Hernandez",
-      "미즈노 소노야",
+      "미즈노 소노야"
     ],
     "director": "데이미언 셔젤"
   },
@@ -72,7 +72,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dmitri",
       "Jopling",
       "Deputy Kovacs",
-      "Ludwig",
+      "Ludwig"
     ],
     "cast": [
       "랄프 파인즈",
@@ -81,7 +81,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에이드리언 브로디",
       "윌렘 대포",
       "제프 골드블룸",
-      "하비 카이텔",
+      "하비 카이텔"
     ],
     "director": "웨스 앤더슨"
   },
@@ -93,7 +93,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alfred",
       "Rachel",
       "Gordon",
-      "Lucius Fox",
+      "Lucius Fox"
     ],
     "cast": [
       "크리스찬 베일",
@@ -102,7 +102,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마이클 케인",
       "메기 질렌할",
       "게리 올드만",
-      "모건 프리먼",
+      "모건 프리먼"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -114,7 +114,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ki-woo",
       "Ki-jung",
       "Moon-gwang",
-      "Chung-sook",
+      "Chung-sook"
     ],
     "cast": [
       "송강호",
@@ -123,7 +123,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "최우식",
       "박소담",
       "이정은",
-      "장혜진",
+      "장혜진"
     ],
     "director": "봉준호"
   },
@@ -135,7 +135,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Father (voice)",
       "Mother (voice)",
       "Aogaeru (voice)",
-      "Boh (voice)",
+      "Boh (voice)"
     ],
     "cast": [
       "히이라기 루미",
@@ -144,7 +144,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "나이토 타카시",
       "사와구치 야스코",
       "가슈인 타츠야",
-      "카미키 류노스케",
+      "카미키 류노스케"
     ],
     "director": "미야자키 하야오"
   },
@@ -156,7 +156,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tanner Bolt",
       "Margo Dunne",
       "Detective Rhonda Boney",
-      "Officer James Gilpin",
+      "Officer James Gilpin"
     ],
     "cast": [
       "벤 애플렉",
@@ -165,7 +165,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "타일러 페리",
       "캐리 쿤",
       "킴 디킨스",
-      "Patrick Fugit",
+      "Patrick Fugit"
     ],
     "director": "데이비드 핀처"
   },
@@ -177,7 +177,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nicole",
       "Ryan",
       "Carl",
-      "Uncle Frank",
+      "Uncle Frank"
     ],
     "cast": [
       "마일스 텔러",
@@ -186,7 +186,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "멜리사 베노이스트",
       "오스틴 스토얼",
       "Nate Lang",
-      "크리스 멀키",
+      "크리스 멀키"
     ],
     "director": "데이미언 셔젤"
   },
@@ -198,7 +198,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marcus",
       "Avi",
       "Ms. Perkins",
-      "Gregori",
+      "Gregori"
     ],
     "cast": [
       "키아누 리브스",
@@ -207,7 +207,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "윌렘 대포",
       "딘 윈터스",
       "에이드리언 팰리키",
-      "Omer Barnea",
+      "Omer Barnea"
     ],
     "director": "채드 스타헬스키"
   },
@@ -219,7 +219,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fear (voice)",
       "Anger (voice)",
       "Disgust (voice)",
-      "Riley (voice)",
+      "Riley (voice)"
     ],
     "cast": [
       "에이미 폴러",
@@ -228,7 +228,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 헤이더",
       "루이스 블랙",
       "민디 케일링",
-      "Kaitlyn Dias",
+      "Kaitlyn Dias"
     ],
     "director": "피트 닥터"
   },
@@ -240,7 +240,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Terry (voice)",
       "Counselor Jerry (voice)",
       "Libba Gardner (voice)",
-      "Dez (voice)",
+      "Dez (voice)"
     ],
     "cast": [
       "제이미 폭스",
@@ -249,7 +249,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "레이첼 하우스",
       "앨리스 브라가",
       "리처드 아이오와디",
-      "필리샤 라샤드",
+      "필리샤 라샤드"
     ],
     "director": "피트 닥터"
   },
@@ -261,7 +261,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Letter Writer #2",
       "Letter Writer #3",
       "Paul",
-      "Text Voice (voice)",
+      "Text Voice (voice)"
     ],
     "cast": [
       "호아킨 피닉스",
@@ -270,7 +270,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lisa Renee Pitts",
       "Gabe Gomez",
       "크리스 프랫",
-      "Artt Butler",
+      "Artt Butler"
     ],
     "director": "스파이크 존즈"
   },
@@ -282,7 +282,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mollie Miles",
       "Leo Beebe",
       "Peter Miles",
-      "Henry Ford II",
+      "Henry Ford II"
     ],
     "cast": [
       "맷 데이먼",
@@ -291,7 +291,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "커트리나 밸프",
       "조시 루커스",
       "노아 주프",
-      "트레이시 레츠",
+      "트레이시 레츠"
     ],
     "director": "제임스 맨골드"
   },
@@ -303,7 +303,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mrs. Suen",
       "Mr. Ho",
       "Man Living in Mr. Koo's Apartment",
-      "Mr. Koo",
+      "Mr. Koo"
     ],
     "cast": [
       "장만옥",
@@ -312,7 +312,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "반적화",
       "뇌진",
       "장동조",
-      "陳萬雷",
+      "陳萬雷"
     ],
     "director": "왕가위"
   },
@@ -324,7 +324,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dwayne Hoover",
       "Olive Hoover",
       "Edwin Hoover",
-      "Stan Grossman",
+      "Stan Grossman"
     ],
     "cast": [
       "그렉 키니어",
@@ -333,7 +333,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "폴 다노",
       "아비게일 브레스린",
       "알란 아킨",
-      "브라이언 크랜스턴",
+      "브라이언 크랜스턴"
     ],
     "director": "Jonathan Dayton"
   },
@@ -345,7 +345,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Benji Dunn",
       "Ilsa Faust",
       "Solomon Lane",
-      "Erika Sloane",
+      "Erika Sloane"
     ],
     "cast": [
       "톰 크루즈",
@@ -354,7 +354,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "사이먼 페그",
       "레베카 퍼거슨",
       "숀 해리스",
-      "안젤라 바셋",
+      "안젤라 바셋"
     ],
     "director": "크리스토퍼 맥쿼리"
   },
@@ -366,7 +366,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sergeant Shin Dong-chul",
       "Sergeant Koo Hee-bong",
       "Officer Kwon Kwi-ok",
-      "Jo Byung-soon",
+      "Jo Byung-soon"
     ],
     "cast": [
       "송강호",
@@ -375,7 +375,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "송재호",
       "변희봉",
       "고서희",
-      "류태호",
+      "류태호"
     ],
     "director": "봉준호"
   },
@@ -387,7 +387,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stan",
       "Patrick",
       "Dr. Mierzwiak",
-      "Carrie",
+      "Carrie"
     ],
     "cast": [
       "짐 캐리",
@@ -396,7 +396,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마크 러팔로",
       "일라이저 우드",
       "톰 윌킨슨",
-      "제인 아담스",
+      "제인 아담스"
     ],
     "director": "미셸 공드리"
   },
@@ -408,7 +408,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lauren Garland / Sylvia",
       "Angela Montclair / Alanis Montclair",
       "Christof",
-      "Simeon",
+      "Simeon"
     ],
     "cast": [
       "짐 캐리",
@@ -417,7 +417,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "나타샤 맥켈혼",
       "홀랜드 테일러",
       "에드 해리스",
-      "폴 지아마티",
+      "폴 지아마티"
     ],
     "director": "피터 위어"
   },
@@ -429,7 +429,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Grace Dover",
       "Franklin Birch",
       "Holly Jones",
-      "Alex Jones",
+      "Alex Jones"
     ],
     "cast": [
       "휴 잭맨",
@@ -438,7 +438,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마리아 벨로",
       "테렌스 하워드",
       "멜리사 레오",
-      "폴 다노",
+      "폴 다노"
     ],
     "director": "드니 빌뇌브"
   },
@@ -450,7 +450,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Young Nora",
       "Young Hae Sung",
       "Nora's Mom",
-      "Nora's Dad",
+      "Nora's Dad"
     ],
     "cast": [
       "그레타 리",
@@ -459,7 +459,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "문승아",
       "임승민",
       "윤지혜",
-      "최원영",
+      "최원영"
     ],
     "director": "셀린 송"
   },
@@ -471,7 +471,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Wo-1. Bernie 'Hondo' Coleman",
       "Adm. Beau 'Cyclone' Simpson",
       "Adm. Solomon 'Warlock' Bates",
-      "Lt. Natasha 'Phoenix' Trace",
+      "Lt. Natasha 'Phoenix' Trace"
     ],
     "cast": [
       "톰 크루즈",
@@ -480,7 +480,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "바시르 살라후딘",
       "존 햄",
       "찰스 파넬",
-      "모니카 바바로",
+      "모니카 바바로"
     ],
     "director": "조셉 코신스키"
   },
@@ -492,7 +492,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Judy Brown",
       "Jonathan Brown",
       "Mrs. Bird",
-      "Phoenix Buchanan",
+      "Phoenix Buchanan"
     ],
     "cast": [
       "벤 위쇼",
@@ -501,7 +501,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Madeleine Harris",
       "Samuel Joslin",
       "줄리 월터스",
-      "휴 그랜트",
+      "휴 그랜트"
     ],
     "director": "폴 킹"
   },
@@ -513,7 +513,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nate",
       "Michael Cheritto",
       "Justine",
-      "Eady",
+      "Eady"
     ],
     "cast": [
       "알 파치노",
@@ -522,7 +522,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 보이트",
       "톰 시즈모어",
       "Diane Venora",
-      "Amy Brenneman",
+      "Amy Brenneman"
     ],
     "director": "마이클 만"
   },
@@ -534,7 +534,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mr. Han",
       "No Joo-hwan",
       "Park Cheol-woong",
-      "Hypnotist",
+      "Hypnotist"
     ],
     "cast": [
       "최민식",
@@ -543,7 +543,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "김병옥",
       "지대한",
       "오달수",
-      "이승신",
+      "이승신"
     ],
     "director": "박찬욱"
   },
@@ -555,7 +555,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Husband on Train",
       "Guy on Bridge",
       "Palm Reader",
-      "Street Poet",
+      "Street Poet"
     ],
     "cast": [
       "에단 호크",
@@ -564,7 +564,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hanno Pöschl",
       "Karl Bruckschwaiger",
       "Tex Rubinowitz",
-      "Erni Mangold",
+      "Erni Mangold"
     ],
     "director": "리처드 링클레이터"
   },
@@ -576,7 +576,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "John Boy",
       "Amelia Kuttner",
       "Tally",
-      "Older Guy",
+      "Older Guy"
     ],
     "cast": [
       "러셀 크로우",
@@ -585,7 +585,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "맷 보머",
       "마가렛 퀄리",
       "야야 다코스타",
-      "키스 데이비드",
+      "키스 데이비드"
     ],
     "director": "셰인 블랙"
   },
@@ -597,7 +597,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Paul Avery",
       "Melanie",
       "Jack Mulanax",
-      "Arthur Leigh Allen",
+      "Arthur Leigh Allen"
     ],
     "cast": [
       "제이크 질렌할",
@@ -606,7 +606,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로버트 다우니 주니어",
       "클로이 세비니",
       "Elias Koteas",
-      "존 캐럴 린치",
+      "존 캐럴 린치"
     ],
     "director": "데이비드 핀처"
   },
@@ -618,7 +618,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sayaka Natori (voice)",
       "Tsukasa Fujii (voice)",
       "Shinta Takagi (voice)",
-      "Yotsuha Miyamizu (voice)",
+      "Yotsuha Miyamizu (voice)"
     ],
     "cast": [
       "카미키 류노스케",
@@ -627,7 +627,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "유우키 아오이",
       "시마자키 노부나가",
       "이시카와 카이토",
-      "타니 카논",
+      "타니 카논"
     ],
     "director": "신카이 마코토"
   },
@@ -639,7 +639,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Uncle Aaron (voice)",
       "Jefferson Davis (voice)",
       "Aunt May (voice)",
-      "Rio Morales (voice)",
+      "Rio Morales (voice)"
     ],
     "cast": [
       "셔믹 무어",
@@ -648,7 +648,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마허샬라 알리",
       "브라이언 타이리 헨리",
       "릴리 톰린",
-      "로런 벨레스",
+      "로런 벨레스"
     ],
     "director": "밥 퍼시케티"
   },
@@ -660,7 +660,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Harry",
       "Charlotte",
       "Kit Kat",
-      "Mum",
+      "Mum"
     ],
     "cast": [
       "도널 글리슨",
@@ -669,7 +669,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "톰 홀랜더",
       "마고 로비",
       "리디아 윌슨",
-      "린지 덩컨",
+      "린지 덩컨"
     ],
     "director": "리처드 커티스"
   },
@@ -681,7 +681,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Murph",
       "Tom",
       "Doyle",
-      "Getty",
+      "Getty"
     ],
     "cast": [
       "매튜 매커너히",
@@ -690,7 +690,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제시카 차스테인",
       "케이시 애플렉",
       "웨스 벤틀리",
-      "토퍼 그레이스",
+      "토퍼 그레이스"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -702,7 +702,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eames",
       "Ariadne",
       "Yusuf",
-      "Robert Fischer, Jr.",
+      "Robert Fischer, Jr."
     ],
     "cast": [
       "레오나르도 디카프리오",
@@ -711,7 +711,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "톰 하디",
       "엘리엇 페이지",
       "딜립 라오",
-      "킬리언 머피",
+      "킬리언 머피"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -723,7 +723,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Agent Smith",
       "Oracle",
       "Cypher",
-      "Tank",
+      "Tank"
     ],
     "cast": [
       "키아누 리브스",
@@ -732,7 +732,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "휴고 위빙",
       "Gloria Foster",
       "조 판톨리아노",
-      "Marcus Chong",
+      "Marcus Chong"
     ],
     "director": "라나 워쇼스키"
   },
@@ -744,7 +744,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Agent Halpern",
       "Captain Marks",
       "General Shang",
-      "8-Year-Old Hannah",
+      "8-Year-Old Hannah"
     ],
     "cast": [
       "에이미 아담스",
@@ -753,7 +753,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마이클 스툴바그",
       "마크 오브라이언",
       "치 마",
-      "Abigail Pniowsky",
+      "Abigail Pniowsky"
     ],
     "director": "드니 빌뇌브"
   },
@@ -765,7 +765,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Duncan Idaho",
       "Baron Vladimir Harkonnen",
       "Thufir Hawat",
-      "Gurney Halleck",
+      "Gurney Halleck"
     ],
     "cast": [
       "티모시 샬라메",
@@ -774,7 +774,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이슨 모모아",
       "스텔란 스카스가드",
       "스티븐 맥킨리 헨더슨",
-      "조쉬 브롤린",
+      "조쉬 브롤린"
     ],
     "director": "드니 빌뇌브"
   },
@@ -786,7 +786,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sapper Morton",
       "Lieutenant Joshi",
       "Luv",
-      "Mariette",
+      "Mariette"
     ],
     "cast": [
       "라이언 고슬링",
@@ -795,7 +795,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이브 바티스타",
       "로빈 라이트",
       "실비아 획스",
-      "맥켄지 데이비스",
+      "맥켄지 데이비스"
     ],
     "director": "드니 빌뇌브"
   },
@@ -807,7 +807,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gong Gong",
       "Deirdre Beaubeirdre",
       "Becky Sregor",
-      "Big Nose",
+      "Big Nose"
     ],
     "cast": [
       "양자경",
@@ -816,7 +816,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 홍",
       "제이미 리 커티스",
       "Tallie Medel",
-      "제니 슬레이트",
+      "제니 슬레이트"
     ],
     "director": "다니엘 쉐이너트"
   },
@@ -828,7 +828,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kyoko",
       "Jay",
       "Lily",
-      "Jasmine",
+      "Jasmine"
     ],
     "cast": [
       "도널 글리슨",
@@ -837,7 +837,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "미즈노 소노야",
       "코리 존슨",
       "Claire Selby",
-      "Symara A. Templeman",
+      "Symara A. Templeman"
     ],
     "director": "알렉스 가랜드"
   },
@@ -849,7 +849,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Julia McCullough",
       "Sarah",
       "Olivia Wenscombe",
-      "Jess",
+      "Jess"
     ],
     "cast": [
       "휴 잭맨",
@@ -858,7 +858,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "파이퍼 페라보",
       "레베카 홀",
       "스칼렛 요한슨",
-      "Samantha Mahurin",
+      "Samantha Mahurin"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -870,7 +870,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Uncle Kouzuki",
       "Ms. Sasaki",
       "Hideko's Aunt",
-      "Bok-soon",
+      "Bok-soon"
     ],
     "cast": [
       "김민희",
@@ -879,7 +879,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조진웅",
       "김해숙",
       "문소리",
-      "이용녀",
+      "이용녀"
     ],
     "director": "박찬욱"
   },
@@ -891,7 +891,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Soo-wan",
       "Lim Ho-shin",
       "Yeon-su",
-      "Ki Do-soo",
+      "Ki Do-soo"
     ],
     "cast": [
       "탕웨이",
@@ -900,7 +900,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "고경표",
       "박용우",
       "김신영",
-      "유승목",
+      "유승목"
     ],
     "director": "박찬욱"
   },
@@ -912,7 +912,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Yeon-ju",
       "Lee Yong-seok",
       "Lawyer",
-      "Judge",
+      "Judge"
     ],
     "cast": [
       "유아인",
@@ -921,7 +921,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "김수경",
       "최승호",
       "문성근",
-      "민복기",
+      "민복기"
     ],
     "director": "이창동"
   },
@@ -933,7 +933,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Park Nam-joo",
       "Park Hyun-seo",
       "The Monster (voice)",
-      "Se-jin",
+      "Se-jin"
     ],
     "cast": [
       "송강호",
@@ -942,7 +942,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "배두나",
       "고아성",
       "오달수",
-      "이재응",
+      "이재응"
     ],
     "director": "봉준호"
   },
@@ -954,7 +954,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sang-hwa",
       "Yeong-gook",
       "Jin-hee",
-      "Yong-suk",
+      "Yong-suk"
     ],
     "cast": [
       "공유",
@@ -963,7 +963,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마동석",
       "최우식",
       "안소희",
-      "김의성",
+      "김의성"
     ],
     "director": "연상호"
   },
@@ -975,7 +975,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "The Stranger",
       "Hyo-jin",
       "Mother-in-Law",
-      "Jong-goo's Wife",
+      "Jong-goo's Wife"
     ],
     "cast": [
       "곽도원",
@@ -984,7 +984,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "쿠니무라 준",
       "김환희",
       "허진",
-      "장소연",
+      "장소연"
     ],
     "director": "나홍진"
   },
@@ -996,7 +996,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lewis Strauss",
       "Jean Tatlock",
       "Ernest Lawrence",
-      "Boris Pash",
+      "Boris Pash"
     ],
     "cast": [
       "킬리언 머피",
@@ -1005,7 +1005,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로버트 다우니 주니어",
       "플로렌스 퓨",
       "조쉬 하트넷",
-      "케이시 애플렉",
+      "케이시 애플렉"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -1017,7 +1017,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sean Parker",
       "Erica Albright",
       "Divya Narendra",
-      "Christy Ling",
+      "Christy Ling"
     ],
     "cast": [
       "제시 아이젠버그",
@@ -1026,7 +1026,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "저스틴 팀버레이크",
       "루니 마라",
       "맥스 밍겔라",
-      "브렌다 송",
+      "브렌다 송"
     ],
     "director": "데이비드 핀처"
   },
@@ -1038,7 +1038,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Beth March",
       "Marmee March",
       "Laurie",
-      "Mr. Dashwood",
+      "Mr. Dashwood"
     ],
     "cast": [
       "시얼샤 로넌",
@@ -1047,7 +1047,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "일라이자 스캔런",
       "로라 던",
       "티모시 샬라메",
-      "트레이시 레츠",
+      "트레이시 레츠"
     ],
     "director": "그레타 거윅"
   },
@@ -1059,7 +1059,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Paul",
       "David",
       "Anne",
-      "Mr. Harlan",
+      "Mr. Harlan"
     ],
     "cast": [
       "스티븐 연",
@@ -1068,7 +1068,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Will Patton",
       "앨런 김",
       "Noel Kate Cho",
-      "Darryl Cox",
+      "Darryl Cox"
     ],
     "director": "정이삭"
   },
@@ -1080,7 +1080,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Annella",
       "Marzia",
       "Chiara",
-      "Mafalda",
+      "Mafalda"
     ],
     "cast": [
       "티모시 샬라메",
@@ -1089,7 +1089,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아미라 카사르",
       "에스테르 가렐",
       "Victoire du Bois",
-      "Vanda Capriolo",
+      "Vanda Capriolo"
     ],
     "director": "루카 구아다니노"
   },
@@ -1101,7 +1101,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "La Comtesse",
       "La faiseuse d'ange",
       "L'élève atelier",
-      "L'homme salon",
+      "L'homme salon"
     ],
     "cast": [
       "노에미 메를랑",
@@ -1110,7 +1110,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "발레리아 골리노",
       "Christel Baras",
       "Armande Boulanger",
-      "Guy Delamarche",
+      "Guy Delamarche"
     ],
     "director": "셀린 시아마"
   },
@@ -1122,7 +1122,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mamá Imelda (voice)",
       "Abuelita (voice)",
       "Papá (voice)",
-      "Papá Julio (voice)",
+      "Papá Julio (voice)"
     ],
     "cast": [
       "Anthony Gonzalez",
@@ -1131,7 +1131,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alanna Ubach",
       "Renée Victor",
       "Jaime Camil",
-      "Alfonso Arau",
+      "Alfonso Arau"
     ],
     "director": "리 언크리치"
   },
@@ -1143,7 +1143,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mr. Potato Head (voice)",
       "Rex (voice)",
       "Hamm (voice)",
-      "Mrs. Potato Head (voice)",
+      "Mrs. Potato Head (voice)"
     ],
     "cast": [
       "톰 행크스",
@@ -1152,7 +1152,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "돈 리클리스",
       "월리스 숀",
       "존 라젠버그",
-      "에스텔 해리스",
+      "에스텔 해리스"
     ],
     "director": "리 언크리치"
   },
@@ -1164,7 +1164,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sam",
       "Bilbo",
       "Arwen",
-      "Saruman",
+      "Saruman"
     ],
     "cast": [
       "일라이저 우드",
@@ -1173,7 +1173,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 애스틴",
       "이안 홈",
       "리브 타일러",
-      "크리스토퍼 리",
+      "크리스토퍼 리"
     ],
     "director": "피터 잭슨"
   },
@@ -1185,7 +1185,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sam",
       "Gollum",
       "Gimli / Treebeard (voice)",
-      "Legolas",
+      "Legolas"
     ],
     "cast": [
       "일라이저 우드",
@@ -1194,7 +1194,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 애스틴",
       "앤디 서키스",
       "존 라이스 데이비스",
-      "올랜도 블룸",
+      "올랜도 블룸"
     ],
     "director": "피터 잭슨"
   },
@@ -1206,7 +1206,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sam",
       "Gollum / Smeagol",
       "Merry",
-      "Pippin",
+      "Pippin"
     ],
     "cast": [
       "일라이저 우드",
@@ -1215,7 +1215,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 애스틴",
       "앤디 서키스",
       "도미닉 모너핸",
-      "빌리 보이드",
+      "빌리 보이드"
     ],
     "director": "피터 잭슨"
   },
@@ -1227,7 +1227,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dean Armitage",
       "Jeremy Armitage",
       "Walter",
-      "Georgina",
+      "Georgina"
     ],
     "cast": [
       "다니엘 칼루야",
@@ -1236,7 +1236,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브래들리 휘트포드",
       "케일럽 랜드리 존스",
       "Marcus Henderson",
-      "베티 게이브리얼",
+      "베티 게이브리얼"
     ],
     "director": "조던 필"
   },
@@ -1248,7 +1248,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Charlie Graham",
       "Joan",
       "Bridget",
-      "Aaron",
+      "Aaron"
     ],
     "cast": [
       "토니 콜렛",
@@ -1257,7 +1257,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "밀리 샤피로",
       "앤 도드",
       "Mallory Bechtel",
-      "Brock McKinney",
+      "Brock McKinney"
     ],
     "director": "아리 애스터"
   },
@@ -1269,7 +1269,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lillian",
       "Ted",
       "Bryce",
-      "Felicity",
+      "Felicity"
     ],
     "cast": [
       "안야 테일러조이",
@@ -1278,7 +1278,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "자넷 맥티어",
       "폴 아델스타인",
       "롭 양",
-      "에이미 카레로",
+      "에이미 카레로"
     ],
     "director": "Mark Mylod"
   },
@@ -1290,7 +1290,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Antlers Holst",
       "Ricky 'Jupe' Park",
       "Amber Park",
-      "Otis Haywood Sr.",
+      "Otis Haywood Sr."
     ],
     "cast": [
       "다니엘 칼루야",
@@ -1299,7 +1299,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마이클 윙컷",
       "스티븐 연",
       "렌 슈밋",
-      "키스 데이비드",
+      "키스 데이비드"
     ],
     "director": "조던 필"
   },
@@ -1311,7 +1311,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Robert Paulson",
       "Angel Face",
       "Richard Chesler (Regional Manager)",
-      "The Mechanic",
+      "The Mechanic"
     ],
     "cast": [
       "에드워드 노튼",
@@ -1320,7 +1320,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Meat Loaf",
       "자레드 레토",
       "Zach Grenier",
-      "홀트 매캘러니",
+      "홀트 매캘러니"
     ],
     "director": "데이비드 핀처"
   },
@@ -1332,7 +1332,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Heywood",
       "Captain Byron T. Hadley",
       "Tommy",
-      "Brooks Hatlen",
+      "Brooks Hatlen"
     ],
     "cast": [
       "팀 로빈스",
@@ -1341,7 +1341,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "윌리엄 새들러",
       "클랜시 브라운",
       "Gil Bellows",
-      "제임스 휘트모어",
+      "제임스 휘트모어"
     ],
     "director": "프랭크 다라본트"
   },
@@ -1353,7 +1353,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Proximo",
       "Marcus Aurelius",
       "Gracchus",
-      "Juba",
+      "Juba"
     ],
     "cast": [
       "러셀 크로우",
@@ -1362,7 +1362,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "올리버 리드",
       "리처드 해리스",
       "데릭 재커비",
-      "자이먼 혼수",
+      "자이먼 혼수"
     ],
     "director": "리들리 스콧"
   },
@@ -1374,7 +1374,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "M",
       "Felix Leiter",
       "Mathis",
-      "Solange",
+      "Solange"
     ],
     "cast": [
       "다니엘 크레이그",
@@ -1383,7 +1383,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "주디 덴치",
       "제프리 라이트",
       "잔카를로 잔니니",
-      "카테리나 무리노",
+      "카테리나 무리노"
     ],
     "director": "마틴 캠벨"
   },
@@ -1395,7 +1395,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gareth Mallory",
       "Eve",
       "Séverine",
-      "Kincade",
+      "Kincade"
     ],
     "cast": [
       "다니엘 크레이그",
@@ -1404,7 +1404,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "랄프 파인즈",
       "나오미 해리스",
       "베레니스 마를로",
-      "알버트 피니",
+      "알버트 피니"
     ],
     "director": "샘 멘데스"
   },
@@ -1416,7 +1416,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "CIA Director Ezra Kramer",
       "Simon Ross",
       "Paz",
-      "Dr. Albert Hirsch",
+      "Dr. Albert Hirsch"
     ],
     "cast": [
       "맷 데이먼",
@@ -1425,7 +1425,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스콧 글렌",
       "패디 콘시딘",
       "에드가 라미레즈",
-      "알버트 피니",
+      "알버트 피니"
     ],
     "director": "폴 그린그래스"
   },
@@ -1437,7 +1437,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mad Dog",
       "Wahyu",
       "Tama",
-      "Bowo",
+      "Bowo"
     ],
     "cast": [
       "이코 우웨이스",
@@ -1446,7 +1446,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "야얀 루히안",
       "Pierre Gruno",
       "Ray Sahetapy",
-      "Tegar Satrya",
+      "Tegar Satrya"
     ],
     "director": "가렛 에반스"
   },
@@ -1458,7 +1458,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Holly Gennaro McClane",
       "Al Powell",
       "Dwayne Robinson",
-      "Argyle",
+      "Argyle"
     ],
     "cast": [
       "브루스 윌리스",
@@ -1467,7 +1467,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "보니 베델리아",
       "Reginald VelJohnson",
       "Paul Gleason",
-      "De'voreaux White",
+      "De'voreaux White"
     ],
     "director": "존 맥티어난"
   },
@@ -1479,7 +1479,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "T-1000",
       "Dr. Silberman",
       "Miles Dyson",
-      "Tarissa Dyson",
+      "Tarissa Dyson"
     ],
     "cast": [
       "아놀드 슈왈제네거",
@@ -1488,7 +1488,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로버트 패트릭",
       "Earl Boen",
       "조 모턴",
-      "S. 이페이사 머커슨",
+      "S. 이페이사 머커슨"
     ],
     "director": "제임스 카메론"
   },
@@ -1500,7 +1500,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Burke",
       "Bishop",
       "Private Hudson",
-      "Lieutenant Gorman",
+      "Lieutenant Gorman"
     ],
     "cast": [
       "시고니 위버",
@@ -1509,7 +1509,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "폴 라이저",
       "랜스 헨릭슨",
       "빌 팩스턴",
-      "William Hope",
+      "William Hope"
     ],
     "director": "제임스 카메론"
   },
@@ -1521,7 +1521,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Thor",
       "Natasha Romanoff / Black Widow",
       "Clint Barton / Hawkeye",
-      "Loki",
+      "Loki"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -1530,7 +1530,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스 헴스워스",
       "스칼렛 요한슨",
       "제레미 레너",
-      "톰 히들스턴",
+      "톰 히들스턴"
     ],
     "director": "조스 웨던"
   },
@@ -1542,7 +1542,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alexander Pierce",
       "Bucky Barnes / Winter Soldier",
       "Sam Wilson / Falcon",
-      "Maria Hill",
+      "Maria Hill"
     ],
     "cast": [
       "크리스 에반스",
@@ -1551,7 +1551,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로버트 레드포드",
       "세바스찬 스탠",
       "안소니 마키",
-      "코비 스멀더스",
+      "코비 스멀더스"
     ],
     "director": "조 루소"
   },
@@ -1563,7 +1563,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Master Sergeant Farell",
       "Skinner",
       "Kimmel",
-      "Griff",
+      "Griff"
     ],
     "cast": [
       "톰 크루즈",
@@ -1572,7 +1572,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 팩스턴",
       "Jonas Armstrong",
       "Tony Way",
-      "Kick Gurry",
+      "Kick Gurry"
     ],
     "director": "더그 라이만"
   },
@@ -1584,7 +1584,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gabriela",
       "Pierce",
       "Caliban",
-      "Dr. Rice",
+      "Dr. Rice"
     ],
     "cast": [
       "휴 잭맨",
@@ -1593,7 +1593,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elizabeth Rodriguez",
       "보이드 홀브룩",
       "스티븐 머천트",
-      "리처드 E. 그랜트",
+      "리처드 E. 그랜트"
     ],
     "director": "제임스 맨골드"
   },
@@ -1605,7 +1605,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Buddy",
       "Bats",
       "Griff",
-      "Darling",
+      "Darling"
     ],
     "cast": [
       "안셀 엘고트",
@@ -1614,7 +1614,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 햄",
       "제이미 폭스",
       "존 번설",
-      "에이사 곤살레스",
+      "에이사 곤살레스"
     ],
     "director": "에드가 라이트"
   },
@@ -1626,7 +1626,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Scott Buxton",
       "Cassandra Buxton",
       "Alluri Venkatarama Raju",
-      "Sita",
+      "Sita"
     ],
     "cast": [
       "N.T. Rama Rao Jr.",
@@ -1635,7 +1635,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "레이 스티븐슨",
       "Alison Doody",
       "Ajay Devgan",
-      "알리아 바트",
+      "알리아 바트"
     ],
     "director": "S. S. 라자몰리"
   },
@@ -1647,7 +1647,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lo",
       "Sir Te",
       "Jade Fox",
-      "Governor Yu",
+      "Governor Yu"
     ],
     "cast": [
       "주윤발",
@@ -1656,7 +1656,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "장첸",
       "郎雄",
       "정패패",
-      "李法曾",
+      "李法曾"
     ],
     "director": "이안"
   },
@@ -1668,7 +1668,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elle Driver",
       "Bill",
       "Budd",
-      "Sofie Fatale",
+      "Sofie Fatale"
     ],
     "cast": [
       "우마 서먼",
@@ -1677,7 +1677,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "대릴 해나",
       "데이비드 캐러딘",
       "마이클 매드슨",
-      "줄리 드레이퍼스",
+      "줄리 드레이퍼스"
     ],
     "director": "쿠엔틴 타란티노"
   },
@@ -1689,7 +1689,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Officer Davis",
       "Dr. O'Neill",
       "Dr. Santiago",
-      "Police Captain",
+      "Police Captain"
     ],
     "cast": [
       "모건 프리먼",
@@ -1698,7 +1698,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 카시니",
       "피터 크롬비",
       "레그 E. 캐시",
-      "R. 리 이메이",
+      "R. 리 이메이"
     ],
     "director": "데이비드 핀처"
   },
@@ -1710,7 +1710,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Naehring",
       "Dolores",
       "Rachel 1",
-      "Rachel 2",
+      "Rachel 2"
     ],
     "cast": [
       "레오나르도 디카프리오",
@@ -1719,7 +1719,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "막스 폰 시도우",
       "미셸 윌리엄스",
       "에밀리 모티머",
-      "패트리샤 클락슨",
+      "패트리샤 클락슨"
     ],
     "director": "마틴 스콜세지"
   },
@@ -1731,7 +1731,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Burt",
       "Waiter",
       "Leonard's Wife",
-      "Sammy",
+      "Sammy"
     ],
     "cast": [
       "가이 피어스",
@@ -1740,7 +1740,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마크 분 주니어",
       "러스 페가",
       "Jorja Fox",
-      "스티븐 토볼로스키",
+      "스티븐 토볼로스키"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -1752,7 +1752,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hockney",
       "Verbal",
       "Dave Kujan",
-      "Kobayashi",
+      "Kobayashi"
     ],
     "cast": [
       "Stephen Baldwin",
@@ -1761,7 +1761,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케빈 폴락",
       "케빈 스페이시",
       "Chazz Palminteri",
-      "피트 포스틀스웨이트",
+      "피트 포스틀스웨이트"
     ],
     "director": "브라이언 싱어"
   },
@@ -1773,7 +1773,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lieutenant Lou Escobar",
       "Curly",
       "Russ Yelburton",
-      "Hollis I. Mulwray",
+      "Hollis I. Mulwray"
     ],
     "cast": [
       "잭 니콜슨",
@@ -1782,7 +1782,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Perry Lopez",
       "버트 영",
       "존 힐러맨",
-      "Darrell Zwerling",
+      "Darrell Zwerling"
     ],
     "director": "로만 폴란스키"
   },
@@ -1794,7 +1794,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dudley Smith",
       "Lynn Bracken",
       "Sid Hudgens",
-      "Pierce Patchett",
+      "Pierce Patchett"
     ],
     "cast": [
       "케빈 스페이시",
@@ -1803,7 +1803,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 크롬웰",
       "킴 베이싱어",
       "대니 드비토",
-      "데이비드 스트러세언",
+      "데이비드 스트러세언"
     ],
     "director": "커티스 핸슨"
   },
@@ -1815,7 +1815,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Whitey Powers",
       "Celeste Boyle",
       "Annabeth Markum",
-      "Val Savage",
+      "Val Savage"
     ],
     "cast": [
       "숀 펜",
@@ -1824,7 +1824,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로렌스 피시번",
       "마시아 그레이 하든",
       "로라 리니",
-      "케빈 채프먼",
+      "케빈 채프먼"
     ],
     "director": "클린트 이스트우드"
   },
@@ -1836,7 +1836,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Martin Vanger",
       "Erika Berger",
       "Nils Bjurman",
-      "Dirch Frode",
+      "Dirch Frode"
     ],
     "cast": [
       "다니엘 크레이그",
@@ -1845,7 +1845,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스텔란 스카스가드",
       "로빈 라이트",
       "Yorick van Wageningen",
-      "Steven Berkoff",
+      "Steven Berkoff"
     ],
     "director": "데이비드 핀처"
   },
@@ -1857,7 +1857,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jame Gumb",
       "Dr. Frederick Chilton",
       "Catherine Martin",
-      "Senator Ruth Martin",
+      "Senator Ruth Martin"
     ],
     "cast": [
       "조디 포스터",
@@ -1866,7 +1866,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "테드 러바인",
       "앤서니 힐드",
       "브룩 스미스",
-      "Diane Baker",
+      "Diane Baker"
     ],
     "director": "조나단 드미"
   },
@@ -1878,7 +1878,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Anna Crowe",
       "Tommy Tammisimo",
       "Vincent Gray",
-      "Darren",
+      "Darren"
     ],
     "cast": [
       "브루스 윌리스",
@@ -1887,7 +1887,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "올리비아 윌리엄스",
       "Trevor Morgan",
       "도니 월버그",
-      "Peter Anthony Tambakis",
+      "Peter Anthony Tambakis"
     ],
     "director": "M. 나이트 샤말란"
   },
@@ -1899,7 +1899,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Peter",
       "Pamela Nam Kim",
       "Abigail",
-      "Hannah",
+      "Hannah"
     ],
     "cast": [
       "존 조",
@@ -1908,7 +1908,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조셉 리",
       "Sara Sohn",
       "Briana McLean",
-      "Erica Jenkins",
+      "Erica Jenkins"
     ],
     "director": "아니쉬 채겐티"
   },
@@ -1920,7 +1920,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Advocate General",
       "Samuel Maleski",
       "Marge Berger",
-      "Maître Nour Boudaoud",
+      "Maître Nour Boudaoud"
     ],
     "cast": [
       "산드라 휠러",
@@ -1929,7 +1929,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "앙투안 레나르츠",
       "사뮈엘 타이스",
       "제니 베스",
-      "Saadia Bentaïeb",
+      "Saadia Bentaïeb"
     ],
     "director": "쥐스틴 트리에"
   },
@@ -1941,7 +1941,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mrs. Bertha Mills",
       "Charles Stewart",
       "Mr. Edmund Tuttle",
-      "Lydia",
+      "Lydia"
     ],
     "cast": [
       "니콜 키드먼",
@@ -1950,7 +1950,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fionnula Flanagan",
       "크리스토퍼 에클스턴",
       "에릭 사이크스",
-      "Elaine Cassidy",
+      "Elaine Cassidy"
     ],
     "director": "알레한드로 아메나바르"
   },
@@ -1962,7 +1962,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Edward Ratchett",
       "Hector MacQueen",
       "Gerhard Hardman",
-      "Princess Dragomiroff",
+      "Princess Dragomiroff"
     ],
     "cast": [
       "케네스 브래너",
@@ -1971,7 +1971,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조니 뎁",
       "조시 게드",
       "윌렘 대포",
-      "주디 덴치",
+      "주디 덴치"
     ],
     "director": "케네스 브래너"
   },
@@ -1983,7 +1983,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jim Feingold",
       "Samuel Sutherland",
       "Ilsa",
-      "Elizabeth",
+      "Elizabeth"
     ],
     "cast": [
       "마이클 더글라스",
@@ -1992,7 +1992,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 레브혼",
       "Peter Donat",
       "캐럴 베이커",
-      "Anna Katarina",
+      "Anna Katarina"
     ],
     "director": "데이비드 핀처"
   },
@@ -2004,7 +2004,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stella",
       "Lars Thorwald",
       "Miss Lonelyhearts",
-      "Songwriter",
+      "Songwriter"
     ],
     "cast": [
       "제임스 스튜어트",
@@ -2013,7 +2013,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Thelma Ritter",
       "Raymond Burr",
       "Judith Evelyn",
-      "Ross Bagdasarian",
+      "Ross Bagdasarian"
     ],
     "director": "알프레드 히치콕"
   },
@@ -2025,7 +2025,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mr. Hennessy",
       "Ambassador",
       "Countess Vereberg",
-      "Gen. Provno",
+      "Gen. Provno"
     ],
     "cast": [
       "오드리 헵번",
@@ -2034,7 +2034,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hartley Power",
       "Harcourt Williams",
       "Margaret Rawlings",
-      "Tullio Carminati",
+      "Tullio Carminati"
     ],
     "director": "윌리엄 와일러"
   },
@@ -2046,7 +2046,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Max",
       "Spike",
       "Honey",
-      "Bernie",
+      "Bernie"
     ],
     "cast": [
       "줄리아 로버츠",
@@ -2055,7 +2055,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tim McInnerny",
       "리스 이판",
       "Emma Chambers",
-      "휴 보네빌",
+      "휴 보네빌"
     ],
     "director": "로저 미첼"
   },
@@ -2067,7 +2067,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jane Bennet",
       "Kitty Bennet",
       "Lydia Bennet",
-      "Mary Bennet",
+      "Mary Bennet"
     ],
     "cast": [
       "키이라 나이틀리",
@@ -2076,7 +2076,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로저먼드 파이크",
       "캐리 멀리건",
       "제나 말론",
-      "탈룰라 라일리",
+      "탈룰라 라일리"
     ],
     "director": "조 라이트"
   },
@@ -2088,7 +2088,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Briony Tallis (Age 18)",
       "Briony Tallis (Age 77)",
       "Grace Turner",
-      "Lola Quincey",
+      "Lola Quincey"
     ],
     "cast": [
       "제임스 맥어보이",
@@ -2097,7 +2097,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Romola Garai",
       "바네사 레드그레이브",
       "Brenda Blethyn",
-      "주노 템플",
+      "주노 템플"
     ],
     "director": "조 라이트"
   },
@@ -2109,7 +2109,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Molly Brown",
       "Ruth DeWitt Bukater",
       "Old Rose",
-      "Brock Lovett",
+      "Brock Lovett"
     ],
     "cast": [
       "레오나르도 디카프리오",
@@ -2118,7 +2118,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "캐시 베이츠",
       "프랜시스 피셔",
       "글로리아 스튜어트",
-      "빌 팩스턴",
+      "빌 팩스턴"
     ],
     "director": "제임스 카메론"
   },
@@ -2130,7 +2130,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Raymond Dufayel",
       "Lucien",
       "Gina",
-      "Suzanne",
+      "Suzanne"
     ],
     "cast": [
       "오드리 토투",
@@ -2139,7 +2139,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Serge Merlin",
       "Jamel Debbouze",
       "Clotilde Mollet",
-      "Claire Maurier",
+      "Claire Maurier"
     ],
     "director": "장-피에르 주네"
   },
@@ -2151,7 +2151,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Older Noah \"Duke\"",
       "Anne Hamilton",
       "John Hamilton",
-      "Lon Hammond",
+      "Lon Hammond"
     ],
     "cast": [
       "라이언 고슬링",
@@ -2160,7 +2160,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 가너",
       "조앤 앨런",
       "David Thornton",
-      "제임스 마스던",
+      "제임스 마스던"
     ],
     "director": "닉 카사베츠"
   },
@@ -2172,7 +2172,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lureen Newsome",
       "Joe Aguirre",
       "Cassie Cartwright",
-      "Lashawn Malone",
+      "Lashawn Malone"
     ],
     "cast": [
       "히스 레저",
@@ -2181,7 +2181,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "앤 해서웨이",
       "Randy Quaid",
       "린다 카델리니",
-      "안나 페리스",
+      "안나 페리스"
     ],
     "director": "이안"
   },
@@ -2193,7 +2193,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Richard Semco",
       "Abby Gerhard",
       "Dannie McElroy",
-      "Tommy Tucker",
+      "Tommy Tucker"
     ],
     "cast": [
       "케이트 블란쳇",
@@ -2202,7 +2202,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이크 레이시",
       "사라 폴슨",
       "존 마가로",
-      "코리 마이클 스미스",
+      "코리 마이클 스미스"
     ],
     "director": "토드 헤인즈"
   },
@@ -2214,7 +2214,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Journalist #1",
       "Journalist #2",
       "Waitress",
-      "Philippe",
+      "Philippe"
     ],
     "cast": [
       "에단 호크",
@@ -2223,7 +2223,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Louise Lemoine Torrès",
       "Rodolphe Pauly",
       "Mariane Plasteig",
-      "Diabolo",
+      "Diabolo"
     ],
     "director": "리처드 링클레이터"
   },
@@ -2235,7 +2235,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ella",
       "Nina",
       "Natalia",
-      "Patrick",
+      "Patrick"
     ],
     "cast": [
       "에단 호크",
@@ -2244,7 +2244,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jennifer Prior",
       "Charlotte Prior",
       "Ξένια Καλογεροπούλου",
-      "Walter Lassally",
+      "Walter Lassally"
     ],
     "director": "리처드 링클레이터"
   },
@@ -2256,7 +2256,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jess",
       "Joe",
       "Alice",
-      "Amanda",
+      "Amanda"
     ],
     "cast": [
       "빌리 크리스탈",
@@ -2265,7 +2265,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브루노 커비",
       "Steven Ford",
       "Lisa Jane Persky",
-      "Michelle Nicastro",
+      "Michelle Nicastro"
     ],
     "director": "롭 라이너"
   },
@@ -2277,7 +2277,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rachel",
       "Paul",
       "Vance",
-      "Millie",
+      "Millie"
     ],
     "cast": [
       "조셉 고든레빗",
@@ -2286,7 +2286,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "클로이 그레이스 모레츠",
       "Matthew Gray Gubler",
       "클라크 그렉",
-      "Patricia Belcher",
+      "Patricia Belcher"
     ],
     "director": "마크 웹"
   },
@@ -2298,7 +2298,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Faye",
       "Air Hostess",
       "Owner of Eatery",
-      "May",
+      "May"
     ],
     "cast": [
       "임청하",
@@ -2307,7 +2307,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "왕페이",
       "周嘉玲",
       "陳錦泉",
-      "Kwan Lee-na",
+      "Kwan Lee-na"
     ],
     "director": "왕가위"
   },
@@ -2319,7 +2319,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kelly",
       "Ms. Kawasaki",
       "Press Agent",
-      "Concierge",
+      "Concierge"
     ],
     "cast": [
       "빌 머레이",
@@ -2328,7 +2328,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안나 페리스",
       "다케시타 아키코",
       "Kazuyoshi Minamimagoe",
-      "Kazuko Shibata",
+      "Kazuko Shibata"
     ],
     "director": "소피아 코폴라"
   },
@@ -2340,7 +2340,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Walter",
       "Becky",
       "Victoria",
-      "Jay",
+      "Jay"
     ],
     "cast": [
       "맥 라이언",
@@ -2349,7 +2349,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 풀먼",
       "Rosie O'Donnell",
       "Barbara Garrick",
-      "롭 라이너",
+      "롭 라이너"
     ],
     "director": "Nora Ephron"
   },
@@ -2361,7 +2361,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Officer Slater",
       "Officer Michaels",
       "Becca",
-      "Jules",
+      "Jules"
     ],
     "cast": [
       "조나 힐",
@@ -2370,7 +2370,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 헤이더",
       "세스 로건",
       "Martha MacIsaac",
-      "엠마 스톤",
+      "엠마 스톤"
     ],
     "director": "Greg Mottola"
   },
@@ -2382,7 +2382,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ned Ryerson",
       "Buster Green",
       "Nancy Taylor",
-      "Mme Lancaster",
+      "Mme Lancaster"
     ],
     "cast": [
       "빌 머레이",
@@ -2391,7 +2391,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 토볼로스키",
       "Brian Doyle-Murray",
       "Marita Geraghty",
-      "Angela Paton",
+      "Angela Paton"
     ],
     "director": "해롤드 래미스"
   },
@@ -2403,7 +2403,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rhodes",
       "Megan",
       "Rita",
-      "Becca",
+      "Becca"
     ],
     "cast": [
       "크리스틴 위그",
@@ -2412,7 +2412,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스 오다우드",
       "멜리사 매카시",
       "웬디 매클렌던커비",
-      "엘리 캠퍼",
+      "엘리 캠퍼"
     ],
     "director": "폴 피그"
   },
@@ -2424,7 +2424,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Principal Brown",
       "Charmaine",
       "Doug",
-      "Ryan",
+      "Ryan"
     ],
     "cast": [
       "케이틀린 디버",
@@ -2433,7 +2433,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이슨 수데이키스",
       "리사 쿠드로",
       "윌 포테이",
-      "Victoria Ruesga",
+      "Victoria Ruesga"
     ],
     "director": "올리비아 와일드"
   },
@@ -2445,7 +2445,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Howard",
       "Misty",
       "Tala",
-      "Abe",
+      "Abe"
     ],
     "cast": [
       "앤디 샘버그",
@@ -2454,7 +2454,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 갤러거",
       "메러디스 해그너",
       "카밀라 멘데스",
-      "Tyler Hoechlin",
+      "Tyler Hoechlin"
     ],
     "director": "Max Barbakow"
   },
@@ -2466,7 +2466,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "DS Andy Wainwright",
       "DC Andy Cartwright",
       "Sergeant Tony Fisher",
-      "PC Doris Thatcher",
+      "PC Doris Thatcher"
     ],
     "cast": [
       "사이먼 페그",
@@ -2475,7 +2475,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "패디 콘시딘",
       "레이프 스폴",
       "Kevin Eldon",
-      "올리비아 콜먼",
+      "올리비아 콜먼"
     ],
     "director": "에드가 라이트"
   },
@@ -2487,7 +2487,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dianne",
       "David",
       "Yvonne",
-      "Barbara",
+      "Barbara"
     ],
     "cast": [
       "사이먼 페그",
@@ -2496,7 +2496,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루시 데이비스",
       "Dylan Moran",
       "Jessica Hynes",
-      "페넬로페 윌튼",
+      "페넬로페 윌튼"
     ],
     "director": "에드가 라이트"
   },
@@ -2508,7 +2508,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Patty Di Marco",
       "Summer Hathaway",
       "Zack",
-      "Freddy Jones",
+      "Freddy Jones"
     ],
     "cast": [
       "잭 블랙",
@@ -2517,7 +2517,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "세라 실버먼",
       "미란다 코스그로브",
       "Joey Gaydos Jr.",
-      "Kevin Alexander Clark",
+      "Kevin Alexander Clark"
     ],
     "director": "리처드 링클레이터"
   },
@@ -2529,7 +2529,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gretchen Wieners",
       "Karen Smith",
       "Damian",
-      "Aaron Samuels",
+      "Aaron Samuels"
     ],
     "cast": [
       "린제이 로한",
@@ -2538,7 +2538,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "레이시 셔베어",
       "아만다 사이프리드",
       "Daniel Franzese",
-      "Jonathan Bennett",
+      "Jonathan Bennett"
     ],
     "director": "마크 워터스"
   },
@@ -2550,7 +2550,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nigel",
       "Christian Thompson",
       "Nate",
-      "Lily",
+      "Lily"
     ],
     "cast": [
       "메릴 스트립",
@@ -2559,7 +2559,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스탠리 투치",
       "사이먼 베이커",
       "애드리언 그레니어",
-      "트레이시 톰스",
+      "트레이시 톰스"
     ],
     "director": "데이비드 프랭클"
   },
@@ -2571,7 +2571,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mark Loring",
       "Mac MacGuff",
       "Bren MacGuff",
-      "Leah",
+      "Leah"
     ],
     "cast": [
       "엘리엇 페이지",
@@ -2580,7 +2580,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이슨 베이트먼",
       "J.K. 시몬스",
       "앨리슨 제니",
-      "올리비아 썰비",
+      "올리비아 썰비"
     ],
     "director": "제이슨 라이트만"
   },
@@ -2592,7 +2592,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Chris Hillard",
       "Natalie Hillard",
       "Stu",
-      "Mr. Lundy",
+      "Mr. Lundy"
     ],
     "cast": [
       "로빈 윌리엄스",
@@ -2601,7 +2601,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Matthew Lawrence",
       "마라 윌슨",
       "피어스 브로스넌",
-      "Robert Prosky",
+      "Robert Prosky"
     ],
     "director": "크리스 콜럼버스"
   },
@@ -2613,7 +2613,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Magalie",
       "La DRH société de courses",
       "Marcelle",
-      "Elisa",
+      "Elisa"
     ],
     "cast": [
       "프랑수아 클루제",
@@ -2622,7 +2622,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Audrey Fleurot",
       "Joséphine de Meaux",
       "Clotilde Mollet",
-      "Alba Gaïa Bellugi",
+      "Alba Gaïa Bellugi"
     ],
     "director": "Éric Toledano"
   },
@@ -2634,7 +2634,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jenny Summers",
       "Lt. Bogomil",
       "Victor Maitland",
-      "Mikey Tandino",
+      "Mikey Tandino"
     ],
     "cast": [
       "에디 머피",
@@ -2643,7 +2643,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리사 에일바처",
       "로니 콕스",
       "Steven Berkoff",
-      "James Russo",
+      "James Russo"
     ],
     "director": "Martin Brest"
   },
@@ -2661,7 +2661,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아리아나 그린블랫",
       "이사 레이",
       "케이트 맥키넌",
-      "알렉산드라 쉽",
+      "알렉산드라 쉽"
     ],
     "director": "그레타 거윅"
   },
@@ -2673,7 +2673,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bert Fischer",
       "Dr. Nelson Guggenheim",
       "Dirk Calloway",
-      "Margaret Yang",
+      "Margaret Yang"
     ],
     "cast": [
       "제이슨 슈워츠먼",
@@ -2682,7 +2682,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Seymour Cassel",
       "브라이언 콕스",
       "Mason Gamble",
-      "Sara Tanaka",
+      "Sara Tanaka"
     ],
     "director": "웨스 앤더슨"
   },
@@ -2694,7 +2694,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Theodore \"Teddy\" Sanders",
       "Rick Martinez",
       "Mitch Henderson",
-      "Beth Johanssen",
+      "Beth Johanssen"
     ],
     "cast": [
       "맷 데이먼",
@@ -2703,7 +2703,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제프 다니엘스",
       "마이클 페냐",
       "숀 빈",
-      "케이트 마라",
+      "케이트 마라"
     ],
     "director": "리들리 스콧"
   },
@@ -2715,7 +2715,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Director Lamar Burgess",
       "Dr. Iris Hineman",
       "Dr. Solomon Eddie",
-      "Gideon",
+      "Gideon"
     ],
     "cast": [
       "톰 크루즈",
@@ -2724,7 +2724,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "막스 폰 시도우",
       "Lois Smith",
       "피터 스토메어",
-      "팀 블레이크 넬슨",
+      "팀 블레이크 넬슨"
     ],
     "director": "스티븐 스필버그"
   },
@@ -2736,7 +2736,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Colonel Miles Quaritch",
       "Trudy Chacon",
       "Parker Selfridge",
-      "Norm Spellman",
+      "Norm Spellman"
     ],
     "cast": [
       "샘 워싱턴",
@@ -2745,7 +2745,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 랭",
       "미셸 로드리게즈",
       "조반니 리비시",
-      "조엘 무어",
+      "조엘 무어"
     ],
     "director": "제임스 카메론"
   },
@@ -2757,7 +2757,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "FBI Director James Womack",
       "Major Tom Baxter",
       "Special Agent Ernest Paxton",
-      "Commander Charles Anderson",
+      "Commander Charles Anderson"
     ],
     "cast": [
       "숀 코너리",
@@ -2766,7 +2766,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "John Spencer",
       "데이비드 모스",
       "William Forsythe",
-      "마이클 빈",
+      "마이클 빈"
     ],
     "director": "마이클 베이"
   },
@@ -2778,7 +2778,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Capt. McMahon",
       "Harry",
       "Stephens",
-      "Jaguar Owner",
+      "Jaguar Owner"
     ],
     "cast": [
       "키아누 리브스",
@@ -2787,7 +2787,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조 모턴",
       "제프 다니엘스",
       "앨런 럭",
-      "글렌 플러머",
+      "글렌 플러머"
     ],
     "director": "쟝 드봉"
   },
@@ -2799,7 +2799,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tewkesbury",
       "Dr. Watson",
       "Moriarty",
-      "Lady Tewkesbury",
+      "Lady Tewkesbury"
     ],
     "cast": [
       "밀리 바비 브라운",
@@ -2808,7 +2808,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루이 파트리지",
       "히메쉬 파텔",
       "샤론 던컨 브루스터",
-      "해티 모라한",
+      "해티 모라한"
     ],
     "director": "필립 배런티니"
   },
@@ -2820,7 +2820,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Martyn Fleming",
       "Peter Wetzler",
       "Sally Fleming",
-      "Edward Lloyd",
+      "Edward Lloyd"
     ],
     "cast": [
       "제레미 아이언스",
@@ -2829,7 +2829,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루퍼트 그레이브스",
       "피터 스토메어",
       "Gemma Clarke",
-      "Ian Bannen",
+      "Ian Bannen"
     ],
     "director": "루이 말"
   },
@@ -2841,7 +2841,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Forky (voice)",
       "Ducky (voice)",
       "Bonnie (voice)",
-      "Gabby Gabby (voice)",
+      "Gabby Gabby (voice)"
     ],
     "cast": [
       "톰 행크스",
@@ -2850,7 +2850,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "토니 헤일",
       "키건마이클 키",
       "매들린 맥그로",
-      "크리스티나 헨드릭스",
+      "크리스티나 헨드릭스"
     ],
     "director": "조시 쿨리"
   },
@@ -2862,7 +2862,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nibbles Maplestick (voice)",
       "Pawbert Lynxley (voice)",
       "Milton Lynxley (voice)",
-      "Chief Bogo (voice)",
+      "Chief Bogo (voice)"
     ],
     "cast": [
       "지니퍼 굿윈",
@@ -2871,7 +2871,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "포춘 페임스터",
       "앤디 샘버그",
       "데이비드 스트러세언",
-      "이드리스 엘바",
+      "이드리스 엘바"
     ],
     "director": "재러드 부시"
   },
@@ -2883,7 +2883,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Quaritch",
       "Varang",
       "Spider",
-      "Ronal",
+      "Ronal"
     ],
     "cast": [
       "샘 워싱턴",
@@ -2892,7 +2892,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 랭",
       "우나 채플린",
       "잭 챔피언",
-      "케이트 윈슬렛",
+      "케이트 윈슬렛"
     ],
     "director": "제임스 카메론"
   },
@@ -2904,7 +2904,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Caloo (voice)",
       "Calli (voice)",
       "Lodd (voice)",
-      "Young Ollie (voice)",
+      "Young Ollie (voice)"
     ],
     "cast": [
       "마이클 B. 조던",
@@ -2913,7 +2913,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "세드릭 더 엔터테이너",
       "저스티나 마샤도",
       "네이트 토런스",
-      "캄덴 브룩스",
+      "캄덴 브룩스"
     ],
     "director": "네이든 그레노"
   },
@@ -2925,7 +2925,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ma",
       "Maria Castle",
       "Dre",
-      "Old Vet",
+      "Old Vet"
     ],
     "cast": [
       "존 번설",
@@ -2934,7 +2934,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "주디스 라이트",
       "켈리 바렛",
       "앤드레 로요",
-      "존 더글러스 톰슨",
+      "존 더글러스 톰슨"
     ],
     "director": "Reinaldo Marcus Green"
   },
@@ -2946,7 +2946,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Chef Bastien",
       "Breeda",
       "Andy",
-      "Arthur",
+      "Arthur"
     ],
     "cast": [
       "조이 도이치",
@@ -2955,7 +2955,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "닉 오퍼먼",
       "Leah McKendrick",
       "해리 슘 주니어",
-      "루카스 게이지",
+      "루카스 게이지"
     ],
     "director": "Leah McKendrick"
   },
@@ -2967,7 +2967,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Josh Landy",
       "Mia",
       "Lenore",
-      "Olly",
+      "Olly"
     ],
     "cast": [
       "존 시나",
@@ -2976,7 +2976,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스토퍼 멜로니",
       "셰리 콜라",
       "에고 워딤",
-      "칼렙 헤론",
+      "칼렙 헤론"
     ],
     "director": "Matt Spicer"
   },
@@ -2988,7 +2988,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Palmer",
       "Childs",
       "Dr. Copper",
-      "Norris",
+      "Norris"
     ],
     "cast": [
       "커트 러셀",
@@ -2997,7 +2997,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "David Clennon",
       "키스 데이비드",
       "리차드 다이사트",
-      "Charles Hallahan",
+      "Charles Hallahan"
     ],
     "director": "존 카펜터"
   },
@@ -3009,7 +3009,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Sam (voice)",
       "Insect King (voice)",
       "Loaf (voice)",
-      "Nisha (voice)",
+      "Nisha (voice)"
     ],
     "cast": [
       "파이퍼 쿠르다",
@@ -3018,7 +3018,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "캐시 나지미",
       "데이브 프랭코",
       "에두아르도 프랑코",
-      "아파르나 난첼라",
+      "아파르나 난첼라"
     ],
     "director": "다니엘 총"
   },
@@ -3030,7 +3030,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Slinky Dog (voice)",
       "Rex (voice)",
       "Hamm (voice)",
-      "Bo Peep (voice)",
+      "Bo Peep (voice)"
     ],
     "cast": [
       "톰 행크스",
@@ -3039,7 +3039,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "짐 바니",
       "월리스 숀",
       "존 라젠버그",
-      "애니 포츠",
+      "애니 포츠"
     ],
     "director": "존 라세터"
   },
@@ -3051,7 +3051,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Xi Meng / Xi Wang",
       "Hu Feng",
       "Liu Jinxiao",
-      "Wu Yaolei",
+      "Wu Yaolei"
     ],
     "cast": [
       "성룡",
@@ -3060,7 +3060,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "차사",
       "준",
       "周政杰",
-      "王杍逸",
+      "王杍逸"
     ],
     "director": "杨子"
   },
@@ -3072,7 +3072,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Poh",
       "Pruek",
       "Lhek",
-      "Deaw",
+      "Deaw"
     ],
     "cast": [
       "พิมพ์ชนก ลือวิเศษไพบูลย์",
@@ -3081,7 +3081,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "ชาตโยดม หิรัญยัติ",
       "ธีรชัย วิมลชัยฤกษ์",
       "Teerawat Mulvilai",
-      "ชูพงษ์ ช่างปรุง",
+      "ชูพงษ์ ช่างปรุง"
     ],
     "director": "Taweewat Wantha"
   },
@@ -3093,7 +3093,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lily Reyes",
       "Eric Reyes",
       "Ryan",
-      "Jake",
+      "Jake"
     ],
     "cast": [
       "린제이 로한",
@@ -3102,7 +3102,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sophia Hammons",
       "매니 자신토",
       "마크 하먼",
-      "채드 마이클 머리",
+      "채드 마이클 머리"
     ],
     "director": "Nisha Ganatra"
   },
@@ -3114,7 +3114,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eudoria Holmes",
       "Tewkesbury",
       "Lestrade",
-      "Miss Harrison",
+      "Miss Harrison"
     ],
     "cast": [
       "밀리 바비 브라운",
@@ -3123,7 +3123,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "헬레나 본햄 카터",
       "루이 파트리지",
       "아딜 아크타르",
-      "피오나 쇼",
+      "피오나 쇼"
     ],
     "director": "Harry Bradbeer"
   },
@@ -3135,7 +3135,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Faith Radford",
       "David Radford",
       "Mark Goodman",
-      "FBI Field Agent Sheila Jeffries",
+      "FBI Field Agent Sheila Jeffries"
     ],
     "cast": [
       "아이스 큐브",
@@ -3144,7 +3144,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Iman Benson",
       "Henry Hunter Hall",
       "Devon Bostick",
-      "Andrea Savage",
+      "Andrea Savage"
     ],
     "director": "Rich Lee"
   },
@@ -3156,7 +3156,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mane Attraction (voice)",
       "Olivia Burke (voice)",
       "Archie Everhardt (voice)",
-      "Modo Olachenko (voice)",
+      "Modo Olachenko (voice)"
     ],
     "cast": [
       "케일럽 맥러플린",
@@ -3165,7 +3165,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에런 피어",
       "니컬라 코클런",
       "데이비드 하버",
-      "닉 크롤",
+      "닉 크롤"
     ],
     "director": "Tyree Dillihay"
   },
@@ -3177,7 +3177,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Leah",
       "Cashier",
       "Sean",
-      "Hunter",
+      "Hunter"
     ],
     "cast": [
       "샤를리즈 테론",
@@ -3186,7 +3186,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케이틀린 스테이시",
       "베시 홀랜드",
       "재커리 개리드",
-      "맷 웰란",
+      "맷 웰란"
     ],
     "director": "Baltasar Kormákur"
   },
@@ -3198,7 +3198,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Jack Cruz",
       "Peter Vance",
       "Julie Schatz",
-      "Lizzy",
+      "Lizzy"
     ],
     "cast": [
       "제니퍼 로페즈",
@@ -3207,7 +3207,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에드워드 제임스 올모스",
       "브래들리 휘트포드",
       "에이미 세다리스",
-      "조디 휘태커",
+      "조디 휘태커"
     ],
     "director": "Ol Parker"
   },
@@ -3219,7 +3219,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Prospector (voice)",
       "Mr. Potato Head (voice)",
       "Slinky Dog (voice)",
-      "Rex (voice)",
+      "Rex (voice)"
     ],
     "cast": [
       "톰 행크스",
@@ -3228,7 +3228,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "켈시 그래머",
       "돈 리클리스",
       "짐 바니",
-      "월리스 숀",
+      "월리스 숀"
     ],
     "director": "존 라세터"
   },
@@ -3240,7 +3240,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tewkesbury",
       "Edith",
       "Lestrade",
-      "Mira Troy",
+      "Mira Troy"
     ],
     "cast": [
       "밀리 바비 브라운",
@@ -3249,7 +3249,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루이 파트리지",
       "Susan Wokoma",
       "아딜 아크타르",
-      "샤론 던컨 브루스터",
+      "샤론 던컨 브루스터"
     ],
     "director": "Harry Bradbeer"
   },
@@ -3261,7 +3261,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ned Leeds",
       "Happy Hogan",
       "Max Dillon / Electro",
-      "Norman Osborn / Green Goblin",
+      "Norman Osborn / Green Goblin"
     ],
     "cast": [
       "톰 홀랜드",
@@ -3270,7 +3270,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이콥 배털런",
       "존 파브로",
       "제이미 폭스",
-      "윌렘 대포",
+      "윌렘 대포"
     ],
     "director": "존 왓츠"
   },
@@ -3282,7 +3282,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jinu (voice)",
       "Celine (voice)",
       "Bobby (voice)",
-      "Gwi-Ma (voice)",
+      "Gwi-Ma (voice)"
     ],
     "cast": [
       "아덴 조",
@@ -3291,7 +3291,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안효섭",
       "김윤진",
       "켄 정",
-      "이병헌",
+      "이병헌"
     ],
     "director": "매기 강"
   },
@@ -3303,7 +3303,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Thanos",
       "Bruce Banner / Hulk",
       "Natasha Romanoff / Black Widow",
-      "James Rhodes / War Machine",
+      "James Rhodes / War Machine"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -3312,7 +3312,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조쉬 브롤린",
       "마크 러팔로",
       "스칼렛 요한슨",
-      "돈 치들",
+      "돈 치들"
     ],
     "director": "조 루소"
   },
@@ -3324,7 +3324,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mrs. Gump",
       "Bubba Blue",
       "Young Forrest Gump",
-      "Young Jenny Curran",
+      "Young Jenny Curran"
     ],
     "cast": [
       "톰 행크스",
@@ -3333,7 +3333,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "샐리 필드",
       "미켈티 윌리엄슨",
       "Michael Conner Humphreys",
-      "Hanna Hall",
+      "Hanna Hall"
     ],
     "director": "로버트 저메키스"
   },
@@ -3345,7 +3345,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Butch Coolidge",
       "Marsellus Wallace",
       "The Wolf",
-      "Lance",
+      "Lance"
     ],
     "cast": [
       "존 트라볼타",
@@ -3354,7 +3354,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브루스 윌리스",
       "빙 레임스",
       "하비 카이텔",
-      "에릭 스톨츠",
+      "에릭 스톨츠"
     ],
     "director": "쿠엔틴 타란티노"
   },
@@ -3366,7 +3366,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marcellus (voice)",
       "Janice Kim",
       "Mary Ann Minetti",
-      "Barb Vanderhoof",
+      "Barb Vanderhoof"
     ],
     "cast": [
       "샐리 필드",
@@ -3375,7 +3375,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "알프레드 몰리나",
       "조앤 첸",
       "Kathy Baker",
-      "베스 그랜트",
+      "베스 그랜트"
     ],
     "director": "Olivia Newman"
   },
@@ -3387,7 +3387,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kwei (Suit)",
       "Kwei (voice)",
       "Father (Suit)",
-      "Drone Synth",
+      "Drone Synth"
     ],
     "cast": [
       "엘 패닝",
@@ -3396,7 +3396,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Michael Homick",
       "Stefan Grube",
       "Reuben De Jong",
-      "Cameron Brown",
+      "Cameron Brown"
     ],
     "director": "댄 트랙턴버그"
   },
@@ -3408,7 +3408,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lord Farquaad (voice)",
       "Monsieur Hood (voice)",
       "Ogre Hunter (voice)",
-      "Captain of the Guards (voice)",
+      "Captain of the Guards (voice)"
     ],
     "cast": [
       "마이크 마이어스",
@@ -3417,7 +3417,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 리스고",
       "뱅상 카셀",
       "Peter Dennis",
-      "Clive Pearse",
+      "Clive Pearse"
     ],
     "director": "앤드류 애덤슨"
   },
@@ -3429,7 +3429,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ricky",
       "Finn",
       "Aunt Debra",
-      "Marvin",
+      "Marvin"
     ],
     "cast": [
       "휴 잭맨",
@@ -3438,7 +3438,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케빈 듀랜드",
       "안소니 마키",
       "호프 데이비스",
-      "제임스 레브혼",
+      "제임스 레브혼"
     ],
     "director": "숀 레비"
   },
@@ -3450,7 +3450,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "William Leister",
       "Jenna",
       "Lion",
-      "Sofía Zabala",
+      "Sofía Zabala"
     ],
     "cast": [
       "니콜 월리스",
@@ -3459,7 +3459,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이반 산체스",
       "에바 루이스",
       "빅토르 바로나",
-      "가브리엘라 안드라다",
+      "가브리엘라 안드라다"
     ],
     "director": "도밍고 곤살레스"
   },
@@ -3471,7 +3471,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mr. Paradox",
       "Laura / X-23",
       "Happy Hogan",
-      "Vanessa",
+      "Vanessa"
     ],
     "cast": [
       "라이언 레이놀즈",
@@ -3480,7 +3480,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "매튜 맥패디언",
       "다프네 킨",
       "존 파브로",
-      "모레나 바카린",
+      "모레나 바카린"
     ],
     "director": "숀 레비"
   },
@@ -3492,7 +3492,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Oz / The Penguin",
       "The Riddler",
       "Carmine Falcone",
-      "Alfred",
+      "Alfred"
     ],
     "cast": [
       "로버트 패틴슨",
@@ -3501,7 +3501,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "콜린 파렐",
       "폴 다노",
       "존 터투로",
-      "앤디 서키스",
+      "앤디 서키스"
     ],
     "director": "맷 리브스"
   },
@@ -3513,7 +3513,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Isla",
       "Monty",
       "Lewis",
-      "Lyla",
+      "Lyla"
     ],
     "cast": [
       "메간 폭스",
@@ -3522,7 +3522,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마틸다 퍼스",
       "Andrew Whipp",
       "아타나스 스리브레브",
-      "Kate Nichols",
+      "Kate Nichols"
     ],
     "director": "SK Dale"
   },
@@ -3534,7 +3534,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Randall (voice)",
       "Waternoose (voice)",
       "Celia (voice)",
-      "Roz (voice)",
+      "Roz (voice)"
     ],
     "cast": [
       "존 굿맨",
@@ -3543,7 +3543,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티브 부세미",
       "제임스 코번",
       "제니퍼 틸리",
-      "밥 피터슨",
+      "밥 피터슨"
     ],
     "director": "피트 닥터"
   },
@@ -3555,7 +3555,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Harry Osborn",
       "Ben Parker",
       "May Parker",
-      "J. Jonah Jameson",
+      "J. Jonah Jameson"
     ],
     "cast": [
       "토비 맥과이어",
@@ -3564,7 +3564,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 프랭코",
       "클리프 로버트슨",
       "로즈메리 해리스",
-      "J.K. 시몬스",
+      "J.K. 시몬스"
     ],
     "director": "샘 레이미"
   },
@@ -3576,7 +3576,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kate Kavanagh",
       "Mia Grey",
       "Elliot Grey",
-      "José",
+      "José"
     ],
     "cast": [
       "다코타 존슨",
@@ -3585,7 +3585,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "엘로이즈 멈퍼드",
       "리타 오라",
       "루크 그라임스",
-      "Victor Rasuk",
+      "Victor Rasuk"
     ],
     "director": "James Foley"
   },
@@ -3597,7 +3597,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Franklin",
       "Donovan",
       "Chase",
-      "Boat Captain",
+      "Boat Captain"
     ],
     "cast": [
       "레이첼 맥아담스",
@@ -3606,7 +3606,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데니스 헤스버트",
       "세이비어 새뮤얼",
       "크리스 팽",
-      "타넷 와라꾼누크로",
+      "타넷 와라꾼누크로"
     ],
     "director": "샘 레이미"
   },
@@ -3618,7 +3618,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Minho",
       "Gally",
       "Alby",
-      "Ava Paige",
+      "Ava Paige"
     ],
     "cast": [
       "딜런 오브라이언",
@@ -3627,7 +3627,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이기홍",
       "윌 폴터",
       "어멜 아민",
-      "패트리샤 클락슨",
+      "패트리샤 클락슨"
     ],
     "director": "웨스 볼"
   },
@@ -3639,7 +3639,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Colonel Miles Quaritch",
       "Ronal",
       "Tonowari",
-      "Norm Spellman",
+      "Norm Spellman"
     ],
     "cast": [
       "샘 워싱턴",
@@ -3648,7 +3648,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 랭",
       "케이트 윈슬렛",
       "클리프 커티스",
-      "조엘 무어",
+      "조엘 무어"
     ],
     "director": "제임스 카메론"
   },
@@ -3660,7 +3660,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Longneck (voice)",
       "Vontra (voice)",
       "Paddler (voice)",
-      "Thunderbolt (voice)",
+      "Thunderbolt (voice)"
     ],
     "cast": [
       "루피타 뇽오",
@@ -3669,7 +3669,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 나이",
       "스테파니 수",
       "맷 베리",
-      "빙 레임스",
+      "빙 레임스"
     ],
     "director": "크리스 샌더스"
   },
@@ -3681,7 +3681,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Class President",
       "Army Officer Torres",
       "15",
-      "60",
+      "60"
     ],
     "cast": [
       "앨런 리치슨",
@@ -3690,7 +3690,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이 코트니",
       "이사이 모랄레스",
       "Blake Richardson",
-      "Keiynan Lonsdale",
+      "Keiynan Lonsdale"
     ],
     "director": "패트릭 휴스"
   },
@@ -3702,7 +3702,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Trish Daniels",
       "Landon Gibson",
       "Ken Scott",
-      "Kimberly \"Kim\" Vance",
+      "Kimberly \"Kim\" Vance"
     ],
     "cast": [
       "Josephine Langford",
@@ -3711,7 +3711,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Louise Lombard",
       "Chance Perdomo",
       "Rob Estes",
-      "Arielle Kebbel",
+      "Arielle Kebbel"
     ],
     "director": "Castille Landon"
   },
@@ -3723,7 +3723,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Disgust (voice)",
       "Fear (voice)",
       "Anger (voice)",
-      "Sadness (voice)",
+      "Sadness (voice)"
     ],
     "cast": [
       "에이미 폴러",
@@ -3732,7 +3732,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리자 라피라",
       "토니 헤일",
       "루이스 블랙",
-      "필리스 스미스",
+      "필리스 스미스"
     ],
     "director": "켈시 만"
   },
@@ -3744,7 +3744,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jerôme",
       "L",
       "The Waiter",
-      "Debtor Gentleman",
+      "Debtor Gentleman"
     ],
     "cast": [
       "샤를로트 갱스부르",
@@ -3753,7 +3753,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "샤이아 라보프",
       "윌렘 대포",
       "우도 키어",
-      "장마르크 바",
+      "장마르크 바"
     ],
     "director": "라스 폰 트리에"
   },
@@ -3765,7 +3765,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jimmy Ink",
       "Samson",
       "Jimmima",
-      "Jimmy Jones",
+      "Jimmy Jones"
     ],
     "cast": [
       "랄프 파인즈",
@@ -3774,7 +3774,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에린 켈리먼",
       "치 루이스 페리",
       "엠마 레어드",
-      "마우라 버드",
+      "마우라 버드"
     ],
     "director": "니아 다코스타"
   },
@@ -3786,7 +3786,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Valentina (voice)",
       "Margo (voice)",
       "Edith (voice)",
-      "Agnes (voice)",
+      "Agnes (voice)"
     ],
     "cast": [
       "스티브 카렐",
@@ -3795,7 +3795,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "소피아 베르가라",
       "미란다 코스그로브",
       "Dana Gaier",
-      "Madison Polan",
+      "Madison Polan"
     ],
     "director": "Chris Renaud"
   },
@@ -3807,7 +3807,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elizabeth Swann",
       "Norrington",
       "Governor Weatherby Swann",
-      "Pintel",
+      "Pintel"
     ],
     "cast": [
       "조니 뎁",
@@ -3816,7 +3816,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "키이라 나이틀리",
       "잭 대븐포트",
       "조너선 프라이스",
-      "Lee Arenberg",
+      "Lee Arenberg"
     ],
     "director": "고어 버빈스키"
   },
@@ -3828,7 +3828,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "J.D.",
       "Erikas",
       "Black Ops Commander",
-      "Bradford Shaw",
+      "Bradford Shaw"
     ],
     "cast": [
       "마일스 텔러",
@@ -3837,7 +3837,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "쇼페 디리수",
       "William Houston",
       "Kobna Holdbrook-Smith",
-      "James Marlowe",
+      "James Marlowe"
     ],
     "director": "스콧 데릭슨"
   },
@@ -3849,7 +3849,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Loto (voice)",
       "Kele (voice)",
       "Matangi (voice)",
-      "Simea (voice)",
+      "Simea (voice)"
     ],
     "cast": [
       "아울리이 크러발리오",
@@ -3858,7 +3858,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rose Matafeo",
       "David Fane",
       "Awhimai Fraser",
-      "Khaleesi Lambert-Tsuda",
+      "Khaleesi Lambert-Tsuda"
     ],
     "director": "David G. Derrick Jr."
   },
@@ -3870,7 +3870,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Laura Vidal",
       "Félix Leiva",
       "Driver",
-      "Bruno",
+      "Bruno"
     ],
     "cast": [
       "마리오 카사스",
@@ -3879,7 +3879,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "바르바라 레니",
       "Francesc Orella",
       "Paco Tous",
-      "David Selvas",
+      "David Selvas"
     ],
     "director": "오리올 파울로"
   },
@@ -3891,7 +3891,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marilyn Whitmore",
       "Julius Levinson",
       "General William Grey",
-      "Russell Casse",
+      "Russell Casse"
     ],
     "cast": [
       "윌 스미스",
@@ -3900,7 +3900,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "메리 맥도널",
       "Judd Hirsch",
       "Robert Loggia",
-      "Randy Quaid",
+      "Randy Quaid"
     ],
     "director": "롤란트 에머리히"
   },
@@ -3912,7 +3912,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Shelby Forthright, BnL CEO",
       "John (voice)",
       "Mary (voice)",
-      "Ship's Computer (voice)",
+      "Ship's Computer (voice)"
     ],
     "cast": [
       "Ben Burtt",
@@ -3921,7 +3921,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fred Willard",
       "존 라젠버그",
       "캐시 나지미",
-      "시고니 위버",
+      "시고니 위버"
     ],
     "director": "앤드류 스탠튼"
   },
@@ -3933,7 +3933,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kate McKenna",
       "Peter Banning",
       "Kaspar Smolinski",
-      "Bernadette",
+      "Bernadette"
     ],
     "cast": [
       "브래드 피트",
@@ -3942,7 +3942,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케리 콘돈",
       "터바이어스 멘지스",
       "킴 보드니아",
-      "세라 나일스",
+      "세라 나일스"
     ],
     "director": "조셉 코신스키"
   },
@@ -3954,7 +3954,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Himself - Franz Ferdinand (uncredited)",
       "Himself - Elbow (uncredited)",
       "Himself - Black Rebel Motorcycle Club (uncredited)",
-      "Himself - Super Furry Animals (uncredited)",
+      "Himself - Super Furry Animals (uncredited)"
     ],
     "cast": [
       "Kieran O'Brien",
@@ -3963,7 +3963,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alex Kapranos",
       "가이 가비",
       "Robert Levon Been",
-      "Peter Hayes",
+      "Peter Hayes"
     ],
     "director": "마이클 윈터바텀"
   },
@@ -3975,7 +3975,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bellwether (voice)",
       "Clawhauser (voice)",
       "Bonnie Hopps (voice)",
-      "Stu Hopps (voice)",
+      "Stu Hopps (voice)"
     ],
     "cast": [
       "지니퍼 굿윈",
@@ -3984,7 +3984,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제니 슬레이트",
       "네이트 토런스",
       "보니 헌트",
-      "돈 레이크",
+      "돈 레이크"
     ],
     "director": "바이런 하워드"
   },
@@ -3996,7 +3996,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fabiola Burchardt",
       "Patryk Deczer",
       "Commander Adamczyk",
-      "Arek Filipiak",
+      "Arek Filipiak"
     ],
     "cast": [
       "Jakub Gierszał",
@@ -4005,7 +4005,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Beata Ścibakówna",
       "Adam Bobik",
       "Robert Gonera",
-      "Piotr Żurawski",
+      "Piotr Żurawski"
     ],
     "director": "Adrian Panek"
   },
@@ -4017,7 +4017,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fred",
       "Oliver",
       "Troy",
-      "Man at Diner",
+      "Man at Diner"
     ],
     "cast": [
       "데미 무어",
@@ -4026,7 +4026,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Edward Hamilton-Clark",
       "Gore Abrams",
       "Oscar Lesage",
-      "Christian Erickson",
+      "Christian Erickson"
     ],
     "director": "코랄리 파르자"
   },
@@ -4038,7 +4038,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rio Morales (voice)",
       "Peter B. Parker (voice)",
       "Miguel O'Hara (voice)",
-      "Spot (voice)",
+      "Spot (voice)"
     ],
     "cast": [
       "셔믹 무어",
@@ -4047,7 +4047,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로런 벨레스",
       "제이크 존슨",
       "오스카 아이작",
-      "제이슨 슈워츠먼",
+      "제이슨 슈워츠먼"
     ],
     "director": "켐프 파워스"
   },
@@ -4059,7 +4059,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Daniel Riddick",
       "Serena Johnson",
       "Dr. Lawrence Hayes",
-      "Ben Taylor",
+      "Ben Taylor"
     ],
     "cast": [
       "드웨인 존슨",
@@ -4068,7 +4068,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "요안 그리피드",
       "아치 판자비",
       "폴 지아마티",
-      "Hugo Johnstone-Burt",
+      "Hugo Johnstone-Burt"
     ],
     "director": "브래드 페이턴"
   },
@@ -4080,7 +4080,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Grand Duke",
       "Anastasia Tremaine",
       "Drizella Tremaine",
-      "King",
+      "King"
     ],
     "cast": [
       "릴리 제임스",
@@ -4089,7 +4089,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스텔란 스카스가드",
       "홀리데이 그레인저",
       "소피 맥셰라",
-      "데릭 재커비",
+      "데릭 재커비"
     ],
     "director": "케네스 브래너"
   },
@@ -4101,7 +4101,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mark Hanna",
       "Agent Patrick Denham",
       "Max Belfort",
-      "Brad",
+      "Brad"
     ],
     "cast": [
       "레오나르도 디카프리오",
@@ -4110,7 +4110,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "매튜 매커너히",
       "카일 챈들러",
       "롭 라이너",
-      "존 번설",
+      "존 번설"
     ],
     "director": "마틴 스콜세지"
   },
@@ -4122,7 +4122,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "HAL 9000 (voice)",
       "Moonwatcher",
       "Dr. Andrei Smyslov",
-      "Elena",
+      "Elena"
     ],
     "cast": [
       "Keir Dullea",
@@ -4131,7 +4131,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Douglas Rain",
       "Daniel Richter",
       "Leonard Rossiter",
-      "Margaret Tyzack",
+      "Margaret Tyzack"
     ],
     "director": "스탠리 큐브릭"
   },
@@ -4143,7 +4143,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Grand Moff Tarkin",
       "Obi-Wan \"Ben\" Kenobi",
       "C-3PO",
-      "R2-D2",
+      "R2-D2"
     ],
     "cast": [
       "마크 해밀",
@@ -4152,7 +4152,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 커싱",
       "앨릭 기니스",
       "안소니 다니엘스",
-      "Kenny Baker",
+      "Kenny Baker"
     ],
     "director": "조지 루카스"
   },
@@ -4164,7 +4164,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Timon (voice)",
       "Pumbaa (voice)",
       "Mufasa (voice)",
-      "Rafiki (voice)",
+      "Rafiki (voice)"
     ],
     "cast": [
       "매튜 브로더릭",
@@ -4173,7 +4173,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "네이선 레인",
       "Ernie Sabella",
       "제임스 얼 존스",
-      "Robert Guillaume",
+      "Robert Guillaume"
     ],
     "director": "Roger Allers"
   },
@@ -4185,7 +4185,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "LTC Danny McKnight",
       "SFC Jeff Sanderson",
       "MG William F. Garrison",
-      "CPT Mike Steele",
+      "CPT Mike Steele"
     ],
     "cast": [
       "조쉬 하트넷",
@@ -4194,7 +4194,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "톰 시즈모어",
       "윌리엄 피츠너",
       "샘 셰퍼드",
-      "제이슨 아이작스",
+      "제이슨 아이작스"
     ],
     "director": "리들리 스콧"
   },
@@ -4206,7 +4206,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Carlisle Cullen",
       "Alice Cullen",
       "Jasper",
-      "Rosalie",
+      "Rosalie"
     ],
     "cast": [
       "크리스틴 스튜어트",
@@ -4215,7 +4215,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 패치넬리",
       "애슐리 그린",
       "Jackson Rathbone",
-      "니키 리드",
+      "니키 리드"
     ],
     "director": "캐서린 하드윅"
   },
@@ -4227,7 +4227,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bowser (voice)",
       "Toad (voice)",
       "Donkey Kong (voice)",
-      "Cranky Kong (voice)",
+      "Cranky Kong (voice)"
     ],
     "cast": [
       "크리스 프랫",
@@ -4236,7 +4236,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "잭 블랙",
       "키건마이클 키",
       "세스 로건",
-      "프레드 아미슨",
+      "프레드 아미슨"
     ],
     "director": "아론 호바스"
   },
@@ -4248,7 +4248,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sam Loomis",
       "Milton Arbogast",
       "Al Chambers",
-      "Fred Richman",
+      "Fred Richman"
     ],
     "cast": [
       "안소니 퍼킨스",
@@ -4257,7 +4257,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "John Gavin",
       "마틴 발삼",
       "John McIntire",
-      "Simon Oakland",
+      "Simon Oakland"
     ],
     "director": "알프레드 히치콕"
   },
@@ -4269,7 +4269,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Brett",
       "Kane",
       "Ash",
-      "Parker",
+      "Parker"
     ],
     "cast": [
       "톰 스커릿",
@@ -4278,7 +4278,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "해리 딘 스탠턴",
       "존 허트",
       "이안 홈",
-      "Yaphet Kotto",
+      "Yaphet Kotto"
     ],
     "director": "리들리 스콧"
   },
@@ -4290,7 +4290,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Calcifer (voice)",
       "Markl (voice)",
       "Kosho (voice)",
-      "Prince Justin / Turnip Head (voice)",
+      "Prince Justin / Turnip Head (voice)"
     ],
     "cast": [
       "바이쇼 치에코",
@@ -4299,7 +4299,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "가슈인 타츠야",
       "카미키 류노스케",
       "이사키 미츠노리",
-      "오오이즈미 요",
+      "오오이즈미 요"
     ],
     "director": "미야자키 하야오"
   },
@@ -4311,7 +4311,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sky Flower",
       "Chilam",
       "Mother in Law",
-      "Seven",
+      "Seven"
     ],
     "cast": [
       "Rudy Youngblood",
@@ -4320,7 +4320,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Iazua Larios",
       "Antonio Monroy",
       "María Isabel Díaz Lago",
-      "Dalia Hernández",
+      "Dalia Hernández"
     ],
     "director": "멜 깁슨"
   },
@@ -4332,7 +4332,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Salvatore 'Totò' Di Vita (child)",
       "Elena Mendola (teen) / Elena's daughter (in Director's cut)",
       "Maria Di Vita (young)",
-      "Maria Di Vita (aged)",
+      "Maria Di Vita (aged)"
     ],
     "cast": [
       "필립 느와레",
@@ -4341,7 +4341,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "살바토레 카스치오",
       "아그네즈 나노",
       "안토넬라 아틸리",
-      "푸펠라 마지오",
+      "푸펠라 마지오"
     ],
     "director": "주세페 토르나토레"
   },
@@ -4353,7 +4353,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fred (voice)",
       "GoGo Tomago (voice)",
       "Wasabi (voice)",
-      "Honey Lemon (voice)",
+      "Honey Lemon (voice)"
     ],
     "cast": [
       "스콧 애드싯",
@@ -4362,7 +4362,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "T.J. 밀러",
       "제이미 정",
       "데이먼 웨이언스 주니어",
-      "Genesis Rodriguez",
+      "Genesis Rodriguez"
     ],
     "director": "Don Hall"
   },
@@ -4374,7 +4374,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mark",
       "Pelle",
       "Maja",
-      "Siv",
+      "Siv"
     ],
     "cast": [
       "플로렌스 퓨",
@@ -4383,7 +4383,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "윌 폴터",
       "Vilhelm Blomgren",
       "Isabelle Grill",
-      "Gunnel Fred",
+      "Gunnel Fred"
     ],
     "director": "아리 애스터"
   },
@@ -4395,7 +4395,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Thor",
       "Natasha Romanoff / Black Widow",
       "Clint Barton / Hawkeye",
-      "Thanos",
+      "Thanos"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -4404,7 +4404,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스 헴스워스",
       "스칼렛 요한슨",
       "제레미 레너",
-      "조쉬 브롤린",
+      "조쉬 브롤린"
     ],
     "director": "안소니 루소"
   },
@@ -4416,7 +4416,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Belle Bottom (voice)",
       "Master Chow (voice)",
       "Gru's Mom (voice)",
-      "Dr. Nefario (voice)",
+      "Dr. Nefario (voice)"
     ],
     "cast": [
       "스티브 카렐",
@@ -4425,7 +4425,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "타라지 P. 헨슨",
       "양자경",
       "줄리 앤드류스",
-      "러셀 브랜드",
+      "러셀 브랜드"
     ],
     "director": "Kyle Balda"
   },
@@ -4437,7 +4437,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Trini 'Gordo' Garcia",
       "Grady 'Coon-Ass' Travis",
       "Sergeant Binkowski",
-      "Sergeant Davis",
+      "Sergeant Davis"
     ],
     "cast": [
       "브래드 피트",
@@ -4446,7 +4446,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마이클 페냐",
       "존 번설",
       "Jim Parrack",
-      "Brad William Henke",
+      "Brad William Henke"
     ],
     "director": "데이비드 에이어"
   },
@@ -4458,7 +4458,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kate",
       "José",
       "Elliot Grey",
-      "Dr. Grey",
+      "Dr. Grey"
     ],
     "cast": [
       "다코타 존슨",
@@ -4467,7 +4467,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "엘로이즈 멈퍼드",
       "Victor Rasuk",
       "루크 그라임스",
-      "마시아 그레이 하든",
+      "마시아 그레이 하든"
     ],
     "director": "샘 테일러존슨"
   },
@@ -4479,7 +4479,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Django (voice)",
       "Emile (voice)",
       "Anton Ego (voice)",
-      "Gusteau (voice)",
+      "Gusteau (voice)"
     ],
     "cast": [
       "패튼 오즈월트",
@@ -4488,7 +4488,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브라이언 데너히",
       "피터 손",
       "피터 오툴",
-      "브래드 개릿",
+      "브래드 개릿"
     ],
     "director": "브래드 버드"
   },
@@ -4500,7 +4500,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Larry",
       "Doctor",
       "Ginny",
-      "George",
+      "George"
     ],
     "cast": [
       "존 쿠삭",
@@ -4509,7 +4509,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 호크스",
       "알프레드 몰리나",
       "클리어 듀발",
-      "존 C. 맥긴리",
+      "존 C. 맥긴리"
     ],
     "director": "제임스 맨골드"
   },
@@ -4521,7 +4521,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Steve Rogers / Captain America",
       "Natasha Romanoff / Black Widow",
       "Clint Barton / Hawkeye",
-      "Ultron (voice)",
+      "Ultron (voice)"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -4530,7 +4530,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스 에반스",
       "스칼렛 요한슨",
       "제레미 레너",
-      "제임스 스페이더",
+      "제임스 스페이더"
     ],
     "director": "조스 웨던"
   },
@@ -4542,7 +4542,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gru's Mother (voice)",
       "Mr. Perkins (voice)",
       "Miss Hattie (voice)",
-      "Margo (voice)",
+      "Margo (voice)"
     ],
     "cast": [
       "스티브 카렐",
@@ -4551,7 +4551,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "줄리 앤드류스",
       "윌 아넷",
       "크리스틴 위그",
-      "미란다 코스그로브",
+      "미란다 코스그로브"
     ],
     "director": "피에르 코팽"
   },
@@ -4563,7 +4563,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Imhotep",
       "Anck-Su-Namun",
       "Ardeth Bay",
-      "Beni Gabor",
+      "Beni Gabor"
     ],
     "cast": [
       "브랜든 프레이저",
@@ -4572,7 +4572,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아널드 보슬루",
       "패트리시아 벨라스퀘즈",
       "עודד פהר",
-      "케빈 J. 오코너",
+      "케빈 J. 오코너"
     ],
     "director": "Stephen Sommers"
   },
@@ -4584,7 +4584,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Queen Lillian (voice)",
       "Puss in Boots (voice)",
       "King Harold (voice)",
-      "Prince Charming (voice)",
+      "Prince Charming (voice)"
     ],
     "cast": [
       "마이크 마이어스",
@@ -4593,7 +4593,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "줄리 앤드류스",
       "안토니오 반데라스",
       "존 클리즈",
-      "루퍼트 에버렛",
+      "루퍼트 에버렛"
     ],
     "director": "앤드류 애덤슨"
   },
@@ -4605,7 +4605,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Knuckles (voice)",
       "Tails (voice)",
       "Tom",
-      "Maddie",
+      "Maddie"
     ],
     "cast": [
       "벤 슈와츠",
@@ -4614,7 +4614,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이드리스 엘바",
       "콜린 오샤우너시",
       "제임스 마스던",
-      "티카 섬프터",
+      "티카 섬프터"
     ],
     "director": "Jeff Fowler"
   },
@@ -4626,7 +4626,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marion",
       "Milich",
       "Nick Nightingale",
-      "Domino",
+      "Domino"
     ],
     "cast": [
       "톰 크루즈",
@@ -4635,7 +4635,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marie Richardson",
       "라데 셰르베지야",
       "토드 필드",
-      "Vinessa Shaw",
+      "Vinessa Shaw"
     ],
     "director": "스탠리 큐브릭"
   },
@@ -4647,7 +4647,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "May Parker",
       "Happy Hogan",
       "Pepper Potts",
-      "Michelle",
+      "Michelle"
     ],
     "cast": [
       "톰 홀랜드",
@@ -4656,7 +4656,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마리사 토메이",
       "존 파브로",
       "기네스 팰트로",
-      "젠데이아",
+      "젠데이아"
     ],
     "director": "존 왓츠"
   },
@@ -4668,7 +4668,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gill (voice)",
       "Nigel (voice)",
       "Bloat (voice)",
-      "Peach (voice)",
+      "Peach (voice)"
     ],
     "cast": [
       "앨버트 브룩스",
@@ -4677,7 +4677,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "윌렘 대포",
       "제프리 러쉬",
       "브래드 개릿",
-      "앨리슨 제니",
+      "앨리슨 제니"
     ],
     "director": "앤드류 스탠튼"
   },
@@ -4689,7 +4689,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Detective Mike Ro",
       "Detective Lolo Salazar",
       "Desiree 'Desi' Lopez Molina",
-      "DEA Agent Mateo 'Matty' Nix",
+      "DEA Agent Mateo 'Matty' Nix"
     ],
     "cast": [
       "맷 데이먼",
@@ -4698,7 +4698,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 연",
       "카타리나 산디노 모레노",
       "사샤 카예",
-      "카일 챈들러",
+      "카일 챈들러"
     ],
     "director": "조 카나한"
   },
@@ -4710,7 +4710,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Olga",
       "Domenico",
       "Anna",
-      "Don Fernando Matos",
+      "Don Fernando Matos"
     ],
     "cast": [
       "Anna-Maria Sieklucka",
@@ -4719,7 +4719,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Magdalena Lamparska",
       "Otar Saralidze",
       "Natasza Urbańska",
-      "Ramón Langa",
+      "Ramón Langa"
     ],
     "director": "Barbara Białowąs"
   },
@@ -4731,7 +4731,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Latrell Spencer",
       "Gina Copeland",
       "Denise Porter",
-      "Warren Vandergeld",
+      "Warren Vandergeld"
     ],
     "cast": [
       "숀 웨이언스",
@@ -4740,7 +4740,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "테리 크루즈",
       "Faune Chambers Watkins",
       "Rochelle Aytes",
-      "John Heard",
+      "John Heard"
     ],
     "director": "Keenen Ivory Wayans"
   },
@@ -4752,7 +4752,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Janek",
       "Peter Weyland",
       "Charlie Holloway",
-      "Fifield",
+      "Fifield"
     ],
     "cast": [
       "누미 라파스",
@@ -4761,7 +4761,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이드리스 엘바",
       "가이 피어스",
       "로건 마셜그린",
-      "숀 해리스",
+      "숀 해리스"
     ],
     "director": "리들리 스콧"
   },
@@ -4773,7 +4773,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Speke",
       "Jurgen Warmbrunn",
       "Parajumper",
-      "Thierry Umutoni",
+      "Thierry Umutoni"
     ],
     "cast": [
       "브래드 피트",
@@ -4782,7 +4782,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 뱃지 데일",
       "Ludi Boeken",
       "Matthew Fox",
-      "Fana Mokoena",
+      "Fana Mokoena"
     ],
     "director": "마크 포스터"
   },
@@ -4794,7 +4794,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Soto (voice)",
       "Zeke (voice)",
       "Rhino (voice)",
-      "Rhino / Start (voice)",
+      "Rhino / Start (voice)"
     ],
     "cast": [
       "레이 로마노",
@@ -4803,7 +4803,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Goran Višnjić",
       "잭 블랙",
       "세드릭 더 엔터테이너",
-      "스티븐 루트",
+      "스티븐 루트"
     ],
     "director": "Chris Wedge"
   },
@@ -4815,7 +4815,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sandman / Flint Marko",
       "Venom / Eddie Brock",
       "Gwen Stacy",
-      "May Parker",
+      "May Parker"
     ],
     "cast": [
       "토비 맥과이어",
@@ -4824,7 +4824,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "토마스 헤이든 처치",
       "토퍼 그레이스",
       "브라이스 댈러스 하워드",
-      "로즈메리 해리스",
+      "로즈메리 해리스"
     ],
     "director": "샘 레이미"
   },
@@ -4836,7 +4836,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Charlie Sumner",
       "Detective Dean",
       "Detective Mirojnick",
-      "Tracy",
+      "Tracy"
     ],
     "cast": [
       "다이앤 레인",
@@ -4845,7 +4845,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에릭 퍼 설리번",
       "젤코 이바넥",
       "Gary Basaraba",
-      "Kate Burton",
+      "Kate Burton"
     ],
     "director": "애드리안 라인"
   },
@@ -4857,7 +4857,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Doug Billings",
       "Jade",
       "Tracy Garner",
-      "Sid Garner",
+      "Sid Garner"
     ],
     "cast": [
       "브래들리 쿠퍼",
@@ -4866,7 +4866,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Justin Bartha",
       "헤더 그레이엄",
       "Sasha Barrese",
-      "제프리 탬버",
+      "제프리 탬버"
     ],
     "director": "토드 필립스"
   },
@@ -4878,7 +4878,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eddie Barzoon",
       "Mrs. Lomax",
       "Christabella",
-      "Alexander Cullen",
+      "Alexander Cullen"
     ],
     "cast": [
       "키아누 리브스",
@@ -4887,7 +4887,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제프리 존스",
       "Judith Ivey",
       "코니 닐센",
-      "크레이그 T. 넬슨",
+      "크레이그 T. 넬슨"
     ],
     "director": "Taylor Hackford"
   },
@@ -4899,7 +4899,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stilgar",
       "Gurney Halleck",
       "Feyd-Rautha",
-      "Princess Irulan",
+      "Princess Irulan"
     ],
     "cast": [
       "티모시 샬라메",
@@ -4908,7 +4908,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "하비에르 바르뎀",
       "조쉬 브롤린",
       "오스틴 버틀러",
-      "플로렌스 퓨",
+      "플로렌스 퓨"
     ],
     "director": "드니 빌뇌브"
   },
@@ -4920,7 +4920,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Holley Shiftwell (voice)",
       "Sir Miles Axlerod (voice)",
       "Francesco Bernoulli (voice)",
-      "Brent Mustangburger (voice)",
+      "Brent Mustangburger (voice)"
     ],
     "cast": [
       "Larry the Cable Guy",
@@ -4929,7 +4929,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에밀리 모티머",
       "에디 이자드",
       "존 터투로",
-      "Brent Musburger",
+      "Brent Musburger"
     ],
     "director": "존 라세터"
   },
@@ -4941,7 +4941,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rachel Dawes",
       "Jim Gordon",
       "Dr. Jonathan Crane",
-      "Carmine Falcone",
+      "Carmine Falcone"
     ],
     "cast": [
       "크리스찬 베일",
@@ -4950,7 +4950,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케이티 홈즈",
       "게리 올드만",
       "킬리언 머피",
-      "톰 윌킨슨",
+      "톰 윌킨슨"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -4962,7 +4962,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Joe Paxton",
       "Grace Paxton",
       "Grandma Annie",
-      "Mr. Gilbertson",
+      "Mr. Gilbertson"
     ],
     "cast": [
       "산드라 블록",
@@ -4971,7 +4971,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크레이그 T. 넬슨",
       "메리 스틴버겐",
       "Betty White",
-      "데니스 오헤어",
+      "데니스 오헤어"
     ],
     "director": "Anne Fletcher"
   },
@@ -4983,7 +4983,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Zio",
       "Ferruccio",
       "Dora's Mother",
-      "Doctor Lessing",
+      "Doctor Lessing"
     ],
     "cast": [
       "로베르토 베니니",
@@ -4992,7 +4992,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "지우스티노 듀라노",
       "세르지오 비니 부스트릭",
       "마리사 파레데스",
-      "호르스트 부흐홀츠",
+      "호르스트 부흐홀츠"
     ],
     "director": "로베르토 베니니"
   },
@@ -5004,7 +5004,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "The Professor",
       "Ward Abbott",
       "Nykwana Wombosi",
-      "Danny Zorn",
+      "Danny Zorn"
     ],
     "cast": [
       "맷 데이먼",
@@ -5013,7 +5013,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "클라이브 오웬",
       "브라이언 콕스",
       "아데웰 아킨누오예 아바제",
-      "가브리엘 만",
+      "가브리엘 만"
     ],
     "director": "더그 라이만"
   },
@@ -5025,7 +5025,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Natalie Rushman / Natasha Romanoff",
       "Justin Hammer",
       "Ivan Vanko",
-      "Nick Fury",
+      "Nick Fury"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -5034,7 +5034,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스칼렛 요한슨",
       "샘 록웰",
       "미키 루크",
-      "사무엘 L. 잭슨",
+      "사무엘 L. 잭슨"
     ],
     "director": "존 파브로"
   },
@@ -5046,7 +5046,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Olaf (voice)",
       "Young Anna (voice)",
       "Hans (voice)",
-      "Young Elsa (voice)",
+      "Young Elsa (voice)"
     ],
     "cast": [
       "이디나 멘젤",
@@ -5055,7 +5055,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조시 게드",
       "Livvy Stubenrauch",
       "Santino Fontana",
-      "Eva Bella",
+      "Eva Bella"
     ],
     "director": "Chris Buck"
   },
@@ -5067,7 +5067,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gina",
       "Frank Lopez",
       "Mama Montana",
-      "Omar",
+      "Omar"
     ],
     "cast": [
       "알 파치노",
@@ -5076,7 +5076,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "메리 엘리자베스 매스트란토니오",
       "Robert Loggia",
       "Miriam Colon",
-      "F. 머레이 에이브러햄",
+      "F. 머레이 에이브러햄"
     ],
     "director": "브라이언 드 팔마"
   },
@@ -5088,7 +5088,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stephen Traynor",
       "Bernard Clark",
       "Katrina 'Treena' Clark",
-      "Patrick",
+      "Patrick"
     ],
     "cast": [
       "에밀리아 클라크",
@@ -5097,7 +5097,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "찰스 댄스",
       "브렌던 코일",
       "제나 콜먼",
-      "매튜 루이스",
+      "매튜 루이스"
     ],
     "director": "테아 샤록"
   },
@@ -5109,7 +5109,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lorraine Baines",
       "Jennifer Parker",
       "Biff Tannen",
-      "Dave McFly",
+      "Dave McFly"
     ],
     "cast": [
       "마이클 J. 폭스",
@@ -5118,7 +5118,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리 톰슨",
       "클로디아 웰즈",
       "토머스 F. 윌슨",
-      "마크 맥클루어",
+      "마크 맥클루어"
     ],
     "director": "로버트 저메키스"
   },
@@ -5130,7 +5130,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hugh",
       "Yara",
       "Kelly Height",
-      "Annie",
+      "Annie"
     ],
     "cast": [
       "마이카 먼로",
@@ -5139,7 +5139,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이크 웨리",
       "올리비아 루카르디",
       "Lili Sepe",
-      "Bailey Spry",
+      "Bailey Spry"
     ],
     "director": "데이비드 로버트 미첼"
   },
@@ -5151,7 +5151,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Herc Hansen",
       "Tendo Choi",
       "Hannibal Chau",
-      "Dr. Newton Geiszler",
+      "Dr. Newton Geiszler"
     ],
     "cast": [
       "찰리 허냄",
@@ -5160,7 +5160,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "맥스 마티니",
       "Clifton Collins Jr.",
       "론 펄먼",
-      "찰리 데이",
+      "찰리 데이"
     ],
     "director": "기예르모 델 토로"
   },
@@ -5172,7 +5172,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dashiell 'Dash' Parr (voice)",
       "Buddy Pine / Syndrome (voice)",
       "Lucius Best / Frozone (voice)",
-      "Mirage (voice)",
+      "Mirage (voice)"
     ],
     "cast": [
       "크레이그 T. 넬슨",
@@ -5181,7 +5181,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Spencer Fox",
       "제이슨 리",
       "사무엘 L. 잭슨",
-      "엘리자베스 페냐",
+      "엘리자베스 페냐"
     ],
     "director": "브래드 버드"
   },
@@ -5193,7 +5193,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dimi Kolisnyk",
       "Dougie",
       "Joe Garcia",
-      "Gunny Lefferty",
+      "Gunny Lefferty"
     ],
     "cast": [
       "제이슨 스타뎀",
@@ -5202,7 +5202,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "맥시밀리언 오신스키",
       "Cokey Falkow",
       "마이클 페냐",
-      "데이비드 하버",
+      "데이비드 하버"
     ],
     "director": "데이비드 에이어"
   },
@@ -5214,7 +5214,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Goose",
       "Viper",
       "Jester",
-      "Cougar",
+      "Cougar"
     ],
     "cast": [
       "톰 크루즈",
@@ -5223,7 +5223,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안소니 에드워즈",
       "톰 스커릿",
       "마이클 아이언사이드",
-      "존 스톡웰",
+      "존 스톡웰"
     ],
     "director": "토니 스콧"
   },
@@ -5235,7 +5235,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ray Wilkins",
       "Bobby Prinze",
       "Greg Phillippe",
-      "Buffy Gilmore",
+      "Buffy Gilmore"
     ],
     "cast": [
       "안나 페리스",
@@ -5244,7 +5244,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 웨이언스",
       "존 에이브럼스",
       "Lochlyn Munro",
-      "Shannon Elizabeth",
+      "Shannon Elizabeth"
     ],
     "director": "Keenen Ivory Wayans"
   },
@@ -5256,7 +5256,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Bezu Fache",
       "Silas",
       "Bishop Manuel Aringarosa",
-      "André Vernet",
+      "André Vernet"
     ],
     "cast": [
       "톰 행크스",
@@ -5265,7 +5265,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "장 르노",
       "폴 베타니",
       "알프레드 몰리나",
-      "Jürgen Prochnow",
+      "Jürgen Prochnow"
     ],
     "director": "론 하워드"
   },
@@ -5277,7 +5277,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Green Goblin / Harry Osborn",
       "Donald Menken",
       "Felicia",
-      "Aleksei Sytsevich",
+      "Aleksei Sytsevich"
     ],
     "cast": [
       "앤드류 가필드",
@@ -5286,7 +5286,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데인 드한",
       "Colm Feore",
       "펠리시티 존스",
-      "폴 지아마티",
+      "폴 지아마티"
     ],
     "director": "마크 웹"
   },
@@ -5298,7 +5298,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Shifu (voice)",
       "Li (voice)",
       "Mr. Ping (voice)",
-      "Tai Lung (voice)",
+      "Tai Lung (voice)"
     ],
     "cast": [
       "잭 블랙",
@@ -5307,7 +5307,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "더스틴 호프만",
       "브라이언 크랜스턴",
       "제임스 홍",
-      "이언 맥셰인",
+      "이언 맥셰인"
     ],
     "director": "Mike Mitchell"
   },
@@ -5319,7 +5319,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Agamemnon",
       "Odysseus",
       "Menelaus",
-      "Helen",
+      "Helen"
     ],
     "cast": [
       "브래드 피트",
@@ -5328,7 +5328,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브라이언 콕스",
       "숀 빈",
       "브렌던 글리슨",
-      "다이앤 크루거",
+      "다이앤 크루거"
     ],
     "director": "볼프강 페터젠"
   },
@@ -5340,7 +5340,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nell Van Dort / Hildegarde (voice)",
       "William Van Dort / Mayhew / Paul the Head Waiter (voice)",
       "Maudeline Everglot (voice)",
-      "Finis Everglot (voice)",
+      "Finis Everglot (voice)"
     ],
     "cast": [
       "조니 뎁",
@@ -5349,7 +5349,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "트레이시 울만",
       "Paul Whitehouse",
       "조애나 럼리",
-      "알버트 피니",
+      "알버트 피니"
     ],
     "director": "Mike Johnson"
   },
@@ -5361,7 +5361,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marcus Higgins",
       "Rob Hilliard",
       "Roxanne Chase-Feder",
-      "Sally Lamonsoff",
+      "Sally Lamonsoff"
     ],
     "cast": [
       "애덤 샌들러",
@@ -5370,7 +5370,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이비드 스페이드",
       "롭 슈나이더",
       "셀마 헤이엑",
-      "마리아 벨로",
+      "마리아 벨로"
     ],
     "director": "Dennis Dugan"
   },
@@ -5382,7 +5382,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stu Macher",
       "Tatum Riley",
       "Billy Loomis",
-      "Randy Meeks",
+      "Randy Meeks"
     ],
     "cast": [
       "니브 캠벨",
@@ -5391,7 +5391,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "매튜 릴라드",
       "로즈 맥고완",
       "Skeet Ulrich",
-      "Jamie Kennedy",
+      "Jamie Kennedy"
     ],
     "director": "웨스 크레이븐"
   },
@@ -5403,7 +5403,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kay",
       "Bjorn",
       "Navarro",
-      "WY Officer",
+      "WY Officer"
     ],
     "cast": [
       "케일리 스패니",
@@ -5412,7 +5412,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이사벨라 메르세드",
       "스파이크 펀",
       "아일린 우",
-      "Rosie Ede",
+      "Rosie Ede"
     ],
     "director": "페데 알바레즈"
   },
@@ -5424,7 +5424,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dug / Alpha (voice)",
       "Beta (voice)",
       "Gamma (voice)",
-      "Construction Foreman Tom (voice)",
+      "Construction Foreman Tom (voice)"
     ],
     "cast": [
       "에드워드 애스너",
@@ -5433,7 +5433,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "밥 피터슨",
       "델로이 린도",
       "Jerome Ranft",
-      "존 라젠버그",
+      "존 라젠버그"
     ],
     "director": "피트 닥터"
   },
@@ -5445,7 +5445,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "The Director",
       "The Chancellor",
       "Lena",
-      "Ella",
+      "Ella"
     ],
     "cast": [
       "아나 데 아르마스",
@@ -5454,7 +5454,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안젤리카 휴스턴",
       "가브리엘 번",
       "카타리나 산디노 모레노",
-      "에이바 매카시",
+      "에이바 매카시"
     ],
     "director": "렌 와이즈먼"
   },
@@ -5466,7 +5466,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Fiyero",
       "Boq",
       "Nessarose",
-      "The Wonderful Wizard of Oz",
+      "The Wonderful Wizard of Oz"
     ],
     "cast": [
       "신시아 에리보",
@@ -5475,7 +5475,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조나단 베일리",
       "에단 슬레터",
       "마리사 보드",
-      "제프 골드블룸",
+      "제프 골드블룸"
     ],
     "director": "존 M. 추"
   },
@@ -5487,7 +5487,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Wolf (voice)",
       "Goldilocks (voice)",
       "Mama Bear (voice)",
-      "Papa Bear (voice)",
+      "Papa Bear (voice)"
     ],
     "cast": [
       "안토니오 반데라스",
@@ -5496,7 +5496,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "바그네르 모라",
       "플로렌스 퓨",
       "올리비아 콜먼",
-      "레이 윈스턴",
+      "레이 윈스턴"
     ],
     "director": "Joel Crawford"
   },
@@ -5508,7 +5508,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Commander Richter",
       "Inspector Olivetti",
       "Assassin",
-      "Cardinal Strauss",
+      "Cardinal Strauss"
     ],
     "cast": [
       "톰 행크스",
@@ -5517,7 +5517,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스텔란 스카스가드",
       "피에르프란체스코 파비노",
       "Nikolaj Lie Kaas",
-      "아르민 뮐러슈탈",
+      "아르민 뮐러슈탈"
     ],
     "director": "론 하워드"
   },
@@ -5529,7 +5529,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Stacy",
       "Uncle Ben",
       "Aunt May",
-      "Rajit Ratha",
+      "Rajit Ratha"
     ],
     "cast": [
       "앤드류 가필드",
@@ -5538,7 +5538,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데니스 리어리",
       "마틴 쉰",
       "샐리 필드",
-      "이르판 칸",
+      "이르판 칸"
     ],
     "director": "마크 웹"
   },
@@ -5550,7 +5550,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jikobo (voice)",
       "Kouroku (voice)",
       "Gonza (voice)",
-      "Mrs. Moro (voice)",
+      "Mrs. Moro (voice)"
     ],
     "cast": [
       "마츠다 요지",
@@ -5559,7 +5559,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "코바야시 카오루",
       "니시무라 마사히코",
       "카미죠 츠네히코",
-      "미와 아키히로",
+      "미와 아키히로"
     ],
     "director": "미야자키 하야오"
   },
@@ -5571,7 +5571,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Winston",
       "Bowery King",
       "Charon",
-      "Harbinger",
+      "Harbinger"
     ],
     "cast": [
       "키아누 리브스",
@@ -5580,7 +5580,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이언 맥셰인",
       "로렌스 피시번",
       "랜스 레딕",
-      "클랜시 브라운",
+      "클랜시 브라운"
     ],
     "director": "채드 스타헬스키"
   },
@@ -5592,7 +5592,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tracy",
       "Daniel",
       "Eva",
-      "Zeke",
+      "Zeke"
     ],
     "cast": [
       "앤 해서웨이",
@@ -5601,7 +5601,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "애니 무몰로",
       "리드 스콧",
       "Perry Mattfeld",
-      "Jordan Aaron Hall",
+      "Jordan Aaron Hall"
     ],
     "director": "마이클 쇼월터"
   },
@@ -5613,7 +5613,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jumba",
       "Pleakley",
       "Cobra Bubbles",
-      "Tūtū",
+      "Tūtū"
     ],
     "cast": [
       "마이아 케알로하",
@@ -5622,7 +5622,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "잭 갤리퍼내키스",
       "빌리 매그너슨",
       "코트니 B. 밴스",
-      "에이미 힐",
+      "에이미 힐"
     ],
     "director": "딘 플레이셔 캠프"
   },
@@ -5634,7 +5634,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Adrian Veidt / Ozymandias",
       "Walter Kovacs / Rorschach",
       "Edward Blake / The Comedian",
-      "Sally Jupiter / Silk Spectre",
+      "Sally Jupiter / Silk Spectre"
     ],
     "cast": [
       "말린 애커만",
@@ -5643,7 +5643,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "매튜 구드",
       "재키 얼 헤일리",
       "제프리 딘 모건",
-      "칼라 구지노",
+      "칼라 구지노"
     ],
     "director": "잭 스나이더"
   },
@@ -5655,7 +5655,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Isla",
       "Jimmy Crystal",
       "Samson",
-      "Erik Sundqvist",
+      "Erik Sundqvist"
     ],
     "cast": [
       "에런 테일러존슨",
@@ -5664,7 +5664,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조디 코머",
       "잭 오코넬",
       "치 루이스 페리",
-      "에드빈 리딩",
+      "에드빈 리딩"
     ],
     "director": "대니 보일"
   },
@@ -5676,7 +5676,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Buck (voice)",
       "Crash (voice)",
       "Eddie (voice)",
-      "Ellie (voice)",
+      "Ellie (voice)"
     ],
     "cast": [
       "레이 로마노",
@@ -5685,7 +5685,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "사이먼 페그",
       "숀 윌리엄 스콧",
       "Josh Peck",
-      "퀸 라티파",
+      "퀸 라티파"
     ],
     "director": "Carlos Saldanha"
   },
@@ -5697,7 +5697,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Serena Unger",
       "Jane Marke",
       "Agent Augustus Gibbons",
-      "Darius Stone / xXx",
+      "Darius Stone / xXx"
     ],
     "cast": [
       "빈 디젤",
@@ -5706,7 +5706,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "디피카 파두콘",
       "토니 콜렛",
       "사무엘 L. 잭슨",
-      "아이스 큐브",
+      "아이스 큐브"
     ],
     "director": "D.J. Caruso"
   },
@@ -5718,7 +5718,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Maurice",
       "Mrs. Potts",
       "Lumière",
-      "LeFou",
+      "LeFou"
     ],
     "cast": [
       "엠마 왓슨",
@@ -5727,7 +5727,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케빈 클라인",
       "엠마 톰슨",
       "이완 맥그리거",
-      "조시 게드",
+      "조시 게드"
     ],
     "director": "빌 콘돈"
   },
@@ -5739,7 +5739,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kate",
       "Peter",
       "Pigeon Lady",
-      "Concierge",
+      "Concierge"
     ],
     "cast": [
       "맥컬리 컬킨",
@@ -5748,7 +5748,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "캐서린 오하라",
       "John Heard",
       "Brenda Fricker",
-      "팀 커리",
+      "팀 커리"
     ],
     "director": "크리스 콜럼버스"
   },
@@ -5760,7 +5760,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Grant",
       "Jonas Fernandez",
       "Tony Cameron",
-      "Kelly Wilson",
+      "Kelly Wilson"
     ],
     "cast": [
       "벤 애플렉",
@@ -5769,7 +5769,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "릴 렐 하워리",
       "Dash Mihok",
       "핀 위트록",
-      "크리스틴 코널리",
+      "크리스틴 코널리"
     ],
     "director": "애드리안 라인"
   },
@@ -5781,7 +5781,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Johnny Storm / Human Torch",
       "Galactus",
       "Shalla-Bal / Silver Surfer",
-      "Harvey Elder / Mole Man",
+      "Harvey Elder / Mole Man"
     ],
     "cast": [
       "페드로 파스칼",
@@ -5790,7 +5790,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조셉 퀸",
       "랄프 이네슨",
       "줄리아 가너",
-      "폴 월터 하우저",
+      "폴 월터 하우저"
     ],
     "director": "맷 샤크먼"
   },
@@ -5802,7 +5802,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gloria (voice)",
       "King Julien (voice)",
       "Maurice (voice)",
-      "Mort (voice)",
+      "Mort (voice)"
     ],
     "cast": [
       "벤 스틸러",
@@ -5811,7 +5811,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이다 핀켓 스미스",
       "사샤 바론 코헨",
       "세드릭 더 엔터테이너",
-      "Andy Richter",
+      "Andy Richter"
     ],
     "director": "Eric Darnell"
   },
@@ -5823,7 +5823,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bofur",
       "Balin",
       "Radagast the Brown",
-      "The Great Goblin",
+      "The Great Goblin"
     ],
     "cast": [
       "마틴 프리먼",
@@ -5832,7 +5832,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 네스빗",
       "Ken Stott",
       "실베스터 매코이",
-      "Barry Humphries",
+      "Barry Humphries"
     ],
     "director": "피터 잭슨"
   },
@@ -5844,7 +5844,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Larry",
       "Customs Officer",
       "Taxi Driver",
-      "Car Driver (uncredited)",
+      "Car Driver (uncredited)"
     ],
     "cast": [
       "주드 로",
@@ -5853,7 +5853,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "클라이브 오웬",
       "콜린 스틴톤",
       "Nick Hobbs",
-      "Steve Benham",
+      "Steve Benham"
     ],
     "director": "마이크 니콜스"
   },
@@ -5865,7 +5865,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hela",
       "Heimdall",
       "Grandmaster",
-      "Valkyrie",
+      "Valkyrie"
     ],
     "cast": [
       "크리스 헴스워스",
@@ -5874,7 +5874,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케이트 블란쳇",
       "이드리스 엘바",
       "제프 골드블룸",
-      "테사 톰슨",
+      "테사 톰슨"
     ],
     "director": "타이카 와이티티"
   },
@@ -5886,7 +5886,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Short Fisherman",
       "Interviewee (uncredited)",
       "Waitress",
-      "Fisherman With Glasses (uncredited)",
+      "Fisherman With Glasses (uncredited)"
     ],
     "cast": [
       "Heather Donahue",
@@ -5895,7 +5895,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bob Griffin",
       "Jim King",
       "Sandra Sánchez",
-      "Ed Swanson",
+      "Ed Swanson"
     ],
     "director": "다니엘 미릭"
   },
@@ -5907,7 +5907,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rey",
       "Finn",
       "Poe Dameron",
-      "Snoke",
+      "Snoke"
     ],
     "cast": [
       "마크 해밀",
@@ -5916,7 +5916,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이지 리들리",
       "존 보예가",
       "오스카 아이작",
-      "앤디 서키스",
+      "앤디 서키스"
     ],
     "director": "라이언 존슨"
   },
@@ -5928,7 +5928,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tai Lung (voice)",
       "Mantis (voice)",
       "Viper (voice)",
-      "Crane (voice)",
+      "Crane (voice)"
     ],
     "cast": [
       "잭 블랙",
@@ -5937,7 +5937,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이언 맥셰인",
       "세스 로건",
       "루시 리우",
-      "데이비드 크로스",
+      "데이비드 크로스"
     ],
     "director": "마크 오스본"
   },
@@ -5949,7 +5949,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hospitaler",
       "Saladin",
       "Godfrey de Ibelin",
-      "Reynald de Chatillon",
+      "Reynald de Chatillon"
     ],
     "cast": [
       "올랜도 블룸",
@@ -5958,7 +5958,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이비드 슐리스",
       "غسان مسعود",
       "리암 니슨",
-      "브렌던 글리슨",
+      "브렌던 글리슨"
     ],
     "director": "리들리 스콧"
   },
@@ -5970,7 +5970,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Philip Stuckey",
       "Kit De Luca",
       "The Hotel Manager",
-      "David Morse",
+      "David Morse"
     ],
     "cast": [
       "리처드 기어",
@@ -5979,7 +5979,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제이슨 알렉산더",
       "로라 샌 자코모",
       "엑토르 엘리손도",
-      "Alex Hyde-White",
+      "Alex Hyde-White"
     ],
     "director": "게리 마셜"
   },
@@ -5991,7 +5991,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Diel",
       "Johnson",
       "Clive",
-      "Agent Russ",
+      "Agent Russ"
     ],
     "cast": [
       "성룡",
@@ -6000,7 +6000,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "필립 베이커 홀",
       "엘리자베스 페냐",
       "크리스 펜",
-      "Mark Rolston",
+      "Mark Rolston"
     ],
     "director": "브렛 래트너"
   },
@@ -6012,7 +6012,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Johana Van Damaker",
       "Isa",
       "Le co-pilote",
-      "Hiroshi",
+      "Hiroshi"
     ],
     "cast": [
       "다이앤 크루거",
@@ -6021,7 +6021,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아미라 카사르",
       "Aleksandra Yermak",
       "Adrien Malvoisin",
-      "Yun Lai",
+      "Yun Lai"
     ],
     "director": "Yann Gozlan"
   },
@@ -6033,7 +6033,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jia",
       "Mikael",
       "Iwi Queen",
-      "Hampton",
+      "Hampton"
     ],
     "cast": [
       "레베카 홀",
@@ -6042,7 +6042,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케이리 호틀",
       "알렉스 펀즈",
       "천파라",
-      "레이첼 하우스",
+      "레이첼 하우스"
     ],
     "director": "애덤 윈가드"
   },
@@ -6054,7 +6054,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kristoff / Sven / Reindeers (voice)",
       "Iduna (voice)",
       "Mattias (voice)",
-      "Agnarr (voice)",
+      "Agnarr (voice)"
     ],
     "cast": [
       "이디나 멘젤",
@@ -6063,7 +6063,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조나단 그로프",
       "에반 레이첼 우드",
       "스털링 K. 브라운",
-      "알프레드 몰리나",
+      "알프레드 몰리나"
     ],
     "director": "제니퍼 리"
   },
@@ -6075,7 +6075,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Aech / Helen",
       "I-R0k (voice)",
       "Curator / Ogden Morrow",
-      "Anorak / Halliday",
+      "Anorak / Halliday"
     ],
     "cast": [
       "타이 셰리던",
@@ -6084,7 +6084,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "레나 웨이드",
       "T.J. 밀러",
       "사이먼 페그",
-      "마크 라이런스",
+      "마크 라이런스"
     ],
     "director": "스티븐 스필버그"
   },
@@ -6096,7 +6096,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jane",
       "Aro",
       "Alice Cullen",
-      "Victoria",
+      "Victoria"
     ],
     "cast": [
       "크리스틴 스튜어트",
@@ -6105,7 +6105,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "다코타 패닝",
       "마이클 쉰",
       "애슐리 그린",
-      "라셸 르페브르",
+      "라셸 르페브르"
     ],
     "director": "크리스 웨이츠"
   },
@@ -6117,7 +6117,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Crash (voice)",
       "Eddie (voice)",
       "Captain Gutt (voice)",
-      "Granny (voice)",
+      "Granny (voice)"
     ],
     "cast": [
       "레이 로마노",
@@ -6126,7 +6126,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 윌리엄 스콧",
       "Josh Peck",
       "피터 딘클리지",
-      "완다 사이크스",
+      "완다 사이크스"
     ],
     "director": "Steve Martino"
   },
@@ -6138,7 +6138,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Madeline Northcott",
       "Laura Weaver",
       "Dr. Morgan Desai",
-      "Robert Talley",
+      "Robert Talley"
     ],
     "cast": [
       "소시 베이컨",
@@ -6147,7 +6147,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로빈 웨이거트",
       "케이틀린 스테이시",
       "칼 펜",
-      "롭 모건",
+      "롭 모건"
     ],
     "director": "파커 핀"
   },
@@ -6159,7 +6159,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "May Parker",
       "Happy Hogan",
       "MJ",
-      "Ned Leeds",
+      "Ned Leeds"
     ],
     "cast": [
       "톰 홀랜드",
@@ -6168,7 +6168,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마리사 토메이",
       "존 파브로",
       "젠데이아",
-      "제이콥 배털런",
+      "제이콥 배털런"
     ],
     "director": "존 왓츠"
   },
@@ -6180,7 +6180,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stabbington Brother (voice)",
       "Captain of the Guard (voice)",
       "Big Nose Thug (voice)",
-      "Hook Hand Thug (voice)",
+      "Hook Hand Thug (voice)"
     ],
     "cast": [
       "맨디 무어",
@@ -6189,7 +6189,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "론 펄먼",
       "M.C. 게이니",
       "제프리 탬버",
-      "브래드 개릿",
+      "브래드 개릿"
     ],
     "director": "바이런 하워드"
   },
@@ -6201,7 +6201,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Emmy Forester",
       "Charlie",
       "Dorian",
-      "Lt. Hart",
+      "Lt. Hart"
     ],
     "cast": [
       "크리스 프랫",
@@ -6210,7 +6210,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "베티 길핀",
       "샘 리차드슨",
       "Edwin Hodge",
-      "Jasmine Mathews",
+      "Jasmine Mathews"
     ],
     "director": "크리스 매케이"
   },
@@ -6222,7 +6222,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Charlie Swan",
       "Dr. Carlisle Cullen",
       "Aro",
-      "Esme Cullen",
+      "Esme Cullen"
     ],
     "cast": [
       "크리스틴 스튜어트",
@@ -6231,7 +6231,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌리 버크",
       "피터 패치넬리",
       "마이클 쉰",
-      "엘리자베스 리서",
+      "엘리자베스 리서"
     ],
     "director": "빌 콘돈"
   },
@@ -6243,7 +6243,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Colonel Rick Flag",
       "King Shark (voice)",
       "Amanda Waller",
-      "Polka-Dot Man",
+      "Polka-Dot Man"
     ],
     "cast": [
       "마고 로비",
@@ -6252,7 +6252,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조엘 킨나만",
       "실베스터 스탤론",
       "비올라 데이비스",
-      "데이비드 다스트말치안",
+      "데이비드 다스트말치안"
     ],
     "director": "제임스 건"
   },
@@ -6264,7 +6264,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Oleg Vasilyevich Orlov",
       "Mike Krause",
       "Young Orlov",
-      "US President Howard Lewis",
+      "US President Howard Lewis"
     ],
     "cast": [
       "안젤리나 졸리",
@@ -6273,7 +6273,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Daniel Olbrychski",
       "아우구스트 딜",
       "Daniel Pearce",
-      "Hunt Block",
+      "Hunt Block"
     ],
     "director": "Phillip Noyce"
   },
@@ -6285,7 +6285,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Pepper Potts",
       "Christine Everhart",
       "Yinsen",
-      "Raza",
+      "Raza"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -6294,7 +6294,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "기네스 팰트로",
       "레슬리 비브",
       "숀 토브",
-      "파란 타히르",
+      "파란 타히르"
     ],
     "director": "존 파브로"
   },
@@ -6306,7 +6306,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lord Grigon (voice)",
       "Ambassador Helix (voice)",
       "Ambassador Questa (voice)",
-      "Bryce (voice)",
+      "Bryce (voice)"
     ],
     "cast": [
       "요나스 키브레압",
@@ -6315,7 +6315,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브래드 개릿",
       "Brandon Moon",
       "자밀라 자밀",
-      "Young Dylan",
+      "Young Dylan"
     ],
     "director": "마데라인 사라피안"
   },
@@ -6327,7 +6327,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Midnite",
       "Beeman",
       "Father Hennessy",
-      "Balthazar",
+      "Balthazar"
     ],
     "cast": [
       "키아누 리브스",
@@ -6336,7 +6336,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "자이먼 혼수",
       "Max Baker",
       "프루이트 테일러 빈스",
-      "Gavin Rossdale",
+      "Gavin Rossdale"
     ],
     "director": "프랜시스 로렌스"
   },
@@ -6348,7 +6348,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Victoria",
       "Jane",
       "Charlie Swan",
-      "Dr. Carlisle Cullen",
+      "Dr. Carlisle Cullen"
     ],
     "cast": [
       "크리스틴 스튜어트",
@@ -6357,7 +6357,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브라이스 댈러스 하워드",
       "다코타 패닝",
       "빌리 버크",
-      "피터 패치넬리",
+      "피터 패치넬리"
     ],
     "director": "David Slade"
   },
@@ -6369,7 +6369,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jay Sebring",
       "'Pussycat'",
       "Jim Stacy",
-      "Trudi Fraser",
+      "Trudi Fraser"
     ],
     "cast": [
       "레오나르도 디카프리오",
@@ -6378,7 +6378,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에밀 허쉬",
       "마가렛 퀄리",
       "티모시 올리펀트",
-      "줄리아 버터스",
+      "줄리아 버터스"
     ],
     "director": "쿠엔틴 타란티노"
   },
@@ -6390,7 +6390,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Holden McCrea",
       "Jules Louden",
       "Richard Sitterson",
-      "Steve Hadley",
+      "Steve Hadley"
     ],
     "cast": [
       "크리스틴 코널리",
@@ -6399,7 +6399,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jesse Williams",
       "Anna Hutchison",
       "리처드 젠킨스",
-      "브래들리 휘트포드",
+      "브래들리 휘트포드"
     ],
     "director": "드류 고다드"
   },
@@ -6411,7 +6411,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "DJ",
       "Montes",
       "Driscoll",
-      "Mac",
+      "Mac"
     ],
     "cast": [
       "제이슨 스타뎀",
@@ -6420,7 +6420,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Page Kennedy",
       "Sergio Peris-Mencheta",
       "Sienna Guillory",
-      "클리프 커티스",
+      "클리프 커티스"
     ],
     "director": "벤 휘틀리"
   },
@@ -6432,7 +6432,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sergeant Tamora Jean Calhoun (voice)",
       "King Candy / Turbo (voice)",
       "Sour Bill / Zangief (voice)",
-      "Gene / Zombie (voice)",
+      "Gene / Zombie (voice)"
     ],
     "cast": [
       "존 C. 라일리",
@@ -6441,7 +6441,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제인 린치",
       "앨런 튜딕",
       "리치 무어",
-      "Raymond S. Persi",
+      "Raymond S. Persi"
     ],
     "director": "리치 무어"
   },
@@ -6453,7 +6453,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tej",
       "Jakob",
       "Ramsey",
-      "Mia",
+      "Mia"
     ],
     "cast": [
       "빈 디젤",
@@ -6462,7 +6462,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루다크리스",
       "존 시나",
       "나탈리 엠마뉴엘",
-      "조다나 브루스터",
+      "조다나 브루스터"
     ],
     "director": "루이스 레테리어"
   },
@@ -6474,7 +6474,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Louis (voice)",
       "Dr. Facilier (voice)",
       "Charlotte (voice)",
-      "Lawrence (voice)",
+      "Lawrence (voice)"
     ],
     "cast": [
       "Anika Noni Rose",
@@ -6483,7 +6483,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Michael-Leon Wooley",
       "키스 데이비드",
       "Jennifer Cody",
-      "Peter Bartlett",
+      "Peter Bartlett"
     ],
     "director": "론 클레멘츠"
   },
@@ -6495,7 +6495,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Phil Fimple",
       "Irwin Wayfair",
       "Larry Benson",
-      "Stuart Abernathy",
+      "Stuart Abernathy"
     ],
     "cast": [
       "Gregory Smith",
@@ -6504,7 +6504,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Phil Hartman",
       "데이비드 크로스",
       "Jay Mohr",
-      "케빈 던",
+      "케빈 던"
     ],
     "director": "조 단테"
   },
@@ -6516,7 +6516,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Victoria",
       "Sykes",
       "Sally",
-      "Kara",
+      "Kara"
     ],
     "cast": [
       "톰 크루즈",
@@ -6525,7 +6525,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안드레아 라이즈보로",
       "니콜라이 코스테르발다우",
       "멜리사 레오",
-      "조이 벨",
+      "조이 벨"
     ],
     "director": "조셉 코신스키"
   },
@@ -6537,7 +6537,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alan Grant",
       "Ian Malcolm",
       "Kayla Watts",
-      "Ramsay Cole",
+      "Ramsay Cole"
     ],
     "cast": [
       "크리스 프랫",
@@ -6546,7 +6546,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "샘 닐",
       "제프 골드블룸",
       "DeWanda Wise",
-      "마무두 아티",
+      "마무두 아티"
     ],
     "director": "콜린 트레보로"
   },
@@ -6558,7 +6558,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Frankenstein (voice)",
       "Eunice (voice)",
       "Wayne (voice)",
-      "Wanda (voice)",
+      "Wanda (voice)"
     ],
     "cast": [
       "셀레나 고메즈",
@@ -6567,7 +6567,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케빈 제임스",
       "프랜 드레셔",
       "스티브 부세미",
-      "몰리 섀넌",
+      "몰리 섀넌"
     ],
     "director": "Genndy Tartakovsky"
   },
@@ -6579,7 +6579,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Captain Michaels",
       "Sullivan",
       "Detective John Blake",
-      "Detective Alexa Jane",
+      "Detective Alexa Jane"
     ],
     "cast": [
       "밀라 요보비치",
@@ -6588,7 +6588,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "D. B. Sweeney",
       "Don Harvey",
       "Michael Stahl-David",
-      "Lydia Hull",
+      "Lydia Hull"
     ],
     "director": "Adrian Grünberg"
   },
@@ -6600,7 +6600,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Billy",
       "Anthony Fusco",
       "Red",
-      "Doolittle",
+      "Doolittle"
     ],
     "cast": [
       "벤 애플렉",
@@ -6609,7 +6609,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "William Lee Scott",
       "Greg Zola",
       "이완 브렘너",
-      "알렉 볼드윈",
+      "알렉 볼드윈"
     ],
     "director": "마이클 베이"
   },
@@ -6621,7 +6621,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Edgar",
       "Zed",
       "Jeebs",
-      "Beatrice",
+      "Beatrice"
     ],
     "cast": [
       "토미 리 존스",
@@ -6630,7 +6630,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빈센트 도노프리오",
       "Rip Torn",
       "토니 샬호브",
-      "Siobhan Fallon Hogan",
+      "Siobhan Fallon Hogan"
     ],
     "director": "Barry Sonnenfeld"
   },
@@ -6642,7 +6642,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gennady",
       "Melissa",
       "Vernon",
-      "Man in Tan Coat",
+      "Man in Tan Coat"
     ],
     "cast": [
       "브래들리 쿠퍼",
@@ -6651,7 +6651,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "앤드루 하워드",
       "애나 프리얼",
       "Johnny Whitworth",
-      "토마스 아라나",
+      "토마스 아라나"
     ],
     "director": "닐 버거"
   },
@@ -6663,7 +6663,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Ishiro Serizawa",
       "Dr. Ilene Chen / Dr. Ling",
       "Dr. Rick Stanton",
-      "Dr. Vivienne Graham",
+      "Dr. Vivienne Graham"
     ],
     "cast": [
       "카일 챈들러",
@@ -6672,7 +6672,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "와타나베 켄",
       "장쯔이",
       "브래들리 휘트포드",
-      "샐리 호킨스",
+      "샐리 호킨스"
     ],
     "director": "Michael Dougherty"
   },
@@ -6684,7 +6684,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "The Witch (voice)",
       "Lord Dingwall (voice)",
       "Lord MacGuffin / Young MacGuffin (voice)",
-      "Lord Macintosh (voice)",
+      "Lord Macintosh (voice)"
     ],
     "cast": [
       "켈리 맥도널드",
@@ -6693,7 +6693,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "줄리 월터스",
       "로비 콜트레인",
       "케빈 맥키드",
-      "Craig Ferguson",
+      "Craig Ferguson"
     ],
     "director": "Mark Andrews"
   },
@@ -6705,7 +6705,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Wallace Westwyld",
       "Agent Matt Wiley",
       "Mickey Garnett",
-      "Pettis",
+      "Pettis"
     ],
     "cast": [
       "제이슨 스타뎀",
@@ -6714,7 +6714,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제레미 아이언스",
       "Bobby Naderi",
       "David Witts",
-      "Michael Epp",
+      "Michael Epp"
     ],
     "director": "데이비드 에이어"
   },
@@ -6726,7 +6726,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tomohiro Nagatsuka (voice)",
       "Naoka Ueno (voice)",
       "Miyoko Sahara (voice)",
-      "Miki Kawai (voice)",
+      "Miki Kawai (voice)"
     ],
     "cast": [
       "이리노 미유",
@@ -6735,7 +6735,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "오노 켄쇼",
       "카네코 유키",
       "이시카와 유이",
-      "한 메구미",
+      "한 메구미"
     ],
     "director": "야마다 나오코"
   },
@@ -6747,7 +6747,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tami-Lynn",
       "Donny",
       "Patrick Meighan",
-      "Sam J. Jones",
+      "Sam J. Jones"
     ],
     "cast": [
       "마크 월버그",
@@ -6756,7 +6756,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jessica Barth",
       "조반니 리비시",
       "모건 프리먼",
-      "Sam J. Jones",
+      "Sam J. Jones"
     ],
     "director": "세스 맥팔레인"
   },
@@ -6768,7 +6768,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "David Tapp",
       "Alison Gordon",
       "Detective Steven Sing",
-      "Diana Gordon",
+      "Diana Gordon"
     ],
     "cast": [
       "토빈 벨",
@@ -6777,7 +6777,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "대니 글로버",
       "Monica Potter",
       "켄 렁",
-      "Makenzie Vega",
+      "Makenzie Vega"
     ],
     "director": "제임스 완"
   },
@@ -6789,7 +6789,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Agent Smith",
       "Niobe",
       "The Oracle",
-      "Link",
+      "Link"
     ],
     "cast": [
       "키아누 리브스",
@@ -6798,7 +6798,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "휴고 위빙",
       "제이다 핀켓 스미스",
       "Gloria Foster",
-      "해럴드 페리노",
+      "해럴드 페리노"
     ],
     "director": "릴리 워쇼스키"
   },
@@ -6810,7 +6810,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Julian (voice)",
       "Shangri Llama (voice)",
       "Roger (voice)",
-      "Brooke (voice)",
+      "Brooke (voice)"
     ],
     "cast": [
       "레이 로마노",
@@ -6819,7 +6819,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "애덤 드바인",
       "Jesse Tyler Ferguson",
       "맥스 그린필드",
-      "제시 J",
+      "제시 J"
     ],
     "director": "Michael Thurmeier"
   },
@@ -6831,7 +6831,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Agent Augustus Gibbons",
       "Agent Toby Lee Shavers",
       "Milan Sova",
-      "Kirill",
+      "Kirill"
     ],
     "cast": [
       "빈 디젤",
@@ -6840,7 +6840,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "사무엘 L. 잭슨",
       "Michael Roof",
       "Richy Müller",
-      "Werner Daehn",
+      "Werner Daehn"
     ],
     "director": "Rob Cohen"
   },
@@ -6852,7 +6852,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Olga",
       "Domenico",
       "Klara Biel",
-      "Tomasz Biel",
+      "Tomasz Biel"
     ],
     "cast": [
       "Anna-Maria Sieklucka",
@@ -6861,7 +6861,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Magdalena Lamparska",
       "Otar Saralidze",
       "Ewa Kasprzyk",
-      "Dariusz Jakubowski",
+      "Dariusz Jakubowski"
     ],
     "director": "토마시 만데스"
   },
@@ -6873,7 +6873,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Blake",
       "Ashley",
       "Logan",
-      "Sidney",
+      "Sidney"
     ],
     "cast": [
       "게이튼 매터래조",
@@ -6882,7 +6882,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jack Martin",
       "페이턴 엘리자베스 리",
       "Marcus Scribner",
-      "칼렙 헤론",
+      "칼렙 헤론"
     ],
     "director": "Nick Kocher"
   },
@@ -6894,7 +6894,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mons. Jefferson Wicks",
       "Chief Geraldine Scott",
       "Dr. Nat Sharp",
-      "Vera Draven, Esq.",
+      "Vera Draven, Esq."
     ],
     "cast": [
       "다니엘 크레이그",
@@ -6903,7 +6903,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조쉬 브롤린",
       "밀라 쿠니스",
       "제레미 레너",
-      "케리 워싱턴",
+      "케리 워싱턴"
     ],
     "director": "라이언 존슨"
   },
@@ -6915,7 +6915,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alpha Male",
       "Zoe Neville",
       "Marley Neville",
-      "Dr. Alice Krippin",
+      "Dr. Alice Krippin"
     ],
     "cast": [
       "윌 스미스",
@@ -6924,7 +6924,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dash Mihok",
       "Salli Richardson-Whitfield",
       "Willow Smith",
-      "엠마 톰슨",
+      "엠마 톰슨"
     ],
     "director": "프랜시스 로렌스"
   },
@@ -6936,7 +6936,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sterling (voice)",
       "Mater (voice)",
       "Jackson Storm (voice)",
-      "Dusty (voice)",
+      "Dusty (voice)"
     ],
     "cast": [
       "오웬 윌슨",
@@ -6945,7 +6945,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "네이선 필리언",
       "Larry the Cable Guy",
       "아미 해머",
-      "Ray Magliozzi",
+      "Ray Magliozzi"
     ],
     "director": "Brian Fee"
   },
@@ -6957,7 +6957,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kano",
       "Liu Kang",
       "Kung Lao",
-      "Lord Raiden",
+      "Lord Raiden"
     ],
     "cast": [
       "루이스 탠",
@@ -6966,7 +6966,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조시 로슨",
       "루디 린",
       "맥스 황",
-      "아사노 타다노부",
+      "아사노 타다노부"
     ],
     "director": "Simon McQuoid"
   },
@@ -6978,7 +6978,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jafar (voice)",
       "Iago (voice)",
       "Sultan (voice)",
-      "Abu / Cave of Wonders / Rajah (voice)",
+      "Abu / Cave of Wonders / Rajah (voice)"
     ],
     "cast": [
       "Scott Weinger",
@@ -6987,7 +6987,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jonathan Freeman",
       "Gilbert Gottfried",
       "Douglas Seale",
-      "프랭크 웰커",
+      "프랭크 웰커"
     ],
     "director": "존 머스커"
   },
@@ -6999,7 +6999,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mrs. Bucket",
       "Mr. Bucket",
       "Mrs. Beauregarde",
-      "Mr. Salt",
+      "Mr. Salt"
     ],
     "cast": [
       "조니 뎁",
@@ -7008,7 +7008,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "헬레나 본햄 카터",
       "노아 테일러",
       "미시 파일",
-      "제임스 폭스",
+      "제임스 폭스"
     ],
     "director": "팀 버튼"
   },
@@ -7020,7 +7020,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mitch Wilkinson",
       "Patrick Gates",
       "Emily Appleton",
-      "Peter Sadusky",
+      "Peter Sadusky"
     ],
     "cast": [
       "니콜라스 케이지",
@@ -7029,7 +7029,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에드 해리스",
       "존 보이트",
       "헬렌 미렌",
-      "하비 카이텔",
+      "하비 카이텔"
     ],
     "director": "Jon Turteltaub"
   },
@@ -7041,7 +7041,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Laura Wilson",
       "Carl Anheuser",
       "Gordon Silberman",
-      "Charlie Frost",
+      "Charlie Frost"
     ],
     "cast": [
       "존 쿠삭",
@@ -7050,7 +7050,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "탠디 뉴턴",
       "올리버 플랫",
       "톰 맥카시",
-      "우디 해럴슨",
+      "우디 해럴슨"
     ],
     "director": "롤란트 에머리히"
   },
@@ -7062,7 +7062,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Abby (voice)",
       "Priya (voice)",
       "Jin Lee (voice)",
-      "Grandma (voice)",
+      "Grandma (voice)"
     ],
     "cast": [
       "Rosalie Chiang",
@@ -7071,7 +7071,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hyein Park",
       "마이트레이 라마크리슈난",
       "Orion Lee",
-      "Wai Ching Ho",
+      "Wai Ching Ho"
     ],
     "director": "도미 시"
   },
@@ -7083,7 +7083,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Old Tony",
       "Agent Malky",
       "Mathilda's Father",
-      "Mathilda's Mother",
+      "Mathilda's Mother"
     ],
     "cast": [
       "장 르노",
@@ -7092,7 +7092,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데니 에일로",
       "피터 에펠",
       "마이클 바다루코",
-      "엘렌 그린",
+      "엘렌 그린"
     ],
     "director": "뤽 베송"
   },
@@ -7104,7 +7104,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Steven Loski",
       "Chet Duncan",
       "Trina Baker",
-      "Richard Baker",
+      "Richard Baker"
     ],
     "cast": [
       "Madeline Carroll",
@@ -7113,7 +7113,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안소니 에드워즈",
       "John Mahoney",
       "Penelope Ann Miller",
-      "에이든 퀸",
+      "에이든 퀸"
     ],
     "director": "롭 라이너"
   },
@@ -7125,7 +7125,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Johnny Venere",
       "Oleg",
       "George",
-      "Record Exec",
+      "Record Exec"
     ],
     "cast": [
       "비고 모텐슨",
@@ -7134,7 +7134,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sebastian Maniscalco",
       "Dimiter D. Marinov",
       "Mike Hatton",
-      "P. J. 번",
+      "P. J. 번"
     ],
     "director": "피터 패럴리"
   },
@@ -7146,7 +7146,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mindy Meeks-Martin",
       "Richie Kirsch",
       "Amber Freeman",
-      "Gale Weathers",
+      "Gale Weathers"
     ],
     "cast": [
       "멜리사 바레라",
@@ -7155,7 +7155,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jasmin Savoy Brown",
       "잭 퀘이드",
       "마이키 매디슨",
-      "코트니 콕스",
+      "코트니 콕스"
     ],
     "director": "Tyler Gillett"
   },
@@ -7167,7 +7167,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gaff",
       "Bryant",
       "Pris",
-      "Sebastian",
+      "Sebastian"
     ],
     "cast": [
       "해리슨 포드",
@@ -7176,7 +7176,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에드워드 제임스 올모스",
       "M. 에멧 월시",
       "대릴 해나",
-      "William Sanderson",
+      "William Sanderson"
     ],
     "director": "리들리 스콧"
   },
@@ -7188,7 +7188,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Shan-Yu (voice)",
       "Yao (voice)",
       "Fa Li (voice)",
-      "Grandmother Fa (voice)",
+      "Grandmother Fa (voice)"
     ],
     "cast": [
       "밍나 원",
@@ -7197,7 +7197,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "미겔 페러",
       "Harvey Fierstein",
       "Freda Foh Shen",
-      "June Foray",
+      "June Foray"
     ],
     "director": "Tony Bancroft"
   },
@@ -7209,7 +7209,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Shin",
       "Mera",
       "Atlanna",
-      "King Nereus",
+      "King Nereus"
     ],
     "cast": [
       "제이슨 모모아",
@@ -7218,7 +7218,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "랜들 박",
       "엠버 허드",
       "니콜 키드먼",
-      "돌프 룬드그렌",
+      "돌프 룬드그렌"
     ],
     "director": "제임스 완"
   },
@@ -7230,7 +7230,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Steph Jones",
       "Noah Porter",
       "Zed Evans",
-      "Molly Samuels",
+      "Molly Samuels"
     ],
     "cast": [
       "Josephine Langford",
@@ -7239,7 +7239,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Khadijha Red Thunder",
       "딜런 아널드",
       "Samuel Larsen",
-      "Inanna Sarkis",
+      "Inanna Sarkis"
     ],
     "director": "Jenny Gage"
   },
@@ -7251,7 +7251,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Weasel",
       "Angel Dust",
       "Blind Al",
-      "Negasonic Teenage Warhead",
+      "Negasonic Teenage Warhead"
     ],
     "cast": [
       "라이언 레이놀즈",
@@ -7260,7 +7260,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "T.J. 밀러",
       "지나 카라노",
       "레슬리 어검스",
-      "브리아나 힐데브란드",
+      "브리아나 힐데브란드"
     ],
     "director": "팀 밀러"
   },
@@ -7272,7 +7272,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bobby Long",
       "Nick Parsons",
       "Rudy",
-      "Warren",
+      "Warren"
     ],
     "cast": [
       "토미 리 존스",
@@ -7281,7 +7281,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jay Brazeau",
       "브루스 그린우드",
       "John Maclaren",
-      "Ed Evanko",
+      "Ed Evanko"
     ],
     "director": "Bruce Beresford"
   },
@@ -7293,7 +7293,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Okoye",
       "Everett K. Ross",
       "W'Kabi",
-      "Shuri",
+      "Shuri"
     ],
     "cast": [
       "채드윅 보스만",
@@ -7302,7 +7302,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "다나이 구리라",
       "마틴 프리먼",
       "다니엘 칼루야",
-      "레티티아 라이트",
+      "레티티아 라이트"
     ],
     "director": "라이언 쿠글러"
   },
@@ -7314,7 +7314,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tatsuo Kusakabe (voice)",
       "Yasuko Kusakabe (voice)",
       "Granny (voice)",
-      "Kanta Ogaki (voice)",
+      "Kanta Ogaki (voice)"
     ],
     "cast": [
       "히다카 노리코",
@@ -7323,7 +7323,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "糸井重里",
       "시마모토 스미",
       "北林谷栄",
-      "雨笠利幸",
+      "雨笠利幸"
     ],
     "director": "미야자키 하야오"
   },
@@ -7335,7 +7335,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Legolas",
       "Tauriel",
       "Bard",
-      "King Thranduil",
+      "King Thranduil"
     ],
     "cast": [
       "이안 맥켈런",
@@ -7344,7 +7344,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "올랜도 블룸",
       "에반젤린 릴리",
       "루크 에반스",
-      "리 페이스",
+      "리 페이스"
     ],
     "director": "피터 잭슨"
   },
@@ -7356,7 +7356,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "(credit only) (voice)",
       "Drizella (voice)",
       "Gus / Jaq (voice)",
-      "(credit only)",
+      "(credit only)"
     ],
     "cast": [
       "Ilene Woods",
@@ -7365,7 +7365,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Claire Du Brey",
       "Rhoda Williams",
       "James MacDonald",
-      "Helene Stanley",
+      "Helene Stanley"
     ],
     "director": "Hamilton Luske"
   },
@@ -7377,7 +7377,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Horace",
       "Artie",
       "Catherine / Maid",
-      "John the Valet",
+      "John the Valet"
     ],
     "cast": [
       "엠마 스톤",
@@ -7386,7 +7386,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "폴 월터 하우저",
       "John McCrea",
       "에밀리 비샴",
-      "마크 스트롱",
+      "마크 스트롱"
     ],
     "director": "크레이그 길레스피"
   },
@@ -7398,7 +7398,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Yong-du",
       "Dae-gil",
       "Tom",
-      "Byun Park",
+      "Byun Park"
     ],
     "cast": [
       "신시아",
@@ -7407,7 +7407,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "진구",
       "성유빈",
       "저스틴 하비",
-      "차순배",
+      "차순배"
     ],
     "director": "박훈정"
   },
@@ -7419,7 +7419,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Martin",
       "Detective Mulligan",
       "Mrs. Chen",
-      "Sadie",
+      "Sadie"
     ],
     "cast": [
       "톰 하디",
@@ -7428,7 +7428,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리스 이판",
       "스티븐 그레이엄",
       "Peggy Lu",
-      "클라크 바코",
+      "클라크 바코"
     ],
     "director": "켈리 마르셸"
   },
@@ -7440,7 +7440,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rattlesnake Jake (voice)",
       "Priscilla (voice)",
       "Roadkill (voice)",
-      "Doc / Merrimack / Mr. Snuggles (voice)",
+      "Doc / Merrimack / Mr. Snuggles (voice)"
     ],
     "cast": [
       "조니 뎁",
@@ -7449,7 +7449,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌 나이",
       "아비게일 브레스린",
       "알프레드 몰리나",
-      "스티븐 루트",
+      "스티븐 루트"
     ],
     "director": "고어 버빈스키"
   },
@@ -7461,7 +7461,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Santino D'Antonio",
       "Ares",
       "Charon",
-      "Abram Tarasov",
+      "Abram Tarasov"
     ],
     "cast": [
       "키아누 리브스",
@@ -7470,7 +7470,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Riccardo Scamarcio",
       "루비 로즈",
       "랜스 레딕",
-      "피터 스토메어",
+      "피터 스토메어"
     ],
     "director": "채드 스타헬스키"
   },
@@ -7482,7 +7482,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Cinder (voice)",
       "Gale (voice)",
       "Brook (voice)",
-      "Clod (voice)",
+      "Clod (voice)"
     ],
     "cast": [
       "Leah Lewis",
@@ -7491,7 +7491,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Shila Ommi",
       "웬디 매클렌던커비",
       "캐서린 오하라",
-      "Mason Wertheimer",
+      "Mason Wertheimer"
     ],
     "director": "피터 손"
   },
@@ -7503,7 +7503,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ray Wilkins",
       "Buddy Wilkerson",
       "Theo",
-      "Dwight Hartman",
+      "Dwight Hartman"
     ],
     "cast": [
       "안나 페리스",
@@ -7512,7 +7512,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 웨이언스",
       "크리스토퍼 마스터슨",
       "캐슬린 로버트슨",
-      "데이비드 크로스",
+      "데이비드 크로스"
     ],
     "director": "Keenen Ivory Wayans"
   },
@@ -7524,7 +7524,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Debbie Glatzel",
       "Arne Cheyne Johnson",
       "David Glatzel",
-      "Judy Glatzel",
+      "Judy Glatzel"
     ],
     "cast": [
       "베라 파미가",
@@ -7533,7 +7533,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "세라 캐서린 훅",
       "Ruairí O'Connor",
       "줄리안 힐리어드",
-      "Charlene Amoia",
+      "Charlene Amoia"
     ],
     "director": "마이클 차브스"
   },
@@ -7545,7 +7545,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Security Chief Roland Treece",
       "Dr. Dan Lewis",
       "Dr. Dora Skirth",
-      "Homeless Woman Maria",
+      "Homeless Woman Maria"
     ],
     "cast": [
       "톰 하디",
@@ -7554,7 +7554,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Scott Haze",
       "리드 스콧",
       "제니 슬레이트",
-      "멜로라 월터스",
+      "멜로라 월터스"
     ],
     "director": "루벤 플레셔"
   },
@@ -7566,7 +7566,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Young Rafiki (voice)",
       "Zazu (voice)",
       "Kiara (voice)",
-      "Rafiki (voice)",
+      "Rafiki (voice)"
     ],
     "cast": [
       "에런 피어",
@@ -7575,7 +7575,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kagiso Lediga",
       "Preston Nyman",
       "블루 아이비 카터",
-      "존 카니",
+      "존 카니"
     ],
     "director": "배리 젠킨스"
   },
@@ -7587,7 +7587,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "State Police Capt. Dave Kern",
       "Deputy Sgt. Arthur Galt",
       "Deputy Balford",
-      "Deputy Ward",
+      "Deputy Ward"
     ],
     "cast": [
       "실베스터 스탤론",
@@ -7596,7 +7596,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bill McKinney",
       "Jack Starrett",
       "Michael Talbott",
-      "크리스 멀키",
+      "크리스 멀키"
     ],
     "director": "Ted Kotcheff"
   },
@@ -7608,7 +7608,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Peggy Brandt",
       "Charlie Schumaker",
       "Niko",
-      "Irv",
+      "Irv"
     ],
     "cast": [
       "짐 캐리",
@@ -7617,7 +7617,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Amy Yasbeck",
       "Richard Jeni",
       "Orestes Matacena",
-      "Tim Bagley",
+      "Tim Bagley"
     ],
     "director": "Chuck Russell"
   },
@@ -7629,7 +7629,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Margo (voice)",
       "Edith (voice)",
       "Agnes (voice)",
-      "Dr. Nefario (voice)",
+      "Dr. Nefario (voice)"
     ],
     "cast": [
       "스티브 카렐",
@@ -7638,7 +7638,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "미란다 코스그로브",
       "Dana Gaier",
       "엘시 피셔",
-      "러셀 브랜드",
+      "러셀 브랜드"
     ],
     "director": "Chris Renaud"
   },
@@ -7650,7 +7650,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mother",
       "Teacher at School",
       "Anthony's Concierge",
-      "Security Guard",
+      "Security Guard"
     ],
     "cast": [
       "제이크 질렌할",
@@ -7659,7 +7659,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이사벨라 로셀리니",
       "Joshua Peace",
       "Tim Post",
-      "Kedar Brown",
+      "Kedar Brown"
     ],
     "director": "드니 빌뇌브"
   },
@@ -7692,7 +7692,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Astrid (voice)",
       "Snotlout (voice)",
       "Fishlegs (voice)",
-      "Tuffnut (voice)",
+      "Tuffnut (voice)"
     ],
     "cast": [
       "제이 바루첼",
@@ -7701,7 +7701,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아메리카 페레라",
       "조나 힐",
       "크리스토퍼 민츠플라스",
-      "T.J. 밀러",
+      "T.J. 밀러"
     ],
     "director": "크리스 샌더스"
   },
@@ -7713,7 +7713,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "King Edward",
       "Robert the Bruce",
       "Hamish Campbell",
-      "Young William Wallace",
+      "Young William Wallace"
     ],
     "cast": [
       "멜 깁슨",
@@ -7722,7 +7722,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Patrick McGoohan",
       "Angus Macfadyen",
       "브렌던 글리슨",
-      "James Robinson",
+      "James Robinson"
     ],
     "director": "멜 깁슨"
   },
@@ -7734,7 +7734,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Daniel",
       "Natalie",
       "Jamie Bennett",
-      "Billy Mack",
+      "Billy Mack"
     ],
     "cast": [
       "휴 그랜트",
@@ -7743,7 +7743,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리암 니슨",
       "Martine McCutcheon",
       "콜린 퍼스",
-      "빌 나이",
+      "빌 나이"
     ],
     "director": "리처드 커티스"
   },
@@ -7755,7 +7755,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ruby Roundhouse",
       "Nigel Billingsley",
       "Van Pelt",
-      "Jefferson 'Seaplane' McDonough",
+      "Jefferson 'Seaplane' McDonough"
     ],
     "cast": [
       "드웨인 존슨",
@@ -7764,7 +7764,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "카렌 길런",
       "리스 다비",
       "바비 카나베일",
-      "닉 조나스",
+      "닉 조나스"
     ],
     "director": "Jake Kasdan"
   },
@@ -7776,7 +7776,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Curtis McCabe",
       "Brian Shelby",
       "Edmund Ventura",
-      "Thomas Tipp",
+      "Thomas Tipp"
     ],
     "cast": [
       "톰 크루즈",
@@ -7785,7 +7785,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "커트 러셀",
       "제이슨 리",
       "노아 테일러",
-      "티모시 스폴",
+      "티모시 스폴"
     ],
     "director": "카메론 크로우"
   },
@@ -7797,7 +7797,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sator",
       "Priya",
       "Crosby",
-      "Fay",
+      "Fay"
     ],
     "cast": [
       "존 데이비드 워싱턴",
@@ -7806,7 +7806,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케네스 브래너",
       "Dimple Kapadia",
       "마이클 케인",
-      "마틴 도노반",
+      "마틴 도노반"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -7818,7 +7818,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gobber (voice)",
       "Astrid (voice)",
       "Snotlout (voice)",
-      "Fishlegs (voice)",
+      "Fishlegs (voice)"
     ],
     "cast": [
       "제이 바루첼",
@@ -7827,7 +7827,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Craig Ferguson",
       "아메리카 페레라",
       "조나 힐",
-      "크리스토퍼 민츠플라스",
+      "크리스토퍼 민츠플라스"
     ],
     "director": "딘 데블로이스"
   },
@@ -7839,7 +7839,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ardeth Bay",
       "Imhotep",
       "Meela / Anck-Su-Namun",
-      "Alex O'Connell",
+      "Alex O'Connell"
     ],
     "cast": [
       "브랜든 프레이저",
@@ -7848,7 +7848,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "עודד פהר",
       "아널드 보슬루",
       "패트리시아 벨라스퀘즈",
-      "Freddie Boath",
+      "Freddie Boath"
     ],
     "director": "Stephen Sommers"
   },
@@ -7860,7 +7860,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Daniela",
       "Apolo Hidalgo",
       "Artemis Hidalgo",
-      "Tere",
+      "Tere"
     ],
     "cast": [
       "Clara Galle",
@@ -7869,7 +7869,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Natalia Azahara",
       "Hugo Arbues",
       "Eric Masip",
-      "Pilar Castro",
+      "Pilar Castro"
     ],
     "director": "Marçal Forés"
   },
@@ -7881,7 +7881,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Firefist",
       "Domino",
       "Weasel",
-      "Blind Al",
+      "Blind Al"
     ],
     "cast": [
       "라이언 레이놀즈",
@@ -7890,7 +7890,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "줄리안 덴니슨",
       "재지 비츠",
       "T.J. 밀러",
-      "레슬리 어검스",
+      "레슬리 어검스"
     ],
     "director": "데이비드 레이치"
   },
@@ -7902,7 +7902,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jo Braddock",
       "Santiago Moncada",
       "The Scotsman",
-      "Young Sam",
+      "Young Sam"
     ],
     "cast": [
       "톰 홀랜드",
@@ -7911,7 +7911,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "타티 가브리엘",
       "안토니오 반데라스",
       "스티븐 워딩턴",
-      "루디 팬코",
+      "루디 팬코"
     ],
     "director": "루벤 플레셔"
   },
@@ -7923,7 +7923,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nebula",
       "Mantis",
       "Groot (voice)",
-      "Rocket (voice)",
+      "Rocket (voice)"
     ],
     "cast": [
       "크리스 프랫",
@@ -7932,7 +7932,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "카렌 길런",
       "폼 클레멘티에프",
       "빈 디젤",
-      "브래들리 쿠퍼",
+      "브래들리 쿠퍼"
     ],
     "director": "제임스 건"
   },
@@ -7944,7 +7944,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dot (voice)",
       "Queen (voice)",
       "Molt (voice)",
-      "Slim (voice)",
+      "Slim (voice)"
     ],
     "cast": [
       "Dave Foley",
@@ -7953,7 +7953,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "헤이든 파네티어",
       "Phyllis Diller",
       "리처드 카인드",
-      "데이비드 하이드 피어스",
+      "데이비드 하이드 피어스"
     ],
     "director": "존 라세터"
   },
@@ -7965,7 +7965,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mason Weaver",
       "San Lin",
       "Maj. Jack Chapman / Kong Mo-Cap Services",
-      "Victor Nieves",
+      "Victor Nieves"
     ],
     "cast": [
       "톰 히들스턴",
@@ -7974,7 +7974,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브리 라슨",
       "경첨",
       "토비 케블",
-      "존 오르티스",
+      "존 오르티스"
     ],
     "director": "Jordan Vogt-Roberts"
   },
@@ -7986,7 +7986,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lumiere (voice)",
       "Cogsworth (voice)",
       "Mrs. Potts (voice)",
-      "Maurice (voice)",
+      "Maurice (voice)"
     ],
     "cast": [
       "Paige O'Hara",
@@ -7995,7 +7995,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jerry Orbach",
       "David Ogden Stiers",
       "안젤라 랜즈베리",
-      "Rex Everhart",
+      "Rex Everhart"
     ],
     "director": "Gary Trousdale"
   },
@@ -8007,7 +8007,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hung",
       "Team Moustache Player #2",
       "Iron Head",
-      "Hooking Leg",
+      "Hooking Leg"
     ],
     "cast": [
       "주성치",
@@ -8016,7 +8016,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "사현",
       "막문위",
       "황일비",
-      "莫美林",
+      "莫美林"
     ],
     "director": "주성치"
   },
@@ -8028,7 +8028,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Beth Garner",
       "Lieutenant Walker",
       "Roxy",
-      "Andrews",
+      "Andrews"
     ],
     "cast": [
       "마이클 더글라스",
@@ -8037,7 +8037,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "진 트리플혼",
       "Denis Arndt",
       "Leilani Sarelle",
-      "Bruce A. Young",
+      "Bruce A. Young"
     ],
     "director": "폴 버호벤"
   },
@@ -8049,7 +8049,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Anna Gonsalves",
       "Mac Eliot",
       "Blain Cooper",
-      "Billy Sole",
+      "Billy Sole"
     ],
     "cast": [
       "아놀드 슈왈제네거",
@@ -8058,7 +8058,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elpidia Carrillo",
       "Bill Duke",
       "Jesse Ventura",
-      "Sonny Landham",
+      "Sonny Landham"
     ],
     "director": "존 맥티어난"
   },
@@ -8070,7 +8070,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jumba (voice)",
       "Pleakley (voice)",
       "Cobra Bubbles (voice)",
-      "Grand Councilwoman (voice)",
+      "Grand Councilwoman (voice)"
     ],
     "cast": [
       "Daveigh Chase",
@@ -8079,7 +8079,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "David Ogden Stiers",
       "Kevin McDonald",
       "빙 레임스",
-      "Zoe Caldwell",
+      "Zoe Caldwell"
     ],
     "director": "크리스 샌더스"
   },
@@ -8091,7 +8091,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Robert Reynolds",
       "Alexei Shostakov",
       "John Walker",
-      "Ava Starr",
+      "Ava Starr"
     ],
     "cast": [
       "플로렌스 퓨",
@@ -8100,7 +8100,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "루이스 풀먼",
       "데이비드 하버",
       "와이엇 러셀",
-      "해나 존 케이먼",
+      "해나 존 케이먼"
     ],
     "director": "제이크 슈레이어"
   },
@@ -8112,7 +8112,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Stefan",
       "Flittle",
       "Thistletwit",
-      "Diaval",
+      "Diaval"
     ],
     "cast": [
       "안젤리나 졸리",
@@ -8121,7 +8121,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "샬토 코플리",
       "레슬리 맨빌",
       "주노 템플",
-      "Sam Riley",
+      "Sam Riley"
     ],
     "director": "Robert Stromberg"
   },
@@ -8133,7 +8133,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dorn",
       "Rita",
       "McGrath",
-      "Lockwood",
+      "Lockwood"
     ],
     "cast": [
       "윌 스미스",
@@ -8142,7 +8142,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "알렉산더 루드위그",
       "파올라 누녜스",
       "에릭 데인",
-      "요안 그리피드",
+      "요안 그리피드"
     ],
     "director": "아딜 엘 아르비"
   },
@@ -8154,7 +8154,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "WitSec Chief Beller",
       "Johnny Casteleone",
       "William Donohue",
-      "WitSec Deputy Monroe",
+      "WitSec Deputy Monroe"
     ],
     "cast": [
       "아놀드 슈왈제네거",
@@ -8163,7 +8163,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 코번",
       "Robert Pastorelli",
       "제임스 크롬웰",
-      "Danny Nucci",
+      "Danny Nucci"
     ],
     "director": "Chuck Russell"
   },
@@ -8175,7 +8175,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bucky Barnes / Winter Soldier",
       "Sam Wilson / Falcon",
       "Lieutenant James Rhodes / War Machine",
-      "Clint Barton / Hawkeye",
+      "Clint Barton / Hawkeye"
     ],
     "cast": [
       "크리스 에반스",
@@ -8184,7 +8184,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "세바스찬 스탠",
       "안소니 마키",
       "돈 치들",
-      "제레미 레너",
+      "제레미 레너"
     ],
     "director": "조 루소"
   },
@@ -8196,7 +8196,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ellie (voice)",
       "Crash (voice)",
       "Eddie (voice)",
-      "Fast Tony (voice)",
+      "Fast Tony (voice)"
     ],
     "cast": [
       "레이 로마노",
@@ -8205,7 +8205,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "퀸 라티파",
       "숀 윌리엄 스콧",
       "Josh Peck",
-      "제이 레노",
+      "제이 레노"
     ],
     "director": "Carlos Saldanha"
   },
@@ -8217,7 +8217,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bowery King",
       "Zero",
       "The Adjudicator",
-      "Charon",
+      "Charon"
     ],
     "cast": [
       "키아누 리브스",
@@ -8226,7 +8226,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로렌스 피시번",
       "마크 다카스코스",
       "아시아 케이트 딜런",
-      "랜스 레딕",
+      "랜스 레딕"
     ],
     "director": "채드 스타헬스키"
   },
@@ -8238,7 +8238,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Miranda Clerk",
       "Pete",
       "Claudia",
-      "Halle",
+      "Halle"
     ],
     "cast": [
       "시드니 스위니",
@@ -8247,7 +8247,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nat Buchanan",
       "GaTa",
       "알렉산드라 쉽",
-      "Hadley Robinson",
+      "Hadley Robinson"
     ],
     "director": "윌 글럭"
   },
@@ -8259,7 +8259,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Warner Huntington III",
       "Professor Callahan",
       "Paulette",
-      "Professor Stromwell",
+      "Professor Stromwell"
     ],
     "cast": [
       "리즈 위더스푼",
@@ -8268,7 +8268,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Matthew Davis",
       "빅터 가버",
       "제니퍼 쿨리지",
-      "홀랜드 테일러",
+      "홀랜드 테일러"
     ],
     "director": "Robert Luketic"
   },
@@ -8280,7 +8280,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "S. R. Hadden",
       "David Drumlin",
       "Kent",
-      "Ted Arroway",
+      "Ted Arroway"
     ],
     "cast": [
       "조디 포스터",
@@ -8289,7 +8289,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "존 허트",
       "톰 스커릿",
       "윌리엄 피츠너",
-      "데이비드 모스",
+      "데이비드 모스"
     ],
     "director": "로버트 저메키스"
   },
@@ -8301,7 +8301,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tennessee",
       "Lope",
       "Karine",
-      "Ricks",
+      "Ricks"
     ],
     "cast": [
       "마이클 패스벤더",
@@ -8310,7 +8310,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "대니 맥브라이드",
       "데미안 비치르",
       "카먼 이조고",
-      "Jussie Smollett",
+      "Jussie Smollett"
     ],
     "director": "리들리 스콧"
   },
@@ -8318,14 +8318,13 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
     "characters": [
       "플로우"
     ],
-    "cast": [
-],
+    "cast": [],
     "director": "긴츠 질발로디스"
   },
   "movie_398": {
     "characters": [
       "Harry S. Stamper",
-      "Dan Truman",
+      "Dan Truman"
     ],
     "cast": [
       "브루스 윌리스",
@@ -8334,7 +8333,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "리브 타일러",
       "Will Patton",
       "스티브 부세미",
-      "윌리엄 피츠너",
+      "윌리엄 피츠너"
     ],
     "director": "마이클 베이"
   },
@@ -8346,7 +8345,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Toros",
       "Garnik",
       "Lulu",
-      "Diamond",
+      "Diamond"
     ],
     "cast": [
       "마이키 매디슨",
@@ -8355,7 +8354,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Karren Karagulian",
       "Vache Tovmasyan",
       "Luna Sofía Miranda",
-      "Lindsey Normington",
+      "Lindsey Normington"
     ],
     "director": "션 베이커"
   },
@@ -8367,7 +8366,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Robotnik",
       "Rachel",
       "Wade Whipple",
-      "Major Bennington",
+      "Major Bennington"
     ],
     "cast": [
       "벤 슈와츠",
@@ -8376,7 +8375,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "짐 캐리",
       "나타샤 로스웰",
       "애덤 팰리",
-      "닐 맥도너",
+      "닐 맥도너"
     ],
     "director": "Jeff Fowler"
   },
@@ -8388,7 +8387,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Joshua",
       "Morris",
       "Paul Hudson",
-      "Gemma",
+      "Gemma"
     ],
     "cast": [
       "나오미 스콧",
@@ -8397,7 +8396,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Miles Gutierrez-Riley",
       "피터 제이컵슨",
       "Ray Nicholson",
-      "Dylan Gelula",
+      "Dylan Gelula"
     ],
     "director": "파커 핀"
   },
@@ -8409,7 +8408,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kat",
       "Eli",
       "Sergey",
-      "Teddy",
+      "Teddy"
     ],
     "cast": [
       "소피 대처",
@@ -8418,7 +8417,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Megan Suri",
       "하비 길렌",
       "루퍼트 프렌드",
-      "Jaboukie Young-White",
+      "Jaboukie Young-White"
     ],
     "director": "Drew Hancock"
   },
@@ -8430,7 +8429,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lord Shen (voice)",
       "Monkey (voice)",
       "Viper (voice)",
-      "Mantis (voice)",
+      "Mantis (voice)"
     ],
     "cast": [
       "잭 블랙",
@@ -8439,7 +8438,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "게리 올드만",
       "성룡",
       "루시 리우",
-      "세스 로건",
+      "세스 로건"
     ],
     "director": "Jennifer Yuh Nelson"
   },
@@ -8451,7 +8450,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Karen",
       "Quinn",
       "Dragonetti",
-      "Mercury",
+      "Mercury"
     ],
     "cast": [
       "웨슬리 스나입스",
@@ -8460,7 +8459,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "N'Bushe Wright",
       "Donal Logue",
       "우도 키어",
-      "Arly Jover",
+      "Arly Jover"
     ],
     "director": "스티븐 노링턴"
   },
@@ -8472,7 +8471,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bernardo Villalobos",
       "Miles",
       "Leo Rossi",
-      "Gertie",
+      "Gertie"
     ],
     "cast": [
       "에밀리아 존스",
@@ -8481,7 +8480,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에우헤니오 데르베스",
       "퍼디아 월시필로",
       "대니얼 듀랜트",
-      "에이미 포사이스",
+      "에이미 포사이스"
     ],
     "director": "션 헤이더"
   },
@@ -8493,7 +8492,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Schilling",
       "George",
       "Goose",
-      "Gigi",
+      "Gigi"
     ],
     "cast": [
       "새디 매디슨 샌들러",
@@ -8502,7 +8501,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "세라 셔먼",
       "Martin Herlihy",
       "조시 세가라",
-      "캐롤 케인",
+      "캐롤 케인"
     ],
     "director": "Chandler Levack"
   },
@@ -8514,7 +8513,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Robert Turner",
       "Ronnie",
       "Officer Gutierrez",
-      "Daniel Brecht",
+      "Daniel Brecht"
     ],
     "cast": [
       "샤이아 라보프",
@@ -8523,7 +8522,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이비드 모스",
       "Aaron Yoo",
       "Jose Pablo Cantillo",
-      "Matt Craven",
+      "Matt Craven"
     ],
     "director": "D.J. Caruso"
   },
@@ -8535,7 +8534,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hank McCoy / Beast",
       "En Sabah Nur / Apocalypse",
       "Moira MacTaggert",
-      "Peter Maximoff / Quicksilver",
+      "Peter Maximoff / Quicksilver"
     ],
     "cast": [
       "제임스 맥어보이",
@@ -8544,7 +8543,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "니콜라스 홀트",
       "오스카 아이작",
       "로즈 번",
-      "에반 피터스",
+      "에반 피터스"
     ],
     "director": "브라이언 싱어"
   },
@@ -8556,7 +8555,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Meridian Clade (voice)",
       "Callisto Mal (voice)",
       "Narrator / Radio Host 1 / Duffle (voice)",
-      "Diazo (voice)",
+      "Diazo (voice)"
     ],
     "cast": [
       "제이크 질렌할",
@@ -8565,7 +8564,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "가브리엘 유니온",
       "루시 리우",
       "앨런 튜딕",
-      "Jonathan Melo",
+      "Jonathan Melo"
     ],
     "director": "Don Hall"
   },
@@ -8577,7 +8576,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sosaku Tachibana",
       "Kenji Noda",
       "Sumiko Ota",
-      "Yoji Akitsu",
+      "Yoji Akitsu"
     ],
     "cast": [
       "카미키 류노스케",
@@ -8586,7 +8585,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아오키 무네타카",
       "요시오카 히데타카",
       "안도 사쿠라",
-      "사사키 구라노스케",
+      "사사키 구라노스케"
     ],
     "director": "야마자키 다카시"
   },
@@ -8598,7 +8597,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Meredith Blake",
       "Chessy",
       "Martin",
-      "Marva Kulp, Sr.",
+      "Marva Kulp, Sr."
     ],
     "cast": [
       "린제이 로한",
@@ -8607,7 +8606,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elaine Hendrix",
       "Lisa Ann Walter",
       "사이몬 컨즈",
-      "Polly Holliday",
+      "Polly Holliday"
     ],
     "director": "낸시 마이어스"
   },
@@ -8619,7 +8618,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kenneth Marshall",
       "Ylfa",
       "Kai Katz",
-      "Preston",
+      "Preston"
     ],
     "cast": [
       "로버트 패틴슨",
@@ -8628,7 +8627,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마크 러팔로",
       "토니 콜렛",
       "아나마리아 바르톨로메이",
-      "다니엘 헨셜",
+      "다니엘 헨셜"
     ],
     "director": "봉준호"
   },
@@ -8640,7 +8639,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jane Doe",
       "Sheriff Sheldon",
       "Officer Cole",
-      "Lieutenant Wade",
+      "Lieutenant Wade"
     ],
     "cast": [
       "에밀 허쉬",
@@ -8649,7 +8648,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Olwen Catherine Kelly",
       "마이클 맥엘하튼",
       "Parker Sawyers",
-      "Jane Perry",
+      "Jane Perry"
     ],
     "director": "안드레 외브레달"
   },
@@ -8661,7 +8660,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "General 'Thunderbolt' Ross",
       "Samuel Sterns",
       "Leonard",
-      "Major Kathleen Sparr",
+      "Major Kathleen Sparr"
     ],
     "cast": [
       "에드워드 노튼",
@@ -8670,7 +8669,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "윌리엄 허트",
       "팀 블레이크 넬슨",
       "타이 버렐",
-      "Christina Cabot",
+      "Christina Cabot"
     ],
     "director": "루이스 레테리어"
   },
@@ -8682,7 +8681,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dashiell 'Dash' Parr (voice)",
       "Evelyn Deavor (voice)",
       "Jack-Jack Parr (voice)",
-      "Winston Deavor (voice)",
+      "Winston Deavor (voice)"
     ],
     "cast": [
       "크레이그 T. 넬슨",
@@ -8691,7 +8690,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Huck Milner",
       "캐서린 키너",
       "Eli Fucile",
-      "밥 오덴커크",
+      "밥 오덴커크"
     ],
     "director": "브래드 버드"
   },
@@ -8703,7 +8702,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Cornelius",
       "Ruby Rhod",
       "Billy",
-      "General Munro",
+      "General Munro"
     ],
     "cast": [
       "브루스 윌리스",
@@ -8712,7 +8711,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이안 홈",
       "크리스 터커",
       "루크 페리",
-      "Brion James",
+      "Brion James"
     ],
     "director": "뤽 베송"
   },
@@ -8724,7 +8723,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nathaniel",
       "Nancy Tremaine",
       "Morgan Philip",
-      "Queen Narissa",
+      "Queen Narissa"
     ],
     "cast": [
       "에이미 아담스",
@@ -8733,7 +8732,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "티모시 스폴",
       "이디나 멘젤",
       "Rachel Covey",
-      "수잔 서랜든",
+      "수잔 서랜든"
     ],
     "director": "Kevin Lima"
   },
@@ -8745,7 +8744,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Casey",
       "Sandy",
       "Ricky / Security Guard",
-      "Tony",
+      "Tony"
     ],
     "cast": [
       "엠마 스톤",
@@ -8754,7 +8753,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스타브로스 할키어스",
       "알리시아 실버스톤",
       "J. Carmen Galindez Barrera",
-      "Marc T. Lewis",
+      "Marc T. Lewis"
     ],
     "director": "요르고스 란티모스"
   },
@@ -8785,7 +8784,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Keys",
       "Mary",
       "Pretty Girl",
-      "Greg",
+      "Greg"
     ],
     "cast": [
       "헨리 토마스",
@@ -8794,7 +8793,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 코요테",
       "디 월리스",
       "에리카 엘레니악",
-      "K.C. Martel",
+      "K.C. Martel"
     ],
     "director": "스티븐 스필버그"
   },
@@ -8806,7 +8805,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Isabela Madrigal (voice)",
       "Luisa Madrigal (voice)",
       "Pepa Madrigal (voice)",
-      "Julieta Madrigal  (voice)",
+      "Julieta Madrigal  (voice)"
     ],
     "cast": [
       "스테파니 베아트리스",
@@ -8815,7 +8814,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Diane Guerrero",
       "Jess Darrow",
       "Carolina Gaitán",
-      "Angie Cepeda",
+      "Angie Cepeda"
     ],
     "director": "바이런 하워드"
   },
@@ -8827,7 +8826,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dave Jennings",
       "Ted",
       "Reggie Wayne",
-      "Steve Forsing",
+      "Steve Forsing"
     ],
     "cast": [
       "에밀리 블런트",
@@ -8836,7 +8835,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빅터 가버",
       "존 번설",
       "다니엘 칼루야",
-      "제프리 도노반",
+      "제프리 도노반"
     ],
     "director": "드니 빌뇌브"
   },
@@ -8848,7 +8847,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ashley Wilkes",
       "Mammy",
       "Gerald O'Hara",
-      "Ellen O'Hara",
+      "Ellen O'Hara"
     ],
     "cast": [
       "비비안 리",
@@ -8857,7 +8856,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Leslie Howard",
       "Hattie McDaniel",
       "Thomas Mitchell",
-      "Barbara O'Neil",
+      "Barbara O'Neil"
     ],
     "director": "빅터 플레밍"
   },
@@ -8869,7 +8868,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eddie",
       "Ludlow",
       "Matty",
-      "Admiral Porter",
+      "Admiral Porter"
     ],
     "cast": [
       "애덤 샌들러",
@@ -8878,7 +8877,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 딘클리지",
       "조시 게드",
       "Matt Lintz",
-      "브라이언 콕스",
+      "브라이언 콕스"
     ],
     "director": "크리스 콜럼버스"
   },
@@ -8890,7 +8889,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Yoon Bong-gil",
       "Park Ji-yong",
       "Park Geun-hyeon",
-      "Oh Gwang-sim",
+      "Oh Gwang-sim"
     ],
     "cast": [
       "최민식",
@@ -8899,7 +8898,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이도현",
       "김재철",
       "전진기",
-      "김선영",
+      "김선영"
     ],
     "director": "장재현"
   },
@@ -8911,7 +8910,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Judy Vento",
       "Nathan Garrity",
       "Dale",
-      "Colin",
+      "Colin"
     ],
     "cast": [
       "제라드 버틀러",
@@ -8920,7 +8919,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "호프 데이비스",
       "Roger Dale Floyd",
       "스콧 글렌",
-      "앤드류 배첼러",
+      "앤드류 배첼러"
     ],
     "director": "Ric Roman Waugh"
   },
@@ -8932,7 +8931,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mater (voice)",
       "Ramone (voice)",
       "Luigi (voice)",
-      "Guido (voice)",
+      "Guido (voice)"
     ],
     "cast": [
       "오웬 윌슨",
@@ -8941,7 +8940,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Larry the Cable Guy",
       "Cheech Marin",
       "토니 샬호브",
-      "Guido Quaroni",
+      "Guido Quaroni"
     ],
     "director": "존 라세터"
   },
@@ -8953,7 +8952,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kong / Lumpy",
       "Preston",
       "Captain Englehorn",
-      "Jimmy",
+      "Jimmy"
     ],
     "cast": [
       "나오미 왓츠",
@@ -8962,7 +8961,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "앤디 서키스",
       "콜린 행크스",
       "토마스 크레치만",
-      "제이미 벨",
+      "제이미 벨"
     ],
     "director": "피터 잭슨"
   },
@@ -8974,7 +8973,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gail Meyer",
       "Iggy Starr",
       "Alma Milan",
-      "Dan Tucker",
+      "Dan Tucker"
     ],
     "cast": [
       "라이언 고슬링",
@@ -8983,7 +8982,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "해나 워딩엄",
       "테레사 파머",
       "스테파니 수",
-      "윈스턴 듀크",
+      "윈스턴 듀크"
     ],
     "director": "데이비드 레이치"
   },
@@ -8995,7 +8994,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Delia",
       "Charles",
       "Betelgeuse",
-      "Otho",
+      "Otho"
     ],
     "cast": [
       "알렉 볼드윈",
@@ -9004,7 +9003,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "캐서린 오하라",
       "제프리 존스",
       "마이클 키튼",
-      "글렌 셰딕스",
+      "글렌 셰딕스"
     ],
     "director": "팀 버튼"
   },
@@ -9016,7 +9015,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jackson Lamb",
       "Nelec",
       "Jen Kaznyk",
-      "Cary McCarthy",
+      "Cary McCarthy"
     ],
     "cast": [
       "Joel Courtney",
@@ -9025,7 +9024,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "카일 챈들러",
       "Noah Emmerich",
       "AJ Michalka",
-      "Ryan Lee",
+      "Ryan Lee"
     ],
     "director": "J.J. 에이브럼스"
   },
@@ -9037,7 +9036,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hannah",
       "Major Henry West",
       "Mark",
-      "Private Clifton",
+      "Private Clifton"
     ],
     "cast": [
       "킬리언 머피",
@@ -9046,7 +9045,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "메건 번스",
       "크리스토퍼 에클스턴",
       "노아 헌틀리",
-      "Luke Mably",
+      "Luke Mably"
     ],
     "director": "대니 보일"
   },
@@ -9058,7 +9057,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Puss in Boots (voice)",
       "Queen Lillian (voice)",
       "King Harold (voice)",
-      "Prince Charming (voice)",
+      "Prince Charming (voice)"
     ],
     "cast": [
       "마이크 마이어스",
@@ -9067,7 +9066,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안토니오 반데라스",
       "줄리 앤드류스",
       "존 클리즈",
-      "루퍼트 에버렛",
+      "루퍼트 에버렛"
     ],
     "director": "크리스 밀러"
   },
@@ -9079,7 +9078,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Odin",
       "Erik Selvig",
       "Darcy Lewis",
-      "Agent Coulson",
+      "Agent Coulson"
     ],
     "cast": [
       "크리스 헴스워스",
@@ -9088,7 +9087,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "안소니 홉킨스",
       "스텔란 스카스가드",
       "캣 데닝스",
-      "클라크 그렉",
+      "클라크 그렉"
     ],
     "director": "케네스 브래너"
   },
@@ -9100,7 +9099,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eli",
       "Klitz",
       "Hugo Posh",
-      "Mr. Kidman",
+      "Mr. Kidman"
     ],
     "cast": [
       "에밀 허쉬",
@@ -9109,7 +9108,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Christopher Rodriguez Marquette",
       "폴 다노",
       "James Remar",
-      "Timothy Bottoms",
+      "Timothy Bottoms"
     ],
     "director": "Luke Greenfield"
   },
@@ -9121,7 +9120,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lily",
       "Kendra Brooks",
       "Barbara",
-      "Maria",
+      "Maria"
     ],
     "cast": [
       "애슐리 티스데일",
@@ -9130,7 +9129,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "에이바 콜커",
       "Erica Ash",
       "헤더 로클리어",
-      "Lidia Porto",
+      "Lidia Porto"
     ],
     "director": "Malcolm D. Lee"
   },
@@ -9142,7 +9141,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lord Henry Blackwood",
       "Inspector Lestrade",
       "Dredger",
-      "Mrs. Hudson",
+      "Mrs. Hudson"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -9151,7 +9150,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마크 스트롱",
       "에디 마산",
       "Robert Maillet",
-      "제럴딘 제임스",
+      "제럴딘 제임스"
     ],
     "director": "가이 리치"
   },
@@ -9163,7 +9162,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Alfred Lanning",
       "Lawrence Robertson",
       "Granny",
-      "Lt. John Bergin",
+      "Lt. John Bergin"
     ],
     "cast": [
       "윌 스미스",
@@ -9172,7 +9171,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 크롬웰",
       "브루스 그린우드",
       "Adrian Ricard",
-      "Chi McBride",
+      "Chi McBride"
     ],
     "director": "알렉스 프로야스"
   },
@@ -9184,7 +9183,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mufasa (voice)",
       "Rafiki (voice)",
       "Sarabi (voice)",
-      "Nala (voice)",
+      "Nala (voice)"
     ],
     "cast": [
       "치웨텔 에지오포",
@@ -9193,7 +9192,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "제임스 얼 존스",
       "존 카니",
       "알프레 우더드",
-      "비욘세",
+      "비욘세"
     ],
     "director": "존 파브로"
   },
@@ -9205,7 +9204,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Diana Prince / Wonder Woman",
       "Lois",
       "Martha Kent",
-      "Perry White",
+      "Perry White"
     ],
     "cast": [
       "벤 애플렉",
@@ -9214,7 +9213,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "갤 가돗",
       "에이미 아담스",
       "다이앤 레인",
-      "로렌스 피시번",
+      "로렌스 피시번"
     ],
     "director": "잭 스나이더"
   },
@@ -9226,7 +9225,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Domenico",
       "Olga",
       "Anna",
-      "Klara Biel",
+      "Klara Biel"
     ],
     "cast": [
       "Anna-Maria Sieklucka",
@@ -9235,7 +9234,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Otar Saralidze",
       "Magdalena Lamparska",
       "Natasza Urbańska",
-      "Grażyna Szapołowska",
+      "Grażyna Szapołowska"
     ],
     "director": "Barbara Białowąs"
   },
@@ -9247,7 +9246,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Serleena",
       "Scrad / Charlie",
       "Laura Vasquez",
-      "Jeebs",
+      "Jeebs"
     ],
     "cast": [
       "토미 리 존스",
@@ -9256,7 +9255,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lara Flynn Boyle",
       "조니 녹스빌",
       "로사리오 도슨",
-      "토니 샬호브",
+      "토니 샬호브"
     ],
     "director": "Barry Sonnenfeld"
   },
@@ -9268,7 +9267,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Charlotte",
       "Sung-hoon",
       "Seung-wook",
-      "Je-yoon",
+      "Je-yoon"
     ],
     "cast": [
       "위하준",
@@ -9277,7 +9276,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "문예원",
       "박성훈",
       "이승욱",
-      "유제윤",
+      "유제윤"
     ],
     "director": "정범식"
   },
@@ -9289,7 +9288,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Young Furiosa",
       "The History Man",
       "Immortan Joe / Rizzdale Pell",
-      "The People Eater",
+      "The People Eater"
     ],
     "cast": [
       "안야 테일러조이",
@@ -9298,7 +9297,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "알릴라 브라운",
       "조지 셰프소브",
       "러치 험",
-      "존 하워드",
+      "존 하워드"
     ],
     "director": "조지 밀러"
   },
@@ -9310,7 +9309,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mamoru Uchida (voice)",
       "Tadokoro (voice)",
       "Yukiko (voice)",
-      "Tejima (voice)",
+      "Tejima (voice)"
     ],
     "cast": [
       "이와오 준코",
@@ -9319,7 +9318,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "大倉正章",
       "辻親八",
       "Emiko Furukawa",
-      "秋元羊介",
+      "秋元羊介"
     ],
     "director": "콘 사토시"
   },
@@ -9331,7 +9330,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "David Mansell",
       "Eddie Williams",
       "The Barber",
-      "Harry Mansell",
+      "Harry Mansell"
     ],
     "cast": [
       "밥 오덴커크",
@@ -9340,7 +9339,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크리스토퍼 로이드",
       "마이클 아이언사이드",
       "콜린 새먼",
-      "RZA",
+      "RZA"
     ],
     "director": "Илья Найшуллер"
   },
@@ -9352,7 +9351,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Philoctetes (voice)",
       "Hades (voice)",
       "Meg (voice)",
-      "Pain (voice)",
+      "Pain (voice)"
     ],
     "cast": [
       "테이트 도너번",
@@ -9361,7 +9360,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "대니 드비토",
       "제임스 우즈",
       "Susan Egan",
-      "Bobcat Goldthwait",
+      "Bobcat Goldthwait"
     ],
     "director": "론 클레멘츠"
   },
@@ -9373,7 +9372,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Merlin",
       "Roxy",
       "Gazelle",
-      "Arthur",
+      "Arthur"
     ],
     "cast": [
       "태런 에저턴",
@@ -9382,7 +9381,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마크 스트롱",
       "소피 쿡슨",
       "소피아 부텔라",
-      "마이클 케인",
+      "마이클 케인"
     ],
     "director": "매튜 본"
   },
@@ -9394,7 +9393,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sabrina",
       "Redmond",
       "Adriane",
-      "Wen",
+      "Wen"
     ],
     "cast": [
       "데이브 바티스타",
@@ -9403,7 +9402,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "니키 아무카버드",
       "루퍼트 그린트",
       "애비 퀸",
-      "Kristen Cui",
+      "Kristen Cui"
     ],
     "director": "M. 나이트 샤말란"
   },
@@ -9415,7 +9414,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Lando Calrissian",
       "C-3PO",
       "Darth Vader",
-      "Chewbacca",
+      "Chewbacca"
     ],
     "cast": [
       "마크 해밀",
@@ -9424,7 +9423,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빌리 디 윌리엄스",
       "안소니 다니엘스",
       "David Prowse",
-      "Peter Mayhew",
+      "Peter Mayhew"
     ],
     "director": "어빈 케쉬너"
   },
@@ -9436,7 +9435,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tighten (voice)",
       "Minion (voice)",
       "Bernard (voice)",
-      "Megaminds's Father (voice)",
+      "Megaminds's Father (voice)"
     ],
     "cast": [
       "윌 페럴",
@@ -9445,7 +9444,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조나 힐",
       "데이비드 크로스",
       "벤 스틸러",
-      "저스틴 서로",
+      "저스틴 서로"
     ],
     "director": "Tom McGrath"
   },
@@ -9457,7 +9456,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Norrington",
       "Davy Jones",
       "Governor Weatherby Swann",
-      "Pintel",
+      "Pintel"
     ],
     "cast": [
       "조니 뎁",
@@ -9466,7 +9465,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "잭 대븐포트",
       "빌 나이",
       "조너선 프라이스",
-      "Lee Arenberg",
+      "Lee Arenberg"
     ],
     "director": "고어 버빈스키"
   },
@@ -9478,7 +9477,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Kuang Yu Min",
       "Old Wu",
       "Lai Shu Jin",
-      "Huang Lei",
+      "Huang Lei"
     ],
     "cast": [
       "양조위",
@@ -9487,7 +9486,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "王力宏",
       "庹宗華",
       "朱芷瑩",
-      "高英軒",
+      "高英軒"
     ],
     "director": "이안"
   },
@@ -9499,7 +9498,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Little Rock",
       "406",
       "Bill Murray",
-      "Clown Zombie",
+      "Clown Zombie"
     ],
     "cast": [
       "제시 아이젠버그",
@@ -9508,7 +9507,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아비게일 브레스린",
       "엠버 허드",
       "빌 머레이",
-      "Derek Graf",
+      "Derek Graf"
     ],
     "director": "루벤 플레셔"
   },
@@ -9520,7 +9519,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Erin",
       "Frankie Cheeks",
       "Jason Wise",
-      "Carrie Dreyer",
+      "Carrie Dreyer"
     ],
     "cast": [
       "메리 엘리자베스 윈스테드",
@@ -9529,7 +9528,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alexz Johnson",
       "Sam Easton",
       "Jesse Moss",
-      "Gina Holden",
+      "Gina Holden"
     ],
     "director": "James Wong"
   },
@@ -9541,7 +9540,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elisabeth Dillinger",
       "Athena",
       "Kevin Flynn",
-      "Ajay Singh",
+      "Ajay Singh"
     ],
     "cast": [
       "자레드 레토",
@@ -9550,7 +9549,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "질리언 앤더슨",
       "조디 터너스미스",
       "제프 브리지스",
-      "하산 미나즈",
+      "하산 미나즈"
     ],
     "director": "요아킴 뢴닝"
   },
@@ -9562,7 +9561,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Rico (voice)",
       "Dave (voice)",
       "Classified (voice)",
-      "Short Fuse (voice)",
+      "Short Fuse (voice)"
     ],
     "cast": [
       "Tom McGrath",
@@ -9571,7 +9570,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "콘래드 버논",
       "존 말코비치",
       "베네딕트 컴버배치",
-      "켄 정",
+      "켄 정"
     ],
     "director": "사이먼 J. 스미스"
   },
@@ -9583,7 +9582,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Aleksei Sytsevich",
       "The Foreigner",
       "Nikolai Kravinoff",
-      "Semyon Chorney",
+      "Semyon Chorney"
     ],
     "cast": [
       "에런 테일러존슨",
@@ -9592,7 +9591,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "알렉산드로 니볼라",
       "크리스토퍼 애벗",
       "러셀 크로우",
-      "Юрий Колокольников",
+      "Юрий Колокольников"
     ],
     "director": "J.C  챈더"
   },
@@ -9604,7 +9603,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Max McCandles",
       "Alfie Blessington",
       "Toinette",
-      "Harry Astley",
+      "Harry Astley"
     ],
     "cast": [
       "엠마 스톤",
@@ -9613,7 +9612,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "라미 유세프",
       "크리스토퍼 애벗",
       "Suzy Bemba",
-      "제러드 카마이클",
+      "제러드 카마이클"
     ],
     "director": "요르고스 란티모스"
   },
@@ -9625,7 +9624,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Gu Bum-mo",
       "Lee A-ra",
       "Ko Si-jo",
-      "Detective #1",
+      "Detective #1"
     ],
     "cast": [
       "이병헌",
@@ -9634,7 +9633,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "이성민",
       "염혜란",
       "차승원",
-      "오달수",
+      "오달수"
     ],
     "director": "박찬욱"
   },
@@ -9646,7 +9645,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "The Policeman",
       "Virginia",
       "Larry",
-      "Kenny",
+      "Kenny"
     ],
     "cast": [
       "코디 스밋맥피",
@@ -9655,7 +9654,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elias Koteas",
       "Sasha Barrese",
       "Dylan Kenin",
-      "딜런 미네트",
+      "딜런 미네트"
     ],
     "director": "맷 리브스"
   },
@@ -9667,7 +9666,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Deitrich",
       "Adam Sutler",
       "Creedy",
-      "Dominic",
+      "Dominic"
     ],
     "cast": [
       "나탈리 포트만",
@@ -9676,7 +9675,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "스티븐 프라이",
       "존 허트",
       "Tim Pigott-Smith",
-      "루퍼트 그레이브스",
+      "루퍼트 그레이브스"
     ],
     "director": "제임스 맥테이그"
   },
@@ -9688,7 +9687,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Smiler (voice)",
       "Mel Meh (voice)",
       "Mary Meh (voice)",
-      "Alex (voice)",
+      "Alex (voice)"
     ],
     "cast": [
       "T.J. 밀러",
@@ -9697,7 +9696,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마야 루돌프",
       "Steven Wright",
       "제니퍼 쿨리지",
-      "제이크 T. 오스틴",
+      "제이크 T. 오스틴"
     ],
     "director": "Tony Leondis"
   },
@@ -9709,7 +9708,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Elizabeth Swann",
       "Norrington",
       "Davy Jones",
-      "Governor Weatherby Swann",
+      "Governor Weatherby Swann"
     ],
     "cast": [
       "조니 뎁",
@@ -9718,7 +9717,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "키이라 나이틀리",
       "잭 대븐포트",
       "빌 나이",
-      "조너선 프라이스",
+      "조너선 프라이스"
     ],
     "director": "고어 버빈스키"
   },
@@ -9730,7 +9729,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Susannah Fincannon Ludlow",
       "Samuel Ludlow",
       "Isabel Two Decker Ludlow",
-      "One Stab",
+      "One Stab"
     ],
     "cast": [
       "브래드 피트",
@@ -9739,7 +9738,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "줄리아 오먼드",
       "헨리 토마스",
       "Karina Lombard",
-      "Gordon Tootoosis",
+      "Gordon Tootoosis"
     ],
     "director": "에드워드 즈윅"
   },
@@ -9751,7 +9750,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Mickey O'Neil",
       "Avi",
       "Vinny",
-      "Sol",
+      "Sol"
     ],
     "cast": [
       "제이슨 스타뎀",
@@ -9760,7 +9759,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브래드 피트",
       "데니스 파리나",
       "Robbie Gee",
-      "Lennie James",
+      "Lennie James"
     ],
     "director": "가이 리치"
   },
@@ -9772,7 +9771,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ian Howe",
       "Patrick Gates",
       "Peter Sadusky",
-      "John Adams Gates",
+      "John Adams Gates"
     ],
     "cast": [
       "니콜라스 케이지",
@@ -9781,7 +9780,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "숀 빈",
       "존 보이트",
       "하비 카이텔",
-      "크리스토퍼 플러머",
+      "크리스토퍼 플러머"
     ],
     "director": "Jon Turteltaub"
   },
@@ -9793,7 +9792,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Franklin Webb",
       "Zia Rodriguez",
       "Benjamin Lockwood",
-      "Mr. Eversoll",
+      "Mr. Eversoll"
     ],
     "cast": [
       "크리스 프랫",
@@ -9802,7 +9801,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "저스티스 스미스",
       "다니엘라 피네다",
       "제임스 크롬웰",
-      "토비 존스",
+      "토비 존스"
     ],
     "director": "후안 안토니오 바요나"
   },
@@ -9814,7 +9813,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Asuka Langley Soryu (voice)",
       "Gendo Ikari (voice)",
       "Maya Ibuki (voice)",
-      "Shigeru Aoba (voice)",
+      "Shigeru Aoba (voice)"
     ],
     "cast": [
       "오가타 메구미",
@@ -9823,7 +9822,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "미야무라 유코",
       "타치키 후미히코",
       "나가사와 미키",
-      "코야스 타케히토",
+      "코야스 타케히토"
     ],
     "director": "안노 히데아키"
   },
@@ -9835,7 +9834,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Nomi",
       "M",
       "Q",
-      "Moneypenny",
+      "Moneypenny"
     ],
     "cast": [
       "다니엘 크레이그",
@@ -9844,7 +9843,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "라샤나 린치",
       "랄프 파인즈",
       "벤 위쇼",
-      "나오미 해리스",
+      "나오미 해리스"
     ],
     "director": "캐리 조지 후쿠나가"
   },
@@ -9856,7 +9855,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Dr. Carlisle Cullen",
       "Esme Cullen",
       "Alice Cullen",
-      "Jasper Hale",
+      "Jasper Hale"
     ],
     "cast": [
       "크리스틴 스튜어트",
@@ -9865,7 +9864,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "피터 패치넬리",
       "엘리자베스 리서",
       "애슐리 그린",
-      "Jackson Rathbone",
+      "Jackson Rathbone"
     ],
     "director": "빌 콘돈"
   },
@@ -9877,7 +9876,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Claire Simons",
       "Ana Almeida",
       "Santiago",
-      "Ice Cube",
+      "Ice Cube"
     ],
     "cast": [
       "잭 블랙",
@@ -9886,7 +9885,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "탠디 뉴턴",
       "다니엘라 멜시오르",
       "Selton Mello",
-      "아이스 큐브",
+      "아이스 큐브"
     ],
     "director": "Tom Gormican"
   },
@@ -9898,7 +9897,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Janet",
       "George",
       "MILF / Samantha",
-      "Mechanic",
+      "Mechanic"
     ],
     "cast": [
       "Bobby Campo",
@@ -9907,7 +9906,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Haley Webb",
       "미켈티 윌리엄슨",
       "Krista Allen",
-      "Andrew Fiscella",
+      "Andrew Fiscella"
     ],
     "director": "David R. Ellis"
   },
@@ -9919,7 +9918,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Vilos Cohaagen",
       "Richter",
       "George / Kuato",
-      "Benny",
+      "Benny"
     ],
     "cast": [
       "아놀드 슈왈제네거",
@@ -9928,7 +9927,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "로니 콕스",
       "마이클 아이언사이드",
       "Marshall Bell",
-      "Mel Johnson Jr.",
+      "Mel Johnson Jr."
     ],
     "director": "폴 버호벤"
   },
@@ -9940,7 +9939,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Eric (voice)",
       "Triton (voice)",
       "Scuttle (voice)",
-      "Flounder (voice)",
+      "Flounder (voice)"
     ],
     "cast": [
       "조디 벤선",
@@ -9949,7 +9948,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Christopher Daniel Barnes",
       "Kenneth Mars",
       "Buddy Hackett",
-      "Jason Marin",
+      "Jason Marin"
     ],
     "director": "존 머스커"
   },
@@ -9961,7 +9960,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Masters",
       "Mandy",
       "Brian Plummer",
-      "Susan Plummer",
+      "Susan Plummer"
     ],
     "cast": [
       "덴젤 워싱턴",
@@ -9970,7 +9969,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "데이비드 하버",
       "헤일리 베넷",
       "빌 풀먼",
-      "멜리사 레오",
+      "멜리사 레오"
     ],
     "director": "안톤 후쿠아"
   },
@@ -9982,7 +9981,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jafar",
       "Sultan",
       "Dalia",
-      "Prince Anders",
+      "Prince Anders"
     ],
     "cast": [
       "윌 스미스",
@@ -9991,7 +9990,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Marwan Kenzari",
       "나비드 네가반",
       "나심 페드라드",
-      "빌리 매그너슨",
+      "빌리 매그너슨"
     ],
     "director": "가이 리치"
   },
@@ -10003,7 +10002,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Sister Mary Robert",
       "Sister Mary Lazarus",
       "Vince LaRocca",
-      "Lt. Eddie Souther",
+      "Lt. Eddie Souther"
     ],
     "cast": [
       "우피 골드버그",
@@ -10012,7 +10011,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Wendy Makkena",
       "메리 윅스",
       "하비 카이텔",
-      "빌 넌",
+      "빌 넌"
     ],
     "director": "Emile Ardolino"
   },
@@ -10024,7 +10023,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Semyon",
       "Helen",
       "Yuri",
-      "Stepan",
+      "Stepan"
     ],
     "cast": [
       "비고 모텐슨",
@@ -10033,7 +10032,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "아르민 뮐러슈탈",
       "Sinéad Cusack",
       "Donald Sumpter",
-      "예르지 스콜리모프스키",
+      "예르지 스콜리모프스키"
     ],
     "director": "데이비드 크로넨버그"
   },
@@ -10045,7 +10044,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Aldrich Killian",
       "Maya Hansen",
       "Happy Hogan",
-      "Trevor Slattery",
+      "Trevor Slattery"
     ],
     "cast": [
       "로버트 다우니 주니어",
@@ -10054,7 +10053,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "가이 피어스",
       "레베카 홀",
       "존 파브로",
-      "벤 킹슬리",
+      "벤 킹슬리"
     ],
     "director": "셰인 블랙"
   },
@@ -10066,7 +10065,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Shark (voice)",
       "Piranha (voice)",
       "Professor Marmalade (voice)",
-      "Diane Foxington (voice)",
+      "Diane Foxington (voice)"
     ],
     "cast": [
       "샘 록웰",
@@ -10075,7 +10074,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "크레이그 로빈슨",
       "안소니 라모스",
       "리처드 아이오와디",
-      "재지 비츠",
+      "재지 비츠"
     ],
     "director": "Pierre Perifel"
   },
@@ -10087,7 +10086,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Meiying",
       "Cheng",
       "Master Li",
-      "Meiying's Dad",
+      "Meiying's Dad"
     ],
     "cast": [
       "제이든 스미스",
@@ -10096,7 +10095,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Wenwen Han",
       "王振威",
       "우영광",
-      "Wu Zhensu",
+      "Wu Zhensu"
     ],
     "director": "Harald Zwart"
   },
@@ -10108,7 +10107,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Jim",
       "Joyce",
       "Kevin",
-      "Helen",
+      "Helen"
     ],
     "cast": [
       "조니 뎁",
@@ -10117,7 +10116,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Anthony Michael Hall",
       "Kathy Baker",
       "Robert Oliveri",
-      "콘처터 페럴",
+      "콘처터 페럴"
     ],
     "director": "팀 버튼"
   },
@@ -10129,7 +10128,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Tails (voice)",
       "Knuckles (voice)",
       "Dr. Robotnik",
-      "Rachel",
+      "Rachel"
     ],
     "cast": [
       "벤 슈와츠",
@@ -10138,7 +10137,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "콜린 오샤우너시",
       "이드리스 엘바",
       "짐 캐리",
-      "나타샤 로스웰",
+      "나타샤 로스웰"
     ],
     "director": "Jeff Fowler"
   },
@@ -10150,7 +10149,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Coco",
       "Joe",
       "Detective McKnight",
-      "Vincenzo Castigliane",
+      "Vincenzo Castigliane"
     ],
     "cast": [
       "나오미 왓츠",
@@ -10159,7 +10158,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ann Miller",
       "Mark Pellegrino",
       "로버트 포스터",
-      "Dan Hedaya",
+      "Dan Hedaya"
     ],
     "director": "데이비드 린치"
   },
@@ -10171,7 +10170,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bernie Hayes",
       "Madison Russell",
       "Josh Valentine",
-      "Walter Simmons",
+      "Walter Simmons"
     ],
     "cast": [
       "알렉산더 스카스가드",
@@ -10180,7 +10179,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "브라이언 타이리 헨리",
       "밀리 바비 브라운",
       "줄리안 덴니슨",
-      "데미안 비치르",
+      "데미안 비치르"
     ],
     "director": "애덤 윈가드"
   },
@@ -10192,7 +10191,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Doc (voice) (uncredited)",
       "Sleepy / Grumpy / Dopey (hiccups) (voice) (uncredited)",
       "Happy (voice) (uncredited)",
-      "Bashful (voice) (uncredited)",
+      "Bashful (voice) (uncredited)"
     ],
     "cast": [
       "Adriana Caselotti",
@@ -10201,7 +10200,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Roy Atwell",
       "Pinto Colvig",
       "Otis Harlan",
-      "Scotty Mattraw",
+      "Scotty Mattraw"
     ],
     "director": "David Hand"
   },
@@ -10213,7 +10212,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Blake",
       "Selina",
       "Miranda",
-      "Fox",
+      "Fox"
     ],
     "cast": [
       "크리스찬 베일",
@@ -10222,7 +10221,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조셉 고든레빗",
       "앤 해서웨이",
       "마리옹 꼬띠아르",
-      "모건 프리먼",
+      "모건 프리먼"
     ],
     "director": "크리스토퍼 놀란"
   },
@@ -10234,7 +10233,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Isabel",
       "Esme",
       "Nora",
-      "Mr. Missel",
+      "Mr. Missel"
     ],
     "cast": [
       "니콜 키드먼",
@@ -10243,7 +10242,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Esther-Rose McGregor",
       "소피 와일드",
       "Vaughan Reilly",
-      "Victor Slezak",
+      "Victor Slezak"
     ],
     "director": "할리나 레인"
   },
@@ -10255,7 +10254,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Benjamin Danz",
       "Jasmine",
       "Father",
-      "Martin Coleman",
+      "Martin Coleman"
     ],
     "cast": [
       "안젤리나 졸리",
@@ -10264,7 +10263,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "애덤 브로디",
       "케리 워싱턴",
       "키스 데이비드",
-      "크리스 웨이츠",
+      "크리스 웨이츠"
     ],
     "director": "더그 라이만"
   },
@@ -10276,7 +10275,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Alec Lightwood",
       "Isabelle Lightwood",
       "Jocelyn Fray",
-      "Luke Garroway",
+      "Luke Garroway"
     ],
     "cast": [
       "릴리 콜린스",
@@ -10285,7 +10284,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "케빈 지거스",
       "제미마 웨스트",
       "레나 헤디",
-      "에이단 터너",
+      "에이단 터너"
     ],
     "director": "Harald Zwart"
   },
@@ -10297,7 +10296,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "General Zod",
       "Henry Allen",
       "Nora Allen",
-      "Iris West",
+      "Iris West"
     ],
     "cast": [
       "에즈라 밀러",
@@ -10306,7 +10305,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마이클 섀넌",
       "론 리빙스턴",
       "마리벨 베르두",
-      "키어시 클레먼스",
+      "키어시 클레먼스"
     ],
     "director": "앤디 무시에티"
   },
@@ -10318,7 +10317,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Matilda (voice)",
       "Leonard (voice)",
       "Mighty Eagle (voice)",
-      "Terence (voice)",
+      "Terence (voice)"
     ],
     "cast": [
       "제이슨 수데이키스",
@@ -10327,7 +10326,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "마야 루돌프",
       "빌 헤이더",
       "피터 딘클리지",
-      "숀 펜",
+      "숀 펜"
     ],
     "director": "Clay Kaytis"
   },
@@ -10339,7 +10338,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Bishop",
       "Sugar",
       "Staff Sgt. Nia Branson",
-      "Colonel Duz Packett",
+      "Colonel Duz Packett"
     ],
     "cast": [
       "리암 헴스워스",
@@ -10348,7 +10347,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Ricky Whittle",
       "Milo Ventimiglia",
       "Chika Ikogwe",
-      "Daniel MacPherson",
+      "Daniel MacPherson"
     ],
     "director": "윌리엄 유뱅크"
   },
@@ -10360,7 +10359,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hannah",
       "Jessica",
       "Robbie",
-      "Molly",
+      "Molly"
     ],
     "cast": [
       "스티브 카렐",
@@ -10369,7 +10368,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "엠마 스톤",
       "리오 팁턴",
       "Jonah Bobo",
-      "조이 킹",
+      "조이 킹"
     ],
     "director": "글렌 피카라"
   },
@@ -10381,7 +10380,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Keys",
       "Mouser",
       "Antwan",
-      "Revenjamin Buttons",
+      "Revenjamin Buttons"
     ],
     "cast": [
       "라이언 레이놀즈",
@@ -10390,7 +10389,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "조 키어리",
       "Utkarsh Ambudkar",
       "타이카 와이티티",
-      "채닝 테이텀",
+      "채닝 테이텀"
     ],
     "director": "숀 레비"
   },
@@ -10402,7 +10401,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Karen Pomeroy",
       "Kitty Farmer",
       "Elizabeth Darko",
-      "Rose Darko",
+      "Rose Darko"
     ],
     "cast": [
       "제이크 질렌할",
@@ -10411,7 +10410,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "드류 배리모어",
       "베스 그랜트",
       "메기 질렌할",
-      "메리 맥도널",
+      "메리 맥도널"
     ],
     "director": "리처드 켈리"
   },
@@ -10423,7 +10422,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Hoskins",
       "Gray",
       "Zach",
-      "Lowery",
+      "Lowery"
     ],
     "cast": [
       "크리스 프랫",
@@ -10432,7 +10431,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "빈센트 도노프리오",
       "타이 심킨스",
       "닉 로빈슨",
-      "제이크 존슨",
+      "제이크 존슨"
     ],
     "director": "콜린 트레보로"
   },
@@ -10444,7 +10443,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Zeta (voice)",
       "Leonard (voice)",
       "Silver (voice)",
-      "Courtney (voice)",
+      "Courtney (voice)"
     ],
     "cast": [
       "제이슨 수데이키스",
@@ -10453,7 +10452,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "레슬리 존스",
       "빌 헤이더",
       "레이첼 블룸",
-      "아콰피나",
+      "아콰피나"
     ],
     "director": "Thurop Van Orman"
   },
@@ -10465,7 +10464,7 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "Baron Mordo",
       "Wong",
       "Dr. Christine Palmer",
-      "Tommy Maximoff",
+      "Tommy Maximoff"
     ],
     "cast": [
       "베네딕트 컴버배치",
@@ -10474,8 +10473,206 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "치웨텔 에지오포",
       "베네딕트 웡",
       "레이첼 맥아담스",
-      "제트 클라인",
+      "제트 클라인"
     ],
     "director": "샘 레이미"
+  },
+  "movie_501": {
+    "characters": [
+      "Ana",
+      "Fernando",
+      "Teresa",
+      "Isabel",
+      "Doña Lucía",
+      "Médico",
+      "Frankenstein"
+    ],
+    "cast": [
+      "아나 토렌트",
+      "Fernando Fernán Gómez",
+      "Teresa Gimpera",
+      "Isabel Tellería",
+      "Laly Soldevila",
+      "Miguel Picazo",
+      "José Villasante"
+    ],
+    "director": "빅토르 에리세"
+  },
+  "movie_502": {
+    "characters": [
+      "Ryota Yokoyama",
+      "Yukari Yokoyama",
+      "Chinami Yokoyama",
+      "Nobuo Kataoka",
+      "Atsushi Yokoyama",
+      "Satsuki Kataoka",
+      "Mutsu Kataoka"
+    ],
+    "cast": [
+      "아베 히로시",
+      "夏川結衣",
+      "YOU",
+      "高橋和也",
+      "田中祥平",
+      "野本ほたる",
+      "林凌雅"
+    ],
+    "director": "고레에다 히로카즈"
+  },
+  "movie_503": {
+    "characters": [
+      "Projectionist",
+      "Ticket Woman",
+      "Japanese Tourist",
+      "Self",
+      "Peanut Eating Woman"
+    ],
+    "cast": [
+      "이강생",
+      "陳湘琪",
+      "Kiyonobu Mitamura",
+      "묘천",
+      "石雋",
+      "陳昭榮",
+      "양구이메이"
+    ],
+    "director": "차이밍량"
+  },
+  "movie_504": {
+    "characters": [
+      "Bud",
+      "Mother",
+      "Kevin",
+      "John",
+      "Helen",
+      "Edna",
+      "Curly"
+    ],
+    "cast": [
+      "Leigh McCormack",
+      "Marjorie Yates",
+      "Anthony Watson",
+      "Nicholas Lamont",
+      "Ayse Owens",
+      "Tina Malone",
+      "Jimmy Wilde"
+    ],
+    "director": "테렌스 데이비스"
+  },
+  "movie_505": {
+    "characters": [
+      "Monsieur Hulot",
+      "Young Tourist",
+      "Mr. Schultz's Companion",
+      "Woman Selling Eyeglasses",
+      "Shopper in Department Store",
+      "Mr. Lacs's Secretary",
+      "Mme. Giffard"
+    ],
+    "cast": [
+      "자크 타티",
+      "Barbara Dennek",
+      "Rita Maiden",
+      "France Rumilly",
+      "France Delahalle",
+      "Valérie Camille",
+      "Erika Dentzler"
+    ],
+    "director": "자크 타티"
+  },
+  "movie_506": {
+    "characters": [
+      "Tali",
+      "Mecha",
+      "Gregorio",
+      "Verónica",
+      "Mercedes",
+      "Momi",
+      "José"
+    ],
+    "cast": [
+      "Mercedes Morán",
+      "Graciela Borges",
+      "Martín Adjemián",
+      "Leonora Balcarce",
+      "Silvia Baylé",
+      "Sofia Bertolotto",
+      "Juan Cruz Bordeu"
+    ],
+    "director": "루크레시아 마르텔"
+  },
+  "movie_507": {
+    "characters": [
+      "Pickle",
+      "Belly Bottom",
+      "Kevin Huang",
+      "Congressman Gao",
+      "Peanut",
+      "Yeh Feng Ju",
+      "Deputy Speaker"
+    ],
+    "cast": [
+      "莊益增",
+      "陳竹昇",
+      "戴立忍",
+      "천이원",
+      "納豆",
+      "丁國琳",
+      "李永豐"
+    ],
+    "director": "黃信堯"
+  },
+  "movie_508": {
+    "characters": [
+      "Self"
+    ],
+    "cast": [
+      "아녜스 바르다",
+      "Bodan Litnanski",
+      "François Wertheimer"
+    ],
+    "director": "아녜스 바르다"
+  },
+  "movie_509": {
+    "characters": [
+      "Ahmed Ahmadpour",
+      "Mohamed Reza Nematzadeh",
+      "Teacher",
+      "Mother",
+      "Father",
+      "Persian Neighbour",
+      "Ali"
+    ],
+    "cast": [
+      "Babek Ahmed Poor",
+      "Ahmed Ahmed Poor",
+      "Kheda Barech Defai",
+      "Iran Outari",
+      "Ait Ansari",
+      "Sadika Taohidi",
+      "Biman Mouafi"
+    ],
+    "director": "압바스 키아로스타미"
+  },
+  "movie_510": {
+    "characters": [
+      "Xiao Si'r",
+      "Ming",
+      "Father",
+      "Mother",
+      "Eldest Sister",
+      "Elder Brother",
+      "Middle Sister"
+    ],
+    "cast": [
+      "장첸",
+      "楊靜怡",
+      "장국주",
+      "金燕玲",
+      "王琄",
+      "張翰",
+      "姜秀瓊"
+    ],
+    "director": "에드워드 양"
   }
 };

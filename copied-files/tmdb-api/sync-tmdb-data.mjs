@@ -812,7 +812,85 @@ const mapWithConcurrency = async (items, concurrency, mapper) => {
 const toTypedTsExport = (importLine, exportName, typeName, value) =>
   `${importLine}\n\nexport const ${exportName}: ${typeName} = ${JSON.stringify(value, null, 2)};\n`;
 
+const cinephileMovieSeeds = movieSeeds.filter(
+  (seed) => Number.parseInt(seed.id.slice('movie_'.length), 10) > 500
+);
+
+const readCatalogData = async () => {
+  const source = await readFile(path.join(srcDataDir, 'catalog.ts'), 'utf8');
+  const match = source.match(
+    /export const catalogMovies: CatalogMovie\[\] = ([\s\S]*?);\s*export const catalogLists: CatalogMovieList\[\] = ([\s\S]*);\s*$/u
+  );
+
+  if (!match) {
+    throw new Error('Unable to read the current catalog source.');
+  }
+
+  return {
+    catalogMovies: Function(`return (${match[1]});`)(),
+    catalogLists: Function(`return (${match[2]});`)()
+  };
+};
+
+const readMovieCredits = async () => {
+  const source = await readFile(path.join(srcDataDir, 'movieCredits.ts'), 'utf8');
+  const match = source.match(
+    /export const movieCreditsById: Record<string, MovieCreditsProfile> = ([\s\S]*);\s*$/u
+  );
+
+  if (!match) {
+    throw new Error('Unable to read the current movie credits source.');
+  }
+
+  return Function(`return (${match[1]});`)();
+};
+
+const syncCinephileMovies = async () => {
+  const posterBaseUrl = await getPosterBase();
+  const [catalogData, existingMovieCredits, cinephileEntries] = await Promise.all([
+    readCatalogData(),
+    readMovieCredits(),
+    mapWithConcurrency(cinephileMovieSeeds, DETAIL_FETCH_CONCURRENCY, async (seed, index) => {
+      console.log(`[cinephile ${index + 1}/${cinephileMovieSeeds.length}] ${seed.query} (${seed.year})`);
+      return fetchCatalogMovie(seed, posterBaseUrl);
+    })
+  ]);
+  const cinephileMovieIds = new Set(cinephileEntries.map((entry) => entry.catalogMovie.id));
+  const catalogMovies = [
+    ...catalogData.catalogMovies.filter((movie) => !cinephileMovieIds.has(movie.id)),
+    ...cinephileEntries.map((entry) => entry.catalogMovie)
+  ];
+  const movieCreditsById = {
+    ...existingMovieCredits,
+    ...Object.fromEntries(cinephileEntries.map((entry) => [entry.catalogMovie.id, entry.credits]))
+  };
+
+  const catalogSource =
+    toTypedTsExport(
+      "import type { CatalogMovie, CatalogMovieList } from '@/types/recommendation';",
+      'catalogMovies',
+      'CatalogMovie[]',
+      catalogMovies
+    ) +
+    `\nexport const catalogLists: CatalogMovieList[] = ${JSON.stringify(catalogData.catalogLists, null, 2)};\n`;
+  const creditsSource = toTypedTsExport(
+    "import type { MovieCreditsProfile } from '@/types/lists';",
+    'movieCreditsById',
+    'Record<string, MovieCreditsProfile>',
+    movieCreditsById
+  );
+
+  await writeFile(path.join(srcDataDir, 'catalog.ts'), catalogSource, 'utf8');
+  await writeFile(path.join(srcDataDir, 'movieCredits.ts'), creditsSource, 'utf8');
+  console.log(`Added ${cinephileEntries.length} cinephile movies to the catalog.`);
+};
+
 const run = async () => {
+  if (process.env.TMDB_SYNC_SCOPE === 'cinephile') {
+    await syncCinephileMovies();
+    return;
+  }
+
   const posterBaseUrl = await getPosterBase();
   const curatedCount = movieSeeds.length;
   const autoExpandedCount = Math.max(0, TARGET_CATALOG_SIZE - curatedCount);

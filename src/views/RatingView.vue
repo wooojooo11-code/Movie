@@ -33,6 +33,7 @@ const activeAdditionalBatchIndex = ref<null | number>(null);
 const isSavingManualDecision = ref(false);
 const isSavingPrimaryDecision = ref(false);
 const manualFeedbackFormContainer = ref<HTMLElement | null>(null);
+const primaryFlowTop = ref<HTMLElement | null>(null);
 const detailFlowTop = ref<HTMLElement | null>(null);
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
@@ -374,6 +375,14 @@ const scrollToNextDetailMovie = async () => {
   await scrollToContainer(detailFlowTop);
 };
 
+const scrollToNextPrimaryMovie = async () => {
+  if (isDetailMode.value || !currentRatingMovie.value) {
+    return;
+  }
+
+  await scrollToContainer(primaryFlowTop);
+};
+
 const fallbackDirectionByDecision: Record<RatingSelection['decision'], RatingDirection> = {
   like: 'right',
   dislike: 'left',
@@ -424,10 +433,7 @@ const savePrimaryMovieDecision = async (selection: RatingSelection | RatingSelec
       rawDirection: direction,
       detailCompleted: getDetailedRatingFeedbackMode(decision, direction) == null
     });
-
-    if (decision === 'not_seen') {
-      return;
-    }
+    await scrollToNextPrimaryMovie();
   } finally {
     isSavingPrimaryDecision.value = false;
   }
@@ -758,7 +764,9 @@ watch(
   <main
     class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
   >
-    <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
+    <div ref="primaryFlowTop">
+      <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
+    </div>
 
     <template v-if="isDetailMode && currentMovie">
       <div ref="detailFlowTop">

@@ -32727,6 +32727,118 @@ export const catalogMovies: CatalogMovie[] = [
       "rent": [],
       "buy": []
     }
+  },
+  {
+    "id": "movie_511",
+    "tmdbMovieId": 220289,
+    "title": "코히런스",
+    "genres": [
+      "스릴러",
+      "SF"
+    ],
+    "genreIds": [
+      53,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "세계관",
+      "몰입감"
+    ],
+    "characters": [
+      "Em",
+      "Kevin",
+      "Mike",
+      "Lee",
+      "Beth",
+      "Hugh",
+      "Amir"
+    ],
+    "overview": "파티를 위해 오랜만에 모인 친구들  즐거운 시간을 보내던 중 혜성 충돌로 도시 전체가 정전 사태에 빠지고,  핸드폰 마저 먹통이 되자 모두 이상한 낌새를 느낀다.  설상가상 어둠에 갇힌 그들은 누군가로부터 위협을 받게 되고,  도움을 청하기 위해 몇 명의 친구들이 이웃집으로 향한다.  하지만 그곳에서 발견한 것은 다름 아닌 자기 자신!  보고도 믿지 못할 상황에 충격에 빠진 그들은  살아남기 위해 그 누구도 믿을 수 없게 되고,  살기 위해 또 다른 나와의 싸움을 벌여야 하는데…",
+    "releaseYear": 2014,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4vx8kt8R4ac9LNuCqBjjJ9NHhaw.jpg",
+    "posterAlt": "코히런스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/220289-coherence/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_512",
+    "tmdbMovieId": 500664,
+    "title": "업그레이드",
+    "genres": [
+      "액션",
+      "스릴러",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      53,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Grey Trace",
+      "Detective Cortez",
+      "Eron Keen",
+      "Asha Trace",
+      "Fisk",
+      "Pamela",
+      "Stem (voice)"
+    ],
+    "overview": "하루 아침에 모든 것을 잃고 전신마비가 된 그레이. 인간의 모든 능력을 업그레이드하는 최첨단 두뇌 ‘스템’을 장착하고 이제, 아내를 죽인 자들을 직접 처단하기 위한 그의 통제 불능 액션이 시작 되는데…",
+    "releaseYear": 2018,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/x6DsGuZlY9JLcoTQ2j8eZaLkiDe.jpg",
+    "posterAlt": "업그레이드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/500664-upgrade/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
   }
 ];
 

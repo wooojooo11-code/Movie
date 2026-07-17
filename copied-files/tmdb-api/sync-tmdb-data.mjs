@@ -8,7 +8,7 @@ const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
-const TARGET_CATALOG_SIZE = 510;
+const TARGET_CATALOG_SIZE = 512;
 const FIRST_DISCOVERED_MOVIE_INDEX = 134;
 const DISCOVER_PAGE_LIMIT = 18;
 const DISCOVER_MIN_VOTE_COUNT = 100;
@@ -171,7 +171,9 @@ const movieSeeds = [
   { id: 'movie_507', query: 'The Great Buddha+', year: 2017 },
   { id: 'movie_508', query: 'The Gleaners and I', year: 2000 },
   { id: 'movie_509', query: "Where Is the Friend's House?", year: 1987 },
-  { id: 'movie_510', query: 'A Brighter Summer Day', year: 1991 }
+  { id: 'movie_510', query: 'A Brighter Summer Day', year: 1991 },
+  { id: 'movie_511', query: 'Coherence', year: 2013 },
+  { id: 'movie_512', query: 'Upgrade', year: 2018 }
 ];
 
 const catalogLists = [
@@ -280,6 +282,10 @@ const manualTmdbMovieIdOverrides = {
   movie_105: 258480,
   movie_117: 587792,
   movie_123: 7326
+};
+
+const manualTitleOverrides = {
+  movie_511: '코히런스'
 };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -597,7 +603,7 @@ const buildCatalogMovie = async (seed, tmdbMovieId, detail, posterBaseUrl) => {
   }
 
   const credits = deriveCredits(detail);
-  const title = detail.title?.trim() || detail.original_title?.trim() || seed.query;
+  const title = manualTitleOverrides[seed.id] ?? detail.title?.trim() ?? detail.original_title?.trim() ?? seed.query;
   const genres = detail.genres.map((genre) => genre.name).slice(0, MAX_GENRE_COUNT);
   const tags = deriveTags(detail);
   const watchProvidersKr = await fetchWatchProviders(tmdbMovieId);

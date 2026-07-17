@@ -10674,5 +10674,47 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "姜秀瓊"
     ],
     "director": "에드워드 양"
+  },
+  "movie_511": {
+    "characters": [
+      "Em",
+      "Kevin",
+      "Mike",
+      "Lee",
+      "Beth",
+      "Hugh",
+      "Amir"
+    ],
+    "cast": [
+      "Emily Baldoni",
+      "Maury Sterling",
+      "니컬러스 브렌던",
+      "로린 스카파리아",
+      "Elizabeth Gracen",
+      "Hugo Armstrong",
+      "Alex Manugian"
+    ],
+    "director": "James Ward Byrkit"
+  },
+  "movie_512": {
+    "characters": [
+      "Grey Trace",
+      "Detective Cortez",
+      "Eron Keen",
+      "Asha Trace",
+      "Fisk",
+      "Pamela",
+      "Stem (voice)"
+    ],
+    "cast": [
+      "로건 마셜그린",
+      "베티 게이브리얼",
+      "Harrison Gilbertson",
+      "Melanie Vallejo",
+      "Benedict Hardie",
+      "Linda Cropper",
+      "Simon Maiden"
+    ],
+    "director": "Leigh Whannell"
   }
 };

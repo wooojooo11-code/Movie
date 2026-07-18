@@ -10,7 +10,7 @@ import type {
 } from '@/services/movie_recommendation_algorithm';
 import type { RatingDirection } from '@/types/rating';
 
-export type SituationMood = 'sad' | 'stressed' | 'comfort' | 'excited' | 'laugh' | 'tense';
+export type SituationMood = 'sad' | 'stressed' | 'comfort' | 'okay' | 'excited' | 'laugh' | 'tense';
 export type SituationCompanion =
   | 'alone'
   | 'friend'
@@ -27,7 +27,7 @@ export type SituationWeather =
   | 'cold_winter'
   | 'cool_autumn'
   | 'warm_spring';
-export type SituationViewingTime = 'under_90' | 'around_120' | 'over_135' | 'series';
+export type SituationViewingTime = 'any' | 'under_90' | 'around_120' | 'over_135' | 'series';
 export type SituationSpecialDay =
   | 'christmas'
   | 'halloween'

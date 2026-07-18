@@ -113,6 +113,10 @@ const filterByViewingTime = (
   viewingTime: SituationViewingTime,
   collectionCounts: ReadonlyMap<number, number>
 ) => {
+  if (viewingTime === 'any') {
+    return [...movies];
+  }
+
   if (viewingTime === 'series') {
     const seriesMovies = movies.filter(
       (movie) => movie.collectionId != null && (collectionCounts.get(movie.collectionId) ?? 0) >= 2

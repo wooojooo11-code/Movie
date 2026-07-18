@@ -33,6 +33,7 @@ export const situationOptionGroups = [
       { value: 'sad', label: '우울' },
       { value: 'stressed', label: '스트레스' },
       { value: 'comfort', label: '위로' },
+      { value: 'okay', label: '나쁘지 않음' },
       { value: 'excited', label: '설렘' },
       { value: 'laugh', label: '웃음' },
       { value: 'tense', label: '긴장감' }
@@ -68,6 +69,7 @@ export const situationOptionGroups = [
     key: 'viewingTime',
     label: '영화 볼 수 있는 시간',
     options: [
+      { value: 'any', label: '상관없음' },
       { value: 'under_90', label: '90분 이하' },
       { value: 'around_120', label: '약 2시간' },
       { value: 'over_135', label: '2시간 15분 이상' },
@@ -109,6 +111,7 @@ export const moodRules: Record<SituationMood, SituationRule> = {
   sad: { tags: ['감동', '여운', '감성적인 음악'] },
   stressed: { genreIds: [35], tags: ['유쾌함', '유머', '빠른전개'] },
   comfort: { tags: ['감동', '여운', 'OST'] },
+  okay: { genreIds: [12, 35, 16], tags: ['유쾌함', '영상미', '탄탄한 스토리'] },
   excited: { genreIds: [10749], tags: ['감성적인 음악', '영상미'] },
   laugh: { genreIds: [35], tags: ['유쾌함', '유머'] },
   tense: { genreIds: [53, 9648, 27], tags: ['긴장감', '몰입감', '반전'] }
@@ -241,7 +244,10 @@ export const situationPresets: SituationPreset[] = [
   {
     id: 'while_building_lego',
     label: '레고하면서',
-    rule: { genreIds: [16, 12], textIncludes: ['lego', '레고'], tags: ['유쾌함', '세계관'] }
+    rule: {
+      // 카탈로그에 있는 공식 극장판 LEGO 영화만 대상으로 한다.
+      tmdbMovieIds: [137106, 324849]
+    }
   },
   {
     id: 'darth_vader',
@@ -281,6 +287,7 @@ export const isCompleteSituationSelection = (
   );
 
 export const situationViewingTimeLabels: Record<SituationViewingTime, string> = {
+  any: '상관없음',
   under_90: '90분 이하',
   around_120: '약 2시간',
   over_135: '2시간 15분 이상',

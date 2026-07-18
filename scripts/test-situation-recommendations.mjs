@@ -49,7 +49,7 @@ const movie = (id, overrides = {}) => ({
 assert.equal(situationOptionGroups.length, 6, 'six direct situation groups are available');
 assert.deepEqual(
   situationOptionGroups.map((group) => group.options.length),
-  [6, 6, 8, 4, 11, 6],
+  [7, 6, 8, 5, 11, 6],
   'every requested direct-selection option is present'
 );
 assert.equal(situationPresets.length, 15, 'all recommendation presets are available');
@@ -74,6 +74,11 @@ const rankForTime = (viewingTime) =>
 assert.deepEqual(rankForTime('under_90'), ['short'], '90-minute boundary is inclusive');
 assert.deepEqual(rankForTime('around_120'), ['medium'], 'two-hour range uses 91–134 minutes');
 assert.deepEqual(rankForTime('over_135'), ['long'], '135-minute boundary is inclusive');
+assert.deepEqual(
+  rankForTime('any'),
+  ['short', 'medium', 'long'],
+  'no time preference keeps every runtime candidate'
+);
 
 const franchiseCandidates = [
   movie('rated-part', { collectionId: 10, collectionName: 'Saga', releaseYear: 2000 }),
@@ -96,7 +101,13 @@ const exactCandidates = [
   movie('episode-nine', { tmdbMovieId: 181812, recommendationScore: 4 }),
   movie('rogue-one', { tmdbMovieId: 330459, recommendationScore: 2 }),
   movie('generic', { tmdbMovieId: 999, genreIds: [878, 28], tags: ['세계관', '액션'] }),
-  movie('lego', { title: '레고 무비', overview: '레고 세계의 모험', genreIds: [16, 12] })
+  movie('lego', { tmdbMovieId: 137106, title: '레고 무비', overview: '레고 세계의 모험', genreIds: [16, 12] }),
+  movie('lego-batman', {
+    tmdbMovieId: 324849,
+    title: '레고 배트맨 무비',
+    overview: '레고로 만들어진 배트맨의 모험',
+    genreIds: [16, 12]
+  })
 ];
 const darthResults = rankSituationMovies({
   activeSituation: { kind: 'preset', presetId: 'darth_vader' },
@@ -119,7 +130,11 @@ assert.deepEqual(
   ['episode-one', 'episode-eight', 'episode-nine', 'rogue-one'],
   'Darth Vader preset returns only the configured Star Wars movies in order'
 );
-assert.equal(legoResults[0].id, 'lego', 'LEGO title or overview match has priority');
+assert.deepEqual(
+  legoResults.map((entry) => entry.id),
+  ['lego', 'lego-batman'],
+  'LEGO preset returns only official LEGO movies in configured order'
+);
 
 const weightedResults = rankSituationMovies({
   activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },

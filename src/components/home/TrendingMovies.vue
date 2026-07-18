@@ -104,7 +104,7 @@ const closeMovie = () => {
 
     <div
       ref="scroller"
-      class="scrollbar-hide -mx-4 flex touch-pan-x snap-x snap-mandatory gap-3.5 overflow-x-auto px-4 pb-1 select-none"
+      class="scrollbar-hide -mx-4 flex touch-pan-x snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 pl-8 pr-4 select-none"
       :class="dragCursorClass"
       @pointerdown="onPointerDown"
       @pointermove="onPointerMove"

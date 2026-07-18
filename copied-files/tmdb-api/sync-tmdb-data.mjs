@@ -8,7 +8,7 @@ const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
-const TARGET_CATALOG_SIZE = 512;
+const TARGET_CATALOG_SIZE = 523;
 const FIRST_DISCOVERED_MOVIE_INDEX = 134;
 const DISCOVER_PAGE_LIMIT = 18;
 const DISCOVER_MIN_VOTE_COUNT = 100;
@@ -173,7 +173,18 @@ const movieSeeds = [
   { id: 'movie_509', query: "Where Is the Friend's House?", year: 1987 },
   { id: 'movie_510', query: 'A Brighter Summer Day', year: 1991 },
   { id: 'movie_511', query: 'Coherence', year: 2013 },
-  { id: 'movie_512', query: 'Upgrade', year: 2018 }
+  { id: 'movie_512', query: 'Upgrade', year: 2018 },
+  { id: 'movie_513', query: 'Star Wars: Episode I - The Phantom Menace', year: 1999 },
+  { id: 'movie_514', query: 'Star Wars: Episode II - Attack of the Clones', year: 2002 },
+  { id: 'movie_515', query: 'Star Wars: Episode III - Revenge of the Sith', year: 2005 },
+  { id: 'movie_516', query: 'Star Wars', year: 1977 },
+  { id: 'movie_517', query: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
+  { id: 'movie_518', query: 'Star Wars: Episode VI - Return of the Jedi', year: 1983 },
+  { id: 'movie_519', query: 'Star Wars: The Force Awakens', year: 2015 },
+  { id: 'movie_520', query: 'Star Wars: The Last Jedi', year: 2017 },
+  { id: 'movie_521', query: 'Star Wars: The Rise of Skywalker', year: 2019 },
+  { id: 'movie_522', query: 'Rogue One: A Star Wars Story', year: 2016 },
+  { id: 'movie_523', query: 'Solo: A Star Wars Story', year: 2018 }
 ];
 
 const catalogLists = [
@@ -281,7 +292,18 @@ const manualTmdbMovieIdOverrides = {
   movie_102: 194,
   movie_105: 258480,
   movie_117: 587792,
-  movie_123: 7326
+  movie_123: 7326,
+  movie_513: 1893,
+  movie_514: 1894,
+  movie_515: 1895,
+  movie_516: 11,
+  movie_517: 1891,
+  movie_518: 1892,
+  movie_519: 140607,
+  movie_520: 181808,
+  movie_521: 181812,
+  movie_522: 330459,
+  movie_523: 348350
 };
 
 const manualTitleOverrides = {

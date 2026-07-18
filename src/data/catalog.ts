@@ -30,8 +30,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Rictus Erectus",
       "Toast the Knowing"
     ],
+    "contextTags": [],
     "overview": "핵전쟁으로 멸망한 22세기. 얼마 남지 않은 물과 기름을 차지한 독재자 임모탄 조가 살아남은 인류를 지배한다. 한편 아내와 딸을 잃고 살아남기 위해 사막을 떠돌던 맥스는 임모탄의 부하들에게 납치되어 노예로 끌려가고, 폭정에 반발한 외팔의 사령관 퓨리오사는 인류 생존의 열쇠를 쥔 임모탄의 여인들을 탈취해 분노의 도로로 폭주한다. 이에 임모탄의 전사인 워보이들과 신인류 눅스는 피주머니 신세로 전락한 맥스를 이끌고 퓨리오사의 뒤를 쫓는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 120,
+    "collectionId": 8945,
+    "collectionName": "매드맥스 시리즈",
+    "voteAverage": 7.635,
+    "voteCount": 24245,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cadVm6gKYYukmPysHGCwrawUHHa.jpg",
     "posterAlt": "매드맥스: 분노의 도로 포스터",
     "watchProvidersKr": {
@@ -104,8 +110,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Richard Drysdale",
       "Joni Thrombey"
     ],
+    "contextTags": [],
     "overview": "미스터리 소설의 대가인 작가 할란이 자신의 85살 생일에 자신의 방에서 날카로운 단검으로 목이 그인 채 발견된다. 외딴 저택에 모인 할란의 간병인과 자식 내외, 그리고 3세들은 유산 상속을 놓고 대거 혼란에 빠진다. 파견된 형사들은 가족과의 면담을 할 수록 자살로 의견이 모이지만, 면담 중 멀찍이 떨어져 상황을 전망하는 푸른 눈의 사내는 형사들마저 압도하며 심문을 주도해나간다. 남자의 이름은 바로 브누아 블랑. 챔피언 사건을 해결해서 이름이 높아진 유명한 사립탐정이다.",
     "releaseYear": 2019,
+    "runtimeMinutes": 131,
+    "collectionId": 722971,
+    "collectionName": "나이브스 아웃 시리즈",
+    "voteAverage": 7.84,
+    "voteCount": 14176,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7brBiaaH1sToGV1YBi5EIUnyjo0.jpg",
     "posterAlt": "나이브스 아웃 포스터",
     "watchProvidersKr": {
@@ -202,8 +214,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Tracy",
       "Caitlin"
     ],
+    "contextTags": [],
     "overview": "차들로 빽빽이 들어찬 LA의 고속도로. 거북이 걸음이던 도로가 뚫리기 시작하지만 미아 지금 손에 든 연기 오디션 대본을 놓지 못한다. 세바스찬은 경적을 누르며 미아를 노려보고는 사라진다. 악연의 시작. 이후 미아는 감미로운 피아노 선율에 이끌려 재즈바로 향하는데, 연주자가 바로 세바스찬이다. 미아가 세바스찬에게 인사를 건네려고 다가가던 순간은 하필 그가 재즈바의 레퍼토리를 무시하고 연주한 탓에 해고된 직후. 세바스찬은 인사를 건네려 다가온 미아를 쌩하니 스쳐 지나가버린다. 세 번째로 두 사람은 파티에 온 손님과 출장 밴드의 키보드 연주자로 다시 만나는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.898,
+    "voteCount": 18219,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ad9ndytwOckyShSc0A6tx1rZRkW.jpg",
     "posterAlt": "라라랜드 포스터",
     "watchProvidersKr": {
@@ -274,8 +292,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Deputy Kovacs",
       "Ludwig"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "1927년 세계대전이 한창이던 어느 날, 세계 최고 부호 마담 D가 그랜드 부다페스트 호텔에 다녀간 지 얼마 지나지 않아 의문의 살인을 당한다. 그녀는 유언을 통해 가문 대대로 내려오던 명화 사과를 든 소년을 전설적인 호텔 지배인이자 연인 구스타브 앞으로 남긴다.  마담 D의 유산을 노리고 있던 그의 아들 드미트리는 구스타브를 졸지에 유력한 용의자로 지목하게 되고, 구스타브는 충실한 호텔 로비보이 제로와 함께 누명을 벗기기 위한 기상천외한 모험을 시작한다.",
     "releaseYear": 2014,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.027,
+    "voteCount": 16222,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vsibrPwiJlZHhlrX5f4xFptX3q4.jpg",
     "posterAlt": "그랜드 부다페스트 호텔 포스터",
     "watchProvidersKr": {
@@ -347,8 +373,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gordon",
       "Lucius Fox"
     ],
+    "contextTags": [],
     "overview": "범죄와 부정부패를 제거하여 고담시를 지키려는 배트맨. 그는 짐 고든 형사와 패기 넘치는 고담시 지방 검사 하비 덴트와 함께 도시를 범죄 조직으로부터 영원히 구원하고자 한다. 세 명의 의기투합으로 위기에 처한 악당들이 모인 자리에 보라색 양복을 입고 얼굴에 짙게 화장을 한 괴이한 존재가 나타나 배트맨을 죽이자는 사상 초유의 제안을 한다. 그는 바로 어떠한 룰도, 목적도 없는 사상 최악의 악당 미치광이 살인광대 조커. 배트맨을 죽이고 고담시를 끝장내버리기 위한 조커의 광기 어린 행각에 도시는 혼란에 빠지는데...",
     "releaseYear": 2008,
+    "runtimeMinutes": 152,
+    "collectionId": 263,
+    "collectionName": "다크 나이트 시리즈",
+    "voteAverage": 8.533,
+    "voteCount": 36110,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9ICUbdveP56jRoMMVkXSOr3ceyV.jpg",
     "posterAlt": "다크 나이트 포스터",
     "watchProvidersKr": {
@@ -421,8 +453,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Moon-gwang",
       "Chung-sook"
     ],
+    "contextTags": [],
     "overview": "전원 백수로 살 길 막막하지만 사이는 좋은 기택 가족. 장남 기우에게 명문대생 친구가 연결시켜 준 고액 과외 자리는 모처럼 싹튼 고정수입의 희망이다. 온 가족의 도움과 기대 속에 박 사장 집으로 향하는 기우. 글로벌 IT기업의 CEO인 박 사장의 저택에 도착하자 젊고 아름다운 사모님 연교와 가정부 문광이 기우를 맞이한다. 큰 문제 없이 박 사장의 딸 다혜의 과외를 시작한 기우. 그러나 이렇게 시작된 두 가족의 만남 뒤로, 걷잡을 수 없는 사건이 기다리고  있는데.....",
     "releaseYear": 2019,
+    "runtimeMinutes": 131,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.5,
+    "voteCount": 20877,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jjHccoFjbqlfr4VGLVLT7yek0Xn.jpg",
     "posterAlt": "기생충 포스터",
     "watchProvidersKr": {
@@ -513,8 +551,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Aogaeru (voice)",
       "Boh (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "평범한 열 살 짜리 소녀 치히로 식구는 이사 가던 중 길을 잘못 들어 낡은 터널을 지나가게 된다. 터널 저편엔 폐허가 된 놀이공원이 있었고 그곳엔 이상한 기운이 흘렀다. 인기척 하나 없는 이 마을의 낯선 분위기에 불길한 기운을 느낀 치히로는 부모님에게 돌아가자고 조르지만 부모님은 호기심에 들떠 마을 곳곳을 돌아다니기 시작한다. 어느 음식점에 도착한 치히로의 부모님은 그 곳에 차려진 음식들을 보고 즐거워하며 허겁지겁 먹어대다가 돼지로 변해버린다. 겁에 질려 당황하는 치히로에게 낯선 소년 하쿠가 나타나 빨리 이곳을 나가라고 소리치는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.535,
+    "voteCount": 18540,
     "posterUrl": "https://image.tmdb.org/t/p/w780/u1L4qxIu5sC2P082uMHYt7Ifvnj.jpg",
     "posterAlt": "센과 치히로의 행방불명 포스터",
     "watchProvidersKr": {
@@ -581,8 +627,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Detective Rhonda Boney",
       "Officer James Gilpin"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "모두가 부러워하는 삶을 살아가는 완벽한 커플인 닉과 에이미. 결혼 5주년 기념일 아침, 에이미가 흔적도 없이 실종된다. 유년시절 어린이 동화 시리즈 어메이징 에이미의 실제 여주인공이었던  유명인사 아내가 사라지자, 세상은 그녀의 실종사건으로 떠들썩해진다. 한편 경찰은 에이미가 결혼기념일 선물로 숨겨뒀던 편지와 함께  곳곳에서 드러나는 단서들로 남편 닉을 유력한 용의자로 지목한다. 미디어들이 살인 용의자 닉의 일거수일투족을 보도하기 시작하고, 시간이 갈수록 세상의 관심이 그에게 더욱 집중되는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 149,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.891,
+    "voteCount": 20109,
     "posterUrl": "https://image.tmdb.org/t/p/w780/m2Lw04GIjiTjylqPiccoo3WFMVb.jpg",
     "posterAlt": "나를 찾아줘 포스터",
     "watchProvidersKr": {
@@ -648,8 +702,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Carl",
       "Uncle Frank"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "최고의 드러머가 되기 위해서라면 무엇이든 할 각오가 되어있는 음악대학 신입생 앤드류는 아무도 없는 지하실에서 혼자 드럼을 연습하던 중 우연한 기회로 누구든지 성공으로 이끄는 최고의 실력자이지만, 또한 동시에 최악의 폭군인 플렛처 교수에게 발탁되어 그의 밴드에 들어가게 된다. 설레는 마음으로 참가한 첫 연습에서, 그는 플렛처 교수의 진짜 얼굴을 마주치게 된다. 폭언과 학대 속에 좌절과 성취를 동시에 안겨주는 플렛처의 지독한 교육방식은 천재가 되길 갈망하는 앤드류의 집착을 끌어내며 그를 점점 광기로 몰아넣는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.376,
+    "voteCount": 16789,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oKNkhmyIBiDENivK6ELZxfBWa3q.jpg",
     "posterAlt": "위플래쉬 포스터",
     "watchProvidersKr": {
@@ -725,8 +787,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ms. Perkins",
       "Gregori"
     ],
+    "contextTags": [],
     "overview": "전설이라 불리던 킬러 존 윅은 사랑하는 여인을 만나 결혼을 하면서 범죄의 세계에서 은퇴한다. 행복도 잠시, 투병 끝에 부인이 세상을 떠나고 그의 앞으로 부인이 죽기 전에 보낸 강아지 한 마리가 선물로 배달된다. 어느 날 그의 차를 탐낸 러시아 마피아의 일원 요세프가 존 윅을 폭행하고 애완견 데이지마저 죽여버리는 일이 벌어진다. 그런데 요세프는 과거 존 윅을 고용한 적 있는 러시아 마피아 보스 비고의 아들이다. 마지막 남은 애완견마저 잃은 존 윅은 이제 그만의 방식으로 복수를 시작하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 101,
+    "collectionId": 404609,
+    "collectionName": "존 윅 시리즈",
+    "voteAverage": 7.46,
+    "voteCount": 21001,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mjKe6CmoxRcdiwbDeghyQKY09J.jpg",
     "posterAlt": "존 윅 포스터",
     "watchProvidersKr": {
@@ -813,8 +881,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Disgust (voice)",
       "Riley (voice)"
     ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
     "overview": "모든 사람의 머릿속에 존재하는 감정 컨트롤 본부. 그곳에서 불철주야 열심히 일하는 기쁨, 슬픔, 버럭, 까칠, 소심 다섯 감정들. 정든 옛 동네를 떠나 도시로 이사하는 라일리 가족. 이사 후 새로운 환경에 적응해야 하는 라일리를 위해 그 어느 때 보다 바쁘게 감정의 신호를 보내지만 우연한 실수로 기쁨과 슬픔이 본부를 이탈하게 되자 라일리의 마음 속에 큰 변화가 찾아온다. 라일리가 예전의 모습을 되찾기 위해서는 기쁨과 슬픔이 본부로 돌아가야만 한다. 그러나 엄청난 기억들이 저장되어 있는 머릿속 세계에서 본부까지 가는 길은 험난하기만 한데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 102,
+    "collectionId": 1022790,
+    "collectionName": "인사이드 아웃 시리즈",
+    "voteAverage": 7.907,
+    "voteCount": 23609,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rMXHvHzpuYZXrJUhRVJ3TvDSwe5.jpg",
     "posterAlt": "인사이드 아웃 포스터",
     "watchProvidersKr": {
@@ -875,8 +952,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Counselor Jerry (voice)",
       "Libba Gardner (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "뉴욕에서 음악 선생님으로 일하던 조는 꿈에 그리던 최고의 밴드와 재즈 클럽에서 연주하게 된 그 날, 예기치 못한 사고로 영혼이 되어 태어나기 전 세상에 떨어진다. 탄생 전 영혼들이 멘토와 함께 자신의 관심사를 발견하면 지구 통행증을 발급하는 태어나기 전 세상. 조는 그 곳에서 유일하게 지구에 가고 싶어하지 않는 시니컬한 영혼 22의 멘토가 된다. 링컨, 간디, 테레사 수녀도 멘토되길 포기한 영혼 22, 꿈의 무대에 서려면 22의 지구 통행증이 필요한 조. 그는 다시 지구로 돌아가 꿈의 무대에 설 수 있을까?",
     "releaseYear": 2020,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.091,
+    "voteCount": 11521,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qJiaB4RJMM5Oh6A4rqrEOHQUJbu.jpg",
     "posterAlt": "소울 포스터",
     "watchProvidersKr": {
@@ -930,8 +1015,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Paul",
       "Text Voice (voice)"
     ],
+    "contextTags": [],
     "overview": "테오도르는 다른 사람들의 편지를 대신 써주는 대필 작가로, 깊이 아꼈던 아내와 이혼 소송 중이다. 타인의 마음을 전해주는 일을 하고 있지만, 정작 테오도르 자신은 너무 외롭고 공허한 삶을 살고 있다. 그러던 어느 날, 스스로 생각하고 느끼는 인공 지능 운영체제인 사만다를 만나게 된다. 사만다는 따뜻한 목소리와 뛰어난 전산처리 능력을 통해 테오도르가 더 편안한 삶을 살 수 있도록 돕고, 테오도르는 자신의 육체를 통해 사만다가 더 많은 세계를 경험할 수 있도록 격려한다. 그렇게 둘은 직접적인 접촉보다 밀도 높은 정신적 교감을 나누는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 126,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.838,
+    "voteCount": 15405,
     "posterUrl": "https://image.tmdb.org/t/p/w780/thUJI82kWMxA2jtjLtPxDIj67tY.jpg",
     "posterAlt": "그녀 포스터",
     "watchProvidersKr": {
@@ -1004,8 +1095,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Peter Miles",
       "Henry Ford II"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "1960년대, 매출 감소에 빠진 포드는 판매 활로를 찾기 위해 페라리와의 인수 합병을 추진한다. 막대한 자금력에도 불구, 계약에 실패하고 엔초 페라리로부터 모욕까지 당한 헨리 포드 2세는 르망 24시간 레이스에서 페라리를 박살 낼 차를 만들 것을 지시한다. 지옥의 레이스로 불리는 르망 24시간 레이스. 출전 경험조차 없는 포드는 대회 6연패를 차지한 페라리에 대항하기 위해 르망 우승자 출신 자동차 디자이너 캐롤 셸비를 고용하고, 그는 누구와도 타협하지 않지만 열정과 실력만큼은 최고인 레이서 켄 마일스를 자신의 파트너로 영입하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 153,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.009,
+    "voteCount": 9091,
     "posterUrl": "https://image.tmdb.org/t/p/w780/wBUoWL4z0nsvC9cYT3VCc74X3jE.jpg",
     "posterAlt": "포드 V 페라리 포스터",
     "watchProvidersKr": {
@@ -1063,8 +1162,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Man Living in Mr. Koo's Apartment",
       "Mr. Koo"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "홍콩의 지역 매일 신문 편집장인 초 모완, 수출회사의 비서로 근무하는 수 리첸. 둘은 상하이 지역의 한 건물로 같은 날 이사하게 된다. 이사 날부터 의도치 않게 오가며 자주 부딪히게 되는 두 사람. 둘 다 가정이 있지만 어쩐지 배우자들은 자리를 비우는 날이 더 많고 두 사람의 외로움은 서로에게 낯설지 않게 다가와 둘을 가깝게 한다. 두 사람은 점점 감정이 깊어질수록 겉으로는 더욱 조심스러워지고 예견되어 있는 이별 앞에 마음이 혼란스럽고, 서로의 자리에서 마음으로 바라는 그들의 사랑은 애절하기만 하다.",
     "releaseYear": 2000,
+    "runtimeMinutes": 97,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.087,
+    "voteCount": 3297,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mjkr1IamzDiL5mLIbnuhiYOXLqg.jpg",
     "posterAlt": "화양연화 포스터",
     "watchProvidersKr": {
@@ -1153,8 +1260,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Edwin Hoover",
       "Stan Grossman"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "또래 아이보다 통통한 몸매지만 유난히 미인대회에 집착하 올리브에게 캘리포니아 주에서 열리는 쟁쟁한 어린이 미인 대회인 미스 리틀 선샤인 대회 출전의 기회가 찾아온다. 그리고 딸아이의 소원을 위해 온 가족이 낡은 고물 버스를 타고 1박2일 동안의 무모한 여행 길에 오르게 된다. 좁은 버스 안에서 후버 가족의 비밀과 갈등은 점점 더 커져만 가는데... 할아버지와 올리브가 열심히 준비한 미스 리틀 선샤인 대회의 마지막 무대는 가족 모두를 그들이 절대 상상할 수 없었던 방식으로 변화시키게 된다. 과연 후버 가족에겐 무슨 일이 생긴 것일까?",
     "releaseYear": 2006,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.693,
+    "voteCount": 7917,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fhLgquC3i27p1optlwqMTQSj2C.jpg",
     "posterAlt": "미스 리틀 선샤인 포스터",
     "watchProvidersKr": {
@@ -1210,8 +1326,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Solomon Lane",
       "Erika Sloane"
     ],
+    "contextTags": [],
     "overview": "에단 헌트는 세계를 위협하는 테러 조직 신디케이트의 수장 솔로몬 레인을 우여곡절 끝에 체포했지만, 그의 잔당들은 여전히 세계 각지에서 테러를 일삼는다. 에단 헌트와 그의 팀은 테러조직의 핵무기 소지를 막기 위해 미션에 착수한다. 에단 헌트는 작전 수행 중 예상치 못한 결단을 내리게 되고, 중앙정보국 CIA는 그를 견제하기 위해 상급 요원 어거스트 워커를 파견한다. 최악의 테러 위기와 라이벌의 출현 속, 팀이 행한 모든 선의의 선택들이 최악의 결과로 돌아오면서 미션은 점점 더 예측할 수 없는 상황으로 치닫게 되는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 147,
+    "collectionId": 87359,
+    "collectionName": "미션 임파서블 시리즈",
+    "voteAverage": 7.452,
+    "voteCount": 9209,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tKAlw88sEjU5bntbAfdfWcmRx6S.jpg",
     "posterAlt": "미션 임파서블: 폴아웃 포스터",
     "watchProvidersKr": {
@@ -1277,8 +1399,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Officer Kwon Kwi-ok",
       "Jo Byung-soon"
     ],
+    "contextTags": [],
     "overview": "1986년 경기도. 젊은 여인이 무참히 강간, 살해당한 시체로 발견된다. 2개월 후 비슷한 수법의 강간살인사건이 연이어 발생하면서 사건은 세간의 주목을 받기 시작하고, 일대는 연쇄살인이라는 생소한 범죄의 공포에 휩싸인다. 사건 발생 지역에 특별수사본부가 설치되고, 수사본부는 구희봉 반장을 필두로 지역토박이 형사 박두만과 조용구, 그리고 서울 시경에서 자원해 온 서태윤이 배치된다. 육감과 폭력으로 수사를 진행하는 박형사와 증거와 과학수사를 추구하는 서형사는 수사 내내 마찰을 일으키는데...",
     "releaseYear": 2003,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.063,
+    "voteCount": 4666,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3I1Ng4sxDUyPOdVu3lQ20N14PGE.jpg",
     "posterAlt": "살인의 추억 포스터",
     "watchProvidersKr": {
@@ -1357,8 +1485,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Mierzwiak",
       "Carrie"
     ],
+    "contextTags": [],
     "overview": "조엘은 아픈 기억만을 지워준다는 라쿠나사를 찾아가 헤어진 연인 클레멘타인의 기억을 지우기로 결심한다. 기억이 사라져 갈수록 조엘은 사랑이 시작되던 순간, 행복한 기억들, 가슴 속에 각인된 추억들을 지우기 싫어지기만 하는데... 당신을 지우면 이 아픔도 사라질까요? 사랑은 그렇게 다시 기억된다.",
     "releaseYear": 2004,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.09,
+    "voteCount": 16465,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jULvvUymAqM18gIDHbMRfKHbCSB.jpg",
     "posterAlt": "이터널 선샤인 포스터",
     "watchProvidersKr": {
@@ -1423,8 +1557,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Christof",
       "Simeon"
     ],
+    "contextTags": [],
     "overview": "트루먼 버뱅크는 작고 조용한 섬마을에 사는 평범한 세일즈맨이다. 그런 그가 자신의 삶에 대해 의문을 갖기 시작한 것은 평소와 다름없이 평범한 어느 날, 갑자기 하늘에서 촬영용 조명등이 떨어지고, 어렸을 적 자신이 익사를 직접 목격했던 아버지가 살아오고, 또 누군가에 의해 끌려가는 등 상식 밖의 일들이 벌어지고 나서부터였다. 평생을 그다지 신경쓰지 않고 지냈던 일상이었지만 주변을 보니 이상한 일이 너무 많았다. 결국 자신이 특별한 상황에 놓여있다는 확신을 하게된 트루먼은 첫사랑 실비아의 모든 것이 다 거짓라는 말을 되새기며 일상으로부터 탈출을 결심하게 되는데...",
     "releaseYear": 1998,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.155,
+    "voteCount": 20445,
     "posterUrl": "https://image.tmdb.org/t/p/w780/AsUv4pFf1UQuOLKf7nYUXgmgCNf.jpg",
     "posterAlt": "트루먼 쇼 포스터",
     "watchProvidersKr": {
@@ -1497,8 +1637,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Holly Jones",
       "Alex Jones"
     ],
+    "contextTags": [],
     "overview": "한가로운 휴일, 가족과 행복한 시간을 보내던 도버 와 버치 는 자신들의 딸이 실종됐다는 사실을 뒤늦게 알아차린다. 곧바로 형사 로키 와 함께 존스 를 용의자로 지목하지만 그에게서는 어떤 증거도 찾을 수 없다. 완벽한 용의자를 의심하는 아빠는 홀로 그를 쫓기 시작하고, 형사는 세상에 숨겨진 진범을 찾기 위해 추적을 시작한다. 유력한 용의자를 범인이라고 믿는 아빠. 진짜 범인은 따로 있다고 믿는 형사. 각각 다른 방식으로 추적을 시작한 두 사람은 마침내 세상을 충격에 빠트릴 진실과 마주치게 되는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 153,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.106,
+    "voteCount": 13218,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9IDBwAfNzv4Xa03uhT8ggoxg5py.jpg",
     "posterAlt": "프리즈너스 포스터",
     "watchProvidersKr": {
@@ -1563,8 +1709,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Nora's Mom",
       "Nora's Dad"
     ],
+    "contextTags": [],
     "overview": "12살의 어느 날, 해성의 인생에서 갑자기 사라져버린 첫사랑, 나영. 12년 후, 나영은 뉴욕에서 작가의 꿈을 안고 살아가다 SNS를 통해 우연히 어린 시절 첫사랑 해성이 자신을 찾고 있었다는 사실을 알게 된다. 또 한 번의 12년 후, 인연의 끈을 붙잡기 위해 용기 내어 뉴욕을 찾은 해성. 수많은 만약의 순간들이 스쳐가며, 끊어질 듯 이어져온 감정들이 다시 교차하게 되는데...",
     "releaseYear": 2023,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.699,
+    "voteCount": 2365,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kqpohZIzActBDOrRDMjkHHUxAEp.jpg",
     "posterAlt": "패스트 라이브즈 포스터",
     "watchProvidersKr": {
@@ -1623,8 +1775,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Adm. Solomon 'Warlock' Bates",
       "Lt. Natasha 'Phoenix' Trace"
     ],
+    "contextTags": [],
     "overview": "최고의 파일럿이자 전설적인 인물 매버릭은 자신이 졸업한 훈련학교 교관으로 발탁된다. 그의 명성을 모르던 팀원들은 매버릭의 지시를 무시하지만 실전을 방불케 하는 상공 훈련에서 눈으로 봐도 믿기 힘든 전설적인 조종 실력에 모두가 압도된다. 매버릭의 지휘 아래 견고한 팀워크를 쌓아가던 팀원들에게 국경을 뛰어넘는 위험한 임무가 주어지자 매버릭은 자신이 가르친 동료들과 함께 마지막이 될지 모를 하늘 위 비행에 나서는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 131,
+    "collectionId": 531330,
+    "collectionName": "탑건 시리즈",
+    "voteAverage": 8.159,
+    "voteCount": 11172,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jeqXUwNilvNqNXqAHsdwm5pEfae.jpg",
     "posterAlt": "탑건: 매버릭 포스터",
     "watchProvidersKr": {
@@ -1678,8 +1836,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Mrs. Bird",
       "Phoenix Buchanan"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "런던 생활 3년 차, 현지 적응 완료한 패딩턴은 이발소 보조, 아쿠아리움 청소, 창문 닦기까지 섭렵  자칭 알바 마스터로 거듭난다. 루시 숙모의 100번째 생일 선물 비밀의 ‘팝업북’을 사기 위해  한 땀 한 땀 돈을 모으던 패딩턴에게 닥친 곰생 최대 위기! 변장의 대가 피닉스에 의해 비밀의 팝업북 도둑 누명을 쓰고 감옥에 갇히게 된 것! 그러나 이대로 물러설 수는 없다. 새로운 감옥 친구들과 브라운 가족의 도움으로 탈출을 감행, 진짜 범인 피닉스를 찾기 위한 털 날리는 추격을 시작하는데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 104,
+    "collectionId": 488924,
+    "collectionName": "패딩턴 시리즈",
+    "voteAverage": 7.478,
+    "voteCount": 2824,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pNhRayaQXxCDAb4h4Yx1m0qxSsF.jpg",
     "posterAlt": "패딩턴 2 포스터",
     "watchProvidersKr": {
@@ -1758,8 +1925,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Justine",
       "Eady"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "닐 맥컬리(로버트 드 니로)는 빈틈없고 치밀하게 일을 처리하는 프로 범죄자지만 따뜻한 가정의 온기를 동경한다. 반면 LA 경찰국 강력계 수사반장인 빈센트 한나(알 파치노)는 두 번의 이혼 경력에 이어 세 번째 결혼마저 위기를 맞은 불안정한 사생활의 소유자지만, 일에 있어서는 굶주린 짐승처럼 집요하게 쫓아가 결국에는 해결을 보고 만다. 닐과 그의 동료들이 특급우편 발송 차량을 습격하는 대규모 도난 사건을 일으켜 증권 투자사 간부의 고액 채권을 강탈한다. 사건 발생 직후부터 빈센트는 예리한 추리력으로 한걸음씩 닐에게 접근해간다. 닐 역시 빈센트의 추격을 눈치채는데...",
     "releaseYear": 1995,
+    "runtimeMinutes": 170,
+    "collectionId": 1048282,
+    "collectionName": "Heat Collection",
+    "voteAverage": 7.9,
+    "voteCount": 8464,
     "posterUrl": "https://image.tmdb.org/t/p/w780/p0uAcyDgBXtCSXZdnacwr9OGcIH.jpg",
     "posterAlt": "히트 포스터",
     "watchProvidersKr": {
@@ -1804,8 +1979,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Park Cheol-woong",
       "Hypnotist"
     ],
+    "contextTags": [],
     "overview": "오대수는 어느 날 술이 거나하게 취해 집에 돌아가는 길에 누군가에게 납치, 사설 감금방에 갇히게 된다. 중국집 군만두만을 먹으며 8평이라는 제한된 공간에서 그가 할 수 있는 일이라곤 텔레비전 보는 게 전부. 1년이 지났을 무렵, 뉴스를 통해 나오는 아내의 살해소식. 게다가 아내의 살인범으로 자신이 지목되고 있음을 알게 된 오대수는 복수와 탈출을 위해 감금방 한쪽 구석을 쇠젓가락으로 파기 시작한다. 감금 15년을 맞이하는 해, 마침내 사람 몸 하나 빠져나갈 만큼의 탈출구가 생겼을 때, 어이없게도 15년 전 납치됐던 바로 그 장소로 풀려나 있는 자신을 발견하게 된다.",
     "releaseYear": 2003,
+    "runtimeMinutes": 120,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.235,
+    "voteCount": 9971,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xpa9ybm6tYGna5LseqSXvKpSSJn.jpg",
     "posterAlt": "올드보이 포스터",
     "watchProvidersKr": {
@@ -1875,8 +2056,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Guy on Bridge",
       "Palm Reader"
     ],
+    "contextTags": [],
     "overview": "프랑스 파리의 소르본느 대학생인 셀린느는 헝가리 부다페스트에 사는 할머니를 만나고, 가을 학기 개강에 맞춰 파리로 돌아가는 길이다. 셀린느는 옆자리의 독일인 부부가 시끄럽게 말다툼하는 소리를 피해 뒷좌석으로 자리를 옮기는데, 거기서 제시라는 미국인 청년과 우연히 얘기를 나누게 된다. 우연히 만난 그들은 짧은 시간에 서로에게 빠져든다. 그림 같은 도시와 꿈같은 대화 속에서 발견한  서로를 향한 강한 이끌림은 풋풋한 사랑으로 물들어 간다. 밤새도록 계속된 그들의 사랑 이야기 끝에 해가 떠오르기 시작하고 그들은 헤어져야만 하는데...",
     "releaseYear": 1995,
+    "runtimeMinutes": 101,
+    "collectionId": 123800,
+    "collectionName": "비포... 시리즈",
+    "voteAverage": 8,
+    "voteCount": 4744,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o7mLGNdzY1z6w2bQv0NJNOoVKks.jpg",
     "posterAlt": "비포 선라이즈 포스터",
     "watchProvidersKr": {
@@ -1949,8 +2136,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Tally",
       "Older Guy"
     ],
+    "contextTags": [],
     "overview": "전직 파이터, 현직 청부폭력업자 ‘잭슨 힐리’ 자칭 사설 탐정, 타칭 사기꾼 ‘홀랜드 마치’ LA 법무국장 딸의 실종, 포르노 배우의 죽음, 점차 드러나는 디트로이트 자동차 산업의 비밀까지! 캐면 캘수록 그들의 위험도 커져만 가는데…이들은 과연, 목숨을 부지할 수 있을까?",
     "releaseYear": 2016,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.132,
+    "voteCount": 8742,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sIi6DlIP60RAUUxwEDp9TdJCiVI.jpg",
     "posterAlt": "나이스 가이즈 포스터",
     "watchProvidersKr": {
@@ -2035,8 +2228,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jack Mulanax",
       "Arthur Leigh Allen"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "\"1969년 8월, 샌프란시스코의 신문사들에 조디악이라 자칭하는 연쇄살인범의 편지가 배달된다. 자신이 저지른 살인을 상술한 그 편지는 동봉한 암호문을 신문에 싣지 않으면 추가살인을 저지르겠다는 경고로 끝난다. 편지와 암호문이 공개되자 샌프란시스코 일대는 충격에 휩싸인다. 형사인 데이빗과 빌, 신문사 샌프란시스코 크로니클의 사건 기자 폴은 전력을 기울여 각각 사건 해결과 추리에 나선다. 그러나 가장 끈질지게 사건의 실마리를 찾아 헤매는 사람은 경찰도 기자도 아닌, 시사만평가 로버트이다.\"",
     "releaseYear": 2007,
+    "runtimeMinutes": 156,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.532,
+    "voteCount": 11655,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rREsWQodwtdGFjo9BYAP1smMrIG.jpg",
     "posterAlt": "조디악 포스터",
     "watchProvidersKr": {
@@ -2115,8 +2316,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Shinta Takagi (voice)",
       "Yotsuha Miyamizu (voice)"
     ],
+    "contextTags": [
+      "school",
+      "travel"
+    ],
     "overview": "시골에 사는 소녀 미츠하(가미시라이시 모네)는 어느 날 잠에서 깬 후 자신의 몸이 남자로 바뀐 걸 알게 된다.  같은 시간, 도쿄에 사는 소년 타키(가미키 류노스케) 역시 이 기이한 상황을 겪고 있다.  낯선 가족, 낯선 친구들, 낯선 풍경들...  서로에게 이어진 끈을 알게 된 둘은 둘만의 규칙을 정하고 점차 상황을 받아들이기 시작한다.  서로에게 남긴 메모를 확인하며  점점 친구가 되어가는 타키와 미츠하.  언제부턴가 더 이상 몸이 바뀌지 않자  자신들이 특별하게 이어져있었음을 깨달은  타키는 미츠하를 만나러 가는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.481,
+    "voteCount": 12696,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2DJCufz3Oa703PbLjNX1pM6MCG2.jpg",
     "posterAlt": "너의 이름은. 포스터",
     "watchProvidersKr": {
@@ -2170,8 +2380,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Aunt May (voice)",
       "Rio Morales (voice)"
     ],
+    "contextTags": [],
     "overview": "평범한 10대 마일스 모랄레스는 우연히 방사능 거미에 물려 스파이더맨 능력을 가지게 된다. 혼란스러워하던 마일스는 악당과 싸우고 있는 피터 파커를 마주치게 되고 피터 파커는 마일스가 자신과 같은 능력을 가지고 있음을 직감한다. 여러 개의 평행세계가 존재한다는 것을 알게 된 마일스와 피터 파커는 이후 스파이더우먼 스파이더 그웬, 스파이더맨 누아르, 스파이더햄 등 평행세계 속 공존하는 모든 스파이더맨들을 만나게 되는데... 하나의 유니버스에서 만나 팀을 결성한 스파이더맨들은 과연 세계를 구할 수 있을까?",
     "releaseYear": 2018,
+    "runtimeMinutes": 117,
+    "collectionId": 573436,
+    "collectionName": "스파이더맨: 뉴 유니버스 시리즈",
+    "voteAverage": 8.392,
+    "voteCount": 17424,
     "posterUrl": "https://image.tmdb.org/t/p/w780/d9V6Q9vpVpmaca7vwSUbCajtDb3.jpg",
     "posterAlt": "스파이더맨: 뉴 유니버스 포스터",
     "watchProvidersKr": {
@@ -2262,8 +2478,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Kit Kat",
       "Mum"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "모태솔로 팀은 성인이 된 날, 아버지로부터 놀랄만한 가문의 비밀을 듣게 된다.  바로 시간을 되돌릴 수 있는 능력이 있다는 것!  그것이 비록 히틀러를 죽이거나 여신과 뜨거운 사랑을 할 수는 없지만,  여자친구는 만들어 줄 순 있으리..  꿈을 위해 런던으로 간 팀은 우연히 만난 사랑스러운 여인 메리에게 첫눈에 반하게 된다.  그녀의 사랑을 얻기 위해 자신의 특별한 능력을 마음껏 발휘하는 팀.  어설픈 대시, 어색한 웃음은 리와인드! 뜨거웠던 밤은 더욱 뜨겁게 리플레이!  꿈에 그리던 그녀와 매일매일 최고의 순간을 보낸다.  하지만 그와 그녀의 사랑이 완벽해질수록 팀을 둘러싼 주변 상황들은 미묘하게 엇갈리고,  예상치 못한 사건들이 여기저기 나타나기 시작하는데…  어떠한 순간을 다시 살게 된다면, 과연 완벽한 사랑을 이룰 수 있을까?",
     "releaseYear": 2013,
+    "runtimeMinutes": 123,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.907,
+    "voteCount": 9352,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cLfuuK1Y5FjX1xXDrrEa9ppnKuy.jpg",
     "posterAlt": "어바웃 타임 포스터",
     "watchProvidersKr": {
@@ -2342,8 +2566,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Doyle",
       "Getty"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "세계 각국의 정부와 경제가 완전히 붕괴된 미래가 다가온다. 지난 20세기에 범한 잘못이 전 세계적인 식량 부족을 불러왔고, NASA도 해체되었다. 나사 소속 우주비행사였던 쿠퍼는 지구에 몰아친 식량난으로 옥수수나 키우며 살고 있다. 거센 황사가 몰아친 어느 날 알 수 없는 힘에 이끌려 딸과 함께 도착한 곳은 인류가 이주할 행성을 찾는 나사의 비밀본부. 이 때 시공간에 불가사의한 틈이 열리고, 이 곳을 탐험해 인류를 구해야 하는 임무를 위해 쿠퍼는 만류하는 딸을 뒤로한 채 우주선에 탑승하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 169,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.481,
+    "voteCount": 40321,
     "posterUrl": "https://image.tmdb.org/t/p/w780/evoEi8SBSvIIEveM3V6nCJ6vKj8.jpg",
     "posterAlt": "인터스텔라 포스터",
     "watchProvidersKr": {
@@ -2397,8 +2630,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Yusuf",
       "Robert Fischer, Jr."
     ],
+    "contextTags": [],
     "overview": "타인의 꿈에 들어가 생각을 훔치는 특수 보안요원 코브. 그를 이용해 라이벌 기업의 정보를 빼내고자 하는 사이토는 코브에게 생각을 훔치는 것이 아닌, 생각을 심는 ‘인셉션’ 작전을 제안한다. 성공 조건으로 국제적인 수배자가 되어있는 코브의 신분을 바꿔주겠다는 거부할 수 없는 제안을 하고, 사랑하는 아이들에게 돌아가기 위해 그 제안을 받아들인다. 최강의 팀을 구성, 표적인 피셔에게 접근해서 ‘인셉션’ 작전을 실행하지만 예기치 못한 사건들과 마주하게 되는데… 꿈 VS 현실! 시간, 규칙, 타이밍 모든 것이 완벽해야만 하는, 단 한 번도 성공한 적 없는 ‘인셉션’ 작전이 시작된다!",
     "releaseYear": 2010,
+    "runtimeMinutes": 148,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.373,
+    "voteCount": 39567,
     "posterUrl": "https://image.tmdb.org/t/p/w780/atSxEGstxXRoSKDQFBgqQ5lpGSt.jpg",
     "posterAlt": "인셉션 포스터",
     "watchProvidersKr": {
@@ -2463,8 +2702,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Cypher",
       "Tank"
     ],
+    "contextTags": [],
     "overview": "인간의 기억마저 AI에 의해 입력되고 삭제되는 세상, 진짜보다 더 진짜 같은 가상 현실 매트릭스. 그 속에서 진정한 현실을 인식할 수 없게 재배되는 인간들. 그 매트릭스를 빠져 나오면서 AI에게 가장 위험한 인물이 된 모피어스는 몇 안 되는 동료들과 함께 기계와의 전쟁 전후의의 폐허를 떠돌며 인류를 구할 마지막 영웅을 찾아 헤맨다. 마침내 모피어스는 낮에는 평범한 회사원 앤더슨으로, 밤에는 해커로 활동하는 청년 네오를 그로 지목한다. 모피어스의 지시대로 그를 만나게 된 네오는 두개의 알약 중 하나를 고르는 선택을 하게 되는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 136,
+    "collectionId": 2344,
+    "collectionName": "매트릭스 시리즈",
+    "voteAverage": 8.251,
+    "voteCount": 28198,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fxBxoXFAYKWde6lKzXxSusn18Av.jpg",
     "posterAlt": "매트릭스 포스터",
     "watchProvidersKr": {
@@ -2537,8 +2782,16 @@ export const catalogMovies: CatalogMovie[] = [
       "General Shang",
       "8-Year-Old Hannah"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "어느 날 전 세계 12개 지역에 외계 비행물체 셸이 동시다발로 출현한다. 450m에 달하는 거대 비행체가 가만히 서 있을 뿐 어떤 행동도 하지 않자 각국 정부는 각자의 방식으로 외계인과 접촉을 시작하지만, 완전히 다른 언어 체계 때문에 첫 단계부터 난항을 겪는다. 미국 정부의 요청을 받은 언어학자 루이스와 물리학자 이안은 말과 글이 통하지 않는 상황에서, 신체의 모든 기관과 감정을 이용해 미지의 생명체와 대화를 시도하고 서로의 문자를 배워나간다. 마침내 대화의 물꼬가 트이게 되지만 그때부터 루이스는 이해하기 어려운 환상을 연이어 보기 시작하는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.629,
+    "voteCount": 19525,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yHEMUTIYZFHN3jjkKmTFrvhj64a.jpg",
     "posterAlt": "컨택트 포스터",
     "watchProvidersKr": {
@@ -2615,8 +2868,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Thufir Hawat",
       "Gurney Halleck"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "10191년, 아트레이데스 가문의 후계자인 폴은 시간과 공간을 초월해 과거와 미래를 모두 볼 수 있고, 더 나은 미래를 만들 유일한 구원자인 예지된 자의 운명을 타고났다. 그리고 어떤 계시처럼 매일 꿈에서 아라키스의 행성에 있는 한 여인을 만난다. 귀족들이 지지하는 아트레이데스 가문에 대한 황제의 질투는 폴과 그 일족들을 죽음이 기다리는 아라키스로 이끄는데...",
     "releaseYear": 2021,
+    "runtimeMinutes": 155,
+    "collectionId": 726871,
+    "collectionName": "듄 시리즈",
+    "voteAverage": 7.8,
+    "voteCount": 15113,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7zV8FTYofAORGm0Umgh1mNNCym8.jpg",
     "posterAlt": "듄 포스터",
     "watchProvidersKr": {
@@ -2674,8 +2935,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Luv",
       "Mariette"
     ],
+    "contextTags": [],
     "overview": "인간과 리플리컨트가 혼재된 2049년. 인간의 통제를 벗어난 리플리컨트를 쫓는 블레이드 러너 K는 임무 수행 도중 약 30년 전 여자 리플리컨트의 유골을 발견하고 충격적으로 출산의 흔적까지 찾아낸다. 리플리컨트가 출산까지 가능하다는 사실이 알려지면사회에 큰 혼란이 야기되므로 이를 덮으려는 경찰 조직과, 그 비밀의 단서를 찾아내 더욱 완벽한 리플리컨트를 거느리고 세상을 장악하기 위해 K를 쫓는 니안더 월레스. 리플리컨트의 숨겨진 진실에 접근할수록 점차 정체성의 혼란을 겪게 되는 K는 과거 블레이드 러너였던 릭 데커드를 만나 전혀 상상치 못한 진실을 마주하게 되는데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 164,
+    "collectionId": 422837,
+    "collectionName": "블레이드 러너 시리즈",
+    "voteAverage": 7.597,
+    "voteCount": 15310,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fJZmCJpLeBFKktLFEIKPEhllWlU.jpg",
     "posterAlt": "블레이드 러너 2049 포스터",
     "watchProvidersKr": {
@@ -2754,8 +3021,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Becky Sregor",
       "Big Nose"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "남편과 세탁소를 운영하며 근근히 살아가고 있는 이민자 이블린 왕. 20대 시절 남편과 순수한 사랑을 불태우며 모든 것을 뒤로 하고 미국으로 이민을 떠났지만, 50대가 된 지금은 세탁소 운영 등 온갖 일로 허덕이며 단란했던 가족과도 삐그덕거리는 등 고달프게 살고 있다. 세무조사를 받던 중 자신이 멀티버스의 여러 다른 자신들과 연결되어 있음을 알게 되고, 강력한 악의 기운으로부터 모든 우주와 가족을 구해내기 위한 모험에 나서게 되는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 140,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.717,
+    "voteCount": 8127,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dd29Kt2p2voyP2sB6p3jC36A7ce.jpg",
     "posterAlt": "에브리씽 에브리웨어 올 앳 원스 포스터",
     "watchProvidersKr": {
@@ -2849,8 +3124,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lily",
       "Jasmine"
     ],
+    "contextTags": [],
     "overview": "유능한 프로그래머 칼렙은 치열한 경쟁 끝에 인공지능 분야의 천재 개발자 네이든의 새로운 프로젝트에 참여하게 된다. 외부엔 알려지지 않은 그의 비밀 연구소로 초대받은 칼렙은 그 곳에서 네이든이 창조한 매혹적인 A.I. 에이바를 만나게 된다. 그녀의 인격과 감정이 진짜인지 아니면 프로그래밍 된 것인 지를 밝히는 테스트를 진행하지만. 점점 에이바도 그녀의 창조자 네이든도 그리고 자신의 존재조차 믿을 수 없게 되고 모든 것을 의심하게 되는데…",
     "releaseYear": 2015,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.573,
+    "voteCount": 14371,
     "posterUrl": "https://image.tmdb.org/t/p/w780/a3tuxUHT64cl4gPqWbtsLyKdzJS.jpg",
     "posterAlt": "엑스 마키나 포스터",
     "watchProvidersKr": {
@@ -2911,8 +3192,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Olivia Wenscombe",
       "Jess"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "로버트 앤지어는 상류층 집안에서 자란 쇼맨십이 강한 마술사다. 반면 고아로 사람들과 잘 어울리지 못하는 알프레드 보든은 아이디어를 남들에게 보여 줄 배짱은 없지만 누구보다도 뛰어난 재능을 가진 천재이다. 두 사람은 서로를 아끼는 친구이자 선의의 경쟁자였지만, 그들이 최고라 자부했던 수중 마술이 실패로 돌아가면서 두 사람은 철천지 원수로 돌변한다. 서로 상대방 마술의 비밀을 캐내려 경쟁을 벌이는 가운데, 로버트는 알프레드의 비밀을 알아내기 위해 자신의 조수이자 사랑하는 여인 올리비아를 알프레드에게 접근하게 만든다.",
     "releaseYear": 2006,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.21,
+    "voteCount": 17742,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pN3H35IXZb9Aiew4BWLiloWQe7q.jpg",
     "posterAlt": "프레스티지 포스터",
     "watchProvidersKr": {
@@ -2974,8 +3263,14 @@ export const catalogMovies: CatalogMovie[] = [
       "김민희",
       "김태리"
     ],
+    "contextTags": [],
     "overview": "Behind the scenes",
     "releaseYear": 2016,
+    "runtimeMinutes": 5,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 10,
+    "voteCount": 1,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oLALU5qhYbz995SfcSbrxE2zmYM.jpg",
     "posterAlt": "Making of The Handmaiden 포스터",
     "watchProvidersKr": null
@@ -3009,8 +3304,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Yeon-su",
       "Ki Do-soo"
     ],
+    "contextTags": [],
     "overview": "산 정상에서 추락한 한 남자의 변사 사건. 담당 형사 해준은 사망자의 아내 서래와 마주하게 된다. 남편의 죽음 앞에서 특별한 동요를 보이지 않는 서래. 경찰은 보통의 유가족과는 다른 서래를 용의선상에 올린다. 해준은 사건 당일의 알리바이 탐문과 신문, 잠복수사를 통해 서래를 알아가면서 그녀에 대한 관심이 점점 커져가는 것을 느낀다. 한편 좀처럼 속을 짐작하기 어려운 서래는 상대가 자신을 의심한다는 것을 알면서도 조금의 망설임도 없이 해준을 대하는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.32,
+    "voteCount": 1541,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rXEJ28XDQsogIGqwVEgwM2oDdpl.jpg",
     "posterAlt": "헤어질 결심 포스터",
     "watchProvidersKr": {
@@ -3101,8 +3402,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lawyer",
       "Judge"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "유통회사 알바생 종수는 배달을 갔다가 어릴 적 같은 동네에서 살았던 친구 해미를 만난다. 종수는 해미에게서 아프리카 여행을 간 동안 자기가 키우는 고양이를 돌봐 달라는 부탁을 받는다. 여행에서 돌아온 해미는 아프리카에서 만난 벤이라는 정체불명의 남자를 종수에게 소개한다. 어느 날 벤은 해미와 함께 종수의 집으로 찾아와 자신의 비밀스러운 취미에 대해 고백한다. 그때부터 종수는 무서운 예감에 사로잡히게 되는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 148,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.375,
+    "voteCount": 1837,
     "posterUrl": "https://image.tmdb.org/t/p/w780/AlKlezuaJkP2lDEWbJxYv47GeDf.jpg",
     "posterAlt": "버닝 포스터",
     "watchProvidersKr": {
@@ -3180,8 +3489,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Monster (voice)",
       "Se-jin"
     ],
+    "contextTags": [],
     "overview": "아버지가 운영하는 한강매점, 늘어지게 낮잠 자던 강두는 우연히 특이한 광경을 목격하게 된다. 생전 보도 못한 무언가가 한강다리에 매달려 움직이는 것이다. 정체를 알 수 없는 괴물은 둔치 위로 올라와 사람들을 거침없이 깔아뭉개고, 무차별로 물어뜯기 시작한다. 순식간에 아수라장으로 돌변하는 한강변. 강두도 뒤늦게 딸 현서를 데리고 정신없이 도망가지만, 꼭 잡았던 현서의 손을 놓치고 만다. 하루아침에 집과 생계, 그리고 현서까지 모든 것을 잃게 된 강두 가족. 돈도 없고 빽도 없는 그들은 위험구역으로 선포된 한강 어딘가에 있을 현서를 찾아 나선다.",
     "releaseYear": 2006,
+    "runtimeMinutes": 119,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.978,
+    "voteCount": 3170,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tqDQzYGi1EWHgUZY91YRSJLDJVf.jpg",
     "posterAlt": "괴물 포스터",
     "watchProvidersKr": {
@@ -3277,8 +3592,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jin-hee",
       "Yong-suk"
     ],
+    "contextTags": [
+      "halloween"
+    ],
     "overview": "별거 중인 펀드 매니저 석우는 소원해진 딸 수안의 생일 소원을 들어주기 위해 아내가 있는 부산행 KTX에 오른다. 이내 열차는 좀비의 침투와 감염으로 아수라장으로 변하고, 전국적 재난 뉴스를 차내에서 접한 승객들의 생존가능성은 유일하게 초기 대응에 성공한 도시 부산까지 살아남은 채 도착할 수 있느냐에 달리게 된다. 열차에 몸을 실은 석우와 딸 수안, 상화와 성경 커플, 고등학생 영국, 진희, 그리고 노숙자와 중년의 비즈니스맨 용석은 감염된 사람들의 공격을 피해 열차 안에서 사투를 벌인다.",
     "releaseYear": 2016,
+    "runtimeMinutes": 118,
+    "collectionId": 619537,
+    "collectionName": "부산행 시리즈",
+    "voteAverage": 7.753,
+    "voteCount": 8484,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6XvEZVBFFjybvb1yQd1qfOC6F2S.jpg",
     "posterAlt": "부산행 포스터",
     "watchProvidersKr": {
@@ -3337,8 +3660,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mother-in-Law",
       "Jong-goo's Wife"
     ],
+    "contextTags": [],
     "overview": "낯선 외지인이 나타난 후 벌어지는 의문의 연쇄 사건들로 마을이 발칵 뒤집힌다. 경찰은 집단 야생 버섯 중독으로 잠정적 결론을 내리지만  모든 사건의 원인이 그 외지인 때문이라는 소문과 의심이 걷잡을 수 없이 퍼져 나간다. 경찰 종구는 현장을 목격했다는 여인 무명을 만나면서  외지인에 대한 소문을 확신하기 시작한다. 딸 효진이 피해자들과 비슷한 증상으로 아파오기 시작하자 다급해진 종구. 외지인을 찾아 난동을 부리고, 무속인 일광을 불러들이는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 156,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.37,
+    "voteCount": 2087,
     "posterUrl": "https://image.tmdb.org/t/p/w780/k9AKtgRErXjz14lFHL2IJVCgwOT.jpg",
     "posterAlt": "곡성 포스터",
     "watchProvidersKr": {
@@ -3383,8 +3712,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ernest Lawrence",
       "Boris Pash"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.",
     "releaseYear": 2023,
+    "runtimeMinutes": 181,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.025,
+    "voteCount": 12001,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jpD6z9fgNe7OqsHoDeAWQWoULde.jpg",
     "posterAlt": "오펜하이머 포스터",
     "watchProvidersKr": {
@@ -3434,8 +3771,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Divya Narendra",
       "Christy Ling"
     ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
     "overview": "2003년 가을, 하버드대의 컴퓨터 천재 마크는 비밀 엘리트 클럽의 윈클보스 형제에게 하버드 선남선녀들만 교류할 수 있는 하버드 커넥션 사이트 제작을 의뢰 받는다. 하지만 여기서 획기적인 아이디어를 생각해낸 마크는 인맥 교류 사이트 페이스북을 개발, 절친 왈도의 도움으로 사이트를 오픈한다. 페이스북은 순식간에 모두의 마음을 사로잡고, 유명한 냅스터의 창시자 숀의 참여로 전세계로 번지면서 마크는 기업가치 58조원, 전세계 최연소 억만장자가 된다. 하지만 그 순간 윈클보스 형제는 물론 왈도마저 전대미문의 소송을 제기하는데...",
     "releaseYear": 2010,
+    "runtimeMinutes": 121,
+    "collectionId": 1504252,
+    "collectionName": "The Social Network Collection",
+    "voteAverage": 7.374,
+    "voteCount": 13268,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4WAq2IZuVvWl0Wd1YIgBXdYgXna.jpg",
     "posterAlt": "소셜 네트워크 포스터",
     "watchProvidersKr": {
@@ -3506,8 +3852,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Laurie",
       "Mr. Dashwood"
     ],
+    "contextTags": [
+      "christmas",
+      "literary",
+      "winter"
+    ],
     "overview": "첫째 메그는 배우가 되고 싶은 욕망과 가족을 가지고 싶어하는 욕망 사이에서 고민하고, 둘째 조는 소설을 쓰지만 여성들이 쓴 소설은 어떻게 끝이 나야 하는지 잘 알고 있는 척하는 편집장과 맞서야 한다. 셋째 베스는 피아노를 잘 치지만 건강에 문제가 있고, 막내 에이미는 그림을 그리는 데 소질이 있지만 남자들이 좋아하는 취향에 따라 그림을 그려야 하는 상황에 처한다. 이웃집 소년 로리는 네 자매를 우연히 알게 되고, 각기 다른 개성의 네 자매들과 인연을 쌓아 간다. 7년 후, 어른이 된 그들에겐 각기 다른 숙제가 놓이게 되는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.85,
+    "voteCount": 6885,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2kfDJEwZ7Rxo3yz5v6rJlwqtY0W.jpg",
     "posterAlt": "작은 아씨들 포스터",
     "watchProvidersKr": {
@@ -3570,8 +3926,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Anne",
       "Mr. Harlan"
     ],
+    "contextTags": [],
     "overview": "낯선 미국에서 병아리를 감별하며 생계를 이어가던 제이콥과 모니카. 딸 앤과 아들 데이빗에게 아버지로서 뭔가 해내는 모습을 보여주고 싶은 제이콥은 아칸소로 이주해 자신의 농장을 가꾼다. 모니카는 낡은 컨테이너에서 생활하며 농장 일에만 몰두하는 제이콥이 못마땅하지만 그저 그의 결정을 지켜볼 뿐이다. 아칸소에서의 적적하고 고된 삶에 지친 모니카는 엄마 순자를 미국으로 모신다. 한약, 멸치, 미나리 씨 등을 잔뜩 챙겨온 순자는 여느 할머니와 달리 요리도 하지 않고 프로레슬링을 즐겨 본다. 앤과 데이빗은 그런 할머니가 낯설지만, 못된 장난까지 사랑으로 포용하는 할머니와 점점 가까워진다.",
     "releaseYear": 2021,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.325,
+    "voteCount": 1877,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ltS2iKKvvBi7ZXWPRZSZBGmC9Gr.jpg",
     "posterAlt": "미나리 포스터",
     "watchProvidersKr": {
@@ -3648,8 +4010,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Chiara",
       "Mafalda"
     ],
+    "contextTags": [
+      "literary",
+      "summer"
+    ],
     "overview": "17살 소년 엘리오의 가족은 매년 여름 손님을 받는다. 엘리오의 아버지 펄먼 교수의 일을 돕는 보조 연구원은 6주 동안 이곳에 머물며 사람들과 어울리고 자유로운 식사, 일광욕과 수영을 즐긴다. 올해 집을 찾은 24살 올리버는 모든 사람이 호감을 갖는 사람이다. 하지만 엘리오의 감정은 좀더 특별하다. 처음 보는 순간부터 그를 의식했고, 그 실체가 동성에게 품은 사랑임을 깨달은 후에는 적대감을 갖고 있는 것처럼 군다. 하지만 엘리오가 자신의 진짜 속내를 내비친 후 두 사람은 서로의 마음이 같다는 것을 알게 된다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 132,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.088,
+    "voteCount": 12812,
     "posterUrl": "https://image.tmdb.org/t/p/w780/guzNdgRjANTBDkTRYGqgzFOgSWx.jpg",
     "posterAlt": "콜 미 바이 유어 네임 포스터",
     "watchProvidersKr": {
@@ -3720,8 +4091,16 @@ export const catalogMovies: CatalogMovie[] = [
       "L'élève atelier",
       "L'homme salon"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "1770년, 젊은 화가 마리안느는 밀라노 귀족과 결혼을 앞둔 여인 엘로이즈의 초상화를 그려달라는 백작 부인의 의뢰를 받고 엘로이즈가 머무는 외딴섬의 영지에서 며칠간 머물게 된다. 마리안느는 엘로이즈가 초상화 그리는 걸 싫어한다는 이유 때문에 화가라는 신분을 숨기고 접근한다. 마리안느는 엘로이즈의 이목구비를 눈에 담기 위해 매일 산책에 동행하면서 그녀가 지닌 아픔을 어루만져주고 친분도 쌓는다. 어쨌든 그녀는 엘로이즈의 결혼을 종용하는 도구로 사용될 초상화 완성에 매진해야 한다.",
     "releaseYear": 2019,
+    "runtimeMinutes": 121,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.095,
+    "voteCount": 2960,
     "posterUrl": "https://image.tmdb.org/t/p/w780/M0mm1VGMZRa6eRzgoZmYW9zPd8.jpg",
     "posterAlt": "타오르는 여인의 초상 포스터",
     "watchProvidersKr": {
@@ -3794,8 +4173,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Papá (voice)",
       "Papá Julio (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "미구엘은 멕시코의 자랑인 에르네스토 델라 크루즈 같은 뮤지션이 되길 꿈꾸지만 미구엘 집안 사람들에게 음악은 금기다. 먼 옛날 조상 중에 음악 때문에 가족을 버린 인물이 있었기 때문. 미구엘은 죽은 자의 날이 되자 실력으로 인정받겠다는 결심을 하고 경연 무대에 오르려 하는데, 우연히 에르네스토의 기타에 손을 댔다가 죽은 자들의 세상에 들어서게 된다. 이승과 저승을 이어주는 마리골드 꽃길을 건너 죽은 자들의 세상에 도착한 미구엘은 거짓말과 위변조가 장기인 헥터를 만난다. 그리고 꿈에 그리던 우상 에르네스토를 만나러 가는 여정에서 가족의 비밀을 알게 된다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 105,
+    "collectionId": 1451578,
+    "collectionName": "Coco Collection",
+    "voteAverage": 8.198,
+    "voteCount": 21125,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pQu93NuwR90AaCULzglVD5Ge4Ml.jpg",
     "posterAlt": "코코 포스터",
     "watchProvidersKr": {
@@ -3849,8 +4236,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Hamm (voice)",
       "Mrs. Potato Head (voice)"
     ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
     "overview": "모든 장난감들이 겪는 가장 슬픈 일은 바로 주인이 성장해 더이상 자신들과 놀아주지 않는 것. 우디와 버즈에게도 그 위기가 찾아온다. 앤디가 대학에 진학, 집을 떠나게 된 것. 헤어짐의 불안에 떨던 토이들은 앤디 엄마의 실수로 집을 나오게 되고 우여곡절 끝에 탁아소에 기증된다. 앤디가 자신들을 버렸다고 생각하는 장난감들. 게다가 어린이집의 아이들은 난폭하고 험한 데다가, 상상도 못했던 거대한 음모까지 숨겨져 있는 어린이집 장난감의 세계. 앤디가 여전히 자신들을 사랑한다는 사실을 알게 된 장난감들은 앤디 곁으로 돌아가기 위해 생애 가장 큰 모험을 결심하는데...",
     "releaseYear": 2010,
+    "runtimeMinutes": 102,
+    "collectionId": 10194,
+    "collectionName": "토이 스토리 시리즈",
+    "voteAverage": 7.813,
+    "voteCount": 15936,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hbUWahBLUon8RaIb9Tq7aWCBCtS.jpg",
     "posterAlt": "토이 스토리 3 포스터",
     "watchProvidersKr": {
@@ -3910,8 +4306,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Arwen",
       "Saruman"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "호빗이라 불리우는 난장이 종족 중의 한 명인 프로도는 자신의 삼촌에게서 우연히 절대 반지를 물려받게 되고, 마법사 간달프를 통해서 절대반지가 사우론의 손에 들어가면 악의 세력이 세상을 지배하게 된다는 것을 알게 된다. 하지만 절대반지를 영원히 파괴할 수 있는 유일한 방법은 반지가 만들어진 불의 산의 용암에 그것을 던져 넣는 길 뿐이다. 마침내 프로도와 그의 친구들, 엘프족인 레골라스, 난장이족 김리, 두명의 인간 전사 아라곤과 보로미르, 그리고 마법사 간달프로 구성된 반지 원정대가 길고도 험난한 여정을 떠나게 되는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 227,
+    "collectionId": 119,
+    "collectionName": "반지의 제왕 시리즈",
+    "voteAverage": 8.438,
+    "voteCount": 27858,
     "posterUrl": "https://image.tmdb.org/t/p/w780/r18JdjImbWDRwkbVDIzWoLQqkCo.jpg",
     "posterAlt": "반지의 제왕: 반지 원정대 포스터",
     "watchProvidersKr": {
@@ -3990,8 +4395,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Gimli / Treebeard (voice)",
       "Legolas"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "9명의 반지원정대는 사우론의 세력에 맞서 반지를 지켜냈지만 반지 원정대는 뿔뿔이 흩어지게 된다. 메리와 피핀을 구하기 위해 우르크하이 군대를 추격하던 아라곤과 레골라스, 김리는 유령 숲에서 백색의 마법사로 부활한 마법사 간달프를 만나게 되고 사우론이 암흑세계의 두 개의 탑을 통합하여 점점 그 세력을 넓혀가고 있다는 사실을 듣게 된다. 이에 아라곤과 원정대는 중간계의 선한 무리의 통합을 이뤄 사우론의 세력을 견제해야 하는 큰 임무를 맡게 된다. 하지만 원수지간인 곤도르와 로한으로 나뉜 인간 종족의 통합은 쉽지 않고 게다가 로한의 왕마저 사루만에게 동화되는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 177,
+    "collectionId": 119,
+    "collectionName": "반지의 제왕 시리즈",
+    "voteAverage": 8.423,
+    "voteCount": 24139,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zxZdTi3fA7aDxEOivmzZAY2bmTu.jpg",
     "posterAlt": "반지의 제왕: 두 개의 탑 포스터",
     "watchProvidersKr": {
@@ -4076,8 +4490,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Merry",
       "Pippin"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "사우론이 인간들의 마지막 요새인 곤도르를 향해 야욕을 드러내고 있는 한편, 아라곤은 쇠락해가고 있는 곤도르의 재건을 위해 왕위 계승을 신중하게 결정지어야만 하는 상황. 이제 중간대륙의 미래는 그의 어깨에 달려있는 것. 사우론이 이끄는 어둠의 군대와의 마지막 전투를 위해 간달프는 곤도르에 흩어져 있던 병사들을 모으고, 로한의 왕 세오덴에게 도움을 받기도 하지만 사우론의 군대에 비하면 열세를 면치 못한다. 그러나 그들은 중간대륙을 사우론의 야욕으로부터 지키려는 사명감과, 마지막 반지 운반자에게 임무를 끝낼 기회를 주기 위해 어둠의 군대를 향해 돌진하게 되는데...",
     "releaseYear": 2003,
+    "runtimeMinutes": 199,
+    "collectionId": 119,
+    "collectionName": "반지의 제왕 시리즈",
+    "voteAverage": 8.501,
+    "voteCount": 26859,
     "posterUrl": "https://image.tmdb.org/t/p/w780/n8BPIRqvj1SdTRND828ANXhmSng.jpg",
     "posterAlt": "반지의 제왕: 왕의 귀환 포스터",
     "watchProvidersKr": {
@@ -4156,8 +4579,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Walter",
       "Georgina"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "크리스와 그의 여자친구 로즈는 주말을 맞아 로즈의 부모님 집을 방문한다. 가족들의 과한 친절이 그저 딸이 흑인 남자친구를 데려왔기 때문이라고 생각한 크리스. 하지만 머무는 시간이 길어질수록 이상한 점을 한 두가지씩 발견하는데... 그가 상상도 못한 진실이 기다리고 있었다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.624,
+    "voteCount": 19035,
     "posterUrl": "https://image.tmdb.org/t/p/w780/paPvmoLgUUQojsSdAZmf7dwkKGT.jpg",
     "posterAlt": "겟 아웃 포스터",
     "watchProvidersKr": {
@@ -4236,8 +4667,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Bridget",
       "Aaron"
     ],
+    "contextTags": [],
     "overview": "애니는 일주일 전 돌아가신 엄마의 유령이 집에 나타나는 것을 느낀다. 애니가 엄마와 닮았다며 접근한 수상한 이웃 조안을 통해 엄마의 비밀을 발견하고, 자신이 엄마와 똑같은 일을 저질렀음을 알게 된다. 그리고 마침내 애니의 엄마로부터 시작돼 아들 피터와 딸 찰리에게까지 이어진 저주의 실체가 정체를 드러내는데…",
     "releaseYear": 2018,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.296,
+    "voteCount": 8690,
     "posterUrl": "https://image.tmdb.org/t/p/w780/h2Fw8XXqDSyRA5Dn9ntCRJESYYY.jpg",
     "posterAlt": "유전 포스터",
     "watchProvidersKr": {
@@ -4299,8 +4736,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Bryce",
       "Felicity"
     ],
+    "contextTags": [],
     "overview": "커플인 마고와 타일러는 까다롭기로 유명한 셰프, 슬로윅의 초청을 받아 어느 외딴섬 레스토랑의 저녁 식사에 참석하게 된다. 평소 슬로윅을 존경해왔던 타일러는 들뜬 마음으로 여러 유명인사들과 함께 섬으로 출발하는 배에 탑승한다. 레스토랑에 도착한 손님들은 슬로윅의 화려한 환대에 탄성을 자아낸다. 하지만 ‘음식은 또 다른 예술’이라는 슬로윅의 기괴한 집착에, 좋았던 분위기는 점차 이상한 방향으로 흐른다. 뭔가 심상치 않음을 감지한 마고는 이의를 제기하려 하지만, 이미 슬로윅의 음식에 푹 빠져버린 타일러에게 그녀의 제안은 안중에도 없다. 그런 와중에 슬로윅의 기괴한 집착은 점점 선을 넘기 시작하는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.179,
+    "voteCount": 6360,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2Bi9OTGNAkNjStDnMDR93GPgwFY.jpg",
     "posterAlt": "더 메뉴 포스터",
     "watchProvidersKr": {
@@ -4350,8 +4793,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Amber Park",
       "Otis Haywood Sr."
     ],
+    "contextTags": [],
     "overview": "OJ 헤이우드의 아버지 오티스 헤이우드 시니어가 기이한 현상으로 인해 갑작스러운 죽음을 맞이하며 시작된다. 해명할 수 없는 의문의 상황으로 인해 아버지가 사망한 충격 소식을 듣고 헤이우드 목장으로 다시 돌아온 동생 에메랄드 헤이우드는 그의 오빠와 달리 주목받길 원하며 고독과 침묵을 견딜 수 없어 하는 모습들을 보인다. 어린 시절 할리우드에서 아역 스타로 유명세를 얻고 지금은 자신이 출연한 작품의 본인 캐릭터 이름을 딴 주피터 파크를 운영하는 리키 주프 박도 등장한다. 이들은 각자의 위치에서 아무도 볼 수 없는 ‘그것’에 대한 공포심을 느끼는 동시에 각자의 방법으로 그 정체를 쫓아간다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.826,
+    "voteCount": 4982,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6N5pRG81j6EBHhjIMkvwKnOj7u6.jpg",
     "posterAlt": "놉 포스터",
     "watchProvidersKr": {
@@ -4415,8 +4864,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Richard Chesler (Regional Manager)",
       "The Mechanic"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "자동차 회사의 리콜 심사관으로 일하는 주인공은 일상의 무료함과 공허함 속에서 늘 새로운 탈출을 꿈꾼다. 그는 비행기에서 자신을 비누 제조업자라고 소개하는 타일러 더든을 만난다. 집에 돌아온 주인공은 아파트가 누군가에 의해 폭파되었음을 발견하고, 타일러에게 도움을 청해 함께 생활하게 된다. 어느 날 밤 타일러는 주인공에게 자신을 때려달라고 부탁한다. 사람은 싸워봐야 진정한 자신을 알 수 있다는 것이다. 결국 이들은 매주 토요일 밤 술집 지하에서 맨주먹으로 격투를 벌이는 파이트 클럽을 결성하기에 이르는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 139,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.438,
+    "voteCount": 32356,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eKZ07Ted7VHxQjbuZrRBFOamcKJ.jpg",
     "posterAlt": "파이트 클럽 포스터",
     "watchProvidersKr": {
@@ -4492,8 +4949,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Tommy",
       "Brooks Hatlen"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "촉망받는 은행 간부 앤디 듀프레인은 아내와 그녀의 정부를 살해했다는 누명을 쓴다. 주변의 증언과 살해 현장의 그럴듯한 증거들로 그는 종신형을 선고받고 악질범들만 수용한다는 지옥같은 교도소 쇼생크로 향한다. 인간 말종 쓰레기들만 모인 그곳에서 그는 이루 말할 수 없는 억압과 짐승보다 못한 취급을 당한다. 그러던 어느 날, 간수의 세금을 면제받게 해 준 덕분에 그는 일약 교도소의 비공식 회계사로 일하게 된다. 그 와중에 교도소 소장은 죄수들을 이리저리 부리면서 검은 돈을 긁어 모으고 앤디는 이 돈을 세탁하여 불려주면서 그의 돈을 관리하는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 142,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.726,
+    "voteCount": 30784,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qV9BQZdiM8foEzDz0Ag5hGWE5qM.jpg",
     "posterAlt": "쇼생크 탈출 포스터",
     "watchProvidersKr": {
@@ -4578,8 +5043,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gracchus",
       "Juba"
     ],
+    "contextTags": [],
     "overview": "죽을 날이 머지않은 황제 마르쿠스 아우렐리우스는 막시무스를 총애하여 아들이 아닌 그에게 권력을 넘겨주기로 한다. 황제의 아들 코모두스는 이에 질투와 분노를 느껴 황제를 살해한다. 왕좌를 이어받은 코모두스는 막시무스와 그의 가족을 죽이라고 명령한다. 가족을 모두 잃고 겨우 살아남은 막시무스는 노예로 전락하고, 투기장의 검투사가 된다. 그에게 남은 건 오직 황제 코모두스에 대한 복수 뿐. 검투사로서 매 경기마다 승리로 이끌면서 살아남자 그의 명성은 날로 높아 간다. 그러던 어느 날 오래 전 사랑했던 황제의 누이 루실라를 다시 만나게 되는데...",
     "releaseYear": 2000,
+    "runtimeMinutes": 154,
+    "collectionId": 1069584,
+    "collectionName": "글래디에이터 시리즈",
+    "voteAverage": 8.2,
+    "voteCount": 21090,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4mMwki6S1MfdBfsKTvP8xqaRnWh.jpg",
     "posterAlt": "글래디에이터 포스터",
     "watchProvidersKr": {
@@ -4658,8 +5129,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mathis",
       "Solange"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "MI6의 평범한 요원이던 제임스 본드. 체코에서의 암살 임무를 마치고 007로 승격된 그에게 첫번째 임무가 주어진다. 국제 테러조직의 자금줄로 알려진 수수께끼의 인물 르쉬프의 배후를 밝혀내는 것. 마다가스카에서 작전을 수행하던 007은 르쉬프가 몬테카를로의 카지노 로얄에서 무제한 배팅이 가능한 홀뎀 포커를 통해 테러자금을 모으려는 음모를 알아낸다. MI6의 상관 M은 제임스 본드의 위장 잠입과 자금 관리를 위해 베스퍼 린드를 파견하고, 서로의 능력을 의심하던 두 사람 사이에는 팽팽한 긴장감이 감돌지만 테러조직의 위협을 함께 겪으며 차츰 애틋한 연인관계로 발전한다.",
     "releaseYear": 2006,
+    "runtimeMinutes": 144,
+    "collectionId": 645,
+    "collectionName": "007 제임스 본드 시리즈",
+    "voteAverage": 7.575,
+    "voteCount": 11788,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2e9maVDTkHXjEB3Bk1oBvZ5Xs0M.jpg",
     "posterAlt": "007 카지노 로얄 포스터",
     "watchProvidersKr": {
@@ -4712,8 +5191,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Séverine",
       "Kincade"
     ],
+    "contextTags": [],
     "overview": "상관 M의 지시에 따라 현장 요원 이브와 함께 임무를 수행하던 제임스 본드는 달리는 열차 위에서 적과 치열한 결투를 벌이다 M의 명령으로 이브가 쏜 총에 맞고 추락하여 실종된다. 이에 임무가 실패로 끝나자 전세계에서 테러단체에 잠입해 임무를 수행 중이던 비밀 요원들의 정보가 분실되고 MI6는 사상 최대의 위기에 빠진다.  설상가상으로 M의 과거에 얽힌 비밀로 인해 미스터리한 적 실바에게 공격을 받은 MI6는 붕괴 위험에 처하게 되고, 이 사건으로 인해 M은 책임 추궁을 당하며 퇴출 위기에 놓인다. 이 때 죽음의 고비에서 부활한 제임스 본드가 M의 곁으로 다시 돌아오는데...",
     "releaseYear": 2012,
+    "runtimeMinutes": 143,
+    "collectionId": 645,
+    "collectionName": "007 제임스 본드 시리즈",
+    "voteAverage": 7.3,
+    "voteCount": 16205,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oHkZwUYpfrAnkKcJh3BdPYsBSPX.jpg",
     "posterAlt": "007 스카이폴 포스터",
     "watchProvidersKr": {
@@ -4767,8 +5252,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Paz",
       "Dr. Albert Hirsch"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "고도의 훈련을 받은 최고의 암살요원 제이슨 본. 사고로 잃었던 기억을 단편적으로 되살리던 제이슨 본은 자신을 암살자로 만든 이들을 찾던 중 블랙브라이어라는 존재를 알게 된다. 블랙브라이어는 비밀요원을 양성해내던 트레드스톤이 국방부 산하의 극비조직으로 재편되면서 더욱 막강한 파워를 가지게 된 비밀기관. 그들에게 자신들의 비밀병기 1호이자 진실을 알고 있는 유일한 인물인 제이슨 본은 반드시 제거해야 하는 대상이다. 블랙브라이어의 실체를 알게 된 제이슨 본은 전 세계를 실시간 통제하며 자신을 제거하고 비밀을 은폐하려는 조직과 숨막히는 대결을 시작하는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 115,
+    "collectionId": 31562,
+    "collectionName": "본 시리즈",
+    "voteAverage": 7.44,
+    "voteCount": 8436,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5C3p4UUNxcFRykRBTiQzB5xveeg.jpg",
     "posterAlt": "본 얼티메이텀 포스터",
     "watchProvidersKr": {
@@ -4841,8 +5334,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Tama",
       "Bowo"
     ],
+    "contextTags": [],
     "overview": "10년 동안 경찰을 포함해 외부인의 습격을 단 한차례도 받아본 적이 없는 낡은 30층 아파트. 마치 치외법권 지역과도 같은 이곳에 모든 범죄의 정점에 서 있는 갱단의 보스 ‘타마’를 제거하라는 비밀 작전 수행을 위해 20명의 정예요원으로 구성된 SWAT 대원들이 출동, 건물 안으로 잠입한다.",
     "releaseYear": 2012,
+    "runtimeMinutes": 101,
+    "collectionId": 257960,
+    "collectionName": "레이드 시리즈",
+    "voteAverage": 7.409,
+    "voteCount": 3920,
     "posterUrl": "https://image.tmdb.org/t/p/w780/b1oo2TChCLvB4gWXmfa3f2J95Cc.jpg",
     "posterAlt": "레이드: 첫번째 습격 포스터",
     "watchProvidersKr": {
@@ -4899,8 +5398,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Dwayne Robinson",
       "Argyle"
     ],
+    "contextTags": [
+      "christmas",
+      "literary",
+      "winter"
+    ],
     "overview": "뉴욕 경찰관 존 맥클레인(브루스 윌리스)은 떨어져 사는 아내 홀리 (보니 델리아)를 만나기 위해 LA의 나카도미 빌딩으로 찾아간다. 그러나 파티가 한창 무르익을 무렵, 한스 그루버(알란 릭맨)가 이끄는 일단의 테러리스트들이 침입, 사장을 비롯한 파티 참석자 30여 명을 인질로 삼고 건물 금고에 소장하고 있는 돈과 보물을 손에 넣으려 한다. 최첨단 하이테크에 의해 관리되던 34층짜리 나카토미 빌딩은 통채로 테러리스트들의 수중으로 넘어가 폐쇄되고 고층 빌딩은 살벌한 생존 게임의 전쟁터로 변해가는데...",
     "releaseYear": 1988,
+    "runtimeMinutes": 131,
+    "collectionId": 1570,
+    "collectionName": "다이 하드 시리즈",
+    "voteAverage": 7.814,
+    "voteCount": 12402,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9MPaeRkwS12glOQ818SEtnMd3XA.jpg",
     "posterAlt": "다이 하드 포스터",
     "watchProvidersKr": {
@@ -4960,8 +5469,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Miles Dyson",
       "Tarissa Dyson"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "미래, 인류와 기계의 전쟁은 계속 되는 가운데 스카이넷은 인류 저항군 사령관 존 코너를 없애기 위해 액체 금속형 로봇인 T-1000(로버트 패트릭)을 과거의 어린 존 코너에게로 보낸다. 형태의 변신과 자가 치유까지 가능한 T-1000에 대항하고 존 코너를 지키기 위해 인류 저항군은 T-101(아놀드 슈왈제네거)을 과거로 급파한다. 미래의 인류 운명을 쥔 어린 존 코너, 그를 구해내지 않으면 인류의 미래는 없다. 반드시 제거해야 하는 스카이넷의 T-1000은 거침없이 존 코너 일행을 위협하며 숨가쁜 추격을 시작하는데...",
     "releaseYear": 1991,
+    "runtimeMinutes": 156,
+    "collectionId": 528,
+    "collectionName": "터미네이터 시리즈",
+    "voteAverage": 8.157,
+    "voteCount": 14484,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nDVUiEqoeXaDQuM81KkUVNviYIm.jpg",
     "posterAlt": "터미네이터 2: 심판의 날 포스터",
     "watchProvidersKr": {
@@ -5026,8 +5543,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Private Hudson",
       "Lieutenant Gorman"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "에일리언과의 싸움에서 간신히 살아남은 리플리는 잠든 채로 57년을 떠돌다 구조선에 의해 구출된다. 회사는 리플리를 비롯한 당시 승무원들이 노스트로모호를 잃어버린 것을 추궁하지만 에이리언 얘기는 믿지 않는다. 이때 지구와 한 혹성 거주민들의 통신이 두절되는 사건이 벌어지자 리플리는 고문 자격으로 해병대와 동행하게 된다. 혹성에 도착한 해병대원들은 곧 혹성 거주민들이 에일리언 유충의 산 먹이로 된 것을 목격하고, 곧이어 벌어진 교전에서 여러 대원들을 잃는다. 그들은 혹성 거주민들의 실험실로 대피하고, 리플리는 이곳에서 마지막 생존자인 뉴트를 발견하게 된다.",
     "releaseYear": 1986,
+    "runtimeMinutes": 137,
+    "collectionId": 8091,
+    "collectionName": "에이리언 시리즈",
+    "voteAverage": 7.966,
+    "voteCount": 10958,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8J1SwqmsHRzZ5k8QVRibkzyc9jc.jpg",
     "posterAlt": "에이리언 2 포스터",
     "watchProvidersKr": {
@@ -5085,8 +5611,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Clint Barton / Hawkeye",
       "Loki"
     ],
+    "contextTags": [],
     "overview": "에너지원 큐브를 이용한 적의 등장으로 인류가 위험에 처하자 국제평화유지기구인 쉴드의 국장 닉 퓨리는 어벤져스 작전을 위해 전 세계에 흩어져 있던 슈퍼히어로들을 찾아나선다. 아이언맨부터 토르, 헐크, 캡틴 아메리카는 물론, 쉴드의 요원인 블랙 위도우, 호크 아이까지, 최고의 슈퍼히어로들이 어벤져스의 멤버로 모이게 되지만, 각기 개성이 강한 이들의 만남은 예상치 못한 방향으로 흘러가는데...",
     "releaseYear": 2012,
+    "runtimeMinutes": 142,
+    "collectionId": 86311,
+    "collectionName": "어벤져스 시리즈",
+    "voteAverage": 8.057,
+    "voteCount": 38778,
     "posterUrl": "https://image.tmdb.org/t/p/w780/krgjV3rJtBcEpQehODKXNCt6uFL.jpg",
     "posterAlt": "어벤져스 포스터",
     "watchProvidersKr": {
@@ -5145,8 +5677,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sam Wilson / Falcon",
       "Maria Hill"
     ],
+    "contextTags": [
+      "winter"
+    ],
     "overview": "스티브 로저스는 외계의 뉴욕 침공 사건이 있은 뒤 워싱턴에서 쉴드 요원으로 살아가고 있다. 납치된 쉴드의 함선을 구출하는 작전을 펼치던 중 스티브는 닉 퓨리 국장과 블랙 위도우가 쉴드의 정보를 무단으로 수집하고 있다는 것을 알게 된다. 그리고 얼마 뒤 닉 퓨리는 윈터 솔져의 공격으로 눈을 감는다. 블랙 위도우와 함께 닉 퓨리가 남긴 USB를 분석하며 진실을 추적하던 스티브는 적이 쉴드 내부에 존재한다는 사실을 알게 된다. 설상가상 윈터 솔져가 캡틴 아메리카의 단짝 친구 버키라는 사실이 드러나는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 136,
+    "collectionId": 131295,
+    "collectionName": "캡틴 아메리카 시리즈",
+    "voteAverage": 7.655,
+    "voteCount": 20131,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qBuAglXtjBW9JBpIJ3W40nY58Am.jpg",
     "posterAlt": "캡틴 아메리카: 윈터 솔져 포스터",
     "watchProvidersKr": {
@@ -5203,8 +5743,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Kimmel",
       "Griff"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "가까운 미래, 미믹이라 불리는 외계 종족의 침략으로 인류는 멸망 위기를 맞는다. 빌 케이지는 자살 작전이나 다름없는 작전에 훈련이나 장비를 제대로 갖추지 못한 상태로 배정되고 전투에 참여하자마자 죽음을 맞는다. 하지만 불가능한 일이 일어난다. 그가 다시 그 끔찍한 날이 시작된 시간에 다시 깨어나 다시 전투에 참여하게 되고 다시 죽었다가 또 다시 살아나는 것. 외계인과의 접촉으로 같은 시간대를 반복해서 겪게 되는 타임 루프에 갇히게 된 것이다.",
     "releaseYear": 2014,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.642,
+    "voteCount": 15215,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uZy5RUNb052OSyhZgTBA9ZxFVzc.jpg",
     "posterAlt": "엣지 오브 투모로우 포스터",
     "watchProvidersKr": {
@@ -5283,8 +5832,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Caliban",
       "Dr. Rice"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "2029년 알 수 없는 이유로 돌연변이들이 태어나지 않는 미래, 더이상 엑스맨은 없다. 갈수록 재생력이 약해져 늙고 수척해진 로건은 멕시코 국경지대 은신처에 찰스 교수를 보호 중이다. 뇌에 심각한 손상을 입은 찰스 교수는 과거를 제대로 기억하지 못하는 데다 간헐적으로 주변을 위협하는 발작까지 일으킨다. 찰스 교수와 함께 떠날 배를 사기 위해 리무진 기사로 일하며 돈을 모으는 로건. 어느 날 낯선 여인이 찾아와 돌연변이 소녀 로라를 캐나다 국경까지 데려다 달라고 부탁한다. 로건은 로라를 쫓는 기업의 경호집단을 피해 험난한 여정을 떠난다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 137,
+    "collectionId": 453993,
+    "collectionName": "울버린 시리즈",
+    "voteAverage": 7.82,
+    "voteCount": 20527,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tE6tvHXlAZ8hqM4k9ZvtWtBk4pc.jpg",
     "posterAlt": "로건 포스터",
     "watchProvidersKr": {
@@ -5342,8 +5899,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Griff",
       "Darling"
     ],
+    "contextTags": [],
     "overview": "베이비는 탈출 전문 드라이버다. 은행 강도 등 범죄의 설계자인 박사에게 약점이 잡혀 일을 하고 있지만 손을 씻고 새로운 생활을 꿈꾼다. 어린 시절 교통사고를 당해 청력에 이상이 생긴 베이비는 이어폰을 끼고 음악을 들으며 안정을 유지한다. 어느 날 자주 가는 식당에서 종업원인 데보라를 만나 마음을 나누는 베이비. 하지만 마지막인 줄 알았던 범죄는 그의 발목을 놓아주지 않고 배츠, 버디, 달링과 함께 최후의 한탕을 준비한다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.443,
+    "voteCount": 16943,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fUfZ2zECULlN0pGPgXkez5rF7Hj.jpg",
     "posterAlt": "베이비 드라이버 포스터",
     "watchProvidersKr": {
@@ -5422,8 +5985,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Alluri Venkatarama Raju",
       "Sita"
     ],
+    "contextTags": [],
     "overview": "위험한 임무에 나선 용맹한 전사. 영국을 위해 일하는 냉혹한 경찰과 맞대결을 펼친다. 독립 이전의 인도를 배경으로 한 대서사극.",
     "releaseYear": 2022,
+    "runtimeMinutes": 185,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.713,
+    "voteCount": 1628,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sxI1qKDHZRAi2LPmJUPhQ2x1u07.jpg",
     "posterAlt": "RRR: 라이즈 로어 리볼트 포스터",
     "watchProvidersKr": {
@@ -5477,8 +6046,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jade Fox",
       "Governor Yu"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "청조 말엽, 당대 최고의 문파인 무당파의 수장이 자객 푸른 여우에게 목숨을 잃자, 무당파의 무인 리무바이는 강호를 떠날 결심으로 선대부터 전해내려오는 보검 청명검을 오랜 연인이자 동료인 수련에게 맡긴다. 수련은 베이징의 호족 페이러에게 청명검을 전해주려던 자리에서, 고관 옥대인의 딸 용과 첫 만남을 갖는다. 강호의 삶을 동경하는 용은 한때 그녀를 납치했던 마적단 두목 호를 사랑하지만, 집안의 강요로 원치 않는 혼인을 앞두고 있는 처지. 그날 밤, 정체 모를 자객이 청명검에 손을 대고, 수련은 범인의 뒤를 쫓아 결투를 벌이지만, 결국 검을 놓치고 마는데...",
     "releaseYear": 2000,
+    "runtimeMinutes": 120,
+    "collectionId": 290973,
+    "collectionName": "와호장룡 시리즈",
+    "voteAverage": 7.432,
+    "voteCount": 3611,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iCgq5JMo9BqqK8rDKOCJxE86ub9.jpg",
     "posterAlt": "와호장룡 포스터",
     "watchProvidersKr": {
@@ -5567,8 +6144,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Budd",
       "Sofie Fatale"
     ],
+    "contextTags": [],
     "overview": "어느 한적한 오후, 행복한 결혼식을 앞둔 더 브라이드와 그녀의 신랑, 그리고 모든 하객들이 의문의 조직에 의해 처참하게 살해당한다. 그로부터 5년 후, 코마상태의 더 브라이드는 죽음 직전까지 갔다가 어렵게 깨어난다. 그리고 피로 얼룩진 과거가 그녀의 뇌리에 스치면서 서서히 복수의 리스트를 작성하기 시작한다. 그녀는 전세계적으로 악명높은 살인조직 데들리 바이퍼의 일원이었고, 조직의 보스인 빌을 포함한 5명의 일원이 새로운 삶을 앞둔 그녀를 처참하게 무너뜨렸음이 밝혀지자, 그녀는 텍사스, 멕시코, 일본을 방문하며 가장 잔인한 복수를 실행하게 되는데...",
     "releaseYear": 2003,
+    "runtimeMinutes": 111,
+    "collectionId": 2883,
+    "collectionName": "킬 빌 시리즈",
+    "voteAverage": 8,
+    "voteCount": 19099,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lH82lk837fACeVZUmqHH0UiEeWL.jpg",
     "posterAlt": "킬 빌: 1부 포스터",
     "watchProvidersKr": {
@@ -5641,8 +6224,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Santiago",
       "Police Captain"
     ],
+    "contextTags": [],
     "overview": "은퇴를 7일 앞둔 관록의 형사 윌리엄 소머셋(모건 프리먼)과 새로 전근 온 신참내기 형사 밀스(브래드 피트)가 팀이 된 바로 다음날, 강압에 의해 위가 찢어질 때까지 먹다가 죽은 초고도 비만 남자와 역시 강압에 의해 식칼로 자기 살을 베어내 죽은 악덕 변호사의 사건과 마주한다. 식탐, 탐욕, 그리고 나태, 분노, 교만, 욕정, 시기. 소머셋은 현장에 남은 흔적들로 단테의 신곡과 쵸서의 캔터베리 서사시를 근거로 한 기나긴 연쇄 살인이 시작되었음을 직감하고 성서의 7가지 죄악을 따라 발생하는 사건들을 추적하기 시작하는데...",
     "releaseYear": 1995,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.381,
+    "voteCount": 23320,
     "posterUrl": "https://image.tmdb.org/t/p/w780/izzk8dbmrLowcoGbFaebqJvzyXg.jpg",
     "posterAlt": "세븐 포스터",
     "watchProvidersKr": {
@@ -5708,8 +6297,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Rachel 1",
       "Rachel 2"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "보스턴 셔터아일랜드의 정신병원은 중범죄를 저지른 정신병자를 격리하는 병동으로 탈출 자체가 불가능하다. 하지만 자식 셋을 죽인 혐의를 받고 있는 여인이 이상한 쪽지만을 남긴 채 감쪽같이 사라지는 사건이 발생한다. 연방보안관 테디 다니엘스(레오나르도 디카프리오)는 수사를 위해 동료 척(마크 러팔로)과 함께 셔터아일랜드로 향한다. 테디는 수사를 위해 의사, 간호사, 병원관계자 등을 심문하지만 수사는 전혀 진척되지 않는다. 설상가상 폭풍이 불어 닥쳐 테디와 척은 섬에 고립되게 되고, 그들에게 점점 괴이한 일들이 일어나기 시작하는데...",
     "releaseYear": 2010,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.198,
+    "voteCount": 26043,
     "posterUrl": "https://image.tmdb.org/t/p/w780/aywZdSOXtwcqqLTl271EUJemi2.jpg",
     "posterAlt": "셔터 아일랜드 포스터",
     "watchProvidersKr": {
@@ -5780,8 +6377,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Leonard's Wife",
       "Sammy"
     ],
+    "contextTags": [],
     "overview": "전직 보험 수사관이었던 레너드에게 기억이란 없다. 자신의 아내가 강간당하고 살해되던 날의 충격으로 기억을 10분 이상 지속시키지 못하는 단기 기억상실증 환자가 되었던 것이다. 그가 마지막으로 기억하고 있는 것은 자신의 이름이 레너드 셸비 라는 것과 아내가 강간당하고 살해당했다는 것, 그리고 범인은 존 G 라는 것이 전부. 레너드는 자신의 가정을 파탄 낸 범인을 찾기 위한 방법으로 메모와 문신을 사용하게 된다. 하지만 진실에 다가갈수록 자신의 기억, 주위 사람들에 대한 의심이 갈수록 커져만 가는데...",
     "releaseYear": 2000,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.176,
+    "voteCount": 16403,
     "posterUrl": "https://image.tmdb.org/t/p/w780/x5FPVwJHyf1SnDW04fwr9rsyWm4.jpg",
     "posterAlt": "메멘토 포스터",
     "watchProvidersKr": {
@@ -5878,8 +6481,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dave Kujan",
       "Kobayashi"
     ],
+    "contextTags": [],
     "overview": "산 페드로 부두에서 27명이 사망하고 9,100만달러가 증발하는 유혈극이 벌어진다. 수사관 데이브 쿠얀은 끔찍한 사건 현장의 유일한 생존자인 버벌로부터 폭발 사고의 유력한 용의자로 지목되었던 5인에 대한 진술을 듣는다. 유치장에서의 만남으로 시작한  그들의 6주 간의 화려한 범죄 행각들이 버벌의 진술과 함께 속속 드러나기 시작한다. 하지만 정작 용의자들도 모르게 그들의 머리 위에 존재했던 전설 속의 악마와도 같은 지하 범죄 조직의 두목 카이저 소제의 존재가 부각되며, 쿠얀은 점점 혼란에 빠지기 시작한다.",
     "releaseYear": 1995,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.167,
+    "voteCount": 11510,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cbgicjq4Q2OVvXlfd3PqRlLvqmf.jpg",
     "posterAlt": "유주얼 서스펙트 포스터",
     "watchProvidersKr": {
@@ -5945,8 +6554,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Russ Yelburton",
       "Hollis I. Mulwray"
     ],
+    "contextTags": [],
     "overview": "사립 탐정인 기키스는 의뢰인들을 상대로 남의 뒷을 캐내 불륜 관계 등을 밝혀내는 일을 하는 사람이다. 어느날 어느 부인의 부탁으로 남편인 멀레이라는 수력발전의 권위자의 뒤를 캐내어 그가 어느 여자와 사귀고 있음을 밝혀낸다. 하지만 멀레이의 부인인 에블린이 나타나 의뢰했던 멀레이의 부인은 가짜임이 나타나고, 얼마 뒤 멀레이가 시체로 발견되는데...",
     "releaseYear": 1974,
+    "runtimeMinutes": 130,
+    "collectionId": 359005,
+    "collectionName": "제이크 지트 시리즈",
+    "voteAverage": 7.908,
+    "voteCount": 4304,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kZRSP3FmOcq0xnBulqpUQngJUXY.jpg",
     "posterAlt": "차이나타운 포스터",
     "watchProvidersKr": {
@@ -6012,8 +6627,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sid Hudgens",
       "Pierce Patchett"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "1953년 LA 최대의 범죄 조직 미키 코헨에 대한 경찰의 대규모 제거작업이 시작된다. 그리고 뒤를 이어 발생한 도심의 한 카페에서 일어난 살인 사건. 희생자 중엔 퇴직 형사 스탠스가 끼어있다. 경찰은 이 사건을 단순 강도사건으로 보고 3명의 흑인 용의자를 체포하는데 성공한다. 사건 해결에 공헌한 신참형사 에드는 포상까지 받는다. 그러나 스탠스의 파트너였던 버드는 카페 살인 사건이 예사롭지 않음을 감지하고 단독 수사에 들어간다. 현장에서 발견된 희생자 수전의 신원을 파악하던 버드는 스탠스와 함께 순찰을 나갔던 크리스마스날 밤에 우연히 마주쳤던 여자가 수전임을 기억해내고, 당시에 함께 있던 버즈 믹스와 린을 추적한다.",
     "releaseYear": 1997,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.804,
+    "voteCount": 5602,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dfDvzEtWncNcYgDaRK2s3nPjpsy.jpg",
     "posterAlt": "L.A. 컨피덴셜 포스터",
     "watchProvidersKr": {
@@ -6067,8 +6690,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Annabeth Markum",
       "Val Savage"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세 남자의 운명을 뒤바꾼 악몽같은 사건! 지미 마컴(숀 펜), 데이브 보일(팀 로빈스), 숀 디바인(케빈 베이컨)은 미국 보스턴의 허름한 동네에서 함께 자란 절친한 친구이다. 어느날, 정체모를 남자들에게 데이브가 납치되는 사건이 발생하고, 사건은 그들의 삶을 송두리째 뒤바꿔놓는다. 그 날의 사건을 잊으려는 듯, 서로를 멀리하던 그들. 비록 서로 각기 다른 곳에서 다른 삶을 살고 있지만, 모두의 가슴속에는 똑같은 상처를 안고 살아간다. 25년 뒤, 지미의 19살 난 딸 케이티의 살인사건으로 뜻하지 않게 재회하게 된 세 친구. 형사가 된 숀은 자신의 파트너(로렌스 피쉬번)와 사건을 맡고, 지미는 딸을 죽인 살인자에게 복수를 다짐한다. 살인사건에 대한 수사가 진행되면서 뜻밖에도 데이브가 용의자로 지목되고, 지미 딸의 죽음과 더불어 다시 찾아온 데이브의 아픈 과거는 그의 단란했던 가정과 미래에 대한 희망마저 파괴하고 마는데... 세 친구의 우정, 가정, 그리고 그 옛날 사라졌던 순수함에 대한 아픈 과거가 악몽처럼 되살아난다.",
     "releaseYear": 2003,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.747,
+    "voteCount": 7531,
     "posterUrl": "https://image.tmdb.org/t/p/w780/g6vJf02zkzx5yBm539DAP0gZ18n.jpg",
     "posterAlt": "미스틱 리버 포스터",
     "watchProvidersKr": {
@@ -6129,8 +6760,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Nils Bjurman",
       "Dirch Frode"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "부패 재벌을 폭로하는 기사를 쓰고 소송에 시달리던 신념 강한 기자 미카엘(다니엘 크레이그). 곤경에 빠진 그에게 또다른 재벌 헨리크가 40년 전 사라진 손녀 하리에트의 사건을 조사해 달라며 손길을 내민다. 거부할 수 없는 거래에 응한 미카엘은 방대한 조사에 착수하기 위해 조수를 요청하고, 용 문신을 한 범상치 않은 외모의 천재 해커 리스베트(루니 마라)를 만나게 된다. 미카엘의 본능적인 집요함과 리스베트의 천재적인 해킹 능력으로 미궁에 빠졌던 단서의 퍼즐 조각을 하나씩 맞춰나가는 두 사람. 하지만 진실에 가까워질수록 예상치 못했던 곳에서 역사상 가장 잔혹한 악의 실체가 드러나게 되는데…",
     "releaseYear": 2011,
+    "runtimeMinutes": 158,
+    "collectionId": 575987,
+    "collectionName": "밀레니엄(미국) 시리즈",
+    "voteAverage": 7.386,
+    "voteCount": 7669,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lziQTuF8qxLLWVSJfQ2MOLnUt0G.jpg",
     "posterAlt": "밀레니엄: 여자를 증오한 남자들 포스터",
     "watchProvidersKr": {
@@ -6196,8 +6835,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Catherine Martin",
       "Senator Ruth Martin"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "FBI 요원 스탈링은 몸집이 비대한 여자들의 살을 도려내는 변태 살인마를 추적하라는 상부의 명령을 받는다. 스탈링은 사건 해결의 단서를 얻기 위해 인육을 먹은 죄로 감옥에 수감된 정신과 의사 렉터 박사를 찾아간다. 지능범인 렉터와 침착하게 대처하는 스탈링은 긴장감 속에서 협상을 한다. 이러한 와중에 상원 의원의 딸 캐더린이 납치된다. 결국 범인의 정체를 알려준다던 렉터는 다른 감옥으로 이송되고 스탈링은 수사에서 제외된다. 범인에 대한 단서를 알아낸 범죄 심리 전문가인 렉터는 이송 중에 도주하고, 스탈링은 렉터와 나눈 마지막 대화를 기억하고 수사를 계속하는데...",
     "releaseYear": 1991,
+    "runtimeMinutes": 118,
+    "collectionId": 9743,
+    "collectionName": "한니발 렉터 시리즈",
+    "voteAverage": 8.345,
+    "voteCount": 18147,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hOr56UKAsB9waNDHhriOntCjHTJ.jpg",
     "posterAlt": "양들의 침묵 포스터",
     "watchProvidersKr": null
@@ -6231,8 +6878,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Vincent Gray",
       "Darren"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "아동 심리학자인 크로우 박사(브루스 윌리스)는 필라델피아 주지사에게 아동을 위해 기여했다는 공로로 상을 받는다. 그날 밤, 부인과 함께 2층에 올라간 말콤 박사는 낯선 침입자를 발견하게 된다. 그 침입자는 몇 년 전 말콤 박사가 치료를 맡았던 '빈센트 그레이'라는 환자인데, 박사는 그에게 총상을 입고 그는 자살한다. 이듬 해 가을, 총상에서 회복한 크로우 박사는 '콜 시어'라는 자폐증에 걸린 8살 된 소년의 정신 치료를 맡게 된다. 콜은 처음엔 쉽게 마음을 열지 않다가 박사의 계속된 노력으로 누구에게도 말하지 않은 비밀을 말한다. 즉 콜은 항상 귀신들이 보이며, 귀신들은 자신이 죽었는지조차 모르고, 보고 싶은 것만 본다고 이야기한다. 박사는 쉽게 믿으려 하지를 않고 마침 부인의 외도를 목격한 후 콜의 치료를 포기하려고 한다. 그러다가 박사는 옛 환자였던 빈센트와의 상담 녹음 테잎에서 귀신의 소리인 듯한 소리를 듣게 되고 콜을 찾아가 콜이 귀신에 대한 공포를 이겨내는 걸 돕게 된다.",
     "releaseYear": 1999,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.955,
+    "voteCount": 12994,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zmPBZos4lzZi95UayzjATYyLWHT.jpg",
     "posterAlt": "식스 센스 포스터",
     "watchProvidersKr": {
@@ -6292,8 +6947,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Abigail",
       "Hannah"
     ],
+    "contextTags": [],
     "overview": "목요일 저녁, 딸 마고에게 걸려온 부재중 전화 3통. 아빠 데이빗은 그 후 연락이 닿지 않는 딸이 실종됐음을 알게된다. 경찰의 조사는 본격적으로 시작되지만 결정적인 단서들이 나오지 않는 가운데, 실종된 날 밤 마고가 향하던 곳이 밝혀지며 새로운 사실들이 발견된다. 사건의 실마리를 찾은 곳은 다름 아닌 딸 마고의 노트북! 구글, 유튜브, 페이스북 등 SNS에서 상상조차하지 못한 딸의 진실이 펼쳐지는데…",
     "releaseYear": 2018,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.57,
+    "voteCount": 4272,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3BJu5DQzK9w8PIeIXSAOCfcWKMu.jpg",
     "posterAlt": "서치 포스터",
     "watchProvidersKr": {
@@ -6372,8 +7033,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Marge Berger",
       "Maître Nour Boudaoud"
     ],
+    "contextTags": [
+      "winter"
+    ],
     "overview": "산드라와 사뮈엘은 시각 장애가 있는 아들 다니엘과 함께 프랑스 알프스의 외딴 산장에서 살고 있다. 갑작스러운 사뮈엘의 죽음 이후, 그의 죽음이 자살인지 혹은 범죄에 연루된 것인지를 밝히는 조사는 점차 미궁으로 빠지게 되는데...",
     "releaseYear": 2023,
+    "runtimeMinutes": 150,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.517,
+    "voteCount": 3359,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zIxTPoS6zd3txeLP5FUdo3CSfbo.jpg",
     "posterAlt": "추락의 해부 포스터",
     "watchProvidersKr": {
@@ -6452,8 +7121,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mr. Edmund Tuttle",
       "Lydia"
     ],
+    "contextTags": [],
     "overview": "2차 대전이 막 끝난 1945년, 영국 해안의 외딴 저택. 전쟁에서 남편을 잃은 독실한 천주교도 그레이스(니콜 키드먼)와 빛에 노출되면 안되는 희귀병을 가진 두 아이가 살고 있다. 어느 날, 예전에 이 저택에서 일한 적이 있다는 세 명의 하인들이 들어오게 된다. 그레이스는 두 아이를 빛으로부터 지키기 위해 커튼은 항상 쳐져 있어야 하고, 문은 항상 잠겨있어야 한다는 '절대 규칙'을 하인들에게 가르친다. 이와 때를 같이 해서 저택에는 기괴한 일들이 끊이지 않는다. 아무도 없는 방에서 발자국 소리가 들리고, 피아노가 갑자기 연주된다. 또한 딸 앤은 이상한 남자아이와 할머니가 이 집에 머물고 있다는 얘기를 반복한다. 신에 대한 믿음이 너무나 강한 그레이스는 그런 딸의 말을 인정하지 않지만 두려움은 점점 그 무게를 더해만 간다. 마침내 그레이스는 그들을 위협하는 공포의 실체와 마주하게 되는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.617,
+    "voteCount": 7255,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9kvhnfgHxBibc2yoLYkZ6WQag6L.jpg",
     "posterAlt": "디 아더스 포스터",
     "watchProvidersKr": {
@@ -6519,8 +7194,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Gerhard Hardman",
       "Princess Dragomiroff"
     ],
+    "contextTags": [
+      "literary",
+      "winter"
+    ],
     "overview": "세계적 명탐정 에르큘 포와로는 사건 의뢰를 받고 이스탄불에서 런던으로 향하는 초호화 열차인 오리엔트 특급열차에 탑승한다. 지인의 배려로 초호화 열차 오리엔트 특급에 급하게 좌석을 마련한 에르큘 포와로는 잠깐의 휴식을 즐기려 하지만 폭설로 열차가 멈춰선 밤, 승객 한 명이 잔인하게 살해당하는 사건이 발생하게 된다. 기차 안에서 벌어진 밀실 살인, 완벽한 알리바이를 가진 13명의 용의자. 포와로는 현장에 남겨진 단서와 용의자들의 증언을 토대로 미궁에 빠진 사건 속 진실을 찾기 위한 추리를 시작하게 되는데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 114,
+    "collectionId": 735384,
+    "collectionName": "에르퀼 푸아로 (케네스 브래너) 시리즈",
+    "voteAverage": 6.706,
+    "voteCount": 10601,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4uUaaCCuro1Vvvcg5mqakFShEvF.jpg",
     "posterAlt": "오리엔트 특급 살인 포스터",
     "watchProvidersKr": {
@@ -6580,8 +7264,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ilsa",
       "Elizabeth"
     ],
+    "contextTags": [
+      "birthday"
+    ],
     "overview": "천재적인 금융가로 냉철한 성격을 가진 사업가 니콜라스 반 오튼(마이클 더글라스)은 그의 생일날 동생 콘라드(숀 펜)로부터 이상한 게임 안내장을 받게된다. 이 후, 니콜라스는 규칙과 방향도 모른 채 계속 이어지는 이상한 사건들에 대하여 당황하게 되고 게임은 점점 깊은 수렁으로 빨려 들어가게 되는데...",
     "releaseYear": 1997,
+    "runtimeMinutes": 129,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.576,
+    "voteCount": 7414,
     "posterUrl": "https://image.tmdb.org/t/p/w780/npvUSLiRQxcGwOzjJO8OTxthO77.jpg",
     "posterAlt": "더 게임 포스터",
     "watchProvidersKr": {
@@ -6642,8 +7334,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Miss Lonelyhearts",
       "Songwriter"
     ],
+    "contextTags": [],
     "overview": "사진 작가인 제프리스는 촬영 도중 다리가 부러져 휠체어에서 꼼짝할 수 없는 처지이다. 무료함을 견디지 못하는 그는 자신의 그리니치 빌리지에 있는 독신자 아파트에서 뜰 건너편에 사는 사람들의 행동을 관찰하는 것으로 시간을 보낸다. 어느날 건너편 아파트에 사는 한 사람이 아내를 살해한 것으로 의심받을 만한 짓을 한 것을 본 그는 이를 모델인 애인 리사와 친구인 형사 도일에게 말하지만 아무도 그의 말을 믿지 않는다. 그러나 결국 그의 의심이 전혀 근거없는 것은 아니라는 것을 알게 된 리사와 간호부 스텔라는 그의 지시에 따라 범행의 증거를 찾아 부부의 집을 조사하기 시작하는데...",
     "releaseYear": 1954,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.337,
+    "voteCount": 7227,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jU5Fe7n9rsEBa0uaV5dqGjJGwmX.jpg",
     "posterAlt": "이창 포스터",
     "watchProvidersKr": {
@@ -6710,8 +7408,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Countess Vereberg",
       "Gen. Provno"
     ],
+    "contextTags": [],
     "overview": "유럽 순방 중 로마를 방문한 공주 ‘앤’. 끝없는 일정에 지쳐버린 그녀는 한밤중 몰래 침실을 빠져나와 처음으로 자유롭게 로마의 거리를 거닌다. 로마에서 생활 중인 미국인 기자 ‘조 브래들리’. 공주와의 인터뷰를 맡게 된 그는 집으로 돌아가는 길에 술에 취해 잠든 한 여성을 발견하고 하룻밤 재워주게 된다. 다음 날, 신문사에 출근한 ‘조’는 공주와의 인터뷰가 돌연 취소됐다는 소식을 듣게 되고, 신문 1면에서 낯익은 얼굴을 마주하게 되는데…",
     "releaseYear": 1953,
+    "runtimeMinutes": 118,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.89,
+    "voteCount": 2292,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dYLiHwYkoxCZI6bJUik4ZHbMRkc.jpg",
     "posterAlt": "로마의 휴일 포스터",
     "watchProvidersKr": {
@@ -6782,8 +7486,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Honey",
       "Bernie"
     ],
+    "contextTags": [
+      "birthday"
+    ],
     "overview": "윌리엄 태커(휴 그랜트분)는 웨스트 런던의 ‘노팅 힐’에 사는 소심한 남자. 역시 독신의 괴상한 친구 스파이크(리스 아이판스 분)와 함께 살고있는 그는, 노팅힐 시장 한쪽 구석에 위치한 조그마한 여행서적 전문점을 운영하며 살고 있다. 그에게는 미래에 대한 포부나 설계는 사치에 불과하다. 여느 때와 마찬가지로 무미건조한 하루를 보내고 있던 그는 세계적으로 유명한 인기 영화배우 안나 스콧(줄리아 로버츠 분)이 그의 책방 문을 열고 들어와 책을 사고 나가자 잠깐 동안에 일어난 이 엄청난 사건에 어쩔 줄을 모른다.",
     "releaseYear": 1999,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.266,
+    "voteCount": 6772,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1AbAtQSgN4KKVODiiX2452dlDJD.jpg",
     "posterAlt": "노팅 힐 포스터",
     "watchProvidersKr": {
@@ -6860,8 +7572,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lydia Bennet",
       "Mary Bennet"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "베넷 가의 다섯 자매 중 둘째인 엘리자베스는 사랑하는 사람과의 결혼을 믿는 자존심 강하고 영리한 소녀이다. 부유하고 명망있는 가문의 신사 빙리와 그의 친구 다아시가 여름 동안 대저택에 머물게 되고, 댄스 파티에서 처음 만난 엘리자베스와 다아시는 서로에게서 눈을 떼지 못한다. 다아시는 아름답고 지적인 그녀의 매력에 점점 빠져들고, 폭우가 쏟아지는 날 비바람이 몰아치는 언덕에서 가슴 속 깊은 곳에 담아둔 뜨거운 사랑을 그녀에게 고백한다. 하지만 다아시가 빙리와 제인의 결혼을 제인이 명망있는 가문 출신이 아니라는 이유로 반대한 것을 알게 되자, 그를 오만하고 편견에 가득 찬 속물로 여기며 외면하는데...",
     "releaseYear": 2005,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.055,
+    "voteCount": 8828,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rgKfvG0PgJBIPR6cNICukRnfMga.jpg",
     "posterAlt": "오만과 편견 포스터",
     "watchProvidersKr": {
@@ -6938,8 +7658,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Grace Turner",
       "Lola Quincey"
     ],
+    "contextTags": [
+      "literary",
+      "summer"
+    ],
     "overview": "1935년 영국, 부유한 집안의 아름다운 딸 세실리아는 시골 저택에서 여름을 보내던 중 가정부의 아들이자 세실리아 집안의 도움으로 캠브리지 의대를 졸업한 로비와 마주친다. 어릴 때부터 서로에게 애틋한 마음이 있었지만 서로의 신분 차이 때문에 애써 자신의 마음을 부정하며 고백하지 못하던 이들은 그날 밤 서로의 사랑을 확인한다. 하지만 이들을 지켜본 세실리아의 동생 브라이오니의 오해로 로비는 억울한 누명을 쓰고 전쟁터로 끌려가게 된다. 이후 세실리아는 로비가 전쟁터에서 돌아오기만을 기다리며 간호사로 일하게 되고, 로비 또한 세실리아를 다시 만난다는 단 하나의 일념으로 전쟁터에서 살아남기 위해 애쓰는데…",
     "releaseYear": 2007,
+    "runtimeMinutes": 122,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.6,
+    "voteCount": 4742,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xOwDTYsUUNriE7e9LauxB7k581J.jpg",
     "posterAlt": "어톤먼트 포스터",
     "watchProvidersKr": {
@@ -7004,8 +7733,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Old Rose",
       "Brock Lovett"
     ],
+    "contextTags": [],
     "overview": "\"내 인생의 가장 큰 행운은 당신을 만난 거야\" 우연한 기회로 티켓을 구해 타이타닉호에 올라탄 자유로운 영혼을 가진 화가 ‘잭’(레오나르도 디카프리오)은 막강한 재력의 약혼자와 함께 1등실에 승선한 ‘로즈’(케이트 윈슬렛)에게 한눈에 반한다. 진실한 사랑을 꿈꾸던 ‘로즈’ 또한 생애 처음 황홀한 감정에 휩싸이고, 둘은 운명 같은 사랑에 빠지는데… 가장 차가운 곳에서 피어난 뜨거운 사랑! 영원히 가라앉지 않는 세기의 사랑이 펼쳐진다!",
     "releaseYear": 1997,
+    "runtimeMinutes": 194,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.902,
+    "voteCount": 27356,
     "posterUrl": "https://image.tmdb.org/t/p/w780/132KjhVrWUqKFVfMAKKNkherytA.jpg",
     "posterAlt": "타이타닉 포스터",
     "watchProvidersKr": {
@@ -7063,8 +7798,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Gina",
       "Suzanne"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "오랜만에 느끼는 아빠의 다정한 손길에 두근거리는 심장을 심장병이라고 오해한 아빠 덕분에 학교는 구경도 못해본 아멜리에. 노틀담 성당에서 뛰어내린 관광객에 깔려 엄마가 하늘 나라로 가 버리고, 유일한 친구 금붕어마저 자살을 기도한 뒤 그녀는 정말로 외톨이가 된다. 하지만 어느날 빛 바랜 사진과 플라스틱 군인, 구슬이 가득 담긴 낡은 상자를 우연히 발견하면서, 그녀에게 마법 같은 일들이 시작된다. 주변 사람들에게 행복을 찾아주는 기쁨을 통해 삶의 행복을 발견했다고 굳게 믿던 그 순간 그녀의 심장이 또다시 두근거리기 시작하는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 122,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.9,
+    "voteCount": 12479,
     "posterUrl": "https://image.tmdb.org/t/p/w780/EkQ9Lu1NFnxfPSGizktuLJuxdv.jpg",
     "posterAlt": "아멜리에 포스터",
     "watchProvidersKr": {
@@ -7123,8 +7866,16 @@ export const catalogMovies: CatalogMovie[] = [
       "John Hamilton",
       "Lon Hammond"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "17살, 노아는 밝고 순수한 앨리를 보고 첫눈에 반한다. 빠른 속도로 서로에게 빠져드는 둘. 그러나 이들 앞에 놓인 장벽에 막혀 이별하게 된다. 24살, 앨리는 우연히 신문에서 노아의 소식을 접하고 잊을 수 없는 첫사랑 앞에서 다시 한 번 선택의 기로에 서게 되는데…",
     "releaseYear": 2004,
+    "runtimeMinutes": 123,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.89,
+    "voteCount": 12666,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ntdgcdsmMuHd9s4oEKTvWDiUyU7.jpg",
     "posterAlt": "노트북 포스터",
     "watchProvidersKr": {
@@ -7194,8 +7945,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Cassie Cartwright",
       "Lashawn Malone"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "눈부신 만년설로 뒤덮인 봉우리와 맑고 깊은 계곡, 한없이 펼쳐진 푸른 초원 위에 노니는 수천 마리의 양떼가 장관을 이루고 있는 8월의 브로크백 마운틴. 이곳의 양떼 방목장에서 여름 한 철 함께 일하게 된 갓 스물의 두 청년 에니스와 잭은 마치 오랜 친구처럼 서로에게 마음을 터놓는 사이가 된다. 대자연의 품에서 깊어져 간 그들의 우정은 친구 사이의 친밀함 이상으로 발전해간다. 그들 앞에 놓인 낯선 감정의 실체가 무엇인지도 알지 못한 채 짧은 방목철이 끝나고 다시 만날 기약도 없이 두 사람은 각자의 삶으로 돌아간다. 결혼해 아이를 낳고 평범한 생활을 하다가 4년 만에 다시 만난 두 사람은 단번에 브로크백에서 서로에게 가졌던 그 낯선 감정이 일시적인 것이 아니었음을 알게 되는데...",
     "releaseYear": 2005,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.785,
+    "voteCount": 7617,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o5oQC9GxEfClgnHvabpvGhkUoqe.jpg",
     "posterAlt": "브로크백 마운틴 포스터",
     "watchProvidersKr": {
@@ -7260,8 +8019,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Dannie McElroy",
       "Tommy Tucker"
     ],
+    "contextTags": [
+      "new_year",
+      "literary",
+      "travel"
+    ],
     "overview": "1950년대 뉴욕, 맨해튼 백화점 점원인 테레즈와 손님으로 찾아온 캐롤은 처음 만난 순간부터 거부할 수 없는 강한 끌림을 느낀다. 하나뿐인 딸을 두고 이혼 소송 중인 캐롤과 헌신적인 남자친구가 있지만 확신이 없던 테레즈, 각자의 상황을 잊을 만큼 통제할 수 없이 서로에게 빠져드는 감정의 혼란 속에서 둘은 확신하게 된다. 인생의 마지막에, 그리고 처음으로 찾아온 진짜 사랑임을…",
     "releaseYear": 2015,
+    "runtimeMinutes": 118,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.492,
+    "voteCount": 3978,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qJHCj5lZ25uMlKCtaFgZujs8Zg4.jpg",
     "posterAlt": "캐롤 포스터",
     "watchProvidersKr": {
@@ -7319,8 +8088,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Waitress",
       "Philippe"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "비엔나에서의 꿈 같은 하루 이후 9년이 지나, 파리에서 다시 마주한 제시와 셀린느. 비엔나의 특별한 추억을 소재로 쓴 베스트셀러의 유럽 홍보 투어 중인 작가 제시는 파리의 서점 구석에 서 있는 셀린느를 발견한다. 그가 뉴욕행 비행기에 오르기까지 남은 시간은 한 시간 남짓. 서로 같지만 다른 기억을 간직해 온 두 사람 사이에는 묘한 기류가 감돈다. 그들은 파리의 골목과 카페와 센강의 유람선, 셀린느의 아파트를 돌아다니며 빈곤과 환경오염, 종교, 세계의 절망과 희망, 섹스와 결혼을 이야기한다. 그렇게 그 간의 진심을 서로에게 털어놓는 사이, 해는 저물고 또 다시 헤어짐의 순간이 다가오는데...",
     "releaseYear": 2004,
+    "runtimeMinutes": 80,
+    "collectionId": 123800,
+    "collectionName": "비포... 시리즈",
+    "voteAverage": 7.803,
+    "voteCount": 3833,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2k4KFbEeknXmHbNP0qt7lp2p3Y3.jpg",
     "posterAlt": "비포 선셋 포스터",
     "watchProvidersKr": {
@@ -7384,8 +8161,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Natalia",
       "Patrick"
     ],
+    "contextTags": [
+      "literary",
+      "travel",
+      "summer"
+    ],
     "overview": "18년 전 비엔나행 기차에서 우연히 만나고 9년 전 파리에서 재회한 제시와 셀린느. 이제 40대에 접어든 셀린느와 제시는 따사로운 석양빛이 인상적인 그리스 남부의 아름다운 도시 펠로폰네소스에 머물고 있다. 유명 작가의 반열에 오른 제시가 이곳의 레지던시에 초청받으며 가족들을 함께 데려온 것. 신화와 비극을 안고 있는 유적들을 배경으로 그들은 음식을 나눠먹거나 한가로이 산책하고, 또 사랑에 관한 의견들을 나눈다. 다시 열차에서 봐도 말을 걸어오겠냐는 그녀의 질문에 당연하지라고 대답하는 제시. 바로 지금, 이들의 아직 끝나지 않은 사랑이라는 여행이 시작되는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 109,
+    "collectionId": 123800,
+    "collectionName": "비포... 시리즈",
+    "voteAverage": 7.49,
+    "voteCount": 2732,
     "posterUrl": "https://image.tmdb.org/t/p/w780/byrXeNh801vDT0LZcaUHZrlGcme.jpg",
     "posterAlt": "비포 미드나잇 포스터",
     "watchProvidersKr": {
@@ -7439,8 +8226,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Alice",
       "Amanda"
     ],
+    "contextTags": [
+      "new_year"
+    ],
     "overview": "\"우린 친구가 될 수 없겠네요.\"  대학 졸업 후 뉴욕행을 함께 하게 된 해리와 샐리.  ‘남자와 여자는 친구가 될 수 없다’는 명제로 두 사람은 설전을 벌이고,  성격도 취향도 정반대인 서로를 별종이라 생각한다.  뉴욕에 도착한 두 사람은 짧은 인사를 나누고 곧바로 헤어진다.  \"너랑 연애 안 하길 천만다행이야.\"  몇 년 뒤, 우연히 서점에서 재회한 두 사람.  샐리는 연인과 이별했고 해리는 아내에게 이혼을 통보 받았다.  두 사람은 이별에 대해 이야기하며 급속도로 가까워지고 비로소 둘도 없는 친구가 된다.  \"조금만 더 안아줘.\"  어느 날 샐리는 헤어진 연인의 결혼 소식을 듣게 되고 뒤늦은 이별의 아픔에 슬퍼한다.  해리는 그런 그녀를 말없이 안아주고 위로의 키스는 뜻밖의 하룻밤으로 이어지는데…  다음 날 아침,  우린 친구일까, 연인일까?",
     "releaseYear": 1989,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.404,
+    "voteCount": 4638,
     "posterUrl": "https://image.tmdb.org/t/p/w780/m4IfPfmR3LELJgu5aa03CIennTF.jpg",
     "posterAlt": "해리가 샐리를 만났을 때 포스터",
     "watchProvidersKr": {
@@ -7487,8 +8282,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Vance",
       "Millie"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "자신의 인생을 바꿔줄 운명적인 사랑이 나타날 것이라 믿는 순수청년 톰. 어느 날 사장의 새로운 비서로 나타난 썸머를 처음 보는 순간 강렬한 스파크를 일으키며 자신의 반쪽임을 직감한다. 이후 대책없이 썸머에게 빠져드는 톰. 그녀에게 접근하기 위한 부단한 노력에도 불구하고 사랑도 남자친구도 눈꼽만큼도 믿지 않고 구속받기 싫어하는 썸머로 인해 그냥 친구 사이로 지내기로 하지만, 둘의 사이는 점점 그 이상의 관계로 발전하게 된다. 그녀를 천생연분이라 확신하는 톰. 이제 둘 관계의 변화를 위한 선택이 필요한 순간이 다가오는데...",
     "releaseYear": 2009,
+    "runtimeMinutes": 95,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.302,
+    "voteCount": 11114,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oQdXN6HQGba1Y2h7DEMJT45xxfn.jpg",
     "posterAlt": "500일의 썸머 포스터",
     "watchProvidersKr": {
@@ -7548,8 +8351,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Owner of Eatery",
       "May"
     ],
+    "contextTags": [],
     "overview": "경찰 223은 헤어진 옛 애인을 기다리며, 1달 동안 그녀에게서 연락이 오지 않으면 그녀를 잊기로 마음먹는다. 같은 시간, 마약 딜러는 자신을 배신한 마약 중개인을 제거한 뒤 술집을 찾고 그곳에서 경찰 223은 술집으로 처음 들어오는 여자를 사랑하겠노라 마음먹는다. 한편 패스트푸드점에서 일하는 점원 페이는 언제나처럼 똑같은 샐러드를 고른 경찰 663을 남몰래 좋아하고 있다. 어느 날, 경찰 663의 애인이 이별의 편지와 함께 경찰 663의 아파트 열쇠를 페이의 가게에게 맡긴다. 페이는 경찰 663이 집을 비운 사이 남아있는 그녀의 흔적을 하나 둘 지워나가는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.973,
+    "voteCount": 2224,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pT12E2OfHSSRTCASe2gkJfrBUAE.jpg",
     "posterAlt": "중경삼림 포스터",
     "watchProvidersKr": {
@@ -7639,8 +8448,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ms. Kawasaki",
       "Press Agent"
     ],
+    "contextTags": [],
     "overview": "일상이 무료하고 외로운 밥 해리스와 샬롯은 도쿄로 여행온 미국인이다. 영화배우인 밥은 위스키 광고 촬영차 일본을 방문했지만 일본의 낯선 문화와 의사소통의 어려움으로 소외감을 느낀다. 갓 결혼한 샬롯은 사진작가인 남편을 따라 일본에 왔지만, 외로움과 불확실한 앞날에 대해 번민한다.  같은 호텔에 머무르고 있던 밥과 샬롯은 호텔바에서 우연히 마주친다. 두 사람은 서로의 모습 속에서 공통점을 발견하고 서로에게 이끌리게 된다. 이 둘은 도쿄 시내를 함께 구경하고, 얘기를 나누면서 급속도로 가까워지는데...",
     "releaseYear": 2003,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.381,
+    "voteCount": 8161,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rGyDyUyepFIdFQLnzBelp3vsSaB.jpg",
     "posterAlt": "사랑도 통역이 되나요? 포스터",
     "watchProvidersKr": {
@@ -7713,8 +8528,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Victoria",
       "Jay"
     ],
+    "contextTags": [
+      "christmas",
+      "new_year",
+      "winter"
+    ],
     "overview": "행복한 가정을 꾸리던 샘에게 비극이 닥친다. 아내가 암으로 죽은 것이다. 크리스마스 이브, 신문 기자 애니는 이상적인 남자 월터와 약혼했음을 가족들에게 발표한다. 애니는 차를 몰고 가다 라디오를 듣는데, 샘이 죽은 아내에 대한 사랑을 회상하는 내용이 흘러나온다.  샘의 아들 조나가 아내를 잃고 실의에 빠진 아버지를 보다 못해 라디오 방송에 전화를 하게 된 것이었다. 애니는 샘이 자신의 운명적인 짝이 아닐까 궁금해 한다. 운명의 남자가 따로 있을지도 모른다는 생각에 월터에 대한 마음은 조금씩 식어간다. 애니는 샘이 자기 짝인지 확인하기 위해 월터를 속이고 멀리 시애틀까지 날아가 이들 부자의 다정스런 모습에 흐뭇해 하지만, 다른 여자를 만나는 실망스러운 장면을 목격하고 오해와 함께 집으로 돌아온다.  운명적인 만남이란 건 없다는 결론을 내린 애니는 다시 월터에게 마음을 돌리려 하지만 그건 불가능하다는 걸 확인하게 되고 월터에게 작별을 고한다. 그리고 그 순간, 엠파이어스테이츠 빌딩에서 드디어 이들 부자와 운명적인 만남을 갖게 되는데.",
     "releaseYear": 1993,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.747,
+    "voteCount": 2613,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xB82SOCT8eH6UvNBiMIeYySedjH.jpg",
     "posterAlt": "시애틀의 잠 못 이루는 밤 포스터",
     "watchProvidersKr": {
@@ -7793,8 +8618,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Becca",
       "Jules"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "머리 속엔 오직 “SEX” 생각뿐인 단세포 녀석들!  고등학교 졸업을 2주 앞둔 단짝 친구 세스와 에반은, 서로 다른 대학으로 진학하여 헤어지기 전에 마지막으로 기억에 남을 이벤트인 총각딱지 떼기를 계획한다.  하지만 변변한 여자친구 조차 없는 이들에게는 불가능해 보이는 계획이다.  우연히 세스가 짝사랑하는 줄스의 집에서 열리는 와일드 파티에 초대되는데, 조건은 파티에 사용될 술을 사가지고 와야 한다는 것이다.  이때 역시 어리버리한 친구 포겔이 가짜 신분증을 이용해 술을 사는 것을 제안한다.  주류가게에서 가짜 신분증으로 술을 살 때까지 만해도 모든 것이 순조롭게 풀리는 것처럼 보였지만, 현장에 도둑이 들어오면서 갑자기 모든 일이 꼬이기 시작하는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.269,
+    "voteCount": 8174,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ek8e8txUyUwd2BNqj6lFEerJfbq.jpg",
     "posterAlt": "슈퍼배드 포스터",
     "watchProvidersKr": {
@@ -7861,8 +8694,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Nancy Taylor",
       "Mme Lancaster"
     ],
+    "contextTags": [
+      "winter"
+    ],
     "overview": "잘나가는 기상 캐스터 필 코너스는 매해 펑서토니에서 열리는 성촉절 취재를 위해 촬영을 나갔다가 이상한 경험을 하게된다. 취재를 건성으로 끝내고 돌아가려는데 기상 예보에도 없었던 폭설을 만나 발이 묶이게 되고, 다음날 일어났더니 날짜가 하루 지난 것이 아닌 바로 어제의 그날, 그 장소였던 것이다. 어제와 똑같은 오늘이 반복되자 필 코너스는 매일 매일을 관찰하여 여자를 꼬시기도 하고, 금고 수송 차량을 털어 멋진차를 사기도 한다. 하지만 반복되는 나날들에 환멸을 느끼게 되고 결국 자살을 시도하지만 여전히 일어나면 바로 어제의 그 시간, 그 장소로 돌아간다. 그런 가운데 그는 함께 온 신임 프로듀서 리타의 착하고 순수한 마음을 알게되고, 그녀를 진심으로 사랑하게 된다. 매일 그녀의 생각과 행동들을 익히게 되고, 그녀의 마음을 얻으려하지만 하루만에 이루어지지 않는 사랑도 있는 법, 필 코너스는 언제까지 같은 시간 같은 장소에 묶여있게 될까?",
     "releaseYear": 1993,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.634,
+    "voteCount": 8982,
     "posterUrl": "https://image.tmdb.org/t/p/w780/d00qZPqqTMOnRg2m6l6NVbhSbaP.jpg",
     "posterAlt": "사랑의 블랙홀 포스터",
     "watchProvidersKr": {
@@ -7921,8 +8762,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Rita",
       "Becca"
     ],
+    "contextTags": [],
     "overview": "불경기에 시작한 베이커리 사업은 망하고, 비호감 룸메이트는 매일 속만 썩이고… 나쁜 남자에게 빠져 시간을 낭비하는 애니! 어느 날, 베프인 릴리안이 결혼선언을 하지만 절친이라는 이유로 결혼식 들러리까지 서야만 하는데.. 취향도 코드도 맞지 않는 다른 들러리들과의 결혼 준비는 쉽지 않고, 기쁘게 축하해줘야 할 베프의 결혼식이 생각만큼 달달하지만은 않다! 돈만 많은 무개념 미녀 헬렌 섹시한 유부녀 리타. 딱 봐도 호박씨 백단 베카. 위풍당당 염치 없는 메건. 들러리들때문에 골치 아픈 신부 릴리안. 시작부터 삐걱대는 결혼식 준비는 점점 꼬이고 애니와 들러리들은 점점 난관 속으로 빠지게 되는데.. 그래 !! 쿨하지 못해 미.안.하.다!??",
     "releaseYear": 2011,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.509,
+    "voteCount": 4704,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qGQzVDltYk1gYpLZLk7wM9e3xyq.jpg",
     "posterAlt": "내 여자친구의 결혼식 포스터",
     "watchProvidersKr": {
@@ -7977,8 +8824,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Doug",
       "Ryan"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "꿈도, 연애도, 다이어트도 모든 것이 완벽할 것 같은 스무 살이 가장 기대되는 나이 열아홉♥. 아이비리그에 합격한 ‘에이미’와 ‘몰리’는 대학과 스펙이 인생의 전부라 믿는 파워 범생이. 춤은 글로, 파티는 책으로 배운 두 사람은 고3의 마지막 졸업 파티에서 잊을 수 없는 레전드 핵인싸가 되기 위해 사상 초유의 일탈을 계획하는데… ‘지금 이 순간 아니면 절대 할 수 없어’ 이 구역을 뒤.집.어.놓.으.셨.다!",
     "releaseYear": 2019,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.004,
+    "voteCount": 2868,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oTY3zkK5zzp2CA2c3mSmVEHgFCz.jpg",
     "posterAlt": "북스마트 포스터",
     "watchProvidersKr": {
@@ -8045,8 +8900,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Tala",
       "Abe"
     ],
+    "contextTags": [
+      "travel",
+      "spring"
+    ],
     "overview": "팜 스프링스에서 열리는 결혼식에서 온 만사 태평 나일스와 신부 들러리 사라. 둘은 처음 본 그 순간부터 서로에게 반하며 급격히 사랑에 빠집니다. 피로연에서 몰래 빠져 나온 둘은 별로 으슥하지 않은 해변에서 만리장성을 쌓으려는 바로 그 순간, 알수없는 자가 쏜 화살에 맞고 쫓기는 신세가 되는데... 이젠 죽는구나 하는 그 순간, 둘은 그날 아침으로 타임루프하게 되는데...",
     "releaseYear": 2020,
+    "runtimeMinutes": 90,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.336,
+    "voteCount": 3752,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sodg5pHVYDGnvQn4NZZu9808DPg.jpg",
     "posterAlt": "팜 스프링스 포스터",
     "watchProvidersKr": {
@@ -8107,8 +8971,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sergeant Tony Fisher",
       "PC Doris Thatcher"
     ],
+    "contextTags": [],
     "overview": "런던에서 잘나가는 경찰 니콜라스 엔젤(사이몬 페그)은 몸을 사리지 않는 근성과 동물적인 감각으로 검거율 400%라는 경이적인 기록을 세우며 승승장구하지만 경찰청 간부들과 동료들의 견제를 받아 시골로 좌천된다. 그가 부임한 곳은 범죄율 제로를 자랑하는 아름답고 평화로운 마을 샌드포드. 좀 덜 떨어진듯한 순둥이 경찰 대니 버터맨(닉 프로스트)과 파트너가 되어 마을 축제의 안전관리, 실종된 백조 수색 등의 무료한 업무에 전전하던 어느 날, 끔찍한 사고들이 연이어 발생한다. 평화롭기만 하던 마을의 이면에는 엄청난 비밀이 숨겨져 있는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 121,
+    "collectionId": 1725600,
+    "collectionName": "The Three Flavours Cornetto Collection",
+    "voteAverage": 7.567,
+    "voteCount": 8422,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pzMU5ohKBC3IJKWDGhzLLlpgDk3.jpg",
     "posterAlt": "뜨거운 녀석들 포스터",
     "watchProvidersKr": {
@@ -8179,8 +9049,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Yvonne",
       "Barbara"
     ],
+    "contextTags": [],
     "overview": "별볼일 없는 주인공 숀이 여자친구 리즈에게 채일 무렵, 영국에는 정체를 알 수 없는 전염병이 돌면서 거리는 사람들을 먹어치우는 좀비들로 가득 찬다. 주위 사람들이 하나둘 좀비로 변해가는 이 뒤죽박죽의 상황에서 숀은 여자친구인 리즈를 구해내고 그녀의 사랑을 다시 얻기 위해 고군분투한다.",
     "releaseYear": 2004,
+    "runtimeMinutes": 100,
+    "collectionId": 1725600,
+    "collectionName": "The Three Flavours Cornetto Collection",
+    "voteAverage": 7.545,
+    "voteCount": 9438,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nHuO4izZQD3ssjk4C73jFogsRg6.jpg",
     "posterAlt": "새벽의 황당한 저주 포스터",
     "watchProvidersKr": null
@@ -8214,8 +9090,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Zack",
       "Freddy Jones"
     ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
     "overview": "락 밴드 단원인 듀이 핀 은 로커 답지 않게 뚱뚱하고 촌스러운 외모 때문에 밴드에서 쫒겨 난다. 월세까지 밀리자, 그는 급한 김에 친구 네드의 이름을 사칭하고, 호레이스 그린 초등학교의 대리교사로 취직한다. 수업 첫날부터, 공부를 가르칠 생각은 않고 시간 때울 궁리만 하던 듀이는 기발하고 엉뚱한 생각을 하게 되는데 앞으로 열릴 락 밴드 경연대회에 자기가 가르치는 학생들과 함께 참석하려는 것! 클래식기타와 피아노, 첼로, 심벌즈 등의 악기를 다뤄본 애들을 뽑아, 리드 기타, 베이스 기타, 키보드, 드럼을 가르치고, 다른 아이들에겐 백 보컬, 매니저, 코디, 장비 담당 등의 일을 맡긴다. 3주동안, 듀이와 아이들은 여자 교장 멀린스 의 눈을 피해 교실에서 락 음악을 연습하고, 드디어 오디션 접수까지 끝낸다. 마침내, 경연대회가 있던 날, 듀이가 가짜 선생임을 알게 된 학부모들은 멀린스 교장을 앞세우고 대회장으로 쳐들어 오는데.",
     "releaseYear": 2003,
+    "runtimeMinutes": 109,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.086,
+    "voteCount": 6238,
     "posterUrl": "https://image.tmdb.org/t/p/w780/j9xIQfUKUbXqSD3WwqKzSvRL9Fb.jpg",
     "posterAlt": "스쿨 오브 락 포스터",
     "watchProvidersKr": {
@@ -8286,8 +9171,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Damian",
       "Aaron Samuels"
     ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
     "overview": "동물학자인 아버지를 따라 아프리카에서 성장한 케이디는 일리노이즈의 고등 학교로 전학을 오게 된다. 케이디가 전학 온 고등학교에는 레지나라는 퀸카가 그녀의 매력을 주무기로 학교의 여왕으로 군림을 하고 있었다.  레지나는 케이디가 지닌 미모와 지성이 자신이 누리고 있는 교내 '여왕벌'의 위치를 위협할 수 있다고 판단하고 그녀를 감시할 목적으로 케이디에게 접근을 하여 둘은 친구가 된다. 케이디는 수학시간에 만난 남학생 애런 사무엘에게 한눈에 반하여 그와 사귀려는 노력을 하지만 그는 바로 레지나의 헤어진 남자 친구였다. 케이디가 애런에게 관심이 있는 것을 안 레지나는 고의로 그들의 사이를 방해하고 케이디에게 모욕감을 느끼게 한다. 이 일을 계기로 케이디는 레지나를 극도로 미워하게 되고 둘 사이에는 서로상대를 꺽기 위한 숨막히는 권모술수가 동원된 팽팽한 대결이 시작되는데.",
     "releaseYear": 2004,
+    "runtimeMinutes": 97,
+    "collectionId": 99606,
+    "collectionName": "퀸카로 살아남는 법 시리즈",
+    "voteAverage": 7.226,
+    "voteCount": 9527,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6WcZxeBF5rOrTr7cocljvu3ET77.jpg",
     "posterAlt": "퀸카로 살아남는 법 포스터",
     "watchProvidersKr": {
@@ -8352,8 +9246,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Nate",
       "Lily"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "명문대를 졸업한 소도시 출신의 앤드리아 삭스. 최고의 저널리스트 꿈을 안고 뉴욕에 상경하지만 그녀의 이력서를 보고 연락이 온 곳은 딱 한곳. 세계 최고의 패션지 런웨이 뿐이다. 그것도 기자가 아닌 편집장 미란다의 말단 비서로서. 미란다 프리슬리는 세계 패션쇼의 스케쥴을 바꿀 수 있을 만큼의 거물이지만 까다로운 완벽주의자로 악명이 높다. 직장생활의 꿈에 부푼 앤드리아. 그러나 현실은 지옥 그 자체. 악마 같은 미란다 밑에서 그녀는 과연 살아남을 수 있을까?",
     "releaseYear": 2006,
+    "runtimeMinutes": 109,
+    "collectionId": 1314623,
+    "collectionName": "악마는 프라다를 입는다 시리즈",
+    "voteAverage": 7.441,
+    "voteCount": 13904,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lxjGbkRnY9d2j8cxIHxX57NNvRH.jpg",
     "posterAlt": "악마는 프라다를 입는다 포스터",
     "watchProvidersKr": {
@@ -8413,8 +9315,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Bren MacGuff",
       "Leah"
     ],
+    "contextTags": [],
     "overview": "교내밴드에서 기타를 치고, 슬래셔 무비와 하드코어 락을 좋아하는 독특한 소녀 주노. 첫 성경험을 해야겠다고 결심한 그녀는 친한 친구 블리커를 그 상대로 정한다. 거실 의자 위에서 거사를 치른 2달 후, 주노는 아기를 가졌다는 사실을 알게 된다. 뱃속의 아기도 심장이 뛰고, 손톱까지 있다는 말에 주노는 차마 수술을 하지 못하고 단짝 친구 레아의 조언에 따라 벼룩신문에서 아이를 소중히 키워줄 불임부부를 찾기 시작하는데…",
     "releaseYear": 2007,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.061,
+    "voteCount": 7680,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mwPfMwbwBXhLR3HTnwNDTGRLoXb.jpg",
     "posterAlt": "주노 포스터",
     "watchProvidersKr": {
@@ -8474,8 +9382,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Stu",
       "Mr. Lundy"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "만화영화 더빙 성우이며 거리낌 없고 자유분방한 삶을 사는 다니엘은 주변 사람들을 늘 즐겁게 해준다. 특히, 그의 아이들에게 아빠는 영웅이다. 그 또한 세 아이들을 위해서 무엇이든지 한다. 그러나 그는 실직을 거듭한다. 경제적인 것에는 빵점인 것이다. 한편, 매사가 정확한 아내 미란다는 그의 장점이라 여겼던 것들이 현실 생활에선 단점이 될 뿐임을 깨닫는다. 미란다는 가족을 부양해야 하는 책임을 맡게 되며, 진지한 대화는 매번 다니엘에 의해 회피되어진다. 결국 14년 결혼생활의 인내는 무너지고 만다. 세 아이의 양육권은 미란다에게 주어지고, 다니엘에겐 주1회 방문만이 허락된다. 토요일만 기다리며 사는 다니엘이 어느날 미란다의 가정부 구인 광고를 보게 된다. 갑자기 묘책을 떠올린 다니엘은 분장 전문가인 남동생에게 소리 지른다. \"나를 여자로 만들어 줘!\" 미란다와 아이들 앞에 나타난 은발의 가정부 할머니 미세스 다웃파이어는 폭소 터지는 실수와 해프닝을 연발한다. 미세스 다웃파이어는 다니엘로서 듣지못한 미란다의 진심을 알게 되고, 다니엘로서 보지 못한 자신의 모습을 보게 되며, 다니엘로서 해주지 못한 가족의 울타리 역할을 해보게 된다.",
     "releaseYear": 1993,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.2,
+    "voteCount": 6678,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mOkdOaLv5ghEFJ1nEdlLS2yPVwf.jpg",
     "posterAlt": "미세스 다웃파이어 포스터",
     "watchProvidersKr": {
@@ -8527,8 +9443,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Marcelle",
       "Elisa"
     ],
+    "contextTags": [],
     "overview": "상위 1% 귀족남과 하위 1% 무일푼이 만났다.  2주간의 내기로 시작된 상상초월 특별한 동거 스토리  하루 24시간 내내 돌봐주는 손길이 없으면 아무 것도 할 수 없는 전신불구의 상위 1% 백만장자 필립(프랑수아 클루제). 어느 날 우연히, 가진 것이라곤 건강한 신체가 전부인 하위 1% 무일푼 백수 드리스(오마 사이)를 만나게 된 그는 거침없이 자유로운 성격의 드리스에게 호기심을 느껴 특별한 내기를 제안한다. 바로 2주 동안 필립의 손발이 되어 한시도 떨어지지 않고 자신을 간호하며 버틸 수 있는지 시험해보겠다는 것. 참을성이라곤 눈꼽 만큼도 찾아 볼 수 없던 드리스는 오기가 발동해 엉겁결에 내기를 수락한다. 이렇게, 전혀 어울릴 것 같지 않던 극과 극, 두 남자의 예측불허 기막힌 동거가 시작 되는데…",
     "releaseYear": 2011,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.273,
+    "voteCount": 18576,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4oOf3pmDD5rMNQGgsf7zMbFKtKC.jpg",
     "posterAlt": "언터처블: 1%의 우정 포스터",
     "watchProvidersKr": {
@@ -8625,8 +9547,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Victor Maitland",
       "Mikey Tandino"
     ],
+    "contextTags": [],
     "overview": "디트로이트 시경의 액셀(에디 머피)은 정의감이 강해서 소동을 피우는 괴짜 형사이다. 어느 날 친구 타이키가 살해당하지만 경찰은 수사를 꺼린다. 액셀은 범인 추적을 위해 비버리 힐즈로 간다. 액셀이 그곳에 도착하면서 여러 가지 소동이 일어나지만 결국 액셀은 사건을 해결한다.",
     "releaseYear": 1984,
+    "runtimeMinutes": 105,
+    "collectionId": 85861,
+    "collectionName": "비버리 힐스 캅 시리즈",
+    "voteAverage": 7.211,
+    "voteCount": 4638,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eBJEvKkhQ0tUt1dBAcTEYW6kCle.jpg",
     "posterAlt": "비버리 힐스 캅 포스터",
     "watchProvidersKr": {
@@ -8689,8 +9617,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gloria",
       "Sasha"
     ],
+    "contextTags": [],
     "overview": "원하는 무엇이든 될 수 있는 바비랜드에서 살아가던 바비가 현실 세계와 이어진 포털의 균열을 발견하게 되고, 이를 해결하기 위해 켄과 예기치 못한 여정을 떠나면서 펼쳐지는 이야기",
     "releaseYear": 2023,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.918,
+    "voteCount": 11246,
     "posterUrl": "https://image.tmdb.org/t/p/w780/h3mUJ9WEJ8PzA450ad4hrjsaiqG.jpg",
     "posterAlt": "바비 포스터",
     "watchProvidersKr": {
@@ -8735,8 +9669,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Dirk Calloway",
       "Margaret Yang"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "명문 사립학교 러쉬모어의 졸업반에 재학 중인 맥스 피셔(Max Fischer: 제이슨 슈왈츠먼 분)는 대단한 학생이다. 교내 신문과 학교 연감의 편집장이자, 프랑스 클럽, 체스 클럽, 천문학 클럽의 회장이고, 펜싱과 토론회 팀의 팀장이다. 또한 맥스 피셔 연극단의 설립자이며, 친히 극단을 위해 경찰의 부패나 도시의 폭력, 전쟁 등을 소재로 한 극본을 쓰고, 연출까지 맡고 있다. 그의 말에 따르면, 하바드 쯤이야 우습게 들어갈 수 있으니까, 옥스퍼드에 조기 입학을 신청해 놓은 상태다.  그렇지만, 동시에 그는 가장 형편없는 학생이기도 하다. 화려한 과외활동 뒤에는 바닥을 기는 교과 성적이 있고, 친구라고 할 만한 사람은 꼬맹이 더크(Dirk Calloway: 메이슨 갬블 분) 뿐이다. 부잣집 자제가 득시글거리는 러쉬모어에선 드물게 홀아비 이발사를 아버지로 둔 학생이기도 하다. 이런 맥스가 지나칠 정도로 과외활동에 집착하는 것은 러쉬모어를 너무나 자랑스럽게 여기고, 사랑하기 때문이다.  그런데, 맥스가 러쉬모어를 한층 더 사랑해야 할 이유가 생겼다. 그에게 진짜 사랑을 가져다 준 것이다. 상대는 러쉬모어의 초등학생을 가르치는 크로스 선생님(Rosemary Cross: 올리비아 윌리암스 분). 물론 그녀는 맥스를 좀 색다른 학생으로만 생각할 뿐 전혀 남자로서 취급하지 않지만, 맥스는 크로스 선생님의 사랑을 얻기 위해 모든 수단을 동원한다. 심지어는 학교 내에 그녀의 이름을 기리는 수족관을 건립하겠다고 나서기에 이른다. 수족관 건설 기금 마련을 위해 맥스는 블룸씨(Herman Blume: 빌 머레이 분)를 찾아간다.  자신의 쌍둥이 아들을 러쉬모어에 보내고 있는 블룸은 철강 재벌로, 러쉬모어를 위해서 상당한 액수의 기부금을 내고 있었다. 맥스의 열의에 반했는지, 블룸은 얼마간의 돈을 선뜻 내주었고, 이후 두 사람은 친구가 되는데...",
     "releaseYear": 1998,
+    "runtimeMinutes": 93,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.395,
+    "voteCount": 2752,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hSJ6swahAuZ8wM96lHDTwQPXUvZ.jpg",
     "posterAlt": "맥스군 사랑에 빠지다 포스터",
     "watchProvidersKr": {
@@ -8783,8 +9725,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Mitch Henderson",
       "Beth Johanssen"
     ],
+    "contextTags": [
+      "literary",
+      "space"
+    ],
     "overview": "NASA 소속의 아레스 3 탐사대는 화성에 도착한 지 6일째 되는 날 거대한 모래 폭풍을 만난다. 팀원 마크 와트니가 실종되고 회오리바람에 우주선이 기울어지자, 팀원들은 마크를 찾는 일을 포기하고 화성을 떠난다.  극적으로 생존한 마크 와트니는 남은 식량과 기발한 재치로 화성에서 살아남을 방법을 찾으며 자신이 살아있음을 알리려 노력한다. 마침내 자신이 살아있다는 사실을 지구에 알리게 된 마크 와트니. NASA는 총력을 기울여 마크 와트니를 구출하기 위해 노력하고, 아레스 3 탐사대 또한 그를 구출하기 위해 그들만의 방법을 찾게 되는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 141,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.703,
+    "voteCount": 21434,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uH8q40cjMAjrRHyPJMbQwAIJATb.jpg",
     "posterAlt": "마션 포스터",
     "watchProvidersKr": {
@@ -8844,8 +9795,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Solomon Eddie",
       "Gideon"
     ],
+    "contextTags": [],
     "overview": "2054년 워싱턴, 범죄를 예측하는 치안 시스템 프리크라임은 시민들의 안전을 지켜주는 든든한 존재. 프리크라임은 범죄가 일어날 시간과 장소, 범행을 저지를 사람까지 예측해내고, 이를 바탕으로 특수경찰이 미래의 범죄자들을 체포한다. 프리크라임 팀장인 존 앤더튼(톰 크루즈)은 천부적인 감각으로 미래의 범죄자를 추적해내는 능력을 인정받고 있다. 하지만 프리크라임 시스템은 믿을 수 없는 살인을 예견한다. 그것은 바로 앤더튼 자신이 누군가를 살해하는 범행 장면. 프리크라임의 모든 시스템이 앤더튼을 추격하는 가운데 앤더튼은 음모를 파헤치고 미래를 바꾸기 위해 직접 미래의 피살자를 찾아나선다.",
     "releaseYear": 2002,
+    "runtimeMinutes": 145,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.356,
+    "voteCount": 9719,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oaVX63mgvSN4MRN98sg5molfKBd.jpg",
     "posterAlt": "마이너리티 리포트 포스터",
     "watchProvidersKr": {
@@ -8910,8 +9867,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Parker Selfridge",
       "Norm Spellman"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "가까운 미래, 지구는 에너지 고갈 문제를 해결하기 위해 머나먼 행성 판도라에서 대체 자원을 채굴하기 시작한다. 하지만 판도라의 독성을 지닌 대기로 인해 자원 획득에 어려움을 겪게 된 인류는 판도라의 토착민 나비의 외형에 인간의 의식을 주입, 원격 조종이 가능한 새로운 생명체를 탄생시키는 프로그램을 개발한다. 한편 하반신이 마비된 전직 해병대원 제이크 설리는 아바타 프로그램에 참가할 것을 제안받는다. 그 곳에서 자신의 아바타를 통해 자유롭게 걸을 수 있게 된 제이크는 자원 채굴을 막으려는 나비의 무리에 침투하라는 임무를 부여받는데...",
     "releaseYear": 2009,
+    "runtimeMinutes": 162,
+    "collectionId": 87096,
+    "collectionName": "아바타 시리즈",
+    "voteAverage": 7.609,
+    "voteCount": 34232,
     "posterUrl": "https://image.tmdb.org/t/p/w780/m5lCha2XcbDowDoYHPc0DTNaCPU.jpg",
     "posterAlt": "아바타 포스터",
     "watchProvidersKr": {
@@ -8971,8 +9937,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Special Agent Ernest Paxton",
       "Commander Charles Anderson"
     ],
+    "contextTags": [],
     "overview": "미 해병 여단장 프란시스 하멜 장군(에드 해리스)은 미국 정부를 상대로 극비 군사 작전을 수행하다 전사한 장병의 가족에게 보상을 해줄 것을 호소한다. 그러나 미국 정부는 이것을 무시했고, 하멜 장군은 정의의 회복이라는 명분 하에 알카트라즈 섬을 장악하고 이 섬을 찾아온 관광객 81명을 잡고 몸값을 요구한다. 정부가 이를 들어주지 않을 경우 살상용 화학가스가 장착된 미사일을 샌프란시스코에 발사하겠다고 협박한다. 이 사건을 해결하기 위해서 생화학 무기 전문가인 스탠리 굿스피드 박사(니콜라스 케이지)와 알카트라즈에서 유일한 탈옥자인 존 메이슨(숀 코넬리)이 발탁되는데...",
     "releaseYear": 1996,
+    "runtimeMinutes": 131,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.152,
+    "voteCount": 5246,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o9dnRLsS0EHqnTjGtndWfrQzeMh.jpg",
     "posterAlt": "더 록 포스터",
     "watchProvidersKr": {
@@ -9023,8 +9995,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Stephens",
       "Jaguar Owner"
     ],
+    "contextTags": [],
     "overview": "하워드 페인은 몸값 370만 불을 요구하며 엘리베이터 인질극을 벌이나 경찰 특수반의 잭과 해리의 활약으로 좌절된다. 앙심을 품은 페인은 버스에 폭탄을 장치해 놓고 잭에게 연락한다. 시속 50마일 이하로 속도가 떨어지면 폭발하도록 만들어 놓은 문제의 버스에 잭이 천신만고 끝에 다가가 달리는 버스에 올라탄다. 하지만 마침 타고 있던 범죄자가 자신을 체포하려는 것으로 오인, 총을 쏘는 바람에 버스 운전사가 중상을 입는다. 그래서 승객인 애니가 핸들을 잡고 러쉬아워의 LA 시내를 좌충우돌하며 돌진하게 되는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 116,
+    "collectionId": 43064,
+    "collectionName": "스피드 시리즈",
+    "voteAverage": 7.2,
+    "voteCount": 6908,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iZsKy0Q4z4bEMgQhXgnWaooJniN.jpg",
     "posterAlt": "스피드 포스터",
     "watchProvidersKr": {
@@ -9082,8 +10060,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Médico",
       "Frankenstein"
     ],
+    "contextTags": [],
     "overview": "1940년, 카스티야 고원지대의 이동영화트럭에서 제임스 웨일의 <프랑켄슈타인 박사>를 본 5살의 아나는 영화 속 괴물이 사실 정령이라는 언니의 말을 믿고 괴물을 찾아다닌다. 빅토르 에리세의 장편 데뷔작으로, 은유와 상징 속에서 내전 직후 스페인의 위장된 평화를 통해 프랑코 독재를 암시적으로 비판한 작품이다. 스페인 회화를 보는 듯한 화면이 인상적이다",
     "releaseYear": 1973,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.651,
+    "voteCount": 400,
     "posterUrl": "https://image.tmdb.org/t/p/w780/j79GIofN9XNwRorNpFQoLGNELay.jpg",
     "posterAlt": "벌집의 정령 포스터",
     "watchProvidersKr": null
@@ -9115,8 +10099,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Satsuki Kataoka",
       "Mutsu Kataoka"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "햇볕이 따갑던 어느 여름 날, 바다에 놀러 간 준페이는 물에 빠진 어린 소년 요시오를 구하기 위해 바다에 뛰어 든다. 그로부터 10여 년 후. 각자 가정을 꾸린 준페이의 동생들 료타와 지나미는 준페이를 기리기 위해 매년 여름 가족들과 함께 고향집으로 향한다. 요시오 역시 매년 준페이의 집을 방문한다. 그 해 여름, 역시 준페이의 기일을 맞아 모인 가족들로 왁자지껄한 하루가 흘러갈 무렵 차남 료타는 어머니에게 이제 그만 요시오를 놓아줘도 되지 않냐는 말을 넌지시 건네고 엄마는 그런 료타의 질문에 지난 10여 년간 숨겨왔던 진심을 쏟아내는데...",
     "releaseYear": 2008,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.79,
+    "voteCount": 450,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dyHe44XGmpMlbDajZi2zrOpzBpd.jpg",
     "posterAlt": "걸어도 걸어도 포스터",
     "watchProvidersKr": {
@@ -9199,8 +10191,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Self",
       "Peanut Eating Woman"
     ],
+    "contextTags": [],
     "overview": "낡고 오래된 복화극장은 내일이면 문을 닫을 예정이며, 그 마지막 상영작으로 호금전 감독의 용문객잔을 상영하고 있다. 쏟아지는 폭우를 뚫고 극장에 모인 관객 중에는 동성애 파트너를 찾는 젊은 일본 남자, 야한 옷차림으로 연신 피스타치오를 까먹는 젊은 여자, 그리고 손자의 손을 잡고 온 노인 마오티엔이 있다. 용문객잔은 이 노인의 배우 데뷔작이었지만 극장의 다른 이들은 그 사정을 알 리 없다. 사람인지 유령인지 알 수 없는 이들이 객석과 복도, 화장실을 떠도는 가운데 그 동안 이 극장을 지켜온 두 사람, 다리를 저는 여자 매표원과 젊은 영사기사 역시 마지막까지 서로를 스쳐갈 뿐이다.",
     "releaseYear": 2003,
+    "runtimeMinutes": 82,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.786,
+    "voteCount": 182,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bLCjXfMbFAHg6QvEmQSTjW6VzzN.jpg",
     "posterAlt": "안녕, 용문객잔 포스터",
     "watchProvidersKr": null
@@ -9230,8 +10228,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Edna",
       "Curly"
     ],
+    "contextTags": [],
     "overview": "11살 소년 버드는 사랑하는 엄마와 가족들이 곁에 있지만, 외롭고 슬프다. 더구나 버드는 자신을 괴롭히는 아이들과 압제적인 선생님들 때문에 학교 생활에 적응하기가 더욱 힘들고, 겉돌기만 한다. 그런 버드에게 있어 유일한 위안은 동네 영화관에 가는 것이다. 카메라는 버드의 음울한 기억과 버드가 바라보는 어른들의 세계를 유영하듯 뒤쫓는다. 데이비스는 확고한 스타일과 특유의 재기 넘치는 연출로 다시금 자신의 어린 시절이 투영된 아름다운 서정시를 만들어냈다. 데이비스의 유연한 카메라는 시간과 기억을 뒤섞고, 버드의 상상과 실제 세계의 경계를 무너뜨린다. 버드 역을 맡은 아역 배우 리 맥코맥의 연기는 표정 하나, 몸짓 하나에서까지 절절함이 묻어난다. 영화의 마지막 부분에 쓰인 곡은 바로 영화의 제목과 같은데, 영국의 유명 작곡가 아서 설리번이 만들었으며, 장송곡으로 자주 쓰인다.  (2014 영화의 전당 - 영국영화의 심장: 마이크 리 & 테렌스 데이비스)",
     "releaseYear": 1992,
+    "runtimeMinutes": 85,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.179,
+    "voteCount": 126,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4cbgr67H4qV2RHqeFqlf4hMIl1Y.jpg",
     "posterAlt": "긴 하루가 지나고 포스터",
     "watchProvidersKr": null
@@ -9259,8 +10263,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mr. Lacs's Secretary",
       "Mme. Giffard"
     ],
+    "contextTags": [],
     "overview": "파리에 온 비즈니스맨 윌로 씨는 무표정한 사람들과 고층건물 그리고 낯선 공간 때문에 어리둥절하기만 하다.  마침 미국인 단체 관광객과 여기저기서 마주치던 중 그는 새로 개업한 '로얄 가든'이라는 레스트랑에서 만난 관광객 바바라와 친해진다.  처음 만나 어색했던 둘은 윌로 씨의 유쾌한 행동으로 즐겁고 로맨틱한 파티 무드가 밤늦게까지 계속된다. 이튿날 아침, 관광객들은 모두 공항으로 향하고 그녀는 윌로 씨로부터 작은 백합 꽃다발을 건네받는데...",
     "releaseYear": 1967,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.684,
+    "voteCount": 675,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bgxgIpgFog5GgJXnsgGNVVHCznu.jpg",
     "posterAlt": "플레이타임 포스터",
     "watchProvidersKr": null
@@ -9289,8 +10299,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Momi",
       "José"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "'탈리'는 남편으로부터 아무런 도움도 받지 못한 채 아이들을 키우고 있다. 역시 4명의 아이들을 키우고 있는 사촌 '메차'의 집에는 오랫동안 쓰지 않았던 수영장이 하나 있다. 그 해 여름에는 기록적인 더위가 찾아오고 '탈리'와 그의 자식들은 '메차'의 집 수영장에서 대부분의 시간을 보내게 된다.",
     "releaseYear": 2001,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.867,
+    "voteCount": 165,
     "posterUrl": "https://image.tmdb.org/t/p/w780/emQIM4vtDbt25tVzdS16w2Gzjbk.jpg",
     "posterAlt": "늪 포스터",
     "watchProvidersKr": {
@@ -9342,8 +10360,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Yeh Feng Ju",
       "Deputy Speaker"
     ],
+    "contextTags": [],
     "overview": "불상을 만드는 공장의 야간경비원 피클은 친구 벨리 버튼에게 빌린 도색잡지나 보면서 시간을 보낸다. 어느 날 소일거리 삼아 사장의 블랙박스를 들여다보던 그들은 엄청난 비밀을 알게 된다. 화제를 모았던 동명 단편영화를 장편으로 완성한 올해 대만영화의 발견. (Naver 영화)",
     "releaseYear": 2017,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.917,
+    "voteCount": 121,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xKlaoz24hGaYhWEFZ1IQFpean3s.jpg",
     "posterAlt": "대불+ 포스터",
     "watchProvidersKr": null
@@ -9364,8 +10388,14 @@ export const catalogMovies: CatalogMovie[] = [
     "characters": [
       "Self"
     ],
+    "contextTags": [],
     "overview": "장프랑수아 밀레의 <이삭 줍는 사람들>이라는 그림에서 시작해 추수가 끝난 대지에 남아 있는 농산물이나 과일들을 줍는 사람들, 개펄에서 조개를 줍는 사람들, 도시의 쓰레기통에서 주운 음식들만 먹고 살아가는 사람들, 그리고 버려진 물건들을 모아서 작품을 만드는 재활용 미술가에 이르기까지 다양한 장소에서 다양한 대상들을 수집하는 사람들의 모습들이 보여진다. 쓸모 없어 보이는 파편더미들 속에서 새로운 가치와 진실들이 발견되기도 하고, 무의미한 대상들이 놀라운 예술작품으로 변모하는 과정이 펼쳐진다.\r 아녜스 바르다는 마치 일기를 쓰듯이 정겹고 주관적인 형식으로 영화를 구성해 간다. 버려진 것들을 주워서 살아갈 수밖에 없는 가난한 촌부나 도시의 홈리스 등에 대한 묘사가 프랑스 사회 내부의 모순들을 간접적으로 드러내고 있다면, 재활용 미술가나 환경운동가와 같은 사람들의 목소리를 통해서는 현대 사회의 과도하고 무분별한 소비성이 비판되기도 한다.",
     "releaseYear": 2000,
+    "runtimeMinutes": 82,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.637,
+    "voteCount": 223,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fgk4ks8t02CBw2NHh9ljyHziMWQ.jpg",
     "posterAlt": "이삭줍는 사람들과 나 포스터",
     "watchProvidersKr": {
@@ -9459,8 +10489,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Persian Neighbour",
       "Ali"
     ],
+    "contextTags": [
+      "school",
+      "travel"
+    ],
     "overview": "공포의 숙제 검사 시간이 돌아왔다! 이란의 북부 지방, 코케 마을의 한 초등학교. 신나게 떠들던 아이들은 선생님의 출현으로 순간 긴장에 휩싸인다. 바로 숙제 검사 시간. 네마자데는 근심 어린 표정으로 선생님의 동정을 기다린다. 어제 저녁을 사촌의 집에서 보내는 바람에 숙제를 공책에 하지 못한 것이다. 결국 선생님의 꾸중을 들은 네마자데는 울음을 터트리고 짝꿍인 아마드의 마음을 애처롭게 만든다. 방과 후 집에 돌아온 아마드는 숙제를 하기 위해 가방을 여는데 똑같은 모양의 공책이 두 권! 아뿔싸! 실수로 네마자데의 공책을 가져온 아마드의 눈앞에는 선생님께 추궁 당하고 훌쩍이던 친구 네마자데의 모습이 어른거리기 시작한다. 아마 내일 선생님은 네마자데를 창밖으로 던져 버릴 것이다. 결국 착한 아마드는 친구의 공책을 집어들고 집을 나선다. 네마자데가 산다는 마을 포시테를 향해...",
     "releaseYear": 1987,
+    "runtimeMinutes": 83,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.9,
+    "voteCount": 434,
     "posterUrl": "https://image.tmdb.org/t/p/w780/avSSrkHcLc1Zl0Ne5C1YBTskKBS.jpg",
     "posterAlt": "내 친구의 집은 어디인가 포스터",
     "watchProvidersKr": null
@@ -9494,8 +10533,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Elder Brother",
       "Middle Sister"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "14살 소년 샤오쓰는 국어 성적이 나쁘다는 이유로 중학교 주간부에서 야간부로 반을 옮기게 되고 ‘소공원’파와 어울려 다닌다. 그러던 중 샤오쓰는 양호실에서 밍이라는 이름의 소녀를 만나게 된다. 소녀는 ‘소공원’파의 보스 허니의 여자로 허니는 샤오밍을 차지하기 위해 경쟁조직인 ‘217’파의 보스를 죽이고 은둔 중이다. 보스의 부재로 통제력을 상실한 ‘소공원’파는 보스 자리를 두고 혼란에 빠지고 돌연 허니가 돌아오게 되면서 ‘소공원’파 내부와 ‘217’파간의 대립이 격해진다. 그리고 밍을 사랑하게 된 샤오쓰도 이들의 싸움에 휘말리게 되는데...",
     "releaseYear": 1991,
+    "runtimeMinutes": 237,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.232,
+    "voteCount": 393,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xdnex58HIT1bwLIjg4ry8OdOZGO.jpg",
     "posterAlt": "고령가 소년 살인 사건 포스터",
     "watchProvidersKr": {
@@ -9539,8 +10586,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Hugh",
       "Amir"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "파티를 위해 오랜만에 모인 친구들  즐거운 시간을 보내던 중 혜성 충돌로 도시 전체가 정전 사태에 빠지고,  핸드폰 마저 먹통이 되자 모두 이상한 낌새를 느낀다.  설상가상 어둠에 갇힌 그들은 누군가로부터 위협을 받게 되고,  도움을 청하기 위해 몇 명의 친구들이 이웃집으로 향한다.  하지만 그곳에서 발견한 것은 다름 아닌 자기 자신!  보고도 믿지 못할 상황에 충격에 빠진 그들은  살아남기 위해 그 누구도 믿을 수 없게 되고,  살기 위해 또 다른 나와의 싸움을 벌여야 하는데…",
     "releaseYear": 2014,
+    "runtimeMinutes": 89,
+    "collectionId": 1329887,
+    "collectionName": "Coherence Collection",
+    "voteAverage": 7.213,
+    "voteCount": 3470,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4vx8kt8R4ac9LNuCqBjjJ9NHhaw.jpg",
     "posterAlt": "코히런스 포스터",
     "watchProvidersKr": {
@@ -9586,8 +10641,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Pamela",
       "Stem (voice)"
     ],
+    "contextTags": [],
     "overview": "하루 아침에 모든 것을 잃고 전신마비가 된 그레이. 인간의 모든 능력을 업그레이드하는 최첨단 두뇌 ‘스템’을 장착하고 이제, 아내를 죽인 자들을 직접 처단하기 위한 그의 통제 불능 액션이 시작 되는데…",
     "releaseYear": 2018,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.508,
+    "voteCount": 5078,
     "posterUrl": "https://image.tmdb.org/t/p/w780/x6DsGuZlY9JLcoTQ2j8eZaLkiDe.jpg",
     "posterAlt": "업그레이드 포스터",
     "watchProvidersKr": {
@@ -9652,8 +10713,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Shmi Skywalker",
       "Governor Sio Bibble"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "공화국력 BBY 32년, 공화국이 큰 분쟁에 휩싸인다. 상인 조직인 무역 연합이 암흑에 가린 세력의 조종을 받고 나부 행성을 봉쇄해버린 것. 분쟁을 해결하기 위해 은하계 원로 회의는 콰이곤 진과 오비완 케노비 두 제다이를 파견한다. 타투인 행성에서 그는 노예 구역에서 어머니와 살고 있는 아나킨 스카이워커라는 소년을 만나 그가 미래의 은하계를 구할 수 있는 강한 힘을 가진 인물임을 믿고 그를 데려간다. 한편 나부 행성이 침입을 받자 아미달라 여왕은 은하계 원로 회의에 도움을 청하나, 원로 회의는 힘을 상실한 상태로 나부 행성은 위험에 처하게 되는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 136,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 6.581,
+    "voteCount": 15962,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pt7oxFkvQFzXD0ByCe1uJumL6vD.jpg",
     "posterAlt": "스타워즈 에피소드 1: 보이지 않는 위험 포스터",
     "watchProvidersKr": {
@@ -9707,8 +10776,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Yoda (voice)",
       "Chancellor Palpatine"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "공화국으로부터 분리하려는 수백개의 행성연합은 은하계의 거대하고 새로운 위험으로 등장한다. 생명의 위협을 느끼는 아미달라 여왕의 신변 보호를 위해 아나킨과 오비완에게 경호 임무가 부여여된다. 공화국 수상 팰퍼틴의 야욕은 어마어마한 클론 군대를 비밀리에 양성하고, 오비완 케노비는 암살 의혹을 파헤치던 임무 중에 클론의 존재를 감지한다. 분리주의 세력과 공화국과의 걷잡을 수 없는 갈등은 마침내 거대한 전쟁을 불러오게 된다. 아나킨은 최고의 제다이 기사가 되고 싶은 욕망과 스승인 오비완과의 우정과 갈등, 여왕과의 사랑으로 갈등하는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 142,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 6.596,
+    "voteCount": 14464,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uGfoiO5T8astFTYeutTfdjfz03m.jpg",
     "posterAlt": "스타워즈 에피소드 2: 클론의 습격 포스터",
     "watchProvidersKr": {
@@ -9762,8 +10839,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Senator Bail Organa",
       "Yoda (voice)"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "클론 전쟁이 시작되었던 때로부터 3년이 지나고 팰퍼틴 의장과 제다이 사이의 불화는 더욱 커져 클론 전쟁은 더 이상 걷잡을 수 없게 격화된다. 자신이 제다이가 될 것임을 굳게 믿고 있던 아나킨은 제다이 기사 자격을 줄 수 없다는 기사단의 결정에 절망하고, 스승인 오비완과의 갈등은 더욱 깊어만 간다. 그런 아나킨에게 자신의 정체를 드러낸 팰퍼틴은 절대적인 힘을 갖게 해 주겠다며 그를 유혹하고, 아나킨은 점점 어둠의 힘에 이끌려 변해간다. 어둠의 세력에 완전히 장악 당한 아나킨은 자신에게는 아버지나 다름없는 오비완과 맞닥뜨리게 되는데...",
     "releaseYear": 2005,
+    "runtimeMinutes": 139,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 7.472,
+    "voteCount": 15063,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cKrtSemvrt2tOeHLgxCWauJ3URr.jpg",
     "posterAlt": "스타워즈 에피소드 3: 시스의 복수 포스터",
     "watchProvidersKr": {
@@ -9822,8 +10907,16 @@ export const catalogMovies: CatalogMovie[] = [
       "C-3PO",
       "R2-D2"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "공화국이 붕괴하고 제국이 수립된 뒤 20년, 제다이 기사단은 전멸하고 강력한 제국군의 횡포에 은하계는 공포에 휩싸여 있다. 그러던 중 공화국 재건을 노리는 반란군이 제국군의 비밀병기 데스스타 설계도를 훔쳐 달아나고 제국군은 이를 쫓는다. 하지만 결국 제국의 손에 붙잡히게 된 그들은 드로이드 R2-D2에 설계도를 넣어서 R2의 친구 C-3PO와 탈출시키는 데 성공하고, 두 드로이드 콤비는 타투인의 시골 마을에서 숙부와 함께 살고 있던 청년 루크 스카이워커에게 오게 되는데...",
     "releaseYear": 1977,
+    "runtimeMinutes": 121,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 8.205,
+    "voteCount": 22505,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7XFfURIFCJxN1mfBg0SAjk5yGzg.jpg",
     "posterAlt": "스타워즈 에피소드 4: 새로운 희망 포스터",
     "watchProvidersKr": {
@@ -9881,8 +10974,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Darth Vader",
       "Chewbacca"
     ],
+    "contextTags": [
+      "space",
+      "winter"
+    ],
     "overview": "제국군은 데스스타를 잃은 뒤에도 여전히 강력한 화력으로 반란군을 수세로 몰아넣었고, 반란군은 게릴라전을 위해 얼음으로 뒤덮인 행성 호스에 은신한다. 하지만 결국 제국군에 의해 호스의 반란군 기지마저 탄로나게 되고, 일행은 필사적으로 호스를 탈출해 다시 정처없는 피난길에 오른다. 반란군의 피난길에 함께 오르던 루크는 포스의 영이 된 오비완으로부터 제다이 마스터 요다를 찾아가라는 메시지를 받고 요다가 있는 정글 행성 대고바로 향한다. 루크는 요다를 만나 제다이가 되기 위한 훈련을 시작하고 솔로 일행은 제국군을 따돌리기 위해 옛 친구 랜도를 찾아가는데...",
     "releaseYear": 1980,
+    "runtimeMinutes": 124,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 8.391,
+    "voteCount": 18558,
     "posterUrl": "https://image.tmdb.org/t/p/w780/icaO5w8uLVm4JxMew71JJrQE2YX.jpg",
     "posterAlt": "스타워즈 에피소드 5: 제국의 역습 포스터",
     "watchProvidersKr": {
@@ -9935,8 +11037,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Chewbacca",
       "Anakin Skywalker"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "전작으로부터 약 1년 후의 이야기로, 전편의 클라이막스에서 엄청난 과거사를 접한 후 몸과 마음을 추스린 루크 스카이워커가 어엿한 제다이 기사로 성장해 동료들과 함께 결국 사악한 은하 제국을 무너뜨린다는 내용. 제국의 역습 때보다 배는 더 되는 금액[8]을 특수효과에 투입했으며, 흥행도 전작들(제국의 역습은 5억 3천만 달러, 새로운 희망은 재개봉까지 합쳐 7억 7천만 달러) 못잖게 엄청난 대박(전세계 5억 7천만 달러)을 쳤다. 한동안 최대 흥행 영화로 기네스북에 실렸으며 이는 타이타닉이 나올 때까지 깨지지 않았다.",
     "releaseYear": 1983,
+    "runtimeMinutes": 133,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 7.91,
+    "voteCount": 17056,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qUA5lGAXzgr9UDKvUreiLOGa9fM.jpg",
     "posterAlt": "스타워즈 에피소드 6: 제다이의 귀환 포스터",
     "watchProvidersKr": {
@@ -9994,8 +11104,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Han Solo",
       "Luke Skywalker"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "2번째 데스 스타가 파괴되고 다스 베이더가 사망한 지 약 30년 후, 마지막 남은 제다이인 루크 스카이워커가 사라졌다. 몰락한 은하 제국으로부터 일어난 퍼스트 오더는 루크와 공화국을 찾아내 제거하려 한다. 공화국과 루크의 쌍둥이 여동생 레이아 오르가나가 이끄는 저항군은 퍼스트 오더를 저지하고 루크의 도움을 받기 위해 루크를 찾는다. 저항군 최고의 파일럿 포 다메론은 자쿠 행성의 마을 장로를 만나 루크가 있는 장소의 지도를 얻는다. 카일로 렌이 이끄는 스톰트루퍼들은 마을을 파괴하고 포를 붙잡지만, 포의 드로이드 BB-8는 지도를 갖고 탈출하고 부랑자 레이를 만나게 된다.",
     "releaseYear": 2015,
+    "runtimeMinutes": 135,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 7.248,
+    "voteCount": 20657,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qmzc2xck6ZiJG4faxhGiDSX48Ck.jpg",
     "posterAlt": "스타워즈 에피소드 7: 깨어난 포스 포스터",
     "watchProvidersKr": {
@@ -10053,8 +11171,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Poe Dameron",
       "Snoke"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "악의 세력인 무자비한 퍼스트 오더가 은하계를 장악한 시대. 레아 장군의 저항군은 힘겨운 싸움을 이어가고 있다. 그들의 유일한 희망은 마지막 제다이 루크 스카이워커. 저항군은 승리의 불씨를 지필 마지막 희망을 찾아 레이를 과거의 영웅 루크에게 보낸다. 레이는 우여곡절 끝에 루크를 찾아내지만, 자신의 잘못으로 레아의 아들 벤 솔로가 퍼스트 오더의 실세 카일로 렌이 되었다고 생각하는 루크는 함께 떠나자는 레이의 제안을 거절한다. 한편 레이는 알 수 없는 이유로 카일로 렌과 교감할 수 있게 된다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 152,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 6.747,
+    "voteCount": 16442,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zRvMTCzUVnkdW9lno9HQwrigWSr.jpg",
     "posterAlt": "스타워즈 에피소드 8: 라스트 제다이 포스터",
     "watchProvidersKr": {
@@ -10113,8 +11239,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Poe Dameron",
       "C-3PO"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "포스의 균형을 교란시키는 퍼스트 오더의 수장 카일로 렌의 횡포가 극에 달한다. 저항군의 수장 레아 장군은 스타킬러 기지 파괴에는 성공하나 저항군 세력의 상당수를 잃고 전략적 후퇴를 선택한다. 퍼스트 오더 군대 내에 스파이를 두어 동태를 살피던 포 다메론은 팰퍼틴이 생존해 군대를 꾸린다는 첩보를 접한다. 제다이 수련에 빠져 있던 레이, 능숙한 파일럿으로 거듭난 핀과 포를 비롯한 소수 정예의 저항군은 팰퍼틴이 숨어 있다고 알려진 다크 사이드의 본거지 엑시골의 위치를 알아내기 위한 비밀작전을 수행한다.",
     "releaseYear": 2019,
+    "runtimeMinutes": 142,
+    "collectionId": 10,
+    "collectionName": "스타워즈 시리즈",
+    "voteAverage": 6.263,
+    "voteCount": 10933,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cJevdcvbBw0FhpUtrwmj1MYMiK3.jpg",
     "posterAlt": "스타워즈 에피소드 9: 라이즈 오브 스카이워커 포스터",
     "watchProvidersKr": {
@@ -10167,8 +11301,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Orson Krennic",
       "Governor Tarkin"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "희망이 사라진 세상. 반군 소속의 진은 적의 최종병기 데스 스타 개발에 아버지가 참여했단 과거 때문에  데스 스타의 약점을 캐내는 임무를 떠맡게 된다. 단숨에 행성 하나를 파괴할 위력을 지닌 데스 스타가 완성되기 전에 설계도를 훔쳐내야 하는 이번 작전의 성공 확률은 고작 2.4%. 생사도 모르는 아버지에 얽힌 비밀을 밝히려는 진을 비롯해 유능한 정보 요원 카시안, 두 눈이 멀었지만 탁월한 무술 실력을 지닌 치루트, 전투 베테랑 베이즈, 파일럿 보디, 시니컬한 드로이드 K-2SO까지 합류, 거대한 전쟁을 끝낼 가장 비밀스런 작전이 시작되는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 133,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.509,
+    "voteCount": 16522,
     "posterUrl": "https://image.tmdb.org/t/p/w780/44oic6PRJVeGUWNrpzlmuVVKWyv.jpg",
     "posterAlt": "로그 원: 스타워즈 스토리 포스터",
     "watchProvidersKr": {
@@ -10220,8 +11363,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Val",
       "L3-37"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "코렐리아 행성에서 노예처럼 일하던 빈민가의 청년 한은 사랑하는 키라와 함께 행성을 탈출할 기회를 노리고 있다. 우주 최고의 파일럿이 되기를 꿈꾸지만 현실은 못된 악당에게 붙들려 밀수꾼 노릇을 하는 중. 우여곡절 끝에 행성을 탈출하지만 키라와 생이별을 하게 된 한은 우주를 떠돌다가 츄바카, 랜도, 베킷 등을 만나 엄청난 가치를 지닌 우주 자원 탈취 작전을 공모하게 된다. 파일럿이 되어 키라 곁으로 돌아갈 궁리만 하던 한의 계획은 드라이덴 보스의 등장과 함께 꼬여만 가는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.556,
+    "voteCount": 9342,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5p67JC9EbzqeCZ3Ah7ZIiNxrbDG.jpg",
     "posterAlt": "한 솔로: 스타워즈 스토리 포스터",
     "watchProvidersKr": {
@@ -10275,8 +11426,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Shinobu Kocho (voice)",
       "Doma (voice)"
     ],
+    "contextTags": [],
     "overview": "혈귀로 변해버린 여동생 네즈코를 인간으로 되돌리기 위해 혈귀를 사냥하는 조직인 《귀살대》에 입대한 카마도 탄지로. 입대 후 동료인 아가츠마 젠이츠, 하시비라 이노스케와 함께 많은 혈귀와 싸우고, 성장하면서 세 사람의 우정과 유대는 깊어진다. 탄지로는 《귀살대》 최고위 검사인 《주》와도 함께 싸웠다. 「무한열차」에서는 염주・렌고쿠 쿄쥬로, 「유곽」에서는 음주・우즈이 텐겐, 「도공 마을」에서는 하주・토키토 무이치로, 연주・칸로지 미츠리와 함께 혈귀를 상대로 격렬한 전투를 벌였다. 그 후 다가올 혈귀와의 결전에 대비해 귀살대원들과 함께 《주》가 주도하는 합동 강화 훈련에 참가해 훈련을 받던 도중 《귀살대》의 본부인 우부야시키 저택에 나타난 키부츠지 무잔. 어르신의 위기에 달려온 《주》들과 탄지로였지만, 무잔의 술수로 의문의 공간으로 떨어지고 말았는데. 탄지로 일행이 떨어진 곳, 그곳은 혈귀의 본거지 《무한성》─ “귀살대”와 “혈귀”의 최종 결전의 포문이 열린다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 155,
+    "collectionId": 925155,
+    "collectionName": "극장판 귀멸의 칼날 시리즈",
+    "voteAverage": 7.7,
+    "voteCount": 900,
     "posterUrl": "https://image.tmdb.org/t/p/w780/m6Dho6hDCcL5KI8mOQNemZAedFI.jpg",
     "posterAlt": "극장판 귀멸의 칼날: 무한성편 포스터",
     "watchProvidersKr": {
@@ -10320,8 +11477,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sally Fleming",
       "Edward Lloyd"
     ],
+    "contextTags": [],
     "overview": "모든 것을 다 가진 완벽한 남자 스티븐 플레밍(제러미 아이언스)은 어느 날 파티에서 아들 마틴(루퍼트 그레이브스)의 연인인 안나 바튼(줄리엣 비노쉬)을 만나게 된다. 스치는 찰나의 만남에서 서로를 향한 묘한 감정을 느낀 두 사람은 후에 재회하게 되고 되돌릴 수 없는 열정적 사랑에 빠지게 된다. 스티븐은 안나를 만나면 만날수록 마틴에 대한 죄책감을 느끼지만, 안나는 스티븐 그리고 마틴과의 관계를 자신만의 방법으로 각각 지속시켜 나간다. 그러던 중 마틴과 안나가 결혼 발표를 하게 되면서 스티븐과 안나의 금기된 사랑은 결국 파국을 향해 치닫게 되는데...",
     "releaseYear": 1992,
+    "runtimeMinutes": 111,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.602,
+    "voteCount": 708,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bc6ADs3tcdyQFrGrSsmujKSEPYo.jpg",
     "posterAlt": "데미지 포스터",
     "watchProvidersKr": {
@@ -10396,8 +11559,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Loaf (voice)",
       "Nisha (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "오랜 연구 끝에 개발한 ‘호핑’ 기술로 동물 세계에 가까이 갈 수 있음을 알게 된 주인공 ‘메이블’은 마치 ‘아바타’ 같다며 신기해하고, 직접 로봇 비버가 되어 동물들의 세계에 잠입한다. 그들의 말을 알아듣게 된 ‘메이블’은 진짜 동물이 된 것처럼 동물 세상을 경험하는 가운데, 연못에 있던 다른 비버에게 달려드는 곰을 막아서지만 그들에겐 그들만의 질서와 법칙이 있다는 사실을 알게 된다. ‘호핑‘ 기술을 개발한 박사는 이 기술을 자연계 질서를 어지럽히는 데 쓰면 안 된다고 경고하지만, ‘메이블’은 통신을 끊어버려 이후 예측불가의 모험이 펼쳐질 것을 예고한다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.198,
+    "voteCount": 1947,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vJu9THzQ26Q5sWOVnhOkuRH5M1P.jpg",
     "posterAlt": "호퍼스 포스터",
     "watchProvidersKr": {
@@ -10443,8 +11614,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Moriarty",
       "Lady Tewkesbury"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "결혼식을 위해 몰타로 향하는 에놀라 홈즈. 하지만 셜록의 실종으로 위험한 사건에 휘말리게 되면서 그녀의 결혼 계획은 난관에 부딪힌다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 109,
+    "collectionId": 829314,
+    "collectionName": "에놀라 홈즈 시리즈",
+    "voteAverage": 6.974,
+    "voteCount": 428,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zBUJQKxmTGTXGGfsWTB93sk2DV1.jpg",
     "posterAlt": "에놀라 홈즈 3 포스터",
     "watchProvidersKr": {
@@ -10496,8 +11675,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Spider",
       "Ronal"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "인간들과의 전쟁으로 첫째 아들 ‘네테이얌’을 잃은 후, ‘제이크’와 ‘네이티리’는 깊은 슬픔에 빠진다. 상실에 빠진 이들 앞에 '바랑'이 이끄는 재의 부족이 등장하면서, 판도라는 더욱 큰 위험에 빠지게 되고, ‘설리’ 가족은 선택의 기로에 서게 되는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 195,
+    "collectionId": 87096,
+    "collectionName": "아바타 시리즈",
+    "voteAverage": 7.629,
+    "voteCount": 3826,
     "posterUrl": "https://image.tmdb.org/t/p/w780/l18o0AK18KS118tWeROOKYkF0ng.jpg",
     "posterAlt": "아바타: 불과 재 포스터",
     "watchProvidersKr": {
@@ -10545,8 +11732,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lodd (voice)",
       "Young Ollie (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "갑자기 몸이 뒤바뀌게 된 작은 숲속 생물과 위풍당당한 새. 일생일대의 모험을 헤쳐나가기 위해 어쩔 수 없이 힘을 합친다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.919,
+    "voteCount": 1953,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uv0iRQXDbtWHo1zPk3TZNo4Biti.jpg",
     "posterAlt": "뒤바뀐 친구들의 신비한 모험 포스터",
     "watchProvidersKr": {
@@ -10599,8 +11794,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dre",
       "Old Vet"
     ],
+    "contextTags": [],
     "overview": "복수 이상의 의미를 찾아 헤매던 프랭크 캐슬은 뜻밖의 싸움을 다시 시작하게 된다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 51,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.328,
+    "voteCount": 1857,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dfKKipbQswChklXaaVTh6FP3oaJ.jpg",
     "posterAlt": "퍼니셔 원 라스트 킬 포스터",
     "watchProvidersKr": {
@@ -10647,8 +11848,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Greg Portman",
       "Nicki Marron"
     ],
+    "contextTags": [],
     "overview": "프랭크 파머는 이성적인 사고를 가진, 일에 철저한 직업 경호원이다. 카터와 레이건 대통령의 경호원이기도 했던 그는 유명한 뮤직 스타 레이첼 매론의 경호를 담당하게 된다. 처음에는 자기가 누군가의 표적이 되고 있다 는 사실을 그다지 실감하지 못한 레이첼은 프랭크를 무시하는 듯한 태도를 보이지만 차츰 그의 중요성을 인식하면서 그에게 사랑을 느끼기 시작한다.",
     "releaseYear": 1992,
+    "runtimeMinutes": 129,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.705,
+    "voteCount": 3273,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8gBzy5lvmu9QZWoJtrbZ39cXsIb.jpg",
     "posterAlt": "보디가드 포스터",
     "watchProvidersKr": {
@@ -10708,8 +11915,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lenore",
       "Olly"
     ],
+    "contextTags": [],
     "overview": "빈틈없는 부동산 중개인의 그림처럼 완벽한 삶. 미워할 수 없는 사고뭉치 '동생'의 갑작스러운 등장으로 하루아침에 모든 것이 엉망이 되고 만다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.448,
+    "voteCount": 252,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6XWgzqVFdK3DcafXgAbataUddfS.jpg",
     "posterAlt": "리틀 브라더 포스터",
     "watchProvidersKr": {
@@ -10764,8 +11977,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Milton Lynxley (voice)",
       "Chief Bogo (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "미스터리한 뱀 게리가 나타난 순간, 주토피아가 다시 흔들리기 시작했다! 혼란에 빠진 도시를 구하기 위해 환상의 콤비 주디와 닉이 잠입 수사에 나서고 상상 그 이상의 진실과 위협을 마주하게 되는데...!",
     "releaseYear": 2025,
+    "runtimeMinutes": 108,
+    "collectionId": 1084247,
+    "collectionName": "주토피아 시리즈",
+    "voteAverage": 7.683,
+    "voteCount": 3109,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ib6v6qUXzez1x2qIOLN7C0yJNPQ.jpg",
     "posterAlt": "주토피아 2 포스터",
     "watchProvidersKr": {
@@ -10809,8 +12030,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mark Goodman",
       "FBI Field Agent Sheila Jeffries"
     ],
+    "contextTags": [],
     "overview": "전설적인 동명 소설을 새롭게 재해석한 이번 작품은 거대한 침공의 서막을 알린다. 에바 롱고리아와 전설적인 래퍼이자 배우 아이스 큐브, 그리고 마이클 오닐과 이만 벤슨이 합류해, 기술과 감시, 사생활이라는 현대적 주제를 아우르는 짜릿한 우주급 모험을 선보인다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 145,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 4.102,
+    "voteCount": 1033,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yvirUYrva23IudARHn3mMGVxWqM.jpg",
     "posterAlt": "우주전쟁 포스터",
     "watchProvidersKr": {
@@ -10857,8 +12084,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Archie Everhardt (voice)",
       "Modo Olachenko (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "큰 꿈을 품은 작은 염소 윌은 세계에서 가장 빠르고 사나운 동물들이 지배하는 고강도 혼성 풀컨택트 스포츠 ‘로어볼’의 프로 리그에 합류할 단 한 번의 기회를 얻게 된다. 새 팀의 동료들은 작은 염소가 팀 명단에 오른 것을 탐탁지 않게 여기지만, 윌은 ‘작아도 충분히 해낼 수 있다’는 것을 증명하고 스포츠의 판도를 바꾸겠다는 굳은 결의를 다진다. 이를 위해 그는 지금까지 한 번도 해본 적 없는 도전에 나서야 한다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.118,
+    "voteCount": 906,
     "posterUrl": "https://image.tmdb.org/t/p/w780/otP94vckeMXAgQxzhcRkZSeSmYv.jpg",
     "posterAlt": "고트: 더 레전드 포스터",
     "watchProvidersKr": {
@@ -10908,8 +12143,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sean",
       "Hunter"
     ],
+    "contextTags": [],
     "overview": "슬픔에 잠긴 채 호주 오지로 모험을 떠난 여성. 홀로 자신의 한계를 밀어붙이던 중 목숨을 노리는 살인마를 맞닥뜨리고, 그가 교활하게 설계한 뒤틀린 게임에 속수무책으로 휘말린다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.859,
+    "voteCount": 1644,
     "posterUrl": "https://image.tmdb.org/t/p/w780/wGHGVAJGTn2BqsuFfPK8lzPiKjH.jpg",
     "posterAlt": "정점 포스터",
     "watchProvidersKr": {
@@ -10960,8 +12201,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Andy",
       "Arthur"
     ],
+    "contextTags": [],
     "overview": "한 젊은 여성이 세상을 떠난 자매에게 웃기고 솔직한 음성 메시지를 남긴다. 그런데 이 메시지들이 본의 아니게 낯선 사람에게 전달되고, 그는 멀리서 그녀에게 마음을 뺏긴다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 119,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.393,
+    "voteCount": 592,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yOUKcPjv1cdTc2MsmXqqUwsrfOa.jpg",
     "posterAlt": "음성메시지가 도착했습니다 포스터",
     "watchProvidersKr": {
@@ -11016,8 +12263,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Matangi (voice)",
       "Simea (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "바다를 누볐던 선조들에게서 예기치 못한 부름을 받은 모아나가 마우이와 다시 만나 새로운 선원들과 함께 오랫동안 잊혀진 멀고 위험한 바다 너머로 떠나는 특별한 모험을 담은 이야기",
     "releaseYear": 2024,
+    "runtimeMinutes": 100,
+    "collectionId": 1241984,
+    "collectionName": "모아나 시리즈",
+    "voteAverage": 6.996,
+    "voteCount": 3151,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hwmwTFtMbzxAWbIOp1RyyiOCyx0.jpg",
     "posterAlt": "모아나 2 포스터",
     "watchProvidersKr": {
@@ -11075,8 +12330,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Kelly Height",
       "Annie"
     ],
+    "contextTags": [
+      "school",
+      "summer"
+    ],
     "overview": "19살 제이는 멋진 남자친구와 근사한 데이트를 한 그 날 이후, 누군가 자신을 따라다닌다는 섬뜩한 느낌을 받는다. 하지만 그녀를 더욱 불안에 떨게 한 것은 자신을 따라다니는 존재가 남들에겐 보이지 않는다는 것! 알 수 없는 정체는 언제 어디서나 제이 앞에 나타나 그녀의 일상을 서서히 옥죄어오고, 악몽보다 더한 공포와 불안감에 시달리는 제이.  이 기이한 저주를 다른 사람에게 넘기지 않으면 ‘그것’은 죽을 때까지 쫓아온다!",
     "releaseYear": 2015,
+    "runtimeMinutes": 100,
+    "collectionId": 1198581,
+    "collectionName": "It Follows Collection",
+    "voteAverage": 6.584,
+    "voteCount": 6988,
     "posterUrl": "https://image.tmdb.org/t/p/w780/48a3M8sKhAroo2GW2WAY5sSHsG7.jpg",
     "posterAlt": "팔로우 포스터",
     "watchProvidersKr": {
@@ -11123,8 +12387,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Max Dillon / Electro",
       "Norman Osborn / Green Goblin"
     ],
+    "contextTags": [],
     "overview": "미스테리오의 계략으로 세상에 정체가 탄로난 스파이더맨 피터 파커는 하루 아침에 평범한 일상을 잃게 된다. 문제를 해결하기 위해 닥터 스트레인지를 찾아가 도움을 청하지만 뜻하지 않게 멀티버스가 열리면서 각기 다른 차원의 불청객들이 나타난다. 닥터 옥토퍼스를 비롯해 스파이더맨에게 깊은 원한을 가진 숙적들의 강력한 공격에 피터 파커는 사상 최악의 위기를 맞게 되는데…",
     "releaseYear": 2021,
+    "runtimeMinutes": 148,
+    "collectionId": 531241,
+    "collectionName": "스파이더맨(MCU) 시리즈",
+    "voteAverage": 7.934,
+    "voteCount": 22235,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fvqoI9r1GU2EFkc0xjZ6dKCuDVR.jpg",
     "posterAlt": "스파이더맨: 노 웨이 홈 포스터",
     "watchProvidersKr": {
@@ -11191,8 +12461,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Hamm (voice)",
       "Bo Peep (voice)"
     ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
     "overview": "카우보이 인형 우디는 꼬마 주인인 앤디의 가장 사랑받는 장난감이다. 그러나 어느날 버즈라는 새로운 장난감이 등장한다.  버즈는 최신형 장난감으로 레이저 빔 등의 첨단장비를 갖추고 있으나, 버즈는 자신이 장난감임을 인식하지 못하고 자신이 우주에서 온 전사이며 자신이 갖춘 장비로 하늘을 날 수 있다고 믿고 있다. 버즈의 허상을 상처받지 않고 인식시켜 주려는 우디와 친구들. 그러나 뜻밖의 사고가 일어난다. 옆집 개에게 버즈가 납치당하고 이런 버즈를 구하기 위해 우디와 친구들은 구조대를 조직해 버즈를 구하러 가는데...",
     "releaseYear": 1995,
+    "runtimeMinutes": 81,
+    "collectionId": 10194,
+    "collectionName": "토이 스토리 시리즈",
+    "voteAverage": 7.983,
+    "voteCount": 20166,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iJbm78MxPjLutWUYixbeege8EVe.jpg",
     "posterAlt": "토이 스토리 포스터",
     "watchProvidersKr": {
@@ -11253,8 +12532,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Liu Jinxiao",
       "Wu Yaolei"
     ],
+    "contextTags": [],
     "overview": "첨단 감시 시스템과 삼엄한 보안망을 무력화하고, 수십억을 탈취한 정체불명의 범죄 조직. 통제 불능의 범죄에 마카오 경찰은 결국 은퇴한 전설의 범죄 추적 전문가 ‘황더중’에게 도움을 요청한다. 황더중은 신입 경찰 ‘허추궈’와 함께 최정예 감시반을 구성해, 범죄 조직의 수장 ‘푸룽성’을 추적하기 시작한다. 하지만 수사망이 조여올수록 상대의 덫과 함정은 더욱 교묘해지고, 예상치 못한 반격 속에 황더중 역시 추적당하기 시작하는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 142,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.892,
+    "voteCount": 981,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uiIT7CsJ4V7rMnTqy7xYvj9IRhs.jpg",
     "posterAlt": "포풍추영 포스터",
     "watchProvidersKr": {
@@ -11307,8 +12592,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Young Forrest Gump",
       "Young Jenny Curran"
     ],
+    "contextTags": [
+      "new_year",
+      "school",
+      "literary"
+    ],
     "overview": "불편한 다리, 남들보다 조금 떨어지는 지능을 가진 포레스트 검프는 헌신적인 어머니의 보살핌과 첫사랑 제니와의 만남으로 편견과 괴롭힘 속에서도 따뜻한 마음을 지니고 성장한다. 또래들의 괴롭힘을 피해 도망치던 포레스트는 누구보다 빠르게 달릴 수 있는 자신의 재능을 깨닫는다. 그의 재능을 알아 본 대학에서 그를 미식축구 선수로 발탁하고, 졸업 후에도 뛰어난 신체능력으로 군에 들어가 무공훈장을 수여받는 등 탄탄한 인생 가도에 오르게 된 포레스트. 하지만 어머니가 병에 걸려 죽음을 맞이하고, 첫사랑 제니 역시 그의 곁을 떠나가며 다시 한 번 인생의 전환점을 맞이하게 되는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 142,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.465,
+    "voteCount": 29982,
     "posterUrl": "https://image.tmdb.org/t/p/w780/l8wvbQQIBV8LBHmx3Wx9xbE2kzt.jpg",
     "posterAlt": "포레스트 검프 포스터",
     "watchProvidersKr": {
@@ -11381,8 +12676,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Chase",
       "Boat Captain"
     ],
+    "contextTags": [],
     "overview": "승진만을 꿈꾸는 7년차 직장인 린다(레이첼 맥아담스)는 자신을 무시하는 상사 브래들리(딜런 오브라이언)와  출장 도중 비행기 추락 사고로 무인도에 단둘이 고립된다. 하지만 와이파이도, 인사팀도, 직급도 없는 야생의 섬에서 두 사람의 권력관계는 완전히 뒤집히기 시작한다. 회사에서는 절대적인 권력자였던 브래들리가 부상으로 인해 생존 능력 제로로 전락한다. 반면 그동안  억눌려 있던 린다는 뛰어난 생존 능력으로 상황을 장악하기 시작한다. 그러던 어느 날, 누군가 섬을 찾아오면서  상황은 예측 불가능하게 흘러가는데….",
     "releaseYear": 2026,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.047,
+    "voteCount": 1973,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kpOHAiCiIBa0yPtOqSp99NxhwUF.jpg",
     "posterAlt": "직장상사 길들이기 포스터",
     "watchProvidersKr": {
@@ -11427,8 +12728,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mary Ann Minetti",
       "Barb Vanderhoof"
     ],
+    "contextTags": [],
     "overview": "작은 마을의 아쿠아리움에서 야간 근무를 하는 여자. 남편과 사별한 그녀는 영리한 문어와 삶의 방향을 잃은 젊은 남자와 친구가 된다. 베스트셀러를 원작으로 한 감동적인 드라마 영화.",
     "releaseYear": 2026,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.539,
+    "voteCount": 739,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mUt0SnTp0oAN38BHD7NGX8hmwAT.jpg",
     "posterAlt": "아쿠아리움이 문을 닫으면 포스터",
     "watchProvidersKr": {
@@ -11481,8 +12788,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Father (Suit)",
       "Drone Synth"
     ],
+    "contextTags": [],
     "overview": "프레데터로서 존재를 증명하기 위해 우주에서 가장 위험한 행성으로 첫 사냥에 나선 덱. 죽음의 땅에 도사린 모든 것으로부터 공격을 받던 순간, 휴머노이드 티아를 만난다. 최상위 포식자 칼리스크에 맞서게 된 둘은 생존과 각자의 목적을 위해 극한의 사투를 벌이게 되는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 107,
+    "collectionId": 399,
+    "collectionName": "프레데터 시리즈",
+    "voteAverage": 7.823,
+    "voteCount": 3310,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8lpCbwbYh9SSzCFsHDndZHKrcD4.jpg",
     "posterAlt": "프레데터: 죽음의 땅 포스터",
     "watchProvidersKr": {
@@ -11531,8 +12844,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Donkey Kong (voice)",
       "Cranky Kong (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "따단-딴-따단-딴 ♫ 전 세계를 열광시킬 올 타임 슈퍼 어드벤처의 등장! 뉴욕의 평범한 배관공 형제 '마리오'와 ‘루이지’는 배수관 고장으로 위기에 빠진 도시를 구하려다 미스터리한 초록색 파이프 안으로 빨려 들어가게 된다. 파이프를 통해 새로운 세상으로 차원 이동하게 된 형제. 형 '마리오'는 뛰어난 리더십을 지닌 '피치'가 통치하는 버섯왕국에 도착하지만 동생 '루이지'는 빌런 '쿠파'가 있는 다크랜드로 떨어지며 납치를 당하고 ‘마리오’는 동생을 구하기 위해 ‘피치’와 ‘키노피오’의 도움을 받아 '쿠파'에 맞서기로 결심한다. 그러나 슈퍼스타로 세상을 지배하려는 그의 강력한 힘 앞에 이들은 예기치 못한 위험에 빠지게 되는데...!",
     "releaseYear": 2023,
+    "runtimeMinutes": 93,
+    "collectionId": 1434561,
+    "collectionName": "슈퍼 마리오 시리즈",
+    "voteAverage": 7.604,
+    "voteCount": 10894,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jt1GlLLvkWL2m83VX8I1qsDR187.jpg",
     "posterAlt": "슈퍼 마리오 브라더스 포스터",
     "watchProvidersKr": {
@@ -11596,8 +12917,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Natasha Romanoff / Black Widow",
       "James Rhodes / War Machine"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "타노스는 6개의 인피니티 스톤을 획득해 신으로 군림하려 한다. 그것은 곧 인류의 절반을 학살해 우주의 균형을 맞추겠다는 뜻. 타노스는 닥터 스트레인지가 소유한 타임 스톤, 비전의 이마에 박혀 있는 마인드 스톤을 차지하기 위해 지구를 침략한다. 아이언맨과 스파이더맨은 가디언즈 오브 갤럭시의 멤버들과 타노스를 상대한다. 지구에선 캡틴 아메리카, 완다, 블랙 위도우, 블랙 팬서 등이 비전을 지키기 위해 뭉친다.",
     "releaseYear": 2018,
+    "runtimeMinutes": 149,
+    "collectionId": 86311,
+    "collectionName": "어벤져스 시리즈",
+    "voteAverage": 8.238,
+    "voteCount": 32290,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kmP6viwzcEkZeoi1LaVcQemcvZh.jpg",
     "posterAlt": "어벤져스: 인피니티 워 포스터",
     "watchProvidersKr": {
@@ -11649,8 +12978,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ken Scott",
       "Kimberly \"Kim\" Vance"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "영국 런던에서 미국 시애틀까지, 핫스팟에서 시작된 사랑의 클라이맥스! 첫사랑, 첫키스, 첫경험, 설렘 가득했던 처음을 뒤로 하고 꿈을 위해 잠시 서로를 떠나게 된 하딘과 테사. 각자 영국 런던과 미국 시애틀에서 롱디 연애를 앞둔 두 사람은 시간과 장소를 가리지 않고 달콤한 사랑을 속삭인다. 하지만 연애와 꿈의 갈림길에 선 둘은 서로에게 감춘 '누군가'의 존재와 예상치 못한 비밀까지 알게 되면서 사랑의 클라이맥스에 치닫게 되는데…",
     "releaseYear": 2021,
+    "runtimeMinutes": 99,
+    "collectionId": 702624,
+    "collectionName": "애프터 시리즈",
+    "voteAverage": 7.005,
+    "voteCount": 2754,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o0PgoBD6jLYId3LYpu9yUY06SLT.jpg",
     "posterAlt": "애프터: 관계의 함정 포스터",
     "watchProvidersKr": {
@@ -11736,8 +13073,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bonnie (voice)",
       "Gabby Gabby (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "앤디와 작별한 우디는 새로운 주인 보니와의 생활에 적응 중이다. 보니는 처음 간 유치원에서 불안한 마음을 달래고자 포크를 가지고 새 장난감 포키를 만든다. 쓰레기에서 장난감으로 거듭난 포키는 자꾸 쓰레기통으로 도망치려 하지만 우디는 보니를 위해 포키를 돌봐주기로 한다. 어느 날 가족여행으로 함께 떠난 놀이공원에서 포키가 납치되고, 포키를 구하기 위한 모험을 하던 중 우디는 우연히 오래 전 헤어진 친구 보핍을 만난다. 우디는 주인 없이 자유로운 삶을 살고 있는 보핍을 보며 마음이 흔들리기 시작하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 100,
+    "collectionId": 10194,
+    "collectionName": "토이 스토리 시리즈",
+    "voteAverage": 7.5,
+    "voteCount": 10748,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9P8IX4UyH3QFLL4MV6GZyuOB7Ue.jpg",
     "posterAlt": "토이 스토리 4 포스터",
     "watchProvidersKr": {
@@ -11791,8 +13136,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Carmine Falcone",
       "Alfred"
     ],
+    "contextTags": [],
     "overview": "지난 2년 간 고담시의 어둠 속에서 범법자들을 응징하며 배트맨으로 살아온 브루스 웨인. 알프레드와 제임스 고든 경위의 도움 아래 그는 도시의 부패한 공직자들과 고위 관료들 사이에서 복수의 화신으로 활약한다. 고담의 시장 선거를 앞두고 고담의 엘리트 집단을 목표로 잔악한 연쇄살인을 저지르는 수수께끼 킬러 리들러가 나타나자, 최고의 탐정 브루스 웨인이 수사에 나서고 남겨진 단서를 풀어가며 캣우먼, 펭귄, 카마인 팔코네, 리들러를 차례대로 만난다. 사이코 범인의 미스터리를 수사하면서 그 모든 증거가 자신을 향한 의도적인 메시지였음을 깨닫고,  리들러에게 농락 당한 배트맨은 광기에 사로잡힌다. 범인의 무자비한 계획을 막고 오랫동안 고담시를 썩게 만든 권력 부패의 고리를 끊어야 하지만, 부모님의 죽음에 얽힌 진실이 밝혀지자 복수와 정의 사이에서 갈등하는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 176,
+    "collectionId": 948485,
+    "collectionName": "더 배트맨 시리즈",
+    "voteAverage": 7.7,
+    "voteCount": 12122,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jicHGaOX5pHs7RKjfexMxvLkwjf.jpg",
     "posterAlt": "더 배트맨 포스터",
     "watchProvidersKr": {
@@ -11846,8 +13197,14 @@ export const catalogMovies: CatalogMovie[] = [
       "15",
       "60"
     ],
+    "contextTags": [],
     "overview": "미 육군 레인저 훈련에서 마지막 혹독한 임무를 받은 전투 공병. 자신이 속한 부대를 이끌고 거대한 외계 살상 병기에 맞서 싸워야 한다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 110,
+    "collectionId": 1707178,
+    "collectionName": "War Machine Collection",
+    "voteAverage": 7.4,
+    "voteCount": 2083,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cfeIYPthWgq5XFZnx7cbpr7xFTp.jpg",
     "posterAlt": "워 머신: 전쟁 기계 포스터",
     "watchProvidersKr": {
@@ -11900,8 +13257,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Slinky Dog (voice)",
       "Rex (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "앤디가 카우보이 캠프에 간 동안 앤디의 어머니는 벼룩 시장을 열고 앤디의 장난감 중 위지가 팔려가게 될 운명이 되자 우디가 위지를 구하러 간다. 그러나 우디는 토이 수집가 알에게 유괴당한다. 우디는 원래 제시와 스팅키와 한 세트로 셋이 모이면 일본의 토이 박물관에 갈 수 있다. 알은 우디를 새 것처럼 고쳐주고 제시와 스팅키는 우디와 함께 박물관으로 갈 것을 우디에게 요청한다. 앤디와 친구들을 생각하며 처음엔 거절했으나 우디는 그들과 함께 박물관으로 가기로 한다. 그러나 이 사실을 모르는 버즈와 토이 친구들은 구조대를 결성해 우디를 구하러 가는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 94,
+    "collectionId": 10194,
+    "collectionName": "토이 스토리 시리즈",
+    "voteAverage": 7.617,
+    "voteCount": 15093,
     "posterUrl": "https://image.tmdb.org/t/p/w780/gXUNsdIIn6NiEBvh8Mq6gjgVPm0.jpg",
     "posterAlt": "토이 스토리 2 포스터",
     "watchProvidersKr": {
@@ -11961,8 +13326,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Tonowari",
       "Norm Spellman"
     ],
+    "contextTags": [],
     "overview": "판도라 행성에서 제이크 설리와 네이티리가 이룬 가족이 겪게 되는 무자비한 위협과 살아남기 위해 떠나야 하는 긴 여정과 전투, 그리고 견뎌내야 할 상처에 대한 이야기를 그렸다. 살아남기 위해 설리 가족이 숲에서 바다로 터전을 옮기면서 겪게 되는 화합의 과정, 그리고 곳곳에서 도사리는 새로운 위협까지 역경 속에서 더 아름답게 펼쳐진다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 192,
+    "collectionId": 87096,
+    "collectionName": "아바타 시리즈",
+    "voteAverage": 7.594,
+    "voteCount": 14340,
     "posterUrl": "https://image.tmdb.org/t/p/w780/u2aVXft5GLBQnjzWVNda7sdDpdu.jpg",
     "posterAlt": "아바타: 물의 길 포스터",
     "watchProvidersKr": {
@@ -12016,8 +13387,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lhek",
       "Deaw"
     ],
+    "contextTags": [],
     "overview": "희귀 혈액형 때문에 쫓기던 소녀가 암살자 가족의 손에 길러진다. 그런데 복수심에 불타는 적이 그녀의 혈액을 노리고 다시 돌아오자, 그녀는 사랑하는 이와 함께 싸워 영원히 자유를 쟁취하기로 결심한다.\r 희귀 혈액형을 지닌 베트남 소녀 란은 부모를 살해한 냉혹한 보물 사냥꾼 프륵에게 쫓기다 암살 조직인 하우스 89의 수장 포에게 구출돼 태국으로 옮겨진다. 그곳에서 포의 친아들 쁘란, 그리고 고아였으나 포가 거두어들인 M과 가족처럼 지내며 성장한다. 쁘란은 어떻게든 란을 지켜야 하는 임무를 맡게 되고, 시간이 흐르면서 두 사람은 연인 관계로 발전한다. 하지만 란의 혈액을 손에 넣겠다는 집념에 사로잡힌 프륵이 나타나자 둘의 행복은 산산조각 난다. 한편, 란은 하우스 89가 자기를 받아준 이유에 대한 뜻밖의 진실을 알게 되고, 혈액으로 인해 다시금 표적이 된 상황에서 부모의 원수를 향해 복수를 다짐한다. 더 이상 도망치지 않기로 결심한 란은 사랑하는 이와 함께 맞서 싸우며 자유를 쟁취하려 한다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.596,
+    "voteCount": 267,
     "posterUrl": "https://image.tmdb.org/t/p/w780/70bLedAueeJXOEVqXnNToj8zLvy.jpg",
     "posterAlt": "친애하는 나의 킬러 포스터",
     "watchProvidersKr": {
@@ -12071,8 +13448,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Bobby (voice)",
       "Gwi-Ma (voice)"
     ],
+    "contextTags": [],
     "overview": "케이팝 슈퍼스타 루미, 미라, 조이. 매진을 기록하는 대형 스타디움 공연이 없을 때면 이들은 또 다른 활동에 나선다. 바로 비밀 능력을 이용해 팬들을 초자연적 위협으로부터 보호하는 것.",
     "releaseYear": 2025,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.02,
+    "voteCount": 2994,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5fqcLmrgVDicMuGLOa9PKErFP72.jpg",
     "posterAlt": "케이팝 데몬 헌터스 포스터",
     "watchProvidersKr": {
@@ -12125,8 +13508,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Driver",
       "Bruno"
     ],
+    "contextTags": [],
     "overview": "의문의 습격으로 살해 당한 ‘로라’ ‘아드리안’은 연인의 죽음에 절망하고, 범인은 흔적도 없이 사라졌다.  유력한 용의자로 누명을 쓴 ‘아드리안’은 승률 100%의 변호사 ‘버지니아’를 선임한다.  그리고 자신의 무죄를 입증하기 위해 고군분투하던 중  과거 그와 ‘로라’가 은폐한 교통사고와 숨겨진 연관성을 찾게 되는데…  남은 시간은 단 3시간, 사건을 재구성해 무죄를 입증해야 한다!",
     "releaseYear": 2017,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.078,
+    "voteCount": 5043,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1bS5Do7dmOzda4nSIUU4PAgDCgV.jpg",
     "posterAlt": "인비저블 게스트 포스터",
     "watchProvidersKr": {
@@ -12212,8 +13601,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Paddler (voice)",
       "Thunderbolt (voice)"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "우연한 사고로 거대한 야생에 불시착한 로봇 로즈는 주변 동물들의 행동을 배우며 낯선 환경 속에 적응해 가던 중, 사고로 세상에 홀로 남겨진 아기 기러기 브라이트빌의 보호자가 된다. 로즈는 입력되어 있지 않은 새로운 역할과 관계에 낯선 감정을 마주하고 겨울이 오기 전에 남쪽으로 떠나야 하는 브라이트빌을 위해 동물들의 도움을 받아 이주를 위한 생존 기술을 가르쳐준다. 그러나 선천적으로 몸집이 작은 브라이트빌은 짧은 비행도 힘겨워 하는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 102,
+    "collectionId": 1370345,
+    "collectionName": "와일드 로봇 시리즈",
+    "voteAverage": 8.316,
+    "voteCount": 6268,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iA9NiygwSOBy8FjZjvdYOMxRUG0.jpg",
     "posterAlt": "와일드 로봇 포스터",
     "watchProvidersKr": {
@@ -12293,8 +13691,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Celia (voice)",
       "Roz (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "호탕한 설리와 재치만점 마이크는 몬스터 주식회사 겁주기 팀의 최우수 콤비다. 매일 밤 투철한 직업정신으로 인간 세계로 통하는 벽장 문을 열던 설리와 마이크 콤비는 어느 날 일생일대의 실수를 저지른다. 덜 닫힌 벽장 문 사이로 인간아이 부가 몬스터 세계에 침입한 것. 설리와 마이크는 부를 인간세계로 돌려보내고 사건을 조용히 수습하려 하지만 부는 설리를 무서워하기는커녕 애완 야옹이쯤으로  생각하고 쫄래쫄래 따라다닌다. 부의 침입이 발각되자 몬스터 주식회사는 발칵 뒤집히고 마는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 92,
+    "collectionId": 137696,
+    "collectionName": "몬스터 주식회사 시리즈",
+    "voteAverage": 7.854,
+    "voteCount": 19952,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fnDLrtEoIrxTCWUvuurMzOzQGpQ.jpg",
     "posterAlt": "몬스터 주식회사 포스터",
     "watchProvidersKr": {
@@ -12354,8 +13760,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Happy Hogan",
       "Vanessa"
     ],
+    "contextTags": [],
     "overview": "히어로 생활에서 은퇴한 후, 평범한 중고차 딜러로 살아가던 데드풀이 예상치 못한 거대한 위기를 맞아 모든 면에서 상극인 울버린을 찾아가게 되며 펼쳐지는 도파민 폭발 액션 블록버스터.",
     "releaseYear": 2024,
+    "runtimeMinutes": 128,
+    "collectionId": 448150,
+    "collectionName": "데드풀 시리즈",
+    "voteAverage": 7.58,
+    "voteCount": 8939,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dsfAcQ5J7TPOpJgcX8R1lRBqiMK.jpg",
     "posterAlt": "데드풀과 울버린 포스터",
     "watchProvidersKr": {
@@ -12409,8 +13821,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Black Ops Commander",
       "Bradford Shaw"
     ],
+    "contextTags": [],
     "overview": "고도의 훈련을 받은 두 요원는 비밀스러운 협곡의 양쪽을 지키는 임무를 받은 후 멀리서 서로와 서서히 친해진다. 도사리고 있던 악이 드러나자, 둘은 협곡 안의 위험으로부터 살아남기 위해 협력해야만 한다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.669,
+    "voteCount": 3927,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dBKMc0Bim0Z8amB7VihuCfhto2v.jpg",
     "posterAlt": "'더 캐니언' - The Gorge 포스터",
     "watchProvidersKr": {
@@ -12465,8 +13883,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Gru's Mom (voice)",
       "Dr. Nefario (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "세계 최고의 슈퍼 악당을 꿈꾸는 미니보스 ‘그루’와 그를 따라다니는 미니언들. 어느 날 그루는 최고의 악당 조직 ‘빌런6’의 마법 스톤을 훔치는 데 성공하지만 뉴페이스 미니언 ‘오토’의 실수로 스톤을 잃어버리고 빌런6에게 납치까지 당한다. 미니보스를 구하기 위해 잃어버린 스톤을 되찾아야 하는 ‘오토’, 그리고 쿵푸를 마스터해야 하는 ‘케빈’, ‘스튜어트’, ‘밥’! 올 여름 극장가를 점령할 MCU(미니언즈 시네마틱 유니버스)가 돌아온다!",
     "releaseYear": 2022,
+    "runtimeMinutes": 87,
+    "collectionId": 544669,
+    "collectionName": "미니언즈 시리즈",
+    "voteAverage": 7.3,
+    "voteCount": 4056,
     "posterUrl": "https://image.tmdb.org/t/p/w780/b6Q4hqPWxL3IsNfBwta5I8CsClI.jpg",
     "posterAlt": "미니언즈 2 포스터",
     "watchProvidersKr": {
@@ -12522,8 +13948,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Darren (voice)",
       "Dr. Ram (voice)"
     ],
+    "contextTags": [],
     "overview": "집에서 어머니를 간병하며 초자연 현상 전문 팟캐스트를 진행하는 여자. 어느 날 공동 진행자에게 발송된 섬뜩한 녹음 파일을 들은 뒤로, 점차 불안과 편집증에 시달리게 된다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 94,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.141,
+    "voteCount": 341,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2PFgFMnrdCPXWiZl1PUvky7Mo9D.jpg",
     "posterAlt": "언더톤 포스터",
     "watchProvidersKr": {
@@ -12576,8 +14008,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Jimmima",
       "Jimmy Jones"
     ],
+    "contextTags": [],
     "overview": "분노 바이러스로부터 격리된 섬 홀리아일랜드로 돌아가지 않고 본토에 남기로 한 스파이크, 감염자와 공존하며 살아가는 켈슨 박사, 정체불명 인간 집단의 리더 지미가 얽히고 설키며 벌어지는 이야기",
     "releaseYear": 2026,
+    "runtimeMinutes": 110,
+    "collectionId": 1565,
+    "collectionName": "28일 후 시리즈",
+    "voteAverage": 7.117,
+    "voteCount": 1436,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ubgOSHAEhv1ds8BNHodhCcI13oH.jpg",
     "posterAlt": "28년 후: 뼈의 사원 포스터",
     "watchProvidersKr": {
@@ -12631,8 +14069,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Anger (voice)",
       "Sadness (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "13살이 된 라일리의 행복을 위해 매일 바쁘게 머릿속 감정 컨트롤 본부를 운영하는 ‘기쁨’, ‘슬픔’, ‘버럭’, ‘까칠’, ‘소심’. 그러던 어느 날, 낯선 감정인 ‘불안’, ‘당황’, ‘따분’, ‘부럽’이가 본부에 등장하고, 언제나 최악의 상황을 대비하며 제멋대로인 ‘불안’이와 기존 감정들은 계속 충돌한다. 결국 새로운 감정들에 의해 본부에서 쫓겨나게 된 기존 감정들은 다시 본부로 돌아가기 위해 위험천만한 모험을 시작하는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 97,
+    "collectionId": 1022790,
+    "collectionName": "인사이드 아웃 시리즈",
+    "voteAverage": 7.5,
+    "voteCount": 6790,
     "posterUrl": "https://image.tmdb.org/t/p/w780/x2BHx02jMbvpKjMvbf8XxJkYwHJ.jpg",
     "posterAlt": "인사이드 아웃 2 포스터",
     "watchProvidersKr": {
@@ -12691,8 +14137,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Iron Head",
       "Hooking Leg"
     ],
+    "contextTags": [],
     "overview": "퇴물 취급받는 왕년의 스타 플레이어 명봉(오맹달). 축구 코치가 되고 싶지만 어느 구단에서도 그를 받아주지 않는다. 소림사에서 무공을 익혔던 씽씽(주성치)은 사부가 죽자 하릴없이 빈둥빈둥 가난한 백수로 지내며 만두가게 처녀 아매(조미)를 흠모하는게 유일한 낙. 우연히 씽씽의 힘을 발견한 명봉은 씽씽에게 축구단을 결성하자고 제안한다. 일단은 정예 멤버를 모으는게 가장 급선무, 씽씽은 소림사에서 함께 무예를 다졌던 동료들을 차례차례 찾아가지만, 날렵했던 무사들은 온데간데 없고 하나같이 삶의 의욕을 잃어버린 이들 뿐. 이들은 씽씽의 제안을 처음엔 거절하지만 나중엔 차례차례 씽씽을 찾아오게 되는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.176,
+    "voteCount": 2571,
     "posterUrl": "https://image.tmdb.org/t/p/w780/86r8Fe9WuleUh5BLn0VIQhbfemB.jpg",
     "posterAlt": "소림축구 포스터",
     "watchProvidersKr": {
@@ -12751,8 +14203,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lion",
       "Sofía Zabala"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "전 세계적인 히트작 '나의 잘못'의 속편. 노아와 닉의 사랑은 둘을 떼어놓으려는 부모님의 노력에도 불구하고 흔들림이 없어 보인다. 하지만 닉의 직업과 노아의 대학 진학은 두 사람의 관계와 레이스테르 가족의 근간을 흔들 새로운 관계로 그들의 삶을 안내한다. 많은 사람이 두 사람 사이를 파괴하려는 가운데 이 둘은 결국 행복을 맞이할 수 있을까?",
     "releaseYear": 2024,
+    "runtimeMinutes": 117,
+    "collectionId": 1156666,
+    "collectionName": "잘못 시리즈",
+    "voteAverage": 7.088,
+    "voteCount": 1583,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zuctS3p8Bs9IeYv5ScKeOKp5Na5.jpg",
     "posterAlt": "네 잘못이야 포스터",
     "watchProvidersKr": {
@@ -12801,8 +14261,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Wasabi (voice)",
       "Honey Lemon (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "천재 공학도 ‘테디’가 개발한 힐링로봇 ‘베이맥스’! ‘테디’의 동생이자 로봇 전문가인 ‘히로’는 도시가 파괴될 위기에 처하자 ‘베이맥스’를 슈퍼히어로로 업그레이드 하는데... 과연 이들은 도시의 위험을 막아낼 수 있을까?",
     "releaseYear": 2014,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.726,
+    "voteCount": 16691,
     "posterUrl": "https://image.tmdb.org/t/p/w780/gLabmTVZpNOGa8LEiMvTi9hJPDe.jpg",
     "posterAlt": "빅 히어로 포스터",
     "watchProvidersKr": {
@@ -12862,8 +14330,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Bowers",
       "Linnet Ridgeway"
     ],
+    "contextTags": [
+      "literary",
+      "space"
+    ],
     "overview": "이집트 나일 강에서 열리는 호화로운 결혼 연회에 탐정 에르큘 포와로가 초대를 받는다. 식의 주인공은 리넷과 사이먼. 리넷은 자신을 축하하기 위해 모인 친인척들과 재산 관리인, 그리고 헤어진 과거의 연인까지 모두가 자신의 막대한 재산을 노리고 있다는 생각에 빠져 에르큘 포와로에게 자신을 지켜달라는 의뢰를 한다. 그러던 와중에 또 한명의 불청객이 나타난다. 리넷의 가장 친한 친구이자 사이먼과 애인 사이였던 재클린. 앙심을 품은 재클린이 리넷 커플을 따라다니며 대놓고 저주를 퍼붓자 리넷의 불안은 극에 달하고, 그렇게 마침내 나일강 위를 떠다니던 초호화 여객선에서 총알 한방이 발사되고야 마는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 127,
+    "collectionId": 735384,
+    "collectionName": "에르퀼 푸아로 (케네스 브래너) 시리즈",
+    "voteAverage": 6.4,
+    "voteCount": 4239,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cABFrLRNlepxhioYBJEEX0fNOWf.jpg",
     "posterAlt": "나일 강의 죽음 포스터",
     "watchProvidersKr": {
@@ -12915,8 +14392,14 @@ export const catalogMovies: CatalogMovie[] = [
       "May Parker",
       "J. Jonah Jameson"
     ],
+    "contextTags": [],
     "overview": "평범하고 내성적인 고등학생 피터 파커는 우연히 방사능에 감염된 거미에 물린다.그 후, 피터는 손에서 거미줄이 튀어 나오고 벽을 기어 오를 수 있는 거미와 같은 능력을 갖게 된다. 다가오는 위험을 본능적으로 감지하는 초감각과 엄청난 파워를 소유하게 된 것이다. 피터는 짝사랑하던 메리 제인의 관심을 끌기 위해 멋진 스포츠카를 구입하는데 초능력을 처음 사용한다. 그러다 사랑하는 벤 아저씨의 죽음을 계기로 그 힘을 악의 세력에 대항하는데 쓰기로 결심한다. 한편 피터의 절친 해리 오스본의 아버지인 노만은 실험 도중 가스에 중독되어 악의 화신 그린 고블린으로 변하는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 121,
+    "collectionId": 556,
+    "collectionName": "스파이더맨 시리즈",
+    "voteAverage": 7.335,
+    "voteCount": 20861,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4xOhtzXGt0if74dTmS4qtizFelX.jpg",
     "posterAlt": "스파이더맨 포스터",
     "watchProvidersKr": {
@@ -12984,8 +14467,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Miguel O'Hara (voice)",
       "Spot (voice)"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "여러 성장통을 겪으며 새로운 스파이더맨이 된 마일스 모랄레스. 그 앞에 다른 평행세계의 스파이더우먼 그웬이 다시 나타난다. 모든 차원의 멀티버스 속 스파이더맨들을 만나게 되지만, 질서에 대한 신념이 부딪히며 예상치 못한 균열이 생기는데… 상상 그 이상을 넘어서는 멀티버스의 세계가 열린다!",
     "releaseYear": 2023,
+    "runtimeMinutes": 140,
+    "collectionId": 573436,
+    "collectionName": "스파이더맨: 뉴 유니버스 시리즈",
+    "voteAverage": 8.341,
+    "voteCount": 8797,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lMWTlGr9jVUC18T515hPRKym5QQ.jpg",
     "posterAlt": "스파이더맨: 어크로스 더 유니버스 포스터",
     "watchProvidersKr": {
@@ -13045,8 +14536,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ramsey",
       "Mia"
     ],
+    "contextTags": [],
     "overview": "돔과 그의 패밀리 앞에 나타난 운명의 적 단테. 과거의 그림자는 돔의 모든 것을 파괴하기 위해 달려온다. 단테에 의해 산산히 흩어진 패밀리들은 모두 목숨을 걸고 맞서야 하는 함정에 빠지고 마는데...",
     "releaseYear": 2023,
+    "runtimeMinutes": 142,
+    "collectionId": 9485,
+    "collectionName": "분노의 질주 시리즈",
+    "voteAverage": 6.99,
+    "voteCount": 6391,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cltj9nKLzl0HXtz2qdu55BoIgOn.jpg",
     "posterAlt": "분노의 질주: 라이드 오어 다이 포스터",
     "watchProvidersKr": {
@@ -13110,8 +14607,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Elliot Grey",
       "José"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "모든 과거를 잊고 서로에게 더 깊게 빠져든 ‘크리스찬 그레이’와 ‘아나스타샤’.  그레이의 독특한 취향으로 시작된 이 비밀스러운 관계는  더 큰 자극을 원하는 아나스타샤로 인해 역전되고,  마침내 그녀의 본능이 지배하는 마지막 절정의 순간을 맞이하게 되는데…",
     "releaseYear": 2018,
+    "runtimeMinutes": 105,
+    "collectionId": 344830,
+    "collectionName": "50가지 그림자 시리즈",
+    "voteAverage": 6.672,
+    "voteCount": 8385,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kdN58uXDV5D0RWdMjdO9jtdFjxg.jpg",
     "posterAlt": "50가지 그림자: 해방 포스터",
     "watchProvidersKr": {
@@ -13192,8 +14697,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Edith (voice)",
       "Agnes (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "슈트-업 하고 악당 전담 처리반 AVL이 된 에이전트 미니언즈와 미니언즈 만큼 귀여운 그루 주니어가 태어나면서 더욱 완벽해진 그루 패밀리. 이들 앞에 과거 그루의 고등학교 동창이자 그에게 체포당했던 빌런 맥심이 등장하고, 오직 그루를 향한 복수심에 불타올라 탈옥까지 감행한 맥심은 그루 패밀리의 뒤를 바짝 추격하며 위협을 가하기 시작하는데... 과연 에이전트 미니언즈와 그루 패밀리는 맥심을 막아낼 수 있을까?",
     "releaseYear": 2024,
+    "runtimeMinutes": 94,
+    "collectionId": 86066,
+    "collectionName": "슈퍼배드 시리즈",
+    "voteAverage": 6.983,
+    "voteCount": 3265,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vZmCFVff9JySHTUp9zbYUIAcxzc.jpg",
     "posterAlt": "슈퍼배드 4 포스터",
     "watchProvidersKr": {
@@ -13264,8 +14777,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Waiter",
       "Debtor Gentleman"
     ],
+    "contextTags": [],
     "overview": "무수한 남성을 만난 뒤 조는 첫 남자 제롬(샤이아 러버프)과 조우하고 사랑이라는 감정을 느낀다. 그러나 아이러니하게도 사랑은 성적 쾌감을 빼앗아갔다. 조는 삶의 공허함을 느끼게 되고 가학적인 방식으로 성적 만족을 제공하는 K(제이미 벨)를 찾아간다. 조는 감각을 되찾은 대가로 제롬을 잃지만 여성으로서 자신감을 되찾는다. 아무도 믿지 않고 아무 의미도 추구하지 않던 조는 자신의 분신이자 후계자인 P(미아 고스)에게 마음을 주기 시작하면서 조금씩 달라진다. 길고 긴 조의 경험담이 다다른 결론은 자신의 욕망을 인정한다는 것이다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 123,
+    "collectionId": 258664,
+    "collectionName": "님포매니악 시리즈",
+    "voteAverage": 6.713,
+    "voteCount": 3216,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tsYCG9yLRr7p2ZBqtCe3162cT4n.jpg",
     "posterAlt": "님포매니악: 볼륨 2 포스터",
     "watchProvidersKr": {
@@ -13320,8 +14839,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Feyd-Rautha",
       "Princess Irulan"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "황제의 모략으로 멸문한 가문의 유일한 후계자 폴. 어머니 레이디 제시카와 간신히 목숨만 부지한 채 사막으로 도망친다. 그곳에서 만난 반란군들과 숨어 지내다 그들과 함께 황제의 모든 것을 파괴할 전투를 준비한다. 한편 반란군들의 기세가 높아질수록 불안해진 황제와 귀족 가문은 잔혹한 암살자 페이드 로타를 보내 반란군을 몰살하려 하는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 167,
+    "collectionId": 726871,
+    "collectionName": "듄 시리즈",
+    "voteAverage": 8.128,
+    "voteCount": 8179,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8AsDR2o5AC3V8Jmj6JH6cpta7dz.jpg",
     "posterAlt": "듄: 파트 2 포스터",
     "watchProvidersKr": {
@@ -13375,8 +14902,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Mary (voice)",
       "Ship's Computer (voice)"
     ],
+    "contextTags": [
+      "travel",
+      "space",
+      "family"
+    ],
     "overview": "텅 빈 지구에 홀로 남아 수백 년이란 시간을 외롭게 일만 하며 보내던 월-E (WALL-E: Waste Allocation Load Lifter Earth-Class, 지구 폐기물 수거-처리용 로봇). 그런 그가 매력적인 탐사 로봇 ‘이브’와 마주친 순간, 잡동사니 수집만이 낙이던 인생에도 소중한 목표가 생긴다. 이브는 지구의 미래를 결정할 열쇠가 우연히 월-E의 손에 들어간 사실을 알게 되고, 고향별로 돌아갈 날만 애타게 기다리는 인간들에게 이를 보고하기 위해 서둘러 우주로 향한다. 한편 월-E는 이브를 뒤쫓아 은하를 가로지르며, 스크린 사상 가장 짜릿한 상상이 넘치는 어드벤처를 선사한다. 이제껏 꿈에서도 볼 수 없었던 미래 세계를 배경으로 우주에서 펼쳐지는 월-E의 환상적인 모험! 애완용 바퀴벌레, 용맹스럽지만 어딘가 나사가 빠진 듯한 사회 부적응 로봇 군단 등 일련의 유쾌한 캐릭터들이 여기에 동참한다.",
     "releaseYear": 2008,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.116,
+    "voteCount": 20483,
     "posterUrl": "https://image.tmdb.org/t/p/w780/skTzymk67FfQSfGvwp4JSAqje4Z.jpg",
     "posterAlt": "월•E 포스터",
     "watchProvidersKr": {
@@ -13434,8 +14971,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Kaspar Smolinski",
       "Bernadette"
     ],
+    "contextTags": [],
     "overview": "한때 주목받는 유망주였지만 끔찍한 사고로 F1®에서 우승하지 못하고 한순간에 추락한 드라이버 소니 헤이스. 그의 오랜 동료인 루벤 세르반테스에게 레이싱 복귀를 제안받으며 최하위 팀인 APXGP에 합류한다.  그러나 팀 내 떠오르는 천재 드라이버 조슈아 피어스와 소니 헤이스의 갈등은 날이 갈수록 심해지고. 설상가상 우승을 향한 APXGP 팀의 전략 또한 번번이 실패하며 최하위권을 벗어나지 못하고 고전하는데···",
     "releaseYear": 2025,
+    "runtimeMinutes": 140,
+    "collectionId": 1633433,
+    "collectionName": "F1 Collection",
+    "voteAverage": 7.815,
+    "voteCount": 4265,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bvVoP1t2gNvmE9ccSrqR1zcGHGM.jpg",
     "posterAlt": "F1 더 무비 포스터",
     "watchProvidersKr": {
@@ -13488,8 +15031,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Elliot Grey",
       "Dr. Grey"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "순수한 사회 초년생인 여대생 ‘아나스타샤’는 어느 날, 아픈 친구를 대신해 모든 것을 다 가진 매력적인 CEO ‘크리스찬 그레이’의 인터뷰를 맡게 된다. 단숨에 사람을 매료시키는 ‘크리스찬 그레이’의 마력에 ‘아나스타샤’는 순식간에 빠져들고, 그 역시 순수한 아나스타샤를 점점 더 알고 싶어지게 된다.  내 취향은 아주 분명해.  한편, 원하는 것을 모두 들어줄 만큼 완벽한 ‘그레이’의 숨겨진 비밀을 알게 된 ‘아나스타샤’는 거부할 수 없는 본능에 눈을 뜨게 되는데…",
     "releaseYear": 2015,
+    "runtimeMinutes": 125,
+    "collectionId": 344830,
+    "collectionName": "50가지 그림자 시리즈",
+    "voteAverage": 5.867,
+    "voteCount": 12445,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iQaLakvYBzpmdHUB2h6h2aVY5nE.jpg",
     "posterAlt": "그레이의 50가지 그림자 포스터",
     "watchProvidersKr": {
@@ -13562,8 +15113,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Ryan",
       "Jake"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "엄마 테스와 딸 애나가 서로 몸이 바뀌는 대환장 바디 체인지를 겪은 지도 어느덧 22년이 흐른 지금. 성공한 심리학자로서 첫 책 출간을 앞두고 책 사인회를 준비 중인 테스. 팝스타 매니저이자 싱글맘인 애나는 스타 셰프 에릭과 결혼을 앞두고 있지만, 애나의 딸 하퍼와 에릭의 딸 릴리는 이들의 결혼을 극구 반대한다. 한편, 진정한 하나의 가족이 되기 위해 한 지붕 아래 낯선 동거가 시작되고, 크고 작은 갈등이 이어지는 와중 설상가상 네 명의 몸이 모두 뒤바뀌며 혼란스러운 시간을 보내게 되는데… 과연 이들은 이번에도 무사히 돌아올 수 있을까?",
     "releaseYear": 2025,
+    "runtimeMinutes": 111,
+    "collectionId": 1125292,
+    "collectionName": "프리키 프라이데이 시리즈",
+    "voteAverage": 6.8,
+    "voteCount": 750,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dQtLQIv1GK92uPLx8HzhdleX9XI.jpg",
     "posterAlt": "프리키 프라이데이 2 포스터",
     "watchProvidersKr": {
@@ -13609,8 +15169,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lestrade",
       "Miss Harrison"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "사라진 엄마를 찾아야 한다! 홈즈 가문답게 탐정 본능 장착하고 런던에 간 에놀라. 하지만 시작부터 도망자 신세의 귀족 청년과 엮여버렸다. 그 와중에 오빠 셜록까지 따돌려야 한다니. 미스터리 가득한 이 모험, 무사히 마칠 수 있을까?",
     "releaseYear": 2020,
+    "runtimeMinutes": 123,
+    "collectionId": 829314,
+    "collectionName": "에놀라 홈즈 시리즈",
+    "voteAverage": 7.226,
+    "voteCount": 6686,
     "posterUrl": "https://image.tmdb.org/t/p/w780/p4MvhGNFJSiFVF71njidCnZxpnJ.jpg",
     "posterAlt": "에놀라 홈즈 포스터",
     "watchProvidersKr": {
@@ -13662,8 +15230,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Hannibal Chau",
       "Dr. Newton Geiszler"
     ],
+    "contextTags": [],
     "overview": "2025년, 태평양 연안의 심해에 커다란 균열이 일어난다. 정체를 알 수 없었던 이곳은 지구와 우주를 연결하는 포탈이었고 여기서 엄청난 크기의 외계 괴물 카이주가 나타난다. 일본 전역을 시작으로 미국, 중국, 러시아, 호주 등 지구 곳곳을 파괴하는 카이주의 공격에 전 세계가 혼돈에 빠지고, 전 지구적인 비상사태 돌입에 세계 각국의 정상들은 인류 최대의 위기에 맞서기 위한 범태평양연합방어군을 결성한다. 상상을 초월하는 수퍼 파워, 뇌파를 통해 파일럿의 동작을 인식하는 신개념 조종시스템을 장착한 예거와 이를 조종하는 최정예 파일럿들이 괴물들에게 반격을 시작하는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 131,
+    "collectionId": 363369,
+    "collectionName": "퍼시픽 림 시리즈",
+    "voteAverage": 6.934,
+    "voteCount": 13515,
     "posterUrl": "https://image.tmdb.org/t/p/w780/BWJhHHqeW5oCRvqLXF5twAFAga.jpg",
     "posterAlt": "퍼시픽 림 포스터",
     "watchProvidersKr": {
@@ -13736,8 +15310,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mufasa (voice)",
       "Rafiki (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "아프리카의 평화로운 왕국 프라이드랜드. 이곳을 다스리는 사자 무파사의 아들 심바가 태어난다. 왕의 동생 스카는 자신이 왕위를 차지하기 위해 하이에나들과 결탁하여 무파사를 죽이고 심바에게 죄를 뒤집어 씌워 멀리 내쫓는다. 간신히 목숨을 건진 심바는 유쾌한 미어캣 티몬과 멧돼지 품바와 함께 생활하며 어른이 된다. 어느 날 심바는 옛 친구 날라를 만나 프라이드랜드가 파괴되고 있다는 소식을 듣게 된다. 하지만 자신이 저지른 실수 때문에 고향으로 돌아가기를 거부하는 심바. 결국 아버지의 가르침과 자신의 운명을 깨달은 심바는 스카와 하이에나들을 물리치고 평화를 되찾기 위해 왕국으로 돌아가는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 89,
+    "collectionId": 94032,
+    "collectionName": "라이온 킹 시리즈",
+    "voteAverage": 8.254,
+    "voteCount": 19842,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9Y048zYw66TWvpUtsiNK0uReiVX.jpg",
     "posterAlt": "라이온 킹 포스터",
     "watchProvidersKr": {
@@ -13796,8 +15378,16 @@ export const catalogMovies: CatalogMovie[] = [
       "MG William F. Garrison",
       "CPT Mike Steele"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "UN 평화유지작전의 일환으로 1993년 동아프리카 소말리아의 수도 모가디슈에 파견된 최정예 미군 부대원들이 소말리아 민병대에 의해 공습당하면서 19명의 사상자를 낸다. 당시 소말리아에는 UN이 제공하는 구호식량을 착취할 목적으로 동포를 굶어 죽이는 민병대장이 전횡을 휘두르고 있었고, UN은 정예부대를 파견해 민병대장의 두 최고 부하를 납치하려다 실패한다. 무적의 전투헬기 블랙 호크 슈퍼 61과 블랙 호크 슈퍼 64가 소말리아 민병대에 의해 격추당하고, 제임스 장군은 단 한명의 생존자도, 단 한점의 살점도 남기지 말라고 명령, 최후의 순간까지 자존심을 건 전투를 펼치는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 145,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.396,
+    "voteCount": 6433,
     "posterUrl": "https://image.tmdb.org/t/p/w780/slmD4lDBrQaH68hAYQZLDOZ0Bcz.jpg",
     "posterAlt": "블랙 호크 다운 포스터",
     "watchProvidersKr": {
@@ -13862,8 +15452,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Katrina 'Treena' Clark",
       "Patrick"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "6년간 일하던 카페가 폐업하면서 하루아침에 일자리를 잃은 루이자(에밀리아 클라크). 그녀는 새 직장을 찾던 중 집에서 가깝고 보수도 좋은 간병인 일을 찾게 되고, 면접을 본 그날 바로 채용이 결정된다. 하지만 루이자가 간병해야 할 윌(샘 클라플린)은 2년 전 사고로 전신마비 환자가 된 자신을 받아들이지 못하고 남에게 쌀쌀맞기 일쑤다. 어느 날 윌이 루이자에게 유독 심한 독설을 퍼붓자 루이자는 참지 못해 그의 태도를 따끔하게 지적하고, 그때부터 윌은 그녀에게 호감을 느끼기 시작한다. 두 사람이 점점 가까워지던 사이, 루이자는 윌이 존엄사를 계획하고 있음을 알게 되는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.928,
+    "voteCount": 13368,
     "posterUrl": "https://image.tmdb.org/t/p/w780/aCnkVi4QTuc7E0d0qp0SAnRA3M0.jpg",
     "posterAlt": "미 비포 유 포스터",
     "watchProvidersKr": {
@@ -13926,8 +15524,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mr. Ping (voice)",
       "Tai Lung (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "마침내 내면의 평화… 냉면의 평화…가 찾아왔다고 믿는 용의 전사 ‘포’ 이젠 평화의 계곡의 영적 지도자가 되고, 자신을 대신할 후계자를 찾아야만 한다. “이제 용의 전사는 그만둬야 해요?” 용의 전사로의 모습이 익숙해지고 새로운 성장을 하기보다 지금 이대로가 좋은 ‘포’ 하지만 모든 쿵푸 마스터들의 능력을 그대로 복제하는 강력한 빌런 ‘카멜레온’이 나타나고 그녀를 막기 위해 정체를 알 수 없는 쿵푸 고수 ‘젠’과 함께 모험을 떠나게 되는데… 포는 가장 강력한 빌런과 자기 자신마저 뛰어넘고 진정한 변화를 할 수 있을까?",
     "releaseYear": 2024,
+    "runtimeMinutes": 94,
+    "collectionId": 77816,
+    "collectionName": "쿵푸팬더 시리즈",
+    "voteAverage": 7.006,
+    "voteCount": 3586,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fvtswV04JfLGxxrjxW4t4j8bPhx.jpg",
     "posterAlt": "쿵푸팬더 4 포스터",
     "watchProvidersKr": {
@@ -13992,8 +15598,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Andrei Smyslov",
       "Elena"
     ],
+    "contextTags": [
+      "literary",
+      "travel",
+      "space"
+    ],
     "overview": "인류에게 문명의 지혜를 가르쳐 준 검은 돌기둥의 정체를 밝히기 위해서 디스커버리호의 선장 보우만과 승무원 풀은 목성을 향해서 날아간다. 하지만 평온하던 디스커버리호에 갑자기 재난이 찾아온다. 우주선 내부에서 일어난 재난은 컴퓨터 HAL이 반란을 일으킨 것. HAL은 풀을 우주선 밖으로 던져버리고, 보우만까지도 모선 밖으로 끌어내지만 그는 필사의 노력으로 HAL을 제압한다. 보우만은 마침내 목성 궤도에서 문제의 검은 돌기둥을 발견하지만, 그 순간 우주의 급류에 휘말리게 된다. 보우만은 지구로의 귀환을 위해 노력하고, 신비한 시간의 흐름을 경험하는데...",
     "releaseYear": 1968,
+    "runtimeMinutes": 149,
+    "collectionId": 4438,
+    "collectionName": "스페이스 오딧세이 시리즈",
+    "voteAverage": 8.048,
+    "voteCount": 12712,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2qJjH5mYNlGPdVrPqfEq1J6Mgb4.jpg",
     "posterAlt": "2001 스페이스 오디세이 포스터",
     "watchProvidersKr": {
@@ -14066,8 +15682,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Troy",
       "Man at Diner"
     ],
+    "contextTags": [
+      "birthday",
+      "new_year"
+    ],
     "overview": "한때 아카데미상을 수상하고 명예의 거리까지 입성한 대스타였지만 지금은 TV 에어로빅 쇼 진행자로 전락한 엘리자베스. 50살이 되던 날, 프로듀서에게서 어리고 섹시하지 않다는 이유로 해고를 당한다. 돌아가던 길에 차 사고로 병원에 실려간 엘리자베스는 매력적인 남성 간호사로부터 서브스턴스라는 약물을 권유받는다. 한 번의 주사로 젊고 아름답고 완벽한 수가 탄생하는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 140,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.13,
+    "voteCount": 6180,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oUkeyrXvGUEylOQtlYMv9esNRiu.jpg",
     "posterAlt": "서브스턴스 포스터",
     "watchProvidersKr": {
@@ -14116,8 +15741,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Miss Hattie (voice)",
       "Margo (voice)"
     ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
     "overview": "파리의 에펠탑, 뉴욕의 자유의 여신상 등 각 나라를 대표하는 명소들을 한 번에 훔쳐버린 기상천외한 주인공 그루. 그는 세계 최고의 악당이 되기 위하여 다른 사람이 절대 훔칠 수 없는 것을 하나 훔치기로 마음 먹는다. 그것은 바로 달. 달을 훔치기 위한 최신식 장비를 구하기 위해 어쩔 수 없이 세 소녀들을 맡게 된 그루는 세 소녀들과 함께 살게 되면서 세상에서 가장 어려운 일은 악당이 되는 것이 아니라 바로 이 소녀들을 키우는 일임을 알게 된다. 소녀들에 의해 점차 사랑을 배우고 변화되어 가는 그루, 과연 그는 달을 훔칠 수 있을 것인가?",
     "releaseYear": 2010,
+    "runtimeMinutes": 95,
+    "collectionId": 86066,
+    "collectionName": "슈퍼배드 시리즈",
+    "voteAverage": 7.26,
+    "voteCount": 16157,
     "posterUrl": "https://image.tmdb.org/t/p/w780/avyPqGBGeeGsx4c89sIIDcfggjR.jpg",
     "posterAlt": "슈퍼배드 포스터",
     "watchProvidersKr": {
@@ -14171,8 +15805,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Menelaus",
       "Helen"
     ],
+    "contextTags": [],
     "overview": "고대 그리스 시대, 가장 잔인하고 불운한 사랑에 빠지고 만 비련의 두 주인공 트로이의 왕자 파리스와 스파르타의 왕비 헬레네. 사랑에 눈 먼 두 남녀는 트로이로 도주하고, 파리스에게 아내를 빼앗긴 스파르타의 왕 메넬라오스는 미케네의 왕이자 자신의 형인 아가멤논에게 복수를 부탁한다. 아가멤논은 그리스 도시 국가들을 규합해 트로이로부터 헬레네를 되찾기 위한 전쟁을 일으킨다. 그러나 전쟁의 명분은 동생의 복수였지만, 진짜 이유는 모든 도시 국가들을 통합하여 거대한 그리스 제국을 건설하려는 야심이었다.",
     "releaseYear": 2004,
+    "runtimeMinutes": 163,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.178,
+    "voteCount": 11169,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1TsdNMKodmOKyo4xPacxq7opo3p.jpg",
     "posterAlt": "트로이 포스터",
     "watchProvidersKr": {
@@ -14238,8 +15878,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Nessarose",
       "The Wonderful Wizard of Oz"
     ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
     "overview": "자신의 진정한 힘을 미처 발견하지 못한 엘파바, 자신의 진정한 본성을 아직 발견하지 못한 글린다. 전혀 다른 두 사람은 마법 같은 우정을 쌓아간다. 그러던 어느 날, 마법사의 초대를 받아 에메랄드 시티로 가게 되고 운명은 예상치 못한 위기와 모험으로 두 사람을 이끄는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 162,
+    "collectionId": 968080,
+    "collectionName": "위키드 시리즈",
+    "voteAverage": 6.912,
+    "voteCount": 3109,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mCB6biaBEafLGbs1eTImqlOgZj9.jpg",
     "posterAlt": "위키드 포스터",
     "watchProvidersKr": {
@@ -14313,8 +15962,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Monsieur Hood (voice)",
       "Ogre Hunter (voice)"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "성 밖 늪지대에 사는 엄청나게 못생기고 무지무지 큰 괴물 슈렉. 지저분한 진흙으로 샤워를 즐기고 동화책은 화장실 휴지 삼아 쓰는 그는 혼자만의 시간을 즐긴다.  그러던 어느 날, 자신만의 고요한 안식처에 백설공주, 신데렐라, 빗자루를 타고 다니는 마녀, 피리부는 아저씨, 피터팬, 피노키오 등등.. 동화속의 주인공들이 모두 쳐들어온다. 그 중에서도 가장 귀찮은 건 쉴새없이 떠들어대는 당나귀 덩키. 알고보니 얼굴이 몸의 반을 차지하는 1m도 안되는 숏다리 파콰드영주가 동화속의 주인공들을 다 쫓아낸것. 결국 슈렉은 파콰드영주와 담판을 지으러 떠난다.  하지만 일은 이상하게 꼬여 결국 파콰드영주 대신 불뿜는 용의 성에 갇힌 피오나 공주를 구하러 떠나게 되는데..",
     "releaseYear": 2001,
+    "runtimeMinutes": 90,
+    "collectionId": 2150,
+    "collectionName": "슈렉 시리즈",
+    "voteAverage": 7.771,
+    "voteCount": 18951,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hABnmgdAU3u6Nu61b9GUGaOseVl.jpg",
     "posterAlt": "슈렉 포스터",
     "watchProvidersKr": {
@@ -14368,8 +16026,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Al Chambers",
       "Fred Richman"
     ],
+    "contextTags": [
+      "halloween"
+    ],
     "overview": "마리온 크레인은 그녀의 애인 샘과 결혼하길 원하지만 샘은 빚을 갚을 때까지 기다리라고 말한다. 그래서 그녀는 자신이 다니고 있는 회사 사장이 은행에 입금하라고 맡긴 돈을 들고 도망친다. 도주 첫날 밤 묵게 된 도로변의 낡은 모텔 주인인 노만 베이츠는 그녀에게 친절하게 대해주며 자신은 모텔 바로 뒤쪽 저택에서 몸이 불편한 어머니와 함께 살고 있다고 말한다. 잠자리에 들기 전 마리온이 샤워를 하는 도중, 난데없이 검은 형상이 욕실에 나타나고 마리온은 실종된다. 마리온을 찾기 위해 그녀의 언니 릴라와 샘, 그리고 보험회사 측에서 고용한 탐정 등 세 사람이 추적에 나서는데...",
     "releaseYear": 1960,
+    "runtimeMinutes": 109,
+    "collectionId": 119674,
+    "collectionName": "싸이코 시리즈",
+    "voteAverage": 8.412,
+    "voteCount": 11078,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vC3P8hH4r3I3fHiRFa1kj6yzeaN.jpg",
     "posterAlt": "싸이코 포스터",
     "watchProvidersKr": {
@@ -14434,8 +16100,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Clint Barton / Hawkeye",
       "Thanos"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "어벤져스의 패배 이후 지구는 초토화됐고 남은 절반의 사람들은 정신적 고통을 호소하며 하루하루를 근근이 버텨나간다. 와칸다에서 싸우다 생존한 히어로들과 우주의 타이탄 행성에서 싸우다 생존한 히어로들이 뿔뿔이 흩어졌는데, 아이언맨과 네뷸라는 우주를 떠돌고 있고 지구에 남아 있는 어벤져스 멤버들은 닉 퓨리가 마지막에 신호를 보내다 만 송신기만 들여다보며 혹시 모를 우주의 응답을 기다리는 중이다. 애초 히어로의 삶을 잠시 내려놓고 가족과 시간을 보내던 호크아이 역시 헤아릴 수 없는 마음의 상처를 입은 채 사라지고 마는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 181,
+    "collectionId": 86311,
+    "collectionName": "어벤져스 시리즈",
+    "voteAverage": 8.239,
+    "voteCount": 28032,
     "posterUrl": "https://image.tmdb.org/t/p/w780/z7ilT5rNN9kDo8JZmgyhM6ej2xv.jpg",
     "posterAlt": "어벤져스: 엔드게임 포스터",
     "watchProvidersKr": {
@@ -14490,8 +16165,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Anton Ego (voice)",
       "Gusteau (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "절대미각, 빠른 손놀림, 끓어 넘치는 열정의 소유자 레미. 프랑스 최고의 요리사를 꿈꾸는 그에게 단 한가지 약점이 있었으니, 바로 주방 퇴치대상 1호인 생쥐라는 것. 어느 날 하수구에서 길을 잃은 레미는 파리의 별 다섯개짜리 최고급 레스토랑에 떨어진다. 보글거리는 수프, 둑닥둑닥 도마소리, 향긋한 허브 내음에 식욕이 아닌 요리욕이 북받친 레미의 작은 심장은 콩닥콩닥 뛰기 시작한다. 끝내 주방으로 들어가는 레미는 요리에 열중하다 견습생 링귀니에게 딱 걸리고 만다. 해고위기에 처해있던 링귀니는 레미의 재능을 한눈에 알아보고 의기투합을 제안하는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.845,
+    "voteCount": 18646,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zFah4LNeWw68y7RRGi20CQlGByY.jpg",
     "posterAlt": "라따뚜이 포스터",
     "watchProvidersKr": {
@@ -14551,8 +16234,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Governor Weatherby Swann",
       "Pintel"
     ],
+    "contextTags": [],
     "overview": "잭 스패로우는 10년 전의 반란 사건으로 자신의 배 블랙펄을 빼앗긴 해적 선장이다. 혼자 대양을 떠돌던 그는 자메이카의 로열포트에 이르러 유령선처럼 변해버린 블랙펄과 재회하게 된다. 아즈텍의 황금을 훔친 블랙펄의 선원들은 영원히 죽지 못하는 저주에 걸린 처지. 보물을 모두 제자리에 돌려놓고 피의 제물을 바쳐야만 고대 신들이 내린 저주를 풀 수 있다. 그들은 로열포트를 습격해 아즈텍의 마지막 목걸이를 가진 총독의 딸 엘리자베스를 납치하고, 엘리자베스를 사랑하는 어린 시절 친구 윌과 스패로우는 그 뒤를 쫓는데...",
     "releaseYear": 2003,
+    "runtimeMinutes": 143,
+    "collectionId": 295,
+    "collectionName": "캐리비안의 해적 시리즈",
+    "voteAverage": 7.83,
+    "voteCount": 22440,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3ovejwQO4fKOWx4VgGBJeT8CKCn.jpg",
     "posterAlt": "캐리비안의 해적: 블랙펄의 저주 포스터",
     "watchProvidersKr": {
@@ -14612,8 +16301,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Grandma Annie",
       "Mr. Gilbertson"
     ],
+    "contextTags": [
+      "birthday"
+    ],
     "overview": "나만 믿어! 금방 이혼해줄께? 전 세계를 뒤집어 버린 협박보다 무서운(?) 청혼. 성공가도를 달리는 뉴욕의 출판사 편집장인 마가렛 과 그녀가 가혹하게 부려 먹어온 부하직원인 앤드류 가 이 수상한 청혼의 당사자들이다. 마가렛이 모국인 캐나다로 추방당할 위기에 처하자 앤드류에게 자신과 결혼해 줄 것을 명령하고, 앤드류 또한 승진이란 짜릿한 대가에 혹한 나머지 마녀 같은 상사의 약혼자 행세를 하면서 박장대소의 이야기를 부풀려간다.",
     "releaseYear": 2009,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.174,
+    "voteCount": 7627,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yM0HNVCWfrb5VrFgPQMec2SmfrZ.jpg",
     "posterAlt": "프로포즈 포스터",
     "watchProvidersKr": {
@@ -14674,8 +16371,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Julien (voice)",
       "Mort (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "몬테카를로에 잠시 다녀온다더니 영영 무소식인 펭귄일행을 기다리며  아프리카에서 하루하루 고향 뉴욕에 대한 향수에 취해있는 ‘알렉스’(사자), ‘마티’(얼룩말), ‘멜먼’(기린), ‘글로리아’(하마).  결국 뉴욕행을 결심하고, 함께 돌아가기 위해 펭귄 일행을 찾아 몬테카를로로 향한다.  하지만 펭귄 일행과 만나기가 무섭게 동물 통제 관리국 ‘캡틴 듀브아’에게 쫓기는 신세가 된 뉴요커 4인방.  그녀의 맹추격 속 위기에 몰린 이들은 우연히 만난 유럽 서커스단 ‘비탈리’(호랑이), ‘지아’(재규어), ‘스테파노’(바다사자)에게 자신들이 미국 뉴욕의 서커스단이라고 속여 기차를 얻어 타고서야 겨우 위기를 모면하게 된다.  듀브아와의 추격전에 비행기는 망가지고 뉴욕으로 돌아갈 방법이 없어져 좌절하던 4인방은 유럽 서커스단의 공연이 성공적이면 유럽을 넘어 미국 뉴욕으로 갈 수 있다는 말에 이들과 함께할 것을 결심한다.  마침내 로마에서의 첫 공연!  하지만 기대와 달리 기술도 의욕도 평균 이하인 유럽 서커스단의 공연에 뉴요커 4인방의 희망은 절망으로 바뀌고 만다.  뉴욕으로 가기 위해서는 어떻게든 서커스를 성공시켜야 하는 상황!  알렉스는 지금까지 해왔던 서커스가 아닌 새롭고 창의적인 공연을 해보자고 제안한다.  이에 유럽 서커스단과 뉴요커 4인방은 모두 함께 힘을 합쳐  전에 없던 놀랍고, 환상적인 서커스 공연을 준비하기 시작하는데…",
     "releaseYear": 2012,
+    "runtimeMinutes": 93,
+    "collectionId": 14740,
+    "collectionName": "마다가스카 시리즈",
+    "voteAverage": 6.642,
+    "voteCount": 6618,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uU5cMPEWTCjzURCU9KY4cnwhcZu.jpg",
     "posterAlt": "마다가스카 3: 이번엔 서커스다! 포스터",
     "watchProvidersKr": {
@@ -14741,8 +16446,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Nick Nightingale",
       "Domino"
     ],
+    "contextTags": [
+      "christmas",
+      "literary",
+      "winter"
+    ],
     "overview": "뉴욕의 크리스마스, 성공한 의사 빌 하퍼드와 그의 아름다운 아내 앨리스는 빌의 친구 지글러가 여는 크리스마스 파티에 참석한다. 파티에서 두 사람은 각각 이성으로부터 강한 성적 유혹을 받는다. 그 다음날 앨리스는 빌에게 숨겨왔던 비밀을 털어 놓는다. 여름 휴가 때 우연히 마주친 한 해군 장교의 매력에 반해 그에게 강한 충동을 느껴 그와 하루밤만 보낼 수 있다면 남편과 딸 모두를 포기할 수 있을 것만 같다는 것이 그 내용이다. 평소에 아내를 정숙한 여자라 믿어 왔던 빌은 커다란 충격을 받는다. 그날 밤 환자의 부음 소식을 듣고 집을 나선 그는 앨리스가 장교와 정사를 나누는 환상에 시달린다. 얼마 후 빌은 대학 동창인 닉으로부터 부자들의 비밀 섹스 파티에 대한 이야기를 듣게 되고 닉의 반대를 무시한 채 파티장에 찾아간다. 그러나 빌의 위장 침입이 곧 밝혀지는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 159,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.486,
+    "voteCount": 7117,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jVytMY7bVeYqFBp0SpKRoIKXa7W.jpg",
     "posterAlt": "아이즈 와이드 셧 포스터",
     "watchProvidersKr": {
@@ -14808,8 +16523,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Aunt May",
       "Rajit Ratha"
     ],
+    "contextTags": [],
     "overview": "어릴적 사라진 부모 대신 삼촌 내외와 살고 있는 피터 파커는 평범한 학교 생활을 하며 일상을 보내고, 같은 학교 학생 그웬 스테이시와 첫사랑에 빠져 우정과 사랑, 그리고 둘 만의 비밀을 키워나간다. 어느 날 아버지가 사용했던 가방을 발견하고 부모님의 실종사건에 대한 의심을 품게 된 그는 숨겨져 왔던 과거의 비밀을 추적하게 된다. 아버지의 옛 동료 코너스 박사의 실험실을 찾아가게 된 피터는 우연한 사고로 특별한 능력을 갖게 되고, 피터의 도움으로 연구를 완성한 코너스 박사는 자신의 숨겨진 자아인 악당 리자드를 탄생시키는데...",
     "releaseYear": 2012,
+    "runtimeMinutes": 136,
+    "collectionId": 125574,
+    "collectionName": "어메이징 스파이더맨 시리즈",
+    "voteAverage": 6.742,
+    "voteCount": 18676,
     "posterUrl": "https://image.tmdb.org/t/p/w780/a1Kup5VnmxjAHnsT3Sz7RtrC9UU.jpg",
     "posterAlt": "어메이징 스파이더맨 포스터",
     "watchProvidersKr": {
@@ -14882,8 +16603,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bloat (voice)",
       "Peach (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "광대어 말린은 아내 코랄과 2세들의 부화를 기다리던 중 상어의 습격을 받는다. 알을 보호하려던 아내는 행방불명되고, 유일하게 살아남은 아기에게 말린은 니모라는 이름을 붙인다. 사건 이후 큰 바다를 무조건 겁내게 된 말린은 니모를 과보호한다. 하지만 니모는 등교 첫날 잠수부에게 납치돼 시드니에 있는 치과의사의 수족관에 끌려가고, 슬픔으로 혼비백산한 아빠 말린은 평소의 심약함을 잊고니모를 찾아나선다. 단기기억상실증을 지닌 명랑한 물고기 도리의 도움으로 상어, 심해어, 해파리의 위협을 뚫고 동호주 해류로 향하는 동안, 니모는 수족관의 새 친구들과 탈출을 모의한다.",
     "releaseYear": 2003,
+    "runtimeMinutes": 100,
+    "collectionId": 137697,
+    "collectionName": "니모를 찾아서 시리즈",
+    "voteAverage": 7.82,
+    "voteCount": 20691,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9ViCYfZ0whpwtKbM2WJP5PfsG2x.jpg",
     "posterAlt": "니모를 찾아서 포스터",
     "watchProvidersKr": {
@@ -14943,8 +16672,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sheriff Brake",
       "Jensen"
     ],
+    "contextTags": [],
     "overview": "은둔하며 살아가던 생존 전문가와 그의 딸은 강가에서 상처 입은 정체불명의 여자를 구조하게 된다. 그러나 이로 인해 그들은 폭력과 복수의 잔혹한 소용돌이에 휘말리게 되고 살아남기 위해 잔혹한 범죄자와 맞서야만 한다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 93,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.282,
+    "voteCount": 346,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7OPedgbyapZ8LjIQIMIh72ZEfW6.jpg",
     "posterAlt": "헌팅시즌 포스터",
     "watchProvidersKr": {
@@ -14997,8 +16732,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Hideko's Aunt",
       "Bok-soon"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "어릴 적 부모를 잃고 후견인 이모부의 보호 아래 살아가는 귀족 아가씨에게 백작이 추천한 새로운 하녀가 찾아온다. 이모부의 서재에서 책을 읽는 것이 일상의 전부인 아가씨는  순박해 보이는 하녀에게 조금씩 의지하기 시작한다. 하지만 하녀의 정체는 유명한 여도둑의 딸인 소매치기 고아 소녀 숙희. 막대한 재산을 상속받게 될 아가씨를 유혹하여 돈을 가로채겠다는 사기꾼 백작의 제안을 받고  아가씨가 백작을 사랑하게 만들기 위해 하녀가 된 것. 드디어 백작이 등장하고, 백작과 숙희는 자신만의 방식으로 아가씨의 마음을 흔들기 시작하는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 144,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.185,
+    "voteCount": 4382,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pDogzUCSBy0m4ybLKUv3OtGMRNm.jpg",
     "posterAlt": "아가씨 포스터",
     "watchProvidersKr": {
@@ -15078,8 +16821,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Tom",
       "Maddie"
     ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
     "overview": "너클즈, 테일즈와 함께 평화로운 일상을 보내던 초특급 히어로 소닉. 연구 시설에 50년간 잠들어 있던 사상 최강의 비밀 병기 \"섀도우\"가 탈주하자, 세계 수호 통합 부대(약칭 세.수.통)에 의해 극비 소집된다. 소중한 것을 잃은 분노와 복수심에 불타는 섀도우는 소닉의 초고속 스피드와 너클즈의 최강 펀치를 단 단숨에 제압해버린다. 세상을 지배하려는 닥터 로보트닉과 그의 할아버지 제럴드 박사는 섀도우의 엄청난 힘 카오스 에너지를 이용해 인류를 정복하려고 하는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 110,
+    "collectionId": 720879,
+    "collectionName": "수퍼 소닉 시리즈",
+    "voteAverage": 7.61,
+    "voteCount": 3350,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4784u4fHwcvc4owOGylVpP7JaKQ.jpg",
     "posterAlt": "수퍼 소닉 3 포스터",
     "watchProvidersKr": {
@@ -15133,8 +16885,14 @@ export const catalogMovies: CatalogMovie[] = [
       "David Glatzel",
       "Judy Glatzel"
     ],
+    "contextTags": [],
     "overview": "1981년, 미국 역사상 최초로 잔혹한 살인사건의 용의자가 악마가 살해하도록 시켰다고 주장하는 초유의 사태가 일어난다. 그리고 사건의 배후에는 악마에게 빙의된 소년이 있다. 살인사건의 범인은 인간인가 악마인가…",
     "releaseYear": 2021,
+    "runtimeMinutes": 111,
+    "collectionId": 313086,
+    "collectionName": "컨저링 시리즈",
+    "voteAverage": 7.3,
+    "voteCount": 6599,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yxPlLa5p54Wk1o2koiW4hqn4wfG.jpg",
     "posterAlt": "컨저링 3: 악마가 시켰다 포스터",
     "watchProvidersKr": {
@@ -15188,8 +16946,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Aunt Debra",
       "Marvin"
     ],
+    "contextTags": [],
     "overview": "치열한 로봇 파이터들의 세계를 그려낸 블록버스터  로봇 파이터의 불가능한 도전이 시작된다!  2020년, 관중들의 뜨거운 열기로 가득 찬 복싱 경기장. 링 위에서 숨 막히는 승부를 펼치는 이들은 무려 900kg에 2m 50cm가 넘는 거대한 로봇 파이터들이다.  인간이 아닌 로봇 파이터들이 사각의 링을 지배하는 시대! 챔피언 타이틀 도전에 실패한 전직 복서 출신 찰리 켄튼(휴 잭맨)은 지하의 복싱 세계를 전전하며 삼류 프로모터로 살아가고 있다. 겨우 번 돈으로 구입한 고철 덩어리를 로봇 파이터로 만들어 지하의 복싱 세계를 벗어나 재기하려는 찰리는 어느 날 존재도 모르고 지낸 아들 맥스(다코다 고요)의 소식을 접하고 임시 보호를 맡게 된다. 어쩔 수 없이 한 팀이 된 그들은 맥스가 우연히 발견한 고철 로봇 ‘아톰’을 최고의 파이터로 키워내기 위한 훈련을 시작한다.  오직 승자와 패자만이 존재하는 무자비한 사각의 링 위, 이제 더 이상 물러날 곳이 없는 찰리와 맥스, 그리고 ‘아톰’의 불가능한 도전이 시작된다!",
     "releaseYear": 2011,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.12,
+    "voteCount": 9318,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lbN080kn6nzq978jqsdgxci9llR.jpg",
     "posterAlt": "리얼 스틸 포스터",
     "watchProvidersKr": {
@@ -15243,8 +17007,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bonnie Hopps (voice)",
       "Stu Hopps (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "어릴 적부터 경찰이 꿈이었던 토끼 주디 홉스는 주변의 만류에도 불구하고 경찰학교에 들어가 당당히 수석으로 졸업한다. 온갖 동물들이 모여 살며 교양 있고 세련된 라이프 스타일을 주도하는 대도시 주토피아에 자원한 주디는 의욕을 안고 출근하지만, 상사는 작은 토끼라는 이유로 주차관리 같은 소일거리만 시킨다. 따분하게 업무를 보던 주디는 아이스크림 불법 판매를 일삼는 사기꾼 여우 닉 와일드를 알게 되고, 그와 함께  48시간 안에 주토피아에서 벌어지고 있는 연쇄 실종사건을 추적해야만 하는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 108,
+    "collectionId": 1084247,
+    "collectionName": "주토피아 시리즈",
+    "voteAverage": 7.765,
+    "voteCount": 18272,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uitqZVbhvlQV5iLOdbk3itGoNNd.jpg",
     "posterAlt": "주토피아 포스터",
     "watchProvidersKr": {
@@ -15296,8 +17068,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Detective John Blake",
       "Detective Alexa Jane"
     ],
+    "contextTags": [],
     "overview": "미 특수부대에서 뛰어난 활약상을 보이며 국가를 위해 헌신했던 니키는 딸의 어린 시절을 함께 보내지 못했다. 남편이 사망한 후, 그녀는 딸 클로이 곁으로 돌아온다. 그러나 떨어져 지냈던 시간의 공백만큼 두 모녀 사이의 틈은 좁혀질 기미가 보이지 않는다. 클로이는 16번째 생일날 외출을 했다가 납치를 당하고, 니키는 거대 조직에 맞서 72시간 안에 딸을 되찾아야 하는 위험천만한 상황에 처한다. 경찰과 군대는 니키를 표적으로 삼고, 시간은 잔인하게 흐른다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 90,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.501,
+    "voteCount": 441,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kJvFZt7x3VWOtMQwANwXGD59ArJ.jpg",
     "posterAlt": "프로텍터 포스터",
     "watchProvidersKr": {
@@ -15350,8 +17128,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Maudeline Everglot (voice)",
       "Finis Everglot (voice)"
     ],
+    "contextTags": [],
     "overview": "생선 통조림 공장을 하며 벼락부자가 된 반 도르트 일가와 세습귀족이지만 가난한 에버글롯 일가는 각기 서로의 신분과 재산 때문에 사돈으로서의 연을 맺기로 결정한다. 결혼식 전날, 예행연습을 위해 처음 만나게 된 빅터와 빅토리아. 두 사람은 쑥스럽고 어색한 분위기 속에서도 사랑의 가능성을 발견하게 된다. 하지만 빅터는 결혼 리허설에서 계속해서 실수를 저지르고 급기야 연습을 더 하고 오라며 갤스웰 목사에게 쫓겨난다. 숲 속에서 홀로 연습하던 도중, 땅 위로 튀어나온 손가락 뼈에 반지를 끼웠다가 유령 신부의 오해로 지하세계에 끌려가게 되는 색다른 경험을 하게 된다.",
     "releaseYear": 2005,
+    "runtimeMinutes": 77,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.592,
+    "voteCount": 10270,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dNFskiyB2AGpKJCsh6qviPN03NQ.jpg",
     "posterAlt": "유령 신부 포스터",
     "watchProvidersKr": {
@@ -15424,8 +17208,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Biff Tannen",
       "Dave McFly"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "마티 맥플라이(마이클 J. 폭스)는 평범한 고등학생이다. 그런데 평소 친하게 지내던 괴상한 발명가 에메트 브라운 박사(크리스토퍼 로이드)가 스포츠카 드로리안을 개조해 타임머신을 만들고, 뜻밖의 사고로 브라운 박사가 테러범들에게 총을 맞고 위험해진 상황에서 마티는 30년 전으로 가게 된다. 극장 간판에는 2류 배우인 로널드 레이건이 보이고 청년인 아버지와 어머니를 보게 된다. 젊은 아버진 멍청하고, 어머니는 미래의 아들인 마티를 좋아해 야단이다. 마티가 미래로 가는 것을 도와 줄 사람은 30년 전인 젊은 브라운 박사뿐인데...",
     "releaseYear": 1985,
+    "runtimeMinutes": 120,
+    "collectionId": 264,
+    "collectionName": "빽 투 더 퓨쳐 시리즈",
+    "voteAverage": 8.327,
+    "voteCount": 21994,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zzxvtXJ9pahjWVX3Q2ko29J0Zf6.jpg",
     "posterAlt": "빽 투 더 퓨쳐 포스터",
     "watchProvidersKr": {
@@ -15499,8 +17291,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Alby",
       "Ava Paige"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "삭제된 기억, 거대한 미로로 둘러싸인 낯선 공간  모든 기억이 삭제된 채 의문의 장소로 보내진 토마스. 토마스는 미로에 갇힌 그곳에서 자신과 같은 상황의 사람들을 만난다. 그들은 매일 밤 살아 움직이는 미로에서 정체를 알 수 없는 죽음의 존재와 대립하며, 지옥으로부터 빠져나갈 탈출구인 지도를 완성해 나간다. 그러던 어느 날, 미로의 문이 열리고 그들은 마지막 선택의 기로에 놓이게 되는데…",
     "releaseYear": 2014,
+    "runtimeMinutes": 113,
+    "collectionId": 295130,
+    "collectionName": "메이즈 러너 시리즈",
+    "voteAverage": 7.191,
+    "voteCount": 18230,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bL0bBepUCLFcCj2ATFD40FbyDEl.jpg",
     "posterAlt": "메이즈 러너 포스터",
     "watchProvidersKr": {
@@ -15571,8 +17371,17 @@ export const catalogMovies: CatalogMovie[] = [
       "MJ",
       "Ned Leeds"
     ],
+    "contextTags": [
+      "school",
+      "travel"
+    ],
     "overview": "어벤져스 멤버들과 타노스와의 대접전을 마친 뒤, 지난 5년 동안 사라졌던 사람들이 동시에 돌아왔다. 아이언맨이 떠난 채 한동안 지구를 구할 히어로가 공석인 상황을 수습할 히어로는 현재 스파이더맨 피터 파커뿐이다. 친구들과의 유럽 현장학습 도중 닉 퓨리의 부름을 받게 된 피터는 미스테리오라는 정체 모를 히어로와 힘을 합쳐 엘리멘탈이라는 괴생명체를 무찔러야 하는 상황에 처한다. 그런데 피터는 지구를 구하는 일보다 MJ에게 멋지게 고백할 계획이 우선인데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 129,
+    "collectionId": 531241,
+    "collectionName": "스파이더맨(MCU) 시리즈",
+    "voteAverage": 7.395,
+    "voteCount": 17111,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3YewJtji80oIroeXUavNRZkeXfQ.jpg",
     "posterAlt": "스파이더맨: 파 프롬 홈 포스터",
     "watchProvidersKr": {
@@ -15652,8 +17461,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Hans (voice)",
       "Young Elsa (voice)"
     ],
+    "contextTags": [
+      "winter",
+      "family"
+    ],
     "overview": "서로가 최고의 친구였던 자매 엘사와 안나. 하지만 언니 엘사에게는 하나뿐인 동생에게조차 말 못할 비밀이 있다. 모든 것을 얼려버리는 신비로운 힘이 바로 그 것. 엘사는 통제할 수 없는 자신의 힘이 두려워 왕국을 떠나 북쪽 산으로 도망치고, 홀로 그곳에서 얼음 궁전을 지어 지내게 된다. 한편 얼어버린 왕국의 저주를 풀기 위해 안나는 언니를 찾아 나서고, 그 과정에서 안나는 까칠한 매력의 얼음장수 크리스토프와 만나 영원히 얼어붙은 왕국을 구해내기 위해 함께 고군분투한다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 108,
+    "collectionId": 386382,
+    "collectionName": "겨울왕국 시리즈",
+    "voteAverage": 7.249,
+    "voteCount": 17672,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lYceQKe3EsYn7VdDXGTy7dSwBLp.jpg",
     "posterAlt": "겨울왕국 포스터",
     "watchProvidersKr": {
@@ -15713,8 +17531,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mama Montana",
       "Omar"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "1980년 5월 쿠바가 마리엘 항을 개항하여 반카스트로 지지자들이 미국 플로리다에 입항한다. 토니 몬타나와 마니리베라도 이민 수용소로 보내진다. 3개월 후 마니가 수용소에 있는 레벤가라는 자를 살해해 주면 신분증을 입수해 주겠다는 일을 받아 수용소에 폭동을 일으켜 레벤가를 암살한다. 접시닦이로 근근히 살아가던 토니는 프랭크의 부하로부터 콜롬비아 마약상과의 거래일을 맡았다가 위험천만한 위기를 넘긴다. 그 사건을 계기로, 토니는 프랭크의 신임을 얻고 그의 부하가 되지만, 수 개월 후 결국 자신을 없애려는 프랭크를 죽이고 조직을 장악, 보스 자리에 오르는데...",
     "releaseYear": 1983,
+    "runtimeMinutes": 170,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.156,
+    "voteCount": 13177,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zx7sXrMISbs8RI4URbjPyKocRgP.jpg",
     "posterAlt": "스카페이스 포스터",
     "watchProvidersKr": {
@@ -15785,8 +17611,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Julie Schatz",
       "Lizzy"
     ],
+    "contextTags": [],
     "overview": "비밀스러운 사내 연애에 빠진 두 워커홀릭이 감정에 이끌리며 예상치 못한 곤경에 빠진다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.427,
+    "voteCount": 303,
     "posterUrl": "https://image.tmdb.org/t/p/w780/udcNzdIqZMiVYYvq50XDEPhpJks.jpg",
     "posterAlt": "오피스 로맨스 포스터",
     "watchProvidersKr": {
@@ -15839,8 +17671,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Wolf",
       "Lance"
     ],
+    "contextTags": [],
     "overview": "펌프킨와 허니 버니가 레스토랑에서 강도 행각을 벌이기 시작한다. 빈센트와 그 동료 쥴스는 두목의 금가방을 찾기 위해 다른 건달이 사는 아파트를 찾아간다. 마르셀러스는 부치에게 돈을 주며 상대 선수에게 져 주라고 하지만 부치는 상대 선수를 때려 눕히고 도망치다, 어릴 때 아버지에게 물려받은 시계를 찾기 위해 아파트로 향한다. 아무런 상관 없이 보이는 이 사건들이 서로 얽히고 섥히면서 예상치 못한 인과관계가 만들어지는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 154,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.482,
+    "voteCount": 30434,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lnRkeQstaCvfMahZq7p9eAWzK1a.jpg",
     "posterAlt": "펄프 픽션 포스터",
     "watchProvidersKr": {
@@ -15894,8 +17732,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Commander Adamczyk",
       "Arek Filipiak"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "한적한 도시에서 한 소년이 실종된다. 사건을 조사하던 신임 검사는 오래된 실종 사건과의 예상치 못한 연관성을 밝혀내기 시작한다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 110,
+    "collectionId": 1560684,
+    "collectionName": "Kolory zła - Kolekcja",
+    "voteAverage": 6.906,
+    "voteCount": 117,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kqGS7zqOjMK6LsV6XjKUz5yreYZ.jpg",
     "posterAlt": "악의 색깔: 블랙 포스터",
     "watchProvidersKr": {
@@ -15947,8 +17793,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Clint Barton / Hawkeye",
       "Ultron (voice)"
     ],
+    "contextTags": [],
     "overview": "토니 스타크는 뉴욕전쟁 때와 같은 사태가 벌어지지 않도록 한때 가동하려다 중단된 휴면 상태의 평화 유지 프로그램을 작동 시키려 한다. 배너 박사와 함께 지구를 지킬 최강의 인공지능 울트론을 탄생시키게 되지만, 울트론은 예상과 다르게 지배를 벗어나 폭주하기 시작하고 어벤져스는 지구의 운명이 걸린 거대한 시험대에 오르게 된다. 울트론이 자신을 복제해 위협을 가하자 이를 저지하기 위해 아이언맨, 캡틴 아메리카, 토르, 헐크, 블랙위도우, 호크아이 등으로 구성된 어벤져스와 새로 합류하게 되는 퀵 실버, 스칼렛 위치 남매와 불안한 동맹을 맺는다.",
     "releaseYear": 2015,
+    "runtimeMinutes": 141,
+    "collectionId": 86311,
+    "collectionName": "어벤져스 시리즈",
+    "voteAverage": 7.275,
+    "voteCount": 24606,
     "posterUrl": "https://image.tmdb.org/t/p/w780/y8pY5MIzpPAnF5vYUNm1tw1AzL3.jpg",
     "posterAlt": "어벤져스: 에이지 오브 울트론 포스터",
     "watchProvidersKr": {
@@ -16010,8 +17862,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Mattias (voice)",
       "Agnarr (voice)"
     ],
+    "contextTags": [
+      "winter",
+      "family"
+    ],
     "overview": "평화를 되찾은 아렌델 왕국에 새로운 위기가 찾아온다. 어느 날부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다. 트롤은 모든 것은 과거에서 시작되었음을 알려주며 엘사의 힘의 비밀과 진실을 찾아 떠나야한다고 조언한다. 위험에 빠진 아렌델 왕국을 구해야만 하는 엘사와 안나는 숨겨진 과거의 진실을 찾아 크리스토프, 올라프, 그리고 스벤과 함께 위험천만한 놀라운 모험을 떠나게 된다. 자신의 힘을 두려워했던 엘사는 이제 이 모험을 헤쳐나가기에 자신의 힘이 충분하다고 믿어야만 하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 103,
+    "collectionId": 386382,
+    "collectionName": "겨울왕국 시리즈",
+    "voteAverage": 7.229,
+    "voteCount": 10346,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lVcwSnzhSMWYXUQzyMilCztSE6I.jpg",
     "posterAlt": "겨울왕국 2 포스터",
     "watchProvidersKr": {
@@ -16065,8 +17926,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Governor Weatherby Swann",
       "Pintel"
     ],
+    "contextTags": [],
     "overview": "잭 스패로우는 블랙펄을 되찾아 포트 로열을 떠났지만 그를 기다리는 것은 수평선만이 아니었다. 유령선 플라잉 더치맨의 선장 데이비 존스는 잭이 자신에게 피로 진 빚이 있다면서 빚을 갚거나 영혼을 내놓으라고 요구한다. 불행 중 다행한 것은 잭에게 피의 빚 외에도 중매의 은총이 있었다는 것. 결혼을 앞둔 윌 터너와 엘리자베스 스완은 만사를 제쳐두고 옛 친구를 도우러 온다. 잭을 구할 수 있는 단 한 가지 방법은 세상 끝에 있다는 망자의 함을 찾는 것 뿐인데...",
     "releaseYear": 2006,
+    "runtimeMinutes": 151,
+    "collectionId": 295,
+    "collectionName": "캐리비안의 해적 시리즈",
+    "voteAverage": 7.386,
+    "voteCount": 17325,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6tD4oT7C01aZLVfoZDz5VFVbJCi.jpg",
     "posterAlt": "캐리비안의 해적: 망자의 함 포스터",
     "watchProvidersKr": {
@@ -16123,8 +17990,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Anna",
       "Don Fernando Matos"
     ],
+    "contextTags": [],
     "overview": "재결합하여 그 어느 때보다도 열렬한 관계를 이어가는 라우라와 마시모. 하지만 마시모의 가족 관계, 그리고 라우라의 마음을 얻으려는 수수께끼의 남자로 인해 삶이 복잡해진다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.9,
+    "voteCount": 1855,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nzrh7HhednL8gp08zR1rY3OAImC.jpg",
     "posterAlt": "365일: 오늘 포스터",
     "watchProvidersKr": {
@@ -16177,8 +18050,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Max Belfort",
       "Brad"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "부자가 되는 게 꿈인 22살의 조던 벨포트는 꿈을 실현코자 월스트리트에 발을 들인다. 고객의 돈을 내 주머니로 끌어들이는 비법은 코카인과 마스터베이션에 있다고 말하는 괴짜들이 하루 종일 전화기를 붙들고 사기치는 곳, 조던에게 월스트리트의 첫인상은 그랬다. 첫 직장에 몸담은 지 1년 만에 블랙 먼데이를 경험하고 실직자가 된 조던은 현란한 언변을 무기로 위기를 기회로 만들어버린다. 친구들을 불러모아 스트래튼 오크몬트사를 세운 그는 수수료가 비싼 투기적 저가주을 팔아 돈을 긁어모으고, 주가 조작으로 억만장자가 된 후 술과 마약, 여자를 탐닉한다. 그사이 FBI는 그의 뒤를 캐기 시작하는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 180,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.027,
+    "voteCount": 26112,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rdBYtoxLvd8J9PsVYVGd7FGzQux.jpg",
     "posterAlt": "더 울프 오브 월 스트리트 포스터",
     "watchProvidersKr": {
@@ -16246,8 +18127,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Paul Hudson",
       "Gemma"
     ],
+    "contextTags": [
+      "winter"
+    ],
     "overview": "월드투어를 앞두고 자신의 눈 앞에서 기괴한 미소와 함께 끔찍한 죽음을 맞은 친구를 목격한 팝스타 ‘스카이’. 그 날 이후 공연 리허설과 팬 미팅 행사 등 그녀의 삶 곳곳에서 끔찍한 일들이 잇따라 발생한다. 화려한 스타의 삶을 뒤덮은 공포에서 벗어나기 위해 몸부림치던 ‘스카이’는 자신이 죽어야만 전염처럼 번지는 저주가 끝난다는 사실을 듣게 되는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 128,
+    "collectionId": 1100788,
+    "collectionName": "스마일 시리즈",
+    "voteAverage": 6.591,
+    "voteCount": 2222,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4nQk1OgbtdnKYMEQiOwwMB4yGxn.jpg",
     "posterAlt": "스마일 2 포스터",
     "watchProvidersKr": {
@@ -16324,8 +18213,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ishmael / Sabbac / King Ahk-Ton",
       "Karim"
     ],
+    "contextTags": [],
     "overview": "기원전 가장 번성하고 위대한 고대 국가였지만 현재는 국제 군사 조직 인터갱의 독재 국가로 전락한 칸다크. 인터갱의 눈을 피해 고대 유물을 찾던 아드리아나는 우연히 5000년 동안 잠들어 있던 블랙 아담을 깨우게 된다.  엄청난 괴력과 스피드, 방탄 능력과 자유자재의 고공비행, 번개를 쏘는 능력까지. 온몸이 무기인 블랙 아담은 자신의 앞을 막아서는 인터갱들을 모조리 쓸어버리고 칸다크 국민들은 이에 열광한다. 한편, 그의 폭주를 막기 위해 호크맨, 닥터 페이트, 아톰 스매셔, 사이클론으로 구성된 히어로 군단 저스티스 소사이어티가 칸다크에 나타나는데...",
     "releaseYear": 2022,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.793,
+    "voteCount": 7095,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mEdMHGy1FfCUc7PskFO0tibm8jp.jpg",
     "posterAlt": "블랙 아담 포스터",
     "watchProvidersKr": {
@@ -16373,8 +18268,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Captain Gutt (voice)",
       "Granny (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "격돌! 드디어 적수를 만나다!!  쩍! 갈라진 대륙과 바다, 딱! 마주친 빙하 해적단!  다람쥐 스크랫의 도토리를 향한 엄청난 집념이 지구의 운명마저 바꿔놓는 초대형 사고로 이어지면서, 대륙이 쩍쩍 갈라지기 시작한다.  갑작스러운 대륙 이동으로 살 곳을 잃어버린 매니, 디에고, 시드는 빙하를 배 삼아 정처 없이 떠돌던 중, 무시무시한 해적단과 마주치게 되는데…",
     "releaseYear": 2012,
+    "runtimeMinutes": 88,
+    "collectionId": 8354,
+    "collectionName": "아이스 에이지 시리즈",
+    "voteAverage": 6.391,
+    "voteCount": 8166,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8DSHzbDsNDaC0wlRZS3hLUzJAC7.jpg",
     "posterAlt": "아이스 에이지 4: 대륙 이동설 포스터",
     "watchProvidersKr": {
@@ -16434,8 +18337,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Desiree 'Desi' Lopez Molina",
       "DEA Agent Mateo 'Matty' Nix"
     ],
+    "contextTags": [],
     "overview": "허름한 은닉처에서 수백만 달러의 현금을 발견한 마이애미 경찰. 신뢰에 금이 가기 시작하면서 모든 사람, 모든 것이 의심의 대상이 된다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.084,
+    "voteCount": 1751,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o0d6Us9VWOW0nHhoB7ZNIwigARG.jpg",
     "posterAlt": "더 립 포스터",
     "watchProvidersKr": {
@@ -16490,8 +18399,17 @@ export const catalogMovies: CatalogMovie[] = [
       "King Harold (voice)",
       "Prince Charming (voice)"
     ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
     "overview": "더 크고 신나는 세상! \"겁나먼\" 왕국에서 펼쳐지는 끝없는 상상!  꿈결같은 허니문에서 돌아온 슈렉과 피오나. 이 행복한 녹색 커플은 \"겁나먼\" 왕국의 왕과 왕비인 피오나의 부모님으로부터 초청장을 받는다. 드디어 도착한 왕국에는 모든 시민들이 기대에 부풀어 그들을 기다리고 있는데... 덜리는 맘으로 슈렉이 모습을 드러내는 순간, 멋진 왕자를 기대했던 모든 이들은 기절초풍! 초록색이 되어버린 공주는 말할 것도 없이 말이다. 발칵 뒤집힌 \"겁나먼\" 왕국. 이제 이 충격적인 사건을 해결하기 위해 만만치 않은 강적들이 속속 등장한다. 업계 1위의 괴물 전문 킬러 '장화신은 고양이', 퍼펙트한 외모의 왕자 '프린스 챠밍', 신비한 힘을 가진 요정 대모까지. 성가신 건 질색인 슈렉에게 터져버린 대형 사고! 또 다시 의도하지 않은 사건에 휘말린 슈렉 패밀리 앞에 상상할 수 없는 예측 불허의 모험들이 펼쳐지는데...",
     "releaseYear": 2004,
+    "runtimeMinutes": 92,
+    "collectionId": 2150,
+    "collectionName": "슈렉 시리즈",
+    "voteAverage": 7.324,
+    "voteCount": 13554,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2yYP0PQjG8zVqturh1BAqu2Tixl.jpg",
     "posterAlt": "슈렉 2 포스터",
     "watchProvidersKr": {
@@ -16549,8 +18467,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dora's Mother",
       "Doctor Lessing"
     ],
+    "contextTags": [],
     "overview": "로마에 갓 상경한 시골 총각 귀도는 운명처럼 만난 여인 도라에게 첫눈에 반한다. 넘치는 재치와 유머로 약혼자가 있던 그녀를 사로잡은 귀도는 가정을 꾸리며 분신과도 같은 아들 조수아를 얻는다. 조수아의 다섯 살 생일, 갑작스레 들이닥친 군인들은 귀도와 조수아를 수용소 행 기차에 실어버리고, 소식을 들은 도라 역시 기차에 따라 오른다. 귀도는 아들을 달래기 위해 무자비한 수용소 생활을 단체게임이라 속이고 1,000점을 따는 우승자에게는 진짜 탱크가 주어진다고 말한다. 하루하루가 지나 어느덧 전쟁이 끝났다는 말을 들은 귀도는 조수아를 창고에 숨겨둔 채 아내를 찾아 나서는데...",
     "releaseYear": 1997,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.439,
+    "voteCount": 14078,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iyQ8pmCpmnPrGtaHMfmSvQLv8Fy.jpg",
     "posterAlt": "인생은 아름다워 포스터",
     "watchProvidersKr": {
@@ -16603,8 +18527,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lestrade",
       "Mira Troy"
     ],
+    "contextTags": [],
     "overview": "탐정이 된 후 첫 번째 사건을 수임한 에놀라. 하지만 실종된 소녀의 미스터리를 풀기 위해서는 친구들의 도움이 필요하다. 어쩌면 오빠 셜록의 도움까지도.",
     "releaseYear": 2022,
+    "runtimeMinutes": 129,
+    "collectionId": 829314,
+    "collectionName": "에놀라 홈즈 시리즈",
+    "voteAverage": 7.417,
+    "voteCount": 3062,
     "posterUrl": "https://image.tmdb.org/t/p/w780/S6fDnntDjduIWuLW2GcqFasobD.jpg",
     "posterAlt": "에놀라 홈즈 2 포스터",
     "watchProvidersKr": {
@@ -16655,8 +18585,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Pepper Potts",
       "Michelle"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "토니 스타크의 제안을 받고 시빌 워에 참여한 피터 파커는 다음 임무가 언제일지 설렘을 안고 하루하루를 보낸다. 토니는 MIT 진학 준비에 전념할 것을 권하지만 친절한 이웃에 머무는 것은 피터의 성에 차지 않는다. 한편 어벤져스 군단과 외계 세력의 전투로 생긴 산업폐기물을 처리하던 아드리안 툼즈는 그 일이 토니 스타크와 정부에 넘어가면서 하루아침에 빈털터리가 된다. 이에 앙심을 품은 아드리안은 외계 첨단무기를 훔쳐서 개조하는 빌런이 되고, 그의 존재를 알게 된 피터는 도움을 빌리지 않고 자기가 일을 해결해보려고 한다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 133,
+    "collectionId": 531241,
+    "collectionName": "스파이더맨(MCU) 시리즈",
+    "voteAverage": 7.331,
+    "voteCount": 23332,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hjki9weYYVABvkpZbX5jBOmKXXv.jpg",
     "posterAlt": "스파이더맨: 홈커밍 포스터",
     "watchProvidersKr": {
@@ -16741,8 +18679,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Kosho (voice)",
       "Prince Justin / Turnip Head (voice)"
     ],
+    "contextTags": [],
     "overview": "19세기 말 마법과 과학이 공존하고 있는 세계 앵거리. 소피는 돌아가신 아버지의 모자상점에서 쉴틈없이 일하는 18살 소녀이다. 어느 날 오랫만에 마을로 나간 소피는 우연히 하울을 만나게 된다. 하울은 왕실 마법사로서 핸섬하지만 조금 겁이 많은 청년이다. 황무지 마녀는 두 사람의 사이를 오해, 주문을 걸어 소피를 90살의 늙은 할머니로 만들어 버린다. 가족을 걱정한 소피는 집을 나오게 되고 황무지를 헤매다가 하울이 사는 성에서 가정부로 낯선 생활을 시작한다. 4개의 다리로 걷는 기괴한 움직이는 성 안에서 하울과 소피의 기묘한 사랑과 모험이 시작되는데...",
     "releaseYear": 2004,
+    "runtimeMinutes": 119,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.389,
+    "voteCount": 11204,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xiz6TiSduvR1U3VLfWVlBEdT9fO.jpg",
     "posterAlt": "하울의 움직이는 성 포스터",
     "watchProvidersKr": {
@@ -16807,8 +18751,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Yinsen",
       "Raza"
     ],
+    "contextTags": [],
     "overview": "천재적인 두뇌와 재능으로 세계 최강의 무기업체를 이끄는 CEO이자, 타고난 매력으로 셀러브리티 못지않은 화려한 삶을 살아가던 억만장자 토니 스타크. 아프가니스탄에서 자신이 개발한 신무기 발표를 성공리에 마치고 돌아가던 그는 게릴라군의 갑작스런 공격에 의해 가슴에 치명적인 부상을 입고 게릴라군에게 납치된다. 가까스로 목숨을 건진 그에게 게릴라군은 자신들을 위한 강력한 무기를 개발하라며 그를 위협한다. 그러나 그는 게릴라군을 위한 무기 대신, 탈출을 위한 무기가 장착된 철갑수트를 몰래 만드는 데 성공하고, 그의 첫 수트인 ‘Mark1’를 입고 탈출에 성공한다. 미국으로 돌아온 토니 스타크는 자신이 만든 무기가 많은 사람들의 생명을 위협하고, 세상을 엄청난 위험에 몰아넣고 있다는 사실을 깨닫고 무기사업에서 손 뗄 것을 선언한다. 그리고, Mark1을 토대로 최강의 하이테크 수트를 개발하는 데 자신의 천재적인 재능과 노력을 쏟아 붓기 시작한다. 탈출하는 당시 부서져버린 Mark1을 바탕으로 보다 업그레이드 된 수트 Mark2를 만들어낸 토니 스타크. 거기에 만족하지 않고, 숱한 시행착오와 실패 끝에 자신의 모든 능력과 현실에서 가능한 최강의 최첨단 과학 기술이 집적된 하이테크 수트 Mark3를 마침내 완성, 최강의 슈퍼히어로 ‘아이언맨’으로 거듭난다. 토니 스타크가 탈출하는 과정을 통해 Mark1의 가공할 위력을 확인한 게릴라 군은 토니 스타크가 미처 회수하지 못한 Mark1의 잔해와 설계도를 찾아낸다. Mark1을 재조립하여 그들의 목적을 이루기 위한 거대하고 강력한 철갑수트를 제작하려는 음모를 꾸미는 게릴라군. 토니 스타크가 갖고 있던 에너지원을 훔쳐 ‘아이언맨’을 능가하는 거대하고 강력한 ‘아이언 몽거’를 완성한 그들은 세계 평화를 위협하고, 토니 스타크는 그들의 음모과 배후세력이 누구인지를 알게 되는데...!",
     "releaseYear": 2008,
+    "runtimeMinutes": 125,
+    "collectionId": 131292,
+    "collectionName": "아이언맨 시리즈",
+    "voteAverage": 7.663,
+    "voteCount": 28338,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ziReGUV3xURsWmcmsn2GOunPc0L.jpg",
     "posterAlt": "아이언맨 포스터",
     "watchProvidersKr": {
@@ -16868,8 +18818,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Detective Mirojnick",
       "Tracy"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "결혼 10년차 부부 에드워드 섬너와 코니 섬너. 8살 아들과 함께 뉴욕 교외에 살고 있는 이 부부는 무엇하나 부러울 것 없는 이상적이고 행복한 삶을 영위하고 있다. 그러던 어느날, 뉴욕 시내로 쇼핑을 나갔던 코니가 우연히 사고를 당하게 되고, 폴 마텔이라는 젊은 프랑스 남자가 치료를 자처한다. 처음에는 견제의 눈길을 감추지 못하던 코니도 어딘지 모를 폴의 신비스런 매력에 긴장을 풀게 된다. 다시 일상으로 돌아온 코니. 사랑하는 남편과 아들이 곁에 있지만 문득문득 떠오르는 폴의 웃음과 말투에 다시 한번 폴을 만나겠다는 결심을 하게 되고, 이렇게 폴과 코니는 위험스럽게 서로에게 탐닉하게 되는데.",
     "releaseYear": 2002,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.708,
+    "voteCount": 1752,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vXl4cigeyWPOYOjaHcnXcb6Dfb3.jpg",
     "posterAlt": "언페이스풀 포스터",
     "watchProvidersKr": {
@@ -16924,8 +18882,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Gamma (voice)",
       "Construction Foreman Tom (voice)"
     ],
+    "contextTags": [
+      "travel",
+      "family"
+    ],
     "overview": "평생 모험을 꿈꿔 왔던 칼 할아버지는 재개발 공사 현장의 인부를 실수로 다치게 하고 집을 빼앗길 위기에 처한다. 그 동안 미뤄 왔던, 먼저 세상을 떠난 아내와의 약속을 지키기 위해 그는 수천 개의 풍선을 매달아 집을 통째로 남아메리카로 날려 버린다. 하지만 이 위대한 모험에 초대 받지 않은 불청객이 있었으니, 바로 황야의 어린이 탐험가 러셀. 우여곡절 끝에 도착한 남미에서 칼은 어린 시절의 우상이었던 위대한 모험가 찰스 먼츠를 만나게 되는데... 그들은 과연 남미의 잃어버린 세계에서 사라져 버린 꿈과 희망, 행복을 다시 찾을 수 있을까?",
     "releaseYear": 2009,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.961,
+    "voteCount": 21824,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lL2WzkjLZP0RkPgUhybBjb9x9SL.jpg",
     "posterAlt": "업 포스터",
     "watchProvidersKr": {
@@ -16984,8 +18951,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Justin",
       "D.J."
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "서기 2040년. 광속보다 빠른속도로 우주를 여행하던 탐사선 '이벤트 호라이즌'호가 실종된다. 7년 후, 숱한 의문을 남긴 채 사라진 이벤트 호라이즌호에서 희미하게 생존 신호를 확인한 미 우주국은 이 우주선에 대한 여러가지 의문점과 생존자 확인을 위해 구조선 '루이스 앤 클락'호를 파견한다. 밀러(로렌스 피쉬번)를 리더로 한 이 구조대에는 이벤트 호라이즌호를 직접 제작했던 윌리엄 위어(샘 닐) 박사도 포함돼 있다. 밀러 선장을 비롯한 루이스 앤 클락호의 대원들은 목적지인 해왕성 궤도에서 이벤트 호라이즌를 발견하고 생명의 흔적이 느껴지지 않는 이 우주선에 올라 수색작업을 벌이지만 이벤트 호라이즌호에는 대원들이 모두 숨진 상태이다. 그런데 수색 작업에 투입된 대원들이 모두 이상한 환영에 시달리게 되고 하나 둘 목숨을 잃는 일이 발생하는데...",
     "releaseYear": 1997,
+    "runtimeMinutes": 96,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.589,
+    "voteCount": 3340,
     "posterUrl": "https://image.tmdb.org/t/p/w780/keXPIx088rTjeLr45S1DrMlXHV7.jpg",
     "posterAlt": "이벤트 호라이즌 포스터",
     "watchProvidersKr": {
@@ -17039,8 +19015,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Matt",
       "Ginger"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "1997년, 인간이 만든 인공지능 컴퓨터 전략 방어 네트워크가 스스로의 지능을 갖추고는 인류를 핵전쟁의 참화을 일으켜 30억이라는 인류를 잿더미 속에 묻어버린다. 그리고 남은 인간들은 기계의 지배를 받아 시체를 처리하는 일 등에 동원된다. 이때 비상한 지휘력과 작전으로 인간들을 이끌던 사령관 존 코너는 반기계 연합을 구성, 기계와의 전쟁을 시작하면서 상황은 반전된다. 이에 기계는 존 코너의 탄생 자체를 막기 위해 2029년의 어느 날 타임머신에 터미네이터를 태워서 1984년의 L.A로 보내게 된다.",
     "releaseYear": 1984,
+    "runtimeMinutes": 108,
+    "collectionId": 528,
+    "collectionName": "터미네이터 시리즈",
+    "voteAverage": 7.685,
+    "voteCount": 14772,
     "posterUrl": "https://image.tmdb.org/t/p/w780/y6FmrimVoBBKsERc08VyVP1NyNs.jpg",
     "posterAlt": "터미네이터 포스터",
     "watchProvidersKr": {
@@ -17093,8 +19077,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Big Nose Thug (voice)",
       "Hook Hand Thug (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "장장 18년을 탑 안에서만 지낸 끈기 만점의 소녀 라푼젤. 어느 날 자신의 탑에 침입한 왕국 최고의 대도를 한 방에 때려잡고, 그를 협박해 꿈에도 그리던 집 밖으로의 모험을 단행한다. 과잉보호 모친의 영향으로 세상을 험난한 곳으로만 상상하던 라푼젤 앞에 왕실 경비마 맥시머스의 추격, 라이더에게 복수의 칼날을 가는 스태빙턴 형제의 위협, 라푼젤의 가짜 엄마 고델의 무서운 음모 등이 얽혀 점점 흥미진진한 사건들이 터지기 시작한다. 그러나 세상물정 모르는 라푼젤은 자신 앞에 펼쳐진 스릴 넘치는 세상을 맘껏 즐기는데...",
     "releaseYear": 2010,
+    "runtimeMinutes": 100,
+    "collectionId": 1268789,
+    "collectionName": "Tangled Collection",
+    "voteAverage": 7.613,
+    "voteCount": 12494,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sT1vLH38iaezVgoFqmaiihbnTUy.jpg",
     "posterAlt": "라푼젤 포스터",
     "watchProvidersKr": {
@@ -17153,8 +19145,14 @@ export const catalogMovies: CatalogMovie[] = [
       "John Walker",
       "Ava Starr"
     ],
+    "contextTags": [],
     "overview": "어벤져스가 사라진 후, 세계 최대의 위협과 마주한 세상을 구하기 위해 전직 스파이, 암살자, 살인 청부 업자 등 마블의 별난 놈들이 펼치는 예측불허 팀플레이를 담은 액션 블록버스터",
     "releaseYear": 2025,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.295,
+    "voteCount": 3683,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iTX4O9gb8Jn0F5N5WgYnbIopdnP.jpg",
     "posterAlt": "썬더볼츠* 포스터",
     "watchProvidersKr": {
@@ -17199,8 +19197,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bessie",
       "Henry Brocklehurst"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "나는 영국의 불황기였던 1820년에 태어났다. 돈과 지위가 전부였고 사랑이란 단어는 냉대받던 시절이다. 종교는 편협과 잔혹이란 가면을 쓰고 있었으며 가난하고 불행한 자들이 갈 곳은 없었다. 나는 부모 형제가 없는 고아로 게이트헤드의 리드 숙모님 댁에서 어린 시절을 보냈다. 나는 그녀에게서 따뜻한 말 한마디를 들은 기억이 없다.",
     "releaseYear": 1943,
+    "runtimeMinutes": 97,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.929,
+    "voteCount": 154,
     "posterUrl": "https://image.tmdb.org/t/p/w780/20U8AauzGm35eYRAY2r7MVuXj3k.jpg",
     "posterAlt": "제인 에어 포스터",
     "watchProvidersKr": {
@@ -17248,8 +19254,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Fong",
       "Brother Sum"
     ],
+    "contextTags": [],
     "overview": "1940년대 중국 상하이. 난세를 틈타 어둠의 세력을 평정한 도끼파의 잔인함에 신음하고 있던 그 때, 너무 가난해서 뺏길 것도 없는 하층민만이 평화롭게 모여사는 돼지촌에 불의만 보면 도망치는 소심한 건달 싱(주성치)이 흘러든다. 돼지촌을 폼나게 접수해서 도끼파 보스의 눈에 띄고 싶었던 싱의 협박은 도끼파와 돼지촌 주민 간의 전면대결로 이어지고, 놀랍게도 강호를 떠나 돼지촌에 숨어있던 강호의 고수들이 그 실체를 드러낸다. 예상치 못한 쿵푸 고수들의 등장으로 위기에 몰린 도끼파는 떠돌이 형제 킬러를 고용하는 한편, 싱을 이용해 전설 속의 쿵푸 달인 야수를 빼돌려 돼지촌을 접수할 음모를 꾸미는데...",
     "releaseYear": 2004,
+    "runtimeMinutes": 99,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.507,
+    "voteCount": 3245,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rX8XXAMyMGZRDhEgG1cmwXmxjZU.jpg",
     "posterAlt": "쿵푸 허슬 포스터",
     "watchProvidersKr": {
@@ -17325,8 +19337,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Officer Cole",
       "Lieutenant Wade"
     ],
+    "contextTags": [],
     "overview": "3대째 부검소를 운영 중인 토미와 오스틴 부자는 보안관의 다급한 의뢰로 신원미상인 젊은 여성의 부검을 하게 된다. 하지만 그녀의 몸에 숨겨져 있던 흔적들에서 끔찍한 비밀이 밝혀지는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 86,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.837,
+    "voteCount": 4776,
     "posterUrl": "https://image.tmdb.org/t/p/w780/gem6mHLneu1q970nZ8eRG8bWgH8.jpg",
     "posterAlt": "제인 도 포스터",
     "watchProvidersKr": {
@@ -17373,8 +19391,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Samson",
       "Erik Sundqvist"
     ],
+    "contextTags": [],
     "overview": "28년 전 생물학 무기 연구소에서 세상을 재앙으로 몰아넣은 바이러스가 유출된 후, 일부 생존자들이 모여 철저히 격리된 채 살아가는 섬 홀리 아일랜드. 이곳에서 태어나 한 번도 섬 밖을 나가 본 적 없는 소년 스파이크는 어느 날 섬을 떠나 본토에 발을 들이게 되고 난생처음 바이러스에 잠식된 세상을 마주하게 된다. 변이된 바이러스는 10,228일의 시간 동안 감염자들을 더욱 충격적으로 진화시켰고 스파이크는 그 실체를 목격하며 극강의 공포에 휩싸이게 되는데...",
     "releaseYear": 2025,
+    "runtimeMinutes": 115,
+    "collectionId": 1565,
+    "collectionName": "28일 후 시리즈",
+    "voteAverage": 6.613,
+    "voteCount": 2683,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zRo90O0bTKJem1aDgVa6Sm0gthE.jpg",
     "posterAlt": "28년 후 포스터",
     "watchProvidersKr": {
@@ -17422,8 +19446,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Viper (voice)",
       "Crane (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "평화의 계곡에서 아버지의 국수 가게를 돕고 있는 팬더 포. 아버지는 국수의 비법을 알려주어 가업을 잇게 하고 싶지만, 포의 관심사는 오로지 쿵푸 마스터. 가게 일은 뒷전으로 하고 쿵푸의 비법이 적힌 용문서의 전수자를 정하는 무적의 5인방 대결을 보러 시합장을 찾은 포. 그런데 마을의 현인 우그웨이 대사부가 포를 용문서의 전수자로 점지하는 이변이 일어난다. 무적의 5인방은 물론 시푸 사부 역시 이 사태를 받아들이지 못하는 가운데, 용문서를 노리고 어둠의 감옥에서 탈출한 타이 렁이 마을을 습격해오자 그를 막아야 하는 미션이 포에게 떨어지는데...",
     "releaseYear": 2008,
+    "runtimeMinutes": 90,
+    "collectionId": 77816,
+    "collectionName": "쿵푸팬더 시리즈",
+    "voteAverage": 7.33,
+    "voteCount": 12768,
     "posterUrl": "https://image.tmdb.org/t/p/w780/c3Dzd3A3QE0LkKb5HMOHTzs2Fyg.jpg",
     "posterAlt": "쿵푸팬더 포스터",
     "watchProvidersKr": {
@@ -17508,8 +19540,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Atlanna",
       "King Nereus"
     ],
+    "contextTags": [],
     "overview": "아틀란티스 왕국을 이끌 왕의 자리에 오른 아쿠아맨. 그 앞에 블랙 만타가 세상을 뒤흔들 강력한 지배 아이템 블랙 트라이던트를 손에 넣게 된다. 그동안 겪지 못 했던 최악의 위협 속 아쿠아맨은 블랙 만타와 손을 잡았던 이복 동생 옴 없이는 절대적 힘이 부족한 상황. 바다를 지배할 슈퍼 히어로가 세상의 판도를 바꾼다!",
     "releaseYear": 2023,
+    "runtimeMinutes": 124,
+    "collectionId": 573693,
+    "collectionName": "아쿠아맨 시리즈",
+    "voteAverage": 6.521,
+    "voteCount": 3547,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eDps1ZhI8IOlbEC7nFg6eTk4jnb.jpg",
     "posterAlt": "아쿠아맨과 로스트 킹덤 포스터",
     "watchProvidersKr": {
@@ -17561,8 +19599,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Nora",
       "Mr. Missel"
     ],
+    "contextTags": [],
     "overview": "맨해튼의 호화로운 아파트, 자상한 예술가 남편과 사랑스런 두 딸, 로봇 자동화 회사의 CEO 로미. 여성들의 롤모델로서 모든 것이 완벽해 보이는 삶이지만, 로미는 지배 당하고 싶은 자신의 욕망이 부끄럽다고 생각해 오랜 결혼생활에도 진정한 즐거움을 찾지 못했다. 출근길에서 목줄이 풀린 개를 완벽하게 통제하는 사무엘이 회사의 인턴으로 들어와 무례한 질문을 하고 아무 일도 없었다는 듯 커피를 건네자 로미가 불편할 정도로 흥분한 것을, 이미 서로 눈치챈다. 단숨에 사무엘에게 사로잡힌 로미는 그의 놀잇감을 자처하고 둘만의 욕망 플레이는 점점 로미가 쌓아온 모든 것을 위태롭게 만드는데… 그럼에도 둘의 관계는 부인할 수 없이 뜨겁게 달아오르고, 더 이상 멈출 수 없다!",
     "releaseYear": 2024,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.711,
+    "voteCount": 1241,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vkX85I1Mv27bnxMSWOuKntwjVgb.jpg",
     "posterAlt": "베이비걸 포스터",
     "watchProvidersKr": {
@@ -17609,8 +19653,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Odessa Mitty",
       "Todd Maher"
     ],
+    "contextTags": [],
     "overview": "자신의 꿈은 접어둔 채 16년째 ‘라이프’ 잡지사에서 포토 에디터로 일하고 있는 월터 미티.  해본 것도, 가본 곳도, 특별한 일도 없는 월터의 유일한 취미는 바로 상상!  상상 속에서만큼은 ‘본 시리즈’보다 용감한 히어로, ‘벤자민 버튼’보다 로맨틱한 사랑의 주인공이 된다.  어느 날, ‘라이프’지의 폐간을 앞두고 전설의 사진작가가 보내 온 표지 사진이 사라지는 일이 벌어진다.  당장 사진을 찾아오지 못할 경우 직장에서 쫓겨날 위기에 처하게 된 월터는  사라진 사진의 미스터리를 풀기 위해 연락조자 닿지 않는 사진작가를 찾아 떠나는데…  지구 반대편 여행하기, 바다 한 가운데 헬기에서 뛰어내리기, 폭발직전 화산으로 돌진하기 등  한 번도 뉴욕을 벗어나 본 적 없는 월터는 전혀 예상치 못한 곳에서 상상과는 비교도 안 되는 수 많은 어드벤처를 겪으면서 생애 최고의 순간을 맞이하게 되는데…  당신이 망설이고 있는 그 순간, 월터의 상상은 현실이 된다!",
     "releaseYear": 2013,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.227,
+    "voteCount": 8333,
     "posterUrl": "https://image.tmdb.org/t/p/w780/88J7DQ0Yn6MIqXaAiTgjyErzPnh.jpg",
     "posterAlt": "월터의 상상은 현실이 된다 포스터",
     "watchProvidersKr": {
@@ -17667,8 +19717,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Amber Freeman",
       "Gale Weathers"
     ],
+    "contextTags": [],
     "overview": "잔혹한 살인 사건으로 우즈보로 마을이 충격에 휩싸인 지 25년이 지난 후,  고스트 페이스를 한 새로운 살인마가 다시 십대들을 노리면서 마을의 어두운 비밀이 다시 수면 위로 떠오르는데…",
     "releaseYear": 2022,
+    "runtimeMinutes": 114,
+    "collectionId": 2602,
+    "collectionName": "스크림 시리즈",
+    "voteAverage": 6.688,
+    "voteCount": 3930,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tk5i99DjBAYTxbdBGAPIBkP6wID.jpg",
     "posterAlt": "스크림 포스터",
     "watchProvidersKr": {
@@ -17732,8 +19788,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Kayla Watts",
       "Ramsay Cole"
     ],
+    "contextTags": [],
     "overview": "공룡들의 터전이었던 이슬라 누블라 섬이 파괴된 후,  마침내 공룡들은 섬을 벗어나 세상 밖으로 출몰한다. 지상에 함께 존재해선 안 될 위협적 생명체인 공룡의 등장으로 인류 역사상 겪어보지 못한 사상 최악의 위기를 맞이한 인간들. 지구의 최상위 포식자 자리를 걸고 인간과 공룡의 최후의 사투가 펼쳐진다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 147,
+    "collectionId": 328,
+    "collectionName": "쥬라기 공원 시리즈",
+    "voteAverage": 6.601,
+    "voteCount": 7133,
     "posterUrl": "https://image.tmdb.org/t/p/w780/upGiyJeCbG61899TXiY01mxdjEF.jpg",
     "posterAlt": "쥬라기 월드: 도미니언 포스터",
     "watchProvidersKr": {
@@ -17799,8 +19861,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mary Meh (voice)",
       "Alex (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "스마트폰 속 이모티들의 비밀 세계 ‘텍스토폴리스’의 제1원칙은 1인 1표정! 각자 맡은 표정을 완벽히 해내야 하지만 다양한 감정의 소유자 ‘진’은 출동한 첫날 당황한 나머지 실수를 저지른다. ‘진’의 실수는 스마트폰 초기화라는 ‘텍스토폴리스’의 파멸을 불러오고 ‘텍스토폴리스’의 시장인 ‘스마일’은 도시를 위기에 빠뜨린 ‘진’을 파괴하기 위해 백신봇을 출동시키는데…  ‘진’은 친구 ‘하이파이브’, 해커 ‘핵키 브레이크’와 함께 ‘텍스토폴리스’와 자신의 운명을 구하기 위해 ‘소스 코드’를 찾기 위한 험난한 여정을 떠난다! 깨알만한 귀요미 이모티들의 가장 스마트한 어드벤처가 시작된다!",
     "releaseYear": 2017,
+    "runtimeMinutes": 86,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.378,
+    "voteCount": 3347,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8fbkDJ9uYCGwCySN0RbFRYk6OCl.jpg",
     "posterAlt": "이모티: 더 무비 포스터",
     "watchProvidersKr": {
@@ -17873,8 +19943,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Groot (voice)",
       "Rocket (voice)"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "가모라를 잃고 슬픔에 빠져 있던 피터 퀼이 위기에 처한 은하계와 동료를 지키기 위해 다시 한 번 가디언즈 팀과 힘을 모으고, 성공하지 못할 경우 그들의 마지막이 될지도 모르는 미션에 나서는 이야기.",
     "releaseYear": 2023,
+    "runtimeMinutes": 150,
+    "collectionId": 284433,
+    "collectionName": "가디언즈 오브 갤럭시 시리즈",
+    "voteAverage": 7.931,
+    "voteCount": 8487,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zK0FTsXvkWVS3yubZkbenbAFcnY.jpg",
     "posterAlt": "가디언즈 오브 갤럭시 Vol. 3 포스터",
     "watchProvidersKr": {
@@ -17929,8 +20007,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Brook (voice)",
       "Clod (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "불, 물, 공기, 흙 4개의 원소들이 살고 있는 엘리멘트 시티. 재치 있고 불처럼 열정 넘치는 앰버는 어느 날 우연히 유쾌하고 감성적이며 물 흐르듯 사는 웨이드를 만나 특별한 우정을 쌓으며, 지금껏 믿어온 모든 것들이 흔들리는 새로운 경험을 하게 되는데...",
     "releaseYear": 2023,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.585,
+    "voteCount": 5401,
     "posterUrl": "https://image.tmdb.org/t/p/w780/w7eApyAshbepBnDyYRjSeGyRHi2.jpg",
     "posterAlt": "엘리멘탈 포스터",
     "watchProvidersKr": {
@@ -17984,8 +20070,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Weasel",
       "Blind Al"
     ],
+    "contextTags": [],
     "overview": "암 치료를 위한 비밀 실험에 참여한 후, 강력한 힐링팩터 능력을 지닌 슈퍼히어로 데드풀로 거듭난 웨이드 윌슨은 여자친구 바네사와 더없이 행복한 시간을 보낸다. 그러나 행복도 잠시, 눈 앞에서 소중한 연인을 잃어버리고 삶의 의미를 상실하지만 자기 치유 능력 때문에 죽고 싶어도 죽지를 못한다. 밑바닥까지 내려간 데드풀은 더 나은 사람이 되기로 결심한다. 한편 미래에서 온 케이블은 러셀을 집요하게 쫓는다. 데드풀은 팀 엑스포스를 결성하고, 뭘 해도 운이 따르는 도미노가 엑스포스에 합류하는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 117,
+    "collectionId": 448150,
+    "collectionName": "데드풀 시리즈",
+    "voteAverage": 7.491,
+    "voteCount": 19363,
     "posterUrl": "https://image.tmdb.org/t/p/w780/u4FChoDddutqEBP4L0AHhPbrCAk.jpg",
     "posterAlt": "데드풀 2 포스터",
     "watchProvidersKr": {
@@ -18045,8 +20137,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Christabella",
       "Alexander Cullen"
     ],
+    "contextTags": [],
     "overview": "64번의 재판에서 한 번도 실패해 본 적이 없는 변호사 케빈 로막스(키아누 리브스). 그는 의뢰인인 피의자의 유죄가 확실했던 이번 재판에서도 승리를 하면서 인기 절정의 변호사로 부상한다.  승소 기념 파티를 벌이던 날, 케빈은 뉴욕 '존 밀튼 투자회사'의 직원으로부터 파격적인 조건의 스카우트 제의를 받고 아내 매리앤(샤를리즈 테론)과 함께 뉴욕으로 향한다.",
     "releaseYear": 1997,
+    "runtimeMinutes": 144,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.479,
+    "voteCount": 6874,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1rT40EraiopJVxmkS5cCYUmdeYJ.jpg",
     "posterAlt": "데블스 에드버킷 포스터",
     "watchProvidersKr": {
@@ -18106,8 +20204,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Zach",
       "Lowery"
     ],
+    "contextTags": [],
     "overview": "쥬라기 공원 사건에서 22년이 지난 후, 이슬라 누블라에서는 새로 열린 쥬라기 공원이 정상적으로 영업 중이다. 유전자 조작으로 탄생한 공룡들을 앞세운 쥬라기 월드는 지상 최대의 테마파크로 자리잡는다. 하지만 유전공학자들이 그 동안의 연구를 바탕으로 탄생시킨 새로운 유전자 조작 하이브리드 공룡들은 지능과 공격성을 끝없이 진화시키며 인간의 통제를 벗어날 조짐을 보인다. 한편 오랫동안 벨로시랩터를 연구해온 오웬 그래디(크리스 프랫)는 이런 시도에 반대하고, 그가 예상한 대로 이 하이브리드 공룡이 탈출하면서 공원은 아수라장이 되는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 125,
+    "collectionId": 328,
+    "collectionName": "쥬라기 공원 시리즈",
+    "voteAverage": 6.703,
+    "voteCount": 21689,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zJ5pZvsd5I8HYnRRAvLE2tSxtOW.jpg",
     "posterAlt": "쥬라기 월드 포스터",
     "watchProvidersKr": {
@@ -18200,8 +20304,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Snotlout (voice)",
       "Fishlegs (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "바이킹과 드래곤이 친구가 되어 평화롭게 살아가는 버크섬.  청년이 된 히컵은 아버지 스토이크의 바람과는 달리  족장이 되는 것 보다 버크섬 밖의 더 넓은 세상을 보고 싶어한다.  그러던 어느 날, 신비로운 얼음대륙을 탐험하던 히컵과 투슬리스는 드래곤 사냥꾼들이 쳐놓은 덫에 걸리고,  드래곤들을 위협하는 강력한 어둠의 존재에 대해 알게 된다.  히컵과 투슬리스는 드래곤들의 평화를 위해  의문의 드래곤 군단과 맞서기로 결심하는데…",
     "releaseYear": 2014,
+    "runtimeMinutes": 102,
+    "collectionId": 89137,
+    "collectionName": "드래곤 길들이기 시리즈",
+    "voteAverage": 7.685,
+    "voteCount": 10523,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kSP4QmHMLnbySksUb2O9sGkoEQM.jpg",
     "posterAlt": "드래곤 길들이기 2 포스터",
     "watchProvidersKr": {
@@ -18262,8 +20374,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Joe Garcia",
       "Gunny Lefferty"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "전직 블랙 옵스 요원이었던 레본 케이드(제이슨 스타뎀)는 평범한 건설 노동자로 살아가며 딸과 함께 조용한 삶을 추구하고 있었으나 그의 상사의 딸이 인신매매 조직에 의해 납치되면서, 다시 과거의 전투 기술을 사용해 그녀를 구하기 위해 나서게 된다. 이 과정에서 시카고의 범죄 조직과 러시아 마피아와 얽히며, 부패와 폭력으로 가득 찬 어두운 세계를 마주하게 되는데...",
     "releaseYear": 2025,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.682,
+    "voteCount": 1994,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pPokyKVPve6HNSgVliOlrMwU1lM.jpg",
     "posterAlt": "워킹맨 포스터",
     "watchProvidersKr": {
@@ -18316,8 +20436,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Anna",
       "Klara Biel"
     ],
+    "contextTags": [],
     "overview": "직장에서 성공 가도를 달리지만 연인과의 관계는 열정을 잃은 지 오래인 여자. 생일을 맞아 떠난 여행에서 마피아 보스에게 납치당하며 아찔한 나날이 시작된다. 마음을 얻기 위해 365일 동안 뭐든 하겠다는 이 남자를 믿어도 될까.",
     "releaseYear": 2020,
+    "runtimeMinutes": 114,
+    "collectionId": 829561,
+    "collectionName": "365일 시리즈",
+    "voteAverage": 6.992,
+    "voteCount": 9549,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ibaDBJBAvWd4J5lzfbpq1PJ6ZU1.jpg",
     "posterAlt": "365일 포스터",
     "watchProvidersKr": {
@@ -18370,8 +20496,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Grandmaster",
       "Valkyrie"
     ],
+    "contextTags": [],
     "overview": "은하계를 탐험하던 토르는 오딘의 오랜 숙적 수르트와의 대결에서 승리하는데, 수르트는 라그나로크가 이미 시작됐고, 막을 수 없을 것이라는 의미심장한 말을 남긴다. 한편 오딘의 힘이 약해지며 그가 봉인했던 죽음의 여신 헬라가 나타난다. 오딘의 첫째딸인 그녀는 두 동생, 토르와 로키를 가볍게 제압하고 아스가르드를 정복한다. 헬라와의 전쟁에서 묠니르를 잃고 사카아르라는 미지의 행성에 불시착한 토르는 아스가르드 행성으로 돌아가기 위해 고군분투한다. 행성의 통치자 그랜드 마스터는 행성 최고의 투사 챔피언과 싸워 이기면 행성을 떠나게 해주겠다고 토르에게 제안한다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 130,
+    "collectionId": 131296,
+    "collectionName": "토르 시리즈",
+    "voteAverage": 7.582,
+    "voteCount": 22147,
     "posterUrl": "https://image.tmdb.org/t/p/w780/98pS5T4Xe362fxJBWTuq1m46dOJ.jpg",
     "posterAlt": "토르: 라그나로크 포스터",
     "watchProvidersKr": {
@@ -18418,8 +20550,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Scotsman",
       "Young Sam"
     ],
+    "contextTags": [],
     "overview": "평범한 삶을 살던 네이선은 인생을 바꿀 뜻밖의 제안을 받는다. 그의 미션은 크루와 함께 사라진 형과 500년 전 잃어버린 천문학적인 가치를 지닌 트레져를 찾아내는 것. 그러나 몬카다의 위협 속, 누구보다 빠르게 미지의 세계에 닿기 위해 결단을 내려야만 하는데…",
     "releaseYear": 2022,
+    "runtimeMinutes": 116,
+    "collectionId": 1216426,
+    "collectionName": "언차티드 시리즈",
+    "voteAverage": 6.882,
+    "voteCount": 6971,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mEHmuzE0vam89FGLiZ0HkZ8CMVn.jpg",
     "posterAlt": "언차티드 포스터",
     "watchProvidersKr": {
@@ -18482,8 +20620,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Navarro",
       "WY Officer"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "2142년, 부모 세대가 맞닥뜨렸던 암울한 미래를 피하려는 청년들이 더 나은 삶을 찾기 위해 식민지를 떠날 계획을 세운다. 하지만 버려진 우주 기지 로물루스에 도착한 이들은 악몽과도 같은 에이리언의 무자비한 공격에 쫓기기 시작한다. 그 누구도 그들의 절규를 들을 수 없는 우주 한가운데, 생존을 위한 치열한 사투를 벌여야 하는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 119,
+    "collectionId": 1434946,
+    "collectionName": "Alien: Romulus Collection",
+    "voteAverage": 7.164,
+    "voteCount": 4660,
     "posterUrl": "https://image.tmdb.org/t/p/w780/AmWTYg3RCMv7fbQxwCqrxiaUhkc.jpg",
     "posterAlt": "에이리언: 로물루스 포스터",
     "watchProvidersKr": {
@@ -18544,8 +20690,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Kiara (voice)",
       "Rafiki (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "길을 잃고 혼자가 된 새끼 사자 무파사는 광활한 야생을 떠돌던 중 왕의 혈통이자 예정된 후계자 타카와 우연히 만나게 된다. 마치 친형제처럼 끈끈한 우애를 나누며 함께 자란 무파사와 타카는 운명을 개척하기 위해 거대한 여정을 함께 떠난다. 한 치 앞을 알 수 없는 적들의 위협 속에서 두 형제의 끈끈했던 유대에 금이 가기 시작하고 예상치 못한 위기까지 맞닥뜨리게 되는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 118,
+    "collectionId": 762512,
+    "collectionName": "라이온 킹 (리부트) 시리즈",
+    "voteAverage": 7.3,
+    "voteCount": 2704,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1VUExee8iFohFTwYVi4IOArYyaM.jpg",
     "posterAlt": "무파사: 라이온 킹 포스터",
     "watchProvidersKr": {
@@ -18606,8 +20760,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Mother in Law",
       "Seven"
     ],
+    "contextTags": [
+      "literary",
+      "space"
+    ],
     "overview": "마야 문명이 번창하던 시절, 평화로운 부족 마을의 젊은 전사 표범 발은 가족과 함께 행복한 나날을 보내며 살아가고 있다. 어느 날, 잔인한 전사로 구성된 침략자들이 마을을 습격하여 부족민을 학살하고 젊은 남녀를 그들의 왕국으로 끌고 가는 일이 발생한다. 표범 발은 이 혼란 속에 그의 아내와 어린 아들을 깊숙한 우물에 숨긴 채 자신은 인질로 끌려가게 된다. 죽음과 마주친 위기 상황에서 겨우 탈출한 표범 발은 우물 속에 숨겨둔 가족에게 돌아가려 하지만 적들의 집요한 추적은 계속된다. 생명을 위협하는 죽음의 손길이 조금씩 다가오는 가운데, 표범 발은 도리어 적들을 향해 기상천외한 공격을 하기 시작하는데...",
     "releaseYear": 2006,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.652,
+    "voteCount": 6491,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mAFf4oW3XiH4IlFJw6dgwNnEPhg.jpg",
     "posterAlt": "아포칼립토 포스터",
     "watchProvidersKr": {
@@ -18674,8 +20837,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Miyoko Sahara (voice)",
       "Miki Kawai (voice)"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "따분한 게 질색인 아이, 이시다 쇼야.  간디가 어떤 사람인지, 인류의 진화과정이라든지, 알게뭐람.  어느 날 쇼야의 따분함을 앗아갈 전학생이 나타났다. 니시미야 쇼코. 그 아이는 귀가 들리지 않는다고 한다.  쇼야의 짓궂은 장난에도 늘, 생글생글 웃고만 있다. 짜증난다.  그의 괴롭힘에 쇼코는 결국 전학을 갔고, 이시다 쇼야는 외톨이가 되었다.  6년 후, 더 이상 이렇게 살아봐야 의미가 없음을 느낀 쇼야는 마지막으로 쇼코를 찾아간다.  처음으로 전해진 두 사람의 목소리. 두 사람의 만남이 교실을, 학교를,  그리고 쇼야의 인생, 쇼코의 인생을 바꾸기 시작한다.",
     "releaseYear": 2016,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.394,
+    "voteCount": 4558,
     "posterUrl": "https://image.tmdb.org/t/p/w780/aUF10sSW5OVfpK6Ma3vJYd3Tp3A.jpg",
     "posterAlt": "목소리의 형태 포스터",
     "watchProvidersKr": {
@@ -18764,8 +20935,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Denise Porter",
       "Warren Vandergeld"
     ],
+    "contextTags": [],
     "overview": "위장술 하나는 끝내주지만 정작 사건 해결은 못해본 FBI 명물 콤비 마커스(말론 웨이언스)와 케빈(숀 웨이언스)은 순간의 착각으로 거물급 마약상을 놓치는 일대 실수를 저지르고 만다. FBI에서 퇴출 위기에 몰린 둘은 얼떨결에 자선파티 참석을 위해 LA에 오는 호텔재벌 윌슨가 자매의 모두가 꺼려하는 경호를 떠맡게 된다. 하지만 첫날부터 호틀갑 자매의 귀하신 얼굴에 상처를 내는 대형사고(?)를 치고 마는데…  FBI고 뭐고 발각되면 인생 끝장이다! 힙 올리고 가슴 더 키워!!!  길길이 날뛰는 자매 앞에 이들이 살아남는 방법은 딱 하나! ‘뽕 넣고 찍어 발라서라도’ 그녀들로 변신, 그녀들 대신 사교계를 휘어잡는 것! 이제 풍만한 가슴에 쭉빠진 바디라인의 금발미녀가 된 그들, 아니 그녀들은 알고보면 첩보전을 능가하는 칵테일 파티와 총격전보다 살벌한 패션쇼 등 재벌계의 엄청난 사생활에 말려들기 시작하는데…?!",
     "releaseYear": 2004,
+    "runtimeMinutes": 109,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.954,
+    "voteCount": 4614,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4caC5bNljJiakF2r18Bb3j4URAe.jpg",
     "posterAlt": "화이트 칙스 포스터",
     "watchProvidersKr": {
@@ -18838,8 +21015,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Nat Sharp",
       "Vera Draven, Esq."
     ],
+    "contextTags": [],
     "overview": "브누아 블랑이 탐정 인생을 통틀어 가장 위험한 사건으로 돌아온다.어두운 과거를 지닌 작은 마을의 성당. 그곳에서 불가사의한 범죄가 발생한다. 그러자 브누아 블랑 탐정이 신실한 젊은 신부와 함께 수사에 나선다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 145,
+    "collectionId": 722971,
+    "collectionName": "나이브스 아웃 시리즈",
+    "voteAverage": 7.211,
+    "voteCount": 2639,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qFXkslzkBIihZnwyYal9WnQ9OTe.jpg",
     "posterAlt": "나이브스 아웃: 웨이크 업 데드 맨 포스터",
     "watchProvidersKr": {
@@ -18891,8 +21074,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Isaiah Bradley",
       "Sidewinder"
     ],
+    "contextTags": [],
     "overview": "대통령이 된 새디우스 로스와 재회 후, 국제적인 사건의 중심에 서게 된 샘이 전 세계를 붉게 장악하려는 사악한 음모 뒤에 숨겨진 존재와 이유를 파헤쳐 나가는 액션 블록버스터",
     "releaseYear": 2025,
+    "runtimeMinutes": 119,
+    "collectionId": 131295,
+    "collectionName": "캡틴 아메리카 시리즈",
+    "voteAverage": 5.963,
+    "voteCount": 3180,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qj1uEI7zrCWbMppjFZmCXVlWlb1.jpg",
     "posterAlt": "캡틴 아메리카: 브레이브 뉴 월드 포스터",
     "watchProvidersKr": {
@@ -18940,8 +21129,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Silver (voice)",
       "Courtney (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "호시탐탐 알을 탐내는 식신돼마왕 ‘레너드’를 물리치고 아싸에서 인싸가 된 버드 아일랜드의 악동 히어로 ‘레드’ 평생 앙숙인 이들에게 ‘공공의 적’이 나타났다!  얼음 공격을 퍼붓는 독수리 왕국의 예민 보스 ‘제타’에 맞서기 위해 한 팀으로 뭉친 그들! 과연 이들의 연합 작전은 성공할 수 있을까? 어제는 적! 오늘은 친구? 아슬아슬한 팀플레이가 시작된다!",
     "releaseYear": 2019,
+    "runtimeMinutes": 97,
+    "collectionId": 531315,
+    "collectionName": "앵그리 버드 시리즈",
+    "voteAverage": 7,
+    "voteCount": 1913,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nY9jJPiMHvYXhhsHel3ahci2xtk.jpg",
     "posterAlt": "앵그리 버드 2: 독수리 왕국의 침공 포스터",
     "watchProvidersKr": {
@@ -19014,8 +21211,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mathilda's Father",
       "Mathilda's Mother"
     ],
+    "contextTags": [],
     "overview": "한 손엔 우유 2팩이 든 가방, 다른 한 손엔 화분을 들고 뿌리 없이 떠도는 킬러 레옹은 어느 날 옆 집 소녀 마틸다의 일가족이 몰살 당하는 것을 목격한다. 그 사이 심부름을 갔다 돌아 온 마틸다는 가족들이 처참히 몰살 당하자 레옹에게 도움을 청한다. 가족의 원수를 갚기 위해 킬러가 되기로 결심한 12세 소녀 마틸다는 레옹에게 글을 알려주는 대신 복수하는 법을 배우고, 그 사이 레옹에 대한 사랑을 키워나간다. 드디어 그녀는 가족을 죽인 사람이 부패한 마약 경찰 스탠스임을 알게 되고, 홀로 그의 사무실로 향하게 되는데...",
     "releaseYear": 1994,
+    "runtimeMinutes": 111,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.294,
+    "voteCount": 16230,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cVNasmF1Egd3v3mpq747Hizxx4x.jpg",
     "posterAlt": "레옹 포스터",
     "watchProvidersKr": {
@@ -19096,8 +21299,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Thistletwit",
       "Diaval"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "인간과의 공존을 꿈꾼 순수한 요정 말레피센트는 인간 스테판과 사랑에 빠진다. 하지만 권력을 탐한 스테판은 말레피센트를 희생시켜 왕관을 차지하고 그 일로 말레피센트는 인간을 미워하게 된다. 사나워진 그녀의 곁에 머무는 유일한 친구는 수족 같은 까마귀 디아발뿐이다. 그사이 스테판 왕은 인간 여자와 혼인해 오로라를 낳는다. 말레피센트는 스테판 왕에 대한 복수로 오로라에게 저주를 걸지만, 예기치 않게 그 저주로 인해 그녀는 오로라와 더 깊은 연을 맺게 되는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 97,
+    "collectionId": 531331,
+    "collectionName": "말레피센트 시리즈",
+    "voteAverage": 7.088,
+    "voteCount": 13800,
     "posterUrl": "https://image.tmdb.org/t/p/w780/e1XEV04HrfSSrE82dUZDy1c3Aq5.jpg",
     "posterAlt": "말레피센트 포스터",
     "watchProvidersKr": {
@@ -19153,8 +21364,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Roxanne Chase-Feder",
       "Sally Lamonsoff"
     ],
+    "contextTags": [],
     "overview": "초등학교 농구팀 팀원으로 지냈던 다섯 친구. 당시 코치 선생님의 부고 소식에 30년만에 재회한다. 그리고 가족동반으로 호숫가 별정에 간 이들. 어째 데리고 간 아이들보다 어른들이 더 말썽이다. 나이만 먹었지 정작 성장은 하지 못한 어른들이 이야기를 코믹하게 그린다.",
     "releaseYear": 2010,
+    "runtimeMinutes": 102,
+    "collectionId": 180546,
+    "collectionName": "그로운 업스 시리즈",
+    "voteAverage": 6.426,
+    "voteCount": 6757,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2vgdOjlrpuGTwnMNzFWPSuaKuVA.jpg",
     "posterAlt": "다 큰 녀석들 포스터",
     "watchProvidersKr": {
@@ -19215,8 +21432,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Birdie Jay",
       "Duke Cody"
     ],
+    "contextTags": [],
     "overview": "가장 아끼는 친구들을 본인의 사유지인 그리스의 섬으로 초대한 IT계의 억만장자 마일스 브론. 하지만 머지않아 이곳이 마냥 낙원이 아니라는 사실이 드러난다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 139,
+    "collectionId": 722971,
+    "collectionName": "나이브스 아웃 시리즈",
+    "voteAverage": 7.027,
+    "voteCount": 6934,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lrgmo1qluO9c2qdBduiu412fRDS.jpg",
     "posterAlt": "나이브스 아웃: 글래스 어니언 포스터",
     "watchProvidersKr": {
@@ -19269,8 +21492,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mrs. Chen",
       "Sadie"
     ],
+    "contextTags": [],
     "overview": "환상의 케미스트리의 에디 브록과 그의 심비오트 베놈은 그들을 노리는 정체불명 존재의 추격을 피해 같이 도망을 다니게 된다. 한편 베놈의 창조자 널은 고향 행성에서부터 그들을 찾아내기 위해 지구를 침략하고 에디와 베놈은 그동안 겪어보지 못한 최악의 위기를 맞이하게 되는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 109,
+    "collectionId": 558216,
+    "collectionName": "베놈 시리즈",
+    "voteAverage": 6.666,
+    "voteCount": 4315,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ptfoRD0MmL8Ry0iBVccYbqoN9Xc.jpg",
     "posterAlt": "베놈: 라스트 댄스 포스터",
     "watchProvidersKr": {
@@ -19344,8 +21573,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lord MacGuffin / Young MacGuffin (voice)",
       "Lord Macintosh (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "스코틀랜드의 공주 메리다는 부왕 퍼거스와 왕비 엘리노의 관심과 애정 속에 행복한 나날을 보낸다. 유일한 골칫거리는 엄마의 끊임없는 간섭과 참견. 어린 시절부터 활쏘기와 말타기를 더 좋아하는 공주에게 왕국의 공주로서 요구되는 정숙과 위엄은 거추장스러울 뿐이다. 그러던 어느 날 세 부족장의 아들들이 정식으로 공주에게 청혼을 하고 더 이상 참을 수 없어진 메리다는 신랑 후보들에게 망신을 준 뒤 성을 뛰쳐나온다. 금지된 숲을 헤매다 마녀를 만난 그녀는 엄마의 마음을 바꿀 수 있는 마법을 부탁한다. 하지만 자신의 소원 때문에 엄마가 곰으로 변해버리고 엄마를 인간으로 되돌리기 위한 메리다의 모험이 시작된다.",
     "releaseYear": 2012,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.032,
+    "voteCount": 14273,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uzVUEQ6PPGGsETviLwVKSzS8OUG.jpg",
     "posterAlt": "메리다와 마법의 숲 포스터",
     "watchProvidersKr": {
@@ -19405,8 +21642,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ardeth Bay",
       "Beni Gabor"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "고대 이집트의 파라오 중 가장 영화를 누렸던 세티 1세의 시대. 세티 1세의 정부인 앙크수나문과 세티 1세의 총애을 한몸에 받던 승정원 이모탭은 금지된 사랑에 빠진다. 그러나 그들의 운명적인 사랑은 얼마되지 않아 파라오에게 발각되고 이에 앙크수나문은 자결하게 된다. 이모텝은 흑마서의 주문으로 그녀를 부활시키려 하지만, 파라오의 근위대에 붙잡히게 되고, '홈다이'라는 형벌에 처해진다. 홈다이란 산 채로 석관에 갇혀 영원히 생시체가 되는 끔찍한 극형. 결국 금지된 사랑은 파라오의 저주로 비극적인 끝을 맺고 왕족들이 잠든 하무납트라는 죽음의 도시가 되어 역사 속에 묻힌다.  황금의 유물을 찾아 여러 탐험가들이 하무납트라를 찾아오지만 하나 같이 의문의 죽음을 당하고, 전투 중에 피신했던 외인부대 장교 오커넬만이 유일하게 살아남는다. 그 소식을 들은 이집트 박물관 사서 이비와 그녀의 오빠 조나단이 오커넬을 찾아오고 죽음의 도시 하무납트라에 관한 단서를 듣게 된다. 용기와 모험심으로 뭉친 세 사람은 의기 투합하여 하무납트라의 황금유물을 찾아 떠나기로 한다.  한편 파라오의 저주를 푸는 열쇠를 손에 넣은 조나단은 실수로 이모텝을 부활시키고, 마침내 3천년을 기다려온 엄청난 분노가 온 이집트를 뒤덮는데. 아무것도 모르는 세 사람은 죽음과 저주의 왕국 한 가운데에서 살아난 미이라와의 사투를 벌인다.",
     "releaseYear": 1999,
+    "runtimeMinutes": 124,
+    "collectionId": 1733,
+    "collectionName": "미이라 시리즈",
+    "voteAverage": 6.984,
+    "voteCount": 10155,
     "posterUrl": "https://image.tmdb.org/t/p/w780/31lxBgDl51HYnAnIV41aPyK4em7.jpg",
     "posterAlt": "미이라 포스터",
     "watchProvidersKr": {
@@ -19480,8 +21725,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sir Grimsby",
       "Sebastian (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "아틀란티카 바다의 왕 트라이튼의 사랑스러운 막내딸인 인어 에리얼은 늘 인간들이 사는 바다 너머 세상으로의 모험을 꿈꾼다. 어느 날, 우연히 바다 위로 올라갔다가 폭풍우 속 가라앉는 배에 탄 인간 에릭 왕자의 목숨을 구해준다. 갈망하던 꿈과 운명적인 사랑을 이루기 위해 용기를 낸 에리얼은 사악한 바다 마녀 울슐라와의 위험한 거래를 통해 다리를 얻게 된다. 드디어 바다를 벗어나 그토록 원하던 인간 세상으로 가게 되지만, 그 선택으로 에리얼과 아틀란티카 왕국 모두 위험에 처하게 되는데… 바닷속, 그리고 그 너머 아름다운 꿈과 사랑의 멜로디가 펼쳐진다!",
     "releaseYear": 2023,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.269,
+    "voteCount": 3345,
     "posterUrl": "https://image.tmdb.org/t/p/w780/do9pxOrrFqgyebHwxj2IYtZXQIp.jpg",
     "posterAlt": "인어공주 포스터",
     "watchProvidersKr": {
@@ -19531,8 +21784,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Tracy Garner",
       "Sid Garner"
     ],
+    "contextTags": [],
     "overview": "더그의 결혼식을 앞두고 친구 세 명은 함께 라스베가스로 총각 파티를 떠난다. 멋진 호텔에서 한껏 즐거운 밤을 보낸 이들은 아침에 친구인 더그가 사라진 사실을 알게 된다. 아무 생각도 해낼 수 없던 이들은 지난 밤 만났던 사람들에게 친구를 수소문하고 우여곡절끝에 그를 결혼식장에 데려간다.",
     "releaseYear": 2009,
+    "runtimeMinutes": 100,
+    "collectionId": 86119,
+    "collectionName": "행오버 시리즈",
+    "voteAverage": 7.336,
+    "voteCount": 18234,
     "posterUrl": "https://image.tmdb.org/t/p/w780/A0uS9rHR56FeBtpjVki16M5xxSW.jpg",
     "posterAlt": "행오버 포스터",
     "watchProvidersKr": {
@@ -19596,8 +21855,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Charlie Holloway",
       "Fifield"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "리플리가 노스트로모호를 타고 에일리언과 접촉하기 30여년 전, 과학자 엘리자베스 쇼와 찰리 할러웨이가 스코틀랜드에서 선사시대 벽화를 발견한다. 이 벽화가 인류를 창조한 외계인들의 위치를 나타내는 지도라는 걸 깨달은 그들은 웨일랜드사가 꾸린 팀과 함께 탐사선 프로메테우스호를 타고 우주로 나아간다. 탐사대는 행성에 착륙하자마자 외계인들이 남긴 거대한 피라미드형 유적을 발견하고, 내부에서 죽은 외계인들의 시체와 마주친다. 엘리자베스는 죽은 외계인의 DNA가 인간의 것과 똑같다는 것을 밝혀내는데...",
     "releaseYear": 2012,
+    "runtimeMinutes": 123,
+    "collectionId": 135416,
+    "collectionName": "프로메테우스 시리즈",
+    "voteAverage": 6.6,
+    "voteCount": 13354,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lpgh1NL1w8p4pk96YLHI0UmPE0o.jpg",
     "posterAlt": "프로메테우스 포스터",
     "watchProvidersKr": {
@@ -19669,8 +21936,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Parajumper",
       "Thierry Umutoni"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세계 곳곳에서 원인을 알 수 없는 이변이 일어나기 시작하고, 정체 불명의 존재들의 무차별적 공격으로 도시는 순식간에 아수라장으로 변한다. 군인 출신으로 전시 경험이 풍부하고 위기 대처 능력이 뛰어난 전직 UN 소속 조사관 제리는 위험한 상황에서 가까스로 가족들과 탈출하는데 성공하고 이제껏 본 적 없는 인류 최대의 위기 앞에 대재난에 맞설 최후의 적임자로 지목된다. 마침내 제리는 전 세계를 위협하는 거대한 정체들과 직면하게 되고, 그들의 끊임없는 공격에 맞서 필사의 사투를 벌이게 되는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 115,
+    "collectionId": 1674208,
+    "collectionName": "World War Z Collection",
+    "voteAverage": 6.843,
+    "voteCount": 16730,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cnUlKvIXbTmDnyp6pIGIMgdl332.jpg",
     "posterAlt": "월드워 Z 포스터",
     "watchProvidersKr": {
@@ -19731,8 +22006,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Roger (voice)",
       "Brooke (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "도토리를 쫓던 스크랫이 이번에는 우주로 날아가 태양계를 위협하는 행성 충돌 사건을 일으킨다. 이로 인해 거대 운석이 지구로 향해 떨어지는 사상 초유의 위기가 닥치고, 시드와 매니, 디에고를 비롯한 그의 친구들은 안전한 곳을 찾아 머나먼 땅으로 떠나야만 한다. 다시 돌아온 벅은 그들을 이끄는 길잡이가 되고 요가의 대가 샹그리라마, 초절정 미녀 브룩 등이 있는 지오토피아를 만난다. 과연 그들은 지구의 위기를 뚫고 모두를 구해낼 수 있을 것인가? 우주 사상 초유의 모험이 시작된다!",
     "releaseYear": 2016,
+    "runtimeMinutes": 95,
+    "collectionId": 8354,
+    "collectionName": "아이스 에이지 시리즈",
+    "voteAverage": 6.119,
+    "voteCount": 4912,
     "posterUrl": "https://image.tmdb.org/t/p/w780/e1Fe5z8zcPlpzv2rRrCIhl4zPXQ.jpg",
     "posterAlt": "아이스 에이지: 지구 대충돌 포스터",
     "watchProvidersKr": {
@@ -19792,8 +22075,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Agent Augustus Gibbons",
       "Darius Stone / xXx"
     ],
+    "contextTags": [],
     "overview": "전설의 스파이 샌더 케이지는 자취를 감춘 채 살아가던 중, 기븐스 요원의 뒤를 이어 ‘트리플 엑스’ 프로젝트 시작하라는 임무를 받게 된다. 흩어져 있던 남다른 개성을 지닌 최정예 스파이 요원들은 샌더 케이지를 중심으로 모이게 되고, 마침내 재결성된 최강의 스파이 군단 ‘트리플 엑스’는 전세계를 위협하는 판도라 박스를 되찾기 위한 사상 최악의 미션에 돌입하는데…",
     "releaseYear": 2017,
+    "runtimeMinutes": 106,
+    "collectionId": 52785,
+    "collectionName": "트리플 엑스 시리즈",
+    "voteAverage": 6.131,
+    "voteCount": 9274,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eTJVHRrWnK5Cv7vCxmwqFksbYm1.jpg",
     "posterAlt": "트리플 엑스 리턴즈 포스터",
     "watchProvidersKr": {
@@ -19859,8 +22148,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jester",
       "Cougar"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "해군 최신예 전투기인 F-14기를 모는 젊은 조종사 매버릭 대위는 훌륭한 전투기 조종사였던 아버지를 둔 패기만만한 파일럿 청년. 솜씨가 거칠기로 소문난 그는 탑 건 훈련학교에 입학하면서 인생의 전환을 맞게 된다. 가장 큰 변화는 항공물리학을 강의하는 여교관 찰리와 사랑에 빠진 것. 하지만 매버릭이 조종하던 F-14 전투기가 비행 훈련 도중 그만 제트 기류에 빠지면서 엔진 고장을 일으키고, 이때 함께 탈출을 시도하던 구즈가 사망하는 사고가 발생하고 마는데...",
     "releaseYear": 1986,
+    "runtimeMinutes": 110,
+    "collectionId": 531330,
+    "collectionName": "탑건 시리즈",
+    "voteAverage": 7.07,
+    "voteCount": 9679,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oqn0k8FbQ5mKXk5WbtKrvHwV5yV.jpg",
     "posterAlt": "탑건 포스터",
     "watchProvidersKr": {
@@ -19933,8 +22230,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Amanda Waller",
       "Polka-Dot Man"
     ],
+    "contextTags": [],
     "overview": "최고의 사망률을 자랑하는 벨 리브 교도소. 미국 정보국 월러 국장은 태스크 포스 X라는 극비 군사 작전팀을 꾸리기 위해 이곳에 왔다. 그녀는 수감 중인 슈퍼 빌런들을 팀에 합류시키기 위해 사면이나 감형을 조건으로 제시한다. 또한 만약을 대비해 언제라도 이들을 처형할 수 있게 머리에 폭탄도 심어놓는다. 우여곡절 끝에 완성된 팀은 두개로 나뉘어 남미의 작은 섬나라 코르토 몰티즈로 향한다. 이들의 임무는 이 섬에 위치한 요툰하임이라는 비밀 연구실에 잠입해 스타피쉬의 흔적을 없애는 것. 각기 다른 해안가에 도착한 두 팀은 상반된 상황을 맞이한다.",
     "releaseYear": 2021,
+    "runtimeMinutes": 132,
+    "collectionId": 531242,
+    "collectionName": "수어사이드 스쿼드 시리즈",
+    "voteAverage": 7.459,
+    "voteCount": 9683,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1FiLuxuowOusZAG1vvI4TorMuNG.jpg",
     "posterAlt": "더 수어사이드 스쿼드 포스터",
     "watchProvidersKr": {
@@ -19988,8 +22291,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Oswaldo Mobray",
       "Joe Gage"
     ],
+    "contextTags": [],
     "overview": "레드 락 타운으로 죄수를 이송해가던 교수형 집행인은 설원 속에서 우연히 현상금 사냥꾼, 보안관과 합류하게 된다. 거센 눈보라를 피해 산장으로 들어선 4명은 그곳에 먼저 와있던 또 다른 4명, 연합군 장교, 이방인, 리틀맨, 카우보이를 만나게 된다. 큰 현상금이 걸린 죄수를 호시탐탐 노리는 이들에게 교수형 집행인은 경고를 하지만, 이를 비웃기라도 하듯 참혹한 독살 사건이 일어난다. 각자 숨겨둔 비밀이 하나씩 밝혀지면서 서로를 향한 불신은 커져만 가고, 팽팽한 긴장감 속에 증오의 밤은 점점 깊어지는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 168,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.756,
+    "voteCount": 15385,
     "posterUrl": "https://image.tmdb.org/t/p/w780/CJ1Swrno8D9ykFYtqL7bNkS73d.jpg",
     "posterAlt": "헤이트풀8 포스터",
     "watchProvidersKr": {
@@ -20050,8 +22359,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Immortan Joe / Rizzdale Pell",
       "The People Eater"
     ],
+    "contextTags": [],
     "overview": "문명 붕괴 45년 후, 황폐해진 세상 속 누구에게도 알려지지 않은 풍요가 가득한 녹색의 땅에서 자란 퓨리오사는 바이커 군단의 폭군 디멘투스의 손에 모든 것을 잃고 만다. 가족도 행복도 모두 빼앗기고 세상에 홀로 내던져진 퓨리오사는 반드시 고향으로 돌아가겠다는 어머니와의 약속을 지키기 위해 인생 전부를 건 복수를 시작하는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 149,
+    "collectionId": 8945,
+    "collectionName": "매드맥스 시리즈",
+    "voteAverage": 7.451,
+    "voteCount": 4990,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zaUFDdJidS4Nyyd6jb2Ok3Kq4Vo.jpg",
     "posterAlt": "퓨리오사: 매드맥스 사가 포스터",
     "watchProvidersKr": {
@@ -20106,8 +22421,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lucius Best / Frozone (voice)",
       "Mirage (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "밥 파는 한때 미스터 인크레더블이라는 이름으로 불리며 보이지 않는 곳에서 악의 무리들을 일망타진하던 슈퍼히어로 가정의 든든한 버팀목이자 정신적 지주인 그는 슈퍼히어로였다가 외압에 의하여 평범한 아버지이자 남편으로 바뀐 자신의 변신을 받아들이기 힘들어한다. 그러던 어느 날 집으로 돌아온 그에게 출처를 알 수 없는 지령이 떨어진다.  출동할 곳은 본토와 아득히 떨어진 섬, 특명을 내린 사람을 알 수 없는 1급 비밀작전. 은퇴한지 15년, 이미 몸은 초강력 허리띠조차 튕겨버릴 정도로 망가져버린 그가 다시 빛나는 영웅으로 복귀할 수 있을지...",
     "releaseYear": 2004,
+    "runtimeMinutes": 115,
+    "collectionId": 468222,
+    "collectionName": "인크레더블 시리즈",
+    "voteAverage": 7.727,
+    "voteCount": 19030,
     "posterUrl": "https://image.tmdb.org/t/p/w780/11Byg6rHkKIvSehlW3R4pcUj8J.jpg",
     "posterAlt": "인크레더블 포스터",
     "watchProvidersKr": {
@@ -20167,8 +22490,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bard",
       "King Thranduil"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "빌보 배긴스와 참나무 방패 소린, 난쟁이 족이 떠난 거대한 여정의 끝에 난쟁이 족은 원래 자신들의 터전이던 에레보르에 있는 엄청난 보물을 되찾지만 이는 무시무시한 용 스마우그가 호수마을의 무기력한 주민들을 공격하게 되는 결과를 낳는다. 소린은 탐욕에 서서히 눈이 멀어 우정과 명예를 저버린 채 왕의 보물 아르켄스톤을 찾는다. 암흑의 군주 사우론은 오크 군대를 보내 외로운 산에 기습 공격을 감행한다. 마침내 다섯 군대의 전투가 시작되고 빌보는 본인과 친구들의 목숨을 걸고 싸워야만 하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 144,
+    "collectionId": 121938,
+    "collectionName": "호빗 시리즈",
+    "voteAverage": 7.338,
+    "voteCount": 15489,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tLNTaP5kcH2FDQNxGu4EkOCpMjr.jpg",
     "posterAlt": "호빗: 다섯 군대 전투 포스터",
     "watchProvidersKr": {
@@ -20228,8 +22559,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Lulu",
       "Diamond"
     ],
+    "contextTags": [
+      "new_year",
+      "summer"
+    ],
     "overview": "뉴욕의 스트리퍼 아노라는 자신의 바를 찾은 철부지 러시아 재벌2세 이반을 만나게 되고 충동적인 사랑을 믿고 허황된 신분 상승을 꿈꾸며 결혼식을 올리게 된다. 그러나 신데렐라 스토리를 꿈꿨던 것도 잠시, 한 번도 본 적 없는 이반의 부모님이 아들의 결혼 사실을 알게 되자 길길이 날뛰며 미국에 있는 하수인 3인방에게 둘을 잡아 혼인무효소송을 진행할 것을 지시한다. 하수인 3인이 들이닥치자 부모님이 무서워 겁에 질린 남편 이반은 아노라를 버린채 홀로 도망친다. 이반을 찾아 결혼 생활을 유지하고 싶은 아노라와 어떻게든 이반을 찾아 혼인무효소송을 시켜야만 하는 하수인 3인방의 대환장 발악이 시작된다.",
     "releaseYear": 2024,
+    "runtimeMinutes": 140,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.072,
+    "voteCount": 3259,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sk2JbDCTMHk14owQPm2lryV1fca.jpg",
     "posterAlt": "아노라 포스터",
     "watchProvidersKr": {
@@ -20296,8 +22636,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Catherine / Maid",
       "John the Valet"
     ],
+    "contextTags": [],
     "overview": "재능은 있지만 밑바닥 인생을 살던 에스텔라는 우여곡절 끝에 런던에 오게 된다. 그곳에서 운명처럼 재스퍼와 호레이스를 만난 에스텔라는 뛰어난 패션 감각을 이용해 완벽한 변장과 빠른 손놀림으로 런던 거리를 싹쓸이한다. 도둑질이 지겹게 느껴질 때 쯤, 꿈에 그리던 리버티 백화점에 들어가게 된 에스텔라. 그곳에서 런던 패션계를 꽉 쥐고 있는 남작 부인을 만나 충격적 사건을 겪게 되며, 에스텔라는 런던 패션계를 발칵 뒤집을 파격 아이콘 크루엘라로 새롭게 태어나게 되는데...",
     "releaseYear": 2021,
+    "runtimeMinutes": 134,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.972,
+    "voteCount": 10146,
     "posterUrl": "https://image.tmdb.org/t/p/w780/89y66LHU3T3txFALo2nwyBfYpWA.jpg",
     "posterAlt": "크루엘라 포스터",
     "watchProvidersKr": {
@@ -20351,8 +22697,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Vernon",
       "Man in Tan Coat"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "에디 모라(브래들리 쿠퍼)는 마감 날짜가 다가오지만 한 글자도 쓰지 못한 무능력한 작가로 애인 린디(애비 코니쉬)에게도 버림 받으며 찌질한 하루하루를 보낸다. 우연히 만난 전처의 동생이 준 신약 NZT 한 알을 복용한 그는 순간 뇌의 기능이 100% 가동, 그의 인생은 하루 아침에 바뀌어 버린다. 이제 그의 모든 신경은 잠에서 깨어 활동하기 시작한다. 보고 들은 것은 모두 기억하고 하루에 한 개의 외국어를 습득하며 아무리 복잡한 수학공식이라도 순식간에 풀어버린다. 또한 레슨 하루면 피아노 연주도 수준급이고 소설책 한 권도 후딱 써버리며 무한 체력을 갖게 되고 게다가 사람들의 마음을 사로잡는 것 역시 너무 간단해져 버린 그는 검증되지 않은 이 약을 계속 먹으며 능력을 지속해 가고 곧 주식 투자로 수백만 달러를 벌어들인다.  그의 활약을 지켜보던 거물 칼 밴 룬(로버트 드니로)은 역사상 가장 큰 기업합병을 도와달라고 제의하지만 남아있는 신약을 얻기 위한 사람들이 나타나면서 에디는 위험에 처하게 되고 신약의 치명적인 부작용도 서서히 나타나기 시작한다.  이제 에디는 얼마 남지 않은 약이 다 떨어지기 전에 베일에 싸인 스토커와 적들을 물리쳐야 하는데..",
     "releaseYear": 2011,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.201,
+    "voteCount": 11557,
     "posterUrl": "https://image.tmdb.org/t/p/w780/e6iosIRYhwsNYERTsj8qz0SObTR.jpg",
     "posterAlt": "리미트리스 포스터",
     "watchProvidersKr": {
@@ -20417,8 +22771,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Felicia",
       "Aleksei Sytsevich"
     ],
+    "contextTags": [],
     "overview": "스파이더맨의 삶에 완전히 적응한 피터 파커는 거미줄로 뉴욕을 활강하며 위험에 처한 시민들을 구해주고 사랑하는 연인 그웬과 데이트를 즐기며 행복하게 살아간다. 그러던 어느 날, 스파이더맨의 열렬한 팬이자 오스코프사의 전기 엔지니어인 맥스는 작업 중 치명적인 사고로 자신에게 엄청난 능력이 생긴 것을 발견한다. 하지만 이 능력으로 인해 뉴욕을 마비시킨 대규모 정전사태가 발생하고 사태를 해결하기 위해 나선 자신의 영웅 스파이더맨에게 공격을 당하자 배신감을 느끼고 분노하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 142,
+    "collectionId": 125574,
+    "collectionName": "어메이징 스파이더맨 시리즈",
+    "voteAverage": 6.547,
+    "voteCount": 14370,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eYaFLrKuEdzrGw6XG5ZTVciH28v.jpg",
     "posterAlt": "어메이징 스파이더맨 2 포스터",
     "watchProvidersKr": {
@@ -20479,8 +22839,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Don (voice)",
       "Terri (voice)"
     ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
     "overview": "매사에 열심이지만 이론만 빠삭한 마이크와 무늬만 엄친아인 허세 몬스터 설리는 몬스터 주식회사 입사의 꿈을 안고 취업 100% 보장 특성화 대학 몬스터 대학교에 입학한다. 하지만 성격도 재능도 정반대인 둘은 첫날부터 삐걱거리며 급기야는 개교이래 최악의 라이벌이 되고야 만다. 하지만 그들이 힘을 합쳐야 하는 순간이 찾아온다. 부푼 꿈을 안고 몬스터 대학교에 진학한 그들이 전공 퇴출 위기에 몰리면서, 교내 겁주기 대회에 팀을 이뤄 출전하기로 한 것. 그렇게 그들은 엄한 학장의 경계 속에 최약체 팀으로 대회에 나선다. 하지만 초반의 실수를 딛고 이내 승승장구하며 교내의 영웅으로 떠오르기 시작한다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 104,
+    "collectionId": 137696,
+    "collectionName": "몬스터 주식회사 시리즈",
+    "voteAverage": 7.054,
+    "voteCount": 11407,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7K5BqOlgDOs2DI2PKDUGlMtYheL.jpg",
     "posterAlt": "몬스터 대학교 포스터",
     "watchProvidersKr": {
@@ -20540,8 +22909,14 @@ export const catalogMovies: CatalogMovie[] = [
       "King Nereus",
       "David Kane / Black Manta"
     ],
+    "contextTags": [],
     "overview": "정략결혼을 피해 해저 왕국 아틀란티스에서 도망쳐 육지로 오게 된 아틀라나는 등대지기 톰과 사랑에 빠진다. 아틀란티스의 세력으로부터 남편과 아들 아서를 지키기 위해서 아틀라나는 바다로 돌아가고, 육지에 남은 아서는 어릴 때부터 자신의 초능력을 인지해 인간세계의 해적을 물리치는 등 나름의 활약을 펼친다. 한편 아서의 이부형제 옴은 육지를 정복하기 위한 작전을 세운다. 옴의 약혼자이자 네레우스 왕의 딸 메라는 아서에게 평화를 위해 해저 7개 왕국의 왕이 되어야만 한다고 설득하는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 143,
+    "collectionId": 573693,
+    "collectionName": "아쿠아맨 시리즈",
+    "voteAverage": 6.868,
+    "voteCount": 15003,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5tetypC0S7BwpBk1ZG36wExvNYj.jpg",
     "posterAlt": "아쿠아맨 포스터",
     "watchProvidersKr": {
@@ -20605,8 +22980,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Earl Smooter",
       "Stella Kay Perry"
     ],
+    "contextTags": [],
     "overview": "최근 뉴욕을 들썩이게 만든 새로운 패션 아이콘 멜라니 카마이클. 패션 디자이너로 승승장구하고 있는 멜라니의 첫번째 패션쇼가 대성공을 이루던날 밤, 그녀는 뉴욕 최고의 신랑감으로 꼽히는 뉴욕 시장의 아들 앤드류(패트릭 뎀시) 온갖 다이아몬드 광채로 가득한 뉴욕 티파니 매장! 오직 그녀만을 위해 특별개장한 티파니에서 꿈에서조차 상상하지 못했던 환상적인 프로포즈를 받은 멜라니는 단번에 “Yes\"를 하지 못한다. 다음날, 세상 부러울 것이 없어보이는 그녀는 알라바마의 피죤 크리크로 달려간다. “결혼에 앞서 먼저 결론지어야 할” 중대사(?!)가 있기 때문이다. 7년 동안 별거중인 그녀의 남편 제이크에게 다급한 마음으로 이혼서류를 내미는 멜라니. 하지만 냉담하기만 한 제이크는 오히려 두 사람이 처음 만나 첫 키스를 나누었던 열 살 시절의 추억을 되살리면서 멜라니의 마음을 돌려놓으려는 것이 아닌가!  제이크가 이혼서류에 서명을 하지 않을 경우 앤드류와 결혼할 수 없는 운명에 처하게 되는 멜라니는 협박과 애원 작전을 펼치지만 제이크는 느긋하기만 하다. 한편 어머니의 완강한 반대에도 불구하고 아일랜드 여행일정과 결혼날짜 그리고 호화로운 호텔 예식장까지 예약한 앤드류는 깜짝쇼를 준비하고 멜라니의 고향에 달려가는데...!",
     "releaseYear": 2002,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.427,
+    "voteCount": 1740,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o7xjH6CodV5rgBeARKZsGw5XWR0.jpg",
     "posterAlt": "스위트 알라바마 포스터",
     "watchProvidersKr": {
@@ -20672,8 +23053,16 @@ export const catalogMovies: CatalogMovie[] = [
       "George",
       "Record Exec"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "1962년 미국, 입담과 주먹만 믿고 살아가던 토니 발레롱가는 교양과 우아함 그 자체인 천재 피아니스트 돈 셜리의 운전기사 면접을 보게 된다. 백악관에도 초청되는 등 미국 전역에서 콘서트 요청을 받으며 명성을 떨치고 있는 돈 셜리는 위험하기로 소문난 미국 남부 투어 공연을 떠나기로 결심하고, 투어 기간 동안 자신의 보디가드 겸 운전기사로 토니를 고용한다. 거친 인생을 살아온 토니와 교양과 기품을 지키며 살아온 돈. 생각, 행동, 말투, 취향까지 달라도 너무 다른 두 사람은 그들을 위한 여행안내서 그린북에 의존해 특별한 남부 투어를 시작하는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.226,
+    "voteCount": 12991,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dyqQ12gZGwl5Y0R9UsLBDkZWOUA.jpg",
     "posterAlt": "그린 북 포스터",
     "watchProvidersKr": {
@@ -20734,8 +23123,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Elizabeth Darko",
       "Rose Darko"
     ],
+    "contextTags": [
+      "halloween",
+      "school",
+      "travel"
+    ],
     "overview": "1988년, 어딘가 암울하고 삐딱하게 보이는 고교생 도니 다코는 가족들과도 잘 어울리지 못하는 내성적인 성격의 소년이다. 어느 날, 자고 있던 그는 이상한 목소리를 따라 정원으로 나가게 되고, 그 곳에서 거대한 토끼 괴물을 만난다. 프랭크라는 이름을 가진 그는 도니에게 28일 6시간 43분 12초 후 할로윈 데이에 세상은 멸망할 것이라고 말한다. 다음날 아침 골프장에 누워 있다 잠을 깬 도니는 자신의 팔뚝에 선명하게 쓰여진 '28:06:43:12'라는 숫자를 발견한다. 집으로 돌아간 도니는 지난 밤 2층에 있는 자신의 침실에 출처 불명의 제트기 엔진이 추락하는 대형 사고가 있었음을 알고 프랭크의 존재에 대해 의식하기 시작한다. 의문의 대형사고를 몽유병 덕에 피한 도니의 주변에는 점점 기괴한 사건이 연발하고, 학교 친구들은 그런 도니를 이상한 존재로 여긴다. 그러던 어느 날 새로운 전학생 그레첸이 전학 오면서 도니의 학창 생활에 빛이 비치기 시작한다. 그러나 밤에만 나타나던 프랭크는 파멸의 날이 하루하루 다가올수록 점점 더 자주 도니에게 나타나 알 수 없는 말들을 늘어놓으며 도니를 혼란시킨다. 파멸의 날이 다가올수록 학교와 마을은 점점 공황 상태에 빠지고, 어느 순간 도니는 자신의 주위에 일어나는 이 모든 일이 우연이 아님을 깨닫는다. 그러나 도니의 갖은 노력에도 불구하고 그와 그 주위에 있는 사람들은 점점 암흑 속으로 빠져드는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 114,
+    "collectionId": 178106,
+    "collectionName": "도니 다코 시리즈",
+    "voteAverage": 7.762,
+    "voteCount": 13516,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uREa7oOO1gxuCUiUOFzHOVv7h5d.jpg",
     "posterAlt": "도니 다코 포스터",
     "watchProvidersKr": {
@@ -20782,8 +23181,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Dorian",
       "Lt. Hart"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "현재로 긴급 메시지를 전하기 위해 2051년에서 온 한 무리의 시간 여행자들이 도착한다. 메세지의 내용은 30년 동안 미래 인류가 치명적인 외계 종족과 세계 전쟁에서 지고 있다는 것. 인류가 생존할 수 있는 유일한 희망은 현재 세계의 군인과 민간인들이 미래로 보내서 전쟁에 참여하는 것이다. 어린 딸을 위해 세상을 구하기로 결심한 댄 포레스터는 지구의 운명을 다시 쓰기 위해 뛰어난 과학자와 사이가 멀어진 아버지와 함께 팀을 이룬다.",
     "releaseYear": 2021,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.515,
+    "voteCount": 4282,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jN7yirvhOTNLUsHHvjKXwoTRe9B.jpg",
     "posterAlt": "내일의 전쟁 포스터",
     "watchProvidersKr": {
@@ -20831,8 +23238,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Agnes (voice)",
       "Dr. Nefario (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "슈퍼 악당에서 딸바보 슈퍼 대디로 180도 변신한 그루는  수다스럽고 사랑스러운 세 딸 마고, 에디스, 아그네스와 함께 행복한 삶을 살고 있다.  어느 날 거대한 자석에 의해 남극의 비밀연구소가 사라지는 사건이 발생한다. 알고보니 이 연구소는 생물을 야수로 만드는 약물을 개발하고 있었고, 악당퇴치연맹은 이 짓을 벌인 악당을 잡기 위해 그루에게 조언을 구한다. 세 딸과 평화로운 시간을 보내던 그루는 비밀요원 루시와 함께 위장 쿠키 가게를 차려 악당을 찾고, 이 과정에서 루시에게 마음을 뺏기기 시작한다. 한편 정체 모를 악당은 미니언들을 납치해 괴물로 변신시켜 세계를 정복하려 하지만 그루는 이 사실도 모른 채 루시와 딸들에게만 신경을 쓰는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 98,
+    "collectionId": 86066,
+    "collectionName": "슈퍼배드 시리즈",
+    "voteAverage": 6.947,
+    "voteCount": 12065,
     "posterUrl": "https://image.tmdb.org/t/p/w780/z20OdiTzgA7kh4mPKzwLZxymG7i.jpg",
     "posterAlt": "슈퍼배드 2 포스터",
     "watchProvidersKr": {
@@ -20886,8 +23301,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Charon",
       "Harbinger"
     ],
+    "contextTags": [],
     "overview": "죽을 위기에서 살아난 존 윅은 최고 회의를 쓰러트릴 방법을 찾아낸다. 비로소 완전한 자유의 희망을 보지만, 빌런 그라몽 후작과 전 세계의 최강 연합은 존 윅의 오랜 친구까지 적으로 만들어 버리고, 새로운 위기에 놓인 존 윅은 최후의 반격을 준비하는데...",
     "releaseYear": 2023,
+    "runtimeMinutes": 170,
+    "collectionId": 404609,
+    "collectionName": "존 윅 시리즈",
+    "voteAverage": 7.711,
+    "voteCount": 8073,
     "posterUrl": "https://image.tmdb.org/t/p/w780/h3LsdSBzhRnBebz4BTpAhh63PD3.jpg",
     "posterAlt": "존 윅 4 포스터",
     "watchProvidersKr": {
@@ -20961,8 +23382,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Drizella Tremaine",
       "King"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "어린 시절 어머니를 여읜 엘라는 새엄마와 그녀의 두 딸과 함께 살게 된다. 무역상인 아버지마저 타지에서 돌아가시자 새엄마와 의붓 언니들은 엘라를 재투성이라는 뜻의 신데렐라라고 부르며 온갖 구박을 일삼는다. 항상 착한 마음씨와 용기를 가지라는 엄마의 유언을 지켜나가던 엘라는 숲 속에서 왕궁의 견습생이라는 키트를 만난다. 왕궁에서 무도회가 열리자 엘라는 키트를 만날 생각에 부풀지만, 새엄마는 엘라의 드레스를 찢어버린다. 상심에 빠져 울고 있던 엘라는 거지 여인으로 분장한 요정 대모를 만나는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.8,
+    "voteCount": 7443,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3yNm2SdzdcXYXv8D7cS9RV5H6DG.jpg",
     "posterAlt": "신데렐라 포스터",
     "watchProvidersKr": {
@@ -21009,8 +23438,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Jim Stacy",
       "Trudi Fraser"
     ],
+    "contextTags": [],
     "overview": "자유의 바람이 불던 1969년 할리우드, 잊혀져 가는 액션스타 릭 달튼과 그의 스턴트 배우 겸 매니저인 클리프 부스는 과거의 영광을 되찾기 위해 고군분투하지만 새로운 스타들에 밀려 큰 성과를 거두진 못한다. 어느 날 릭의 옆집에 할리우드에서 가장 핫한 로만 폴란스키 감독과 배우 샤론 테이트 부부가 이사 오자 릭은 새로운 기회가 생길 수도 있다고 기뻐하지만 인사조차 나누지 못한다. 형편상 더 이상 함께 일할 수 없게 된 릭과 클리프는 각자의 길을 가기로 하고 릭의 집에서 술을 거나하게 마시던 중 뜻하지 않은 낯선 방문객을 맞이하게 되는데…",
     "releaseYear": 2019,
+    "runtimeMinutes": 162,
+    "collectionId": 1458846,
+    "collectionName": "Once Upon a Time... in Hollywood Collection",
+    "voteAverage": 7.421,
+    "voteCount": 14961,
     "posterUrl": "https://image.tmdb.org/t/p/w780/AgulxT0MIna1ZxPQmtw3j6prfxA.jpg",
     "posterAlt": "원스 어폰 어 타임 인… 할리우드 포스터",
     "watchProvidersKr": {
@@ -21069,8 +23504,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bishop Manuel Aringarosa",
       "André Vernet"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "특별강연을 위해 파리에 체류중이던 하버드대 기호학자 로버트 랭던(톰 행크스)은 깊은 밤 급박한 호출을 받는다. 루브르 박물관의 수석 큐레이터 자크 소니에르가 박물관 내에서 살해당한 시체로 발견된 것이다. 시체 주변에 가득한 이해할 수 없는 암호들… 그중 ‘P.S. 로버트 랭던을 찾아라’는 암호 때문에 살인누명까지 뒤집어쓴 랭던은 자크의 손녀이자 기호학자인 소피 느뷔(오드리 토투)와 함께 자크가 남긴 불가사의한 수수께끼를 풀어나가기 시작한다.  인류역사를 뒤바꿀 거대한 비밀이 벗겨지는 순간,  최초의 목격자는 당신이다!  랭던과 소피는 시시각각 좁혀오는 경찰 조직과 파슈 국장(장 르노)의 숨가쁜 포위망을 피하면서, ‘모나리자’, ‘암굴의 성모’ 등 천재화가 레오나르도 다 빈치의 작품들 속에 숨겨진 충격적인 비밀을 추적한다. 하지만 코드 속에 감춰진 실마리를 쫓아 진실에 접근할수록 비밀단체 시온 수도회가 지켜온 비밀을 지워버리려는 ‘오푸스 데이’의 추격은 더욱 격렬해지고, 마침내 두 사람은 인류 역사를 송두리째 뒤바꿀 거대한 비밀과 마주하게 되는데...",
     "releaseYear": 2006,
+    "runtimeMinutes": 149,
+    "collectionId": 115776,
+    "collectionName": "로버트 랭던 시리즈",
+    "voteAverage": 6.732,
+    "voteCount": 10145,
     "posterUrl": "https://image.tmdb.org/t/p/w780/52cjQg88xZNx8JKU7GpbIf19mL1.jpg",
     "posterAlt": "다빈치 코드 포스터",
     "watchProvidersKr": {
@@ -21135,8 +23578,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lieutenant James Rhodes / War Machine",
       "Clint Barton / Hawkeye"
     ],
+    "contextTags": [],
     "overview": "어벤져스가 벌인 전투로 많은 사람들이 불의의 사고를 당하는 등 부수적인 피해가 일어나자 정부는 슈퍼히어로 등록제를 추진하려 한다. 어벤져스의 독자적인 판단에 맡기기보다 직접 관리, 감독하겠다는 게 정부의 속내. 아이언맨은 정부의 방침을 따라야 한다는 입장인 반면, 캡틴 아메리카는 정부의 감시 없이 자유롭게 지구를 지켜야 한다고 주장한다. 어벤져스 내부는 캡틴 아메리카(윈터 솔져, 팔콘, 호크아이, 스칼렛 위치, 앤트맨)와 아이언맨(블랙위도우, 워머신, 블랙 팬서, 비전, 스파이더맨) 두 입장으로 나뉘어 대립하게 되는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 147,
+    "collectionId": 131295,
+    "collectionName": "캡틴 아메리카 시리즈",
+    "voteAverage": 7.449,
+    "voteCount": 24165,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vaMRzME3Dt73robEjOtDw4SPJGA.jpg",
     "posterAlt": "캡틴 아메리카: 시빌 워 포스터",
     "watchProvidersKr": {
@@ -21191,8 +23640,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Maurice (voice)",
       "Mort (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "센트럴파크 동물원의 인기절정 뉴요커 4인방  사자 알렉스(벤 스틸러)는 스포트라이트를 한 몸에 받는 뉴욕 센트럴파크 동물원 최고의 인기 스타. 타고난 품종은 정글의 왕이지만 사실 알렉스는 동물원 인기 스타인 자신을 자랑스러워하고 정글 구경은 한 번도 해 본 적 없는 정통 뉴욕 토박이다.  알렉스의 친구들인 얼룩말 마티(크리스 록)와 기린 멜먼(데이비드 쉬머), 하마 글로리아(제이다 핀켓 스미스)도 온실 속 화초처럼 동물원의 안락한 생활이 익숙하기만 한데...  탈출은 꿈꾼 적도 없는 데 미지의 정글 마다가스카로?!  그러던 어느 날, 호기심 많은 마티가 그들의 고향 남극으로 탈출기회만을 노리는 정체불명 펭귄 특공대의 꾐에 빠져 야생에 대한 동경을 안고 외출을 시도한다. 알렉스와 친구들은 사라진 마티를 찾기 위해 동물원 밖으로 나가게 되고, 사람들에게 발견된 동물 4인방(사실은 뉴요커 4인방)은 갑갑한 동물원 탈출을 모의했다는 오해 아닌 오해를 받은 채 아프리카로 향하는 배에 오르게 되고...  정글보다 도시가 더 좋은 뉴요커 4인방의 정글 탈출기!  뉴요커 4인방이 포획된 배를 남극을 향한 배로 오인한 펭귄 특공대는 재빠르게 선박을 접수하고 항로를 바꾸는 사이, 4인방이 갇혀 있던 상자가 바다로 떨어지면서 알렉스와 친구들은 미지의 정글 마다가스카에 표류하게 된다.  지금까지 안락한 뉴요커의 삶을 살아온 이들이 과연 거친 야생의 정글 마다가스카에서 살아갈 수 있을 것인가? 아니면 다시 센트럴파크의 동물원으로 돌아갈 것인가?  정글보다 도시가 더 좋은 뉴요커 4인방의 험난한 정글 탈출기는 이제부터 시작된다!!",
     "releaseYear": 2005,
+    "runtimeMinutes": 86,
+    "collectionId": 14740,
+    "collectionName": "마다가스카 시리즈",
+    "voteAverage": 6.925,
+    "voteCount": 11816,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7BeMHBgS6nUaxj6w0hGhsiK827c.jpg",
     "posterAlt": "마다가스카 포스터",
     "watchProvidersKr": {
@@ -21273,8 +23730,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Godfrey de Ibelin",
       "Reynald de Chatillon"
     ],
+    "contextTags": [],
     "overview": "전쟁으로 가족을 잃고 깊은 슬픔에 잠겨있는 프랑스의 젊은 대장장이 발리안에게 부상당한 십자군 기사 고프리가 찾아온다. 무언가 비밀을 품고 있는 듯한 그의 정체는 바로 발리안의 아버지. 발리안에게 숨겨진 전사의 자질을 꿰뚫어본 고프리는 자신과 함께 떠날 것을 제안하고, 발리안은 성스러운 도시를 지키기 위한 영예로운 여정을 시작한다. 발리안은 고프리로부터 여러 가지 검술과 전술 등을 배우며 용맹한 전사로 거듭난다. 그리고 고프리가 죽기 직전 수여한 작위를 받아 정식기사가 되어 성스러운 도시 예루살렘의 국왕 볼드윈 4세에 대한 충성을 서약하는데...",
     "releaseYear": 2005,
+    "runtimeMinutes": 137,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.062,
+    "voteCount": 5058,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bwQ4a50Jp0aU1jpoM4m1PbEzo36.jpg",
     "posterAlt": "킹덤 오브 헤븐 포스터",
     "watchProvidersKr": {
@@ -21332,8 +23795,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Claudia",
       "Halle"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "누가 봐도 완벽해 보이는 커플인 비와 벤. 하지만 황홀했던 첫 데이트는 예상치 못한 오해로 꼬일 대로 꼬여버리고, 우연히 같은 결혼식에 초대받은 둘은 자신들을 엮어주려는 주위 사람들의 성화에 못 이겨 서로에게 빠진 척 진짜 같은 가짜 연애를 하기 시작한다.",
     "releaseYear": 2023,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.765,
+    "voteCount": 3123,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5qHoazZiaLe7oFBok7XlUhg96f2.jpg",
     "posterAlt": "페이크 러브 포스터",
     "watchProvidersKr": {
@@ -21400,8 +23871,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jin Lee (voice)",
       "Grandma (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "엄마의 착한 딸, 아니면 미운 13살? 성적도 우수하고 친구들과 사이도 좋은 데다 부모와도 친밀한 관계를 유지하고 있는, 똑 부러지면서도 엉뚱한 매력의 소유자 메이는 요즘 질풍노도의 시기를 겪느라 고민이 많다. 이 나이에 엄마의 과잉보호를 받자니 스트레스가 이만저만이 아닌 데다, 관심사, 인간관계, 신체 등 그녀의 모든 것이 변하고 있기 때문. 그런데 이 와중에 흥분하면 거대한 레서판다로 변신하는 비밀까지 떠안게 되다니! 아침도 먹어야 하고 학교도 가야 하는데, 이 엄청난 비밀을 어떻게 숨겨야 할까?",
     "releaseYear": 2022,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.333,
+    "voteCount": 5936,
     "posterUrl": "https://image.tmdb.org/t/p/w780/94C3iked9vCmCxmXdQkV2oBubqt.jpg",
     "posterAlt": "메이의 새빨간 비밀 포스터",
     "watchProvidersKr": {
@@ -21453,8 +23932,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Roxy",
       "Andrews"
     ],
+    "contextTags": [],
     "overview": "한 남자가 정사 도중 얼음 송곳으로 잔인하게 살해당하는 사건이 발생한다. 형사 닉(마이클 더글러스)은 살인 용의자로 여류추리소설가 캐서린 트러멜(샤론 스톤)을 지목하고, 그녀가 거주하는 바닷가의 별장을 찾는다. 닉은 캐서린이 자신에 관한 자료를 모으고 있다는 사실에 놀라고 그녀의 관능미와 자만심은 그에게 충동적인 욕망을 불러일으킨다. 그러던 중 캐서린의 작품 중에서 이번 살인과 동일한 책을 발견, 캐서린을 연행 심문한다. 취조실에 들어온 캐서린은 변호를 받을 권리를 거부하고 심리전과 증거 불충분으로 혐의를 벗지만, 닉크는 그녀가 범인임을 확신하고 계속 수사를 펼쳐나가는데...",
     "releaseYear": 1992,
+    "runtimeMinutes": 128,
+    "collectionId": 86336,
+    "collectionName": "원초적 본능 시리즈",
+    "voteAverage": 6.948,
+    "voteCount": 4422,
     "posterUrl": "https://image.tmdb.org/t/p/w780/h71UDoc8KublzLcJgDRyYRaOmqq.jpg",
     "posterAlt": "원초적 본능 포스터",
     "watchProvidersKr": {
@@ -21526,8 +24011,14 @@ export const catalogMovies: CatalogMovie[] = [
       "W'Kabi",
       "Shuri"
     ],
+    "contextTags": [],
     "overview": "유엔 폭탄 테러로 아버지를 잃은 와칸다의 왕자 티찰라는 시빌 워 이후 고국 와칸다로 돌아가 왕좌에 오른다. 와칸다의 새로운 지도자 블랙팬서가 된 그는 옛 연인이자 와칸다의 스파이 나키아, 호위 무사 오코예와 함께 최강 희귀 금속 비브라늄 폭탄 거래가 이뤄지는 부산을 찾는다. 폭탄 거래의 배후에 있는 인물은 와칸다와 묘종의 연이 있는 정체불명의 남자, 에릭 킬몽거. 그는 놀라운 위력으로 티찰라를 제압하고 와칸다의 새로운 왕이 되려 하고, 이에 블랙 팬서는 피할 수 없는 전쟁에 나서는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 135,
+    "collectionId": 529892,
+    "collectionName": "블랙 팬서 시리즈",
+    "voteAverage": 7.364,
+    "voteCount": 23617,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iRkknrX0rRxZHSL79W2Rax0EFsL.jpg",
     "posterAlt": "블랙 팬서 포스터",
     "watchProvidersKr": {
@@ -21582,8 +24073,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Ambassador Questa (voice)",
       "Bryce (voice)"
     ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
     "overview": "세상 그 어디에서도 소속감을 느끼지 못한 채, 외계인의 납치를 꿈꾸는 외톨이 소년 엘리오. 그러던 어느 날 작은 오해로 인해 지구 대표로 우주에 소환되고, 그곳에서 자신과는 너무도 다른 특별한 존재 글로든을 만나 처음으로 마음을 나눌 친구를 갖게 된다.  낯설지만 따뜻한 우주에서 꿈같은 나날들을 보내던 엘리오 앞에 온 우주를 위험에 빠뜨릴 크나큰 위기가 닥쳐오는데...",
     "releaseYear": 2025,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.903,
+    "voteCount": 1044,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ymd7E8ZRXOfOpJ418rgGtEdVmEN.jpg",
     "posterAlt": "엘리오 포스터",
     "watchProvidersKr": {
@@ -21628,8 +24128,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ambassador Andrei Lysenko",
       "Dr. Jeffrey Pelt, National Security Advisor"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "시베리아에서 부는 찬 바람이 매섭게 스치는 소련의 잠수함 기지 북쪽 무르만스크항 근처의 폴리자르니 해협. 최신 핵잠수함 '붉은 10월'가 해저 훈련을 떠난다. 이 잠수함에 새로 설치된 소음 제거 장치의 실험을 위해 시험용으로 발진한 것이다.  그러나 이것을 속임수일 뿐이고, 사실은 함장 라미우스(숀 코넬리 분)와 부함장이 미국으로 망명하기 위한 구실이었다. 초고속으로 해저 항진을 해도 아무 소리가 들리지 않는 가공할 만한 잠수함이 갑자기 항로에서 실종되자 소련과 미국에서 비상사태가 시작된다.  소련의 모스크바 정부에서는 붉은 10월을 폭파하기 위해 전함대를 동원하고, 미국의 워싱턴 정부는 이 잠수함이 핵탄두를 실은 채 미국 전역을 강타하려는 것이 아닌가 하는 불안에 사로잡혀 추격 명령을 내린다. 이제 미.소의 추격전 속에서도 붉은 10월은 미국 동부해안으로 항진을 계속하는데...",
     "releaseYear": 1990,
+    "runtimeMinutes": 135,
+    "collectionId": 192492,
+    "collectionName": "잭 라이언 시리즈",
+    "voteAverage": 7.384,
+    "voteCount": 3655,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dZzpU4FG0cFwubumycLl57HP9NH.jpg",
     "posterAlt": "붉은 10월 포스터",
     "watchProvidersKr": {
@@ -21696,8 +24204,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Eva",
       "Zeke"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세상에서 가장 섹시한 보이밴드 어거스트 문의 리드 싱어인 24세 헤이스 캠벨(니컬러스 갈리친)과 40세 싱글 맘 솔렌(앤 해서웨이)이 펼치는 뜻밖의 로맨스에 관한 이야기",
     "releaseYear": 2024,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.277,
+    "voteCount": 1976,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6x9gZWCqEGYObUCJPjTKFT2LNqA.jpg",
     "posterAlt": "너란 개념 포스터",
     "watchProvidersKr": {
@@ -21741,8 +24257,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Kyle Morgan",
       "Max Morgan"
     ],
+    "contextTags": [
+      "travel",
+      "summer"
+    ],
     "overview": "킬러 시절을 뒤로한 댄은 크리스마스에 아이들과 오붓한 시간을 보내고 싶어 한다. 하지만 딸이 따로 계획을 세운 걸 알고, 런던행 가족 여행을 예약해 버린다. 그 결정으로 댄과 가족들은 예상치 못한 적의 표적이 된다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 106,
+    "collectionId": 1363124,
+    "collectionName": "패밀리 플랜 시리즈",
+    "voteAverage": 6.524,
+    "voteCount": 607,
     "posterUrl": "https://image.tmdb.org/t/p/w780/leWNzgtVJwwpukdYdu8aerQFvjP.jpg",
     "posterAlt": "'패밀리 플랜 2' - The Family Plan 2 포스터",
     "watchProvidersKr": {
@@ -21796,8 +24321,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Reverend Steenwyck",
       "Bürgermeister Phillipse"
     ],
+    "contextTags": [],
     "overview": "반 가렛의 유언장을 둘러싸고 관련있는 사람들이 하나씩 살해되자 유력한 상속인인 반 타셀(마이클 갬번)이 범인으로 몰린다. 그러나 반 타셀도 살해되자 크레인과 사랑에 빠진 반 타셀의 딸 카트리나(크리스티나 리치)가 마법으로 이 모든 것을 계획했다고 믿고 마을을 떠난다.  그러나 곧 카트리나의 마법은 그를 보호하기 위한 것임을 알아내고 마을로 돌아가 진범인 카트리나의 계모인 반 타셀 부인(미란다 리처드슨)으로부터 카트리나를 구하고 머리를 찾은 호스맨은 반 타셀부인을 데려가는데...",
     "releaseYear": 1999,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.193,
+    "voteCount": 7431,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rFP6tsIt5aAyghFrpgCgqKWsvag.jpg",
     "posterAlt": "슬리피 할로우 포스터",
     "watchProvidersKr": {
@@ -21862,8 +24393,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Grewishka",
       "Hugo"
     ],
+    "contextTags": [],
     "overview": "모두가 갈망하는 공중도시와 그들을 위해 존재하는 고철도시로 나누어진 26세기. 고철 더미 속 모든 기억을 잃은 채 깨어난 알리타는 마음 따뜻한 의사 이도의 보살핌으로 새로운 삶을 시작한다. 이도는 사이보그인 알리타에게 특별한 과거의 비밀과 영혼이 존재한다는 사실을 깨닫고 미스터리한 과거로부터 그녀를 지키고자 한다. 한편 새로운 친구 휴고는 알리타가 위험한 고철도시를 헤쳐나갈 수 있는 방법과 함께 기억을 되찾도록 돕는다. 알리타가 자신의 과거에 다가갈수록 도시를 지배하는 악랄한 세력들이 그녀를 노리며 제거하려고 하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 122,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.3,
+    "voteCount": 10144,
     "posterUrl": "https://image.tmdb.org/t/p/w780/s9nAuXPBR5iK4Z11UKiaPBBIJqY.jpg",
     "posterAlt": "알리타: 배틀 엔젤 포스터",
     "watchProvidersKr": {
@@ -21923,8 +24460,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Fa Li (voice)",
       "Grandmother Fa (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "파씨 가문의 말썽꾸러기 외동딸 뮬란은 선머슴 같은 성격에 강한 자아를 가지고 있어, 가문의 명예를 걸고 중매쟁이를 만나러 가서도 거듭되는 실수로 퇴짜를 맞게 된다. 뮬란은 나름대로는 부모님과 가문의 자랑이 되려고 노력하지만 그것이 그녀에게는 쉬운 일은 아니다. 한편, 훈족이 국경을 침략하자 황제는 가문에 한 사람씩 전쟁터로 나가라는 징집 명령을 내린다. 파씨 가문 역시 징집 명령을 받게 되고, 충성심이 강한 아버지는 전쟁에 나갈 준비를 한다. 그러나 뮬란은 지병이 있는 아버지가 전쟁에 나가도록 할 순 없다고 결심하고, 마침내 아버지 대신 갑옷을 입고 전쟁터로 향하게 된다.",
     "releaseYear": 1998,
+    "runtimeMinutes": 88,
+    "collectionId": 87236,
+    "collectionName": "뮬란 시리즈",
+    "voteAverage": 7.904,
+    "voteCount": 10521,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zlh3FTTu0Q6aEhUKrTByfBuS7iW.jpg",
     "posterAlt": "뮬란 포스터",
     "watchProvidersKr": {
@@ -21984,8 +24529,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Christine Palmer",
       "Tommy Maximoff"
     ],
+    "contextTags": [],
     "overview": "아메리카는 어느 날 멀티버스 사이를 오갈 수 있는 힘에 눈을 뜨지만 완전히 제어하지 못한다. 정체불명의 악마가 아메리카를 죽이려 하자 다른 우주의 스트레인지가 이를 막아보지만 결국 살해당한다. 우여곡절 끝에 우리가 알고 있는 우주로 넘어온 아메리카는 어벤져스 멤버인 닥터 스트레인지의 도움과 보호를 받는다. 닥터 스트레인지는 웨스트뷰 사건 이후 잠적한 완다에게 도움을 청하지만 곧바로 그녀가 사건의 진정한 흑막, 스칼렛 위치임이 드러난다. 스칼렛 위치는 자신의 원하는 멀티버스로 가기 위해 아메리카의 힘을 흡수하려 한다. 닥터 스트레인지와 아메리카는 압도적인 힘을 지닌 스칼렛 위치를 피해 또 한번 다른 멀티버스로 도망치지만 그의 끈질긴 추격을 받는다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 126,
+    "collectionId": 618529,
+    "collectionName": "닥터 스트레인지 시리즈",
+    "voteAverage": 7.232,
+    "voteCount": 10470,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vL5ktZauR0fZMDOHKjakb1idhuU.jpg",
     "posterAlt": "닥터 스트레인지: 대혼돈의 멀티버스 포스터",
     "watchProvidersKr": {
@@ -22036,8 +24587,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Klara Biel",
       "Tomasz Biel"
     ],
+    "contextTags": [],
     "overview": "신뢰 문제를 극복하려 애쓰는 라우라와 마시모의 관계가 흔들리는 가운데, 끈질긴 나초가 둘을 갈라놓으려 한다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.4,
+    "voteCount": 1327,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3O5apa9wZiQr6IOrkpGQmsVAFev.jpg",
     "posterAlt": "또 다른 365일 포스터",
     "watchProvidersKr": {
@@ -22088,8 +24645,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Patrick Meighan",
       "Sam J. Jones"
     ],
+    "contextTags": [],
     "overview": "왕따에게도 왕따 당하던 8살 존(마크 월버그)의 크리스마스 소원으로 살아 움직이게 된 테드(세스 맥팔레인)! 무적의 썬더 버디로 30년 동안 철없고 끈끈한 우정을 이어가던 둘은 테드가 인간이 아니라 물건(?)이라는 법원의 판결로 멘붕에 빠진다. 빡친 테드는 존과 함께 자신의 인권(?)을 입증하기 위해 승률 99.8% 변호사 사만다(아만다 사이프리드)를 찾아가는데……",
     "releaseYear": 2015,
+    "runtimeMinutes": 115,
+    "collectionId": 266672,
+    "collectionName": "19곰 테드 시리즈",
+    "voteAverage": 6.325,
+    "voteCount": 8052,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9ljV8sG9HQs6bBc19Vw0754aujG.jpg",
     "posterAlt": "19곰 테드 2 포스터",
     "watchProvidersKr": {
@@ -22149,8 +24712,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Abou Tarek",
       "Professor Niv Cohen"
     ],
+    "contextTags": [],
     "overview": "쌍둥이 남매인 잔느와 시몽은 어느 날 갑자기 의식을 잃은 어머니 나왈의 유언을 전해 듣고 혼란에 빠진다. 유언의 내용은 죽은 줄로만 알았던 생부와 존재조차 몰랐던 형제를 찾아 자신이 남긴 편지를 전해달라는 것. 또한 편지를 전하기 전까지는 절대 장례를 치르지 말라는 당부도 함께 담겨있다.  시몬은 유언을 따르길 거부하지만 진실이 궁금한 잔느는 지도교수의 도움을 얻어 중동에 있는 어머니의 고향으로 떠난다. 베일에 싸여 있던 그녀의 과거와 마주한 잔느. 어둠 속에 묻혀 있던 어머니의 과거의 끝에는 충격적인 진실이 기다리고 있는데...",
     "releaseYear": 2010,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.1,
+    "voteCount": 3344,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4j6AFF9Na494nJUMgMlR2tDKhTc.jpg",
     "posterAlt": "그을린 사랑 포스터",
     "watchProvidersKr": {
@@ -22223,8 +24792,16 @@ export const catalogMovies: CatalogMovie[] = [
       "President Alma Coin",
       "Plutarch Heavensbee"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "헝거게임이 끝나고 캣니스의 고향인 12구역이 캐피톨의 폭격으로 파괴되자 그녀는 절망감으로 괴로워한다. 12구역의 생존자들이 13구역에 있다는 것을 알게 된 캣니스는 반정부 세력의 중심이 된다. 어떤 공격도, 어떤 감시도 피할 수 있는 전설의 13구역을 다스리는 대통령 코인은 캣니스에게 혁명의 불꽃이자 반군의 상징인 모킹제이가 되어달라고 부탁하고, 모두의 희망이 된 캣니스는 이제 세상을 구할 반격을 시작한다.",
     "releaseYear": 2014,
+    "runtimeMinutes": 123,
+    "collectionId": 131635,
+    "collectionName": "헝거게임 시리즈",
+    "voteAverage": 6.817,
+    "voteCount": 16810,
     "posterUrl": "https://image.tmdb.org/t/p/w780/r5UG5tSXpHIFFcpx4rvi6ZnJroj.jpg",
     "posterAlt": "헝거게임: 모킹제이 포스터",
     "watchProvidersKr": {
@@ -22291,8 +24868,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sarabi (voice)",
       "Nala (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "혈통을 이어받은 사자가 왕국을 다스리는 아프리카의 프라이드 랜드, 무파사의 아들 심바는 왕좌를 물려받기로 예정되어 있다. 하지만 탐욕스런 무파사의 동생 스카가 자신의 형제를 죽이고, 마치 그 원인이 심바에게 있는 것처럼 분위기를 조장해 그를 왕국에서 쫓아낸다. 아버지의 죽음에 대한 죄책감에 시달리던 심바는 의욕 충만한 친구들 품바와 티몬의 도움으로 희망을 되찾는다. 어느 날 우연히 옛 친구 날라를 만난 심바는 과거를 마주할 용기를 얻고, 진정한 자신의 모습을 찾아 위대하고도 험난한 도전을 떠나게 되는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 118,
+    "collectionId": 762512,
+    "collectionName": "라이온 킹 (리부트) 시리즈",
+    "voteAverage": 7.096,
+    "voteCount": 10798,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mOR24P4tXgcT3cjzPs7Ca0wog7X.jpg",
     "posterAlt": "라이온 킹 포스터",
     "watchProvidersKr": {
@@ -22346,8 +24931,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Radagast the Brown",
       "The Great Goblin"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "호빗족 빌보 배긴스는 어느 날 찾아온 회색의 마법사 간달프로부터 뜻밖의 제안을 받는다. 오래 전 난쟁이족의 영토였지만 무시무시한 용 스마우그에게 빼앗겨 지금은 황무지로 변한 동쪽의 외로운 산 에레보르 왕국을 되찾기 위해 함께 떠나자는 것. 빌보는 전설의 용사 소린이 이끄는 13명의 난쟁이족과 함께 위험 가득한 여정에 오른다. 외로운 산에 가기 위해서 반드시 거쳐야 하는 고블린 동굴에서 일행과 떨어져 헤매던 빌보는 그의 일생을 뒤바꿔놓는 존재인 골룸과 마주치게 되고, 골룸과의 수수께끼 대결 중에 대단한 힘을 지닌 골룸의 보물 절대반지를 얻게 되는데...",
     "releaseYear": 2012,
+    "runtimeMinutes": 169,
+    "collectionId": 121938,
+    "collectionName": "호빗 시리즈",
+    "voteAverage": 7.379,
+    "voteCount": 19772,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vtsequVUU3W2NVfWObXkq31VIgN.jpg",
     "posterAlt": "호빗: 뜻밖의 여정 포스터",
     "watchProvidersKr": {
@@ -22418,8 +25012,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Maria Di Vita (young)",
       "Maria Di Vita (aged)"
     ],
+    "contextTags": [],
     "overview": "어린 시절 영화가 세상의 전부였던 소년 토토는 학교 수업을 마치면 마을 광장에 있는 낡은 시네마 천국이라는 극장으로 달려가 영사 기사 알프레도와 친구로 지내며 어깨너머로 영사기술을 배운다. 어느 날 관객들을 위해 광장에서 야외 상영을 해주던 알프레도가 그만 화재 사고로 실명하게 되고, 토토가 그의 뒤를 이어 시네마 천국의 영상기사로 일하게 된다. 실명한 후에도 토토의 친구이자 아버지로 든든한 정신적 지주가 되어준 알프레도는 청년이 된 토토가 사랑하는 여자 엘레나의 부모님의 반대로 좌절하자 넓은 세상으로 나가서 더 많은 것을 배우라며 권유하는데...",
     "releaseYear": 1988,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.429,
+    "voteCount": 4879,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2C3k44qqbaqJ0JfJyXVI6r7IWMr.jpg",
     "posterAlt": "시네마 천국 포스터",
     "watchProvidersKr": {
@@ -22486,8 +25086,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ricky / Security Guard",
       "Tony"
     ],
+    "contextTags": [],
     "overview": "벌들은 사라지고, 지구는 병들고 있고, 인류는 고통받고 있다. 거대 바이오 기업의 물류센터 직원인 테디는 이 모든 것이 은밀하게 진행되고 있는 외계인의 지구침공 계획 때문이고, 사장 미셸이 안드로메다에서 온 외계인이라고 굳게 믿는다. 오랜 준비 끝, 함께 사는 사촌 동생 돈과 함께 결국 미셸을 납치하는데 성공한 테디. 그는 지하실에 미셸을 감금한 채 지구를 찾아온 이유와 앞으로의 음모를 캐묻지만 자신은 외계인이 아니라는 말만 반복하는 미셸. 과연 테디는 미셸에게서 원하는 답을 얻고 지구를 지킬 수 있을까?",
     "releaseYear": 2025,
+    "runtimeMinutes": 119,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.311,
+    "voteCount": 2118,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ko6Wxr4sB9RM3pJb5JlWPqiSOIp.jpg",
     "posterAlt": "부고니아 포스터",
     "watchProvidersKr": {
@@ -22538,8 +25144,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Morgan Desai",
       "Robert Talley"
     ],
+    "contextTags": [],
     "overview": "기괴한 미소를 지으며 자신의 눈 앞에서 목숨을 끊는 환자를 목격한 정신과 의사 ‘로즈’. 그날 이후로 ‘로즈’의 일상에 설명할 수 없는 끔찍한 일들이 잇따라 발생한다. 일상을 덮친 공포에 발버둥치던 ‘로즈’는 이전에도 자신과 같은 일을 겪은 사람들이 있었고 그들 모두 끔찍한 죽음을 피할 수 없었다는 사실을 알게 된다. 시시각각 다가오는 죽음에서 벗어나기 위해 사투를 벌이던 로즈는 잊고 싶던 과거와 마주하게 되는데…",
     "releaseYear": 2022,
+    "runtimeMinutes": 116,
+    "collectionId": 1100788,
+    "collectionName": "스마일 시리즈",
+    "voteAverage": 6.672,
+    "voteCount": 4120,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8ncuVFt4e0M2NTTsoPtbxfWN5dO.jpg",
     "posterAlt": "스마일 포스터",
     "watchProvidersKr": {
@@ -22603,8 +25215,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Happy Hogan",
       "Trevor Slattery"
     ],
+    "contextTags": [
+      "christmas",
+      "winter"
+    ],
     "overview": "어벤저스의 일원으로 활약한 뉴욕 사건 이후, 트라우마로 인해 영웅으로서의 삶에 회의를 느끼는 토니 스타크. 그가 혼란을 겪는 사이 최악의 테러리스트 만다린을 내세운 익스트리미스 집단 AIM이 스타크 저택에 공격을 퍼붓는다. 이 공격으로 그에게 남은 건 망가진 수트 한 벌 뿐. 모든 것을 잃어버린 그는 다시 테러의 위험으로부터 세계와 사랑하는 여인을 지켜내야 하는 동시에 머릿속을 떠나지 않던 한가지 물음의 해답도 찾아야만 한다. 과연 그가 아이언맨인가? 수트가 아이언맨인가?",
     "releaseYear": 2013,
+    "runtimeMinutes": 129,
+    "collectionId": 131292,
+    "collectionName": "아이언맨 시리즈",
+    "voteAverage": 6.932,
+    "voteCount": 23554,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5aHoACZhLJR95uQN4Hd2k6swUZq.jpg",
     "posterAlt": "아이언맨 3 포스터",
     "watchProvidersKr": {
@@ -22665,8 +25286,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Wayne (voice)",
       "Wanda (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "몬스터들의 유일한 천국, 인간출입금지 몬스터 호텔.  딸바보 드라큐라는 딸 마비스의 118번째 생일을 맞아  프랑켄슈타인, 늑대인간, 미이라, 투명인간 등 몬스터 친구들을 모두 초대한다.  그.런.데! 초대받지 않은 인간소년 조니가 나타나고, 몬스터들은 멘붕 상태에 빠진다.  과연, 몬스터들은 신나는 파티를 즐길 수 있을까?",
     "releaseYear": 2012,
+    "runtimeMinutes": 91,
+    "collectionId": 185103,
+    "collectionName": "몬스터 호텔 시리즈",
+    "voteAverage": 6.967,
+    "voteCount": 9232,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nZapoab0MzOY11IcNEMIYJDoljF.jpg",
     "posterAlt": "몬스터 호텔 포스터",
     "watchProvidersKr": {
@@ -22745,8 +25374,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Martha Kent",
       "Perry White"
     ],
+    "contextTags": [],
     "overview": "슈퍼맨과 조드 장군의 격렬한 전투 이후 메트로폴리스는 파괴되었고 슈퍼맨은 세계 최고 논쟁의 인물이 되어 버린다. 검증되지 않은 신과 같은 능력을 지닌 슈퍼맨의 등장에 사람들은 두려움에 빠지게 된다. 한편 배트맨은 그 동안 타락했던 많은 자들처럼 슈퍼맨 역시 언젠가 타락을 할 것이라 생각하며 사회에서 가장 위험한 존재로 여긴다. 세계의 미래를 위해 무모하고 제어할 수 없는 힘을 가진 슈퍼맨으로 인해 벌어졌던 일들을 바로 잡으려 한다. 배트맨과 슈퍼맨이 격돌하는 사이 인류를 위협할 새로운 위기가 빠르게 부상하기 시작하는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 151,
+    "collectionId": 209131,
+    "collectionName": "맨 오브 스틸 시리즈",
+    "voteAverage": 6.005,
+    "voteCount": 19119,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nfdgwCossZkIEEaQ4iR80mX2iR3.jpg",
     "posterAlt": "배트맨 대 슈퍼맨: 저스티스의 시작 포스터",
     "watchProvidersKr": {
@@ -22830,8 +25465,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Himself - Elbow (uncredited)",
       "Himself - Black Rebel Motorcycle Club (uncredited)"
     ],
+    "contextTags": [],
     "overview": "미국에서 온 교환 학생 리사와 영국인 매트는 한눈에 서로 사랑에 빠진다. 21살 리사의 매트에 대한 사랑은 격정적이며 정열적이다. 9번의 공연 실황 장면과 그들이 나누는 아홉 번의 사랑. 흔히 젊은 연인들이 그러하듯이, 이들은 사랑하지만, 미래를 이야기 하지 않는다. 9번의 공연이 끝난 후, 리사는 크리스마스를 앞두고 미국으로 돌아가겠다며 매트에게 기약없는 작별을 고하는데...",
     "releaseYear": 2004,
+    "runtimeMinutes": 70,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.5,
+    "voteCount": 583,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tWkyDY78MAtemlCLJNQmlXUo1Iu.jpg",
     "posterAlt": "나인 송즈 포스터",
     "watchProvidersKr": {
@@ -22897,8 +25538,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jefferson 'Seaplane' McDonough",
       "Spencer Gilpin"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "쥬만지 게임으로부터 가까스로 탈출해 평화로운 일상을 보내고 있었던 스펜서와 친구들. 어느 날, 스펜서는 망가져버린 쥬만지 게임 속으로 사라지고 그를 찾기 위해 친구들은 다시 위험천만한 게임 속으로 들어간다. 우연히 함께 빨려 들어간 스펜서의 할아버지 에디&마일로와 랜덤으로 선택된 새로운 아바타가 된 이들은 정글부터 설산, 사막까지 한층 진화된 예측 불가능한 게임 속에서 목숨을 건 미션을 수행하게 되는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 123,
+    "collectionId": 495527,
+    "collectionName": "쥬만지 시리즈",
+    "voteAverage": 6.873,
+    "voteCount": 9444,
     "posterUrl": "https://image.tmdb.org/t/p/w780/n7KDDIWOY5IZrGlkeizuFMZfJFl.jpg",
     "posterAlt": "쥬만지: 넥스트 레벨 포스터",
     "watchProvidersKr": {
@@ -22963,8 +25612,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ruth Embry",
       "Katie Embry"
     ],
+    "contextTags": [],
     "overview": "각기 다른 장소에서, 하지만 모두 같은 날 밤 10시에 끔찍한 얼굴로 발견된 4명의 시체. 그들의 공통점은 단 하나. 정확히 7일 전 밤 10시, 쉘터 산장 12호에서 그들이 함께 보았다는 의문의 비디오테이프. 사건을 파헤치던 기자 레이첼은 마침내 문제의 비디오테이프를 입수한다. 비디오를 틀자 화면에 펼쳐지는 악몽 같은 이미지들이 나오는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 115,
+    "collectionId": 14563,
+    "collectionName": "링 리메이크 시리즈",
+    "voteAverage": 6.707,
+    "voteCount": 6740,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7uoGydSiNkeA46LQuh82ToBlCvK.jpg",
     "posterAlt": "링 포스터",
     "watchProvidersKr": {
@@ -23018,8 +25673,16 @@ export const catalogMovies: CatalogMovie[] = [
       "O'Brien",
       "Cop / T-1000"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "인간 저항군의 리더 존 코너의 탄생을 막기 위해 스카이넷은 터미네이터를 과거로 보내고, 이를 저지하기 위해 부하 카일 리스가 뒤를 따른다. 젊은 사라 코너와 그녀를 보호하고 있던 T-800은 로봇과의 전쟁을 준비하며 이미 그들을 기다리고 있었다. 시간의 균열로 존 코너 역시 과거로 오지만 그는 나노 터미네이터 T-3000으로 변해있었던 것. 이제 인류는 인간도 기계도 아닌 그 이상의 초월적인 존재, 사상 최강의 적에 맞서 전쟁을 벌여야만 한다.",
     "releaseYear": 2015,
+    "runtimeMinutes": 125,
+    "collectionId": 528,
+    "collectionName": "터미네이터 시리즈",
+    "voteAverage": 5.958,
+    "voteCount": 9041,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bzcw6IyAbX3DbXrzPXx7ZgLXalr.jpg",
     "posterAlt": "터미네이터 제니시스 포스터",
     "watchProvidersKr": {
@@ -23093,8 +25756,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sour Bill / Zangief (voice)",
       "Gene / Zombie (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "8비트 게임 ‘다고쳐 펠릭스’에서 건물을 부수는 악당 주먹왕 랄프. 30년째 매일같이 건물을 부수며 직업에 충실해왔지만, 악당이라는 이유로 누구도 그를 좋아하지 않는다. 모두에게 인정 받는 영웅이 되고 싶은 마음에 급기야 자기 게임을 이탈하여 다른 게임으로 들어가는 랄프! 슈팅게임 ‘히어로즈 듀티’를 거쳐 레이싱 게임 ‘슈가 러시’에 불시착하는 랄프는 과연 게임 세계의 새로운 영웅이 될 수 있을 것인가! 그리고 랄프가 떠난 후 고장 딱지가 붙은 ‘다고쳐 펠릭스’ 게임은 오락실에서 퇴출될 위기를 넘길 수 있을까?",
     "releaseYear": 2012,
+    "runtimeMinutes": 108,
+    "collectionId": 404825,
+    "collectionName": "주먹왕 랄프 시리즈",
+    "voteAverage": 7.36,
+    "voteCount": 13158,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2wVcx484rbNsmP07SRCLdpGtOjM.jpg",
     "posterAlt": "주먹왕 랄프 포스터",
     "watchProvidersKr": {
@@ -23154,8 +25825,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Assistant Manager Lim",
       "North Korean Restaurant Manager"
     ],
+    "contextTags": [],
     "overview": "러시아에서 마약 조직을 추적하던 남한 요원. 북한 요원과 정면충돌하면서, 두 사람은 거대한 위험과 거미줄처럼 얽힌 음모에 휘말린다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 120,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.447,
+    "voteCount": 160,
     "posterUrl": "https://image.tmdb.org/t/p/w780/f7sCSLEPRfV2fWQ0RYOtHhnHXuG.jpg",
     "posterAlt": "휴민트 포스터",
     "watchProvidersKr": {
@@ -23209,8 +25886,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Charlotte (voice)",
       "Lawrence (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "1930년대 미국 뉴올리언스. 티아나(애니카 노니 로즈)는 밤낮없이 아르바이트를 뛰며 돈을 모은다. 일찍 돌아가신 아빠(테렌스 하워드)의 꿈이었으며 이제는 그녀 본인의 목표가 된 뉴올리언스 최고의 레스토랑을 열기 전까지, 그녀에겐 연애할 시간도 없다. 그러다가 우연히 사악한 부두마법사 파실리에(키스 데이비드)에게 휘말려 개구리로 변해버린 나빈 왕자(브루노 캠포스)를 마주친다. 키스 한번이면 개구리가 왕자로 변한다는 공식을 믿고 티아나는 나빈에게 키스하지만 오히려 티아나까지 개구리로 변해버리는데...",
     "releaseYear": 2009,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.2,
+    "voteCount": 6176,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rlDgcM2cLbnNCmUJRGByuyCl0yt.jpg",
     "posterAlt": "공주와 개구리 포스터",
     "watchProvidersKr": {
@@ -23271,8 +25956,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Luigi (voice)",
       "Guido (voice)"
     ],
+    "contextTags": [
+      "travel",
+      "family"
+    ],
     "overview": "화려한 성공과 갈채를 꿈꾸는 주인공 라이트닝 맥퀸은 경주에서 성공하는 것만이 인생의 모든 것이라 생각하는 타오르는 청춘. 하지만 피스톤 컵 챔피온쉽에 참가하기 위해 달리던 중 경쟁과 함성과는 동떨어진 래디에이터 스프링스란 한적한 시골로 들어서게 된다. 이제는 지도에 조차 표시되지 않는 한적한 66번 국도. 조용하지만 다양한 캐릭터들이 큰 열정을 간직하고 있는 이곳에서 맥퀸은 미스터리한 과거를 지닌 닥 허드슨과 샐리, 그리고 메이터를 만나게 된다. 그들을 통해 인생이란 목적지가 아닌, 여행하는 과정 그 자체이며 명성과 스폰서, 트로피 뒤에 가려진 소중한 가치를 깨닫게 되는데...",
     "releaseYear": 2006,
+    "runtimeMinutes": 117,
+    "collectionId": 87118,
+    "collectionName": "카 시리즈",
+    "voteAverage": 7.038,
+    "voteCount": 15237,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uwQMfpTRXQUHvGKtnHGdQE7nZWv.jpg",
     "posterAlt": "카 포스터",
     "watchProvidersKr": {
@@ -23332,8 +26026,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Detective McKnight",
       "Vincenzo Castigliane"
     ],
+    "contextTags": [],
     "overview": "헐리웃 스타의 꿈을 안고 LA에 온 베티는 멀홀랜드 드라이브에서 일어난 자동차 사고로 이름조차 기억하지 못하는 리타를 만나 그녀가 기억을 되찾을 수 있도록 도와준다. 베티의 적극적인 도움으로 단서를 찾아가던 리타는 한 카페의 여종업원 명찰에서 다이안이라는 이름을 보고 어떤 것을 떠올리게 된다. 베티는 이 이름이 분명 리타와 관계된 사람의 이름일 것이라 말하며 다이안이라는 인물을 찾기 시작한다. 마침내 다이안의 집을 찾아간 두 여인. 그러나 그들은 곧 상상을 초월하는 끔찍한 비밀을 발견하게 되는데...",
     "releaseYear": 2001,
+    "runtimeMinutes": 145,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.8,
+    "voteCount": 7114,
     "posterUrl": "https://image.tmdb.org/t/p/w780/e7eIq8wTxGX00cX47cDFwVvhH5M.jpg",
     "posterAlt": "멀홀랜드 드라이브 포스터",
     "watchProvidersKr": {
@@ -23394,8 +26094,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Curator / Ogden Morrow",
       "Anorak / Halliday"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "2045년, 암울한 현실과 달리 가상현실 오아시스에서는 누구든 원하는 캐릭터로 상상하는 모든 걸 할 수 있다. 웨이드 와츠의 유일한 낙은 오아시스에 접속하는 것. 어느 날 오아시스의 창시자인 괴짜 천재 제임스 할리데이는 자신이 가상현실 속에 숨겨둔 3개의 미션에서 우승하는 사람에게 오아시스의 소유권과 막대한 유산을 상속한다는 유언을 남기고, 그가 사랑했던 80년대 대중문화 속에 힌트가 있음을 알린다. 와츠가 첫 번째 수수께끼를 푸는 데 성공하자 이를 저지하기 위해 현실에서 살인도 마다하지 않는 IOI라는 거대 기업이 뛰어드는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 140,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.589,
+    "voteCount": 17075,
     "posterUrl": "https://image.tmdb.org/t/p/w780/j4TIfwFrm8WnckByTnMFEAuIVju.jpg",
     "posterAlt": "레디 플레이어 원 포스터",
     "watchProvidersKr": {
@@ -23468,8 +26176,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Cottontail Rabbit (voice)",
       "Benjamin Bunny (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "활달한 장난꾸러기 토끼 피터는 예로부터 조상들의 땅이었던 맥그리거(도널 글리슨)의 정원을 되찾기 위해 애쓴다. 맥그리거는 자신의 소유지에서 토끼들을 몰아내려는 한편 이웃집에 사는 동물애호가 베아(로즈번)의 마음도 얻으려 하는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 100,
+    "collectionId": 595693,
+    "collectionName": "피터 래빗 시리즈",
+    "voteAverage": 6.7,
+    "voteCount": 1944,
     "posterUrl": "https://image.tmdb.org/t/p/w780/7tEy3ngMHqOw6Ym42JXFBebA1Xq.jpg",
     "posterAlt": "피터 래빗 포스터",
     "watchProvidersKr": {
@@ -23542,8 +26258,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lena",
       "Ella"
     ],
+    "contextTags": [],
     "overview": "살해당한 아버지의 복수를 원하는 이브는 전설적인 킬러 존 윅을 배출한 암살자 양성 조직 루스카 로마에서 혹독한 훈련을 거쳐 발레리나이자 킬러로 성장한다. 아버지의 죽음에 얽힌 자들을 쫓던 이브는 루스카 로마를 뛰어넘는 거대한 조직의 정체를 알아차리게 되고, 킬러들의 표적이 된 이브의 눈앞에 존 윅이 나타나는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.257,
+    "voteCount": 2744,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rGe64vmd9cpvwiTD5OGWJezBnNg.jpg",
     "posterAlt": "발레리나 포스터",
     "watchProvidersKr": {
@@ -23597,8 +26319,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Dalia",
       "Prince Anders"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "알라딘은 전광석화 같은 손놀림과 타고난 삼십육계 줄행랑을 고루 갖춘 아그라바 왕국의 좀도둑이다. 원숭이 친구 아부를 대동한 채 굶주림에 고통받는 아이들을 못 본 척하지 않는 게 그의 인간적인 매력. 어느 날 아그라바 왕국을 다스리는 술탄이 애지중지하는 딸 자스민 공주가 백성들을 살피기 위해 성 밖으로 나왔다가 빵을 훔쳤다는 누명을 쓰게 된다. 마침 그 광경을 목격한 알라딘은 자스민 공주를 위기에서 구해준다. 자스민 공주가 왕궁에서 일하는 시녀인 줄 알고 그녀를 보러 성 안에 들어간 알라딘은 재상 자파에게 붙잡히고 마는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.082,
+    "voteCount": 10682,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hvoi0h5hX7cKjatXvbc3gYqT1Xw.jpg",
     "posterAlt": "알라딘 포스터",
     "watchProvidersKr": {
@@ -23654,8 +26384,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Chaca (voice)",
       "Tipo (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "먼 옛날, 중남미의 어느 나라에 쿠스코란 이름의 황제가 있었다. 세상을 쥐었다 놨다하는 권력을 가진 그는 뭐든 자기 기분대로 안되면 상대가 누구든 박살을 내버리는 괴팍한 황제다. 마을에 있는 언덕의 따뜻한 양지에 여름 별장을 짓고 싶은 쿠스코는 마을 대표이자 마음씨 착한 농부 파차를 소환한다. 한편 황제의 권력을 노리는 마법사 이즈마는 시종인 크롱크를 시켜서 황제를 독살시키려는 계획을 세운다. 파차가 황제를 만나고 돌아간 뒤, 크롱크는 쿠스코에게 독약을 먹인다. 그런데 아뿔사, 목숨이 끝장나야 되는 황제가 라마로 변한 게 아닌가!  당황한 이즈마는 크롱크에게 라마 황제를 끌고 나가서 죽이라고 명령한다. 그러나 천방지축 실수만 연발하는 크롱크는 자루에 넣은 라마 황제를 시장 바닥에서 잃어버리고 만다. 자신의 마을이 황제의 별장으로 변해버릴 것을 걱정하며 집으로 돌아온 파차는 마차에서 꿈틀거리며 살려 달라고 “말하는” 라마를 발견하곤 경악한다. 라마 황제를 확인 사살까지는 하지 못하고 돌아왔다는 크롱크의 설명를 듣고 이즈마는 화가 머리 끝까지 치민다.  자신이 왜 라마가 됐는지 모르는 쿠스코 황제, 어떤 수를 써서든 언덕 마을에 별장을 짓지 못하도록 막고 싶은 파차, 살려 뒀다간 어떤 화가 닥칠지 모른다는 두려움 때문에 다급해진 이즈마, 자신이 선과 악의 어느 쪽에 속하는 지 도무지 갈피를 못 잡는 크롱크... 이들 네 사람 아니, 세 인간과 한 마리 동물 사이에 목숨과 명예를 건, 쫓고 쫓기는 추격전이 시작되는데...! 과연 라마가 된 황제는 다시 인간 황제가 될 수 있을 것인지...",
     "releaseYear": 2000,
+    "runtimeMinutes": 78,
+    "collectionId": 178117,
+    "collectionName": "쿠스코? 쿠스코! 시리즈",
+    "voteAverage": 7.6,
+    "voteCount": 7357,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2eDgsCJlSuyZ0BQoAR4ISiGjKEi.jpg",
     "posterAlt": "쿠스코? 쿠스코! 포스터",
     "watchProvidersKr": {
@@ -23709,8 +26447,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Allan /  Pirate Flunky #1 (voice)",
       "Ben Salaad (voice)"
     ],
+    "contextTags": [],
     "overview": "유니콘호에 감춰진 거대한 비밀!  7대양이 끝나는 곳, 수백 년간 잠들었던 전설이 깨어난다!  특종기자 ‘틴틴(제이미 벨)’은 우연히 유니콘이 박힌 모형배를 손에 넣고 위험에 휩싸이게 된다. 누군가 침입한 흔적과 함께 사라진 배에서 떨어진 비밀 지도를 발견한 틴틴은 거기에 적힌 “삼형제가 모이면 정오의 태양을 향해 함께 항해하는 세 개의 유니콘호에서 광채가 나리라!”라는 메시지를 확인하는 순간, 정체 모를 괴한들의 습격을 받는다. 납치된 배 안에서 만난 주정뱅이 ‘하독 선장(앤디 서키스)’과 함께 탈출을 감행하고 폭풍우가 몰아치는 바다와 모래바람이 거센 사막을 표류하면서, 그 지도가 17세기경 보물을 싣고 난파한 해적의 왕 ‘레드 라캄(다니엘 크레이그)’의 배 ‘유니콘호’의 위치를 가리키는 지도임을 알게 되는데….  전설의 세계를 향한 거대한 항해! 상상 이상의 모험이 지금 시작된다!!",
     "releaseYear": 2011,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.926,
+    "voteCount": 5876,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lZnd4OO0ms773gqMGfAR0vkCr40.jpg",
     "posterAlt": "틴틴: 유니콘호의 비밀 포스터",
     "watchProvidersKr": {
@@ -23757,8 +26501,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Young Natasha",
       "Young Yelena"
     ],
+    "contextTags": [],
     "overview": "어벤져스 멤버들이 뿔뿔이 흩어지고 혼자가 된 어벤져스의 히어로 블랙 위도우는  20년 전 헤어진 여동생 옐레나와 재회하는데, 이 과정에서 사라진 줄 알았던 레드룸이 아직도 실재한다는 사실을 알게 된다. 레드룸은 두 사람을 암살자로 만든 소비에트연방의 훈련기관. 두 사람은 레드룸을 없애고 지배받는 여성들을 구하기로 의기투합한다. 상대의 능력을 복제하는 빌런 태스크마스터와 새로운 위도우들의 위협에 맞서 목숨을 건 반격을 시작하는 나타샤는 스파이로 활약했던 자신의 과거 뿐 아니라, 어벤져스가 되기 전 함께했던 동료들을 마주해야만 하는데...",
     "releaseYear": 2021,
+    "runtimeMinutes": 134,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.163,
+    "voteCount": 11343,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oPMAUqhwQf9mLCU5xEGPv33lAJO.jpg",
     "posterAlt": "블랙 위도우 포스터",
     "watchProvidersKr": {
@@ -23813,8 +26563,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Fishlegs (voice)",
       "Tuffnut (voice)"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "바이킹의 세계, 절대 친구가 될 수 없는 둘이 만났다?  용맹한 바이킹과 사나운 드래곤들의 싸움이 끊이지 않는 버크섬.  바이킹 족장의 아들 ‘히컵’은 드래곤 사냥에 소질 없는 마을의 사고뭉치. 어느날 그는 부상 당한 드래곤 ‘투슬리스’를 구하게 되고, 아무도 몰래 그를 돌본다. 서로를 알아가며, 드래곤들의 친구가 된 ‘히컵’. 그들과의 새로운 생활을 만끽하던 ‘히컵’은 드래곤들의 위험한 비밀을 알게 되는데…  불멸의 드래곤과 바이킹족 이단아의 만남!  2010년 5월, 그들의 스펙터클한 모험이 시작된다!",
     "releaseYear": 2010,
+    "runtimeMinutes": 98,
+    "collectionId": 89137,
+    "collectionName": "드래곤 길들이기 시리즈",
+    "voteAverage": 7.864,
+    "voteCount": 14490,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5JtTkNwOeztwfCPv965e9bZi6G3.jpg",
     "posterAlt": "드래곤 길들이기 포스터",
     "watchProvidersKr": {
@@ -23880,8 +26639,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Kung Lao",
       "Lord Raiden"
     ],
+    "contextTags": [],
     "overview": "어스렐름와 아웃월드의 최강 챔피언들이 지구의 운명을 걸고 벌이는 서바이벌 대혈전 모탈 컴뱃. MMA 격투 선수 콜 영은 대전을 앞두고 선택 받은 전사들을 사전에 제거하려는 서브제로의 공격을 받는다. 지구와 가족을 보호하고 자기 혈통의 비밀을 알아내기 위해 모탈 컴뱃 토너먼트에 참가해 죽음의 전투를 치러야 한다!",
     "releaseYear": 2021,
+    "runtimeMinutes": 110,
+    "collectionId": 931431,
+    "collectionName": "모탈 컴뱃 리부트 시리즈",
+    "voteAverage": 7.051,
+    "voteCount": 6873,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3dTg1pgasstOa0XJTwt3dBFHjFf.jpg",
     "posterAlt": "모탈 컴뱃 포스터",
     "watchProvidersKr": {
@@ -23950,8 +26715,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sultan (voice)",
       "Abu / Cave of Wonders / Rajah (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "원숭이 아부와 함께 살아가는 아그라바의 좀도둑 알라딘은 어느 날 궁궐을 탈출한 술탄의 딸 자스민에게 한눈에 반한다. 술탄의 자리를 노리는 사악한 마법사 자파는 알라딘을 눈여겨보고 그에게 마법의 램프를 가져다주면 부자로 만들어 주겠다고 말한다. 동굴에 들어가서 램프를 찾던 알라딘은 도중에 동굴이 무너지는 바람에 갇히게 된다.  위기에 빠진 알라딘은 램프의 요정 지니와 마법 양탄자의 도움으로 동굴에서 탈출한다. 지니의 주인이 된 알라딘은 지니를 램프에서 구해주겠다고 약속하고, 지니의 힘을 빌어 왕자로 변신해 자스민에게 청혼하기 위해 아그라바로 돌아오는데...",
     "releaseYear": 1992,
+    "runtimeMinutes": 91,
+    "collectionId": 86027,
+    "collectionName": "알라딘 시리즈",
+    "voteAverage": 7.655,
+    "voteCount": 12094,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dNqpfCTQjUDRDGsaaAP6kdVAS8M.jpg",
     "posterAlt": "알라딘 포스터",
     "watchProvidersKr": {
@@ -24011,8 +26784,17 @@ export const catalogMovies: CatalogMovie[] = [
       "The Elder",
       "White Death"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "운이 없기로 유명한 킬러 레이디버그는 초고속 열차에 탑승해 의문의 서류 가방을 가져오라는 미션을 받는다. 생각보다 쉽게 미션을 클리어한 후 열차에서 내리려는 그를 가로막는 것이 있었으니,  그것은 바로 전세계에서 몰려든 초특급 킬러들. 열차에서 내릴 수 없다면 목숨을 걸고 가방을 지켜야만 한다. 과연 레이디버그는 무사히 열차에서 내려 미션을 완수할 수 있을까?",
     "releaseYear": 2022,
+    "runtimeMinutes": 126,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.411,
+    "voteCount": 7664,
     "posterUrl": "https://image.tmdb.org/t/p/w780/msh4N8dxHk4FeEPZ8VBqHQFQYjI.jpg",
     "posterAlt": "불릿 트레인 포스터",
     "watchProvidersKr": {
@@ -24072,8 +26854,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Car Salesman",
       "Officer Keeney"
     ],
+    "contextTags": [],
     "overview": "대학 신입생인 루이스는 여자친구 베나와 대륙 횡단 여행을 계획한다. 그러나 갓 출소한 루이스의 말썽꾼 형 풀러가 동참하면서 여행은 시작부터 삐걱거린다. 풀러는 고속도로 운전자들의 통신 시스템인 CB라디오를 이용, 러스티 네일이라는 이름의 트럭 운전사를 골탕먹이자고 일행을 부추긴다. 결국 이들은 캔디 케인이라는 이름의 여성으로 가장해 러스티 네일을 길가의 모텔로 유혹하기에 이른다. 그러나 이런 몹쓸 장난의 끝에는 폭발적인 분노가 기다리고 있는 법. 얼굴도 모르는 이 트럭 운전사에게 쫓기게 된 세 사람, 무심한 장난 한번에 목숨까지 내놓게 생겼다.",
     "releaseYear": 2001,
+    "runtimeMinutes": 97,
+    "collectionId": 166378,
+    "collectionName": "캔디 케인 시리즈",
+    "voteAverage": 6.539,
+    "voteCount": 1370,
     "posterUrl": "https://image.tmdb.org/t/p/w780/unEFcfoEuzGHOAgWDFxEQ2yZzT1.jpg",
     "posterAlt": "캔디 케인 포스터",
     "watchProvidersKr": {
@@ -24130,8 +26918,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Ego",
       "Yondu"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "타노스에 맞서 은하계를 구하고 최고의 해결사로 등극한 스타로드 일행. 하지만 소버린 행성의 여사제 아이샤를 돕던 중 옛버릇을 고치지 못하고 행성의 배터리를 훔쳤다가 소버린 종족에 쫓기는 신세가 된다. 그 과정에서 피터의 아버지 에고가 그들을 돕는다. 아픈 엄마와 어린 자신을 버리고 떠난 아버지에 대한 원망이 컸던 피터는 에고의 행성에서 아버지의 능력을 확인하곤 그 힘에 이끌린다. 하지만 가모라는 에고의 행성에서 이상한 기운을 감지한다. 한편 반란군에 의해 위기에 처한 욘두는 로켓과 그루트의 도움으로 목숨을 구한다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 136,
+    "collectionId": 284433,
+    "collectionName": "가디언즈 오브 갤럭시 시리즈",
+    "voteAverage": 7.61,
+    "voteCount": 23066,
     "posterUrl": "https://image.tmdb.org/t/p/w780/uDuwGhQgffd5GQ695oUfy5oZGqP.jpg",
     "posterAlt": "가디언즈 오브 갤럭시 Vol. 2 포스터",
     "watchProvidersKr": {
@@ -24186,8 +26982,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Reine Elizabeth II (voice)",
       "Narrator (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "인류가 탄생하기 훨씬 오래 전, 태초에 미니언이 있었다. 당대 최고의 슈퍼 악당만을 보스로 섬겨온 미니언들! 하지만 의도치 않은 치명적(?) 실수로 인해 보스들과 이별하게 되고, 우울증에 빠진 미니언들을 구하기 위해 용감한 리더 ‘케빈’은 자유로운 영혼 ‘스튜어트’와 무한 긍정 ‘밥’과 함께 ‘슈퍼배드 원정대’를 결성한다. 세계 악당 챔피언십에 참석해 최초의 여성 슈퍼 악당 ‘스칼렛’ 을 보고 첫눈에 홀~딱 반한 이들은 일생일대의 위기가 다가오는지도 모른 채 스칼렛의 특급 미션을 넙죽 받게 되는데…",
     "releaseYear": 2015,
+    "runtimeMinutes": 91,
+    "collectionId": 544669,
+    "collectionName": "미니언즈 시리즈",
+    "voteAverage": 6.42,
+    "voteCount": 11165,
     "posterUrl": "https://image.tmdb.org/t/p/w780/emcPpzDjBDDeYcOnfrtpss259jQ.jpg",
     "posterAlt": "미니언즈 포스터",
     "watchProvidersKr": {
@@ -24260,8 +27064,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Brian Plummer",
       "Susan Plummer"
     ],
+    "contextTags": [],
     "overview": "새벽 2시만 되면 어김없이 잠에서 깨는 로버트 맥콜. 불면증으로 잠 못 드는 이 시간이면 그는 늘 책 한 권을 들고 카페로 향한다. 가족도 친구도 없는 그는 아내가 남기고 간 ‘죽기 전에 읽어야 할 소설 100권’을 모두 읽는 것이 유일한 삶의 목표다. 그런 그에게 어느 날, 어린 콜걸 테리가 말을 건넨다. 무료하게 전화를 기다리다 벨이 울리면 대기하고 있던 리무진에 오르는 테리와 매일 같은 공간에서 같은 시간을 공유하던 로버트는 묘한 동질감을 느끼며 가까워진다. 그러던 어느 날, 테리가 포주인 러시아 마피아에게 무자비하게 폭행을 당한 채로 발견되자 세상을 향한 분노가 폭발하고만 로버트는 마침내, 강자에겐 약하고 약자에겐 한없이 강한 이 세상을 향해 스스로 심판자가 되기로 결심하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 132,
+    "collectionId": 523855,
+    "collectionName": "더 이퀄라이저 시리즈",
+    "voteAverage": 7.292,
+    "voteCount": 10024,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hqes9NQtVIULs8VKu0WqY6RdXGU.jpg",
     "posterAlt": "더 이퀄라이저 포스터",
     "watchProvidersKr": {
@@ -24341,8 +27151,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Gus / Jaq (voice)",
       "(credit only)"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "친절하고 상냥한 아릉다운 아가씨 신데렐라는 맘씨 나쁜 새 엄마와 시기심 많은 언니들의 구박을 받으면서도 희망을 잃지 않았다. 친구들이라고는 거스와 자크같은 생쥐뿐이지만 그들은 무슨 일이든 신데렐라를 도왔고, 왕자님의 무도회가 열리던 날에는 착한 요정이 나타나 신데렐라에게 아름다운 드레스와 호박으로 만든 마차를 준비해 주었을 때에도 말이 되어 신데렐라와 동행한다. 궁정의 무도회에 참석해서 멋진 왕자님을 만난 신데렐라. 하지만, 시계가 12시를 가리키자 마법은 풀려나고 신데렐라는 유리구두 한짝을 떨군 채 왕자님에게 인사도 못하고 도망치듯 궁전을 빠져나오는데...",
     "releaseYear": 1950,
+    "runtimeMinutes": 74,
+    "collectionId": 55419,
+    "collectionName": "신데렐라 시리즈",
+    "voteAverage": 7.048,
+    "voteCount": 7197,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xJsPQJeQjnD9llyDVVlANQvWdPZ.jpg",
     "posterAlt": "신데렐라 포스터",
     "watchProvidersKr": {
@@ -24407,8 +27226,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Pigeon Lady",
       "Concierge"
     ],
+    "contextTags": [
+      "christmas",
+      "winter",
+      "family"
+    ],
     "overview": "시카고에 살고 있는 케빈의 가족은 크리스마스에 플로리다에 가기로 되어있다. 그러나 공항의 소란 속에, 홀로 뉴욕행 비행기에 오르게 되어 거대한 도시에 혼자 남게 된 케빈은 기지를 발휘하여 아버지 카드로 플로리자 호텔에 묶게되고, 의심스러워 하는 종업원들을 멋지게 따돌린다. 한편, 감옥을 탈출한 2인조 강도 마브와 해리는 뉴욕의 장난감 가게를 털어 한 몫 잡을 꿈에 부풀어 있는데...",
     "releaseYear": 1992,
+    "runtimeMinutes": 115,
+    "collectionId": 9888,
+    "collectionName": "나 홀로 집에 시리즈",
+    "voteAverage": 6.791,
+    "voteCount": 10704,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eUYFbtuSBuvihNmFgLJtl1Y54fE.jpg",
     "posterAlt": "나 홀로 집에 2: 뉴욕을 헤매다 포스터",
     "watchProvidersKr": {
@@ -24468,8 +27297,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Maja",
       "Siv"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "한여름, 낮이 가장 긴 날 열리는 미드소마에 참석하게 된 친구들. 꽃길인 줄 알고 들어간 지옥길, 축제가 끝나기 전까지 절대 빠져나올 수 없다. 큰 상실을 겪은 대니가 남자친구 크리스티안과 비밀스러운 스웨덴의 한 마을에서 한여름 낮이 가장 긴 날 열리는 하지 축제에 참석해 기이한 경험을 겪고 점점 공포에 빠져들게 되는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 148,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.148,
+    "voteCount": 8191,
     "posterUrl": "https://image.tmdb.org/t/p/w780/u2c6wgkam9JJ5V4ML3l8EqIXCdF.jpg",
     "posterAlt": "미드소마 포스터",
     "watchProvidersKr": {
@@ -24521,8 +27358,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ramonda",
       "Everett Ross"
     ],
+    "contextTags": [],
     "overview": "국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…",
     "releaseYear": 2022,
+    "runtimeMinutes": 162,
+    "collectionId": 529892,
+    "collectionName": "블랙 팬서 시리즈",
+    "voteAverage": 7.005,
+    "voteCount": 7554,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4LaJseYluZxp4Odlisd1Zb4RWHR.jpg",
     "posterAlt": "블랙 팬서: 와칸다 포에버 포스터",
     "watchProvidersKr": {
@@ -24576,8 +27419,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Ramsey (voice)",
       "Earl (voice)"
     ],
+    "contextTags": [
+      "travel",
+      "family"
+    ],
     "overview": "초식공룡 아파토사우루스 삼형제 중 막내인 알로는 아버지처럼 용감한 공룡이 되고 싶지만 닭에게 모이 주는 것조차 무서운 겁쟁이 꼬마 공룡이다. 그러던 어느 날 알로는 갑자기 불어닥친 폭풍에 아버지를 잃고 홀로 남겨진다. 그리고 야생에 던져진 알로 앞에 원시인 꼬마 스팟이 나타난다. 몸집은 작지만 맨주먹으로 뱀을 때려잡을 정도로 스팟은 야생의 삶에 단련되어 있다. 스팟은 알로가 집으로 무사히 돌아가 가족을 만날 수 있도록 그의 여정에 동행한다. 한 치 앞을 알 수 없는 여정 속 자연이 선사하는 엄청난 시련과 위대함을 맞닥뜨리게 되는데... 과연 알로는 가족을 찾을 수 있을까?",
     "releaseYear": 2015,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.749,
+    "voteCount": 6058,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iQDzmEMyfQxPSjDShetDizhmKDI.jpg",
     "posterAlt": "굿 다이노 포스터",
     "watchProvidersKr": {
@@ -24624,8 +27476,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mickey Garnett",
       "Pettis"
     ],
+    "contextTags": [],
     "overview": "법 위에 있는 비밀 기관 '비키퍼' 그곳의 전설로 남은 탑티어 에이전트 '애덤 클레이'는 기관의 눈을 피해 자취를 감추고 양봉가로 살아간다. 그러던 어느 날, 거대 보이스 피싱 조직으로부터 유일한 친구 '엘로이즈'를 잃게 된 그는 피의 복수를 위해 잠재웠던 진짜 모습을 드러내기 시작하는데....",
     "releaseYear": 2024,
+    "runtimeMinutes": 106,
+    "collectionId": 1440784,
+    "collectionName": "The Beekeeper Collection",
+    "voteAverage": 7.275,
+    "voteCount": 4348,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ekHemOB84SoKi6fqG0ciwvKWM2i.jpg",
     "posterAlt": "비키퍼 포스터",
     "watchProvidersKr": {
@@ -24714,8 +27572,19 @@ export const catalogMovies: CatalogMovie[] = [
       "Sonny",
       "Putzie"
     ],
+    "contextTags": [
+      "graduation",
+      "school",
+      "space",
+      "summer"
+    ],
     "overview": "1950년대말, 캘리포니아에 있는 한 고등학교. 대니 주코(Danny Zuko: 존 트라볼타 분)와 샌디 올슨(Sandy Olsen: 올리비아 뉴튼 존 분)은 여름 방학 때 해변에서 우연히 알게 된 사이로 바캉스 시즌이 끝나자 두 사람은 기약없이 작별하지만 대니가 다니는 고등학교에 샌디가 전학해 오면서 뜻밖의 재회가 이루어진다. 내심 기뻤던 대니지만 학교의 서클인 티버즈의 리더인 그가 어느 특정한 여자에게 가까이 하면 친구들의 빈촉을 살까봐 이러지도 저러지도 못한다.  이런 대니의 마음을 모른는 샌디는 오해를 해 스포츠에 만능인 톰과 친하게 지낸다. 이에 쇼크를 받은 대니는 샌디에게 용서를 빌어 가까스로 샌디의 마음을 되돌려 놓는다. 바야흐로 학교의 최대 행사인 댄스 파티가 열리자 대니와 샌디는 한조가 되어 출전, 결승전까지 진출하지만 티버즈의 라이벌인 스코피언스의 리더인 차차의 방해로 우승을 놓친다. 화가 난 샌디에게 야외 극장에서 대니는 자기의 반지를 빼주며 샌디의 마음을 바꾸지만 샌디의 몸을 강요한게 그녀를 더 토라지게 만들고 말았다.  드디어 티버즈와 숙적인 스콜피온스 간에 카레이스로 결판을 내는 날이다. '선더로드 경주'라는 이름의 이 시합에서 차차는 비겁한 수단으로 골탕을 먹이지만 이를 잘 피해 대니가 이기는데 이를 가슴조이며 지켜보던 샌디는 대니의 품에 안긴다. 이윽고 고등학교 졸업식이 왔다. 졸업 파티가 성대하게 벌어지고 정장을 하고 머리에다 그리이스를 발라 의젓해진 대니와 샌디는 빨간 승용차를 타고 다정하게 교문을 나선다. 축하무드가 절정을 이루며 뒤를 따르는 동창생들.",
     "releaseYear": 1978,
+    "runtimeMinutes": 110,
+    "collectionId": 86083,
+    "collectionName": "그리스 시리즈",
+    "voteAverage": 7.367,
+    "voteCount": 7713,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2rM7fQKpb7cs1Iq7IBqub9LFDzJ.jpg",
     "posterAlt": "그리스 포스터",
     "watchProvidersKr": {
@@ -24770,8 +27639,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Hook",
       "Morgie"
     ],
+    "contextTags": [
+      "travel",
+      "family"
+    ],
     "overview": "하트 여왕이 오라돈을 차지하려고 하자 그의 반항아 딸 레드는 신데렐라의 완벽주의자 딸 클로이와 힘을 합쳐 과거로 돌아가 엄마가 악당의 길로 가지 못하게 막으려 애쓴다.",
     "releaseYear": 2024,
+    "runtimeMinutes": 92,
+    "collectionId": 466463,
+    "collectionName": "디센던츠 시리즈",
+    "voteAverage": 6.742,
+    "voteCount": 492,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lapab2EdLTL6srTus5ktgr64bqF.jpg",
     "posterAlt": "디센던츠: 레드의 반항 포스터",
     "watchProvidersKr": {
@@ -24818,8 +27696,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Natalie Hanson",
       "Casey Lambert"
     ],
+    "contextTags": [],
     "overview": "보름달이 뜬 어느 날 밤, 발자국마저 사라지는 고요한 설원 위를 맨발로 달리던 한 소녀가 피를 토하며 죽는다. 안간힘을 쓰며 뛰어가던 그녀가 결국 피를 토하며 쓰러져 죽어 있는 모습을 사냥꾼 코리(제레미 레너)가 발견한다. 피해자는 그의 친구의 딸. 신입 FBI요원 제인(엘리자베스 올슨)이 사건 담당자로 그곳에 도착하지만 범인이 남긴 증거는 눈보라에 휩싸여 점점 사라지고, 수사는 난항을 겪는다. 3년 전, 윈드 리버에서 벌어진 살인 사건과의 유사점을 발견한 코리가 수사에 공조하면서  두 사람은 범인의 그림자에 빠른 속도로 접근하는데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 111,
+    "collectionId": 1046516,
+    "collectionName": "Wind River Collection",
+    "voteAverage": 7.438,
+    "voteCount": 5830,
     "posterUrl": "https://image.tmdb.org/t/p/w780/lskBfr1zqKcgl6RYukNBt6pRWVj.jpg",
     "posterAlt": "윈드 리버 포스터",
     "watchProvidersKr": {
@@ -24898,8 +27782,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Man in the Woods",
       "Old Man's Dead Wife (uncredited)"
     ],
+    "contextTags": [],
     "overview": "인류 종말의 초기 단계로 보이는 가까운 미래, 이미 폐쇄된 뉴욕 주에서 간신히 살아남은 부부와 세 자녀가 맨발로 숨죽인 채 시골 마을의 식료품점을 헤맨다. 작은 소리에도 민감하게 반응해 소리의 근원지를 파괴하러 달려오는 괴 생명체가 곳곳에 도사리고 있기 때문. 전 세계를 파괴해 버린 무차별적인 공격과 숨통을 조여 오는 거대한 위협 속에서 살아남기 위해 주인공 가족은 일상에서 발생하는 모든 소리를 최소화하며 위태롭게 살아간다. 숨소리조차 마음 편히 낼 수 없는 극한의 상황, 아버지 리(존 크래신스키)와 어머니 에블린(에밀리 블런트)은 아이들과 자신들의 생명을 지키기 위해 고군분투하는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 91,
+    "collectionId": 521226,
+    "collectionName": "콰이어트 플레이스 시리즈",
+    "voteAverage": 7.395,
+    "voteCount": 15466,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vdiR7qc7cWxXD0pT8BZJ35DDB0B.jpg",
     "posterAlt": "콰이어트 플레이스 포스터",
     "watchProvidersKr": {
@@ -24967,8 +27857,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Professor Marmalade (voice)",
       "Diane Foxington (voice)"
     ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
     "overview": "작전 설계부터 금고 해제, 해킹, 액션, 위장까지 완벽한 팀플레이를 펼치는 자타공인 최고의 나쁜 녀석들이 한순간의 실수로 체포된다.  하지만 그들도 착해질 수 있다는 ‘마멀레이드 박사’의 주장으로 나쁜 녀석들은 바른 생활 갓생 프로젝트에 투입되고, 이들은 다시 한번 자유의 몸을 위해 태어나 처음으로 바른 생활에 도전하게 되는데…  나쁜 녀석들의 사상 초유 바른 생활 갓생 프로젝트가 시작된다!",
     "releaseYear": 2022,
+    "runtimeMinutes": 100,
+    "collectionId": 1231053,
+    "collectionName": "배드 가이즈 시리즈",
+    "voteAverage": 7.522,
+    "voteCount": 2599,
     "posterUrl": "https://image.tmdb.org/t/p/w780/x6KSvale7iuxLhsrEfhYNoICyfK.jpg",
     "posterAlt": "배드 가이즈 포스터",
     "watchProvidersKr": {
@@ -25034,8 +27933,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sergeant Binkowski",
       "Sergeant Davis"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "2차 세계대전, 전차부대를 이끄는 대장 워대디에게 적으로 둘러싸인 최전선에서의 마지막 전투 명령이 떨어진다. 하지만 수 차례의 전투로 대부분의 동료를 잃은 그에겐 단 한 대의 탱크 퓨리와 지칠 대로 지쳐버린 부대원들만이 남아있을 뿐. 게다가 지원군으로 경력이 전무한 신병 노먼이 배치되고, 워대디는 신참을 포함한 단 4명의 부대원만으로 적진에 나서야 하는 상황에 처한다. 수백 명의 적들과 맞서야 하는 단 5인의 병사. 최소의 인원과 최악의 조건 속, 사상 최대 위기에 처한 워대디와 그의 부대는 생존 가능성 제로인 최후의 전쟁터로 향하는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 134,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.546,
+    "voteCount": 13013,
     "posterUrl": "https://image.tmdb.org/t/p/w780/dYwwlFLd8WNrfa3s6HBzAbH3QXG.jpg",
     "posterAlt": "퓨리 포스터",
     "watchProvidersKr": {
@@ -25112,8 +28019,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Claire",
       "M.J."
     ],
+    "contextTags": [],
     "overview": "누구나 한번 보면 빠져들 수밖에 없는 매력을 지녔지만 사랑을 믿지 않기에 늘 상처받는 그녀, 달라스. 패션 에디터로 성공한 커리어우먼의 삶을 살고 있지만 단조로운 일상에 지친 그녀, 재스민. 어느 날 우연히 한 파티에서 달라스를 만난 재스민은  그녀만을 바라보는 달라스의 강렬한 눈빛에 흔들리기 시작한다. 자신도 모르게 서로에게 운명처럼 이끌린 두 사람은  남들 시선은 신경 쓰지 않고 뜨겁게 사랑하지만 피할 수 없는 현실의 장벽에 가로막히고 마는데…",
     "releaseYear": 2017,
+    "runtimeMinutes": 91,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.8,
+    "voteCount": 1301,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5twlT43Kt18MoUCqYgfMqppVXfa.jpg",
     "posterAlt": "빌로우 허 포스터",
     "watchProvidersKr": {
@@ -25186,8 +28099,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Madame M",
       "Professor Andreiko"
     ],
+    "contextTags": [],
     "overview": "이상한 약물에 의해 강력한 파워를 얻게 된 아나키스트 브릭스턴 로어는 인류를 천천히, 그리고 영원히 다른 존재로 바꿔버릴 수 있는 생화학무기를 손에 넣고 자신은 진화형 인간이 된다. 그런데 데카드 쇼의 동생이자 M16 요원인 해티 쇼가 치명적인 병원균이 들어 있는 실린더를 브릭스턴의 손에서 훔쳐 달아난다. 양국으로부터 해티의 행방을 찾아달라는 명령을 받은 루크와 데카드는 유전자 조작으로 사실상 파괴 불가능한 존재가 되어버린 브릭스턴을 상대로 힘겨운 싸움도 이겨나가야 하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 136,
+    "collectionId": 9485,
+    "collectionName": "분노의 질주 시리즈",
+    "voteAverage": 6.829,
+    "voteCount": 7825,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8MdVJYHKp7JFvTMkLkZOou13LYV.jpg",
     "posterAlt": "분노의 질주: 홉스 & 쇼 포스터",
     "watchProvidersKr": {
@@ -25272,8 +28191,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Dredger",
       "Mrs. Hudson"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세기의 명탐정_“범죄는 흔하다. 그러나 논리는 흔치 않다” 셜록 홈즈, 천재적인 추리 능력과 주먹의 힘까지 갖추고 친구 왓슨 박사 와 함께 치밀하게 얽힌 미스터리 속에서 진실을 찾아내는 명탐정. 그에게 이제껏 경험하지 못했던 최대의 위협이자 지금껏 그토록 갈구했던 진정한 모험이 몰려오고 있었다. 예고된 살인_“홈즈, 당신과 나는 자연 법칙을 뒤집어 놓을 여정에 올랐소”다섯 명의 여인들이 종교 의식의 제물로 끔찍하게 살해되는 사건이 잇따라 발생하고, 홈즈와 왓슨은 간발의 차이로 마지막 희생자가 될뻔한 여인을 구한다. 범인은 비밀 종교집단 소속의 블랙우드. 붙잡힌 블랙우드는 사형 집행일이 다가올수록 강력한 어둠의 힘을 발휘하고, 자신의 죽음은 계획의 일부에 지나지 않는다며 홈즈에게 경고한다. 죽은 자의 부활_“증거 없는 이론은 위험하네. 사실을 이론에 맞추려 들테니” 블랙우드의 경고는 현실로 나타나고, 죽었던 그의 부활은 도시 전체를 공포 속에 몰아넣는다. 그러나 이것은 홈즈에게는 게임의 시작일 뿐. 블랙우드의 치명적인 음모를 저지하기 위해 홈즈와 왓슨은 고대의 신비한 주술과 현대의 경이로운 신기술이 혼재한 세계로 뛰어든다. 진정한 목적_“가장 사소한 단서가 가장 중요한 증거가 되는 법이지”그러나 홈즈가 해결해야 할 것은 사건만이 아니었다. 그의 앞에 헤어진 연인 아이린 이 등장해 적인지 아닌지 모호한 행동으로 그를 더욱 혼란에 빠뜨린다. 한편, 최강의 콤비 플레이로 사건을 파헤치던 홈즈와 왓슨은 단서들이 공통의 연결고리로 어떤 징후를 나타낸다는 것을 발견하고, 이것이 세상을 파멸시킬 거대한 음모였음을 알게 되는데… 정확한 논리를 무기로, 일격의 주먹을 방어막으로, 세상을 구할 홈즈의 추리가 시작된다!",
     "releaseYear": 2009,
+    "runtimeMinutes": 128,
+    "collectionId": 102322,
+    "collectionName": "셜록 홈즈 시리즈",
+    "voteAverage": 7.222,
+    "voteCount": 14862,
     "posterUrl": "https://image.tmdb.org/t/p/w780/57lDlyrA7tWDyscroixKSJRerFU.jpg",
     "posterAlt": "셜록 홈즈 포스터",
     "watchProvidersKr": {
@@ -25346,8 +28273,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Moira MacTaggert",
       "Peter Maximoff / Quicksilver"
     ],
+    "contextTags": [],
     "overview": "고대 이집트에서 신으로 숭배받았던 최초의 돌연변이 아포칼립스가 오랜 잠에서 깨어난다. 초능력을 흡수해가며 수천년을 살아온 아포칼립스는 스톰, 사일록, 아크엔젤 그리고 매그니토에게 자신의 힘을 나누어준 뒤, 그들과 함께 현재의 세상을 뒤엎고 새로운 세상을 건설하려 한다. 찰스 자비에와 미스틱은 아포칼립스의 지구 종말 계획을 알아채고, 진 그레이, 사이클롭스, 퀵 실버, 나이트크롤러 등 젊은 돌연변이들과 함께 아포칼립스에 대항한다.",
     "releaseYear": 2016,
+    "runtimeMinutes": 145,
+    "collectionId": 748,
+    "collectionName": "엑스맨 시리즈",
+    "voteAverage": 6.527,
+    "voteCount": 13865,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4MaTkqk4LKccDYKh7AjV220CVgW.jpg",
     "posterAlt": "엑스맨: 아포칼립스 포스터",
     "watchProvidersKr": {
@@ -25420,8 +28353,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Classified (voice)",
       "Short Fuse (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "넘치는 유머, 감쪽 같은 위장술, 똑소리 나는 브레인! 날 때부터 남달랐던 악동 펭귄 스키퍼, 코왈스키, 리코, 프라이빗! 어느 날 그들 앞에 복수심에 불타는 문어박사 옥토브레인이 나타나고, 그의 거대한 음모를 알게 된 펭귄 4총사는 비밀 조직 ‘노스윈드’와 함께 세상을 구할 사상 최대의 작전을 펼치는데…!",
     "releaseYear": 2014,
+    "runtimeMinutes": 92,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.539,
+    "voteCount": 4513,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ft5SBKI0MFZpdW1tlG75XD9JeHO.jpg",
     "posterAlt": "마다가스카의 펭귄 포스터",
     "watchProvidersKr": {
@@ -25494,8 +28435,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Jonathan Crane",
       "Carmine Falcone"
     ],
+    "contextTags": [],
     "overview": "브루스 웨인은 어린 시절, 부모님이 길거리에서 피살되는 것을 눈 앞에서 지켜본 후 죄의식과 분노로 늘 고통 받는다. 복수의 욕망과 부모님의 가르침 사이에서 갈등하던 그는 악을 물리칠 방법을 터득하기 위해 고담시를 떠나 홀로 세상을 유랑하던 중 듀커드라는 수수께끼의 인물을 만나 가름침을 받고, 듀커드는 브루스에게 어둠의 사도들에 가입하라는 제안을 한다. 듀커드가 속해있는 어둠의 사도들은 라스 알 굴이 이끄는 범죄 소탕 조직. 그러나 브루스는 눈에는 눈, 이에는 이라는 강경책으로 응징하는 이들의 방법이 자신과는 맞지 않음을 깨닫고 고담시로 돌아온다.",
     "releaseYear": 2005,
+    "runtimeMinutes": 140,
+    "collectionId": 263,
+    "collectionName": "다크 나이트 시리즈",
+    "voteAverage": 7.7,
+    "voteCount": 22782,
     "posterUrl": "https://image.tmdb.org/t/p/w780/e8MB1d69fmzyonT6mz9iQs3rhw7.jpg",
     "posterAlt": "배트맨 비긴즈 포스터",
     "watchProvidersKr": {
@@ -25574,8 +28521,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Lumière",
       "LeFou"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "프랑스의 작은 마을에 아버지와 살고 있는 벨은 책을 통해 넓은 세계를 꿈꾼다. 전쟁 영웅 개스톤의 저돌적인 구애와 마을 사람들의 핀잔에도 결혼 따위엔 관심이 없다. 어느 날 행방불명된 아버지를 찾아 폐허가 된 성에 도착한 벨은 저주에 걸린 야수를 만나 아버지 대신 성에 갇히고, 야수 뿐 아니라 성 안의 모든 이들이 신비로운 장미의 마지막 꽃잎이 떨어지기 전에 저주를 풀지 못하면 영원히 인간으로 돌아올 수 없는 운명임을 알게 된다. 성에서 도망치려던 벨은 자신을 보호해 준 야수의 진심을 알게 되면서 차츰 마음을 열어가기 시작하는데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 129,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.967,
+    "voteCount": 16062,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tzYsKo6wGoBrP51eL9wDzfDP6Vx.jpg",
     "posterAlt": "미녀와 야수 포스터",
     "watchProvidersKr": {
@@ -25630,8 +28585,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mighty Eagle (voice)",
       "Terence (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "화가 나면 참지 못하는 분노새 ‘레드’. 생각보다 말과 행동이 앞서는 깐족새 ‘척’. 욱하면 폭발해버리는 폭탄새 ‘밤’. 모두가 행복한 버드 아일랜드에서 어울리지 못하는 앵그리버드 레드, 척, 밤  어느 날, 정체불명의 초록 돼지 ‘피그’가 찾아오고,  평화로운 새계에 수상쩍은 일들이 벌어지기 시작하는데…  앵그리버드, 이들이 화난 진짜 이유가 밝혀진다!",
     "releaseYear": 2016,
+    "runtimeMinutes": 97,
+    "collectionId": 531315,
+    "collectionName": "앵그리 버드 시리즈",
+    "voteAverage": 6.282,
+    "voteCount": 4057,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vX1HEsTCQoKtwIOckN1f596QTpq.jpg",
     "posterAlt": "앵그리버드 더 무비 포스터",
     "watchProvidersKr": {
@@ -25704,8 +28667,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Hirona Suzumura",
       "Shoda Fumiaki"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "싱글맘 사오리는 아들 미나토의 행동에서 이상 기운을 감지한다. 용기를 내 찾아간 학교에서 상담을 진행한 날 이후 선생님과 학생들의 분위기가 심상치 않게 흐르기 시작하고.  한편 사오리는 친구들로부터 따돌림을 당하고 있는 미나토의 친구 요리의 존재를 알게 되고 자신이 아는 아들의 모습과 사람들이 아는 아들의 모습이 다르다는 사실을 어렴풋이 깨닫는데… 태풍이 몰아치던 어느 날, 아무도 몰랐던 진실이 드러난다.",
     "releaseYear": 2023,
+    "runtimeMinutes": 126,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.929,
+    "voteCount": 911,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cHS3uVwAyViWcVbpRwrfekgn2cr.jpg",
     "posterAlt": "괴물 포스터",
     "watchProvidersKr": {
@@ -25778,8 +28749,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sumiko Ota",
       "Yoji Akitsu"
     ],
+    "contextTags": [],
     "overview": "도쿄 앞바다에 고질라가 출현하면서 전후 일본은 최악의 상황에 놓인다. 민간인 몇몇이 모인 그룹이 이 새로운 위협을 막을 수 있을까?",
     "releaseYear": 2023,
+    "runtimeMinutes": 125,
+    "collectionId": 1474814,
+    "collectionName": "ゴジラ-（マイナス）シリーズ",
+    "voteAverage": 7.581,
+    "voteCount": 3249,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6qLKVk53lorpoLilRSa7vvKXPW5.jpg",
     "posterAlt": "고질라 마이너스 원 포스터",
     "watchProvidersKr": {
@@ -25833,8 +28810,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Chloe (voice)",
       "Sergei (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "집을 비우면 다시 시작되는 펫들의 시크릿 라이프!  집구석 걱정에 하루도 편할 날이 없는 ‘맥스’ 캣닢을 사랑하는 자유로운 영혼 ‘클로이’ 슈퍼히어로를 따라 하는 토끼 ‘스노우볼’ 완벽하게 고양이가 되고픈 강아지 ‘기젯’까지 아직도 나만 몰랐던 마이펫들의 속마음이 공개된다!  “우릴 키운다고? 그건 니 생각이고~”",
     "releaseYear": 2019,
+    "runtimeMinutes": 86,
+    "collectionId": 427084,
+    "collectionName": "마이펫의 이중생활 시리즈",
+    "voteAverage": 6.95,
+    "voteCount": 3358,
     "posterUrl": "https://image.tmdb.org/t/p/w780/wiqA4SaY4ndT0TD75CDz4cEKfe3.jpg",
     "posterAlt": "마이펫의 이중생활  2 포스터",
     "watchProvidersKr": {
@@ -25907,8 +28892,16 @@ export const catalogMovies: CatalogMovie[] = [
       "George",
       "Alex"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "제2차 세계대전 당시인 1940년, 프랑스 덩케르크 지역에서 진행된 연합군 구출 작전. 영화는 세개의 시공간을 동시에 진행시킨다. 도버 해협을 건너려는 영국군을 중심으로 한 잔교에서의 일주일, 민간 선박들의 자발적 참전과 차출이 이어지는 바다에서의 하루, 적기를 겨냥한 스피트파이어기 전투사가 있는 하늘에서의 한 시간. 전쟁의 전방위성, 공포의 상시성과 그 압도, 개별 공간을 떠난 공포의 유사성, 그 속의 다급함이 혼재되어 있는 가운데 전쟁과 죽음에의 공포와 생존을 향한 인간적 열망을 그린다.",
     "releaseYear": 2017,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.5,
+    "voteCount": 17682,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nLQpUxLulXpIvN7FwREWjRNRBRI.jpg",
     "posterAlt": "덩케르크 포스터",
     "watchProvidersKr": {
@@ -25981,8 +28974,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Elizabeth Abbott",
       "Tizzy Weathers"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "1차 세계 대전 말 뉴올리언즈. 80세의 외모를 가진 아기 벤자민 버튼이 태어난다. 사랑하는 아내가 벤자민을 낳다 세상을 떠난 것에 대한 분노와 아이의 평범하지 않은 외모에 경악한 벤자민의 아버지는 분노를 참지 못하고 그를 놀란 하우스 양로원 현관 앞에 버린다. 놀란 하우스에서 일하는 퀴니에게 발견된 벤자민. 퀴니를 엄마로, 그곳의 할아버지, 할머니들을 친구로 살아가는 벤자민은 해가 갈수록 젊어지는 자신을 발견한다. 12살이 되어 60대 외형을 가지게 된 벤자민은 어느 날, 할머니를 찾아온 6살의 어린 데이지를 만난다. 그리고 데이지의 푸른 눈동자를 영원히 잊을 수 없게 된다.",
     "releaseYear": 2008,
+    "runtimeMinutes": 166,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.6,
+    "voteCount": 13830,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9QxP0nzAyPQfqJIB0xcvglND5UL.jpg",
     "posterAlt": "벤자민 버튼의 시간은 거꾸로 간다 포스터",
     "watchProvidersKr": {
@@ -26054,8 +29055,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Santiago",
       "Ice Cube"
     ],
+    "contextTags": [],
     "overview": "중년의 위기를 겪고 있는 친구들이 젊은 시절 가장 좋아했던 영화를 재현하기 위해 열대우림으로 떠난다. 그러나 그들은 자연 재해, 거대한 뱀, 그리고 폭력적인 범죄자들과 맞서 싸우며 생존을 위한 사투를 벌이게 된다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.86,
+    "voteCount": 1275,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4HxOXiEFPAFQhzkobIU9Lqlezlq.jpg",
     "posterAlt": "아나콘다 포스터",
     "watchProvidersKr": {
@@ -26108,8 +29115,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Peter Sadusky",
       "John Adams Gates"
     ],
+    "contextTags": [],
     "overview": "미 건국 초기 대통령들이 숨겼을 것으로 추정되는 어마어마한 보물을 3대째 찾고 있는 집안의 후손 벤자민(니콜라스 케이지). 대를 이어, 어디엔가 숨겨져 있는 보물을 찾아나선 벤자민은 자료를 수집하던 도중, 미 독립선언문과 화폐에 결정적인 단서가 있음을 알게 되는데... 끊임없이 펼쳐지는 두뇌 플레이와 미로처럼 얽혀져있는 수수께끼, 끝이라고 생각하는 순간 다시 시작되는 의문의 열쇠는 과연 존재하는 것일까...!",
     "releaseYear": 2004,
+    "runtimeMinutes": 131,
+    "collectionId": 52984,
+    "collectionName": "내셔널 트레져 시리즈",
+    "voteAverage": 6.654,
+    "voteCount": 6933,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6pKwT5fM7UH7KvdCZu2iiCOXMuM.jpg",
     "posterAlt": "내셔널 트레져 포스터",
     "watchProvidersKr": {
@@ -26162,8 +29175,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Kevin Flynn",
       "Ajay Singh"
     ],
+    "contextTags": [],
     "overview": "가상 세계에서 창조된 존재를 현실 세계로 끌어올 수 있는 시대. 그곳에서 탄생한 AI 최종 병기 아레스는 초인적인 힘과 속도, 고도 지능으로 설계되어 무한히 재생될 수 있지만 기술의 한계로 현실 세계에 단 29분만 머무를 수 있다. 그러던 중, 세계 최고의 프로그래머 이브 킴은 기술의 한계를 넘어설 해답을 발견하게 되고 아레스가 점차 통제를 벗어나 자신만의 목적을 향해 움직이기 시작하자 인류는 역사상 한 번도 경험한 적 없는 최악의 위기에 처하게 되는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 119,
+    "collectionId": 63043,
+    "collectionName": "트론 시리즈",
+    "voteAverage": 6.48,
+    "voteCount": 1496,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4nJcUMpWgnIPZPJ13TWKRxAdY9U.jpg",
     "posterAlt": "트론: 아레스 포스터",
     "watchProvidersKr": {
@@ -26211,8 +29230,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Eddie (voice)",
       "Fast Tony (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "전세계가 기다려온 2006년 최고의 애니메이션 대작!  더욱 강력해진 웃음과 스케일로 돌아왔다!  평화롭던 빙하기에 닥친 절대절명 위기! “웁쓰~ 이번엔 해빙기다!”  평화롭던 빙하기가 지구 온난화 현상으로 해빙기에 접어든다. 동물들의 유아 캠프를 운영하는 맘모스 매니와 나무늘보 시드, 호랑이 디에고 일행은 왕뻥토니로부터 곧 대홍수가 올 것이라는 경고를 듣지만 모두들 “뻥치시네~”를 외치며 토니의 말을 믿지 않는다. 그러던 중 진짜 빙하가 녹는 현장을 직접 눈으로 목격한 매니, 시드, 디에고는 다급하게 동료들을 모아 안전한 고지대를 찾아 대규모 이주를 시작한다.  하지만 매니에겐 대홍수의 위기보다 더 큰 위기가 닥친다. 바로 자신을 제외한 모든 맘모스가 멸종되어 버렸다는 기절초풍할 소식을 듣게 되는 것이다.  위기 속에서 피어나는 작업 로맨스! “종족보존을 위해 우리…연애나 할까?”  더 이상 가족을 만들 수 없다는 절망에 빠진 매니. 그러나 그의 눈앞에 맘모스 엘리가 나타난다. 나는 남자~ 너는 여자~! 이제 종족의 번영은 우리 하기 나름~~!!! 이라는 기쁨도 잠시, 매니와 시드, 디에고는 곧 혼란에 빠져버린다. 섹시하고 풍성한 엉덩이를 가진 맘모스 엘리는 자신이 주머니쥐라고 믿고 있는 것이다. 그것도 진짜 주머니쥐 악동 형제 크래쉬와 에디의 여동생으로서. 어이~ 아가씨, 농담이 지나쳐!  그러나 매니는 멸종위기의 맘모스를 구해야 한다는 사명감(그 외의 이유는 묻지 말아주세요)과 이를 부추기는 시드, 디에고의 응원에 힘입어 엘리에게 작업을 걸어보지만 오히려 엘리의 반감만 사게 되는데…",
     "releaseYear": 2006,
+    "runtimeMinutes": 91,
+    "collectionId": 8354,
+    "collectionName": "아이스 에이지 시리즈",
+    "voteAverage": 6.724,
+    "voteCount": 10412,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1Dy4HsXBdMc5kcsmjKyU1ufI10J.jpg",
     "posterAlt": "아이스 에이지 2 포스터",
     "watchProvidersKr": {
@@ -26272,8 +29299,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Reggie Wayne",
       "Steve Forsing"
     ],
+    "contextTags": [],
     "overview": "미국과 멕시코의 국경지역 후아레즈는 멕시코 최대 마약조직의 본거지이자 온갖 범죄의 온상지. FBI 요원 케이트는 어린이 납치사건을 수사하다가 멕시코 마약 조직의 정체를 알게 되고 CIA가 계획하는 마약 조직 소탕 작전에 자원한다. 그녀는 그곳에서 작전을 이끄는 책임자 맷과 멕시코 검사 출신의 알레한드로를 만난다. 작전이 전개되면서 수사는 법의 테두리를 넘지 말아야 한다는 케이트의 정의와 원칙은 수단과 방법을 가리지 않고 임무를 완수하려는 맷과 개인적인 복수를 위해 작전에 개입한 알레한드로 때문에 흔들리는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 121,
+    "collectionId": 496796,
+    "collectionName": "시카리오 시리즈",
+    "voteAverage": 7.423,
+    "voteCount": 9652,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oVA4Rx01OUAYdLOiBNBPjaG7I7v.jpg",
     "posterAlt": "시카리오:  암살자의 도시 포스터",
     "watchProvidersKr": {
@@ -26356,8 +29389,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Hilary",
       "Mark"
     ],
+    "contextTags": [
+      "travel",
+      "summer",
+      "spring"
+    ],
     "overview": "아내와 사별한 남자 ‘짐’(아담 샌들러)과 남편과 이혼하고 홀로 두 아들을 키우고 있는 ‘로렌’(드류 베리모어)은 소개팅에서 처음 만난다. 장소부터 음식, 대화까지 모든 게 엉망이었던 첫 만남으로 그들은 서로에 대해 최악의 첫인상을 가진 채 헤어진다. 우연한 기회로 짐과 로렌은 각자의 아이들과 함께 광활한 대자연의 아프리카로 여행을 떠나게 되고, 둘 사이에 평범하지 않은 로맨스가 싹트게 되는데…",
     "releaseYear": 2014,
+    "runtimeMinutes": 117,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.894,
+    "voteCount": 3838,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o2YrH9jS7CAfWjETHFeL0tth79E.jpg",
     "posterAlt": "블렌디드 포스터",
     "watchProvidersKr": {
@@ -26431,8 +29474,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Paulette",
       "Professor Stromwell"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "엘르 우즈(리즈 위더스푼 분)는 모두가 부러워하는 아름다운 금발의 소유자이다. 학교에서 남자는 물론 같은 여학생들 사이에서도 인기 만점인 그녀는 장학생이며, 캠퍼스 캘린더의 모델이기도 하다. 거기에 하버드 법대에 다니는 남자 친구 워너(매튜 데이비스 분)가 있어 그야말로 남부러울게 없는 짜릿하고 즐러운 나날을 보내고 있다. 남자 친구 워너(매튜 데이비스 분)가 특별한 저녁을 함께 하자고 요청한 자리에서 워너는 그녀에게 자신은 미래 지향적인 여자를 원한다며 \"지나치게 금발(too blonde)\"이라는 이유로 이별을 통보한다. 엘르는 비탄에 잠긴다. 하지만 오기가 생긴 엘르, 그녀는 자신은 그가 원하는 사람이 될 수 있음을 증명하려고 결심한다. 그리곤 워너가 다니는 하버드 법대에 들어갈 것을 결심하게 되는데.",
     "releaseYear": 2001,
+    "runtimeMinutes": 96,
+    "collectionId": 86024,
+    "collectionName": "금발이 너무해 시리즈",
+    "voteAverage": 6.818,
+    "voteCount": 4610,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fN3beo2iwZqXGJXYBVJ6t1E5mD2.jpg",
     "posterAlt": "금발이 너무해 포스터",
     "watchProvidersKr": {
@@ -26477,8 +29528,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Nora Carpenter",
       "Kat"
     ],
+    "contextTags": [],
     "overview": "친구들과 주말여행을 떠나던 킴벌리는 고속도로 연쇄 충돌 사고로 자신을 포함한 많은 사람들이 끔찍하게 죽는 환상을 보게 된다. 환상에서 본 조짐들은 하나하나 현실이 되고 공포에 질린 그녀는 다른 차들의 국도 진입을 막지만 아무도 그 말을 믿으려 하지 않는다. 하지만 예견했던 대형 사고가 실제로 일어나자 이를 지켜보던 사람들은 경악을 금치 못한다. 안도의 한숨도 잠시, 화염에 휩싸인 트럭이 킴벌리의 차를 덮치면서 그녀를 제외한 친구들은 모두 목숨을 잃게 되는데.  단지 이것이 시작일 뿐이라는 것을 직감한 킴벌리는 이번 사고가 1년 전 180기 폭발사고의 생존자들이 겪은 죽음과 연관되어 있음을 알게 되고 180기 사고의 유일한 생존자 클레어를 찾아가 도움을 구한다. 킴벌리와 클레어, 그리고 나머지 생존자들은 다시 시작된 죽음의 맞서 그 해답을 찾으려 하지만 전혀 다른 법칙과 예상치 못한 방법으로 다가오는 죽음은 그들을 더욱 공포에 떨게 만든다 .점점 빠르게 다가오는 공포의 검은 그림자. 과연 그들은 죽음과의 숨막히는 게임에서 살아 남을 수 있을 것인가?",
     "releaseYear": 2003,
+    "runtimeMinutes": 90,
+    "collectionId": 8864,
+    "collectionName": "파이널 데스티네이션 시리즈",
+    "voteAverage": 6.311,
+    "voteCount": 4897,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3OdyCaz3tRJhY4JeZwHd0nG6jNw.jpg",
     "posterAlt": "데스티네이션 2 포스터",
     "watchProvidersKr": {
@@ -26551,8 +29608,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Faora-Ul",
       "General Swanwick"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "무리한 자원 채취로 크립톤 행성의 종말이 다가오자 조드 장군은 반란을 일으켜 자신들만의 왕국을 건설하려 한다. 이에 반대한 조엘은 크립톤인의 유전자 정보가 담긴 코덱스를 빼돌려 이를 갓 태어난 자신의 아들 칼엘과 함께 지구로 보내고, 반란에 실패한 조드 장군은 감옥에 갇힌다. 지구에 도착한 칼엘은 뒤늦게 자신의 정체를 알아내지만 감옥에서 탈출한 조드 장군의 공격을 받는다. 조드 장군은 코덱스를 되찾아 지구에 새로운 왕국을 건설하려 하고클라크 켄트는 자신을 그토록 괴롭혔던 지구인을 지키기 위해 조드 장군과 전면 승부를 벌인다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 143,
+    "collectionId": 209131,
+    "collectionName": "맨 오브 스틸 시리즈",
+    "voteAverage": 6.653,
+    "voteCount": 16333,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8Qx9fp2lZJU4v67jks6MmOMBCQg.jpg",
     "posterAlt": "맨 오브 스틸 포스터",
     "watchProvidersKr": {
@@ -26635,8 +29700,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mrs. Wiggins (voice)",
       "Grammy Norma (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "공기도, 풀도, 바람도 모두 인공적으로 만들어낸 최첨단의 도시 스니드빌에 살고 있는 테드는 옆 집에 사는 소녀 오드리를 좋아합니다. 그녀의 마음을 얻을 궁리를 하던 테드는 오드리가 간절히 원하는 것이 지금은 그 어디에서도 볼 수 없는 살아있는 나무라는 것을 알게 됩니다. 그녀를 위해 테드는 나무에 얽힌 비밀을 알고 있는 단 한 사람, 원슬러를 만나러 스니드빌 밖으로의 위험천만한 모험을 떠나기로 결심합니다! 한편 공기와 인공 나무 등을 만들어 파는 최고의 부자이자 스니드빌의 지배자 미스터 오헤어는 테드가 살아있는 나무의 존재를 알게 되는 것을 막기 위해, 덩치 큰 부하들과 첨단 감시 기기 등의 온갖 방법을 동원해 음모를 꾸밉니다. 갖은 고생과 모험 끝에 마침내 황량한 언덕 꼭대기에 있는 원슬러의 오두막에 도착한 테드! 그 곳에서 원슬러가 들려준 이야기는 바로 환상적인 트러풀라 숲과 나무 요정 로렉스에 대한 놀라운 비밀이었는데……",
     "releaseYear": 2012,
+    "runtimeMinutes": 86,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.537,
+    "voteCount": 3919,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zRZVssgf4L4tdPFsYwJlyJknybe.jpg",
     "posterAlt": "로렉스 포스터",
     "watchProvidersKr": {
@@ -26696,8 +29769,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ellie",
       "Frankie"
     ],
+    "contextTags": [],
     "overview": "전직 UFC 파이터 돌턴은 플로리다키스 제도의 로드 하우스에서 경비원으로 일하게 되지만, 이곳이 보이는 것 같은 낙원이 결코 아니라는 걸 알게 된다.",
     "releaseYear": 2024,
+    "runtimeMinutes": 121,
+    "collectionId": 1290597,
+    "collectionName": "로드 하우스 (리메이크) 시리즈",
+    "voteAverage": 6.944,
+    "voteCount": 3107,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8D2eWclxjKJff0bDSNFVRySnPuT.jpg",
     "posterAlt": "로드 하우스 포스터",
     "watchProvidersKr": {
@@ -26744,8 +29823,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Stig's Father",
       "Sigge"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "학교 여선생인 비올라는 사춘기 소년인 자신의 학생 스틱의 사랑을 받게 된다. 처음에 비올라는 그저 그런 사춘기 소년의 짝사랑이려니 했지만, 결국은 스틱이 보내는 사랑을 받아들여 함께 사랑에 빠진다. 단지 감정적인 사랑으로서만 만나는 것이 아니라 적극적인 육체 접촉도 마다하지 않게 되고, 점점 더 서로의 육체에 탐닉하게 된다. 두 사람의 관계를 눈치챈 비올라의 남편은 현실에 순응하는 사람이고, 스틱은 그런 그녀의 남편에게 연민을 느낀다. 그러면서 스틱은 비올라에게서 점차 멀어져가고 비올라는 점점 더 스틱과의 관계에 집착하게 된다.",
     "releaseYear": 1995,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.435,
+    "voteCount": 176,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iIzl9GbCmk39Mgla3jnpRZLpQnC.jpg",
     "posterAlt": "아름다운 청춘 포스터",
     "watchProvidersKr": {
@@ -26819,8 +29906,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Wade Whipple",
       "Major Bennington"
     ],
+    "contextTags": [
+      "travel",
+      "family"
+    ],
     "overview": "소리보다 빠른 초고속 고슴도치 히어로 '소닉'은 지구에 불시착한다. 그의 특별한 능력을 감지한 과학자 ‘닥터 로보트닉’은 세계 정복의 야욕을 채우려 하고, 경찰관 ‘톰’은 위험에 빠진 ‘소닉’을 돕기 위해 나서는데…! 과연, ‘소닉'은 천재 악당에 맞서 지구를 지킬 수 있을까?",
     "releaseYear": 2020,
+    "runtimeMinutes": 99,
+    "collectionId": 720879,
+    "collectionName": "수퍼 소닉 시리즈",
+    "voteAverage": 7.281,
+    "voteCount": 10446,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bhGOIk6lVNVDx082NDB2OlrjjWO.jpg",
     "posterAlt": "수퍼 소닉 포스터",
     "watchProvidersKr": {
@@ -26887,8 +29983,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sally",
       "Kara"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "인류는 외계인의 침공에 맞서 승리했지만 핵을 사용한 대가로 지구는 죽음의 별이 되었다. 2077년 폐허가 된 지구상에 살아 있는 사람은 마지막 정찰병 잭 하퍼와 그의 파트너 빅토리아가 전부다. 두 사람의 임무는 지구에 남아 있는 외계인 잔당들로부터 발전탑을 지키고 있는 드론을 수리하고 관리하는 것. 2주 뒤면 임무를 마치고 귀환하기로 되어 있는 잭 하퍼의 앞에 어느 날 정체불명의 우주선이 추락한다. 잭은 그곳에서 자신도 기억하지 못하는 자신의 과거를 알고 있는 여인 줄리아를 만나고, 이후 모든 것에 의문을 품기 시작한다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.685,
+    "voteCount": 11608,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zxBmFFeYRKM6kLIxmrhWnyd055C.jpg",
     "posterAlt": "오블리비언 포스터",
     "watchProvidersKr": {
@@ -26967,8 +30071,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Airazor (voice)",
       "Mirage (voice)"
     ],
+    "contextTags": [],
     "overview": "전 우주의 행성을 집어삼키는 절대자, ‘유니크론’의 부하 ‘스커지’는 ‘테러콘’들을 이끌고 지구에 당도한다. 그에 맞서기 위해 지구에 정체를 숨기고 있던 트랜스포머 ‘오토봇’ 군단이 모습을 드러내고 또 다른 트랜스포머 진영인 ‘맥시멀’과 힘을 합친다. 옵티머스 프라임이 이끄는 ‘오토봇’과 옵티머스 프라이멀을 중심으로 한 ‘맥시멀’. 모두의 운명을 건 그들의 압도적 전투가 시작된다!",
     "releaseYear": 2023,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.168,
+    "voteCount": 5329,
     "posterUrl": "https://image.tmdb.org/t/p/w780/chUZNPNd7EiETSB4xBGykXhuXRr.jpg",
     "posterAlt": "트랜스포머: 비스트의 서막 포스터",
     "watchProvidersKr": {
@@ -27036,8 +30146,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Maya Ibuki (voice)",
       "Shigeru Aoba (voice)"
     ],
+    "contextTags": [],
     "overview": "‘카오루’의 죽음 이후 공황 상태에 빠진 ‘신지’. 한편, 네르프 총사령관 ‘겐도’는 ‘서드 임팩트’ 즉, ‘인류보완계획’을 놓고 ‘제레’와 갈등을 벌인다. 이에 ‘제레’는 양산형 에바를 투입해 네르프 본부와 에바 파일럿들을 향해 총공격을 감행하고 맹공에 혼수 상태였던 ‘아스카’까지 완전히 폭주한다. ‘신지’는 ‘미사토’의 도움으로 겨우 초호기에 오르지만, 인류의 운명을 결정해야 하는 상황에 한계에 부딪히게 되는데…",
     "releaseYear": 1997,
+    "runtimeMinutes": 87,
+    "collectionId": 96850,
+    "collectionName": "신세기 에반게리온 극장판 시리즈",
+    "voteAverage": 8.3,
+    "voteCount": 1883,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rS97sHvlsUAp8F6tkC78YjRU8wl.jpg",
     "posterAlt": "엔드 오브 에반게리온 포스터",
     "watchProvidersKr": {
@@ -27110,8 +30226,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Hamish Campbell",
       "Young William Wallace"
     ],
+    "contextTags": [],
     "overview": "13세기 말, 스코틀랜드 왕이 후계자 없이 죽자 잉글랜드는 왕권을 요구하며 스코틀랜드에 포악한 정치의 그림자를 드리우기 시작한다. 윌리엄 월레스(멜 깁슨)는 폭정을 피하여 멀리 보내져 양육된다. 그가 성장하여 고향에 돌아왔을때 스코틀랜드는 여전히 잉글랜드의 군주 롱생크(패트릭 맥구한)의 핍박과 탄압에 시달리고 있었다. 그는 운명적인 사랑의 여인 머론(캐서린 맥코맥)을 만나 결혼하지만, 잉글랜드의 폭정에 머론은 잔인하게 처형된다. 월레스는 머론의 복수를 다짐하고, 하나 둘씩 모여드는 스코틀랜드 사람들을 모아 용맹과 투지로 무장한 저항군의 지도자가 되는데...",
     "releaseYear": 1995,
+    "runtimeMinutes": 178,
+    "collectionId": 1432360,
+    "collectionName": "Braveheart Collection",
+    "voteAverage": 7.946,
+    "voteCount": 11216,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3aEg4uxWUJsd1Mcx6TaQAlxZiyZ.jpg",
     "posterAlt": "브레이브하트 포스터",
     "watchProvidersKr": {
@@ -27169,8 +30291,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Jim",
       "Gary"
     ],
+    "contextTags": [
+      "graduation",
+      "summer"
+    ],
     "overview": "부모가 연애를 하지않는 아들과 데이트 할 사람을 구하다 만난 여성과 진짜 사랑에 빠지게 되는 내용을 다룬 로맨스 코미디 영화",
     "releaseYear": 2023,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.678,
+    "voteCount": 3916,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cR10EZftaG4dBduGf0nZuyHG9Am.jpg",
     "posterAlt": "노 하드 필링스 포스터",
     "watchProvidersKr": {
@@ -27225,8 +30356,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Father",
       "Martin Coleman"
     ],
+    "contextTags": [],
     "overview": "5~6년 전, 콜롬비아 보고타에서 우연히 만난 존(브래드 피트)과 제인(안젤리나 졸리). 살인사건으로 검문당하던 제인은 존의 도움으로 무사히 빠져나가고 둘은 첫눈에 반해 사랑에 빠진다. 완벽한 외모와 성품을 가진 최고의 배우자를 만났다고 기뻐하는 두 사람. 그러나, 그것은 사상 최악의 잘못된 만남이었으니…바로 두 사람은 경쟁조직에 속한 일급킬러들이었던 것이다. 하지만 두 사람은 서로의 정체를 전혀 눈치채지도 못한 채 결혼에 골인한다. 그리고 5~6년 후… 겉보기엔 평온한 부부생활을 즐기는 존과 제인 부부. 매일 저녁 7시엔 꼭 함께 저녁식사를 하고, 정원을 가꾸고, 아침이 되면 나란히 차를 타고 출근한다. 하지만 그들이 회사에서 보내는 하루일과는 암살로 시작해 암살로 끝난다. 때로 야근에 특근도 있고 출장도 잦다. 이처럼 평범치 않은 신분의 존과 제인에게 아주 평범한(?) 위기가 닥친다. 바로 권태기에 빠지게 된 것. 처음 만났을때의 설레임은 도무지 찾아볼수가 없고 섹스도 거의 없는 이 부부는 이 심각한 상황을 벗어나기 위해 상담도 해보지만 별 소용이 없다. 그러던 중 조직으로부터 임무를 부여 받은 두 사람은 암살현장에서 예기치 않은 방해꾼을 발견한다. 그리고 상대를 제거하기 위해 총구를 겨눈 순간, 상대 킬러가 바로 자신의 배우자임을 알게 된다. 이 충격적인 사실로 혼돈스러운 것도 잠시, 임무실패에 대한 책임으로 두 사람은 각각 조직으로부터 48시간 내에 상대 킬러를 죽이라는 명령을 받는다. 이제 어제의 부부가 오늘 적이 되어 수단과 방법을 가리지 않고 서로를 죽이기 위해 쫓고 쫓기는 게임을 시작하는데…",
     "releaseYear": 2005,
+    "runtimeMinutes": 120,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.694,
+    "voteCount": 11313,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eILgGFATmfuYAagXdW8zPm6WzCe.jpg",
     "posterAlt": "미스터 & 미세스 스미스 포스터",
     "watchProvidersKr": {
@@ -27310,8 +30447,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Tony Cameron",
       "Kelly Wilson"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "이혼을 피하기 위해 아내가 바람을 피울 수 있도록 허락한 유복한 남편이 연인들의 실종 사건의 유력한 용의자가 된다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.838,
+    "voteCount": 1675,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bHLDN1EEGuaAjF9H4UmhAOdLN6c.jpg",
     "posterAlt": "딥 워터 포스터",
     "watchProvidersKr": {
@@ -27353,8 +30498,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Ash",
       "Parker"
     ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
     "overview": "2122년, 2천만톤의 광물과 7명의 승무원을 태우고 지구로 귀환중인 화물선 노스트로모호의 메인 컴퓨터 마더는 어떤 위성에서 나오는 알 수 없는 신호를 포착하게 된다. 마더에 의해 동면중 깨어난 승무원들은 이 신호를 조사하기 위해 혹성 LA-426에 착륙한다. 이들 중엔 2등 항해사인 엘렌 리플리도 있다. 혹성에서 정체 불명의 우주선을 발견한 그들은 탐사에 나서지만, 우주선은 이미 오래전에 파괴되어 썩고 있었으며 승무원들은 모두 미이라로 변해 있다. 사고 원인을 찾기 위해 좀 더 안으로 들어간 조사반은 여기저기 계란 모양의 물체가 있는 산란실을 발견하는데...",
     "releaseYear": 1979,
+    "runtimeMinutes": 117,
+    "collectionId": 8091,
+    "collectionName": "에이리언 시리즈",
+    "voteAverage": 8.17,
+    "voteCount": 16532,
     "posterUrl": "https://image.tmdb.org/t/p/w780/k3m1RdlYUlCx51PxxNMlmbm7QSk.jpg",
     "posterAlt": "에이리언 포스터",
     "watchProvidersKr": {
@@ -27409,8 +30563,16 @@ export const catalogMovies: CatalogMovie[] = [
     "characters": [
       "플로우"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "인간이 살았던 흔적만이 남아있는 세상, 홀로 집을 지키던 '고양이'는 갑작스러운 대홍수로 평화롭던 일상과 아늑했던 터전을 잃고 만다. 때마침 다가온 낡은 배에 올라탄 '고양이'는 그 안에서 '골든 리트리버', '카피바라', '여우원숭이', '뱀잡이수리'를 만나고 서로의 차이점을 극복하고 팀을 이뤄 험난한 파도를 헤쳐나간다.",
     "releaseYear": 2024,
+    "runtimeMinutes": 85,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.076,
+    "voteCount": 2915,
     "posterUrl": "https://image.tmdb.org/t/p/w780/iEDrRE5TWjKrWO2MtkCBR5aH7pT.jpg",
     "posterAlt": "플로우 포스터",
     "watchProvidersKr": {
@@ -27457,8 +30619,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Tauriel",
       "King Thranduil"
     ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
     "overview": "사나운 용 스마우그가 빼앗아간 동쪽의 외로운 산 에레보르 왕국을 되찾기 위해 뜻하지 않은 여정을 떠나게 된 호빗 빌보 배긴스와 간달프, 그리고 난쟁이족 왕족의 후예 소린이 이끄는 13명의 난쟁이족. 원정대는 외로운 산으로 가는 길에 어둠의 숲에서 모습을 자유자재로 바꾸는 베오른과 거대한 거미떼를 만나고, 난쟁이들에게 적대적인 엘프족에게 잡혔다가 도망쳐 호수마을을 지나는 등 다양한 모험을 하게 된다. 그리고 마침내 지금껏 만났던 그 어떤 존재보다도 위험하고 모두의 용기와 우정, 지혜의 한계를 시험에 들게 한 용 스마우그와 맞닥뜨리게 되는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 161,
+    "collectionId": 121938,
+    "collectionName": "호빗 시리즈",
+    "voteAverage": 7.582,
+    "voteCount": 14322,
     "posterUrl": "https://image.tmdb.org/t/p/w780/jhnHkvYSi9AlwDcYLlv193LiOPG.jpg",
     "posterAlt": "호빗: 스마우그의 폐허 포스터",
     "watchProvidersKr": {
@@ -27525,8 +30696,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Charlie Swan",
       "Dr. Carlisle Cullen"
     ],
+    "contextTags": [
+      "graduation",
+      "literary"
+    ],
     "overview": "불멸의 사랑을 위해 뱀파이어가 되기로 결심한 벨라. 제이콥은 벨라의 선택을 가로막으며 자신을택하도록 종용하고 이로 인해 에드워드와의 갈등은 더욱 심해진다. 한편 시애틀에서 의문의 연쇄살인사건이 일어나고 에드워드는 곧 이 사건의 배후를 알게 되지만 벨라에게는 비밀로 하는데…",
     "releaseYear": 2010,
+    "runtimeMinutes": 124,
+    "collectionId": 33514,
+    "collectionName": "트와일라잇 시리즈",
+    "voteAverage": 6.192,
+    "voteCount": 9291,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9FiYRPWcGsKJZRVyuev6Tn6kBiV.jpg",
     "posterAlt": "이클립스 포스터",
     "watchProvidersKr": {
@@ -27575,8 +30755,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Mama Bear (voice)",
       "Papa Bear (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "아홉 개의 목숨 중 단 하나의 목숨만 남은 장화신은 고양이.  마지막 남은 목숨을 지키기 위해 히어로의 삶 대신 반려묘의 삶을 선택한 그에게 찾아온 마지막 기회, 바로 소원을 들어주는 소원별이 있는 곳을 알려주는 지도!  잃어버린 목숨을 되찾고 다시 히어로가 되기를 꿈꾸는 장화신은 고양이는 뜻밖에 동료가 된 앙숙 파트너 '키티 말랑손', 그저 친구들과 함께라면 모든 게 행복한 강아지 '페로'와 함께 소원별을 찾기 위해 길을 떠난다.  그리고 소원별을 노리는 또 다른 빌런들과 마주치게 되는데…",
     "releaseYear": 2022,
+    "runtimeMinutes": 103,
+    "collectionId": 94602,
+    "collectionName": "장화신은 고양이 시리즈",
+    "voteAverage": 8.211,
+    "voteCount": 9008,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rKgvctIuPXyuqOzCQ16VGdnHxKx.jpg",
     "posterAlt": "장화신은 고양이: 끝내주는 모험 포스터",
     "watchProvidersKr": {
@@ -27636,8 +30824,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Copper",
       "Norris"
     ],
+    "contextTags": [
+      "literary",
+      "space",
+      "winter"
+    ],
     "overview": "남극의 노르웨이 탐사팀이 이상한 개를 쫓아 미국 기지까지 오게 된다. 거의 발광하다시피 개를 공격하다가 그만 방어하던 미국인들에게 사살된다. 미국인들은 진상을 조사하기 위해 노르웨이 기지로 사람을 보낸다. 그곳은 사람은 하나도 없고 이상하게 일그러진 시체와 잔해들을 발견한다. 시체들을 해부해 봤지만 별 이상이 발견되지는 않았다. 그러던 어느 날 노르웨이 탐사팀의 추격을 받았던 개가 개집에서 끔찍한 괴물로 변하게 되는데...",
     "releaseYear": 1982,
+    "runtimeMinutes": 109,
+    "collectionId": 479888,
+    "collectionName": "더 씽 시리즈",
+    "voteAverage": 8.072,
+    "voteCount": 8041,
     "posterUrl": "https://image.tmdb.org/t/p/w780/sJfEZgPQpxFn6TVx96Im3GeMYzG.jpg",
     "posterAlt": "괴물 포스터",
     "watchProvidersKr": {
@@ -27683,8 +30881,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Raven / Mystique",
       "Storm"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "돌연변이들을 멸종시키기 위해 제작된 로봇 센티넬이 인간들까지 모조리 말살하는 2023년. 인류의 종말이 코앞에 닥친 상황에서 프로페서X와 매그니토는 과거를 통해 미래의 운명을 바꾸고자 한다. 울버린은 트라스크가 센티넬을 개발하는 것을 막기 위해 1973년으로 보내진다. 1973년의 찰스는 절망에 빠진 채 행크 맥코이와 함께 은둔 생활을 하고 있고, 에릭은 케네디 대통령 암살 용의자로 붙잡혀 펜타곤 지하 깊숙한 곳에 위치한 수용소에 갇혀 있다.",
     "releaseYear": 2014,
+    "runtimeMinutes": 134,
+    "collectionId": 748,
+    "collectionName": "엑스맨 시리즈",
+    "voteAverage": 7.533,
+    "voteCount": 16375,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zm5zanw86TX2T7qJNTKilL3x3S8.jpg",
     "posterAlt": "엑스맨: 데이즈 오브 퓨처 패스트 포스터",
     "watchProvidersKr": {
@@ -27739,8 +30945,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jack-Jack Parr (voice)",
       "Winston Deavor (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "슈퍼맘 헬렌이 국민 히어로 일라스티걸로 활약하며 세상의 주목을 받자 바쁜 아내의 몫까지 집안일을 하기 위해 육아휴직을 낸 아빠 밥은 질풍노도 시기의 딸 바이올렛, 자기애가 넘치는 아들 대쉬, 어마무시한 능력을 시도때도 없이 방출하는 막내 잭잭까지 전담하며 전쟁같은 하루하루를 보낸다. 그러던 어느 날, 각자의 위치에서 바쁜 일상을 보내던 슈퍼파워 가족 앞에 새로운 악당이 나타났다. 다시 한번 세상을 구하기 위해 나선 가족은 ‘인크레더블’한 능력을 발휘할 수 있을까?",
     "releaseYear": 2018,
+    "runtimeMinutes": 125,
+    "collectionId": 468222,
+    "collectionName": "인크레더블 시리즈",
+    "voteAverage": 7.454,
+    "voteCount": 13769,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qGmgOmeN8AQX5LwrAVaatwWffDs.jpg",
     "posterAlt": "인크레더블 2 포스터",
     "watchProvidersKr": {
@@ -27794,8 +31008,16 @@ export const catalogMovies: CatalogMovie[] = [
       "The Ancient One",
       "Dr. Nicodemus West"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "오만함과 실력 모두 최고인 신경외과 의사 닥터 스티븐 스트레인지는 운전 중에 핸드폰을 한 대가로 두 손의 신경이 끊어지는 심각한 부상을 입고 큰 상심에 빠진다. 게다가 모난 말들로 사랑하는 여인 크리스틴 팔머마저 그의 곁을 떠나게 만든다. 그는 치료를 위해 히말라야의 영적 지도자, 에인션트 원을 만나 마지막 희망을 걸고 수련을 시작한다. 스트레인지는 빠르게 마법을 터득해 나가는 동시에 세계의 작동원리와 우주를 정복하려는 도르마무 일당의 계략을 알게 된다. 모든 것을 초월한 최강의 히어로로 거듭나는데...",
     "releaseYear": 2016,
+    "runtimeMinutes": 115,
+    "collectionId": 618529,
+    "collectionName": "닥터 스트레인지 시리즈",
+    "voteAverage": 7.423,
+    "voteCount": 23561,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xA7ic72L0mejJX1SYMU38F7wwiF.jpg",
     "posterAlt": "닥터 스트레인지 포스터",
     "watchProvidersKr": {
@@ -27853,8 +31075,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Hotel Manager",
       "David Morse"
     ],
+    "contextTags": [],
     "overview": "에드워드는 망해가는 회사를 사들여 나누어서 비싸게 파는 일을 하는 부유하고도 냉정한 사업가다. 사업차 LA로 간 그는 그 곳에서 비비안이라는 매춘부를 만나 하룻밤을 지낸다. 그는 영화를 보면서 웃거나 목욕을 하며 노래를 부르는 그녀의 모습을 보고 한 주 동안 자신과 같이 지낼 것을 제안하고, 비비안은 에드워드와 중요한 자리에 참석하기 위해 완전히 딴 사람으로 변신한다. 함께 지내게 된 리차드와 비비안은 서로에게 호감을 느끼고, 에드워드는 비비안과 함께 잠시 일에서 벗어나 한가로운 시간을 보내며 회사를 나누어 팔기만 하는 자신의 일에 대해 다시 한번 생각하게 된다.",
     "releaseYear": 1990,
+    "runtimeMinutes": 120,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.447,
+    "voteCount": 9047,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6F41jUuKsZGDnrKsvfVtSNfWrgB.jpg",
     "posterAlt": "귀여운 여인 포스터",
     "watchProvidersKr": {
@@ -27915,8 +31143,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Jeebs",
       "Beatrice"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "뉴욕 경찰 에드워드는 용의자를 추적 중 그가 건물을 기어오르고 허공을 떠오르는 등의 장면을 목격한다. 용의자는 지구가 멸망할 것이라 주장하며 투신 자살을 하고 에드워드는 검은 양복을 입은 MIB요원 캐이를 만난다. 캐이는 에드워드의 탁월한 능력을 알아차리고 그를 비밀 요원으로 발탁한다. MIB는 지구인의 모습으로 살고 있는 외계인들을 감시하고 외계인의 정체를 보호하며 혹시라도 일반인이 그들이 외계인임을 알아차리면 기억 말소 장치를 이용해 외계인들을 보호한다. 그러나 사악한 바퀴벌레 외계인 에드가가 지구에 침투해 오면서 이민외계인들은 불안해 하는 등 동요하기 시작한다. 이 때 지구를 방문한 외교 사절이 암살당하는 사건이 발생해 은하계가 전면전에 돌입하자 지구는 멸망의 위기에 처한다. 지구를 지키고 우주의 평화를 지키기 위해 에드워드와 케이는 에드가와의 결전을 준비하는데...",
     "releaseYear": 1997,
+    "runtimeMinutes": 98,
+    "collectionId": 86055,
+    "collectionName": "맨 인 블랙 시리즈",
+    "voteAverage": 7.225,
+    "voteCount": 14951,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nWQNnOvrJJVrjLKKmmxieiivAWS.jpg",
     "posterAlt": "맨 인 블랙 포스터",
     "watchProvidersKr": {
@@ -27987,8 +31223,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Seung-wook",
       "Je-yoon"
     ],
+    "contextTags": [],
     "overview": "1979년 환자 42명의 집단 자살과 병원장의 실종 이후, 섬뜩한 괴담으로 둘러싸인 곤지암 정신병원으로 공포체험을 떠난 7명의 멤버들. 원장실, 집단 치료실, 실험실, 열리지 않는 402호. 괴담의 실체를 담아내기 위해 병원 내부를 촬영하기 시작하던 멤버들에게 상상도 못한 기이하고 공포스러운 일들이 실제로 벌어지기 시작 하는데…",
     "releaseYear": 2018,
+    "runtimeMinutes": 94,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.276,
+    "voteCount": 958,
     "posterUrl": "https://image.tmdb.org/t/p/w780/llj8dIkLSHOG1X7aFXims2IaCU5.jpg",
     "posterAlt": "곤지암 포스터",
     "watchProvidersKr": {
@@ -28084,8 +31326,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Leonard",
       "Major Kathleen Sparr"
     ],
+    "contextTags": [],
     "overview": "실험 중 감마선에 노출된 이후 분노를 통제할 수 없는 상태가 되면 괴력을 지닌 녹색 괴물 헐크로 변하게 되는 브루스 배너. 필사적으로 치료제 개발에 매달리지만, 그의 능력을 이용하려는 정부와 군대의 끈질긴 추격을 받고 쫓기게 된다. 한편 헐크의 거대한 힘의 비밀을 파헤치던 이들은 헐크보다 더 파괴적인 어보미네이션을 만드는데 성공, 도시 전체를 집어삼키려 한다. 이에 브루스 배너는 정상적인 인생을 되찾으려던 계획을 버리고, 어보미네이션과 군대, 그리고 자기 자신과의 마지막 대결을 준비하는데...",
     "releaseYear": 2008,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.247,
+    "voteCount": 12810,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hKoPe6G1piR73G1Lj9dHd5AG1b.jpg",
     "posterAlt": "인크레더블 헐크 포스터",
     "watchProvidersKr": {
@@ -28146,8 +31394,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Meena (voice)",
       "Gunter (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "대국민 오디션 이후 각자의 자리에서 꿈을 이루고 있는 버스터 문(매튜 맥커너히)과 크루들에게 레드 쇼어 시티에서 전 세계가 주목하는 사상 최고의 쇼가 펼쳐진다는 소식이 들려오고 버스터 문과 크루들은 도전에 나선다. 그러나 최고의 스테이지에 서기 위한 경쟁은 이전과는 비교도 할 수 없을 만큼 치열하고, 버스터 문은 완벽한 라이브를 위해 종적을 감춘 레전드 뮤지션 클레이(보노)를 캐스팅하겠다는 파격 선언을 하는데!",
     "releaseYear": 2021,
+    "runtimeMinutes": 109,
+    "collectionId": 544670,
+    "collectionName": "씽 시리즈",
+    "voteAverage": 7.833,
+    "voteCount": 4820,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xxpPSgWZ1D7S5ugMjGdHJpOjZIz.jpg",
     "posterAlt": "씽2게더 포스터",
     "watchProvidersKr": {
@@ -28207,8 +31463,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Shansa",
       "Joshamee Gibbs"
     ],
+    "contextTags": [],
     "overview": "윌 터너는 죽은 자들을 저승으로 인도하는 플라잉 더치맨호의 선장이다. 뭍에는 일년에 한번밖에 올라오지 못하고, 평생 바다 속에서 지낼 운명에 처해 있다. 윌 터너의 아들, 헨리 터너는 아버지의 저주를 풀기위해 바다 전설을 섭렵했다. 그가 찾은 해결책은 포세이돈의 삼지창을 찾는 것이다. 헨리는 자신을 도와줄 캡틴 잭 스패로우를 찾아 전세계 바다를 떠돈다. 잭 스패로우를 찾는 이는 또 있다. 악마의 삼각지대에 발이 묶인 채 좀비가 되어버린 캡틴 살라자르 일당이 그들인데...",
     "releaseYear": 2017,
+    "runtimeMinutes": 129,
+    "collectionId": 295,
+    "collectionName": "캐리비안의 해적 시리즈",
+    "voteAverage": 6.661,
+    "voteCount": 12901,
     "posterUrl": "https://image.tmdb.org/t/p/w780/arcIFL50IPQT7JDG2SD6tzcOlRL.jpg",
     "posterAlt": "캐리비안의 해적: 죽은 자는 말이 없다 포스터",
     "watchProvidersKr": {
@@ -28268,8 +31530,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Aro",
       "Esme Cullen"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "우여곡절 끝에 많은 이들의 축복 속에 뱀파이어 에드워드와 결혼식을 올린 벨라!  아직 마음을 정리하지 못한 제이콥을 뒤로하고 허니문을 떠난 벨라와 에드워드는  세상에서 가장 아름답고 특별한 첫날 밤을 보내게 된다.  행복한 시간도 잠시, 벨라는 예상치 못한 임신을 하게 된다.  새로운 생명의 탄생이 불러올 종족 간 최대의 위기!  시리즈 사상 가장 거대한 전쟁이 펼쳐진다!  한편 늑대인간 ‘퀼렛’족은 인간과 뱀파이어의 결합으로 생긴 아기가  후에 위험한 존재가 될 것이라고 판단, 임신한 벨라를 없애려 한다.  제이콥은 자신의 종족을 이탈해 뱀파이어 ‘컬렌’가와 함께 벨라를 지킨다.  그러나 벨라는 배 속에서 강력한 힘으로 빠르게 자라는 아기 때문에  목숨이 위태로운 상황에 놓이는데...!  전세계를 열광시킨 최고의 신드롬!  ‘트와일라잇’ 시리즈의 신화가 다시 시작된다!",
     "releaseYear": 2011,
+    "runtimeMinutes": 117,
+    "collectionId": 33514,
+    "collectionName": "트와일라잇 시리즈",
+    "voteAverage": 6.189,
+    "voteCount": 9314,
     "posterUrl": "https://image.tmdb.org/t/p/w780/osAoEqaiNO61IEkbKllJ7KlzrfW.jpg",
     "posterAlt": "브레이킹 던 Part 1 포스터",
     "watchProvidersKr": {
@@ -28324,8 +31594,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Pepa Madrigal (voice)",
       "Julieta Madrigal  (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "콜롬비아의 깊은 산 속, 놀라운 마법과 활기찬 매력이 넘치는 세계 엔칸토. 이곳을 만든 장본인은 마드리갈 가문의 기둥인 알마 할머니다. 그녀는 젊었을 때 세 쌍둥이를 데리고 이곳으로 오던 중에 위기를 맞았다. 그때 그녀가 들고 있던 촛불에 기적이 일어났고 그이후로 마법의 능력이 손주 세대까지 대물림된다. 3대에 걸친 이대가족은 음식으로 병을 고치는 능력, 꽃을 피우는 능력, 날씨를 조종 하는 능력 등 저마다 독특한 능력을 지니게 됐다. 하지만 가족 중 유일하게 미라벨만 아무런 능력이 없다. 어느 날 엔칸토가 지닌 마법의 힘이 위험에 처하고 가족들은 점차 자신의 능력을 잃어가기 시작한다. 이를 감지한 미라벨은 유일하게 평범한 자신이 특별한 이 가족의 마지막 희망일지 모른다고 생각하는데...",
     "releaseYear": 2021,
+    "runtimeMinutes": 102,
+    "collectionId": 1451277,
+    "collectionName": "Encanto Collection",
+    "voteAverage": 7.567,
+    "voteCount": 10274,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8xoP2YfCmhhVUZ0jfLjVl45oM2U.jpg",
     "posterAlt": "엔칸토: 마법의 세계 포스터",
     "watchProvidersKr": {
@@ -28379,8 +31657,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Nykwana Wombosi",
       "Danny Zorn"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "이탈리아 어부들이 지중해 한 가운데에서 등에 두 발의 총상을 입은 채 표류하고 있는 한 남자를 구하게 된다. 그는 기억 상실증에 걸려 자신이 누구인지조차 모른다. 단서는 등에 입은 총상과 스위스 은행의 계좌번호 뿐.  자신의 존재를 찾아 스위스로 향한 그는 자신이 파리에서 제이슨 본이라는 이름으로 살았음을 알게 되지만, 여러 개의 가명으로 만들어진 여권을 보고 자신의 정체성을 잃게 된다. 경찰과 군인까지 그를 추적하고 있다는 사실을 알게 된 제이슨 본. 추격을 피해 도망가다 우연히 만나게 된 마리라는 여성에게 2만 달러라는 거금을 주고 파리까지 차를 얻어 타게 되는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 118,
+    "collectionId": 31562,
+    "collectionName": "본 시리즈",
+    "voteAverage": 7.481,
+    "voteCount": 10180,
     "posterUrl": "https://image.tmdb.org/t/p/w780/crj9CUvNqeNHNdUm8bTN9jpEWqI.jpg",
     "posterAlt": "본 아이덴티티 포스터",
     "watchProvidersKr": {
@@ -28458,8 +31744,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Nora Allen",
       "Iris West"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "시공간이 붕괴된 세계, 차원이 다른 히어로가 온다! 빛보다 빠른 스피드, 물체 투과, 전기 방출, 자체 회복, 천재적인 두뇌까지 갓벽한 능력을 자랑하지만 존재감은 제로, 저스티스 리그에서 궂은일을 도맡아 하는 히어로 ‘플래시’. 어느 날 자신에게 빛보다 빠른 속도로 달리면 시공간 이동 능력이 있음을 알게 된 그는 ‘브루스 웨인’의 만류를 무시한 채 끔찍한 상처로 얼룩진 과거를 바꾸기 위해 시간을 역행한다. 의도치 않은 장소에 불시착한 ‘플래시’는 멀티버스 세상 속 또 다른 자신과 맞닥뜨리고 메타 휴먼이 흔적도 없이 사라지고 모든 것이 뒤엉킨 세상과 마주하게 된다. ‘플래시’는 자신이 알던 모습과 전혀 달라진 나이 들고 은퇴한 ‘배트맨’과 크립톤 행성에서 온 ‘슈퍼걸’의 도움으로 외계의 침공으로부터 시간과 차원이 붕괴된 지구를 구하려 나서는데…",
     "releaseYear": 2023,
+    "runtimeMinutes": 144,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.621,
+    "voteCount": 5072,
     "posterUrl": "https://image.tmdb.org/t/p/w780/wgjojKrLVoeWhx0C22YjdAkizgH.jpg",
     "posterAlt": "플래시 포스터",
     "watchProvidersKr": {
@@ -28506,8 +31800,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Giyu Tomioka (voice)",
       "Tengen Uzui (voice)"
     ],
+    "contextTags": [],
     "overview": "혈귀로 변한 여동생 ‘네즈코’를 되돌리기 위해 귀살대가 된 ‘탄지로’! 어둠 속을 달리는 무한열차에서 승객들이 흔적 없이 사라진다는 소식에 ‘젠이츠’, ‘이노스케’와 함께 임무 수행을 위해 무한열차에 탑승한다. 그리고 그곳에서 만난 귀살대 최강 검사 염주 ‘렌고쿠’! 이들은 무한열차에 숨어 있는 혈귀의 존재를 직감하고 모두를 구하기 위해 목숨을 건 혈전을 시작하는데…",
     "releaseYear": 2020,
+    "runtimeMinutes": 117,
+    "collectionId": 925155,
+    "collectionName": "극장판 귀멸의 칼날 시리즈",
+    "voteAverage": 8.22,
+    "voteCount": 4573,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8VhwCJ9gqfGor5uk2sqt9ZqeacN.jpg",
     "posterAlt": "극장판 귀멸의 칼날: 무한열차편 포스터",
     "watchProvidersKr": {
@@ -28598,8 +31898,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Q",
       "Moneypenny"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "MI6를 떠난 이후 매들린과 이탈리아의 오랜 도시 마테라에서 평화로운 일상을 즐기던 제임스 본드. 어느 날 CIA 요원 펠릭스가 찾아와 선별적 DNA 공격이 가능한 새로운 형태의 생화학 무기 유출을 알린다. 위험에 처한 전 세계를 구하기 위해 복귀하게 된 제임스 본드는 임무를 수행하는 과정에서 새로운 MI6 요원 노미를 만나고, 모든 사건의 배후에 운명으로 얽혀 있는 최악의 적 사핀이 존재한다는 것을 알아낸다. 위험천만한 위기 속, 감춰져 있던 비밀이 밝혀지면서 작전은 점점 더 예측할 수 없는 상황으로 치닫게 되는데...",
     "releaseYear": 2021,
+    "runtimeMinutes": 163,
+    "collectionId": 645,
+    "collectionName": "007 제임스 본드 시리즈",
+    "voteAverage": 7.3,
+    "voteCount": 7204,
     "posterUrl": "https://image.tmdb.org/t/p/w780/68ZwnPALUeweaFdT1z75oXJ4Xie.jpg",
     "posterAlt": "007 노 타임 투 다이 포스터",
     "watchProvidersKr": {
@@ -28659,8 +31967,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Robbie",
       "Molly"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "좋은 직장, 좋은 집, 그리고 멋진 아이들까지 모든 것이 완벽하게 이뤄져가는 삶을 산다고 생각했던 칼(스티브 카렐)은 아내 에밀리(줄리안 무어)의 이혼 선언에 모든 것이 무너지는 것을 알게 된다. 충격을 다 잡을틈도 없이 짐을 싸 집을 나온 그는 술집에서 여자를 유혹하는 모든 기술을 가진 잘 나가는 30대 제이콥(라이언 고슬링)을 만나게 된다. 칼을 안쓰럽게 여긴 제이콥은 그에게 모든 기술을 전수해 주고, 그는 중년 차도남으로 거듭난다. 그러면서 전에 없던 새로운 경험과 아내의 소중함, 그리고 가족에 대해서 다시 돌아보게 되는데...",
     "releaseYear": 2011,
+    "runtimeMinutes": 118,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.275,
+    "voteCount": 9358,
     "posterUrl": "https://image.tmdb.org/t/p/w780/p4RafgAPk558muOjnBMHhMArjS2.jpg",
     "posterAlt": "크레이지 스투피드 러브 포스터",
     "watchProvidersKr": {
@@ -28740,8 +32056,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gazelle",
       "Arthur"
     ],
+    "contextTags": [],
     "overview": "높은 IQ, 주니어 체조대회 2년 연속 우승! 그러나 학교 중퇴, 해병대 중도 하차. 동네 패싸움에 직장은 가져본 적도 없이 별볼일 없는 루저로 낙인 찍혔던 그가 젠틀맨 스파이로 전격 스카우트 됐다! 전설적 베테랑 요원 해리 하트는 경찰서에 구치된 에그시를 구제한다. 탁월한 잠재력을 알아본 그는 에그시를 전설적 국제 비밀정보기구 킹스맨 면접에 참여시킨다. 아버지 또한 킹스맨의 촉망 받는 요원이었으나 해리 하트를 살리기 위해 죽었다는 사실을 알게 된 에그시. 목숨을 앗아갈 만큼 위험천만한 훈련을 통과해야 하는 킹스맨 후보들. 최종 멤버 발탁을 눈 앞에 둔 에그시는 최고의 악당 발렌타인을 마주하게 되는데…",
     "releaseYear": 2015,
+    "runtimeMinutes": 129,
+    "collectionId": 391860,
+    "collectionName": "킹스맨 시리즈",
+    "voteAverage": 7.62,
+    "voteCount": 17919,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pVwvZAgnsuMcDGbeWVtXOpks1oQ.jpg",
     "posterAlt": "킹스맨: 시크릿 에이전트 포스터",
     "watchProvidersKr": {
@@ -28795,8 +32117,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Kent",
       "Ted Arroway"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "앨리 에로위(조디 포스터)는 어렸을 적 외계인으로부터 교신을 받은 기억을 지니고 사는 소녀이다.  그녀는 성장하면서도 계속 그 믿음을 지녀 밤마다 모르는 상대와의 교신을 기다리며 단파 방송에 귀를 기울인다. 아버지가 돌아가신 후 자신이 찾고자 하는 절대적인 진리의 해답은 과학에 있다고 믿는 그녀. 천문학자가 된 엘리는 그리움의 대상을 우주 어딘가의 외계생명체에서 찾는다. 마침내 그가 포착한 베가성에서 온 신호는 은하계를 넘나드는 운송수단의 설계도였고 세계는 혼돈에 휩싸이게 되는데...",
     "releaseYear": 1997,
+    "runtimeMinutes": 150,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.449,
+    "voteCount": 5049,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qrPziDNhXLCrOShs3cPY1Arb71J.jpg",
     "posterAlt": "콘택트 포스터",
     "watchProvidersKr": {
@@ -28869,8 +32199,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Sylva",
       "Anaya"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "진화한 유인원과 퇴화된 인간들이 살아가는 땅. 유인원 리더 프록시무스는 완전한 군림을 위해 인간들을 사냥하며 자신의 제국을 건설한다. 한편, 또 다른 유인원 노아는 우연히 숨겨진 과거의 이야기와 시저의 가르침을 듣게 되고 인간과 유인원이 함께 할 새로운 세상을 꿈꾼다. 어느 날 그의 앞에 나타난 의문의 한 인간 소녀. 노아는 그녀와 함께 자유를 향한 여정을 시작하게 되는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 145,
+    "collectionId": 173710,
+    "collectionName": "혹성탈출 리메이크 시리즈",
+    "voteAverage": 7.055,
+    "voteCount": 4318,
     "posterUrl": "https://image.tmdb.org/t/p/w780/caNBYk7beRAg8Tcpe7ZjzM2nYXH.jpg",
     "posterAlt": "혹성탈출: 새로운 시대 포스터",
     "watchProvidersKr": {
@@ -28933,8 +32271,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bad Cop / Good Cop / Pa Cop (voice)",
       "Unikitty (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "배트맨, 슈퍼맨, 원더우먼, 인어공주, 초록닌자, 1980몇년 우주인, 미켈란젤로, 미켈란젤로 닌자거북이, 2002 NBA 올스타 등등등. 이들 마스터 빌더 사이에서 희망으로 선택된 평범한 미니피겨! 그의 작고 노란 손에 레고 세계의 운명이 달렸다!",
     "releaseYear": 2014,
+    "runtimeMinutes": 100,
+    "collectionId": 325470,
+    "collectionName": "레고 무비 시리즈",
+    "voteAverage": 7.431,
+    "voteCount": 8561,
     "posterUrl": "https://image.tmdb.org/t/p/w780/6jpIioQUPX0laOuaPP8uIl16lyi.jpg",
     "posterAlt": "레고 무비 포스터",
     "watchProvidersKr": {
@@ -29006,8 +32352,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Iwi Queen",
       "Hampton"
     ],
+    "contextTags": [],
     "overview": "두 타이탄의 전설적인 대결 이후 할로우 어스에 남은 콩은 드디어 애타게 찾던 동족을 발견하지만 그 뒤에 도사리고 있는 예상치 못한 위협에 맞닥뜨린다. 한편, 깊은 동면에 빠진 고질라는 알 수 없는 신호로 인해 깨어나고 푸른 눈의 폭군 스카 킹의 지배 아래 위기에 처한 할로우 어스를 마주하게 된다. 할로우 어스는 물론, 지구상에도 출몰해 전세계를 초토화시키는 타이탄들의 도발 속에서 고질라와 콩은 사상 처음으로 한 팀을 이뤄 반격에 나서기로 하는데…",
     "releaseYear": 2024,
+    "runtimeMinutes": 115,
+    "collectionId": 1539140,
+    "collectionName": "Godzilla x Kong Collection",
+    "voteAverage": 7.048,
+    "voteCount": 4745,
     "posterUrl": "https://image.tmdb.org/t/p/w780/4z1VMmlxHrziG45901esjB4dpIa.jpg",
     "posterAlt": "고질라 X 콩: 뉴 엠파이어 포스터",
     "watchProvidersKr": {
@@ -29061,8 +32413,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Jasper",
       "Rosalie"
     ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
     "overview": "17세의 평범한 고등학생 소녀 ‘벨라’는 집안 사정으로 워싱턴 주 포크스에 있는 아빠의 집으로 이사를 온다. 전학 첫날, ‘벨라’는 냉담하지만 자신을 무장 해제시킬 정도로 잘생긴 ‘에드워드’와 마주치고, 전율과 두려움 넘치는 인생의 전환을 맞이한다. ‘에드워드’와 돌이킬 수 없는 사랑에 빠져든 ‘벨라’. 하지만 ‘에드워드’와 그의 가족이 뱀파이어 일족이라는 사실을 알게 되고, 예기치 못한 운명에 빠져든다.",
     "releaseYear": 2008,
+    "runtimeMinutes": 122,
+    "collectionId": 33514,
+    "collectionName": "트와일라잇 시리즈",
+    "voteAverage": 6.281,
+    "voteCount": 14488,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ryvt6cLTjHHH7Nnce3Xi5S3I533.jpg",
     "posterAlt": "트와일라잇 포스터",
     "watchProvidersKr": {
@@ -29127,8 +32488,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Fred Powell",
       "Felicity Chase"
     ],
+    "contextTags": [],
     "overview": "오만하지만 카리스마가 매력인 바람둥이 남자. 돈과 권력, 가벼운 연애로 가득한 삶을 누린다. 어느 날 갑자기 여자들이 지배하는 평행 세계에서 눈을 뜨게 되면서 그의 세계가 완전히 뒤집힌다.\r 여자들이 지배하는 평행 세계에서 눈을 뜬 바람둥이 남자. 한순간에 삶이 뒤집혀버린 그는, 이제 달라진 관계의 규칙 속에서 불같은 성격의 여자 동료와 정면으로 맞붙는다. 서로의 입장이 뒤바뀐 상황을 위트 있게 그려낸 풍자극.\r 데이미언 색스(사샤 바론 코헨)는 돈과 권력, 끊임없이 이어지는 가벼운 플러팅까지, 다 가진처럼 보인다. 그런데 유수의 광고회사 CEO 자리에 오르기 직전 그는 최악의 악몽 속에서 눈을 뜬다. 그곳은 여성이 지배하는 평행 세계. 이제 데이미언의 삶은 완전히 뒤집힌다. 한때 이사회실을 지배하던 그는 위축된 상태로, 강인하고 두려움 없는 신임 앨릭스 폭스(로저먼드 파이크)와 정면으로 맞붙어야 한다. 게임의 규칙은 바뀌었고 알렉스는 최고의 기량을 발휘하는 가운데, 두 사람의 과감한 대결이 시작된다. 조건이 뒤바뀌면 어떤 일이 벌어지는지를 유쾌하고 풍자적으로 그린 코미디.",
     "releaseYear": 2026,
+    "runtimeMinutes": 94,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.046,
+    "voteCount": 410,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oQutxZrpqUKZhEBFwUnH49Q0U0V.jpg",
     "posterAlt": "레이디스 퍼스트: 거꾸로 가는 남자 포스터",
     "watchProvidersKr": {
@@ -29183,8 +32550,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mary",
       "May"
     ],
+    "contextTags": [],
     "overview": "홍콩 경찰의 비밀 요원인 진영인(양조위). 경찰학교에서 훈련을 받다가 발탁된 그는 범죄 조직 삼합회에 잠입하여 10년째 조직원을 위장한 스파이로 살아가고 있다. 전과 8범에 2번의 형기를 치른 완벽한 범죄자가 되어 있는 그는 현재 보스 한침이 가장 신임하는 심복이기도 하다. 삼합회의 숨은 조직원 유건명(유덕화). 18살 때부터 경찰에 잠입해 스파이로 활동해온 그는 현재 경찰 내에서 가장 뛰어난 강력반 요원으로 인정받고 있다. 경찰로서의 경력이 벌써 10년째에 이르는 그는 이제 그만 조직원으로서의 신분을 버리고 싶어한다.",
     "releaseYear": 2002,
+    "runtimeMinutes": 101,
+    "collectionId": 58588,
+    "collectionName": "무간도 시리즈",
+    "voteAverage": 7.8,
+    "voteCount": 1883,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fDPJkz3XLfIyXPEuokiUKh3XMEh.jpg",
     "posterAlt": "무간도 포스터",
     "watchProvidersKr": {
@@ -29281,8 +32654,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Marley Neville",
       "Dr. Alice Krippin"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "바이러스 감염으로 전 인류가 사망하고 홀로 뉴욕에 살아 남은 과학자 로버트 네빌(윌 스미스). 혹시라도 있을 다른 생존자를 찾아 절박한 심정으로 네빌은 3년 동안 방송을 송신해 왔다. 마침내 그는 혼자가 아니라는 것을 알게 되는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 101,
+    "collectionId": 945984,
+    "collectionName": "I Am Legend Collection",
+    "voteAverage": 7.219,
+    "voteCount": 16986,
     "posterUrl": "https://image.tmdb.org/t/p/w780/yvaDfiS0DzsHDWBjlqxo6CPgDVJ.jpg",
     "posterAlt": "나는 전설이다 포스터",
     "watchProvidersKr": {
@@ -29365,8 +32746,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Yukiko (voice)",
       "Tejima (voice)"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "아이돌 소녀 그룹인 Charm의 리더인 미마는 본격적인 연기를 시작하기 위해 아이돌의 그늘을 벗어나려고 하지만,첫 출연작부터 난관에 부딪힌다. 누드 등을 통한 과격적인 홍보로 그녀를 더욱 알리려는 소속사 대표와 미마를 지켜주려고 노력하는 그녀의 담당 매니저의 갈등. 그리고 아직까지도 아이돌로서의 그녀를 그리워하는 팬들. 그 모든 것의 중심에 선 미마는 비록 대사는 한마디에 불과한 단역이지만 그래도 주어진 역할에 충실히 하기 위해 노력한다. 드라마에서 광기어린 살인을 저지르고 다니는 소녀 역할을 맡은 미마는 현실과 허구의 경계선에서 자신을 쫓아다니던 스토커를 해친다. 그러나 그 일 역시 사실인지 허구인지는 불분명하다. 이제 미마의 눈에는 또 다른 미마가 보이기 시작한다. 아이돌 시절 그대로의 모습으로 미마의 눈 앞에 나타난 또 다른 미마는 그녀에게 과거 인기 스타로의 회귀를 강요한다. 니가 나고, 내가 너야. 라고 말하는 또 다른 자아 앞에서 미마는 혼란에 빠진다. 그러던 중, 미마의 주변을 둘러싼 사람들이 하나 둘 살해당하고 범인을 알 수 없는 상황에서 극도의 불안감을 느끼는 미마는 누군가 끊임없이 자신을 지켜보고 있다는 것을 느끼는데...",
     "releaseYear": 1998,
+    "runtimeMinutes": 81,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.3,
+    "voteCount": 3251,
     "posterUrl": "https://image.tmdb.org/t/p/w780/cpsxJP7lUNEozPtDLIM5gPC9gJH.jpg",
     "posterAlt": "퍼펙트 블루 포스터",
     "watchProvidersKr": {
@@ -29429,8 +32818,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Sejanus Plinth",
       "Dr. Volumnia Gaul"
     ],
+    "contextTags": [
+      "literary",
+      "winter"
+    ],
     "overview": "반란의 불씨를 잠재우기 위해 시작된 잔인한 서바이벌 헝거게임. 헝거게임 10회를 맞아 ‘멘토제’가 도입되고 ‘스노우’는 12구역의 소녀 ‘루시 그레이’의 멘토가 된다. 그는 몰락한 가문의 영광을 되찾기 위해 ‘루시 그레이’를 헝거게임에서 우승 시키려 수단과 방법을 가리지 않는데…",
     "releaseYear": 2023,
+    "runtimeMinutes": 157,
+    "collectionId": 1701563,
+    "collectionName": "The Hunger Games – New Trilogy Collection",
+    "voteAverage": 6.976,
+    "voteCount": 3556,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9f9YsmXoy9ghqZKIVuKHkmGGZCY.jpg",
     "posterAlt": "헝거게임: 노래하는 새와 뱀의 발라드 포스터",
     "watchProvidersKr": {
@@ -29493,8 +32891,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Meg (voice)",
       "Pain (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "신들의 신전인 올림포스 산의 제왕인 제우스와 그의 아내 헤라가 아들 헤라클레스를 얻는다. 초인적인 신력을 타고난 헤라클레스에게 제우스는 페가소스라는 이름의 날개 달린 조랑말을 선물한다. 헤라클레스가 선물을 받는 순간 모든 신들의 갈채와 축복이 쏟아진다. 하지만 이때 질투와 시기에 불타는 눈으로 나타나는 악마가 있었으니. 죽은 사람의 영토를 지배하는 하이데스다. 축복 대신 저주를 퍼붓는 하이데스는 언젠가 올림포스 산을 차지하려는 속셈을 갖고 있다.  하지만 운명의 세 여신은 하이데스가 헤라클레스와 싸우면 지게 된다고 예언을 하고 분노한 하이데스는 우스꽝스럽고 작은 악마들, 페인과 패닉에게 헤라클레스를 처치할 것을 명한다. 페인과 패닉은 어린 헤라클레스를 유괴하여 땅으로 데려간 뒤, 신의 능력을 없애는 약물을 먹인다. 하지만 갑자기 나타난 인간들 때문에 마지막 한방울을 먹이지 못한 채 달아나고, 헤라클레스는 반은 신의 능력이 남겨진 인간이 되어 양부모의 손에 길러진다. 하지만 스스로도 컨트롤할 수 없는 초인적인 힘과 능력으로 사사건건 말썽을 일으켜 마침내 사람들로부터 쫓겨나고 만다. 그는 그의 양부모로 부터 그가 지니고 있던 제우스의 표식인 팬던트를 받아들고 제우스 신전에 찾아가 출생의 비밀을 알게되고 아버지와 재회를 한다.",
     "releaseYear": 1997,
+    "runtimeMinutes": 93,
+    "collectionId": 978459,
+    "collectionName": "Hercules (Disney) Collection",
+    "voteAverage": 7.496,
+    "voteCount": 7988,
     "posterUrl": "https://image.tmdb.org/t/p/w780/b1qxxjws8UPcZ12B6Heg1CEWpnR.jpg",
     "posterAlt": "헤라클레스 포스터",
     "watchProvidersKr": {
@@ -29550,8 +32956,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Deanne McKenzie",
       "Sally Lamonsoff"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "어렸을 때부터 친했던 친구들인 레니, 라몬소프, 맥켄지, 히긴스. 여름을 맞아 이들은 옛 추억을 떠올리며 한때 자신들이 겁 없이 무모한 짓을 했던 곳을 찾아간다. 하지만 접근 금지 구역인 그곳에는 과거의 자신들처럼 젊은 대학생들이 한창 파티를 즐기고 있다. 대학생들은 이들을 불청객 취급을 하고 쫓아낸다. 수치스러운 모습으로 쫓겨난 이들은 대학생들에게 복수를 하고 옛 추억을 떠올리며 레니의 집에서 80년대를 주제로 한 파티를 여는데...",
     "releaseYear": 2013,
+    "runtimeMinutes": 101,
+    "collectionId": 180546,
+    "collectionName": "그로운 업스 시리즈",
+    "voteAverage": 6.183,
+    "voteCount": 4745,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hT6ijOtjtYrnyDhN7VA2QWyGFAm.jpg",
     "posterAlt": "다 큰 녀석들 2 포스터",
     "watchProvidersKr": {
@@ -29610,8 +33024,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Anthony's Concierge",
       "Security Guard"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "역사학 교수 아담의 일상은 평화롭지만 건조하다. 그러던 어느 날 아담은 동료가 추천해준 영화에서 자신과 똑같은 외모의 배우 앤서니를 발견한다. 알 수 없는 호기심에 이끌려 앤서니를 찾아나서던 아담은 결국 앤서니와 직접 대면하기에 이른다. 하지만 둘의 첫 만남 이후 도리어 앤서니가 아담에게 집착하기 시작한다. 이윽고 아담의 여자친구에게 흥미를 느낀 앤서니가 아담에게 서로의 신분을 바꿔볼 것을 제안하고 아담이 이를 받아들이며 상황은 점점 서로의 통제를 벗어나기 시작한다.",
     "releaseYear": 2014,
+    "runtimeMinutes": 90,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.844,
+    "voteCount": 6491,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xPu2YgWDga2NLROY2mlXDsgLpg8.jpg",
     "posterAlt": "에너미 포스터",
     "watchProvidersKr": {
@@ -29688,8 +33110,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Rick Stanton",
       "Dr. Vivienne Graham"
     ],
+    "contextTags": [],
     "overview": "고질라의 샌프란시스코 공격으로 인해 아들을 잃은 상처로 엠마와 마크, 딸 매디슨 가족은 슬픔 속에 살고 있다. 미지의 생물을 연구하는 모나크 소속 과학자인 엠마는 또 다른 공격에 대비해 거대 괴수와 소통하는 주파수를 발견한다. 그러나 괴수들을 조종해 지구를 초토화 시키려는 테러 세력에게 딸 매디슨과 납치되고, 주파수로 모스라, 로단, 기도라 등 고대 괴수들이 하나 둘 깨어난다. 역대급 재난 상황에서 인류의 생존 자체조차 불투명해지고, 여기에 강력한 고질라의 등장으로 괴수들의 대결은 새로운 국면을 맞이한다. 또 다시 최악의 위기를 맞은 가족들은 어떻게든 함께 위험을 헤쳐나가야만 하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 132,
+    "collectionId": 535313,
+    "collectionName": "고질라 시리즈",
+    "voteAverage": 6.692,
+    "voteCount": 6776,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ge8zQ874jsZBcsYxn7yV5EMHV10.jpg",
     "posterAlt": "고질라: 킹 오브 몬스터 포스터",
     "watchProvidersKr": {
@@ -29743,8 +33171,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Erin (voice)",
       "Delroy (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "가족을 과잉보호하는 아빠 ‘맥’ 때문에 평생을 작은 연못에서 안전하게 살아온 말러드 가족. 하지만 호기심 가득한 남매 ‘댁스’와 ‘그웬’을 위해 새로운 세상을 모험하고 싶은 엄마 ‘팸’의 설득으로 가족들은 항상 꿈꿔온 자메이카로 생애 첫 가족 모험을 떠나기로 한다! 설렘 넘치는 시작과 달리 태풍을 만나 길을 잃고, 낯선 친구들을 만나고, 위험 가득한 뉴욕에 불시착하게 된다. 인생 처음으로 모든 계획이 틀어지고 위기에 빠진 말러드 가족은 서툴지만 서로를 의지하며 모험을 계속한다. 새로운 세상, 함께라면 두려울 것 없어!",
     "releaseYear": 2023,
+    "runtimeMinutes": 83,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.357,
+    "voteCount": 2276,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2xE3NI6zElWhwN9WJ92fqbZKmzZ.jpg",
     "posterAlt": "인투 더 월드 포스터",
     "watchProvidersKr": {
@@ -29810,8 +33246,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Maj. Jack Chapman / Kong Mo-Cap Services",
       "Victor Nieves"
     ],
+    "contextTags": [],
     "overview": "전 세계 누구에게도 알려지지 않은 미지의 섬 스컬 아일랜드. 어느 날 세상에 존재하는 괴생명체를 쫓는 모나크 팀은 위성이 이 섬에 무언가를 포착했다는 정보를 입수한다. 이에 모나크의 수장이자 탐사팀의 리더를 필두로 지질학자, 생물학자가 합류하고,  수많은 전투에서 뼈가 굵은 베트남 베테랑인 중령과 부대원들, 그리고 전직 군인 출신의 정글 전문 가이드와 반전 사진기자가 탐사의 진짜 목적을 파헤치기 위해 작전에 동참한다.  폭풍우를 헤치고 섬에 도착하자마자 그들 앞에 나타난 것은 바로 이 섬의 왕인 콩. 콩은 등장과 함께 모든 것을 박살내고, 가까스로 살아남은 생존자들은 해골이 흩뿌려진 황무지에서 콩의 적들까지 마주하게 되는데…",
     "releaseYear": 2017,
+    "runtimeMinutes": 118,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.556,
+    "voteCount": 11207,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zkvi78iWU5Qc8bXtqNuOaWROLmg.jpg",
     "posterAlt": "콩: 스컬 아일랜드 포스터",
     "watchProvidersKr": {
@@ -29875,8 +33317,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Jacob Marrow",
       "Nora"
     ],
+    "contextTags": [],
     "overview": "파병이 예정된 해병대원과 위장 결혼을 한 뮤지션 지망생. 가짜였던 둘의 관계는 비극으로 인해 어느새 진심이 되어버린다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 122,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.044,
+    "voteCount": 2900,
     "posterUrl": "https://image.tmdb.org/t/p/w780/bETrhE8ALy0fmfpG0j7ek6Da4Or.jpg",
     "posterAlt": "퍼플 하트 포스터",
     "watchProvidersKr": {
@@ -29929,8 +33377,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Oscar",
       "Allison"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "전설의 트레저를 차지하기 위해 재벌 페어팩스(다니엘 래드클리프)는  유일한 단서를 알고 있는 베스트셀러 작가 로레타(산드라 블록)를 납치하게 된다.  어쩔 수 없는 비지니스 관계로 사라진 그녀를 찾아야만 하는 책 커버모델 앨런(채닝 테이텀)은  의문의 파트너(브래드 피트)와 함께 위험한 섬에서 그녀를 구하고 무사히 탈출해야만 하는데…  적과 자연의 위험이 도사리는 일촉즉발 화산섬.",
     "releaseYear": 2022,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.456,
+    "voteCount": 4037,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8kZapNBZYGJu7AUbJVBDMmQgO1D.jpg",
     "posterAlt": "로스트 시티 포스터",
     "watchProvidersKr": {
@@ -29996,8 +33452,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Edward Blake / The Comedian",
       "Sally Jupiter / Silk Spectre"
     ],
+    "contextTags": [],
     "overview": "국가의 승인 없는 히어로들의 활동을 금지하는 법이 제정된 후 대부분의 히어로들이 은퇴를 선언하지만 신분을 감춘 채 왓치맨으로서의 활동을 비공식적으로 계속해오던 히어로 로어셰크. 어느 날 과거 함께 활약했던 동료 코미디언이 살해당하는 사건이 발생하자  로어셰크는 살인사건 이면에 감춰진 진실을 파헤치기 시작하고,  과거 왓치맨의 역할을 해오던 히어로들을 없애려는 거대한 음모가 있음을 깨닫게 된다. 로어셰크는 한때 동료였던 이들과 다시 접촉하기 시작한다.\r 그리고 마침내 히어로 모두의 과거와 얽혀있는, 모두를 파멸로 몰아갈 수 있는 거대한 음모의 실체를 목격하게 되는데...",
     "releaseYear": 2009,
+    "runtimeMinutes": 161,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.355,
+    "voteCount": 10086,
     "posterUrl": "https://image.tmdb.org/t/p/w780/q556984DC9fMvkFymTv7GEBPms2.jpg",
     "posterAlt": "왓치맨 포스터",
     "watchProvidersKr": {
@@ -30062,8 +33524,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Benjamin Lockwood",
       "Mr. Eversoll"
     ],
+    "contextTags": [],
     "overview": "지상 최대의 테마파크 쥬라기 월드가 폐쇄된 지 3년 후.  이슬라 누블라의 활화산 시보산이 분화하려는 조짐을 보이자 조짐에 뉴스에서는 이와 더불어 공룡들의 보호에 관련된 시위나 소식들을 보도한다. 오웬(크리스 프렛)과 클레어(브라이스 달라스 하워드)는 벤자민 록우드(제임스 크롬웰)의 부탁으로 공룡들의 멸종을 막기 위해 이슬라 누블라 섬으로 떠난다. 한편 진화된 공룡들을 이용하려는 세력의 거대한 음모가 드러나고, 절대 지상에 존재해선 안될 위협적 공룡들이 마침내 세상 밖으로 등장하게 되는데...",
     "releaseYear": 2018,
+    "runtimeMinutes": 129,
+    "collectionId": 328,
+    "collectionName": "쥬라기 공원 시리즈",
+    "voteAverage": 6.531,
+    "voteCount": 12848,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xR2VgpNxElFOJBul0q7ULiT0ayF.jpg",
     "posterAlt": "쥬라기 월드: 폴른 킹덤 포스터",
     "watchProvidersKr": {
@@ -30155,8 +33623,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Eddie (voice)",
       "Ellie (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "얼음 위가 아니라 얼음 아래 세계가 궁금하다고?  세상을 발칵 뒤집는 야생 스캔들(?)이 터진다!!  얼음이 녹는 절체절명의 위기를 이겨낸 빙하기 친구들 매니, 엘리, 시드, 디에고. 공식 커플 매니와 엘리는 아기 맘모스 탄생 준비에 호들갑이고, 소외감을 느끼던 시드는 자신도 가족을 갖겠단 욕심에 그만 공룡 알을 훔치고 만다. 지하 공룡 세계를 발칵 뒤집어 놓은 이 대형 사건으로 인해, 위험에 처한 시드를 구하려는 빙하기 친구들은 얼음 속 신비한 야생의 세계 속으로 들어가게 되는데… 지나가는 곳곳마다 거대한 공룡들의 위협이 도사리는 숲 속에서 만난 공룡 사냥꾼 애꾸눈 벅은 지금껏 상상할 수 없었던 새로운 모험으로 빙하기 친구들을 이끈다. 한편 도토리를 쫓아 지하 공룡세계까지 도착한 스크랫 앞에 나타난 도토리 라이벌 초절정 섹시미녀 스크래티!! 거부할 수 없는 그녀의 유혹과 도토리를 향한 순정사이에서 갈등하는 스크랫의 파란만장한 운명이 예고되는데…",
     "releaseYear": 2009,
+    "runtimeMinutes": 94,
+    "collectionId": 8354,
+    "collectionName": "아이스 에이지 시리즈",
+    "voteAverage": 6.772,
+    "voteCount": 8940,
     "posterUrl": "https://image.tmdb.org/t/p/w780/zty1hzthRVGgMDFU1B1uo8zfCk7.jpg",
     "posterAlt": "아이스 에이지 3: 공룡시대 포스터",
     "watchProvidersKr": {
@@ -30216,8 +33692,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Blain Cooper",
       "Billy Sole"
     ],
+    "contextTags": [],
     "overview": "더치와 특수부대 동료들은 CIA와 계약을 맺어 중앙 아메리카 정글에서 게릴라들에게 붙잡힌 조종사를 구하러 간다. 임무는 순조롭게 진행되었으나 그들은 귀환 도중 무언가로 부터 공격을 받는다. 보이지 않는 적은 정글 속에 숨어서 그들의 사체를 전리품으로 수집해간다.  이 외계 괴물은 더치의 동료들을 하나씩 죽이면서 유희를 벌이는데...",
     "releaseYear": 1987,
+    "runtimeMinutes": 107,
+    "collectionId": 399,
+    "collectionName": "프레데터 시리즈",
+    "voteAverage": 7.572,
+    "voteCount": 9266,
     "posterUrl": "https://image.tmdb.org/t/p/w780/AjYcJsuiqW4sHFEmh5SVSy5PswH.jpg",
     "posterAlt": "프레데터 포스터",
     "watchProvidersKr": {
@@ -30278,8 +33760,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lai Shu Jin",
       "Huang Lei"
     ],
+    "contextTags": [],
     "overview": "1938년 홍콩, 친일파의 핵심 인물이자 정보부 대장인 이(양조위)와 그를 암살하기 위해 막 부인으로 신분을 위장하고 접근하는 왕치아즈(탕웨이). 그녀의 임무는 자신의 신분을 위장하고 이의 아내(조안첸)에게 접근하여 신뢰를 쌓은 후 이에게 가까워 지는 것. 둘은 처음 본 순간부터 운명 같은 강렬한 이끌림을 느끼게 되지만 이의 상하이 발령으로 헤어지게 되고 암살 계획 또한 무산된다. 1941년 상하이, 다시 시작 된 암살계획으로 둘은 상하이에서 재회하게 된다. 경계를 푼 이, 그에게 다른 감정을 느끼는 왕치아즈. 이들은 서로에게 빠져들게 되는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 158,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.272,
+    "voteCount": 814,
     "posterUrl": "https://image.tmdb.org/t/p/w780/xd7dT3mh7cUk1rqDs7AaqJ5NZES.jpg",
     "posterAlt": "색, 계 포스터",
     "watchProvidersKr": {
@@ -30358,8 +33846,18 @@ export const catalogMovies: CatalogMovie[] = [
       "Kai Katz",
       "Preston"
     ],
+    "contextTags": [
+      "literary",
+      "travel",
+      "space"
+    ],
     "overview": "친구 티모와 함께 차린 마카롱 가게가 쫄딱 망해 거액의 빚을 지고 못 갚으면 죽이겠다는 사채업자를 피해 지구를 떠나야 하는 미키. 기술이 없는 그는, 정치인 마셜의 얼음행성 개척단에서 위험한 일을 도맡고, 죽으면 다시 프린트되는 익스펜더블로 지원한다. 4년의 항해와 얼음행성 니플하임에 도착한 뒤에도 늘 미키를 지켜준 여자친구 나샤. 그와 함께, 미키는 반복되는 죽음과 출력의 사이클에도 익숙해진다. 그러나 미키 17이 얼음행성의 생명체인 크리퍼와 만난 후 죽을 위기에서 돌아와 보니 이미 미키 18이 프린트되어 있다. 행성 당 1명만 허용된 익스펜더블이 둘이 된 멀티플 상황. 둘 중 하나는 죽어야 하는 현실 속에 걷잡을 수 없는 사건이 기다리고 있었으니…",
     "releaseYear": 2025,
+    "runtimeMinutes": 137,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.839,
+    "voteCount": 3682,
     "posterUrl": "https://image.tmdb.org/t/p/w780/mH7QnJDxQibVZw0M66IBZbsw2O6.jpg",
     "posterAlt": "미키 17 포스터",
     "watchProvidersKr": {
@@ -30414,8 +33912,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Frank's Dad",
       "Young Casey Newton"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "선택 받은 자만이 들어갈 수 있는 평행 세계 투모로우랜드. 최고의 천재 과학자 데이빗(휴 로리)은 지구 종말을 대비해, 투모로우랜드를 또 다른 최첨단 과학 기술의 세계로 만드는 것에 집중한다. 우연히 투모로우랜드에 들어갔던 프랭크(조지 클루니)는 그곳이 세상의 미래를 바꿀 수 있다고 믿었지만, 데이빗과의 대립에 의해 추방 당하고, 이후 스스로를 고립시킨 채 은둔하며 살아간다. 한 편, 현명하고 호기심 많은 십대 소녀 케이시(브릿 로버트슨)는 우연히 투모로우랜드의 티켓인 ‘핀’을 줍게 되는데…",
     "releaseYear": 2015,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.297,
+    "voteCount": 7396,
     "posterUrl": "https://image.tmdb.org/t/p/w780/54yQ7ikj7cUgadkp8d7x27YBBtU.jpg",
     "posterAlt": "투모로우랜드 포스터",
     "watchProvidersKr": {
@@ -30468,8 +33974,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ivan Vanko",
       "Nick Fury"
     ],
+    "contextTags": [],
     "overview": "세계 최강의 무기업체를 이끄는 CEO이자, 타고난 매력으로 화려한 삶을 살아가던 토니 스타크. 기자회견을 통해 자신이 아이언맨이라고 정체를 밝힌 이후, 정부로부터 아이언맨 수트를 국가에 귀속시키라는 압박을 받지만 이를 거부한다. 스타크 인더스트리의 운영권까지 수석 비서였던 페퍼 포츠에게 일임하고 히어로로서의 인기를 만끽하며 지내던 토니 스타크. 하지만 그 시각, 아이언맨의 수트 기술을 스타크 가문에 빼앗긴 후 쓸쓸히 돌아가신 아버지의 복수를 다짐해 온 위플래시는 수트의 원천 기술 개발에 성공, 치명적인 무기를 들고 직접 토니 스타크를 찾아 나선다.",
     "releaseYear": 2010,
+    "runtimeMinutes": 125,
+    "collectionId": 131292,
+    "collectionName": "아이언맨 시리즈",
+    "voteAverage": 6.855,
+    "voteCount": 22534,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ebJbC9OYAZJxy7bRUGryR72hfa2.jpg",
     "posterAlt": "아이언맨 2 포스터",
     "watchProvidersKr": {
@@ -30531,8 +34043,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Roadkill (voice)",
       "Doc / Merrimack / Mr. Snuggles (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "당신들이 아무렇게나 생각하는 그런 영웅이 아냐!! 예측을 불허하는 대단한 놈이 왔다! 광대한 모하비 사막에 툭 떨어진 정체 모를 카멜레온 랭고, 적응하려면 수백만 년이 걸린다는 모하비 사막에서 살아남기 위해 고군분투하던 랭고는 아주 우연한 계기로 사막의 무법자 매를 죽이게 된다. 얼떨결에 마을의 영웅이 되어버린 랭고는 황무지 빌리지의 보안관을 맡게 되는데... 위험이 도사리는 거대한 사막, 쫓고 쫓기는 추격, 예측 불허한 사건들 속에서 랭고의 운명은 과연 어떻게 펼쳐질까?",
     "releaseYear": 2011,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.912,
+    "voteCount": 7186,
     "posterUrl": "https://image.tmdb.org/t/p/w780/r03cVlmlKRPVAQxEqmhhPyYwfcr.jpg",
     "posterAlt": "랭고 포스터",
     "watchProvidersKr": {
@@ -30598,8 +34118,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Flash / Barry Allen",
       "Steppenwolf (voice)"
     ],
+    "contextTags": [],
     "overview": "슈퍼맨이 죽고 지구에 어둠의 그림자가 드리운다. 마더박스를 차지하기 위해 빌런 스테픈울프가 파라데몬 군단을 이끌고 지구에 온 것이다. 지구를 지키기 위해 목숨을 바친 슈퍼맨의 희생이 헛되지 않도록 하기 위해 브루스 웨인은 다이애나 프린스와 적에 맞서기로 한다. 배트맨과 원더 우먼은 새로이 등장한 위협에 맞서 싸우기 위해 특별한 능력을 가진 메타휴먼, 아쿠아맨과 사이보그, 플래시를 찾아가 설득하여 힘을 합친다. 드디어 한 팀이 된 저스티스 리그. 혹시 스테픈울프와 데사드 그리고 다크사이드를 물리치기에 너무 늦어버린 것이 아닐까?",
     "releaseYear": 2021,
+    "runtimeMinutes": 242,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.086,
+    "voteCount": 10927,
     "posterUrl": "https://image.tmdb.org/t/p/w780/qd7iPB26bwMPZqRcnflzAeDkMn.jpg",
     "posterAlt": "잭 스나이더의 저스티스 리그 포스터",
     "watchProvidersKr": {
@@ -30647,8 +34173,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Louisa von Trapp",
       "Brigitta von Trapp"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "알프스의 아름다운 자연에 둘러싸인 오스트리아의 잘츠부르크 수도원. 음악을 사랑하는 말괄량이 견습 수녀 마리아는 원장 수녀의 권유로 해군 명문 집안 폰 트랩가의 가정교사가 된다. 마리아는 좀처럼 마음의 문을 열지 않는 폰 트랩가의 일곱 아이들에게 노래를 가르치며 점차 교감하게 되고, 엄격한 폰 트랩 대령 역시 마음의 문을 열게 된다. 그러던 어느 날, 마리아는 자신이 폰 트랩 대령을 사랑하고 있다는 사실을 깨닫게 되고, 자신만의 비밀을 간직한 채 아이들의 곁을 떠나 다시 수녀원에 들어가기로 결심하는데...",
     "releaseYear": 1965,
+    "runtimeMinutes": 174,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.73,
+    "voteCount": 3655,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3l1ATCYNuHep6evzX8GSUigWOLs.jpg",
     "posterAlt": "사운드 오브 뮤직 포스터",
     "watchProvidersKr": {
@@ -30700,8 +34234,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Virginia Allen-Green",
       "Buddy"
     ],
+    "contextTags": [],
     "overview": "여섯 살 때부터 할리우드의 상징이었던 리프 호크는 무너지기 일보 직전이다. 의문의 영상과 엮인 협박 사건을 알게 된 리프는 업계에서 퇴출당하기 전에 먼저 반성의 여정을 시작하며 자신의 과오를 바로잡고 과거의 그림자를 떨쳐낸다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 84,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.394,
+    "voteCount": 226,
     "posterUrl": "https://image.tmdb.org/t/p/w780/17QQjBBCYiZb0BhtwEUp5W1oyny.jpg",
     "posterAlt": "'부메랑' - Outcome 포스터",
     "watchProvidersKr": {
@@ -30754,8 +34294,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Muriel",
       "Jeweller"
     ],
+    "contextTags": [],
     "overview": "구두 가게에서 일하는 평범한 청년 ‘막스’는 화려하고 아름다운 연극 배우 ‘리자’를 처음 본 순간 운명적 사랑을 직감한다.  결국 연인 사이가 된 두 사람은 행복한 시간을 공유하지만  어느 날, 홀연히 사라져버린 리자 때문에 갑작스러운 이별을 맞이하게 된다.  “왜 아무 말 없이 사라졌는지 궁금해. 리자는 왜 날 떠났을까?”  리자를 향한 그리움을 묻어둔 채 새로운 직장, 새로운 여자친구와 평범한 나날을 보내고 있는 막스.  우연히 들른 레스토랑에서 리자의 흔적을 발견하게 되면서, 막스의 일상은 다시 한번 흔들리기 시작하는데..",
     "releaseYear": 1996,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.798,
+    "voteCount": 248,
     "posterUrl": "https://image.tmdb.org/t/p/w780/3MlRyb7mVc4ffnEVvbdJL2nUJM8.jpg",
     "posterAlt": "라빠르망 포스터",
     "watchProvidersKr": {
@@ -30821,8 +34367,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gwen Stacy",
       "May Parker"
     ],
+    "contextTags": [],
     "overview": "대중의 사랑을 듬뿍 받으며 진정한 영웅으로 거듭난 스파이더맨, 피터 파커는 어느 날, 외계에서 온 수수께끼의 유기체인 심비오트에 감염되고 스파이더맨은 오리지날 스파이더맨에서 블랙 슈트 스파이더맨으로 변화한다. 한층 업그레이드 되고 강력해진 파워를 얻게 된 스파이더맨은 자신의 힘에 도취되어 마음껏 세상을 즐긴다. 그러나 아버지의 복수를 위해 뉴 고블린이 된 해리와 물리 실험에 노출되어 능력을 얻게 된 피터의 삼촌을 죽인 진범 샌드맨은 호시탐탐 스파이더맨을 노리는데...",
     "releaseYear": 2007,
+    "runtimeMinutes": 139,
+    "collectionId": 556,
+    "collectionName": "스파이더맨 시리즈",
+    "voteAverage": 6.465,
+    "voteCount": 15362,
     "posterUrl": "https://image.tmdb.org/t/p/w780/9atb6Nn8TRGxfwROJGuzOD24GNl.jpg",
     "posterAlt": "스파이더맨 3 포스터",
     "watchProvidersKr": {
@@ -30903,8 +34455,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Queen Lillian (voice)",
       "King Harold (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "슈렉이 아름다운 공주 피오나와 겁나먼 왕국을 구해낸 이후. 그들도 오래오래 행복하게 살았...더라면 참 좋았을텐데! 과연 슈렉에게도 모두가 바라던 해피엔딩이 올까?  한 가정의 평범한 아빠와 남편으로 반복되는 일상에 따분함을 느끼던 슈렉은 마을 사람들에게 겁을 주고, 진흙 목욕도 실컷 하던 시절의 자유를 꿈꾸게 된다. ‘단 하루라도 자유로워진다면 죽어도 한이 없겠어’라며 일탈을 꿈꾸던 슈렉은 ‘겁나먼 왕국’을 차지하려는 악당 럼펠의 그럴싸한 계략에 속아 넘어가 ‘완전 딴판 겁나먼 세상’에 떨어지고 만다. 완전 딴판으로 바뀌어버린 세상에서 절친 동키는 슈렉을 미친 괴물 취급하며 줄행랑 치고, 단 하나의 사랑 피오나는 하이킥을 날리고, 장화신은 고양이는 더 이상 장화를 신지 않는 D라인의 고양이가 되어 있다. 친구들과 왕국, 그리고 하나뿐인 진실한 사랑을 되찾기 위한 슈렉의 마지막 이야기가 시작된다!",
     "releaseYear": 2010,
+    "runtimeMinutes": 93,
+    "collectionId": 2150,
+    "collectionName": "슈렉 시리즈",
+    "voteAverage": 6.406,
+    "voteCount": 8023,
     "posterUrl": "https://image.tmdb.org/t/p/w780/t3FNCqPBgRK9jYTzLGWptIdpD3O.jpg",
     "posterAlt": "슈렉 포에버 포스터",
     "watchProvidersKr": {
@@ -30951,8 +34511,14 @@ export const catalogMovies: CatalogMovie[] = [
       "The Adjudicator",
       "Charon"
     ],
+    "contextTags": [],
     "overview": "사랑하는 아내와 반려견이 죽은 후 복수를 위해 돌아온 전설의 킬러, 존 윅은 성역 콘티넨탈 호텔에서는 살인하면 안 된다는 룰을 깨면서 전세계 킬러들의 표적이 된다. 전편에서 존 윅이 국제암살자연맹에서 파문당한 직후 1시간 동안 도망갈 시간을 내어 준 윈스턴은 최고회의로부터 그를 도왔다는 이유로 자리에서 물러날 것을 요구받는다. 현상금이 1400만달러로 불어난 존 윅은 옛 동료이자 현재 카사블랑카 콘티넨탈 호텔의 지점장인 소피아에게 도움을 청한다.",
     "releaseYear": 2019,
+    "runtimeMinutes": 131,
+    "collectionId": 404609,
+    "collectionName": "존 윅 시리즈",
+    "voteAverage": 7.441,
+    "voteCount": 11852,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8dGCWRwrMjn1jdFCI5xu5VrkGBL.jpg",
     "posterAlt": "존 윅 3: 파라벨룸 포스터",
     "watchProvidersKr": {
@@ -31023,8 +34589,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Signor Ferrari",
       "Ugarte"
     ],
+    "contextTags": [],
     "overview": "2차 대전으로 어수선한 프랑스령 모로코, 미국인인 릭(험프리 보가트)은 암시장과 도박이 판치는 카사블랑카에서 카페를 운영하고 있다. 어느 날 미국으로 가기 위해 비자를 기다리는 피난민들 틈에 섞여 레지스탕스 리더인 라즐로(폴 헨라이드)와 아내 일자(잉그리드 버그만)이 릭의 카페를 찾는다. 일자는 릭의 옛 연인이었다. 라즐로는 릭에게 미국으로 갈 수 있는 통행증을 부탁하지만 아직도 일자를 잊지 못하는 릭은 선뜻 라즐로의 청을 들어주지 못한다. 경찰서장 르노와 독일군 소령 스트라세는 라즐로를 쫓아 릭의 카페를 찾고, 결국 릭은 라즐로와 함께 일자를 떠나보내는데...",
     "releaseYear": 1943,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.1,
+    "voteCount": 6103,
     "posterUrl": "https://image.tmdb.org/t/p/w780/2y4FgbomoL5Aa9EGM3dqDEvvDdT.jpg",
     "posterAlt": "카사블랑카 포스터",
     "watchProvidersKr": {
@@ -31095,8 +34667,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Guy",
       "Thomas"
     ],
+    "contextTags": [],
     "overview": "전세계를 홀린 진정한 짐승남이 온다!  애 같은 남자와 남자 같은 곰의 발칙한 우정!  어린 시절, 왕따에게도 왕따를 당하던 존(마크 월버그)의 소원을 통해 생명을 얻은 곰인형 테드(세스 맥팔레인)! 말하고 걷는 곰인형 테드는 전세계적인 스타가 된다. 그러나 세월에는 장사가 없는 법. 대중에게 잊혀진 스타 테드는 취미 음주가무, 특기 여자 꼬시기인 백수 한량으로 전락한다. 곰인형 외모에 어울리지 않는 음담패설과 욕설을 일삼는 발칙한 곰 테드와 27년째 그와 죽고 못사는 절친 존! 참다 못한 존의 여자친구 로리(밀라 쿠니스)는 남친의 미래를 위해 극약처방을 선택하는데…  “테드, 내 남친 옆에서 좀 꺼져 줄래?”",
     "releaseYear": 2012,
+    "runtimeMinutes": 107,
+    "collectionId": 266672,
+    "collectionName": "19곰 테드 시리즈",
+    "voteAverage": 6.455,
+    "voteCount": 13273,
     "posterUrl": "https://image.tmdb.org/t/p/w780/v6klSXH4e0HL4iCIj9FJYreqUdV.jpg",
     "posterAlt": "19곰 테드 포스터",
     "watchProvidersKr": {
@@ -31156,8 +34734,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Dewey Riley",
       "Randy Meeks"
     ],
+    "contextTags": [
+      "halloween",
+      "school"
+    ],
     "overview": "작은 소도시 우즈버러에 사는 케이시에게 이상한 남자로부터 전화가 걸려온다. 비디오를 보려는 케이시에게 그 남자는 케이시의 남자 친구인 스티브의 목숨을 걸고 게임을 하자고 한다. 케이시가 문제를 맞추면 살고, 틀리면 남자친구가 죽는다. 문제는 '13일의 금요일'에 나오는 살인마의 이름을 맞추는 것. 케이시는 문제를 풀지 못하고, 스티브는 처참하게 죽임을 당한다. 이튿날, 혼자 집에 있는 시드니에게도 이상한 전화가 걸려온다. 시드니는 케이시와는 달리 힘들게 괴전화의 마수에서 빠져 나온다. 그러나 시드니의 남자 친구 빌리가 살인 용의자로 체포되는데, 조사 후 무혐의로 풀려난다.",
     "releaseYear": 1996,
+    "runtimeMinutes": 111,
+    "collectionId": 2602,
+    "collectionName": "스크림 시리즈",
+    "voteAverage": 7.432,
+    "voteCount": 8062,
     "posterUrl": "https://image.tmdb.org/t/p/w780/fvprcRjlvrgok1rvOJN4NY8Uqba.jpg",
     "posterAlt": "스크림 포스터",
     "watchProvidersKr": {
@@ -31208,8 +34795,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Georgie",
       "Pete"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "10대 소년 알렉스는 친구들과 극악한 비행을 저지르고 다닌다. 어느 날 차를 훔쳐 드라이브를 즐기던 이들은 작가 알렉산더의 집을 습격해 그를 폭행하고 그의 아내를 강간한다. 이튿날 알렉스는 불평을 늘어놓는 친구들을 힘으로 제압하고 자신이 무리의 리더임을 확인시킨다. 그날 밤 알렉스는 한 저택에 침입해 집주인을 죽이고 도망치던 중 친구들의 배신으로 문 앞에 쓰러진다. 검거된 알렉스는 살인죄로 14년형을 언도받는다. 2년 뒤, 알렉스는 좀 더 빨리 감옥 밖으로 나오고 싶은 마음에 재소자에게 약물과 충격요법으로 범죄에 대한 혐오를 불러일으키는 교화 방법인 루도비코 갱생 프로그램에 자원하는데...",
     "releaseYear": 1971,
+    "runtimeMinutes": 137,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.175,
+    "voteCount": 13918,
     "posterUrl": "https://image.tmdb.org/t/p/w780/oYa39Fjs8AgaaHMimGdBj8PiG6h.jpg",
     "posterAlt": "시계태엽 오렌지 포스터",
     "watchProvidersKr": {
@@ -31283,8 +34878,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Anders (voice)",
       "Freya (voice)"
     ],
+    "contextTags": [],
     "overview": "이 작품은 인류 역사상 가장 잔인한 세 전사의 운명을 따라가는 오리지널 애니메이션이다. 이들은 어린 아들을 이끌고 핏빛 복수의 여정을 떠나는 바이킹 약탈자, 일본 봉건시대 때 치열한 승계 다툼 후 사무라이인 형제에게 등을 돌리게 된 닌자, 그리고 연합군을 위협하는 초자연적 위험을 조사하러 하늘로 향하는 제2차 세계대전 조종사이다.",
     "releaseYear": 2025,
+    "runtimeMinutes": 85,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.791,
+    "voteCount": 1251,
     "posterUrl": "https://image.tmdb.org/t/p/w780/d0xpDahU5hTyHoL9wyM6jVg1tFP.jpg",
     "posterAlt": "프레데터: 킬러 오브 킬러스 포스터",
     "watchProvidersKr": {
@@ -31331,8 +34932,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sif",
       "Fandral"
     ],
+    "contextTags": [],
     "overview": "어벤져스의 뉴욕 사건 후, 다시 신들의 고향인 아스가르드 왕국으로 돌아간 토르와 로키. 지구를 위협한 로키는 지하 감옥에 갇히고, 토르는 아버지 오딘과 함께 우주의 질서를 재정립하기 위해 나선다. 1년 후, 지구에 혼자 남은 제인은 우연히 태초부터 존재해왔던 어둠의 종족 다크 엘프의 무기 에테르를 얻게 된다. 이 사실을 안 다크엘프의 리더 말레키스는 에테르를 되찾기 위해 제인과 아스가르드를 공격하고, 토르는 사랑하는 여인 제인과 아스가르드 왕국을 지키기 위해 로키에게 위험한 동맹을 제안하게 된다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 112,
+    "collectionId": 131296,
+    "collectionName": "토르 시리즈",
+    "voteAverage": 6.512,
+    "voteCount": 18431,
     "posterUrl": "https://image.tmdb.org/t/p/w780/tcJSE6OVDGE8LOqOWmBnvfEyidy.jpg",
     "posterAlt": "토르: 다크 월드 포스터",
     "watchProvidersKr": {
@@ -31392,8 +34999,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Alma Milan",
       "Dan Tucker"
     ],
+    "contextTags": [],
     "overview": "잠수 이별을 택하고 후회뿐인 날을 보내던 스턴트맨 콜트. 영화감독이 된 전 여친 조디의 촬영장에 복귀하며 아련한 재회를 기대했지만… 갑자기 주연배우가 사라지고 콜트는 우선 그부터 찾아야만 한다.",
     "releaseYear": 2024,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7,
+    "voteCount": 3869,
     "posterUrl": "https://image.tmdb.org/t/p/w780/aUZ176q7ldMaPLYVnmaFWK4CApE.jpg",
     "posterAlt": "스턴트맨 포스터",
     "watchProvidersKr": {
@@ -31454,8 +35067,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Goose",
       "Gigi"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "내성적인 대학 신입생 데번. 쿨내 나는 셀레스트에게 룸메이트가 되어 달라고 하면서 우정이 시작된다. 하지만 앞에선 웃고 뒤로는 골탕 먹이는 신경전으로 이내 치닫는다.",
     "releaseYear": 2026,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.507,
+    "voteCount": 141,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eoVVNi0ErOUTsq7xT1K5i7cR2do.jpg",
     "posterAlt": "룸메이트 소동 포스터",
     "watchProvidersKr": {
@@ -31504,8 +35125,14 @@ export const catalogMovies: CatalogMovie[] = [
       "MILF / Samantha",
       "Mechanic"
     ],
+    "contextTags": [],
     "overview": "자동차 레이싱 대회 관중석에 앉아있던 닉은 갑자기 불길한 전조를 본다. 레이싱 카들이 연쇄 충돌을 일으켜 날아온 파편에 친구들이 죽고 무너진 건물이 자기를 덮치는 끔찍한 환상! 악몽에서 깨어난 닉이 친구들을 끌고 경기장을 막 빠져 나온 찰나, 닉의 환상은 현실로 이어진다. 닉과 친구들은 아슬아슬하게 죽음을 피하지만 이는 시작에 불과했다. 불길한 죽음의 환상은 계속해서 닉을 찾아오고, 사고에서 살아남은 사람들은 갈수록 끔찍한 방법으로 차례차례 죽음을 맞는다. 닉은 친구들의 죽음을 막으려 하지만 자신도 마지막 운명에 이르기 전에 다시 한번 죽음에서 벗어날 방법을 찾아야만 한다!",
     "releaseYear": 2009,
+    "runtimeMinutes": 82,
+    "collectionId": 8864,
+    "collectionName": "파이널 데스티네이션 시리즈",
+    "voteAverage": 5.613,
+    "voteCount": 3952,
     "posterUrl": "https://image.tmdb.org/t/p/w780/pRckgFI7EhfrkyXgczs93erGWEo.jpg",
     "posterAlt": "파이널 데스티네이션 4 포스터",
     "watchProvidersKr": {
@@ -31577,8 +35204,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Sam Wilson / Falcon",
       "Maggie Lang"
     ],
+    "contextTags": [],
     "overview": "하나뿐인 딸에게 멋진 아빠이고 싶지만 현실은 생계형 도둑인 스콧 랭. 하지만 전과자인 스콧의 새 출발은 번번이 좌절된다. 어느 날 그에게 몸을 자유자재로 늘리거나 줄일 수 있는 핌 입자를 개발한 과학자 행크 핌이 찾아와 수트와 헬멧을 건네며 앤트맨이 되어 줄 것을 요청한다. 행크는 앤트맨의 기술이 악용되는 것을 막기 위해 스콧에게 접근했고, 스콧을 앤트맨으로 훈련시켜 그 비밀기술을 훔쳐내려는 계획을 짠다. 어리둥절하지만 일단 한번 해보기로 결심한 스콧은 행크 핌의 딸인 호프의 도움을 받아 점차 히어로의 면모를 갖추어가게 되는데...",
     "releaseYear": 2015,
+    "runtimeMinutes": 117,
+    "collectionId": 422834,
+    "collectionName": "앤트맨 시리즈",
+    "voteAverage": 7.1,
+    "voteCount": 20974,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ewbQqebFMXqs2n1DEOS2CoDtGm.jpg",
     "posterAlt": "앤트맨 포스터",
     "watchProvidersKr": {
@@ -31639,8 +35272,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Molt (voice)",
       "Slim (voice)"
     ],
+    "contextTags": [
+      "winter",
+      "family"
+    ],
     "overview": "개미 왕국의 개미들은 메뚜기 떼를 위해 열심히 일한다. 메뚜기 떼의 두목인 하퍼에게 해마다 할당된 식량을 바쳐야 하기 때문이다. 착하고 영리한 개미 플릭은 하퍼 일당을 무찌르기 위해 덩치가 큰 곤충을 데려나가 맞서 싸우자고 제안한다. 여왕 개미는 플릭의 용기를 치하한다. 도시에 나간 플릭은 삼류 서커스단의 곤충들을 용병으로 착각하고 데려온다. 사실이 밝혀지자 난감해진 플릭은 기지를 발휘해 서커스단의 곤충들이 마술쇼를 하며 하퍼의 관심을 딴 데로 돌려 놓는 사이 가짜 새를 만들어 하퍼 일당을 위협하는데...",
     "releaseYear": 1998,
+    "runtimeMinutes": 95,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.981,
+    "voteCount": 9792,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5NmKSyeIL3qb9XvBLz0b6Vv8Ba3.jpg",
     "posterAlt": "벅스 라이프 포스터",
     "watchProvidersKr": {
@@ -31700,8 +35342,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Choi Jeong-gyu",
       "Kim Dong-chul"
     ],
+    "contextTags": [],
     "overview": "중부권을 쥐고 흔드는 제우스파 조직의 보스 장동수, 비 내리던 밤 한적한 도로에서 접촉사고를 위장해 접근한 남자에게 불의의 습격을 받는다. 격투 끝에 가까스로 목숨은 건졌지만 조직 보스의 권위와 자존심은 무너지고 만다. 바짝 독이 오른 장동수 앞에 형사 정태석이 나타나 그를 찌른 놈이 연쇄살인범이라며 그날 밤 기억나는 것을 모두 말하라고 한다. 장동수는 얼굴 없는 연쇄살인마와 마주쳐 살아남은 유일한 생존자이자 목격자였다. 자신의 몸에 손 댄 그 놈을 살 떨리게 잡고 싶은 조직의 보스 장동수와 미치도록 범인을 잡고 싶은 강력반 미친개 정태석, 두 사람은 장동수의 조직력과 자본, 정태석의 정보력과 기술력을 이용해 \"K\"라 불리는 연쇄살인마를 함께 잡기로 하는데...",
     "releaseYear": 2019,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.879,
+    "voteCount": 1521,
     "posterUrl": "https://image.tmdb.org/t/p/w780/az4OVqXbFVaHoZlktcm7oCm0LZo.jpg",
     "posterAlt": "악인전 포스터",
     "watchProvidersKr": {
@@ -31763,8 +35411,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Fauna (voice)",
       "King Stefan (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "오랜 기다림 끝에 스테판 왕과 왕비 사이에 오로라 공주가 태어난다. 왕은 이 날을 축제일로 정하고 온 왕국은 기쁨에 들떠 있다. 요정 프로라, 포나, 메리웨더는 아기에게 한가지씩 축복을 내려준다. 프로라는 아름다움을, 포나는 고운 목소리를, 그리고 메리웨더가 영원히 행복하라고 축복을 내리려는 순간, 축제에 초대 받지 못한 데 앙심을 품은 악의 요정 멀레피센트가 나타나 공주가 16세 생일날 물레바늘에 손가락이 찔려 죽을 것이라는 저주를 내리고 사라진다. 왕은 공주에게 닥쳐올 재앙을 막고자 나라안의 모든 물레를 불태우라고 명령을 내리고, 요정들은 마녀의 눈을 피해 숲속에서 공주를 기르도록 왕비를 설득하는데...",
     "releaseYear": 1959,
+    "runtimeMinutes": 75,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.947,
+    "voteCount": 5510,
     "posterUrl": "https://image.tmdb.org/t/p/w780/t1y45VvDkkrCL3Po9Lk9DoJ8sQt.jpg",
     "posterAlt": "잠자는 숲속의 공주 포스터",
     "watchProvidersKr": {
@@ -31828,8 +35484,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Carol",
       "Lulu"
     ],
+    "contextTags": [
+      "school"
+    ],
     "overview": "심술꾸러기 날라리에 공주병도 모자라 남 엿 먹이는 것이 취미인 제시카. 고등학교 졸업을 앞둔 그녀는 치어리더 경연대회 우승과 졸업파티의 퀸이 되기 위해 눈에 보이는 것이 없다. 친구들과 어울려 쇼핑을 간 제시카는 한 골동품 가게에서 황금빛이 요사스럽게 감도는 귀걸이 하나를 구하게 된다. 하지만 그 요상한 귀걸이는 사람의 몸을 바뀌게 하는 주술이 걸린 귀걸이. 공교롭게도 주유소에서 마주친 지저분한 좀도둑 클라이브가 제시카가 흘린 귀걸이 한 짝을 손에 넣게 된다.  아침이 되니 좀도둑 클라이브의 몸으로 바뀐 제시카. 가장 친한 친구 에이프릴을 찾아가지만, 누가 알아 볼 수 있으랴, 이 더-티한 남자가 제시카라고... 하지만, 둘만의 비밀을 알고 있는 이 이상한 남자가 자신의 친구 제시카라는 것을 믿게 된 에이프릴. 그녀 ? 혹은 그의 몸을 되찾기 위해 동분서주하게 되고... 아...하지만 여자도 아닌, 그렇다고 남자도 아닌 제시카는 가는 곳 마다 게이 취급을 받으며 사고만 일어나는데...",
     "releaseYear": 2002,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.4,
+    "voteCount": 2201,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hhaVryH074Dw1Br4GMwH4Pafj9Z.jpg",
     "posterAlt": "핫 칙 포스터",
     "watchProvidersKr": {
@@ -31889,8 +35553,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Agent Fisk",
       "Young Lee Harker"
     ],
+    "contextTags": [],
     "overview": "30년간 계속된 일가족 연쇄 살인 사건. 유일한 증거는 피해자의 생일이 14일이라는 것과 ‘롱레그스’라는 서명이 적힌 암호 카드뿐. 영원히 미제로 남을 뻔한 사건에 남다른 능력의 FBI 요원 ‘리’가 투입되고 지금껏 아무도 알아내지 못한 암호를 해석하는데...",
     "releaseYear": 2024,
+    "runtimeMinutes": 101,
+    "collectionId": 1679129,
+    "collectionName": "Longlegs Collection",
+    "voteAverage": 6.523,
+    "voteCount": 2736,
     "posterUrl": "https://image.tmdb.org/t/p/w780/h1YeS5Or2pjGn4HVKYbryDEDOZi.jpg",
     "posterAlt": "롱레그스 포스터",
     "watchProvidersKr": {
@@ -31944,8 +35614,16 @@ export const catalogMovies: CatalogMovie[] = [
       "President Coriolanus Snow",
       "Cinna"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "헝거게임의 우승으로 독재국가 판엠의 절대권력을 위협하는 존재가 된 캣니스, 혁명의 불꽃이 된 그녀를 제거하기 위해 캐피톨은 75회 스페셜 헝거게임의 재출전을 강요한다. 역대 최강의 우승자들이 모인 헝거게임에 참가하게 된 캣니스는 판엠의 음모 속에서 적인지 동료인지 알 수 없는 막강한 도전자들과 맞닥뜨린다. 모두의 운명을 걸고 살아남아야 하는 캣니스, 그녀와 함께 혁명의 불꽃이 시작된다.",
     "releaseYear": 2013,
+    "runtimeMinutes": 146,
+    "collectionId": 131635,
+    "collectionName": "헝거게임 시리즈",
+    "voteAverage": 7.427,
+    "voteCount": 18548,
     "posterUrl": "https://image.tmdb.org/t/p/w780/ca9M1P2F7mUGVcC5cQo0X5rf6tu.jpg",
     "posterAlt": "헝거게임: 캣칭 파이어 포스터",
     "watchProvidersKr": {
@@ -32012,8 +35690,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Ryûsaku (voice)",
       "Priestess Miyako / Council A (voice)"
     ],
+    "contextTags": [],
     "overview": "알 수 없는 폭발로 도쿄가 폐허가 된 지 31년이 지난 2019년의 일본. 신도시 네오도쿄는 정치와 자본의 결탁으로 첨단의 경제적 풍요를 누리고 있지만 이면에서는 퇴폐, 약물, 폭력, 광신으로 몸살을 앓고 있으며 반정부 시위가 곳곳에서 일어나고 있다. 고아이자 직업학교 출신 폭주족인 카네다 패거리는 오토바이로 거리를 누비며 아슬아슬한 심야의 레이싱을 즐긴다. 그중 한명인 테츠오는 자신에게 통제할 수 없는 엄청난 힘이 내재해 있음을 알고는 세상에 복수하듯 그 힘을 남용하기 시작한다. 과학자들은 진화된 인간에 도달하기 위해 아이들을 대상으로 능력을 각성시킬 실험을 자행하고, 30년 전의 도쿄 폭발은 실험대상 중 아키라라는 미지의 아이와 연관되어 있는데...",
     "releaseYear": 1988,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.9,
+    "voteCount": 4843,
     "posterUrl": "https://image.tmdb.org/t/p/w780/o5x9TTsTagSVsVe2lzcIDLRrmjm.jpg",
     "posterAlt": "아키라 포스터",
     "watchProvidersKr": {
@@ -32098,8 +35782,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Gordon Silberman",
       "Charlie Frost"
     ],
+    "contextTags": [],
     "overview": "고대 마야 문명에서부터 끊임없이 회자되어 온 인류 멸망. 2012년, 저명한 과학자들은 오랜 연구 끝에 실제로 멸망의 시기가 다가오고 있음을 감지하고 각국 정부에 이 사실을 알린다. 그리고 곧 고대인들의 예언대로 전세계 곳곳에서는 지진, 화산 폭발, 거대한 해일 등 각종 자연 재해들이 발생해 그 누구도 막을 수 없는 최후의 순간이 도래한다. 한편, 이혼 후 가족과 떨어져 살던 소설가 잭슨 커티스(존 쿠삭)는 인류 멸망에 대비해 진행되어 왔던 정부의 비밀 계획을 알아차리고 가족과 함께 살아남기 위한 필사의 사투를 벌이는데…",
     "releaseYear": 2009,
+    "runtimeMinutes": 158,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.886,
+    "voteCount": 12832,
     "posterUrl": "https://image.tmdb.org/t/p/w780/kdyhLTaforuBk0CjnACiMXuj7zd.jpg",
     "posterAlt": "2012 포스터",
     "watchProvidersKr": {
@@ -32168,8 +35858,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Lord Arthur Holmwood",
       "Dr. Jack Seward"
     ],
+    "contextTags": [],
     "overview": "터키의 침공으로 유럽이 위기에 몰리자 드라큐라 왕자는 십자군을 일으킨다. 드라큐라는 피비린내 나는 아비규환 속에서 목숨을 건지고 귀향하지만 아내인 엘리자벳은 남편이 전사했다는 잘못된 전갈에 이미 자살한 후였다. 드라큐라는 추기경으로부터 자살한 영혼은 구원받지 못한다는 말을 듣고 신을 저주하며 복수를 결심한다.  400년이 지난 1897년 런던, 젊고 유능한 변호사 조나단에게 영국에 땅을 사고 싶다는 트란실바니아 영주 드라큐라로의 편지가 전달된다. 드라큐라는 트란실바니아에 도착한 조나단의 책상 위에서 엘리자벳의 환생한 미나의 사진을 발견하고는 눈물을 흘리는데...",
     "releaseYear": 1992,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.45,
+    "voteCount": 5819,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8tQGUKvprMkzjWMAYXUTD5HfUk4.jpg",
     "posterAlt": "드라큐라 포스터",
     "watchProvidersKr": {
@@ -32226,8 +35922,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Mr. Chow",
       "Kingsley"
     ],
+    "contextTags": [],
     "overview": "스튜의 결혼식을 위해 태국에 모였던 친구들은 기억이 없는 채로 어느 허름한 호텔에서 잠을 깨게 된다.",
     "releaseYear": 2011,
+    "runtimeMinutes": 102,
+    "collectionId": 86119,
+    "collectionName": "행오버 시리즈",
+    "voteAverage": 6.513,
+    "voteCount": 11364,
     "posterUrl": "https://image.tmdb.org/t/p/w780/11SaBaTqGkftABvubDNsjcAQ3ij.jpg",
     "posterAlt": "행오버 2 포스터",
     "watchProvidersKr": {
@@ -32293,8 +35995,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Hazmi",
       "Max Denoff"
     ],
+    "contextTags": [
+      "travel"
+    ],
     "overview": "도시를 위협하는 열차 폭탄 테러 사건 해결을 위해 호출된 콜터 대위. 콜터 대위는 시공간 이동 기밀 시스템인 소스 코드로 과거에 접속해 통근열차 테러로 사망한 남자의 마지막 8분으로 돌아가 폭탄을 찾고 범인을 잡아야 하는 임무를 부여받는다. 이 임무가 성공해야만 6시간 뒤로 예고된 시카고를 날려버릴 대형 폭탄 테러를 막아 미래를 구할 수 있다. 콜터 대위는 스크린에 비치는 굿윈의 명령을 따라야 하지만 소스 코드가 뭔지도 제대로 이해 못하는 상태. 군부는 상황 설명을 요구하는 그를 강제적으로 기차 테러의 마지막 8분 속에 반복해서 보내고, 그는 모든 직감을 이용해 사건의 단서와 용의자를 찾아야 하는데...",
     "releaseYear": 2011,
+    "runtimeMinutes": 93,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.315,
+    "voteCount": 9206,
     "posterUrl": "https://image.tmdb.org/t/p/w780/eXnXhxW23RuH86fTE3xjW7QLplS.jpg",
     "posterAlt": "소스 코드 포스터",
     "watchProvidersKr": {
@@ -32378,8 +36088,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Shalla-Bal / Silver Surfer",
       "Harvey Elder / Mole Man"
     ],
+    "contextTags": [],
     "overview": "1960년대, 전 세계적인 관심 속 우주로 떠난 4명의 엘리트 우주비행사 ‘리드 리처드’, ‘수잔 스톰’, ‘조니 스톰’, ‘벤 그림’은 예기치 못한 사고로 우주 방사능에 노출되면서 초인적인 능력을 갖게 된다. 신체를 자유자재로 변형할 수 있게 된 ‘리드 리처드’(미스터 판타스틱)부터 온몸이 투명해지고, 강력한 방어막을 형성하는 ‘수잔 스톰’(인비저블 우먼), 온몸으로 뜨거운 화염을 내뿜으며 비행 능력까지 지닌 ‘조니 스톰’(휴먼 토치), 그리고 바위 같은 엄청난 피지컬과 압도적 파워를 갖춘 ‘벤 그림’(씽)까지 ‘판타스틱4’라는 새로운 슈퍼 히어로 팀이 된 4명의 멤버들. 인생에 완전히 새로운 국면을 맞이하게 되면서 혼란과 갈등에 휩싸인 이들 앞에 행성 파괴자 ‘갤럭투스’의 위협을 전달하는 미스터리한 전령 ‘실버서퍼’가 등장해 지구 파괴를 예고하고 ‘판타스틱 4’는 세상을 구하기 위해 다 함께 힘을 모으게 되는데…",
     "releaseYear": 2025,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.951,
+    "voteCount": 3501,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vXvcMeUL6dGr9iBhNOMG3SPRHGA.jpg",
     "posterAlt": "판타스틱 4: 새로운 출발 포스터",
     "watchProvidersKr": {
@@ -32426,8 +36142,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Charlie (voice)",
       "Bailey (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "니모를 찾고 1년이 흘렀다. 말린, 니모 부자와 그들의 가족 같은 친구 도리는 산호초에서 평온한 일상을 보낸다. 심각한 단기기억상실증으로 과거에 대한 기억이 없는 도리는 어느 날 빠르게 지나가는 가오리떼를 보고 부모에게서 급물살 훈련을 받던 기억을 떠올린다. 캘리포니아 모로베이의 보석이라는 지명을 비롯해 고향과 가족에 관한 기억들도 불쑥 떠오르기 시작한다. 이름도, 모습도 제대로 기억하지 못하지만 부모가 어디선가 자신을 기다리고 있을 거라 생각한 도리는 그들을 찾아 떠나기로 한다. 가족과 떨어져 지내는 아픔이 뭔지 아는 말린 부자는 두말없이 도리를 따라나선다.",
     "releaseYear": 2016,
+    "runtimeMinutes": 97,
+    "collectionId": 137697,
+    "collectionName": "니모를 찾아서 시리즈",
+    "voteAverage": 7.042,
+    "voteCount": 12720,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5t9p6Z2RCLPZlWgBnD31YrJXaCz.jpg",
     "posterAlt": "도리를 찾아서 포스터",
     "watchProvidersKr": {
@@ -32480,8 +36204,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Frankenstein's Monster",
       "Aleera"
     ],
+    "contextTags": [],
     "overview": "세상 모든 악이 두려워하는 이름, 반헬싱  악의 기운이 느껴지는 곳이면 어디든 나타나 신의 이름으로 처단을 내리는 신의 사제 '반헬싱'. 지상의 모든 악을 소탕하는 것이 그의 소명. 늘 살인자라 비난받으며 숨어지내야 하는 것은 그에게 내린 저주이다. 그러나 왜 그런 운명을 타고났는지, 자신이 누구인지 그에게 7년 이전의 기억은 없다. 그저 로마 교황청의 부름을 받아 움직일 뿐.",
     "releaseYear": 2004,
+    "runtimeMinutes": 132,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.423,
+    "voteCount": 6731,
     "posterUrl": "https://image.tmdb.org/t/p/w780/5p2rU70TTEd1bFXRIXZGSlgUhbe.jpg",
     "posterAlt": "반 헬싱 포스터",
     "watchProvidersKr": {
@@ -32535,8 +36265,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Marjorie Houseman",
       "Lisa Houseman"
     ],
+    "contextTags": [
+      "summer"
+    ],
     "overview": "1963년 베이비(제니퍼 그레이)라는 애칭의 프란시스는 의사인 아버지 제이크(제리 오바하)와 어머니 마조리, 언니 리사와 함께 켈러만 산장으로 피서를 간다. 같은 또래의 젊은이들이 많이 있는 그곳에서는 저녁이면 댄스 파티를 즐긴다. 그러다 베이비는 댄스 교사 자니(패트릭 스웨이즈)와 그의 파트너인 페니(신시아 로즈)가 추는 춤에 매료된다.  베이비는 임신한 페니 대신 댄스 경연대회에 나가기 위해 연습을 하고 춤을 추면서 자니와 베이비는 사랑에 빠진다. 그러나 페니가 돌팔이 의사에게 중절수술을 받고 사경을 헤매게 되지만 의사인 베이비 아버지의 도움으로 살아나지만 자니는 아이의 아버지로 오인받고 해고된다. 피서 마지막 발표회에서 돌연 등장한 자니는 베이비와 환상적 더티댄싱을 선보인다.",
     "releaseYear": 1987,
+    "runtimeMinutes": 100,
+    "collectionId": 86058,
+    "collectionName": "더티 댄싱 시리즈",
+    "voteAverage": 7.324,
+    "voteCount": 6556,
     "posterUrl": "https://image.tmdb.org/t/p/w780/nTMryOvShRaB2bu9VifCZ73Jmzs.jpg",
     "posterAlt": "더티 댄싱 포스터",
     "watchProvidersKr": {
@@ -32603,8 +36341,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Xenk",
       "Kira"
     ],
+    "contextTags": [],
     "overview": "한때는 명예로운 기사였지만, 어떤 사건 이후 홀가, 사이먼, 포지와 함께 도적질을 하게 된 에드긴. 소피나의 제안으로 부활의 서판을 얻기 위해 코린의 성에 잠입하지만 포지와 소피나의 배신으로 실패하고 감옥에 갇힌다. 기발한 방법으로 탈옥에 성공한 에드긴과 홀가는 소중한 사람들과 다시 만나고, 부활의 서판도 되찾기 위해  자신만의 팀을 꾸리기 시작한다. 옛 동료인 소질 없는 소서러 사이먼과 새롭게 합류한 변신 천재 드루이드 도릭, 재미 빼고 다 가진 팔라딘 젠크까지 어딘가 2% 부족한 오합지졸로 가득한 이 팀, 과연 무사히 모험을 끝마칠 수 있을까?",
     "releaseYear": 2023,
+    "runtimeMinutes": 134,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.358,
+    "voteCount": 4737,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rEEEl6t8LDA3h25woAw6aYsqaSs.jpg",
     "posterAlt": "던전 앤 드래곤: 도적들의 명예 포스터",
     "watchProvidersKr": {
@@ -32670,8 +36414,17 @@ export const catalogMovies: CatalogMovie[] = [
       "Chrystal",
       "Patricia"
     ],
+    "contextTags": [
+      "travel",
+      "summer"
+    ],
     "overview": "피서 휴가로 외딴 해변으로 간 가족이 몇 시간동안 쉬는 동안, 어째서인지 그들은 빠르게 노화되는 이야기이다.  그들의 모든 삶은 단 하루로 줄어든다.",
     "releaseYear": 2021,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.324,
+    "voteCount": 4929,
     "posterUrl": "https://image.tmdb.org/t/p/w780/hyy0g2Lt9rHoP7qwdCnJYGksu7h.jpg",
     "posterAlt": "올드 포스터",
     "watchProvidersKr": {
@@ -32734,8 +36487,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Dr. Dora Skirth",
       "Homeless Woman Maria"
     ],
+    "contextTags": [
+      "space"
+    ],
     "overview": "진실을 위해서라면 몸을 사리지 않고 사회의 부조리를 취재하는 정의로운 열혈 기자 에디 브록. 거대 기업 라이프 파운데이션의 생체실험에 의혹을 품고 뒤를 쫓던 그는 이들의 사무실에 잠입했다가 실험실에서 외계 생물체 심비오트의 기습 공격을 받게 된다. 심비오트가 숙주의 몸과 정신을 지배할 때 능력을 발휘하는 베놈은 에디의 몸에 기생하며 갖가지 소동을 일으킨다. 한편 비밀리에 인간과 심비오트를 결합해 새로운 생명체를 만들려는 시도를 계속하던 라이프 파운데이션의 회장 드레이크 또한 심비오트의 숙주가 된다.",
     "releaseYear": 2018,
+    "runtimeMinutes": 112,
+    "collectionId": 558216,
+    "collectionName": "베놈 시리즈",
+    "voteAverage": 6.825,
+    "voteCount": 17338,
     "posterUrl": "https://image.tmdb.org/t/p/w780/x4ojC59pYfPlAP4mmy2LSkCCuK2.jpg",
     "posterAlt": "베놈 포스터",
     "watchProvidersKr": {
@@ -32826,8 +36587,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Aramaki (voice)",
       "Director Nakamura (voice)"
     ],
+    "contextTags": [],
     "overview": "때는 서기 2029년, 아시아의 뉴포트라는 도시. 인간의 뇌도 통신 네트워크의 일부가 된 사회에서 가장 극악한 범죄는 고스트 해킹이다. 인간의 정체성을 규명하는 광의의 영혼을 뜻하는 고스트를 해킹해 타인의 기억 등을 조작하고 변경시키는 것. 인형사라 불리는 정체불명의 악명 높은 고스트 해커가 유럽에서 뉴포트로 주활동 무대를 옮겼다는 소식이 들린다. 이를 막기 위해 외교상 일어나는 국제범죄, 테러 등에 대해 정보수집과 감사를 행하는 정보기관 공안 6과와 쿠사나기 모토코 소령을 중심으로 한 공안 9과는 조사에 나선다",
     "releaseYear": 1995,
+    "runtimeMinutes": 83,
+    "collectionId": 23026,
+    "collectionName": "공각기동대 시리즈",
+    "voteAverage": 7.927,
+    "voteCount": 3935,
     "posterUrl": "https://image.tmdb.org/t/p/w780/piOTBFKd67p3ASodBjq5eOT8c4I.jpg",
     "posterAlt": "공각기동대 포스터",
     "watchProvidersKr": {
@@ -32906,8 +36673,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Meela / Anck-Su-Namun",
       "Alex O'Connell"
     ],
+    "contextTags": [],
     "overview": "'미이라'에서 동고동락을 한 릭 오코넬과 에블린은 결혼하여 8살짜리 아들까지 두고 행복한 가정을 꾸려나가고 있다. 그들은 고대 이집트 문명에 관한 전문가가 되어, 세계 어느 곳이든 발굴 여행을 떠난다.  그러던 어느날 에블린이 환영을 보고, 그것을 근거로 이집트의 한 무덤에 발을 들여 놓는다. 그곳은 바로 오래전 죽음의 신 아누비스의 군대를 이끌고 전세계를 정복하였던 전설적인 왕 스콜피온 킹의 팔찌가 있는 곳이었다. 스콜피온 킹이 세계를 정복하는 꿈을 이루자 죽음의 신은 스콜피온 킹이 약속한대로 그의 영혼을 거두고 그의 군대와 종족을 없애 버렸다. 스콜피온 킹은 누군가가 그의 팔찌를 찾아 그를 환생시켜 군대를 다시 통솔할 날을 기다리며 조용히 무덤속에 묻혀 있었다.  한편, 부활한 고대 이집트 마법사 이모텝은 세계를 정복하기 위해서는 스콜피온 킹 팔찌를 찾은 뒤 그를 죽이고 그의 군대를 이용해야만 한다는 결론을 내린다. 그러나 그 팔찌는 우연히 오코넬 아들 손에 들어가고...",
     "releaseYear": 2001,
+    "runtimeMinutes": 130,
+    "collectionId": 1733,
+    "collectionName": "미이라 시리즈",
+    "voteAverage": 6.409,
+    "voteCount": 7760,
     "posterUrl": "https://image.tmdb.org/t/p/w780/1mYrlAHF0U99dm3ijaw13EpAx01.jpg",
     "posterAlt": "미이라 2 포스터",
     "watchProvidersKr": {
@@ -32977,8 +36750,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Bo-ra's Father",
       "Madam"
     ],
+    "contextTags": [],
     "overview": "보라의 둘도 없는 친구 연두는 심장 수술을 위해 미국에 가면서 자신이 좋아하는 남자 백현진에 대한 모든 정보를 수집해 달라고 보라에게 부탁한다. 보라는 백현진의 가장 친한 친구 풍운호와 먼저 친해지기로 한다. 하지만 보라의 서투른 계획은 예상치 못한 방향으로 전개된다. 새로운 세기가 오기 1년 전인 1999년, 17세가 된 보라는 첫사랑의 열병에 빠진다.",
     "releaseYear": 2022,
+    "runtimeMinutes": 119,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.165,
+    "voteCount": 831,
     "posterUrl": "https://image.tmdb.org/t/p/w780/rSNtRQpCsDckczokmynAcVAt4Fm.jpg",
     "posterAlt": "20세기 소녀 포스터",
     "watchProvidersKr": {
@@ -33032,8 +36811,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Marge Malone (voice)",
       "Odie (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "세상귀찮 집냥이, 바쁘고 험난한 세상에 던져졌다! 집사 ‘존’과 반려견 ‘오디’를 기르며 평화로운 나날을 보내던 집냥이 ‘가필드’. 어느 날, 험악한 길냥이 무리에게 납치당해 냉혹한 거리로 던져진다. 돌봐주는 집사가 없는 집 밖 세상은 너무나도 정신없게 돌아가고 길에서 우연히 다시 만난 아빠 길냥이 ‘빅’은 오히려 ‘가필드’를 위기에 빠지게 하는데… 험난한 세상, 살아남아야 한다!",
     "releaseYear": 2024,
+    "runtimeMinutes": 101,
+    "collectionId": 1510620,
+    "collectionName": "The Garfield Movie Collection",
+    "voteAverage": 6.984,
+    "voteCount": 1456,
     "posterUrl": "https://image.tmdb.org/t/p/w780/8tmtj4WIJEYVXxlrDcO6SqQN0Vz.jpg",
     "posterAlt": "가필드 더 무비 포스터",
     "watchProvidersKr": {
@@ -33091,8 +36878,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Assassin",
       "Cardinal Strauss"
     ],
+    "contextTags": [
+      "literary"
+    ],
     "overview": "세계 최대의 과학연구소 ‘CERN’(유럽 원자핵 공동 연구소)에서 우주 탄생을 재현하는 빅뱅 실험이 진행되고 실험을 통해 강력한 에너지원인 반물질 개발에 성공하지만 과학자가 살해되고 반물질이 사라지는 사건이 발생한다.  한편, 하버드대 종교기호학 교수 로버트 랭던(톰 행크스)은 교황청으로부터 의문의 사건과 관련된 암호 해독을 의뢰받는다. 새로운 교황을 선출하는 고대의식인 ‘콘클라베’가 집행되기 전, 가장 유력한 4명의 교황 후보가 납치되고 교황청에 비밀결사 일루미나티의 상징인 앰비그램이 나타난 것. 500년만에 부활한 일루미나티는 4명의 교황 후보를 한 시간에 한 명씩 살해하고 마지막에는 CERN에서 탈취한 반물질로 바티칸을 폭파시킬 것이라며 카톨릭 교회를 위협한다.  사건을 해결하기 위해 로마 바티칸에 도착한 로버트 랭던과 비토리아는 곳곳에 숨겨져 있는 일루미나티의 단서를 파헤치며 그들의 근거지로 향하는 ‘계몽의 길’ 추적에 나서는데…",
     "releaseYear": 2009,
+    "runtimeMinutes": 139,
+    "collectionId": 115776,
+    "collectionName": "로버트 랭던 시리즈",
+    "voteAverage": 6.7,
+    "voteCount": 7381,
     "posterUrl": "https://image.tmdb.org/t/p/w780/vsFzsh4ozewRyTzPY0LlI4r31EI.jpg",
     "posterAlt": "천사와 악마 포스터",
     "watchProvidersKr": {
@@ -33166,8 +36961,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Alexander",
       "Blue Eyes"
     ],
+    "contextTags": [],
     "overview": "치명적인 바이러스 시미안 플루로 인류가 거의 멸망하고 소수만이 살아남은 시대. 유인원들은 도시를 떠나 숲에서 그들의 세상을 만들었다. 도시는 폐허가 되었고, 10년간 인간과 유인원은 서로 다른 공간에 머물며 마주치지 않고 살아왔기 때문에 유인원들은 인간이 멸종한 것이 아닐까 추정하고 있다. 그 평화가 깨진 것은 도시의 비상전력이 다 소진되면서부터. 전력 공급을 위해서는 유인원이 거주하는 숲에 있는 댐을 재가동해야 한다. 우연히 두 존재가 마주치게 되자, 유인원과 인간은 평화를 지킬 것인가 무력을 써서 주도권을 가져야 하나를 두고 내부 마찰을 겪는데...",
     "releaseYear": 2014,
+    "runtimeMinutes": 130,
+    "collectionId": 173710,
+    "collectionName": "혹성탈출 리메이크 시리즈",
+    "voteAverage": 7.339,
+    "voteCount": 12303,
     "posterUrl": "https://image.tmdb.org/t/p/w780/39kIGCP0mvRc9IZC1oJuIaJOaAb.jpg",
     "posterAlt": "혹성탈출: 반격의 서막 포스터",
     "watchProvidersKr": {
@@ -33229,8 +37030,16 @@ export const catalogMovies: CatalogMovie[] = [
       "Bernard (voice)",
       "Megaminds's Father (voice)"
     ],
+    "contextTags": [
+      "family"
+    ],
     "overview": "메트로시티의 막강 라이벌 메트로맨과 메가마인드! 도시의 영웅 메트로맨과 달리 슈퍼 악당 메가마인드는 모든 사람들이 두려워하는 대상. 그러던 어느 날... 꼭 한번 메트로맨을 이기고 싶었던 메가마인드는 회심의 일격을 가하고 얼떨결에 메트로맨을 제거하는데 성공한다. 하지만 승리의 기쁨도 잠시! 앙숙이자, 숙적이자, 자신을 대적할 유일한 상대였던 메트로맨이 사라진 후 메가마인드는 예상치 못한 무료함에 점점 시들해져 가는데...  관심 받고싶은 슈퍼악당, 안티히어로 메가마인드! 영웅을 제거해버린 그의 기상천외한 다음 계획은??",
     "releaseYear": 2010,
+    "runtimeMinutes": 95,
+    "collectionId": 1239518,
+    "collectionName": "Megamind Collection",
+    "voteAverage": 7.033,
+    "voteCount": 7547,
     "posterUrl": "https://image.tmdb.org/t/p/w780/889qsylbt5Y1TGnwaiKiCcEDaIh.jpg",
     "posterAlt": "메가마인드 포스터",
     "watchProvidersKr": {
@@ -33284,8 +37093,14 @@ export const catalogMovies: CatalogMovie[] = [
       "Dale",
       "Colin"
     ],
+    "contextTags": [],
     "overview": "혜성의 지구 충돌 속보를 지켜보던 존과 가족들. 미 항공우주국(NASA)의 예측과 달리 해상으로 떨어졌어야 할 파편은 캘리포니아를 비롯해 세계 대도시로 추락해 세계는 순식간에 혼돈에 빠진다. 지구의 3/4을 날려버릴 초대형 혜성 추락까지 남은 시간은 단 48시간. 존과 가족은 지구의 유일한 안전 대피소인 ‘그린란드’의 벙커로 향하는데... 인류의 마지막 카운트다운이 시작된다!",
     "releaseYear": 2020,
+    "runtimeMinutes": 120,
+    "collectionId": 840465,
+    "collectionName": "그린랜드 시리즈",
+    "voteAverage": 7.129,
+    "voteCount": 5392,
     "posterUrl": "https://image.tmdb.org/t/p/w780/wLgHczwajb3QV2JBgsqNVjuHoJC.jpg",
     "posterAlt": "그린랜드 포스터",
     "watchProvidersKr": {
@@ -33331,6 +37146,12557 @@ export const catalogMovies: CatalogMovie[] = [
           "providerName": "Google Play Movies",
           "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
           "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_501",
+    "tmdbMovieId": 496450,
+    "title": "미라큘러스: 레이디버그와 블랙캣, 더 무비",
+    "genres": [
+      "애니메이션",
+      "판타지",
+      "액션"
+    ],
+    "genreIds": [
+      16,
+      14,
+      28,
+      10749,
+      10751
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "감성적인 음악",
+      "영상미"
+    ],
+    "characters": [
+      "Marinette Dupain-Cheng / Ladybug (voice)",
+      "Adrien Agreste / Chat Noir (voice)",
+      "Alya Césaire (voice)",
+      "Nino Lahiffe (voice)",
+      "Gabriel Agreste / Le Papillon (voice)",
+      "Chloé Bourgeois / Nathalie Sancoeur (voice)",
+      "Sabrina Raincomprix (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "마법 보석의 수호자로 인해 슈퍼히어로가 된 수줍음 많은 소녀와 인기 많은 소년. 정반대에 끌리는 두 사람은 서로에게조차 정체를 밝힐 수 없는데.\r 전 세계적으로 사랑받은 《미라큘러스》 프랜차이즈의 첫 장편영화 《미라큘러스: 레이디버그와 블랙캣, 더 무비》는 파리에 사는 평범한 10대 소녀 마리네뜨가 레이디버그가 되면서 초인적인 능력을 갖게 된 이야기를 따라간다. 신비한 창조 능력을 지닌 레이디버그는 혼란을 일으키는 새로운 악당으로부터 파리를 지키기 위해 자신과 반대인 블랙캣과 힘을 합해야 하는데.",
+    "releaseYear": 2023,
+    "runtimeMinutes": 80,
+    "collectionId": 1241422,
+    "collectionName": "미라큘러스 시리즈",
+    "voteAverage": 7.603,
+    "voteCount": 968,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/3aIzclfPAU02LkpirPJkenh9EGF.jpg",
+    "posterAlt": "미라큘러스: 레이디버그와 블랙캣, 더 무비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/496450-miraculous-le-film/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_502",
+    "tmdbMovieId": 491418,
+    "title": "인스턴트 패밀리",
+    "genres": [
+      "코미디",
+      "드라마"
+    ],
+    "genreIds": [
+      35,
+      18
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "감성적인 음악",
+      "OST"
+    ],
+    "characters": [
+      "Pete Wagner",
+      "Ellie Wagner",
+      "Kim",
+      "Elizabeth “Lizzy” Viara",
+      "Jan",
+      "Sharon",
+      "Karen"
+    ],
+    "contextTags": [],
+    "overview": "피트와 엘리 부부는 직접 자신들의 아이를 낳는 대신 입양을하기로 하지만, 그들의 계획과는 달리 대부분의 가정에서 입양하기를 꺼리는 십 대 아이 세 명을 입양하게 되는 상황에 놓인다.  서로가 서로의 새로운 가족이 되는 과정 속에서 그들은 갈등을 겪게 되지만 점차 진정한 가족의 의미를 깨닫게 되는데…",
+    "releaseYear": 2018,
+    "runtimeMinutes": 118,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.497,
+    "voteCount": 3255,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ZY70JDZZHfK6TMvR8zVE0m1WGV.jpg",
+    "posterAlt": "인스턴트 패밀리 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/491418-instant-family/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_503",
+    "tmdbMovieId": 26662,
+    "title": "명탐정 코난: 베이커가의 망령",
+    "genres": [
+      "애니메이션",
+      "미스터리",
+      "SF"
+    ],
+    "genreIds": [
+      16,
+      9648,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Conan Edogawa (voice)",
+      "Shinichi Kudo (voice)",
+      "Ran Mouri (voice)",
+      "Kogoro Mouri (voice)",
+      "Yuusaku Kudo / Sherlock Holmes (voice)",
+      "Ai Haibara (voice)",
+      "Ayumi Yoshida (voice)"
+    ],
+    "contextTags": [],
+    "overview": "IT 회사 신드라 컴퍼니가 개발한 ‘코쿤’이라는 체험 시뮬레이션 게임 시연회에 참석한 코난. 게임이 시작되기 몇 분 전, 게임개발자인 카시무라가 ‘JTR’이라는 의문의 다잉 메시지를 남기고 살해 당한다. 메시지를 본 코난은 가상 게임 속에 살인 동기가 있을 것으로 직감하고 50명의 아이들과 함께 게임에 참여하게 된다. 하지만 인공 두뇌 ‘노아의 방주’의 서버 침입으로 게임은 통제불능의 상태에 빠지게 되고, ‘노아의 방주’는 19세기 전설적인 살인마 ‘잭 더 리퍼’를 이기지 못하면 게임에 참가한 50명의 아이들의 뇌를 전부 손상시키겠다고 협박하는데……",
+    "releaseYear": 2002,
+    "runtimeMinutes": 107,
+    "collectionId": 39199,
+    "collectionName": "명탐정 코난 시리즈",
+    "voteAverage": 7.779,
+    "voteCount": 235,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vpSDbgqaGblSvtVH5wSZAryTSfq.jpg",
+    "posterAlt": "명탐정 코난: 베이커가의 망령 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/26662/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_504",
+    "tmdbMovieId": 131634,
+    "title": "헝거게임: 더 파이널",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "몰입감"
+    ],
+    "characters": [
+      "Katniss Everdeen",
+      "Peeta Mellark",
+      "Gale Hawthorne",
+      "Haymitch Abernathy",
+      "Effie Trinket",
+      "President Alma Coin",
+      "Plutarch Heavensbee"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "두 번의 헝거게임에서 살아남은 생존자 캣니스 에버딘. 그런 그녀를 향한 스노우 대통령의 공격은 더욱 거세지고 캣니스의 분노는 폭발한다.  캣니스는 그를 멈추고 모든 것을 끝낼 수 있는 사람이 바로 자신임을 깨닫고, 13구역 군단에 합류한다. 철저하게 준비를 끝낸 캣니스와 최정예 요원들은 캐피톨 입성에 성공하지만 스노우 대통령이 설치한 함정들로 인해 목숨을 위협받는 위험한 상황에 처하게 된다.  희생된 동료들을 뒤로한 채 가까스로 스노우 대통령과의 대결을 앞둔 캣니스에게 또 다른 충격적인 사건이 벌어지는데…",
+    "releaseYear": 2015,
+    "runtimeMinutes": 137,
+    "collectionId": 131635,
+    "collectionName": "헝거게임 시리즈",
+    "voteAverage": 6.9,
+    "voteCount": 13422,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eLFGEWddcsQhRtD3CfmdpmXfz3w.jpg",
+    "posterAlt": "헝거게임: 더 파이널 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/131634-the-hunger-games-mockingjay-part-2/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_505",
+    "tmdbMovieId": 810,
+    "title": "슈렉 3",
+    "genres": [
+      "판타지",
+      "모험",
+      "애니메이션"
+    ],
+    "genreIds": [
+      14,
+      12,
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Shrek (voice)",
+      "Donkey (voice)",
+      "Princess Fiona (voice)",
+      "Puss in Boots (voice)",
+      "Queen Lillian (voice)",
+      "King Harold (voice)",
+      "Prince Charming (voice)"
+    ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
+    "overview": "마침내 평온을 되찾은 ‘겁나먼 왕국’.  이제 자신들의 늪에 돌아가 둘만의 달콤한 생활을 꿈꾸던 슈렉과 피오나에게 엄청난 태클이 들어온다. 피오나의 아버지 해롤드 왕이 위독해져 슈렉과 피오나가 왕위를 계승해야 하는 상황이 벌어진 것.  해롤드 왕은 슈렉에게 왕위 계승 다음 서열인 피오나의 먼 친척 ‘아더 왕자’를 찾아오면 늪으로 돌아가도 좋다는 타협책을 내놓는다. 슈렉은 동키, 장화 신은 고양이와 함께 아더 왕자를 찾기 위한 머나먼 여정에 나서고….  한편, 슈렉이 없는 틈을 ‘프린스 챠밍’은 동화속 악당을 모아 겁나먼 왕국을 차지하려는 음모를 꾸미고, 왕국에 남아있는 피오나 등 5공주(백설공주, 신데렐라, 잠자는 숲속의 공주, 라푼첼)와 릴리안 왕비는 힘을 합쳐 프린스 챠밍에 맞서는데….  ‘모두가 王이 되고자 하는 시대’에 ‘스스로 王을 포기하려는’ 슈렉. 자신이 원하는 삶을 누리는 ‘진정한 王’이 될 수 있을까?",
+    "releaseYear": 2007,
+    "runtimeMinutes": 93,
+    "collectionId": 2150,
+    "collectionName": "슈렉 시리즈",
+    "voteAverage": 6.311,
+    "voteCount": 9860,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/s8VjSynQ1wGwkALwmn5nsifivyq.jpg",
+    "posterAlt": "슈렉 3 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/810-shrek-the-third/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_506",
+    "tmdbMovieId": 7451,
+    "title": "트리플 엑스",
+    "genres": [
+      "액션",
+      "모험",
+      "스릴러"
+    ],
+    "genreIds": [
+      28,
+      12,
+      53,
+      80,
+      18
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "몰입감",
+      "긴장감"
+    ],
+    "characters": [
+      "Xander Cage",
+      "Yelena",
+      "Yorgi",
+      "Agent Augustus Gibbons",
+      "Agent Toby Lee Shavers",
+      "Milan Sova",
+      "Kirill"
+    ],
+    "contextTags": [],
+    "overview": "싸이렌이 온 거리를 울려 퍼지며 요란한 추격씬이 벌어지는 도중 한 녀석이 콜벳를 몰고 다리를 돌진, 200미터 높이에서 자동차 번지를 시도한다. 짜릿한 곡예를 선보인 후 낙하산을 펴고 유유히 사라지는 녀석의 이름은 '젠더 케이지'. 인터넷에 생방송된 이 장면은 전세계 네티즌들에게 열렬한 환호를 받는다. 또 한 번의 멋진 프로젝트로 영웅 대접을 받는 젠더 케이지. 그러나 파티가 무르익을 무렵, 갑자기 들이닥친 특수부대는 그에게 신경 안정제를 쏜 후 잠들게 한다. 깨어난 곳은 알 수 없는 레스토랑. 어리둥절한 그 곳은 갑자기 강도들의 침입장으로 돌변하고, 단숨에 상황을 정리해버린 그에게 기븐스가 축하 인사를 전한다. 미국 비밀첩보국 NSA의 1차 테스트를 통과한 것. 이후 또 다시 잠에서 깨어난 곳은 비행기 안. 2번째 테스트로 콜럼비아 마약 밀매상의 아지트에 던져진 젠더 케이지. 때마침 콜럼비아 정부와 마약상들의 충돌로 아수라장이 된 그곳에서 살아남기 위한 치열한 전쟁이 펼쳐지는데...  상황종료 후 유유히 나타난 기븐스는 NSA의 테스트를 유일하게 통과한 그에게 비밀요원이 되어줄 것을 부탁한다. 단 그렇지 않을 경우는 감옥행뿐이라는 단서를 둔다. 젠더 케이지의 코드명은 트리플 X. 첫번째 임무지는 비밀요원의 무덤이라는 별칭을 가지고 있는 도시 프라하. 이제 얼떨결에 비밀요원이 되어버린 트리플 X의 위험한 여정이 시작되는데.",
+    "releaseYear": 2002,
+    "runtimeMinutes": 124,
+    "collectionId": 52785,
+    "collectionName": "트리플 엑스 시리즈",
+    "voteAverage": 5.989,
+    "voteCount": 4962,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ysmsesGYF83VZXSvkG8ZdNNCKAz.jpg",
+    "posterAlt": "트리플 엑스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/7451-xxx/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_507",
+    "tmdbMovieId": 818647,
+    "title": "스루 마이 윈도",
+    "genres": [
+      "로맨스",
+      "드라마",
+      "코미디"
+    ],
+    "genreIds": [
+      10749,
+      18,
+      35
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "여운",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Raquel",
+      "Ares Hidalgo",
+      "Yoshi",
+      "Daniela",
+      "Apolo Hidalgo",
+      "Artemis Hidalgo",
+      "Tere"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "옆집에 사는 남자를 오랫동안 짝사랑해온 라켈. 가족의 반대에도 불구하고 그 남자 역시 라켈에게 마음을 열기 시작하자, 그녀의 감정도 커져간다.",
+    "releaseYear": 2022,
+    "runtimeMinutes": 113,
+    "collectionId": 1130226,
+    "collectionName": "스루 마이 윈도 시리즈",
+    "voteAverage": 7.353,
+    "voteCount": 3355,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/3F5MkMadQOWiZNVaNuOuw6UaK7a.jpg",
+    "posterAlt": "스루 마이 윈도 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/818647-a-traves-de-mi-ventana/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_508",
+    "tmdbMovieId": 937278,
+    "title": "오토라는 남자",
+    "genres": [
+      "코미디",
+      "드라마"
+    ],
+    "genreIds": [
+      35,
+      18
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "여운",
+      "감동"
+    ],
+    "characters": [
+      "Otto Anderson",
+      "Marisol",
+      "Jimmy",
+      "Malcolm",
+      "Tommy",
+      "Anita",
+      "Reuben"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "모든 것을 포기하려는 ‘오토’ 는 죽고 싶을 타이밍마다 이를 방해하는 이웃들로 분노가 치밀어 오른다. 인생 최악의 순간, 뜻하지 않은 이웃들과의 사건들로 인해 상황은 생각지도 못한 방향으로 흘러가는데…",
+    "releaseYear": 2022,
+    "runtimeMinutes": 126,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.748,
+    "voteCount": 3636,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/kfxi1tsQAkpZtCl72A3Wrl7iplz.jpg",
+    "posterAlt": "오토라는 남자 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/937278-a-man-called-otto/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_509",
+    "tmdbMovieId": 6637,
+    "title": "내셔널 트레져: 비밀의 책",
+    "genres": [
+      "액션",
+      "모험",
+      "미스터리"
+    ],
+    "genreIds": [
+      28,
+      12,
+      9648
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Benjamin Franklin Gates",
+      "Abigail Chase",
+      "Riley Poole",
+      "Mitch Wilkinson",
+      "Patrick Gates",
+      "Emily Appleton",
+      "Peter Sadusky"
+    ],
+    "contextTags": [],
+    "overview": "링컨 대통령 암살범 존 윌커스 부스의 일기장에서 사라진 부분이 발견되면서, 벤의 고조부는 에이브러햄 링컨 암살의 공모자라는 누명을 쓰게 된다. 고조부의 무죄를 증명해야 하는 벤은 전세계에 퍼져 있는 실마리를 쫓아 파리와 런던, 미국 전역을 누빈다. 이 여행을 통해 벤과 동료들은 놀랍게도 뜻밖의 사실을 알게 되고, 세계에서 가장 귀중한 비밀의 실마리를 얻게 되는데...",
+    "releaseYear": 2007,
+    "runtimeMinutes": 124,
+    "collectionId": 52984,
+    "collectionName": "내셔널 트레져 시리즈",
+    "voteAverage": 6.38,
+    "voteCount": 5602,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/UxBySBKx0VNOF2oqWkOw4svVFC.jpg",
+    "posterAlt": "내셔널 트레져: 비밀의 책 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/6637-national-treasure-book-of-secrets/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_510",
+    "tmdbMovieId": 126889,
+    "title": "에이리언: 커버넌트",
+    "genres": [
+      "공포",
+      "SF"
+    ],
+    "genreIds": [
+      27,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "반전"
+    ],
+    "characters": [
+      "David / Walter",
+      "Daniels",
+      "Oram",
+      "Tennessee",
+      "Lope",
+      "Karine",
+      "Ricks"
+    ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
+    "overview": "2천명의 승객과 12명의 승무원을 실은 커버넌트호는 새로운 행성의 개척과 이주를 위해 항해 중이다. 인공지능 로봇 월터가 홀로 깨어 승무원들의 건강을 관리하던 중 예기치 못한 사고로 선장이 사망하고 승무원들이 깨어난다. 이들은 커버넌트호를 정비하던 중 인근의 행성으로부터 알 수 없는 신호를 감지한다. 여행에 지친 승무원들은 다니엘스의 반대에도 불구하고 행성을 탐사하기로 결정한다. 이들은 정체불명의 생명체에 감염되어 위기에 빠지지만 10년 전 사라졌던 프로메테우스호의 인공지능 로봇 데이비드의 도움을 받아 상황을 모면하는데...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 122,
+    "collectionId": 135416,
+    "collectionName": "프로메테우스 시리즈",
+    "voteAverage": 6.179,
+    "voteCount": 9501,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qTiZhRh4y152Gj5jvEXMPmQZ71m.jpg",
+    "posterAlt": "에이리언: 커버넌트 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/126889-alien-covenant/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_511",
+    "tmdbMovieId": 49444,
+    "title": "코히런스",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "코미디"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      35,
+      28
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "감동",
+      "감성적인 음악"
+    ],
+    "characters": [
+      "Po (voice)",
+      "Tigress (voice)",
+      "Master Shifu (voice)",
+      "Lord Shen (voice)",
+      "Monkey (voice)",
+      "Viper (voice)",
+      "Mantis (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "그토록 원하던 용의 전사가 되어 무적의 5인방과 함께 평화의 계곡을 지키게 된 포. 진정한 용의 전사로 거듭나기 위해 시푸 사부와 쿵푸 수련에 매진하던 중, 셴 선생이 위대한 쿵푸 사부들을 하나 둘씩 제거하고 있다는 소식을 듣게 된다.  여전히 바람을 가르는 주먹의 소리보다 배에서 울리는 꼬르륵 소리가 더 크고, 오랜 숙적인 계단 앞에서는 맥을 못 추는 천방지축 팬더 포. 이제 막 정식 수련을 시작하려는 포에게 쿵푸를 지켜야 한다는 막중한 미션이 주어지고, 포는 무적의 5인방과 함께 길을 떠난다. 과연 포는 쿵푸의 대가들도 막지 못한 셴 선생의 비밀병기에 맞서 쿵푸를 지켜낼 수 있을까?",
+    "releaseYear": 2011,
+    "runtimeMinutes": 91,
+    "collectionId": 77816,
+    "collectionName": "쿵푸팬더 시리즈",
+    "voteAverage": 7.075,
+    "voteCount": 7982,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bPocc0TkmgENeBcreGSq3nNiEB7.jpg",
+    "posterAlt": "코히런스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/49444-kung-fu-panda-2/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_512",
+    "tmdbMovieId": 615457,
+    "title": "노바디",
+    "genres": [
+      "액션",
+      "스릴러"
+    ],
+    "genreIds": [
+      28,
+      53
+    ],
+    "tags": [
+      "액션",
+      "감동",
+      "몰입감",
+      "긴장감"
+    ],
+    "characters": [
+      "Hutch Mansell",
+      "Yulian Kuznetsov",
+      "Becca Mansell",
+      "David Mansell",
+      "Eddie Williams",
+      "The Barber",
+      "Harry Mansell"
+    ],
+    "contextTags": [],
+    "overview": "비범한 과거를 숨긴 채 남들과 다를 바 없는 평범한 일상을 사는 한 가정의 가장 ‘허치’ 매일 출근을 하고, 분리수거를 하고 일과 가정 모두 나름 최선을 다하지만 아들한테는 무시당하고 아내와의 관계도 소원하다. 그러던 어느 날, 집안에 강도가 들고 허치는 한 번의 반항도 하지 못하고 당한다. 더 큰 위험으로부터 가족을 지키기 위한 선택이었는데 모두 무능력하다고 ‘허치’를 비난하고, 결국 그동안 참고 억눌렀던 분노가 폭발하고 만다.",
+    "releaseYear": 2021,
+    "runtimeMinutes": 91,
+    "collectionId": 1129084,
+    "collectionName": "노바디 시리즈",
+    "voteAverage": 7.874,
+    "voteCount": 8467,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/oXQtH8O7pCvXaDKGB8OAjiPVDi5.jpg",
+    "posterAlt": "노바디 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/615457-nobody/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_513",
+    "tmdbMovieId": 776503,
+    "title": "코다",
+    "genres": [
+      "드라마",
+      "음악",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10402,
+      10749
+    ],
+    "tags": [
+      "감동",
+      "감성적인 음악",
+      "연출",
+      "유머"
+    ],
+    "characters": [
+      "Ruby Rossi",
+      "Jackie Rossi",
+      "Frank Rossi",
+      "Bernardo Villalobos",
+      "Miles",
+      "Leo Rossi",
+      "Gertie"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "청각 장애인 부모를 둔 10대 소녀. 음악을 향한 꿈을 좇아야 할까, 궁지에 처한 가족을 도와야 할까. 쉽지 않은 선택 앞에서 소녀의 고민이 깊어진다.",
+    "releaseYear": 2021,
+    "runtimeMinutes": 111,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.891,
+    "voteCount": 2631,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4DOzSUpEoCjrhogVLG2nCQUSTQI.jpg",
+    "posterAlt": "코다 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/776503-coda/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_514",
+    "tmdbMovieId": 552524,
+    "title": "릴로 & 스티치",
+    "genres": [
+      "가족",
+      "SF",
+      "코미디"
+    ],
+    "genreIds": [
+      10751,
+      878,
+      35
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "여운",
+      "감동"
+    ],
+    "characters": [
+      "Lilo",
+      "Nani",
+      "Stitch (voice)",
+      "Jumba",
+      "Pleakley",
+      "Cobra Bubbles",
+      "Tūtū"
+    ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
+    "overview": "보송보송한 파란 솜털, 호기심 가득한 큰 눈, 장난기 가득한 웃음을 가졌지만 가장 위험한 실험체 취급을 받던 스티치는 우주에서 도망쳐 지구의 하와이 섬에 불시착하게 된다. 단짝 친구를 원하던 외톨이 소녀 릴로는 별똥별과 함께 나타난 귀여운 파란색 강아지 스티치와 소중한 친구이자, 하나의 가족이 되어가며 외로웠던 일상이 유쾌하게 변하기 시작한다. 그러던 어느 날, 스티치를 잡아 우주로 되돌아가려는 정체불명의 요원들이 등장하고 릴로와 스티치는 예상치 못한 상황을 마주하게 되는데..!",
+    "releaseYear": 2025,
+    "runtimeMinutes": 107,
+    "collectionId": 1504372,
+    "collectionName": "Lilo & Stitch (Live-Action) Collection",
+    "voteAverage": 7.2,
+    "voteCount": 2194,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ww7jn7lv1YzTAGd5m0R6CP1VXAs.jpg",
+    "posterAlt": "릴로 & 스티치 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/552524-lilo-stitch/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_515",
+    "tmdbMovieId": 1232546,
+    "title": "언틸 던: 무한루프 데스게임",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "여운",
+      "몰입감"
+    ],
+    "characters": [
+      "Clover Paul",
+      "Max",
+      "Abe",
+      "Melanie Paul",
+      "Dr. Alan Hill",
+      "Nina Riley",
+      "Megan"
+    ],
+    "contextTags": [],
+    "overview": "1년 전, 여동생 멜라니가 흔적도 없이 사라진 후, 클로버는 친구들과 함께 그녀의 마지막 행적이었던 외딴 계곡을 찾아 나선다. 버려진 방문자 센터에서 하룻밤을 보내기로 한 그들은, 정체불명의 가면을 쓴 살인마에게 차례로 희생당한다. 그러나 죽음은 끝이 아니었다. 그들은 다시 그날 저녁으로 돌아오고, 매번 새로운 공포가 그들을 기다리고 있다. 죽음이 반복될수록 희망은 사라지고, 그들은 이 악몽에서 벗어나기 위해 반드시 새벽까지 살아남아야만 하는데...",
+    "releaseYear": 2025,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.276,
+    "voteCount": 1479,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vxg728iguFU0lgV4kw1T12n50xc.jpg",
+    "posterAlt": "언틸 던: 무한루프 데스게임 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1232546-until-dawn/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_516",
+    "tmdbMovieId": 61791,
+    "title": "혹성탈출: 진화의 시작",
+    "genres": [
+      "스릴러",
+      "액션",
+      "드라마"
+    ],
+    "genreIds": [
+      53,
+      28,
+      18,
+      878
+    ],
+    "tags": [
+      "액션",
+      "감동",
+      "긴장감",
+      "몰입감"
+    ],
+    "characters": [
+      "Caesar",
+      "Will Rodman",
+      "Caroline Aranha",
+      "Charles Rodman",
+      "John Landon",
+      "Dodge Landon",
+      "Robert Franklin"
+    ],
+    "contextTags": [],
+    "overview": "아버지의 알츠하이머 치료약 개발을 위해 유인원을 이용, 임상시험에 몰두하는 과학자 윌(제임스 프랭코). 실험에 참가한 한 유인원에게서 어린 시저(앤디 서키스)가 태어나자 연구를 위해 그를 집으로 데려와 가족처럼 함께 지내게 된다. 하지만 시간이 지날수록 시저의 지능은 인간을 능가하게 되고, 어느 날 이웃집 남자와 시비가 붙은 윌의 아버지를 본능적으로 보호하려는 과정에서 인간을 공격한 시저는 결국 유인원 보호시설로 보내진다. 시저는 자신이 인간과 다른 존재라는 것을 서서히 자각하게 되고, 유인원 집단과 그들을 적대시하는 인간과의 전쟁은 피할 수 없게 되는데...",
+    "releaseYear": 2011,
+    "runtimeMinutes": 106,
+    "collectionId": 173710,
+    "collectionName": "혹성탈출 리메이크 시리즈",
+    "voteAverage": 7.346,
+    "voteCount": 12849,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ik3cempRee837ETSXUYCGpDyzN7.jpg",
+    "posterAlt": "혹성탈출: 진화의 시작 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/61791-rise-of-the-planet-of-the-apes/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_517",
+    "tmdbMovieId": 425,
+    "title": "아이스 에이지",
+    "genres": [
+      "애니메이션",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      35,
+      10751,
+      12
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "감동",
+      "영상미"
+    ],
+    "characters": [
+      "Manfred 'Manny' (voice)",
+      "Sid (voice)",
+      "Diego (voice)",
+      "Soto (voice)",
+      "Zeke (voice)",
+      "Rhino (voice)",
+      "Rhino / Start (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "거대한 빙하가 온 지구의 표면을 뒤덮기 시작하던 때, 모든 동물들은 따뜻한 남쪽나라로 이동을 시작하지만, 염세적인 털북숭이 맘모스 만프레드만은 유별나게 북쪽으로 향한다. 만프레드는 우연히 떠버리 나무늘보 시드를 만나고, 인간의 아이 로샨을 발견한 뒤 가족을 찾아주기로 한다. 이들은 여행길에 검치 호랑이 디에고와 동행하게 되지만, 디에고는 비밀스런 임무를 맡고 있는 처지다. 바로 호랑이 무리의 두목으로부터 끼니를 때울 만한 인간의 아이를 납치해오라는 명령을 받은 것이다. 과연 로샨은 무사히 가족의 품으로 돌아갈 수 있을까?",
+    "releaseYear": 2002,
+    "runtimeMinutes": 82,
+    "collectionId": 8354,
+    "collectionName": "아이스 에이지 시리즈",
+    "voteAverage": 7.4,
+    "voteCount": 14404,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/biwqSbuyxjrZMvVcb8Lsv3GyQbw.jpg",
+    "posterAlt": "아이스 에이지 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/425-ice-age/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_518",
+    "tmdbMovieId": 49026,
+    "title": "다크 나이트 라이즈",
+    "genres": [
+      "액션",
+      "범죄",
+      "드라마"
+    ],
+    "genreIds": [
+      28,
+      80,
+      18,
+      53
+    ],
+    "tags": [
+      "액션",
+      "감성적인 음악",
+      "세계관",
+      "OST"
+    ],
+    "characters": [
+      "Bruce Wayne",
+      "Commissioner Gordon",
+      "Bane",
+      "Blake",
+      "Selina",
+      "Miranda",
+      "Fox"
+    ],
+    "contextTags": [],
+    "overview": "배트맨이 조커와의 대결을 끝으로 세상에서 모습을 감춘 8년 후, 하비 덴트의 죽음에 대한 책임을 떠안은 배트맨은 모든 것을 희생하며 떠난다. 범죄방지 덴트법으로 인해 한동안 평화가 지속되던 고담시의 파멸을 예고하며 나타난 마스크를 쓴 잔인한 악당, 최강의 적 베인이 등장한다. 베인은 배트맨이 스스로 택한 유배 생활에 종지부를 찍게 하지만, 다시 돌아온 배트맨에게 베인은 만만한 상대가 아니다. 자신을 거부한 사람들의 고통을 지켜볼 것인가, 정의의 수호자로 나설 것인가. 배트맨은 승패를 알 수 없는 마지막 전투를 시작하려 하는데...",
+    "releaseYear": 2012,
+    "runtimeMinutes": 164,
+    "collectionId": 263,
+    "collectionName": "다크 나이트 시리즈",
+    "voteAverage": 7.8,
+    "voteCount": 24539,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eq5P71YHwwaacEYKaQ72Wxy6BlT.jpg",
+    "posterAlt": "다크 나이트 라이즈 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/49026-the-dark-knight-rises/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_519",
+    "tmdbMovieId": 937287,
+    "title": "챌린저스",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "배우들의 연기력",
+      "여운"
+    ],
+    "characters": [
+      "Tashi Donaldson",
+      "Art Donaldson",
+      "Patrick Zweig",
+      "Umpire (New Rochelle Final)",
+      "Art's Physiotherapist",
+      "Art's Security Guard",
+      "Tashi's Mother"
+    ],
+    "contextTags": [],
+    "overview": "스타급의 인기를 누리던 테니스 천재 타시는 부상으로 인해 더 이상 선수 생활을 하지 못하고 지금은 남편 아트의 코치를 맡고 있다. 연패 슬럼프에서 빠져나오지 못하는 아트를 챌린저급 대회에 참가시킨 타시는 남편과 둘도 없는 친구 사이이자 자신의 전 남친인 패트릭을 다시 만나게 된다. 선 넘는 세 남녀의 아슬아슬한 관계는 테니스 코트 밖에서 더욱 격렬하게 이어지는데… 결승전 D-DAY, 가장 매혹적인 랠리가 시작된다!",
+    "releaseYear": 2024,
+    "runtimeMinutes": 132,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.912,
+    "voteCount": 2730,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iUDG0gsPZxNm9IOLqpIUZiUMVMZ.jpg",
+    "posterAlt": "챌린저스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/937287-challengers/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_520",
+    "tmdbMovieId": 675353,
+    "title": "수퍼 소닉 2",
+    "genres": [
+      "액션",
+      "모험",
+      "가족"
+    ],
+    "genreIds": [
+      28,
+      12,
+      10751,
+      35
+    ],
+    "tags": [
+      "액션",
+      "영상미",
+      "몰입감",
+      "감동"
+    ],
+    "characters": [
+      "Sonic (voice)",
+      "Tom Wachowski",
+      "Maddie Wachowski",
+      "Tails (voice)",
+      "Knuckles (voice)",
+      "Dr. Robotnik",
+      "Rachel"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "강력한 파워의 ‘너클즈’와 함께 돌아온 천재 과학자 ‘닥터 로보트닉’에 맞서 지구를 구하기 위해 ‘소닉’과 새로운 파트너 ‘테일즈’가 전 세계를 누비는 스피드 액션 블록버스터.",
+    "releaseYear": 2022,
+    "runtimeMinutes": 125,
+    "collectionId": 720879,
+    "collectionName": "수퍼 소닉 시리즈",
+    "voteAverage": 7.428,
+    "voteCount": 5918,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/tjFVUV06bzGSaG5YiU7NdpK1Qzp.jpg",
+    "posterAlt": "수퍼 소닉 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/675353-sonic-the-hedgehog-2/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_521",
+    "tmdbMovieId": 63,
+    "title": "12 몽키즈",
+    "genres": [
+      "SF",
+      "스릴러",
+      "미스터리"
+    ],
+    "genreIds": [
+      878,
+      53,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "여운",
+      "감성적인 음악"
+    ],
+    "characters": [
+      "James Cole",
+      "Dr. Kathryn Railly",
+      "Jeffrey Goines",
+      "Dr. Goines",
+      "Dr. Peters",
+      "Jose",
+      "Lt. Halperin"
+    ],
+    "contextTags": [
+      "travel"
+    ],
+    "overview": "서기 2035년, 미래의 인류는 바이러스 감염으로 인해 99%가 멸망하고 소수의 생존자들은 지상에서의 생활을 포기한 채 지하 세계에서 생활하게 된다. 감옥에 수감되어 있는 제임스 콜(브루스 윌리스)은 과학자들의 사면 제의를 받고 바이러스가 퍼지게 된 1996년으로 보내진다. 그러나 착오로 인해 1990년으로 보내지고 그곳에서 정신 병원에 수감된다. 그는 곧 인류가 바이러스에 의해 멸망할 것이라고 설득하지만 아무도 그의 말을 믿으려 하지 않는데, 그의 담당의사인 캐서린 레일리(매들린 스토우) 박사는 그를 치료하면서 어디서 본 것 같은 느낌을 갖는다.",
+    "releaseYear": 1995,
+    "runtimeMinutes": 129,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.611,
+    "voteCount": 9203,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6bSEAb5YOeEKW0lbki7bFCv6Zdh.jpg",
+    "posterAlt": "12 몽키즈 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/63-twelve-monkeys/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_522",
+    "tmdbMovieId": 170,
+    "title": "28일 후",
+    "genres": [
+      "공포",
+      "스릴러",
+      "SF"
+    ],
+    "genreIds": [
+      27,
+      53,
+      878
+    ],
+    "tags": [
+      "감성적인 음악",
+      "OST",
+      "몰입감",
+      "긴장감"
+    ],
+    "characters": [
+      "Jim",
+      "Selena",
+      "Frank",
+      "Hannah",
+      "Major Henry West",
+      "Mark",
+      "Private Clifton"
+    ],
+    "contextTags": [],
+    "overview": "분노 바이러스에 감염되어있던 침팬지들이 우리에서 풀려나고 바이러스는 런던 전역에 퍼진다. 텅 빈 병원에서 깨어난 짐은 감염자들의 공격을 피해 생존자들과 맨체스터로 향한다.",
+    "releaseYear": 2002,
+    "runtimeMinutes": 113,
+    "collectionId": 1565,
+    "collectionName": "28일 후 시리즈",
+    "voteAverage": 7.244,
+    "voteCount": 8615,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/yUEgICZTj6NMiPsb0hWs3qYByDe.jpg",
+    "posterAlt": "28일 후 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/170-28-days-later/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_523",
+    "tmdbMovieId": 16859,
+    "title": "마녀배달부 키키",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "판타지"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      14
+    ],
+    "tags": [
+      "감동",
+      "영상미",
+      "세계관",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Kiki / Ursula (voice)",
+      "Jiji (voice)",
+      "Tombo (voice)",
+      "Osono (voice)",
+      "Kokiri (voice)",
+      "Okino (voice)",
+      "Old Lady (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "마녀 엄마와 인간 아빠 사이에서 태어난 소녀 키키는 13살이 되던 만월의 어느 밤, 검은 고양이 지지와 함께 집을 나와 마녀 수업을 떠난다. 평소 바다를 동경하던 키키는 바다에 떠있는 커다란 마을에 정착하게 되고, 그 곳에서 갑자기 도로에 뛰어들게 되어 경찰에게 잡히지만 돔보라는 친구를 만나 도망을 치게 된다. 키키는 빵가게 앞을 지나가다 마음씨 좋은 아주머니를 만나게 되고 그 빵집에서 첫 배달이 시작된다. 어느날 비행선 사고가 일어나는데, 거기에 돔보가 포함되어있다는 것을 알고 급히 현장으로 가게 되고, 청소부의 대걸레를 빌려 마법을 사용, 돔보를 구출하려 하는데...",
+    "releaseYear": 1989,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.839,
+    "voteCount": 4633,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/yEbyzK1cLDoZVIJV6auSr9yN5fG.jpg",
+    "posterAlt": "마녀배달부 키키 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/16859/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_524",
+    "tmdbMovieId": 1011477,
+    "title": "베스트 키드: 레전드",
+    "genres": [
+      "액션",
+      "모험",
+      "드라마"
+    ],
+    "genreIds": [
+      28,
+      12,
+      18
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "감동",
+      "몰입감"
+    ],
+    "characters": [
+      "Mr. Han",
+      "Li Fong",
+      "Victor Lipani",
+      "Mia Lipani",
+      "Dr. Fong",
+      "Alan",
+      "Conor"
+    ],
+    "contextTags": [],
+    "overview": "엄마와 뉴욕으로 건너간 10대 소년 리퐁이 무술 대결을 위해 쿵후와 가라테의 전설들과 함께 훈련을 하면서 벌어지는 이야기를 다룬 극영화",
+    "releaseYear": 2025,
+    "runtimeMinutes": 95,
+    "collectionId": 8580,
+    "collectionName": "베스트 키드 시리즈",
+    "voteAverage": 6.985,
+    "voteCount": 1235,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/c90Lt7OQGsOmhv6x4JoFdoHzw5l.jpg",
+    "posterAlt": "베스트 키드: 레전드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1011477-karate-kid-legends/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_525",
+    "tmdbMovieId": 41630,
+    "title": "친구와 연인사이",
+    "genres": [
+      "코미디",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10749
+    ],
+    "tags": [
+      "감동",
+      "유머",
+      "캐릭터 매력",
+      "여운"
+    ],
+    "characters": [
+      "Emma Kurtzman",
+      "Adam Franklin",
+      "Alvin Franklin",
+      "Dr. Stephen Metzner",
+      "Patrice",
+      "Lucy",
+      "Katie Kurtzman"
+    ],
+    "contextTags": [],
+    "overview": "생물학적으로 일부일처제는 있을 수 없다고 믿는 엠마, 아버지에게 전 여친을 빼앗긴 후 사랑을 믿지 않는 아담. 서로에 대해 너무나 잘 아는 이들의 오랜 우정 사이에 어느 날 보너스(?)가 붙기 시작했다. 바로 ‘섹스’ 라는 특별 보너스가! 한 번의 섹스가 그들의 관계를 180도 바꿔 놓았다! 하지만 친구에서 결코 연인이 되고 싶지는 않았던 두 사람은 서로가 원한다면 언제 어디서든 뜨거운 섹스가 가능한 둘만의 은밀하고 아찔한 “조건 없이 즐기기” 규칙을 정하기에 이르는데… 과연 이 둘은 섹스만 즐기면서 사랑이란 걸림돌을 피해 갈 수 있을까? 이들의 오랜 우정은 지켜질 수 있을까?",
+    "releaseYear": 2011,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.294,
+    "voteCount": 5021,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/yxyxPMIyx1swMuJ5T68kEf51KcC.jpg",
+    "posterAlt": "친구와 연인사이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/41630-no-strings-attached/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_526",
+    "tmdbMovieId": 1284120,
+    "title": "어글리 시스터",
+    "genres": [
+      "공포",
+      "코미디",
+      "드라마"
+    ],
+    "genreIds": [
+      27,
+      35,
+      18
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "유머",
+      "캐릭터 매력",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Elvira",
+      "Rebekka",
+      "Agnes",
+      "Alma",
+      "Prince Julian",
+      "Isak",
+      "Otto"
+    ],
+    "contextTags": [],
+    "overview": "아름다움이 곧 권력이 되는 잔혹한 경쟁의 왕국. 언제나 외모로 조롱받던 ‘엘비라’는 ‘왕자’와의 달콤한 사랑을 꿈꾼다.  그러던 어느 날, 그녀에게 찾아온 단 한 번의 기회— 의붓언니인 ‘아그네스’와 함께 왕자가 개최하는 무도회에 초대된다. 그녀는 왕자의 마음을 사로잡기 위해 아름다움에 집착하며, 그 어떤 고통도 마다하지 않는다.  아름다움을 향한 그 갈망의 끝에 끔찍한 대가가 따른다는 사실을 모른 채…",
+    "releaseYear": 2025,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.301,
+    "voteCount": 1228,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eptIaZpqiBnmGeoHzN5fqiX0W5H.jpg",
+    "posterAlt": "어글리 시스터 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1284120-den-stygge-stesosteren/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_527",
+    "tmdbMovieId": 55779,
+    "title": "파이널 데스티네이션 5",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Sam",
+      "Molly",
+      "Peter Friedkin",
+      "Candice Hooper",
+      "Olivia Castle",
+      "Isaac",
+      "Nathan"
+    ],
+    "contextTags": [],
+    "overview": "1박 2일의 워크숍을 떠나는 버스 안에서 다리가 붕괴되는 끔찍한 사고로 자신과 동료들을 비롯해 수많은 이들이 죽는 환영을 본 샘. 곧이어 거짓말처럼 실제로 사고가 재현되고, 혼란 속에서 최대한 많은 사람들을 구해낸다. 그러나 그들은 죽었어야 하는 운명! 어김없이 찾아온 사신과의 싸움을 시작한 그들은 마침내 “타인의 생명을 이용하면 살아날 수 있다”는 달라진 죽음의 규칙을 찾아 내는데…",
+    "releaseYear": 2011,
+    "runtimeMinutes": 91,
+    "collectionId": 8864,
+    "collectionName": "파이널 데스티네이션 시리즈",
+    "voteAverage": 6.156,
+    "voteCount": 4130,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/5sRZVerkpfZmyBqgma6v0qMlvUA.jpg",
+    "posterAlt": "파이널 데스티네이션 5 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/55779-final-destination-5/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_528",
+    "tmdbMovieId": 1084199,
+    "title": "컴패니언",
+    "genres": [
+      "공포",
+      "SF",
+      "스릴러"
+    ],
+    "genreIds": [
+      27,
+      878,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "몰입감"
+    ],
+    "characters": [
+      "Iris",
+      "Josh",
+      "Patrick",
+      "Kat",
+      "Eli",
+      "Sergey",
+      "Teddy"
+    ],
+    "contextTags": [],
+    "overview": "서로에게 딱 맞는 커플 ‘아이리스’와 ‘조시’는 친구들과 함께 호숫가의 별장으로 호화로운 휴가를 떠난다. 하지만 그곳에는 충격적인 사건이 기다리고 있는데…",
+    "releaseYear": 2025,
+    "runtimeMinutes": 97,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7,
+    "voteCount": 2412,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dq7CEYFCvQPfYIpAXOvJr3w6VLY.jpg",
+    "posterAlt": "컴패니언 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1084199-companion/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_529",
+    "tmdbMovieId": 335797,
+    "title": "씽",
+    "genres": [
+      "애니메이션",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      35,
+      10751,
+      10402
+    ],
+    "tags": [
+      "감성적인 음악",
+      "영상미",
+      "세계관",
+      "유머"
+    ],
+    "characters": [
+      "Buster Moon (voice)",
+      "Rosita (voice)",
+      "Mike (voice)",
+      "Ash (voice)",
+      "Eddie (voice)",
+      "Johnny (voice)",
+      "Meena (voice)"
+    ],
+    "contextTags": [
+      "space",
+      "family"
+    ],
+    "overview": "한때 잘나갔던 문(Moon) 극장의 주인 코알라 ‘버스터 문’(매튜 맥커너히)은 극장을 되살리기 위해 대국민 오디션을 개최한다. 하지만 한 순간의 실수로 우승 상금이 1,000달러에서 10만 달러로 바뀌게 되고 이로 인해 전국 각지에서 동물들이 몰려와 오디션에 참가하게 된다.  25남매를 둔 슈퍼맘 돼지 ‘로지타’(리즈 위더스푼), 남자친구와 록스타의 꿈을 키우는 고슴도치 ‘애쉬’(스칼렛 요한슨), 범죄자 아버지를 둔 고릴라 ‘조니’(태런 에저튼), 무대가 두렵기만 한 코끼리 소녀 ‘미나’(토리 켈리), 그리고 오직 상금이 목적인 생쥐 ‘마이크’(세스 맥팔레인)까지!  꿈을 펼치기 위해 한 자리에 모인 이들은 자신들의 무대를 시작하는데…",
+    "releaseYear": 2016,
+    "runtimeMinutes": 108,
+    "collectionId": 544670,
+    "collectionName": "씽 시리즈",
+    "voteAverage": 7.124,
+    "voteCount": 8479,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/kKDXw5uRCioD522P1skH49YLNAH.jpg",
+    "posterAlt": "씽 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/335797-sing/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 119,
+          "providerName": "Amazon Prime Video",
+          "logoPath": "/pvske1MyAoymrs5bguRfVqYiM9a.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pvske1MyAoymrs5bguRfVqYiM9a.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_530",
+    "tmdbMovieId": 926393,
+    "title": "더 이퀄라이저 3",
+    "genres": [
+      "액션",
+      "스릴러",
+      "범죄"
+    ],
+    "genreIds": [
+      28,
+      53,
+      80
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Robert McCall",
+      "Emma Collins",
+      "Gio Bonucci",
+      "Frank Conroy",
+      "Aminah",
+      "Enzo Arisio",
+      "Vincent Quaranta"
+    ],
+    "contextTags": [],
+    "overview": "전직 특수 요원이 우연히 마주치게 된 이탈리아 마약조직 일당과 사투를 벌이는 내용을 다룬 영화",
+    "releaseYear": 2023,
+    "runtimeMinutes": 109,
+    "collectionId": 523855,
+    "collectionName": "더 이퀄라이저 시리즈",
+    "voteAverage": 7.294,
+    "voteCount": 3782,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/cXKe85IL6zFQnFk5465Kpr3YG9j.jpg",
+    "posterAlt": "더 이퀄라이저 3 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/926393-the-equalizer-3/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_531",
+    "tmdbMovieId": 792307,
+    "title": "가여운 것들",
+    "genres": [
+      "SF",
+      "로맨스",
+      "코미디"
+    ],
+    "genreIds": [
+      878,
+      10749,
+      35
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "여운",
+      "감성적인 음악"
+    ],
+    "characters": [
+      "Bella Baxter",
+      "Duncan Wedderburn",
+      "Godwin Baxter",
+      "Max McCandles",
+      "Alfie Blessington",
+      "Toinette",
+      "Harry Astley"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "괴짜 과학자 갓윈 백스터에 의해 되살아난 벨라 백스터. 갓윈의 과보호 속에 자란 벨라는 세상을 경험하고 싶은 열망을 품게 되고, 급기야 바람둥이 변호사 덩컨 웨더번을 따라 모험을 떠난다. 천진난만한 벨라에겐 모든 것이 새롭기만 한 세상... 놀랍고도 경이로운 그 여정 가운데 그녀는 어떤 성장과 변화를 겪게 될까?",
+    "releaseYear": 2023,
+    "runtimeMinutes": 141,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.64,
+    "voteCount": 5563,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/uEpP9cfDrTsBm36uvX8P0uvnAsg.jpg",
+    "posterAlt": "가여운 것들 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/792307-poor-things/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_532",
+    "tmdbMovieId": 646380,
+    "title": "돈 룩 업",
+    "genres": [
+      "코미디",
+      "SF",
+      "드라마"
+    ],
+    "genreIds": [
+      35,
+      878,
+      18
+    ],
+    "tags": [
+      "세계관",
+      "유머",
+      "캐릭터 매력",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Dr. Randall Mindy",
+      "Kate Dibiasky",
+      "President Orlean",
+      "Brie Evantee",
+      "Dr. Teddy Oglethorpe",
+      "Jason Orlean",
+      "Peter Isherwell"
+    ],
+    "contextTags": [],
+    "overview": "지구를 향해 돌진하는 혜성의 존재를 발견한 두 천문학자. 임박한 재앙을 전 인류에 경고하려 언론사를 찾아다니기 시작한다. 하지만 다른 데 정신이 팔린 세상은 시큰둥한 반응뿐. 그래서요?",
+    "releaseYear": 2021,
+    "runtimeMinutes": 138,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.061,
+    "voteCount": 9450,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/e48Ychye5TtwarRe41PzeCJH9RZ.jpg",
+    "posterAlt": "돈 룩 업 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/646380-don-t-look-up/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_533",
+    "tmdbMovieId": 58574,
+    "title": "셜록 홈즈: 그림자 게임",
+    "genres": [
+      "액션",
+      "모험",
+      "미스터리"
+    ],
+    "genreIds": [
+      28,
+      12,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "유머",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Sherlock Holmes",
+      "Dr. John Watson",
+      "Madam Simza Heron",
+      "Professor James Moriarty",
+      "Irene Adler",
+      "Inspector Lestrade",
+      "Mary Morstan"
+    ],
+    "contextTags": [],
+    "overview": "더욱 강렬하게, 더욱 스릴 있게 세상을 구할 홈즈의 추리가 다시 시작된다! 왓슨과 더 많은 시간을 보내기 위해 왓슨의 부인과 경쟁하는 홈즈 앞에 또 한 번 세상에서 가장 명석한 두뇌를 증명할 과제가 주어진다! 셜록 홈즈는 유럽에서 발생하는 연쇄 폭탄 테러사건, 강대국들의 전쟁 위기고조, 미국 철강 왕의 죽음 등 전세계에서 벌어지는 풀리지 않는 사건들이 모두 연결되어 있고 그 배후에 평생의 숙적 모리아티 교수 의 더 큰 음모가 숨겨져 있음을 직감한다. 조사 과정에서 만나게 된 집시이자 점술가인 묘령의 프랑스 여인 심 을 통해 살인사건에 대해 정보를 얻지만 이를 계기로 여인은 킬러의 다음 목표물이 된다. 이에 홈즈는 그녀의 목숨을 구하기 위해, 그녀는 죽음을 피하기 위해 홈즈에게 협조하고 대륙을 넘나드는 험난한 모험 앞에서 교활한 모리아티 교수는 항상 한 발 먼저 죽음의 덫을 놓고 기다린다. 모리아티 교수의 계획이 성공하게 되면 역사가 뒤바뀔 정도로 세상은 위험해진다. 거대한 음모에 맞선 홈즈의 활약이 다시 펼쳐진다!",
+    "releaseYear": 2011,
+    "runtimeMinutes": 129,
+    "collectionId": 102322,
+    "collectionName": "셜록 홈즈 시리즈",
+    "voteAverage": 7.1,
+    "voteCount": 11008,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vD1HZvrPW9FoYQFGr0ADTCsNFau.jpg",
+    "posterAlt": "셜록 홈즈: 그림자 게임 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/58574-sherlock-holmes-a-game-of-shadows/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_534",
+    "tmdbMovieId": 605,
+    "title": "매트릭스 3: 레볼루션",
+    "genres": [
+      "모험",
+      "액션",
+      "스릴러"
+    ],
+    "genreIds": [
+      12,
+      28,
+      53,
+      878
+    ],
+    "tags": [
+      "액션",
+      "감성적인 음악",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Neo",
+      "Morpheus",
+      "Trinity",
+      "Agent Smith",
+      "Niobe",
+      "The Oracle",
+      "Link"
+    ],
+    "contextTags": [],
+    "overview": "진실을 찾는 여정에 한 걸음 더 접근하게 된 네오. 그러나 그 와중에 능력을 소진하고 매트릭스와 현실세계의 중간계를 떠돌게 된다. 한편 기계들이 인간말살을 목적으로 인류 최후의 보루 시온으로 침공해오자 인간들은 인류의 미래를 지키기 위해 필사적인 전투를 벌인다. 그러나 베인의 몸 속에 침투한 에이전트 스미스가 본 모습을 드러내면서 네오에게는 예기치 못한 변수가 생긴다. 매 순간 세력이 커져가면서 기계들의 통제권까지 벗어난 스미스는 현실 세계와 매트릭스는 물론 기계도시까지 말살할 야욕을 불태우고, 오라클은 네오에게 마지막 조언을 건네는데...",
+    "releaseYear": 2003,
+    "runtimeMinutes": 128,
+    "collectionId": 2344,
+    "collectionName": "매트릭스 시리즈",
+    "voteAverage": 6.756,
+    "voteCount": 10919,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/wLS7CaUNyz4hVwCxj7mXhX66A7r.jpg",
+    "posterAlt": "매트릭스 3: 레볼루션 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/605-the-matrix-revolutions/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_535",
+    "tmdbMovieId": 1117857,
+    "title": "인 유어 드림",
+    "genres": [
+      "모험",
+      "애니메이션",
+      "코미디"
+    ],
+    "genreIds": [
+      12,
+      16,
+      35,
+      10751,
+      14
+    ],
+    "tags": [
+      "감동",
+      "영상미",
+      "세계관",
+      "유머"
+    ],
+    "characters": [
+      "Stevie (voice)",
+      "Elliot (voice)",
+      "Dad (voice)",
+      "Baloney Tony (voice)",
+      "Mom / Additional Voices (voice)",
+      "Nightmara (voice)",
+      "Sandman (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "상상을 뛰어넘는 꿈속 세계로 여행을 떠난 스티비와 남동생 엘리엇. 두 사람은 샌드맨에게 완벽한 가족을 갖게 해달라고 소원을 빈다.",
+    "releaseYear": 2025,
+    "runtimeMinutes": 87,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.974,
+    "voteCount": 233,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/isV5uJui24hbIfGLC7RqZFn8g3y.jpg",
+    "posterAlt": "인 유어 드림 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1117857-in-your-dreams/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_536",
+    "tmdbMovieId": 62835,
+    "title": "콜롬비아나",
+    "genres": [
+      "액션",
+      "스릴러",
+      "범죄"
+    ],
+    "genreIds": [
+      28,
+      53,
+      80,
+      18
+    ],
+    "tags": [
+      "긴장감",
+      "액션",
+      "몰입감",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Cataleya Restrepo",
+      "Emilio",
+      "Richard",
+      "Danny Delanay",
+      "Special Agent Ross",
+      "Cataleya Restrepo (Age10)",
+      "Head Marshall Warren"
+    ],
+    "contextTags": [],
+    "overview": "암흑조직에게 부모를 잃고 홀로 살아남은 9살 소녀 ‘카탈리아’. 그 날 이후, 그녀는 킬러인 삼촌 밑에서 완벽한 복수를 준비해 간다. 치명적인 매력과 스마트한 두뇌, 그리고 프로페셔널한 실력을 갖춘 여전사로 성장한 ‘카탈리아’는 부모의 죽음과 관계된 인물들을 하나씩 처단하고 암흑조직과 FBI, 모두의 표적이 된다.",
+    "releaseYear": 2011,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.645,
+    "voteCount": 2896,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/xNyyCPyn45e2VehVezutC0l9bFx.jpg",
+    "posterAlt": "콜롬비아나 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/62835-colombiana/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_537",
+    "tmdbMovieId": 251,
+    "title": "사랑과 영혼",
+    "genres": [
+      "판타지",
+      "로맨스",
+      "스릴러"
+    ],
+    "genreIds": [
+      14,
+      10749,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "여운",
+      "감성적인 음악",
+      "OST"
+    ],
+    "characters": [
+      "Sam Wheat",
+      "Molly Jensen",
+      "Oda Mae Brown",
+      "Carl Bruner",
+      "Subway Ghost",
+      "Willie Lopez",
+      "Rose"
+    ],
+    "contextTags": [],
+    "overview": "금융전문가로 일하는 샘(페트릭 스웨이지)과 도예가인 몰리(데미 무어)는 동거생활을 하며 행복한 나날을 보낸다. 그러던 어느날 샘이 괴한의 총에 맞아 죽게 되는데, 육체에서 분리된 영혼은 지상에 남게 된다. 홀로 남겨진 몰리를 보호하고자 하는 샘은 지하철에서 만난 영혼으로부터 물건을 움직일 수 있는 방법을 배운다.  그러나 자신의 존재를 몰리에게 알릴 길이 없어 고심하던 샘은 점성술사 오다매(우피 골드버그)를 찾아가는데...",
+    "releaseYear": 1990,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.24,
+    "voteCount": 6082,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/rSeZX5l4T9XcIXCG1sq1YglqTjB.jpg",
+    "posterAlt": "사랑과 영혼 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/251-ghost/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_538",
+    "tmdbMovieId": 639988,
+    "title": "어쩔수가없다",
+    "genres": [
+      "코미디",
+      "범죄",
+      "스릴러"
+    ],
+    "genreIds": [
+      35,
+      80,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "감동",
+      "유머"
+    ],
+    "characters": [
+      "Man-su",
+      "Mi-ri",
+      "Choi Seon-chul",
+      "Gu Bum-mo",
+      "Lee A-ra",
+      "Ko Si-jo",
+      "Detective #1"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "다 이루었다는 생각이 들 만큼 삶에 만족하던 25년 경력의 제지 전문가 만수. 아내 미리, 두 아이, 반려견들과 함께 행복한 일상을 보내던 만수는 회사로부터 돌연 해고 통보를 받는다. 목이 잘려 나가는 듯한 충격에 괴로워하던 만수는, 가족을 위해 석 달 안에 반드시 재취업하겠다고 다짐한다. 그 다짐이 무색하게도, 그는 1년 넘게 마트에서 일하며 면접장을 전전하고, 급기야 어렵게 장만한 집마저 빼앗길 위기에 처한다. 무작정 문 제지를 찾아가 필사적으로 이력서를 내밀지만, 선출 반장 앞에서 굴욕만 당한다. 문 제지의 자리는 누구보다 자신이 제격이라고 확신한 만수는 모종의 결심을 한다.",
+    "releaseYear": 2025,
+    "runtimeMinutes": 139,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.516,
+    "voteCount": 1151,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9w7WGjQes0Cs0s4U3Qr09Tg1Sra.jpg",
+    "posterAlt": "어쩔수가없다 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/639988/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_539",
+    "tmdbMovieId": 41446,
+    "title": "스크림 4G",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "유머",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Sidney Prescott",
+      "Dewey Riley",
+      "Gale Weathers",
+      "Jill Roberts",
+      "Kirby Reed",
+      "Robbie Mercer",
+      "Deputy Judy Hicks"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "˝헬로우 시드니?˝  기존의 법칙은 기대도 하지 말 것, 새로운 룰을 적용하라!  작가가 된 시드니(니브 캠벨)는 출판기념 투어의 마지막 일정으로 고향 ‘우즈보로’를 방문하게 된다. 그러나 불행히도 시드니의 귀향은 살인마 ‘고스트 페이스’를 다시 불러들이게 되고, 시드니를 비롯한 옛 친구이자 지금은 결혼한 게일(커트니 콕스)과 듀이(데이빗 아퀘트), 그리고 사촌인 질(엠마 로버츠)과 그녀의 친구들, 나아가 우즈보로 마을 전체가 위험에 빠지게 된다.  더욱 악랄하게 돌아온 정체불명의 살인마 고스트 페이스와 목숨을 건 게임!  살아남기 위해서는 새로운 룰을 적용하라!",
+    "releaseYear": 2011,
+    "runtimeMinutes": 111,
+    "collectionId": 2602,
+    "collectionName": "스크림 시리즈",
+    "voteAverage": 6.482,
+    "voteCount": 4229,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/kI0sTdpjkSehm98d7nl4G5lUz5Q.jpg",
+    "posterAlt": "스크림 4G 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/41446-scream-4/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_540",
+    "tmdbMovieId": 299537,
+    "title": "캡틴 마블",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "연출",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Carol Danvers / Vers / Captain Marvel",
+      "Nick Fury",
+      "Talos / Keller",
+      "Yon-Rogg",
+      "Supreme Intelligence / Dr. Wendy Lawson",
+      "Korath",
+      "Ronan"
+    ],
+    "contextTags": [],
+    "overview": "외계 크리 문명의 수도 할리, 캐롤 댄버스은 압도적인 능력을 가진 전사다. 그는 멘토 욘 로그로부터 힘을 통제하고 과거의 기억은 묻어야 한다는 가르침을 받고 있다. 그러던 어느 날, 변방 행성 토르파에서 스크럴 종족에게 붙잡혀 뇌를 스캔당한 캐롤은 과거 자신이 낯선 행성의 파일럿이었음을 알게 된다. 스크럴을 따돌리고 탈출하는 과정에서 공교롭게 C-53 행성, 즉 지구에 불시착한 캐롤. 우여곡절 끝에 쉴드 신참 요원 닉 퓨리에게 발견되어 팀을 이룬 그들은 지구로 향하는 더 큰 위협을 감지하고 힘을 합쳐 전쟁을 끝내야 하는데...",
+    "releaseYear": 2019,
+    "runtimeMinutes": 124,
+    "collectionId": 623911,
+    "collectionName": "캡틴 마블 시리즈",
+    "voteAverage": 6.78,
+    "voteCount": 16856,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2JO8X8aT97BwxMMGr9ChrCl4xGQ.jpg",
+    "posterAlt": "캡틴 마블 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/299537-captain-marvel/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_541",
+    "tmdbMovieId": 893723,
+    "title": "퍼피 구조대: 더 마이티 무비",
+    "genres": [
+      "모험",
+      "애니메이션",
+      "코미디"
+    ],
+    "genreIds": [
+      12,
+      16,
+      35,
+      10751,
+      878
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Skye (voice)",
+      "Victoria Vance (voice)",
+      "Liberty (voice)",
+      "Chase (voice)",
+      "Mayor Humdinger / Cap'n Turbot (voice)",
+      "Sam Stinger (voice)",
+      "Delores (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "신비한 힘을 가진 유성이 어드벤처 시티에 떨어진 날, 퍼피 구조대는 유성에서 나온 크리스탈 덕분에 초능력을 가진 ‘퍼피 히어로즈’로 변신한다. 하지만 악당 ‘험딩어 시장’과 미치광이 과학자 ‘빅토리아’는 초능력의 원천인 크리스탈을 빼앗아 어드벤처 시티를 지배하려 하는데..! 작고 약하게 태어났지만 오랫동안 큰 꿈을 키워 온 ‘스카이’와 퍼피 히어로즈는 주니어 구조대원들과 함께 어드벤처 시티를 지켜낼 수 있을까?",
+    "releaseYear": 2023,
+    "runtimeMinutes": 88,
+    "collectionId": 893731,
+    "collectionName": "PAW Patrol (Theatrical) Collection",
+    "voteAverage": 6.943,
+    "voteCount": 570,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/62CEuwp287mbVarn3f2KcSAsrj1.jpg",
+    "posterAlt": "퍼피 구조대: 더 마이티 무비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/893723-paw-patrol-the-mighty-movie/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_542",
+    "tmdbMovieId": 285,
+    "title": "캐리비안의 해적: 세상의 끝에서",
+    "genres": [
+      "모험",
+      "판타지",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      14,
+      28
+    ],
+    "tags": [
+      "액션",
+      "여운",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Jack Sparrow",
+      "Barbossa",
+      "Will Turner",
+      "Elizabeth Swann",
+      "Norrington",
+      "Davy Jones",
+      "Governor Weatherby Swann"
+    ],
+    "contextTags": [],
+    "overview": "윌 터너와 엘리자베스 스완, 바르보사 선장은 바다괴물 크라켄에 잡아먹힌 잭 스패로우를 구하는 데 도움을 얻기 위해 싱가포르의 해적 사오펭을 찾아간다. 이들은 잭 스패로우가 있어야만 해적연맹의 아홉 영주를 모아 연합함대를 구성할 수 있고, 해적 소탕에 쌍심지를 켠 동인도회사에 맞설 수 있다. 동인도회사의 커틀러 베켓 경은 유령선 플라잉 더치맨과 그 선장 데비 존스를 수하에 거느리게 된 터. 이 힘이 막강해서, 해적 연합함대는 다시 바다의 여신 칼립소에게 도움을 요청하기로 한다.",
+    "releaseYear": 2007,
+    "runtimeMinutes": 169,
+    "collectionId": 295,
+    "collectionName": "캐리비안의 해적 시리즈",
+    "voteAverage": 7.277,
+    "voteCount": 15603,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bTotG6tZERQqfKr2TDjwdjW8It4.jpg",
+    "posterAlt": "캐리비안의 해적: 세상의 끝에서 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/285-pirates-of-the-caribbean-at-world-s-end/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_543",
+    "tmdbMovieId": 11247,
+    "title": "신데렐라 스토리",
+    "genres": [
+      "코미디",
+      "가족",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10751,
+      10749
+    ],
+    "tags": [
+      "배우들의 연기력",
+      "유머",
+      "캐릭터 매력",
+      "감동"
+    ],
+    "characters": [
+      "Sam Montgomery",
+      "Austin Ames",
+      "Fiona",
+      "Carter Farrell",
+      "Rhonda",
+      "Shelby Cummings",
+      "Mrs. Wells"
+    ],
+    "contextTags": [
+      "school",
+      "family"
+    ],
+    "overview": "샘 몽고메리는 고등학교 3학년생. 샘은 8년전, 그렇게 자상하시던 아빠를 지진으로 잃었다. 아빠가 유언장을 남기지 않고 돌아가시자, 샘은 악독한 새엄마 피오나와 그녀의 두 쌍둥이 딸과 함께 살게 된다. 못된 새엄마는 샘의 아빠가 경영하던 음식점을 자기가 맡아 샘을 직원처럼 혹독하게 부리면서 호화스러운 생활을 한다. 쌍둥이 자매 브리아나와 가브리엘라도 샘을 괴롭힐 궁리를 하며 못되게 군다. 학교에서도 샘은 인기 있고 부자인 아이들로부터 항상 놀림을 당하기 일쑤다.  인기 있는 아이들 모임의 리더인 셸비는 학생회장이자 교내 풋볼팀 주장인 오스틴 에임스와 사귀는 사이. 샘이 가까이 지내는 사람에는 연기자를 꿈꾸는 학교 친구 카터와 샘의 새엄마가 경영하는 음식점의 매니저 론다 아줌마가 있다. 샘은 아빠가 생전에 말씀하신 대로 프린스턴 대학에 진학하고자 열심히 노력한다.  그러던 중 인터넷을 통해 알게 된 남학생과 두터운 친분을 쌓아간다. 이 남학생의 꿈도 프린스턴에 가는 것. 이 두 사람은 전자메일과 문자메시지로 계속 연락을 주고 받지만 한 번도 만나본 적이 없던 차에 교내 할로윈 댄스파티를 계기로 만나기로 약속하지만... 다시 한번 새엄마 피오나는 계속 샘의 생활을 고달프게 만들고, 급기야 할로윈 댄스파티가 있는 날, 밤늦게까지 일을 시키고 만다.  이때 론다 아줌마의 극적인 도움으로 간신히 파티에 도착하지만 이어 샘은 놀라고 만다. 신비의 친구가 바로 다름 아닌 인기 만점의 풋볼팀 주장 오스틴 에임스였던 것이다! 샘의 신분이 베일에 가려진 채 두 사람은 더욱 가까워지고, 시간에 쫓긴 샘은 다시 현실로 돌아가야만 하는데...",
+    "releaseYear": 2004,
+    "runtimeMinutes": 95,
+    "collectionId": 437451,
+    "collectionName": "신데렐라 스토리 시리즈",
+    "voteAverage": 6.593,
+    "voteCount": 3405,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ukwP7gDPWxj1R1dW5iN3mnxkL3D.jpg",
+    "posterAlt": "신데렐라 스토리 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/11247-a-cinderella-story/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_544",
+    "tmdbMovieId": 98566,
+    "title": "닌자터틀",
+    "genres": [
+      "SF",
+      "액션",
+      "모험"
+    ],
+    "genreIds": [
+      878,
+      28,
+      12,
+      35
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "몰입감",
+      "유머"
+    ],
+    "characters": [
+      "Leonardo",
+      "Raphael",
+      "Donatello",
+      "Michelangelo",
+      "April O'Neil",
+      "Vern Fenwick",
+      "Eric Sacks"
+    ],
+    "contextTags": [],
+    "overview": "악당 슈레더와 그의 조직 ‘풋 클랜’이 장악해버린 후 범죄와 폭력이 난무하는 뉴욕시.  열혈 방송기자 에이프릴은 카메라맨 번과 함께 그들의 음모를 파헤치기 위해 나서고,  슈레더와 손 잡은 사업가 에릭 삭스의 정체가 점점 드러나게 된다.  한편, 하수구에 살던 ‘닌자터틀’ 레오나르도, 도나텔로, 라파엘, 미켈란젤로는  암흑으로 변해가는 도시를 구하기 위해 거리로 나오게 되는데....",
+    "releaseYear": 2014,
+    "runtimeMinutes": 101,
+    "collectionId": 401562,
+    "collectionName": "닌자 터틀 (리부트) 시리즈",
+    "voteAverage": 5.932,
+    "voteCount": 7234,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4OCFADR8elWg9T8QcIxImnXkwSw.jpg",
+    "posterAlt": "닌자터틀 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/98566-teenage-mutant-ninja-turtles/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_545",
+    "tmdbMovieId": 1173558,
+    "title": "뜨거운 배신",
+    "genres": [
+      "드라마",
+      "미스터리",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      9648,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동",
+      "반전"
+    ],
+    "characters": [
+      "Bárbara 'Babi' Nucci",
+      "Marco Ladeia",
+      "Patrícia 'Patty' Alencar Rochetty",
+      "Thiago",
+      "Caio Laruzi Sampaio",
+      "Paula Góes Mesquita",
+      "Alexandre"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "약혼자에게 배신당한 회계사. 배신감에 빠져 있기보다 성적인 자유에 눈뜰 기회로 삼기로 한다. 하지만 위험한 결과가 뒤따라온다. 수 헤케르의 소설을 각색한 작품.",
+    "releaseYear": 2023,
+    "runtimeMinutes": 99,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.25,
+    "voteCount": 248,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/8MqXNQbR6v9Opj7gOfoOKpFwm8O.jpg",
+    "posterAlt": "뜨거운 배신 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1173558-o-lado-bom-de-ser-traida/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_546",
+    "tmdbMovieId": 329,
+    "title": "쥬라기 공원",
+    "genres": [
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      12,
+      878
+    ],
+    "tags": [
+      "몰입감"
+    ],
+    "characters": [
+      "Grant",
+      "Ellie",
+      "Malcolm",
+      "Hammond",
+      "Muldoon",
+      "Gennaro",
+      "Wu"
+    ],
+    "contextTags": [],
+    "overview": "코스타리카 서해안의 한 섬에 세워진 테마 파크 쥬라기 공원. 최신 복제 기술로 살아난 공룡들이 활보하는 이곳에 공룡학자를 비롯한 각계의 전문가가 일반 공개에 앞서 정밀 안전 진단을 위한 투어에 나선다. 그러나 최첨단 컴퓨터 시스템으로 철저히 통제되고 있는 공룡들이 예기치 않은 사고로 폭주하게 되고, 여기에 설상가상으로 태풍까지 몰려오면서 일행들의 투어는 순식간에 생존을 위한 사투의 현장으로 뒤바뀌는데...",
+    "releaseYear": 1993,
+    "runtimeMinutes": 127,
+    "collectionId": 328,
+    "collectionName": "쥬라기 공원 시리즈",
+    "voteAverage": 7.975,
+    "voteCount": 18035,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/m4T4h20ame5nG7a5iNPCwk0pHEG.jpg",
+    "posterAlt": "쥬라기 공원 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/329-jurassic-park/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_547",
+    "tmdbMovieId": 10527,
+    "title": "마다가스카 2",
+    "genres": [
+      "모험",
+      "애니메이션",
+      "코미디"
+    ],
+    "genreIds": [
+      12,
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "감동",
+      "영상미",
+      "유머",
+      "세계관"
+    ],
+    "characters": [
+      "Alex (voice)",
+      "Marty / Additional Zebras (voice)",
+      "Melman (voice)",
+      "Gloria (voice)",
+      "Julien (voice)",
+      "Maurice (voice)",
+      "Mort (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "마다가스카 섬에서 좌충우돌 모험을 끝낸 뉴요커 4인방 사자 알렉스(벤 스틸러), 얼룩말 마티(크리스 락), 기린 멜먼(데이빗 쉼머), 하마 글로리아(제이다 핀켓 스미스)는 펭귄 특공대가 제작한 비행기 ‘에어 펭귄’을 타고 뉴욕으로 컴백하던 중 또 다시 미지의 세계에 불시착하게 된다. 이번에는 말로만 듣던 진짜 生 야생 ‘아프리카’! 그들은 각자 헤어졌던 가족, 새친구, 연인을 만나 生 야생에 적응해간다. 그러던 중, 평화롭던 아프리카에 가뭄이 찾아오고 뉴요커 4인방은 혼란에 빠진 아프리카를 구하기 위해 뭉치는데…  과연 함께해도 모자란 이들이 위기의 아프리카를 구할 수 있을까?  그리고 아프리카를 탈출해 무사히 집으로 돌아갈 수 있을까?",
+    "releaseYear": 2008,
+    "runtimeMinutes": 89,
+    "collectionId": 14740,
+    "collectionName": "마다가스카 시리즈",
+    "voteAverage": 6.527,
+    "voteCount": 7487,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9Yk2lAIye5TUBuibD2EYZGYqhz3.jpg",
+    "posterAlt": "마다가스카 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/10527-madagascar-escape-2-africa/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_548",
+    "tmdbMovieId": 346,
+    "title": "7인의 사무라이",
+    "genres": [
+      "액션",
+      "드라마"
+    ],
+    "genreIds": [
+      28,
+      18
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "몰입감",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Kikuchiyo",
+      "Kambei Shimada",
+      "Gorobei Katayama",
+      "Kyuzo",
+      "Heihachi Hayashida",
+      "Shichiroji",
+      "Katsushiro Okamoto"
+    ],
+    "contextTags": [],
+    "overview": "일본의 전국시대. 주민들은 황폐한 땅에서 어렵게 수확한 식량으로 한해 한해를 넘기는 빈촌에 살고 있다. 이 빈촌엔 보리 수확이 끝날 무렵이면 어김없이 산적들이 찾아와 모든 식량을 모조리 약탈해 간다. 싸워도 애원해도 소용이 없었다. 가만히 있을 수만은 없던 촌장의 결단으로 사무라이들을 모집하는데, 이들은 풍부한 전쟁 경험을 가진 시마다 칸베에를 포함한 7명이었다. 시마다의 지휘하에 마을은 방위태세를 갖추고 전투훈련도 시작한다. 이윽고 산적들의 공격이 시작되어 치열한 사투가 벌어진다.",
+    "releaseYear": 1954,
+    "runtimeMinutes": 207,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.45,
+    "voteCount": 4279,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6Y8Q5t79ybiDA7XubUTneqZhjA3.jpg",
+    "posterAlt": "7인의 사무라이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/346/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_549",
+    "tmdbMovieId": 13345,
+    "title": "서유기 월광보합",
+    "genres": [
+      "액션",
+      "모험",
+      "판타지"
+    ],
+    "genreIds": [
+      28,
+      12,
+      14,
+      35,
+      10749,
+      18
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "몰입감",
+      "세계관"
+    ],
+    "characters": [
+      "Joker / Monkey King",
+      "Piggy",
+      "Longevity Monk",
+      "Spider Demon",
+      "White-Bone Demon / Pak Jing Jing",
+      "Sandy / Blindy",
+      "King Bull"
+    ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
+    "overview": "손오공은 당삼장과 서경을 구하러 가지 않고 사부 담상장을 먹으면 불로장생한다는 말에 혹해 우마왕과 결탁, 당삼장을 죽이려 한다. 이에 관세음이 나타나 손오공을 꾸짖지만 손오공은 잘못을 뉘우치지 않고 오히려 큰소리를 치자 격분한 관세음은 손오공을 소멸시킨다. 이에 당삼장이 자신의 목숨을 바치면서 손오공의 환생을 간청하자 손오공을 인간으로 환생시키기로 약속한다.  그로부터 500년 후, 손오공은 오악산 산적무리들의 우두머리인 지존보로 태어난다. 그런 어느날 춘삼십랑과 백정정이라는 두 요괴가 나타나 지존보에게 발바닥에 점이 세 개 있는 사람을 찾으라고 협박한다. 이들은 당삼장을 먹으면 불로장생한다는 사실에 당삼장이 환생한다는 소식을 듣고 분명히 손오공과 만날 것이라고 판단, 손오공을 찾아온 것이다. 그리고 얼마 후에 우마왕까지 합세해 요괴들간의 결전이 벌어진다.",
+    "releaseYear": 1995,
+    "runtimeMinutes": 88,
+    "collectionId": 201544,
+    "collectionName": "서유기 시리즈",
+    "voteAverage": 7.5,
+    "voteCount": 313,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2Jfl1VI3fLr3VmG8bdtsLUH2cAn.jpg",
+    "posterAlt": "서유기 월광보합 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/13345/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_550",
+    "tmdbMovieId": 1029575,
+    "title": "'패밀리 플랜' - The Family Plan",
+    "genres": [
+      "액션",
+      "코미디",
+      "모험"
+    ],
+    "genreIds": [
+      28,
+      35,
+      12
+    ],
+    "tags": [
+      "감동",
+      "액션",
+      "몰입감",
+      "유머"
+    ],
+    "characters": [
+      "Dan Morgan",
+      "Jessica Morgan",
+      "Gwen",
+      "Nina Morgan",
+      "Kyle Morgan",
+      "McCaffrey",
+      "Cyrus"
+    ],
+    "contextTags": [
+      "travel"
+    ],
+    "overview": "헌신적인 남편이자 사랑이 넘치는 아버지, 그리고 자동차 영업왕인 댄 모건. 전직 킬러라는 과거가 그의 발목을 붙잡으려 하자, 댄은 아무것도 모르는 가족들을 데리고 기상천외한 로드 트립을 떠난다.",
+    "releaseYear": 2023,
+    "runtimeMinutes": 118,
+    "collectionId": 1363124,
+    "collectionName": "패밀리 플랜 시리즈",
+    "voteAverage": 7.216,
+    "voteCount": 1920,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/oMTuRG8koeKqH2tVonaWhyp7OBw.jpg",
+    "posterAlt": "'패밀리 플랜' - The Family Plan 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1029575-the-family-plan/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 350,
+          "providerName": "Apple TV",
+          "logoPath": "/mcbz1LgtErU9p4UdbZ0rG6RTWHX.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/mcbz1LgtErU9p4UdbZ0rG6RTWHX.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_551",
+    "tmdbMovieId": 682507,
+    "title": "가재가 노래하는 곳",
+    "genres": [
+      "드라마",
+      "미스터리",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      9648,
+      10749
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "탄탄한 스토리",
+      "감동"
+    ],
+    "characters": [
+      "Kya Clark",
+      "Tate Walker",
+      "Chase Andrews",
+      "Tom Milton",
+      "Mabel",
+      "Jumpin'",
+      "Jodie Clark"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "어렸을 때 가족에게 버림받고 자연만이 유일한 친구였던 카야. 그녀가 세상과 단절된 채 성장하는 가운데, 테이트가 그녀의 마음을 두드린다. 하지만 그가 떠난 뒤, 밀려오는 외로움 속, 체이스가 그녀에게 적극적인 고백을 하고, 마음이 흔들리기 시작한다. 그러던 어느 날, 체이스는 습지에서 추락사로 싸늘한 시체로 발견되고 카야는 유력한 용의자가 되어 법정에 서게 되는데…  그녀의 비밀이 숨겨져 있는  가재가 노래하는 곳.",
+    "releaseYear": 2022,
+    "runtimeMinutes": 125,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.5,
+    "voteCount": 2340,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/8wIKnUgj6Sa7j84FJMhDZjeFdNy.jpg",
+    "posterAlt": "가재가 노래하는 곳 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/682507-where-the-crawdads-sing/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_552",
+    "tmdbMovieId": 1064028,
+    "title": "메이드",
+    "genres": [
+      "공포",
+      "SF",
+      "스릴러"
+    ],
+    "genreIds": [
+      27,
+      878,
+      53
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "감동",
+      "몰입감"
+    ],
+    "characters": [
+      "Alice",
+      "Nick",
+      "Maggie",
+      "Isla",
+      "Monty",
+      "Lewis",
+      "Lyla"
+    ],
+    "contextTags": [],
+    "overview": "아내 매기의 부재로 인해 AI가 탑재된 메이드를 들이기로 한 닉. 딸이 마음에 들어한 메이드를 집에 입주시키고 ‘앨리스’라는 이름을 붙인다.  청소, 요리, 장보기까지 완벽하게 집안일을 해내는 앨리스. 닉은 편리함을 느끼지만 그것도 잠시, 앨리스는 닉을 위한다는 명목 아래 아슬아슬한 행동을 이어간다.  “마음이 힘들면 능률이 떨어지죠. 제가 도와드릴게요”  아내 매기의 목소리까지 흉내 내는 앨리스와 금단의 선을 넘은 닉. 매기가 집으로 돌아오고 닉은 모든 것을 없었던 일로 하고 싶지만 앨리스는 닉에 대한 집착을 멈추지 않는다. 위험한 일도 서슴지 않으며 그녀는 폭주하기 시작하는데…",
+    "releaseYear": 2024,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.624,
+    "voteCount": 1045,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9nK3lfPhbzMJGhkueloRQ56ui8n.jpg",
+    "posterAlt": "메이드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1064028-subservience/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_553",
+    "tmdbMovieId": 9479,
+    "title": "팀 버튼의 크리스마스 악몽",
+    "genres": [
+      "판타지",
+      "애니메이션",
+      "가족"
+    ],
+    "genreIds": [
+      14,
+      16,
+      10751
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감성적인 음악",
+      "OST",
+      "세계관"
+    ],
+    "characters": [
+      "Jack Skellington (singing) / Barrel / Clown with the Tear away Face (voice)",
+      "Jack Skellington (voice)",
+      "Sally / Shock (voice)",
+      "Dr. Finkelstein (voice)",
+      "Mayor (voice)",
+      "Lock (voice)",
+      "Oogie Boogie (voice)"
+    ],
+    "contextTags": [
+      "christmas",
+      "halloween",
+      "winter",
+      "family"
+    ],
+    "overview": "1년에 한 번 할로윈 축제를 위해서 사는 할로윈 마을의 리더인 잭은 해골 귀신이다. 여느 때와 마찬가지로 할로윈을 준비해야 하는 잭은 반복되는 일상에 염증을 느낀다. 어느 날 잭은 우연히 할로윈 마을을 벗어나 크리스마스 마을에 도착한다. 할로윈 마을과는 판이하게 다른 크리스마스 마을을 보고 잭은 할로윈 마을에서 크리스마스 축제를 맡기로 한다. 잭과 그의 일당은 산타를 납치하고 산타 대신 해골이나 거미, 뱀 등을 크리스마스 선물로 준비해서 아이들에게 나누어주지만, 크리스마스의 들뜬 기분은 사라지고 온통 소동만 일어나는데...",
+    "releaseYear": 1993,
+    "runtimeMinutes": 76,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.8,
+    "voteCount": 10415,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hZpeftLIA5XaO8cRmv1QWiCpUHx.jpg",
+    "posterAlt": "팀 버튼의 크리스마스 악몽 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/9479-the-nightmare-before-christmas/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_554",
+    "tmdbMovieId": 575264,
+    "title": "미션 임파서블: 데드 레코닝 PART ONE",
+    "genres": [
+      "액션",
+      "모험",
+      "스릴러"
+    ],
+    "genreIds": [
+      28,
+      12,
+      53
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "몰입감"
+    ],
+    "characters": [
+      "Ethan Hunt",
+      "Grace",
+      "Luther Stickell",
+      "Benji Dunn",
+      "Ilsa Faust",
+      "The White Widow",
+      "Gabriel"
+    ],
+    "contextTags": [],
+    "overview": "모든 인류를 위협할 새로운 무기를 추적하게 된 에단 헌트와 IMF팀은 이 무기가 인류의 미래를 통제할 수 있다는 사실을 알게 된다. 전 세계가 위태로운 상황에 처한 가운데, 이를 추적하던 에단 헌트에게 어둠의 세력까지 접근하고 마침내 미스터리하고 강력한 빌런과 마주하게 된 그는 가장 위험한 작전을 앞두고 자신이 아끼는 사람들의 생명과 중요한 임무 사이에서 선택을 해야 하는 상황에 놓이게 되는데…",
+    "releaseYear": 2023,
+    "runtimeMinutes": 164,
+    "collectionId": 87359,
+    "collectionName": "미션 임파서블 시리즈",
+    "voteAverage": 7.506,
+    "voteCount": 5199,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dIcLgXA6R54EZ0XPSMKW4XDNCAA.jpg",
+    "posterAlt": "미션 임파서블: 데드 레코닝 PART ONE 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/575264-mission-impossible-dead-reckoning-part-one/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_555",
+    "tmdbMovieId": 18239,
+    "title": "뉴 문",
+    "genres": [
+      "모험",
+      "판타지",
+      "드라마"
+    ],
+    "genreIds": [
+      12,
+      14,
+      18,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "세계관",
+      "영상미",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Bella Swan",
+      "Edward Cullen",
+      "Jacob Black",
+      "Jane",
+      "Aro",
+      "Alice Cullen",
+      "Victoria"
+    ],
+    "contextTags": [
+      "literary",
+      "space"
+    ],
+    "overview": "초능력을 가진 뱀파이어 에드워드는 인간 벨라가 자신 때문에 위험해지자 냉정하게 그녀를 떠난다.  이제 벨라를 지키는 것은 오랜 친구 제이콥. 하지만 제이콥은 뱀파이어와 적을 이루는 늑대인간 ‘퀼렛족’의 일원으로 벨라와 에드워드를 떼어놓고자 한다.  그러던 어느 날 벨라는 자신이 위험한 사고를 당할 때마다 에드워드의 환영이 보인다는 것을 알고 급기야 절벽에서 떨어지는 무모한 행동을 한다. 그리고 이 사건은 누구도 예상치 못할 결과를 초래하는데…  인간과 뱀파이어의 위험한 사랑! 어둠을 지배하는 절대 세력의 탄생!  올 겨울, 운명에 맞선 거대한 대결이 시작된다!",
+    "releaseYear": 2009,
+    "runtimeMinutes": 131,
+    "collectionId": 33514,
+    "collectionName": "트와일라잇 시리즈",
+    "voteAverage": 5.989,
+    "voteCount": 9797,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/q1zQIaDMBgLzpW8Hikzhau1InvI.jpg",
+    "posterAlt": "뉴 문 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/18239-the-twilight-saga-new-moon/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_556",
+    "tmdbMovieId": 4248,
+    "title": "무서운 영화 2",
+    "genres": [
+      "코미디"
+    ],
+    "genreIds": [
+      35
+    ],
+    "tags": [
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Cindy Campbell",
+      "Brenda Meeks",
+      "Shorty Meeks",
+      "Ray Wilkins",
+      "Buddy Wilkerson",
+      "Theo",
+      "Dwight Hartman"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "유령이 나올 것처럼 스산한 기운이 감도는 밤. 어느 대저택에서 한 무리의 사람들이 피아노 반주에 맞춰 엉덩이를 흔들며 신나게 노래를 부르고 있다. 이때 하얀 잠옷을 입은 소녀가 이들 앞에서 엄청난 양의 오줌을 질질 싸댄다.  이 소녀가 바로 악령이 깃들였다는 이 집 딸 나타샤.  괴상한 짓을 일삼지만 유능한(?) 사제인 맥필리 신부가 그녀에게 깃들인 악령을 쫓아내기 위해 찾아온다. 잠시 후 악령을 쫓아내려는 신부와 나타샤의 몸에서 쫓겨나지 않으려는 악령은 서로의 얼굴에 구토를 해대는 등 온갖 더럽고 추악한 짓으로 힘겨루기를 한다.  그로부터 1년 뒤 악령의 존재를 밝혀내 명예를 얻으려는 심리학 교수 올드먼이 실험대상인 제자들을 데리고 악령의 집을 찾는다.",
+    "releaseYear": 2001,
+    "runtimeMinutes": 82,
+    "collectionId": 4246,
+    "collectionName": "무서운 영화 시리즈",
+    "voteAverage": 5.842,
+    "voteCount": 5269,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iRS4R009OJM4KmhikmzGvkbeEaT.jpg",
+    "posterAlt": "무서운 영화 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/4248-scary-movie-2/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_557",
+    "tmdbMovieId": 401981,
+    "title": "레드 스패로",
+    "genres": [
+      "스릴러",
+      "미스터리"
+    ],
+    "genreIds": [
+      53,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "몰입감"
+    ],
+    "characters": [
+      "Dominika Egorova",
+      "Nathaniel \"Natan\" Nash",
+      "Vanya Egorov",
+      "Matron",
+      "Vladimir Korchnoi",
+      "Alexei Zyuganov",
+      "Nina Egorova"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "도미니카는 병든 어머니를 책임져야 하는 가장이자 동료의 시기심으로 다리를 다친 비운의 발레리나다. 그는 러시아 정보국 간부인 삼촌의 계략에 빠져 어쩔 수 없이 스파이가 되는 길을 택한다. 탁월한 신체적 조건을 가진 이들에게 심리 조작술을 가르쳐 정보원으로 양성하는 스패로 스쿨. 한계를 뛰어넘는 훈련과정을 통해  레드 스패로 사상 가장 치명적인 스파이로 새롭게 태어난 도미니카는 이후 미국과 러시아의 이중첩자를 가려내기 위해 CIA 요원 나다니엘에게 도미니카가 접근하는데...",
+    "releaseYear": 2018,
+    "runtimeMinutes": 140,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.5,
+    "voteCount": 6389,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/gEguR1qDAlEHfKhhYH9asgvsUBn.jpg",
+    "posterAlt": "레드 스패로 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/401981-red-sparrow/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_558",
+    "tmdbMovieId": 124905,
+    "title": "고질라",
+    "genres": [
+      "액션",
+      "드라마",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      18,
+      878
+    ],
+    "tags": [
+      "반전",
+      "액션",
+      "몰입감",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Ford Brody",
+      "Elle Brody",
+      "Sandra Brody",
+      "Joe Brody",
+      "Dr. Ishiro Serizawa",
+      "Dr. Vivienne Graham",
+      "Huddleston"
+    ],
+    "contextTags": [],
+    "overview": "포드 브로디는 어렸을 때에 일본 내 원자력 발전소에서 방사능 피폭사고로 어머니를 잃는다.  15년 후 포드의 아버지 조는 사고의 원인이 자연재해가 아닌 다른 것이라고 믿고 계속해서 조사를 하지만 금지구역에 들어갔다가 결국 포드와 함께 붙잡히게 된다.  비밀 연구소로 옮겨진 그들은 정부가 감추고 있던 괴생명체의 고치를 보게 되고, 때마침 고치에서 부화한 무토는 그곳을 빠져나가 인간들의 도시를 파괴하며 난동을 부리기 시작한다.  한편 무토가 뿜어내는 신호를 듣고 거대한 괴수가 쓰나미를 일으키며 나타나는데...",
+    "releaseYear": 2014,
+    "runtimeMinutes": 123,
+    "collectionId": 535313,
+    "collectionName": "고질라 시리즈",
+    "voteAverage": 6.362,
+    "voteCount": 9864,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/kPacHbCRcH5QYTqMq87Q7Gvkvwn.jpg",
+    "posterAlt": "고질라 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/124905-godzilla/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_559",
+    "tmdbMovieId": 508943,
+    "title": "루카",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "판타지"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      14,
+      18,
+      35
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Luca Paguro (voice)",
+      "Alberto Scorfano (voice)",
+      "Giulia Marcovaldo (voice)",
+      "Ercole Visconti (voice)",
+      "Daniela Paguro (voice)",
+      "Massimo Marcovaldo (voice)",
+      "Lorenzo Paguro (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "이탈리아 리비에라의 해변 마을. 마을 사람들 사이엔 인근에 바다괴물이 산다는 전설이 떠돈다. 실제로 바다에는 루카(제이콥 트렘블레이)를 비롯한 바다괴물 가족들이 산다. 루카의 부모는 루카에게 바다 밖을 경계하라 이르지만, 루카는 기어이 바다 밖 세상으로 향한다. 루카는 육지에선 인간의 모습으로 변하지만 물에 닿으면 바다괴물의 모습으로 돌아간다. 바다괴물 친구이자 육지 생활 선배인 알베르토(잭 딜런 그레이저)는 루카에게 두 다리로 걷는 법부터 자유와 일탈의 짜릿함까지 맛보게 한다. 급기야 인간 마을로 들어간 둘은 줄리아(엠마 버만)와 친구가 돼 함께 수영, 사이클, 파스타 빨리 먹기 3종 대회에 참가하는데...",
+    "releaseYear": 2021,
+    "runtimeMinutes": 95,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.78,
+    "voteCount": 9003,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/cgQMmwPtSInmIvoQLJhoByBelGA.jpg",
+    "posterAlt": "루카 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/508943-luca/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_560",
+    "tmdbMovieId": 297762,
+    "title": "원더 우먼",
+    "genres": [
+      "액션",
+      "모험",
+      "판타지"
+    ],
+    "genreIds": [
+      28,
+      12,
+      14
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "탄탄한 스토리",
+      "연출"
+    ],
+    "characters": [
+      "Diana Prince / Wonder Woman",
+      "Steve Trevor",
+      "Hippolyta",
+      "Antiope",
+      "Ludendorff",
+      "Sir Patrick / Ares",
+      "Sameer"
+    ],
+    "contextTags": [],
+    "overview": "수천년 간 존재를 숨긴 채 지구를 수호하던 데미스키라의 공주 다이애나는 어느 날 하늘에서 이상한 움직임을 포착한다. 1차 세계대전에 참전해 스파이 활동을 벌이다가 격추된 미국인 조종사 스티브가 해변에 불시착한 것. 태어나 처음으로 남성을 보게 된 다이애나는 호기심을 감추지 못하고, 데미스키라의 일원들은 그가 파멸을 가져올 수도 있음을 경고한다. 다이애나는 엄마이자 여왕인 히폴리타의 반대에도 불구하고 나치군의 추격을 따돌리면서 그들의 생화학무기 공격을 비밀리에 막아야 하는 스티브를 따라나선다.",
+    "releaseYear": 2017,
+    "runtimeMinutes": 141,
+    "collectionId": 468552,
+    "collectionName": "원더 우먼 시리즈",
+    "voteAverage": 7.207,
+    "voteCount": 20995,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/oZGYR75RaSLQ8XdJIVerYnOdhFx.jpg",
+    "posterAlt": "원더 우먼 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/297762-wonder-woman/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_561",
+    "tmdbMovieId": 11631,
+    "title": "맘마미아!",
+    "genres": [
+      "코미디",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감성적인 음악",
+      "연출",
+      "유머"
+    ],
+    "characters": [
+      "Sophie Sheridan",
+      "Donna Sheridan",
+      "Sam Carmichael",
+      "Harry Bright",
+      "Bill Anderson",
+      "Tanya Chesham-Leigh",
+      "Rosie Mulligan"
+    ],
+    "contextTags": [],
+    "overview": "그리스의 작은 섬에서 모텔을 운영하는 도나(메릴 스트립)의 딸 소피(아만다 사이프리드)는 연인 스카이와 행복한 결혼을 앞두고 있다. 그러나 완벽한 결혼을 꿈꾸는 그녀의 계획에 한가지 걸리는 것이 있으니, 바로 결혼식장에 자신의 손을 잡고 입장해 줄 아빠가 없다는 것. 결혼식을 앞두고 우연히 낡은 트렁크에서 엄마의 일기장을 발견한 소피는 아빠로 추정되는 세 남자의 이름을 발견하고 도나의 이름으로 이들을 결혼식에 초대한다. 마침내 결혼식이 다가오고 소피가 초대한 세 남자 샘(피어스 브로스넌), 해리(콜린 퍼스), 빌(스텔란 스카스가드)이 그리스 섬에 도착하면서 도나는 당황하게 되는데...",
+    "releaseYear": 2008,
+    "runtimeMinutes": 108,
+    "collectionId": 458558,
+    "collectionName": "맘마 미아! 시리즈",
+    "voteAverage": 7,
+    "voteCount": 7054,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9fnWov6Mb7LJKA2dJLV9h1mcSnF.jpg",
+    "posterAlt": "맘마미아! 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/11631-mamma-mia/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_562",
+    "tmdbMovieId": 10315,
+    "title": "판타스틱 Mr. 폭스",
+    "genres": [
+      "모험",
+      "애니메이션",
+      "코미디"
+    ],
+    "genreIds": [
+      12,
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "몰입감"
+    ],
+    "characters": [
+      "Mr. Fox (voice)",
+      "Felicity Fox (voice)",
+      "Ash Fox (voice)",
+      "Kristofferson Silverfox (voice)",
+      "Kylie (voice)",
+      "Rat (voice)",
+      "Franklin Bean (voice)"
+    ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
+    "overview": "12년 전 깨끗하게 손을 씻고, 가정적인 남편이자, 지역 신문 칼럼니스트로 활동하고 있는 Mr. 폭스. 큰맘 먹고 장만한 새집에서 즐기는 평온한 전원 생활은 오히려 그의 잠자고 있던 야생 본능을 깨우고. 급기야 예전 신기의 절도 기술을 활용, 인간 마을 악질 농장주 3인방의 창고를 습격하고 만다. 이에 분노한 농장주들은 Mr. 폭스의 집을 송두리째 파괴해가며 그를 잡기 위해 혈안이 되고, Mr. 폭스와 가족은 물론 이웃들까지도 식량 하나 없는 지하 세계에 갇혀버리는 위험에 처한다. 이제 생존권을 되찾고 동물 사회 전체를 구하기 위한 Mr. 폭스의 판타스틱한 작전이 시작되는데...",
+    "releaseYear": 2009,
+    "runtimeMinutes": 87,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.823,
+    "voteCount": 6172,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ekmuji8KJ7EmkqAX3HjmFpPEzNI.jpg",
+    "posterAlt": "판타스틱 Mr. 폭스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/10315-fantastic-mr-fox/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_563",
+    "tmdbMovieId": 22970,
+    "title": "캐빈 인 더 우즈",
+    "genres": [
+      "공포",
+      "미스터리",
+      "코미디"
+    ],
+    "genreIds": [
+      27,
+      9648,
+      35
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Dana Polk",
+      "Marty Mikalski",
+      "Curt Vaughn",
+      "Holden McCrea",
+      "Jules Louden",
+      "Richard Sitterson",
+      "Steve Hadley"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "기분전환을 위해 인적이 드문 숲으로 여행을 떠난 다섯 명의 친구들. GPS에도 나오지 않는 마을 입구의 ‘돌아가라’는 경고문이 신경 쓰였지만 그들은 숲 속의 외딴 오두막에 도착해 짐을 푼다. 그러던 중 주인을 알 수 없는 기이한 물건들로 가득 찬 지하실을 발견하고 심상치 않은 기운을 감지하지만, 오두막에서는 이미 상상하지 못한 일들이 그들을 기다리고 있는데...",
+    "releaseYear": 2012,
+    "runtimeMinutes": 95,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.654,
+    "voteCount": 8649,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9FPuOsWCM8EAlS0gZqPbz3wwBuQ.jpg",
+    "posterAlt": "캐빈 인 더 우즈 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/22970-the-cabin-in-the-woods/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_564",
+    "tmdbMovieId": 427641,
+    "title": "램페이지",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Davis Okoye",
+      "Dr. Kate Caldwell",
+      "Claire Wyden",
+      "Harvey Russell",
+      "Brett Wyden",
+      "Burke",
+      "Dr. Kerry Atkins"
+    ],
+    "contextTags": [],
+    "overview": "유인원 전문가 ‘데이비스(드웨인 존슨)’는 사람들은 멀리하지만, 어릴 때 구조해서 보살펴 온 영리한 알비노 고릴라 ‘조지’와는 특별한 감정을 공유한다. 어느 날, 유순하기만 하던 조지가 의문의 가스를 흡입하면서 엄청난 괴수로 변해 광란을 벌인다. 재벌기업이 우주에서 무단으로 감행한 ‘프로젝트 램페이지’라는 유전자 조작 실험이 잘못되면서 지구로 3개의 병원체가 추락했던 것. 조지뿐만 아니라 가스를 마신 늑대와 악어 역시 변이시키고 끝도 없이 거대해진 이들 포식자들이 도심을 파괴하며 미국 전역을 쑥대밭으로 만들어 놓는다. 데이비스는 괴수들을 상대로 전지구적인 재앙을 막고 변해버린 조지를 구하기 위한 해독제를 찾아야만 하는데…",
+    "releaseYear": 2018,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.467,
+    "voteCount": 7611,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/uJeetKzCUEFfne2LRHlr6paxxKk.jpg",
+    "posterAlt": "램페이지 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/427641-rampage/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_565",
+    "tmdbMovieId": 718789,
+    "title": "버즈 라이트이어",
+    "genres": [
+      "애니메이션",
+      "SF",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      878,
+      10751,
+      12
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "영상미",
+      "세계관",
+      "감동"
+    ],
+    "characters": [
+      "Buzz Lightyear (voice)",
+      "Izzy Hawthorne (voice)",
+      "SOX (voice)",
+      "Mo Morrison (voice)",
+      "Darby Steel (voice)",
+      "Zurg (voice)",
+      "Alisha Hawthorne (voice)"
+    ],
+    "contextTags": [
+      "travel",
+      "space",
+      "family"
+    ],
+    "overview": "나, 버즈 라이트이어. 인류 구원에 필요한 자원을 감지하고 현재 수많은 과학자들과 미지의 행성으로 향하고 있다. 이번 미션은 인류의 역사를 새롭게 쓸 것이라 확신한다. 잘못된 신호였다. 이곳은 삭막하고 거대한 외계 생물만이 살고 있는 폐허의 땅이다. 나의 실수로 모두가 이곳에 고립되고 말았다. 모두를 구하기 위해서 모든 것을 제자리에 돌려 놔야 한다. 실수를 바로잡기 위한 탈출 미션을 위해 1년의 준비를 마쳤다. 어쩌다 한 팀이 된 정예 부대와 이 미션을 수행할 예정이다. 우주를 집어삼킬 저그 황제와 대규모 로봇 군사의 위협이 계속되지만 나는 절대 포기할 수 없다. 그런데... 여긴 또 어디지? 시간 속에 갇힌 건가?",
+    "releaseYear": 2022,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.866,
+    "voteCount": 3860,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/KJjJSbdThql8dMtwswseCvPF4h.jpg",
+    "posterAlt": "버즈 라이트이어 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/718789-lightyear/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_566",
+    "tmdbMovieId": 558449,
+    "title": "글래디에이터 II",
+    "genres": [
+      "액션",
+      "모험",
+      "드라마"
+    ],
+    "genreIds": [
+      28,
+      12,
+      18
+    ],
+    "tags": [
+      "액션",
+      "감동",
+      "몰입감",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Lucius",
+      "Macrinus",
+      "General Acacius",
+      "Lucilla",
+      "Emperor Geta",
+      "Emperor Caracalla",
+      "Viggo"
+    ],
+    "contextTags": [],
+    "overview": "로마의 영웅이자 최고의 검투사였던 막시무스가 콜로세움에서 죽음을 맞이한 뒤 20여 년이 흐른 후. 쌍둥이 황제 게타와 카라칼라의 폭압 아래 시민을 위한 자유로운 나라 로마의 꿈은 잊힌 지 오래다. 한편 아카시우스 장군이 이끄는 로마군에 대패한 후 모든 것을 잃고 노예로 전락한 루시우스는 강한 권력욕을 지닌 마크리누스의 눈에 띄어 검투사로 발탁된다. 로마를 향한 걷잡을 수 없는 분노, 타고난 투사의 기질로 콜로세움에 입성하게 된 루시우스는 결투를 거듭하며 자신이 진짜 누구인지 알게 되고 마침내 로마의 운명을 건 결전을 준비하게 되는데...!",
+    "releaseYear": 2024,
+    "runtimeMinutes": 148,
+    "collectionId": 1069584,
+    "collectionName": "글래디에이터 시리즈",
+    "voteAverage": 6.606,
+    "voteCount": 4545,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/aJaKH3wJvdcMyq28vUhHnINWPjI.jpg",
+    "posterAlt": "글래디에이터 II 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/558449-gladiator-ii/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_567",
+    "tmdbMovieId": 1466115,
+    "title": "오늘 밤, 세계에서 이 사랑이 사라진다 해도",
+    "genres": [
+      "로맨스",
+      "드라마"
+    ],
+    "genreIds": [
+      10749,
+      18
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "여운",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Kim Jae-won",
+      "Han Seo-yoon",
+      "Choi Ji-min",
+      "Jeong Tae-hoon",
+      "Kim Seong-hyeon",
+      "Doctor",
+      "Korean Teacher"
+    ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
+    "overview": "하루가 지나면 모든 기억이 사라지는 특별한 여고생. 그녀 앞에 조용하고 다정한 같은 반 남학생이 나타난다. 매일이 첫날처럼 새로운 그들의 사랑은 과연 피어날 수 있을까?",
+    "releaseYear": 2025,
+    "runtimeMinutes": 106,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.423,
+    "voteCount": 194,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bMA6E5cu1QUMehjBZOjWjqQjhey.jpg",
+    "posterAlt": "오늘 밤, 세계에서 이 사랑이 사라진다 해도 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1466115/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_568",
+    "tmdbMovieId": 417859,
+    "title": "장화신은 고양이",
+    "genres": [
+      "액션",
+      "모험",
+      "애니메이션"
+    ],
+    "genreIds": [
+      28,
+      12,
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "반전",
+      "영상미",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Puss in Boots (voice)",
+      "Kitty Softpaws (voice)",
+      "Humpty Dumpty (voice)",
+      "Jack (voice)",
+      "Jill (voice)",
+      "Imelda (voice)",
+      "Andy Beanstalk (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "한때는 알아주는 영웅이었지만 지금은 지명 수배자 신세인 ‘장화신은 고양이’. 명예 회복의 순간만을 꿈꾸던 그에게 악명 높은 부부 악당 ‘잭 & 질’과 ‘마법의 콩’에 대한 소문이 들려온다. 황금알의 비밀을 지닌 열쇠로, 악당의 손에 넘어가면 세상을 위험에 빠트린다는 마법의 콩. 장화신은 고양이는 잭 & 질로부터 마법의 콩을 빼앗기로 결심한다.  하지만 마법의 콩을 손에 넣으려는 순간! 갑자기 나타난 희대의 도둑 ‘말랑손 키티’ 때문에 계획은 실패로 돌아간다. 게다가 말랑손 키티가 어릴 적 단짝에서 지금은 둘도 없는 원수가 된 ‘험티 덤티’와 한통속임을 알게 된 장화신은 고양이는 깊은 고민에 빠진다. 그러나 마법의 콩을 혼자 훔치는 것은 절대 불가능하다는 사실을 깨달은 장화신은 고양이, 결국 말랑손 키티, 험티 덤티와 손을 잡고 위험천만한 모험을 시작하는데…!  짜릿한 인생역전을 꿈꾸는 ‘장화신은 고양이’와 친구들의 예측불허 모험이 시작된다!",
+    "releaseYear": 2011,
+    "runtimeMinutes": 90,
+    "collectionId": 94602,
+    "collectionName": "장화신은 고양이 시리즈",
+    "voteAverage": 6.608,
+    "voteCount": 4642,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/GRbeIj59bZgDshwUETHLG6M6T7.jpg",
+    "posterAlt": "장화신은 고양이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/417859-puss-in-boots/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_569",
+    "tmdbMovieId": 395992,
+    "title": "라이프",
+    "genres": [
+      "공포",
+      "SF",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      878,
+      9648
+    ],
+    "tags": [
+      "몰입감",
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Dr. David Jordan",
+      "Rory Adams",
+      "Miranda North",
+      "Sho Murakami",
+      "Ekaterina Golovkina",
+      "Hugh Derry",
+      "Kazumi"
+    ],
+    "contextTags": [
+      "space"
+    ],
+    "overview": "화성탐사선 필그림이 우주정거장으로 귀환한다. 우주정거장에서 이를 기다리던 6인의 우주인들은 탐사선에서 생명체를 발견하고, 인류 최초의 외계 생명체 발견에 온 인류가 환호한다. 하지만 기쁨도 잠시, 켈빈이라 명명된 생명체를 조사하던 중 사고가 일어난다. 모든 세포가 근육이자 뇌이기도 한 단세포 화성 생명체는 다른 생명체를 포식하며 성장을 시작한 것이다. 정비 담당인 애덤스(라이언 레이놀즈)를 시작으로 차례로 희생자가 나오자 생존자들은 인류의 위협이 될 생명체로부터 지구를 보호하는 한편 우주정거장으로부터 탈출하기 위한 사투를 벌인다.",
+    "releaseYear": 2017,
+    "runtimeMinutes": 103,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.458,
+    "voteCount": 7986,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9cor0qFsZPCLocfkkzULo2npEVo.jpg",
+    "posterAlt": "라이프 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/395992-life/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_570",
+    "tmdbMovieId": 240832,
+    "title": "루시",
+    "genres": [
+      "액션",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Lucy",
+      "Professor Norman",
+      "Mr. Jang",
+      "Pierre Del Rio",
+      "The Limey",
+      "Richard",
+      "Caroline"
+    ],
+    "contextTags": [
+      "travel"
+    ],
+    "overview": "평범한 삶을 살던 여자 루시는 어느 날 지하세계에서 극악무도하기로 유명한 미스터 장에게 납치되어, 몸 속에 강력한 합성 약물을 넣은 채 강제로 운반하게 된다. 다른 운반책들과 같이 끌려가던 루시는 갑작스런 외부의 충격으로 인해 몸 속 약물이 체내로 퍼지게 되면서, 그녀 안의 모든 감각이 깨어나기 시작하는데…",
+    "releaseYear": 2014,
+    "runtimeMinutes": 89,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.474,
+    "voteCount": 17167,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dHPhwkoDDslf2SFzccRG17Y9f2K.jpg",
+    "posterAlt": "루시 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/240832-lucy/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_571",
+    "tmdbMovieId": 15512,
+    "title": "몬스터 vs 에이리언",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "모험"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      12,
+      878
+    ],
+    "tags": [
+      "반전",
+      "영상미",
+      "세계관",
+      "감동"
+    ],
+    "characters": [
+      "Susan Murphy / Ginormica (voice)",
+      "B.O.B. (voice)",
+      "Dr. Cockroach Ph.D. (voice)",
+      "Gallaxhar (voice)",
+      "The Missing Link (voice)",
+      "General W.R. Monger (voice)",
+      "Derek Dietl (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "자신의 결혼식 날 어디선가 날아온 운석을 맞고 거대한 몸집으로 커져버린 수잔 머피(리즈 위더스푼). 새롭게 등장한 이 거대한 몬스터 처치를 위한 정부의 발 빠른 대처로 수잔은 ‘거대렐라’라는 새로운 몬스터 네임이 붙은 채 다른 몬스터들과 함께 국가 비밀수용소에 갇히게 된다.  처치곤란 몬스터? 우리가 인류의 희망! 천재적인 두뇌를 믿고 시도한 무리한 실험으로 곤충머리를 갖게 된 ‘닥터 로치 박사’, 2만년 전 모습에서 아직 덜 진화된 물고기인간 ‘미씽링크’, 잘못된 소스투입으로 토마토에서 자유자재 형태변형 불멸의 젤리 몬스터로 거듭난 ‘밥’, 그리고 키 100미터가 넘는 초대형 외형을 가진 아기 몬스터 ‘인섹토사우르스’.  자, 이제 출동이다!! 절대 외부로 나갈 일 없을 것 같았던 그들의 감금생활은 정체불명의 외계 로봇이 지구를 공격하면서 끝이 난다. 대통령과 지구방위대 워 딜러 장군이 아주 짧은 고민 끝에 내린 결정으로 외계 로봇의 공격에서 세계평화를 지켜낼 영웅군단으로 이들 몬스터를 급파하는데…  막강 몬스터팀, 에이리언쯤 문제 없다!!  영화역사상 가장 입체적인 혁명이 시작된다!",
+    "releaseYear": 2009,
+    "runtimeMinutes": 94,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.258,
+    "voteCount": 5021,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/Cmsx055jXRqmEXnt27I2tTKAG0.jpg",
+    "posterAlt": "몬스터 vs 에이리언 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/15512-monsters-vs-aliens/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_572",
+    "tmdbMovieId": 89,
+    "title": "인디아나 존스: 최후의 성전",
+    "genres": [
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      28
+    ],
+    "tags": [
+      "세계관",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Indiana Jones",
+      "Professor Henry Jones",
+      "Marcus Brody",
+      "Elsa",
+      "Sallah",
+      "Walter Donovan",
+      "Young Indy"
+    ],
+    "contextTags": [
+      "travel"
+    ],
+    "overview": "자신이 재직 중인 바네트 대학으로 돌아온 인디는 몇 달만을 비워뒀던 대학 연구실에서 오래 전에 도착한 아버지의 일기장을 발견한다.  고고학에 관심 많은 학생들을 피해 겨우 창문으로 빠져나온 존슨 박사는 윌터 도노반이라는 사람을 만난다. 도노반은 자신이 앙카라 북쪽에서 발견한 반쪽짜리 신의 석판의 탁본을 보여주며 헨리 박사의 일기장을 참고로 나머지 반쪽 석판과 예수가 최후의 만찬 때 사용했다는 술잔 성배를 찾아 달라고 부탁한다. 인디아나 존스는 아버지 헨리 존스 박사가 나치에게 납치 되었다는 소식을 듣고 베니스로 달려가는데...",
+    "releaseYear": 1989,
+    "runtimeMinutes": 127,
+    "collectionId": 84,
+    "collectionName": "인디아나 존스 시리즈",
+    "voteAverage": 7.9,
+    "voteCount": 11153,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/nbNr6vea9nkedkozeR3ZzoQm12A.jpg",
+    "posterAlt": "인디아나 존스: 최후의 성전 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/89-indiana-jones-and-the-last-crusade/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_573",
+    "tmdbMovieId": 556694,
+    "title": "3000년의 기다림",
+    "genres": [
+      "드라마",
+      "판타지",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      14,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동",
+      "세계관"
+    ],
+    "characters": [
+      "Alithea",
+      "The Djinn",
+      "Professor Günhan",
+      "British Council Lady / The Watcher",
+      "Airport Djinn",
+      "Pale Djinn",
+      "The Queen of Sheba"
+    ],
+    "contextTags": [],
+    "overview": "세상 모든 이야기에 통달한 서사학자 알리테아가 우연히 소원을 이뤄주는 정령 지니를 깨워낸다. 그녀에게 주어진 기회는 단 세 번. 마음속 가장 깊은 곳, 가장 오랫동안 바라온 소원을 말할 것!",
+    "releaseYear": 2022,
+    "runtimeMinutes": 108,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.878,
+    "voteCount": 1684,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hHmJGgb29sIxSK9EOf6d68mDnEM.jpg",
+    "posterAlt": "3000년의 기다림 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/556694-three-thousand-years-of-longing/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_574",
+    "tmdbMovieId": 1263256,
+    "title": "해피 길모어 2",
+    "genres": [
+      "코미디"
+    ],
+    "genreIds": [
+      35
+    ],
+    "tags": [
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Happy Gilmore",
+      "Virginia",
+      "Shooter McGavin",
+      "Frank Manatee",
+      "Hal L",
+      "Oscar Mejías",
+      "John Daly"
+    ],
+    "contextTags": [],
+    "overview": "해피 길모어가 골프를 그만뒀을까? 천만의 말씀. 다혈질의 골프 레전드로 분한 애덤 샌들러가 이번에는 아이의 꿈을 위해 다시 골프채를 휘두른다.",
+    "releaseYear": 2025,
+    "runtimeMinutes": 118,
+    "collectionId": 1263259,
+    "collectionName": "해피 길모어 시리즈",
+    "voteAverage": 6.522,
+    "voteCount": 996,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/E3dPHPJigkXwuiE0n1vzz0se8a.jpg",
+    "posterAlt": "해피 길모어 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1263256-happy-gilmore-2/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_575",
+    "tmdbMovieId": 838209,
+    "title": "파묘",
+    "genres": [
+      "미스터리",
+      "공포",
+      "스릴러"
+    ],
+    "genreIds": [
+      9648,
+      27,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "감성적인 음악",
+      "OST",
+      "반전"
+    ],
+    "characters": [
+      "Kim Sang-duk",
+      "Lee Hwa-rim",
+      "Ko Young-geun",
+      "Yoon Bong-gil",
+      "Park Ji-yong",
+      "Park Geun-hyeon",
+      "Oh Gwang-sim"
+    ],
+    "contextTags": [],
+    "overview": "미국 LA, 거액의 의뢰를 받은 무당 화림과 봉길은 기이한 병이 대물림되는 집안의 장손을 만난다. 조상의 묫자리가 화근임을 알아챈 화림은 이장을 권하고, 돈 냄새를 맡은 최고의 풍수사 상덕과 장의사 영근이 합류한다. 절대 사람이 묻힐 수 없는 악지에 자리한 기이한 묘. 상덕은 불길한 기운을 느끼고 제안을 거절하지만, 화림의 설득으로 결국 파묘가 시작되고… 나와서는 안될 것이 나왔다.",
+    "releaseYear": 2024,
+    "runtimeMinutes": 133,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.647,
+    "voteCount": 740,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/tw0i3kkmOTjDjGFZTLHKhoeXVvA.jpg",
+    "posterAlt": "파묘 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/838209/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_576",
+    "tmdbMovieId": 609681,
+    "title": "더 마블스",
+    "genres": [
+      "SF",
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      878,
+      12,
+      28
+    ],
+    "tags": [
+      "연출",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Carol Danvers / Captain Marvel",
+      "Monica Rambeau",
+      "Kamala Khan / Ms. Marvel",
+      "Nick Fury",
+      "Dar-Benn",
+      "Emperor Dro'ge",
+      "Prince Yan"
+    ],
+    "contextTags": [
+      "travel",
+      "space"
+    ],
+    "overview": "강력한 힘으로 은하계를 수호하는 최강 히어로 캡틴 마블 캐럴 댄버스. 캡틴 마블의 오랜 친구의 딸이자, 빛의 파장을 조작하는 히어로 모니카 램보. 최애 히어로 캡틴 마블의 열렬한 팬인 미즈 마블 카말라 칸. 캡틴 마블에 대한 복수를 꿈꾸는 냉혹한 크리족 리더 다르-벤의 영향으로 세 명의 히어로는 능력을 사용할 때마다 서로의 위치가 뒤바뀌게 된다. 뜻하지 않게 우주와 지구를 넘나들게 되는 예측 불가하고 통제 불가한 상황 속, 다르-벤은 지구를 포함해 캡틴 마블이 고향이라고 부르는 수많은 행성을 모두 파멸시키려 하고, 이를 저지하기 위해 모인 팀 마블스는 하나로 힘을 모으는데…",
+    "releaseYear": 2023,
+    "runtimeMinutes": 105,
+    "collectionId": 623911,
+    "collectionName": "캡틴 마블 시리즈",
+    "voteAverage": 5.936,
+    "voteCount": 3475,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qApkjVJzZ2nkFUcFhcYkTBaRnNj.jpg",
+    "posterAlt": "더 마블스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/609681-the-marvels/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_577",
+    "tmdbMovieId": 49013,
+    "title": "카 2",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "모험"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      12,
+      35
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "감동",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Mater (voice)",
+      "Lightning McQueen (voice)",
+      "Finn McMissile (voice)",
+      "Holley Shiftwell (voice)",
+      "Sir Miles Axlerod (voice)",
+      "Francesco Bernoulli (voice)",
+      "Brent Mustangburger (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "오붓한 휴식을 취하려던 맥퀸의 소망과 달리, 단짝인 견인차 메이터의 오지랖으로 또다시 세계 그랑프리 대회에 참가하게 된다. 석유가 아닌 대체연료 알리놀을 사용해야 하는 이 대회에서 맥퀸이 강력한 경쟁 상대인 프란체스코와 대립의 각을 세우는 사이, 메이터는 뜻하지 않게 국제적인 첩보전에 휘말린다. 영국 최고의 스파이 핀 맥미사일과 아름다운 초보 스파이 홀리 쉬프트웰이 메이터를 미국 스파이로 오해하면서 사건은 걷잡을 수 없이 커지는데...",
+    "releaseYear": 2011,
+    "runtimeMinutes": 113,
+    "collectionId": 87118,
+    "collectionName": "카 시리즈",
+    "voteAverage": 6.184,
+    "voteCount": 8550,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/azNYfwYnrdCVB3uzZaRl0JIx4N0.jpg",
+    "posterAlt": "카 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/49013-cars-2/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_578",
+    "tmdbMovieId": 566525,
+    "title": "샹치와 텐 링즈의 전설",
+    "genres": [
+      "액션",
+      "모험",
+      "판타지"
+    ],
+    "genreIds": [
+      28,
+      12,
+      14
+    ],
+    "tags": [
+      "액션",
+      "몰입감",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Shaun / Shang-Chi",
+      "Xu Wenwu",
+      "Katy",
+      "Trevor Slattery",
+      "Xialing",
+      "Li",
+      "Ying Nan"
+    ],
+    "contextTags": [],
+    "overview": "초인적인 능력을 가진 텐 링즈의 힘으로 수세기 동안 어둠의 세상을 지배해 온 웬우. 샹치는 아버지 웬우 밑에서 암살자로 훈련을 받았지만 이를 거부하고 평범함 삶을 선택한다. 샌프란시스코로 떠나와 자신의 진짜 이름을 숨긴 채 션이란 가명으로 살아가는 샹치. 웬우가 수장으로 있는 조직 텐 링즈의 일원인 레이저 피스트가 찾아와 샹치의 펜던트를 훔쳐가자 샹치는 친구 케이티와 함께 연이 끊겼던 동생 샤링을 염려하며 그녀가 숨어 지내는 마카오로 찾아간다. 텐 링즈의 마법 같은 힘을 통해 수천년 동안 지구의 역사를 혼란에 빠뜨렸던 웬우는 자신의 아들딸을 다시 불러들여 새로운 계략을 꾸민다.",
+    "releaseYear": 2021,
+    "runtimeMinutes": 132,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.493,
+    "voteCount": 10491,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/14L4NGrqO4r7gJtVRiSRP5rNsL5.jpg",
+    "posterAlt": "샹치와 텐 링즈의 전설 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/566525-shang-chi-and-the-legend-of-the-ten-rings/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_579",
+    "tmdbMovieId": 10020,
+    "title": "미녀와 야수",
+    "genres": [
+      "로맨스",
+      "가족",
+      "애니메이션"
+    ],
+    "genreIds": [
+      10749,
+      10751,
+      16,
+      14
+    ],
+    "tags": [
+      "감동",
+      "감성적인 음악",
+      "여운",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Belle (voice)",
+      "Beast (voice)",
+      "Gaston (voice)",
+      "Lumiere (voice)",
+      "Cogsworth (voice)",
+      "Mrs. Potts (voice)",
+      "Maurice (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "18세기 프랑스의 작은 마을, 밝고 아름다운 소녀 벨은 아버지와 함께 단 둘이 살고 있다. 마을 청년 개스톤은 벨의 미모에 반해 끈질기게 구애를 하지만, 벨은 책 읽기만 즐기며 평범한 시골생활에서 벗어나기를 꿈꾼다. 그러던 어느 날, 아버지가 흉측한 야수의 성에 갇히게 되는 일이 벌어지고 벨은 아버지를 구하기 위해 아버지 대신 자신이 성에 남기로 한다. 그녀를 경계하던 야수는 순수하고 아름다운 벨에게 조금씩 마음을 열게 되고, 벨 또한 흉측한 외모에 가려진 야수의 따뜻한 영혼을 발견하게 된다. 한편 질투심에 눈이 먼 개스톤은 야수를 없애기 위해 마을 사람들을 이끌고 야수의 성으로 향하는데...",
+    "releaseYear": 1991,
+    "runtimeMinutes": 84,
+    "collectionId": 153010,
+    "collectionName": "미녀와 야수 시리즈",
+    "voteAverage": 7.727,
+    "voteCount": 10747,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/xN8yuKcIIQEJo1Cuk6RuZpV64Uh.jpg",
+    "posterAlt": "미녀와 야수 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/10020-beauty-and-the-beast/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_580",
+    "tmdbMovieId": 917496,
+    "title": "비틀쥬스 비틀쥬스",
+    "genres": [
+      "코미디",
+      "판타지",
+      "공포"
+    ],
+    "genreIds": [
+      35,
+      14,
+      27
+    ],
+    "tags": [
+      "여운",
+      "감동",
+      "감성적인 음악",
+      "영상미"
+    ],
+    "characters": [
+      "Beetlejuice",
+      "Lydia",
+      "Delia",
+      "Astrid",
+      "Rory",
+      "Jackson",
+      "Delores"
+    ],
+    "contextTags": [],
+    "overview": "유령과 대화하는 영매로 유명세를 타게 된 리디아와 그런 엄마가 마음에 들지 않는 10대 딸 아스트리드. 할아버지 찰스의 갑작스러운 죽음으로 가족들은 함께 시골 마을에 내려간다. 유령을 보는 엄마가 마음에 들지 않는 아스트리드는 방황하던 중 함정에 빠져 저세상에 발을 들이게 되고 딸을 구하기 위해 리디아는 인간을 믿지 않는 저세상 슈퍼스타 비틀쥬스를 소환한다. 이루지 못한 리디아와의 결혼을 조건으로 내민 비틀쥬스. 이번엔 아스트리드가 비틀쥬스를 다시 저세상으로 보내야 하는데···",
+    "releaseYear": 2024,
+    "runtimeMinutes": 105,
+    "collectionId": 945475,
+    "collectionName": "비틀쥬스 시리즈",
+    "voteAverage": 6.929,
+    "voteCount": 3182,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ypWQatJYyESE5PIzdlSdiOyWYja.jpg",
+    "posterAlt": "비틀쥬스 비틀쥬스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/917496-beetlejuice-beetlejuice/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_581",
+    "tmdbMovieId": 176,
+    "title": "쏘우",
+    "genres": [
+      "공포",
+      "미스터리",
+      "범죄"
+    ],
+    "genreIds": [
+      27,
+      9648,
+      80
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "몰입감",
+      "반전"
+    ],
+    "characters": [
+      "John Kramer / Jigsaw",
+      "Dr. Lawrence Gordon",
+      "Adam Radford",
+      "David Tapp",
+      "Alison Gordon",
+      "Detective Steven Sing",
+      "Diana Gordon"
+    ],
+    "contextTags": [],
+    "overview": "어느 지하실. 자신들의 발목에 쇠줄이 묶인 채 마주하게 된 ‘아담’(리 와넬)과 닥터 ‘고든’(캐리 엘위스). 중앙에는 자신의 머리를 총으로 쏘고 자살한 듯한 사내가 피투성이가 되어 누워 있을 뿐, 이 둘은 자신들이 왜 잡혀왔는지, 서로가 누군지조차 모르고 있다. 주머니 속에 들어있는 테이프. 테이프에 들어있는 누군가의 메시지. 어떻게든 빠져나가려고 갖은 애를 써보지만 소용이 없다. 이제 둘은 자신들의 하루 전 기억을 더듬어 보는데. ‘고든’은 이 일이 최근 계속되고 있는 연쇄살인과 관계가 있음을 깨닫게 된다. 끔찍한 연쇄살인의 현장에 자신의 펜이 떨어져 있었고, 그 증거물을 근거로 ‘탭’형사(대니 글로버)가 자신을 찾아왔던 것. 한편, 연쇄살인을 추적하던 ‘탭’형사는 닥터 ‘고든’을 범인으로 지목하고 그 뒤를 쫓는데…",
+    "releaseYear": 2004,
+    "runtimeMinutes": 103,
+    "collectionId": 656,
+    "collectionName": "쏘우 시리즈",
+    "voteAverage": 7.423,
+    "voteCount": 10157,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vRVtn1HLMGMHbUsAJkFLC6oT6pQ.jpg",
+    "posterAlt": "쏘우 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/176-saw/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_582",
+    "tmdbMovieId": 70160,
+    "title": "헝거게임: 판엠의 불꽃",
+    "genres": [
+      "SF",
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      878,
+      12,
+      28,
+      53
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "세계관",
+      "몰입감"
+    ],
+    "characters": [
+      "Katniss Everdeen",
+      "Peeta Mellark",
+      "Gale Hawthorne",
+      "Haymitch Abernathy",
+      "Effie Trinket",
+      "Cinna",
+      "Caesar Flickerman"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "12개의 구역으로 이루어진 독재국가 판엠이 체제를 유지하기 위해 만든 생존 전쟁 헝거게임. 일년에 한번 각 구역에서 추첨을 통해 두 명을 선발, 총 24명이 생존을 겨루게 되는 것. 헝거게임의 추첨식에서 캣니스는 어린 여동생의 이름이 호명되자 동생을 대신해 참가를 자청하며 주목을 받는다. 과거 자신을 위기에서 구해줬던 피타 역시 선발되어 미묘한 감정에 휩싸인다. 캣니스는 금지구역에서 함께 사냥했던 게일에게 가족을 부탁하며 생존을 겨루게 될 판엠의 수도 캐피톨로 향하는데...",
+    "releaseYear": 2012,
+    "runtimeMinutes": 142,
+    "collectionId": 131635,
+    "collectionName": "헝거게임 시리즈",
+    "voteAverage": 7.224,
+    "voteCount": 23433,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iZWZcLJ2NoyM1UoDJexgSWmXOC.jpg",
+    "posterAlt": "헝거게임: 판엠의 불꽃 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/70160-the-hunger-games/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_583",
+    "tmdbMovieId": 585083,
+    "title": "몬스터 호텔: 뒤바뀐 세계",
+    "genres": [
+      "애니메이션",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      35,
+      10751,
+      12,
+      14
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Johnny (voice)",
+      "Mavis (voice)",
+      "Ericka (voice)",
+      "Van Helsing (voice)",
+      "Wayne (voice)",
+      "Wanda (voice)",
+      "Griffin (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "반 헬싱의 발명품 '몬스터 변신 광선'으로 드락과 괴물 친구들은 인간이, 조니는 몬스터가 되어버린다. 인간의 몸이 되면서 힘을 잃은 드락과 괴물로서의 삶을 즐기게 된 기운 넘치는 조니. 하지만 '몬스터 변신 광선' 부작용으로 조니는 점점 이성을 읽고, 마비스와 친구들은 조니와 드락을 더 늦기 전에 원래 모습으로 되돌려 놓아야 한다!",
+    "releaseYear": 2022,
+    "runtimeMinutes": 92,
+    "collectionId": 185103,
+    "collectionName": "몬스터 호텔 시리즈",
+    "voteAverage": 7.029,
+    "voteCount": 3046,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/teCy1egGQa0y8ULJvlrDHQKnxBL.jpg",
+    "posterAlt": "몬스터 호텔: 뒤바뀐 세계 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/585083-hotel-transylvania-transformania/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 119,
+          "providerName": "Amazon Prime Video",
+          "logoPath": "/pvske1MyAoymrs5bguRfVqYiM9a.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pvske1MyAoymrs5bguRfVqYiM9a.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_584",
+    "tmdbMovieId": 1865,
+    "title": "캐리비안의 해적: 낯선 조류",
+    "genres": [
+      "모험",
+      "액션",
+      "판타지"
+    ],
+    "genreIds": [
+      12,
+      28,
+      14
+    ],
+    "tags": [
+      "액션",
+      "몰입감",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Jack Sparrow",
+      "Angelica",
+      "Hector Barbossa",
+      "Edward \"Blackbeard\" Teach",
+      "Joshamee Gibbs",
+      "Philip",
+      "Syrena"
+    ],
+    "contextTags": [],
+    "overview": "부두교의 주술을 부리던  검은 수염은 다리가 한쪽인 남자에게 죽게 된다는 예언을 듣게 된다. 자신의 수명을 늘리기 위해 검은 수염은 젊음의 샘을 찾으러 떠나고, 바르보사 또한 검은수염에게 복수를 하기 위해 그를 뒤쫒는다. 한편 영국에서 블랙펄의 선장이 선원을 모집한다는 소문을 듣게 된 잭 스패로우는 자신을 사칭하는 사기꾼을 잡으려다 영국 왕실에 체포되고, 영국의 국왕은 잭 스패로우에게 젊음의 샘으로 가는 길을 안내하라고 명령하고, 이에 필요한 선장과 배, 선원을 모두 내 주겠다고 하는데...",
+    "releaseYear": 2011,
+    "runtimeMinutes": 136,
+    "collectionId": 295,
+    "collectionName": "캐리비안의 해적 시리즈",
+    "voteAverage": 6.571,
+    "voteCount": 15062,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/osJVVjkHmoO5WoJfbBsImYrKWIb.jpg",
+    "posterAlt": "캐리비안의 해적: 낯선 조류 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1865-pirates-of-the-caribbean-on-stranger-tides/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_585",
+    "tmdbMovieId": 64682,
+    "title": "위대한 개츠비",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "감동",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Jay Gatsby",
+      "Nick Carraway",
+      "Daisy Buchanan",
+      "Tom Buchanan",
+      "Jordan Baker",
+      "Myrtle Wilson",
+      "George Wilson"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "1922년 뉴욕 외곽에서 살고 있는 닉은 호화로운 별장에 살고 있는 이웃 개츠비에게 관심을 갖게 된다. 제1차 세계대전에 참전한 후 옥스포드에서 공부한 적이 있다는 개츠비는 비밀이 가득한 의문의 사나이로, 토요일마다 떠들썩한 파티를 열어 많은 손님을 초대한다. 파티에서 개츠비와 우정을 쌓게 된 닉은 자신의 사촌 데이지와 개츠비가 연인 사이였던 것을 알게 된다. 데이지는 가난한데다 전쟁터에서도 돌아오지 않는 개츠비를 잊은 채 부유한 톰과 결혼한 상태. 하지만 톰은 정비공의 아내와 은밀한 사이였고, 개츠비와 재회하게 된 데이지는 잊혀졌던 사랑의 감정을 되살리는데...",
+    "releaseYear": 2013,
+    "runtimeMinutes": 141,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.35,
+    "voteCount": 13019,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/1TQjpuZOp8l5mspPgK85ZmD3gjp.jpg",
+    "posterAlt": "위대한 개츠비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/64682-the-great-gatsby/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_586",
+    "tmdbMovieId": 573435,
+    "title": "나쁜 녀석들: 라이드 오어 다이",
+    "genres": [
+      "액션",
+      "코미디",
+      "범죄"
+    ],
+    "genreIds": [
+      28,
+      35,
+      80
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "감동",
+      "유머"
+    ],
+    "characters": [
+      "Mike Lowrey",
+      "Marcus Burnett",
+      "Kelly",
+      "Dorn",
+      "Rita",
+      "McGrath",
+      "Lockwood"
+    ],
+    "contextTags": [],
+    "overview": "마이애미 강력반 최고의 콤비 마이크와 마커스. 가족 같은 하워드 반장이 사망 전 마약 카르텔 조직의 비리에 연루되었다는 뉴스 속보를 접하게 된다. 하지만 아무도 믿지 말라는 하워드 반장의 비밀 메시지를 받은 마이크와 마커스 형사는 사건의 진실을 밝히기 위해 위험한 수사를 시작한다. 서서히 드러나는 거대한 음모와 마주하게 된 나쁜 녀석들. 그러나 이들 역시 함정에 빠져 사건의 용의자로 지목되며 동료 경찰들은 물론 마약 카르텔 조직에게도 쫓기는 신세가 되고 마는데…",
+    "releaseYear": 2024,
+    "runtimeMinutes": 116,
+    "collectionId": 14890,
+    "collectionName": "나쁜 녀석들 시리즈",
+    "voteAverage": 7.319,
+    "voteCount": 3383,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/wIrhEUBWjRmZuL1Ix41cF2LhJrW.jpg",
+    "posterAlt": "나쁜 녀석들: 라이드 오어 다이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/573435-bad-boys-ride-or-die/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_587",
+    "tmdbMovieId": 121875,
+    "title": "인 더 하우스",
+    "genres": [
+      "코미디",
+      "드라마",
+      "미스터리"
+    ],
+    "genreIds": [
+      35,
+      18,
+      9648,
+      53
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Germain",
+      "Claude",
+      "Jeanne",
+      "Esther",
+      "Rapha fils",
+      "Rapha père",
+      "Le proviseur"
+    ],
+    "contextTags": [
+      "school",
+      "literary"
+    ],
+    "overview": "한때 작가를 꿈꾸던 고등학교 문학 교사 제르망과 갤러리를 운영하는 그의 아내 쟝. 평범한 일상을 보내던 그들에게 클로드란 학생의 작문 과제가 눈에 들어온다. 친구 라파의 가족 이야기를 써낸 클로드의 작문에서 묘한 매력과 재능을 발견한 제르망. 클로드의 작문은 제르망과 쟝에게 다시금 활력과 열정을 불러일으킨다. 하지만 점점 도를 지나치는 클로드의 행동과 이를 부추기는 제르망의 호기심은 걷잡을 수 없는 방향으로 치닫는데…",
+    "releaseYear": 2012,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.24,
+    "voteCount": 917,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/prxWPzvem8EytWxaIWlZFvglpqS.jpg",
+    "posterAlt": "인 더 하우스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/121875-dans-la-maison/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_588",
+    "tmdbMovieId": 634429,
+    "title": "신 울트라맨",
+    "genres": [
+      "액션",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      878
+    ],
+    "tags": [
+      "반전",
+      "감동",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Shinji Kaminaga",
+      "Hiroko Asami",
+      "Kimio Tamura",
+      "Akihisa Taki",
+      "Yumi Funaberi",
+      "Tatsuhiko Munakata",
+      "Mefilas"
+    ],
+    "contextTags": [],
+    "overview": "일본 전역에서 정체불명의 괴수가 잇따라 출현하자 정부는 이들을 ‘화위수’라 명명하고 대응팀 ‘화특대’를 신설한다. ‘화위수’에 의한 국가적 위기가 임박해진 와중, 돌연 은빛의 거인이 나타나 ‘화위수’를 퇴치한다. 거인의 정체를 알아내기 위해 투입된 분석관 ‘아사미’는 그것에 ‘울트라맨’이라는 이름을 붙인다. 며칠 후, 이번에는 외성인에 의해 다시 위기에 빠진 ‘화특대’. 그 때, 어디선가 ‘울트라맨’이 나타나 ‘화특대’ 기지를 파괴하고 그를 아군이라 생각했던 인간들은 혼란에 빠지는데…",
+    "releaseYear": 2022,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.5,
+    "voteCount": 251,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/kyIFa7jROnKEGY6R6XXWTNOzu5E.jpg",
+    "posterAlt": "신 울트라맨 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/634429/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_589",
+    "tmdbMovieId": 46195,
+    "title": "리오",
+    "genres": [
+      "애니메이션",
+      "모험",
+      "코미디"
+    ],
+    "genreIds": [
+      16,
+      12,
+      35,
+      10751
+    ],
+    "tags": [
+      "감성적인 음악",
+      "영상미",
+      "세계관",
+      "유머"
+    ],
+    "characters": [
+      "Blu (voice)",
+      "Jewel (voice)",
+      "Linda (voice)",
+      "Alice / Goose (voice)",
+      "Pedro (voice)",
+      "Rafael (voice)",
+      "Chloe / Goose (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "전세계 유일의 희귀 앵무새 ‘블루’는 미네소타 주의 작은 도시 무스 레이크에서 주인이자 가장 친한 친구인 린다와 안락한 삶을 즐기고 있다. 둘은 ‘블루’를 제외한 모든 마코 앵무새가 멸종했다고 생각하지만, 뜻밖에 지구상에 마지막 남은 단 한 마리의 암컷 마코 앵무새가 존재한다는 소식을 듣고, 짝짓기를 위해 멀리 브라질의 ‘리오 데 자네이로’로 향한다.  뜨거운 쌈바 축제의 열기로 가득한 ‘리오’는 그 동안의 생활과는 완전히 딴판인 야생 그 자체. 게다가 평온한 가정의 울타리 안에서 애완용으로 키워져 날지 못하던 새 ‘블루’와는 달리 독립적이고 활동적인 야생의 새 ‘쥬엘’은 종족만 같았지 물과 기름처럼 전혀 어울리지 못한다. 게다가 그의 짝 ‘쥬엘’은 지나치게 독립적이라 소심한 ‘블루’를 사사건건 비판, 좀처럼 둘 사이가 좁혀지지 않는다.  하지만, 예기치 못하게 동물 밀매업자들에게 납치를 당하게 된 ‘블루’와 ‘쥬엘’.  다행히 ‘블루’는 세상 물정에 밝은 ‘쥬엘’과 익살맞고 개성 강한 도시 새들의 도움을 받아 탈출에 성공하지만…",
+    "releaseYear": 2011,
+    "runtimeMinutes": 96,
+    "collectionId": 229932,
+    "collectionName": "리오 시리즈",
+    "voteAverage": 6.767,
+    "voteCount": 7231,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hrtTiqucWzoTV1MXsHyrrxVAl6.jpg",
+    "posterAlt": "리오 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/46195-rio/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_590",
+    "tmdbMovieId": 184315,
+    "title": "허큘리스",
+    "genres": [
+      "액션",
+      "모험"
+    ],
+    "genreIds": [
+      28,
+      12
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Hercules",
+      "Amphiarus",
+      "Cotys",
+      "Autolycus",
+      "Tydeus",
+      "Atalanta",
+      "Iolaus"
+    ],
+    "contextTags": [],
+    "overview": "네메안의 사자와 지옥의 개들을 맨 손으로 물리쳤다는 전설적인 업적으로 유명한 ‘허큘리스’는 충실한 추종자들과 방랑하는 용병이 되어 돈을 벌며 살아간다. 그의 명성을 들은 이웃나라 트라키아의 왕과 공주는 죽음의 군단이라 불리는 강력한 군사들을 물리쳐주기를 요청한다. 허큘리스는 이제 전설로 전해지는 자신의 활약상을 증명하고 세상의 질서를 바로잡을 진정한 남자로 거듭나야만 하는데…",
+    "releaseYear": 2014,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.804,
+    "voteCount": 4383,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/hmWwoUXorZyyymGdmrX46lEIrnf.jpg",
+    "posterAlt": "허큘리스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/184315-hercules/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_591",
+    "tmdbMovieId": 381890,
+    "title": "미인어",
+    "genres": [
+      "코미디",
+      "판타지",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      14,
+      10749
+    ],
+    "tags": [
+      "몰입감",
+      "유머",
+      "캐릭터 매력",
+      "세계관"
+    ],
+    "characters": [
+      "Mermaid Shan",
+      "Liu Xuan",
+      "Ruolan",
+      "Brother Eight",
+      "Uncle Rich",
+      "Constable Mo",
+      "Long Jianfei"
+    ],
+    "contextTags": [],
+    "overview": "아직 인간의 손이 닿지 않은 자연 청정지역 ‘청라만’에 인간 몰래 살고있는 인어들.  어느 날, 돈 밖에 모르는 젊은 부동산 재벌가 류헌(덩차오)은  아름다운 이 곳에 무분별한 개발을 하려 하고, 생존에 위협을 느낀 인어들은 극비리에 계획을 세운다.  바로 가장 예쁜 인어 산산(임윤)을 육지로 보내 미인계로 접근시킨 후,  그를 쥐도 새도 모르게 죽이는 것!  하지만 우여곡절 끝에 만나게 된 류헌과 산산은 어느새 너무나 다른 서로에게 끌리게 되는데…  과연 그들의 사랑은 이루어 질 수 있을까?",
+    "releaseYear": 2016,
+    "runtimeMinutes": 93,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.545,
+    "voteCount": 494,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qE5I3aIGkm8y9uwKiu6QdZ0B0XG.jpg",
+    "posterAlt": "미인어 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/381890/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_592",
+    "tmdbMovieId": 318846,
+    "title": "빅쇼트",
+    "genres": [
+      "코미디",
+      "드라마"
+    ],
+    "genreIds": [
+      35,
+      18
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "유머",
+      "캐릭터 매력",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Mark Baum",
+      "Michael Burry",
+      "Jared Vennett",
+      "Ben Rickert",
+      "Cynthia Baum",
+      "Georgia Hale",
+      "Porter Collins"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "사회성이라곤 없는 캐피털 회사 대표 마이클 버리는 금융시장의 붕괴를 예측하고, 골드만삭스를 찾아가 부동산 폭락에 돈을 걸겠다고 말해 비웃음을 산다. 도이치뱅크의 트레이더인 자레드 베넷은 대형 은행들이 안전자산이라 홍보한 부채담보부증권의 부실을 파악하고 내부 정보를 투자자들에게 흘린다. 펀드매니저 마크 바움은 자레드에게서 제공받은 정보로 대형 은행과 반대되는 투자를 감행한다. 은퇴 뒤 은둔 중인 전직 트레이더 벤 리커트는 눈밝고 대담한 젊은 펀드매니저 찰리와 제이미를 돕는다.",
+    "releaseYear": 2015,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.4,
+    "voteCount": 9913,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bKzXKJPFQbR7V8C4YtqFUwDNZLy.jpg",
+    "posterAlt": "빅쇼트 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/318846-the-big-short/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_593",
+    "tmdbMovieId": 458723,
+    "title": "어스",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "감동",
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Adelaide Wilson / Red",
+      "Gabe Wilson / Abraham",
+      "Kitty Tyler / Dahlia",
+      "Josh Tyler / Tex",
+      "Zora Wilson / Umbrae",
+      "Jason Wilson / Pluto",
+      "Russell Thomas / Weyland"
+    ],
+    "contextTags": [
+      "travel",
+      "summer"
+    ],
+    "overview": "애들레이드와 게이브 윌슨은 아이들을 데리고 캘리포니아 북부에 있는 아들레이드의 오래된 해변가로 여름 휴가를 떠난다. 다음날 합류한 타일러 가족과 함께 해변에서 하루를 보내지만, 애들레이드는 과거에 겪은 트라우마 증상이 심해지며 나쁜 일이 일어날 것이라는 공포에 시달린다. 밤이 되고 윌슨은 차도에 조용히 서있는 네명의 손을 맞잡은 뭔가를 보게 되는데...",
+    "releaseYear": 2019,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.945,
+    "voteCount": 8143,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/f5qTmyW3EE7iFrsWPr12irrQ1Q8.jpg",
+    "posterAlt": "어스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/458723-us/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_594",
+    "tmdbMovieId": 281338,
+    "title": "혹성탈출: 종의 전쟁",
+    "genres": [
+      "드라마",
+      "SF",
+      "전쟁"
+    ],
+    "genreIds": [
+      18,
+      878,
+      10752
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "반전",
+      "감동"
+    ],
+    "characters": [
+      "Caesar",
+      "The Colonel",
+      "Maurice",
+      "Rocket",
+      "Bad Ape",
+      "Nova",
+      "Red Donkey"
+    ],
+    "contextTags": [
+      "winter"
+    ],
+    "overview": "전 세계에 퍼진 치명적인 바이러스인 시미안 플루로 인해 유인원들은 나날이 진화하는 반면, 살아남은 인간들은 점차 지능을 잃고 퇴화해 간다. 멸종 위기에 처한 인간들은 유인원의 리더 시저를 찾아 없애려 하지만, 숲에 머물고 있다는 시저는 몇 년째 은신한 채 모습을 드러내지 않는다. 어느 날 인간 군대의 리더 대령(우디 해럴슨)이 시저의 거처를 급습해 그의 가족을 죽이는 사건이 일어난다. 분노한 시저는 오랫동안 함께해 온 동료 모리스(카린 코노발), 로켓(테리 노터리) 등과 함께 복수의 여정을 떠난다.",
+    "releaseYear": 2017,
+    "runtimeMinutes": 140,
+    "collectionId": 173710,
+    "collectionName": "혹성탈출 리메이크 시리즈",
+    "voteAverage": 7.221,
+    "voteCount": 9790,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vJ8xKz2ip60nAEeN37eUmjAVpq2.jpg",
+    "posterAlt": "혹성탈출: 종의 전쟁 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/281338-war-for-the-planet-of-the-apes/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_595",
+    "tmdbMovieId": 128,
+    "title": "모노노케 히메",
+    "genres": [
+      "모험",
+      "판타지",
+      "애니메이션"
+    ],
+    "genreIds": [
+      12,
+      14,
+      16
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "감동",
+      "영상미"
+    ],
+    "characters": [
+      "Ashitaka (voice)",
+      "San / Kaya (voice)",
+      "Eboshi Gozen (voice)",
+      "Jikobo (voice)",
+      "Kouroku (voice)",
+      "Gonza (voice)",
+      "Mrs. Moro (voice)"
+    ],
+    "contextTags": [],
+    "overview": "북쪽의 끝, 에미시족의 마을에 어느 날 갑자기 재앙신이 나타나 마을을 위협한다. 이에 강한 힘을 소유한 에미시족의 후계자인 아시타카는 결투 끝에 포악해진 재앙신을 쓰러트리지만 싸움 도중 오른팔에 저주의 상처를 받고 죽어야 할 운명에 처하게 된다. 결국 재앙신의 탄생 원인을 밝혀 자신의 저주를 없애기 위해 서쪽으로 길을 떠난 아시카타는 여행 중에 지코라는 미스테리한 수도승을 만나 재앙 신이 생겨나게 된 이유가 서쪽 끝에 있는 시시신의 숲과 관련이 깊다는 이야기를 듣게 되고 한시 바삐 서쪽으로 향한다.",
+    "releaseYear": 1997,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 8.322,
+    "voteCount": 9100,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/lLftgg4iFyDwuodra3Isr41y2Lq.jpg",
+    "posterAlt": "모노노케 히메 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/128/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_596",
+    "tmdbMovieId": 44833,
+    "title": "배틀쉽",
+    "genres": [
+      "스릴러",
+      "액션",
+      "모험"
+    ],
+    "genreIds": [
+      53,
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "감성적인 음악",
+      "OST"
+    ],
+    "characters": [
+      "Lieutenant Alex Hopper",
+      "Commander Stone Hopper",
+      "Petty Officer Cora \"Weps\" Raikes",
+      "Sam",
+      "Captain Yugi Nagata",
+      "Cal Zapata",
+      "Admiral Shane"
+    ],
+    "contextTags": [],
+    "overview": "전 세계 해군들이 한데 모여 훈련하는 림팩 다국적 해상 훈련. 해상 합동 훈련 첫날, 태평양 한 가운데에서 정체불명의 물체가 발견되고 쉐인 함장(리암 니슨)은 수색팀을 파견한다.  괴물체에 접근한 하퍼 대위(테일러 키취)가 몸체에 손을 가져다 댄 순간, 엄청난 충격과 함께 괴물체는 자신들을 보호하기 위한 거대한 장벽을 구축한다. 레이더도 통하지 않고, 부딪히는 순간 모든 걸 파괴시키는 엄청난 위력의 장벽을 시작으로 지구를 향한 대규모 선재 공격을 감행하는 외계의 존재들!  목적 조차 알 수 없는 그들의 엄청난 공격에 평화롭던 지구는 순식간에 초토화 되기 시작하고, 이들로부터 지구를 구하기 위해 육해공을 넘나드는 전 세계 연합군의 합동 작전이 펼쳐지는데…  정체를 알 수 없는 외계 존재와 전 세계 다국적 연합 군함의 전면전이 드넓은 바다 한가운데에서 시작된다!",
+    "releaseYear": 2012,
+    "runtimeMinutes": 131,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.9,
+    "voteCount": 6033,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/w8cAiKre5Qk9Bc33Dj3YmhEmNvW.jpg",
+    "posterAlt": "배틀쉽 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/44833-battleship/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_597",
+    "tmdbMovieId": 9919,
+    "title": "10일 안에 남자 친구에게 차이는 법",
+    "genres": [
+      "코미디",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10749
+    ],
+    "tags": [
+      "감동",
+      "유머",
+      "캐릭터 매력",
+      "여운"
+    ],
+    "characters": [
+      "Andie Anderson",
+      "Benjamin Barry",
+      "Michelle Rubin",
+      "Jeannie Ashcroft",
+      "Tony",
+      "Thayer",
+      "Judy Spears"
+    ],
+    "contextTags": [],
+    "overview": "'Composure' 잡지의 칼럼니스트인 앤디 앤더슨 (케이트 허드슨 분)은 기사를 위해 특별한 임무를 해내야 한다. 여러가지 데이트 중의 실수로 남자에게 버림받는 여자들에 대한 모든 것들을 직접 경험하여 열흘 안에 기사로 만들어야 하는 것이다. 그녀의 임무는 다름아닌 '10일 안에 남자친구에게 차이는 법'에 대한 칼럼을 쓰는 것이다.  그녀가 할 일은 멋진 남자를 찾아, 그녀와 사랑에 빠지게 한 후, 갖은 방법으로 데이트를 망쳐 남자에게 차여야만 하는 것 이다. 앤디의 타겟으로는 불행하게도 잘나가는 광고 회사의 직원인 벤자민 벤 베리(매튜 맥커너히)가 선택된다. 그러나 그는 마침 다이아몬드 회사의 광고 피치를 따내기 위하여 광고주가 지목 하는 한 여성을 10일 안에 자신을 사랑 하도록 만들어야만 하는 상황이었다. 그리고 그 지목 받은 여성은 다름 아닌 칼럼니스트 앤디 앤더슨이다. 이제 이 둘은 각자가 맡은바 임무를 해내려는 그들의 첫 만남에서부터 엉뚱한 데이트가 이어지기 시작한다.  10일 안에 만난 남자에게 버림 받아야 하는 앤디는 모든 남자들이 싫어하는 여자의 모습들을 벤자민에게 보여주며 차이기를 바라고, 벤자민은 반대로 앤디가 자신을 사랑 하도록 만들게 하기 위하여 그녀의 모든 행동을 참고 견디며 열흘을 버틴다.  그러나 인생은 뜻대로 되지 않는 법, 벤자민의 가족들을 만나 즐거운 시간을 보낸 앤디는 그에게 진실한 사랑의 감정을 조금씩 느끼게 되고 벤자민 또한 광고를 따내기 위한 내기이기 보다 진심으로 그녀와의 데이트를 즐기며 그녀를 조금씩 사랑 하게 된다. 그러나 이 둘은 서로에 대한 진심을 알기도 전에 그들의 서로 다른 속내를 알아버리게 되고...",
+    "releaseYear": 2003,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.9,
+    "voteCount": 4520,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ipcmp1Ihgkg2hG4WjArukn5AMzd.jpg",
+    "posterAlt": "10일 안에 남자 친구에게 차이는 법 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/9919-how-to-lose-a-guy-in-10-days/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_598",
+    "tmdbMovieId": 138832,
+    "title": "우리는 밀러 가족",
+    "genres": [
+      "코미디",
+      "범죄"
+    ],
+    "genreIds": [
+      35,
+      80
+    ],
+    "tags": [
+      "감동",
+      "유머",
+      "캐릭터 매력",
+      "긴장감"
+    ],
+    "characters": [
+      "Rose O'Reilly",
+      "David Clark",
+      "Casey Mathis",
+      "Kenny Rossmore",
+      "Brad Gurdlinger",
+      "Don Fitzgerald",
+      "Edie Fitzgerald"
+    ],
+    "contextTags": [
+      "travel"
+    ],
+    "overview": "납품업자에게 빚을 진 마리화나 판매상이 멕시코에서 마리화나를 대규모로 밀수하기로 동의하고, 이를 위해 가짜 가족 행세를 할 사람들을 모집한다.",
+    "releaseYear": 2013,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.843,
+    "voteCount": 9520,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qF2LJ0jwWrtXSuT4AFD5OS2IqaT.jpg",
+    "posterAlt": "우리는 밀러 가족 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/138832-we-re-the-millers/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_599",
+    "tmdbMovieId": 3049,
+    "title": "에이스 벤츄라",
+    "genres": [
+      "코미디",
+      "범죄",
+      "미스터리"
+    ],
+    "genreIds": [
+      35,
+      80,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "유머",
+      "캐릭터 매력",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Ace Ventura",
+      "Melissa Robinson",
+      "Lt. Lois Einhorn",
+      "Emilio",
+      "Dan Marino",
+      "Riddle",
+      "Roger Podacter"
+    ],
+    "contextTags": [],
+    "overview": "에이스 벤츄라는 잃어버린 동물을 찾아주는 사립탐정이다. 그의 주변엔 언제나 동물들이 우글거리고 그 또한 여러 행동들이 동물들의 재미있는 특성과 닮아있어 우스꽝스럽고 실수연발이다.  어느날, 마이아미 돌핀스팀의 마스코트인 돌고래 `백설이'가 납치되는 사건이 발생하고 그팀의 마케이팅 감독인 멜리사가 이 돌고래의 실종사건을 에이스에게 의뢰한다. 수사도중 우연히 물탱크안에서 풋볼 챔피언 반지를 발견하는 에이스는 사건의 촛점을 그 반지와의 관계에서 찾으려한다. 선수들과 함께 고속도로를 달리고, 트랙을 달리며 그들을 감시하는 에이스, 그러나 뜻밖에도 다시 풋볼팀 선수 댄 마리노가 납치되는 사건이 발생한다.  에이스 벤츄라는 사건이 바로 1884년 챔피언 쉽 게임에서 돌핀스가 패배한것과 관련이 있고, 미스테리 인물 아인 혼 경사고 깊이 연관이 됨을 밝히는데...",
+    "releaseYear": 1994,
+    "runtimeMinutes": 86,
+    "collectionId": 3167,
+    "collectionName": "에이스 벤츄라 시리즈",
+    "voteAverage": 6.583,
+    "voteCount": 6448,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iYgudzfJMSUdhsW994Wju0plCAG.jpg",
+    "posterAlt": "에이스 벤츄라 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/3049-ace-ventura-pet-detective/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_600",
+    "tmdbMovieId": 640146,
+    "title": "앤트맨과 와스프: 퀀텀매니아",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "감동",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Scott Lang / Ant-Man",
+      "Hope Van Dyne / The Wasp",
+      "Dr. Hank Pym",
+      "Janet Van Dyne",
+      "Kang the Conqueror",
+      "Cassie Lang",
+      "M.O.D.O.K."
+    ],
+    "contextTags": [],
+    "overview": "슈퍼히어로 파트너인 스캇 랭과 호프 반 다인, 호프의 부모 재닛 반 다인과 행크 핌, 그리고 스캇의 딸 캐시 랭까지 미지의 양자 영역 세계 속에 빠져버린 앤트맨 패밀리. 그 곳에서 새로운 존재들과 무한한 우주를 다스리는 정복자 캉을 만나며, 그 누구도 예상 못 한 모든 것의 한계를 뛰어넘는 모험을 시작하게 되는데…",
+    "releaseYear": 2023,
+    "runtimeMinutes": 124,
+    "collectionId": 422834,
+    "collectionName": "앤트맨 시리즈",
+    "voteAverage": 6.225,
+    "voteCount": 5914,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/sz6mTIDDQmR3DYgJudiTmoW2gR5.jpg",
+    "posterAlt": "앤트맨과 와스프: 퀀텀매니아 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/640146-ant-man-and-the-wasp-quantumania/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_601",
+    "tmdbMovieId": 49519,
+    "title": "크루즈 패밀리",
+    "genres": [
+      "애니메이션",
+      "모험",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      12,
+      10751,
+      35
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Grug (voice)",
+      "Eep (voice)",
+      "Guy (voice)",
+      "Ugga (voice)",
+      "Gran (voice)",
+      "Thunk (voice)",
+      "Belt (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "태어나서 지금까지 동굴 주변을 떠난 적 없는 크루즈 패밀리. 동굴 밖에 온갖 위험이 도사리고 있다고 믿고 있는 아빠 ‘그루그(니콜라스 케이지)’는 해가 지면 어느 누구도 밖으로 나갈 수 없게 한다. 하지만 어느 날 동굴이 무너지는 초유의 사태가 발생하고, 크루즈 패밀리는 새로운 보금자리를 찾아 난생처음 세상에 발을 디디게 된다. 여기에 호기심 충만한 ‘가이(라이언 레이놀즈)’까지 합세하게 되면서 이들의 본격적인 모험이 시작되는데....  평생 마을 밖을 떠난 적 없는 겁쟁이 가족의 흥미진진 어드벤쳐!  신세계를 발견한 그들의 모험이 시작된다!",
+    "releaseYear": 2013,
+    "runtimeMinutes": 98,
+    "collectionId": 464577,
+    "collectionName": "크루즈 패밀리 시리즈",
+    "voteAverage": 6.942,
+    "voteCount": 7599,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/xD2Tk413ltbWM5hzwmYczb2TQLU.jpg",
+    "posterAlt": "크루즈 패밀리 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/49519-the-croods/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_602",
+    "tmdbMovieId": 87,
+    "title": "인디아나 존스: 마궁의 사원",
+    "genres": [
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      28
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Indiana Jones",
+      "Willie Scott",
+      "Short Round",
+      "Mola Ram",
+      "Chattar Lal",
+      "Phillip Blumburtt",
+      "Lao Che"
+    ],
+    "contextTags": [],
+    "overview": "1935년 상해. 인디아나 존스는 클럽에서 가수 윌리스 코트의 노래를 들으며 그녀의 정부이자 상해 범죄 조직의 두목 라오치와 밀담을 나누는 중이다. 인디아나는 누루하치 황제의 위패를 압수했으나 라오의 배신으로 목숨만 부지한 채 클럽을 탈출한다. 인디아나는 이곳에서 알게 된 쇼트 라운드와 윌리를 데리고 화물 비행기를 차지만, 라오의 조직원이었던 조종사들은 연료를 버리고 탈출해버린다. 극적으로 살아남은 세 사람이 떨어진 곳은 인도. 이곳 사람들은 인디아나 일행을 하늘이 보내준 사람이라 생각하고 마을의 아이들을 잡아가고 약탈을 일삼는 이들을 처치해 달라고 하는데...",
+    "releaseYear": 1984,
+    "runtimeMinutes": 118,
+    "collectionId": 84,
+    "collectionName": "인디아나 존스 시리즈",
+    "voteAverage": 7.31,
+    "voteCount": 10191,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/wvPlEMp4sjPSzrK0zuwqfCLv5z2.jpg",
+    "posterAlt": "인디아나 존스: 마궁의 사원 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/87-indiana-jones-and-the-temple-of-doom/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_603",
+    "tmdbMovieId": 341174,
+    "title": "50가지 그림자: 심연",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Anastasia Steele",
+      "Christian Grey",
+      "Jack Hyde",
+      "Kate Kavanagh",
+      "Leila",
+      "Mia Grey",
+      "Carla"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "크리스찬 그레이는 아나스타샤 스틸을 잊지 못해 되찾으려고 하지만 아나스타샤는 지금까지와 다른 새로운 관계를 원한다. 과거의 상처를 고백하며 점점 변해가는 크리스찬의 모습에 아나스타샤는 결국 그를 받아들이고, 둘은 서로에게 더욱 깊이 빠져들며 뜨거운 사랑을 나눈다. 그러나 그의 숨겨진 과거와 비밀을 아는 사람들이 아나스타샤를 위협하기 시작하면서 그들의 관계는 위태로워지는데...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 118,
+    "collectionId": 344830,
+    "collectionName": "50가지 그림자 시리즈",
+    "voteAverage": 6.474,
+    "voteCount": 7971,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/stwVY9rRcA3NSKW04IOD30ZsrZx.jpg",
+    "posterAlt": "50가지 그림자: 심연 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/341174-fifty-shades-darker/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_604",
+    "tmdbMovieId": 4247,
+    "title": "무서운 영화",
+    "genres": [
+      "코미디"
+    ],
+    "genreIds": [
+      35
+    ],
+    "tags": [
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Cindy Campbell",
+      "Brenda Meeks",
+      "Shorty Meeks",
+      "Ray Wilkins",
+      "Bobby Prinze",
+      "Greg Phillippe",
+      "Buffy Gilmore"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "{\"나는 네가 지난 할로윈 데이에 소리치는 걸보고 육감적으로 뭔가 특별한 일이 일어날 것이라는 것을 알았다!!\"}  팝콘을 튀기던 드류에게 음산한 목소리의 남자에게서 이상한 전화가 걸려온다. \"공포영화를 좋아하냐?\"는 괴기한 질문을 던지고, 갑자기 등장해 그녀를 해치려 든다. 달아나는 드류는 속옷바람으로 슈퍼모델인양 멋진 포즈로 취하기도 하지만 결국 집으로 오던 그녀의 아버지의 차에 치어 죽고 만다. 드류가 죽었다는 소식을 전해들은 친구 신디는 드류의 죽음에 어떤 의문이 숨어있을까를 고민하다 문득 지난 할로윈 데이에 있었던 일을 떠올리는데..  흥겨운 할로윈 데이 파티를 마치고 집으로 돌아가던 고등학교 친구들 신디, 바비와 버피, 브렌다, 그렉, 레이 등은 차안에서 정신없이 즐기다 타고 있던 차에 한 사내를 치고 만다. 쓰러진 사내는 죽지 않고 일어나지만, 어이없게도 그 사내는 날아온 콜라병을 맞고 그자리에서 즉사하고 만다. 그 끔직한 사건과 드류의 죽음에 뭔가 연관이 있다고 느낀 신디는 친구들과 자신에게도 곧 위협이 닥칠 것이라고 예감하는데...",
+    "releaseYear": 2000,
+    "runtimeMinutes": 88,
+    "collectionId": 4246,
+    "collectionName": "무서운 영화 시리즈",
+    "voteAverage": 6.422,
+    "voteCount": 7944,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/7WgS8qO4KYZxjUQMs0JSFxqcYgn.jpg",
+    "posterAlt": "무서운 영화 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/4247-scary-movie/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_605",
+    "tmdbMovieId": 4234,
+    "title": "스크림 3",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "배우들의 연기력",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Sidney Prescott",
+      "Dewey Riley",
+      "Gale Weathers",
+      "Mark Kincaid",
+      "Jennifer Jolie",
+      "Roman Bridger",
+      "John Milton"
+    ],
+    "contextTags": [],
+    "overview": "시드니(니브 캠벨)는 아직도 과거 죽은 어머니의 환영 때문에 놀라곤 한다. 안전을 위해 가명을 사용하고 있는 그녀는 전화 공포에 시달리는 여성들에게 상담을 해주며 살아간다. 어느 날 익명의 전화 한 통이 걸려오고 그녀는 최근 헐리우드의  촬영 현장에서 살인 사건이 발생했다는 소식을 듣는다. 시드니는 살인자가 그녀의 죽은 엄마 모린의 사진을 남기고 사라졌다는 소식을 듣고 현장으로 달려간다. 계속해서 모린의 사진이 발견되면서 에 출연 중인 배우들이 차례로 죽어간다. 이 살인 사건을 조사하려는 수사관과 기자들이 몰려오고, 시드니는 기자가 된 게일과 다시 한 번 만난다. 사건의 전모가 밝혀지면서 숨겨졌던 시드니의 과거 비밀이 드러나는데...",
+    "releaseYear": 2000,
+    "runtimeMinutes": 116,
+    "collectionId": 2602,
+    "collectionName": "스크림 시리즈",
+    "voteAverage": 6.01,
+    "voteCount": 4103,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/prL8t2Asdoa9sMabAe1C9R2AK9L.jpg",
+    "posterAlt": "스크림 3 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/4234-scream-3/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_606",
+    "tmdbMovieId": 91314,
+    "title": "트랜스포머: 사라진 시대",
+    "genres": [
+      "SF",
+      "액션",
+      "모험"
+    ],
+    "genreIds": [
+      878,
+      28,
+      12
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Cade Yeager",
+      "Optimus Prime (voice)",
+      "Joshua Joyce",
+      "Harold Attinger",
+      "Tessa Yeager",
+      "Shane Dyson",
+      "Galvatron (voice)"
+    ],
+    "contextTags": [],
+    "overview": "시카고에서 벌어진 오토봇과 디셉티콘의 전투로 인해 수많은 사상자가 발생하고 도시가 처참하게 파괴되자  정부는 일부 오토봇을 제외한 트랜스포머에 대해 체포령을 내린다. 시카고 사태, 5년 후 대부분의 디셉티콘이 처벌되고 오토봇 역시 모습을 감춘 상황, 엔지니어 케이드 예거는 우연히 폐기 직전 고물차로 변해있던 옵티머스 프라임을 깨우게 된다. 그리고 그의 생존이 알려지자 옵티머스 프라임을 노리고 있던 어둠의 세력 역시 모습을 드러내기 시작한다. 전세계를 새로운 위협에 몰아넣을 거대한 음모, 사상 최대 가장 강력한 적에 맞서 옵티머스 프라임과 오토봇 군단은 목숨을 건 대결에 나서는데...",
+    "releaseYear": 2014,
+    "runtimeMinutes": 167,
+    "collectionId": 8650,
+    "collectionName": "트랜스포머 시리즈",
+    "voteAverage": 5.971,
+    "voteCount": 8826,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/zPbiUwVSToxgQHMAbuzint09fHf.jpg",
+    "posterAlt": "트랜스포머: 사라진 시대 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/91314-transformers-age-of-extinction/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_607",
+    "tmdbMovieId": 1022796,
+    "title": "위시",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "판타지"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      14,
+      12
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "감동",
+      "감성적인 음악"
+    ],
+    "characters": [
+      "Asha (voice)",
+      "King Magnifico (voice)",
+      "Valentino (voice)",
+      "Queen Amaya (voice)",
+      "Sabino (voice)",
+      "Sakina (voice)",
+      "Dahlia (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "마음 속 깊이 ‘소원’을 품고 있는 모두를 위한 디즈니의 마법! 용감한 ‘아샤’와 신비로운 ‘별’의 특별한 여정 & 소원과 얽힌 비밀스러운 힘을 지닌 ‘매그니피코 왕’의 숨겨진 스토리까지! 2024년 1월, 믿고 듣는 디즈니표 명품 OST와 함께 아름다운 로사스 왕국에서 펼쳐지는 가슴 벅찬 이야기!",
+    "releaseYear": 2023,
+    "runtimeMinutes": 95,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.219,
+    "voteCount": 1801,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/uT8Rdx6fpUlM2BFOVwe8BRS2x6A.jpg",
+    "posterAlt": "위시 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1022796-wish/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_608",
+    "tmdbMovieId": 969492,
+    "title": "랜드 오브 배드",
+    "genres": [
+      "액션",
+      "전쟁",
+      "스릴러"
+    ],
+    "genreIds": [
+      28,
+      10752,
+      53
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "몰입감",
+      "긴장감"
+    ],
+    "characters": [
+      "Kinney",
+      "Reaper",
+      "Abel",
+      "Bishop",
+      "Sugar",
+      "Staff Sgt. Nia Branson",
+      "Colonel Duz Packett"
+    ],
+    "contextTags": [],
+    "overview": "라스베이거스 공군 기지의 베테랑 드론 조종사 리퍼(러셀 크로우)는 델타포스 티어-원 부대의 CIA 요원 구출작전 지원임무를 맡게 된다. 슈가(마일로 벤티밀리아), 아벨(루크 헴스워스)이 이끄는 티어-원 부대는 CIA 요원이 사라진 필리핀 남서부, 미스터리한 지형의 홀로 섬 정찰에 나서고, 이 위험천만한 작전을 위해 JTAC 신입요원 키니(리암 헴스워스)와 실전 경험이 많은 군인 비숍(리키 휘틀)까지 합류한다. 그러나 도망칠 곳도 숨을 곳도 없는 섬에서 이들은 곧 적에게 노출되고 피할 수 없는 전면전이 펼쳐지며 상황은 급반전을 맞이한다. 무기도, 통신장비도 없는 정글에 홀로 갇힌 키니, 동료를 구하고 작전을 성공시켜야 할 그에게 남은 건, 눈과 귀가 되어주는 드론 조종사 리퍼뿐! 누구도 포기하지 않는다, 끝까지 살아남는다!",
+    "releaseYear": 2024,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.274,
+    "voteCount": 1537,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6yrDUJyl1naOn3zfOhFPE9ZGsfP.jpg",
+    "posterAlt": "랜드 오브 배드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/969492-land-of-bad/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_609",
+    "tmdbMovieId": 86331,
+    "title": "Q - 섹스힐링",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "감성적인 음악",
+      "OST",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Cécile",
+      "Alice",
+      "Matt",
+      "Chance",
+      "Manu",
+      "Alice's Father",
+      "Maurice"
+    ],
+    "contextTags": [],
+    "overview": "자유분방하게 살아온 세실(데보라 레비)은 아버지를 떠나 보낸 상실감에 스스로를 학대하듯 처음 보는 남자 매트(고완 디디)를 유혹하며 도발적인 성적 유희에 빠져든다. 마치 활화산 같은 욕망의 분출이 자신의 해방구인 것처럼.  치명적인 유혹을 즐기듯 거침없이 몸을 던지는 세실은 연인 찬스(조니 아마로)와도 온몸을 사르는 불 같은 사랑에 빠져보지만 굶주린 욕망은 좀처럼 채워지지 않는다. 마찬가지로 출구 없는 삶에서 뜨거운 열정을 숨기듯 안고 사는 앨리스(헬렌 짐머)는 자신의 욕망을 대리 분출시키려는 세실로 인해 아슬아슬해서 더욱 위험한 욕망에 사로잡힌다. 결국 세실과 앨리스는 대담하게도 섹스리스 커플을 치료하는 ‘섹스힐링’에 나서고, 급기야는 친구들과 함께 집단 매춘에 뛰어들어 끝간 데를 모를 욕망의 화신들로 변해가는데…",
+    "releaseYear": 2011,
+    "runtimeMinutes": 101,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.293,
+    "voteCount": 1374,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/flhv2fsi2b3tpjJzTtfz6GTIVTi.jpg",
+    "posterAlt": "Q - 섹스힐링 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/86331-q/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_610",
+    "tmdbMovieId": 845781,
+    "title": "레드 원",
+    "genres": [
+      "액션",
+      "코미디",
+      "판타지"
+    ],
+    "genreIds": [
+      28,
+      35,
+      14
+    ],
+    "tags": [
+      "액션",
+      "유머",
+      "몰입감",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Callum Drift",
+      "Jack O'Malley",
+      "Zoe",
+      "Nick",
+      "Mrs. Claus",
+      "Krampus",
+      "Gryla"
+    ],
+    "contextTags": [
+      "christmas",
+      "winter"
+    ],
+    "overview": "크리스마스 D-1, 철통같은 보안을 뚫고 코드명 '레드 원' 산타클로스가 납치되고 크리스마스가 사라질 위기에 처했다! '레드 원'을 찾기 위해 사령관 '칼럼 드리프트'는 산타클로스 따위는 없다고 믿는 현상금 사냥꾼 '잭 오말리'와 협력하기로 한다. 시작부터 삐그덕 거리는 이들 앞에 크리스마스의 존재를 위협하는 위험천만한 적들이 나타나는데…",
+    "releaseYear": 2024,
+    "runtimeMinutes": 124,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.978,
+    "voteCount": 3084,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4zNUNhVpSqFggxqvdSXDRzy1QwE.jpg",
+    "posterAlt": "레드 원 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/845781-red-one/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 119,
+          "providerName": "Amazon Prime Video",
+          "logoPath": "/pvske1MyAoymrs5bguRfVqYiM9a.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pvske1MyAoymrs5bguRfVqYiM9a.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_611",
+    "tmdbMovieId": 404733,
+    "title": "오버드라이브",
+    "genres": [
+      "스릴러",
+      "액션",
+      "미스터리"
+    ],
+    "genreIds": [
+      53,
+      28,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "몰입감",
+      "액션",
+      "반전"
+    ],
+    "characters": [
+      "Andrew Foster",
+      "Garrett Foster",
+      "Stephanie",
+      "Devin",
+      "Max Klemp",
+      "Jacomo Morier",
+      "Panahi"
+    ],
+    "contextTags": [],
+    "overview": "최고의 차만 훔쳐내는 앤드류 & 개릿 포스터 형제. 남부 유럽의 거대한 범죄 조직 보스의 차를 훔치려다 덜미를 잡히게 된다. 목숨을 구하는 대신, 조직을 위협하는 또 다른 세력의 우두머리 ‘클램프’의 유산을 훔쳐내겠다는 조건을 건다. 그 유산은 바로 3천 8백만 달러 가치의 1962년산 페라리 250 GTO. 주어진 시간은 일주일, 화끈한 한탕을 위해 포스터 형제는 팀을 모으기 시작하는데...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 93,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.1,
+    "voteCount": 1016,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/idUbQ1xwQpcsdR8dfomg8TeN86b.jpg",
+    "posterAlt": "오버드라이브 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/404733-overdrive/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_612",
+    "tmdbMovieId": 399566,
+    "title": "고질라 VS. 콩",
+    "genres": [
+      "액션",
+      "SF",
+      "모험"
+    ],
+    "genreIds": [
+      28,
+      878,
+      12
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Nathan Lind",
+      "Ilene Andrews",
+      "Jia",
+      "Bernie Hayes",
+      "Madison Russell",
+      "Josh Valentine",
+      "Walter Simmons"
+    ],
+    "contextTags": [],
+    "overview": "콩과 보호자들은 정착할 수 있는 곳을 찾아 특별하고 강력한 유대감을 형성하고 있는 지아와 함께 여정을 떠나게 된다. 그러던 중 지구 파괴를 위한 회심의 날을 휘두르는 고질라와 마주하게 되고, 보이지 않는 힘에 의해 맞붙게 된 두 전설의 대결은 지구 깊은 곳에 도사린 수수께끼의 시작에 불과할 뿐이었는데…",
+    "releaseYear": 2021,
+    "runtimeMinutes": 114,
+    "collectionId": 535313,
+    "collectionName": "고질라 시리즈",
+    "voteAverage": 7.533,
+    "voteCount": 10694,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/sqo672rKMXiLRC5kVcGvBRebkp.jpg",
+    "posterAlt": "고질라 VS. 콩 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/399566-godzilla-vs-kong/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_613",
+    "tmdbMovieId": 277834,
+    "title": "모아나",
+    "genres": [
+      "모험",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      12,
+      35,
+      10751,
+      16
+    ],
+    "tags": [
+      "반전",
+      "감성적인 음악",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Moana (voice)",
+      "Maui (voice)",
+      "Gramma Tala (voice)",
+      "Chief Tui (voice)",
+      "Tamatoa (voice)",
+      "Sina (voice)",
+      "Heihei / Villager #3 (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "모투누이 섬 족장의 딸 모아나는 바다를 동경하는 소녀다. 바다의 선택을 받은 모아나는 족장이 돼야 하는 운명과 항해에 대한 꿈 사이에서 갈등하며 살아간다. 그러던 중 모든 것이 완벽했던 모투누이 섬이 저주에 걸린다. 모아나는 아버지의 뜻을 거역하고 섬을 구할 묘책을 찾아 바다로 떠날 결심을 한다. 저주를 푸는 열쇠는 신이 선택한 전설의 영웅, 반신반인 마우이가 쥐고 있다. 모아나는 마우이를 설득해 모투누이 섬의 저주를 풀기 위한 모험을 시작한다. 이 모험은 각자의 정체성을 찾아가는 여정이 된다.",
+    "releaseYear": 2016,
+    "runtimeMinutes": 107,
+    "collectionId": 1241984,
+    "collectionName": "모아나 시리즈",
+    "voteAverage": 7.565,
+    "voteCount": 13834,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/lizPdJnczPpusX8e1vbpeFSsese.jpg",
+    "posterAlt": "모아나 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/277834-moana/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_614",
+    "tmdbMovieId": 335977,
+    "title": "인디아나 존스: 운명의 다이얼",
+    "genres": [
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      28
+    ],
+    "tags": [
+      "액션",
+      "여운",
+      "몰입감"
+    ],
+    "characters": [
+      "Indiana Jones",
+      "Helena",
+      "Dr. Voller",
+      "Klaber",
+      "Hauke",
+      "Teddy",
+      "Basil Shaw"
+    ],
+    "contextTags": [],
+    "overview": "1969년 뉴욕, 전설적인 모험가이자 고고학자 인디아나 존스 앞에 대녀 헬레나와 오랜 숙적 위르겐 폴러의 세력이 등장한다. 그들의 목표는 단 하나, 운명의 다이얼. 역사의 흐름을 바꿀 수 있는 다이얼을 차지하려는 쫓고 쫓기는 위협 속에 인디아나 존스는 전 세계를 무대로 하는 새로운 모험에 뛰어드는데…",
+    "releaseYear": 2023,
+    "runtimeMinutes": 155,
+    "collectionId": 84,
+    "collectionName": "인디아나 존스 시리즈",
+    "voteAverage": 6.511,
+    "voteCount": 4219,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/8ifAx8GS5AHL7xOTMJDMaza84RQ.jpg",
+    "posterAlt": "인디아나 존스: 운명의 다이얼 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/335977-indiana-jones-and-the-dial-of-destiny/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_615",
+    "tmdbMovieId": 1034716,
+    "title": "우리의 열 번째 여름",
+    "genres": [
+      "코미디",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10749
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "여운",
+      "감동",
+      "유머"
+    ],
+    "characters": [
+      "Poppy Wright",
+      "Alex Nilsen",
+      "Sarah",
+      "Swapna Bakshi-Highsmith",
+      "David Nilsen",
+      "Nam",
+      "Trey"
+    ],
+    "contextTags": [
+      "literary",
+      "travel",
+      "summer"
+    ],
+    "overview": "자유로운 영혼의 파피와 계획을 좋아하는 알렉스. 수년간 여름휴가를 함께 보낸 후, 이 정반대의 두 친구는 연인으로도 완벽한 한 쌍이 될 수 있을지 고민한다.",
+    "releaseYear": 2026,
+    "runtimeMinutes": 116,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.966,
+    "voteCount": 643,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dCmOJiBIzr3XVkQTD85FRdOVfTK.jpg",
+    "posterAlt": "우리의 열 번째 여름 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1034716-people-we-meet-on-vacation/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_616",
+    "tmdbMovieId": 118,
+    "title": "찰리와 초콜릿 공장",
+    "genres": [
+      "모험",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      12,
+      35,
+      10751,
+      14
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "유머"
+    ],
+    "characters": [
+      "Willy Wonka",
+      "Charlie Bucket",
+      "Grandpa Joe",
+      "Mrs. Bucket",
+      "Mr. Bucket",
+      "Mrs. Beauregarde",
+      "Mr. Salt"
+    ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
+    "overview": "전 세계 누구에게나 사랑 받는 윌리 웡카 초콜릿 공장. 매일 엄청난 양의 초콜릿을 생산해 세계 각국으로 운반하고 있지만 그 누구도 공장을 드나 드는 사람을 본 적이 없는 비밀의 공간이다. 공장보다 더 신비로운 수수께끼는 공장장인 윌리 웡카라는 인물. 소문에 의하면 웡카는 몇 년 동안 공장 밖으로 나가본 적도 없다고 한다. 어느 날 윌리 웡카가 5개의 웡카 초콜릿에 감춰진 행운의 황금티켓을 찾은 어린이 다섯 명에게 자신의 공장을 공개하고 그 모든 제작과정의 비밀을 보여주겠다는 선언을 한다. 이제 전 세계 어린이들은 황금티켓을 찾기 위한 노력을 시작한다.",
+    "releaseYear": 2005,
+    "runtimeMinutes": 115,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.039,
+    "voteCount": 16207,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iKP6wg3c6COUe8gYutoGG7qcPnO.jpg",
+    "posterAlt": "찰리와 초콜릿 공장 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/118-charlie-and-the-chocolate-factory/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_617",
+    "tmdbMovieId": 63311,
+    "title": "내가 사는 피부",
+    "genres": [
+      "드라마",
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      18,
+      27,
+      9648,
+      53
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Dr. Robert Ledgard",
+      "Vera Cruz / Gal",
+      "Marilia",
+      "Vicente",
+      "Zeca",
+      "Fulgencio",
+      "President of the Institute of Biotechnology"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "교통사고로 인한 화상으로 아내가 죽은 후 저명한 성형외과 의사인 로버트 박사는 12년간 그만의 비밀실험실에서 완벽한 인공피부를 만드는 데 집착한다. 로버트 박사의 비밀스런 실험대상인 베라는 박사의 대저택 안에 감금되어 그녀를 보호해주는 바디슈트만을 입은 채 생활하고, 로버트 박사의 오른팔인 하녀 마릴리아가 그녀를 돌본다. 어느 날, 로버트가 집을 비운 사이 자신을 마릴리아의 아들이라고 밝히는 손님이 저택에 찾아오게 되면서 로버트와 베라를 둘러싼 비밀이 하나씩 밝혀지며 걷잡을 수 없는 파란이 시작되는데...",
+    "releaseYear": 2011,
+    "runtimeMinutes": 120,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.485,
+    "voteCount": 4662,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/jUsqD5NPbT9oLUIVkjhbmOUupEx.jpg",
+    "posterAlt": "내가 사는 피부 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/63311-la-piel-que-habito/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_618",
+    "tmdbMovieId": 762441,
+    "title": "콰이어트 플레이스: 첫째 날",
+    "genres": [
+      "공포",
+      "SF",
+      "스릴러"
+    ],
+    "genreIds": [
+      27,
+      878,
+      53
+    ],
+    "tags": [
+      "반전",
+      "감성적인 음악",
+      "몰입감",
+      "긴장감"
+    ],
+    "characters": [
+      "Samira",
+      "Eric",
+      "Reuben",
+      "Henri",
+      "Zena",
+      "Osahar",
+      "Max"
+    ],
+    "contextTags": [],
+    "overview": "평균 소음 90 데시벨을 자랑하는 미국 최대도시 뉴욕, 고양이 프로도와 함께 간만에 외출을 나온 사미라는 공연을 보고 돌아가던 중 하늘에서 떨어져 내리는 섬광을 목격하고 곧 사람들을 닥치는 대로 공격하는 정체불명 괴생명체의 출현에 충격에 휩싸인다. 아수라장이 된 뉴욕 도심에 ‘절대 소리 내지 말라’는 안내방송이 울려퍼지는 가운데 맨해튼의 모든 다리가 폭격으로 끊어지고, 사람들은 온갖 위협이 도사리는 도시에 고립되고 만다. 살아남기 위해 홀로 사투를 벌이던 '사미라'는 우연히 또 다른 생존자 에릭을 만나고 두 사람은 괴생명체를 피해 지하철역부터 시가지, 할렘까지 숨죽인 여정을 이어 나가는데…",
+    "releaseYear": 2024,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.6,
+    "voteCount": 3423,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eufjDFIHtFSmcblWpvw5BiNzmO6.jpg",
+    "posterAlt": "콰이어트 플레이스: 첫째 날 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/762441-a-quiet-place-day-one/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_619",
+    "tmdbMovieId": 404368,
+    "title": "주먹왕 랄프 2: 인터넷 속으로",
+    "genres": [
+      "액션",
+      "모험",
+      "애니메이션"
+    ],
+    "genreIds": [
+      28,
+      12,
+      16,
+      35,
+      10751,
+      878
+    ],
+    "tags": [
+      "영상미",
+      "액션",
+      "몰입감",
+      "세계관"
+    ],
+    "characters": [
+      "Ralph (voice)",
+      "Vanellope (voice)",
+      "Shank (voice)",
+      "Yesss (voice)",
+      "Felix (voice)",
+      "Butcher Boy (voice)",
+      "eBay Bidder / Surge Protector (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "각종 사고를 치며 게임 속 세상을 뒤집어 놨던 절친 주먹왕 랄프와 바넬로피는 버려질 위기에 처한 오락기 부품을 구하기 위해 와이파이를 타고 인터넷 세상에 접속한다. 얼떨결에 올린 동영상으로 순식간에 핵인싸에 등극한 랄프와 툴도 트랙도 없는 스릴만점 슬로터 레이스 게임에 참여하게 된 바넬로피. 지금껏 경험한 적 없는 엄청난 스케일과 새로운 재미에 흠뻑 빠진  랄프와 바넬로피는 랜섬웨어급 사고로 인터넷 세상을 혼란에 빠뜨리는데…  과연, 이들은 무사히 집에 돌아갈 수 있을까?",
+    "releaseYear": 2018,
+    "runtimeMinutes": 112,
+    "collectionId": 404825,
+    "collectionName": "주먹왕 랄프 시리즈",
+    "voteAverage": 7.159,
+    "voteCount": 8162,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fJmy3PIX5ZRa1eXH9GSD6A9fTZw.jpg",
+    "posterAlt": "주먹왕 랄프 2: 인터넷 속으로 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/404368-ralph-breaks-the-internet/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_620",
+    "tmdbMovieId": 85,
+    "title": "인디아나 존스: 레이더스",
+    "genres": [
+      "모험",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      28
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "세계관",
+      "액션"
+    ],
+    "characters": [
+      "Indiana Jones",
+      "Marion Ravenwood",
+      "Dr. René Belloq",
+      "Sallah",
+      "Major Arnold Toht",
+      "Colonel Dietrich",
+      "Gobler"
+    ],
+    "contextTags": [],
+    "overview": "1936년 남아메리카. 인디아나 존스 박사는 험난한 밀림 지대를 헤치고 독거미와 온갖 부비트랩을 뚫고서 고대 문명의 동굴에 보관된 보물을 손에 넣는데 성공하지만, 마지막 순간 악덕 고고학자 벨로크에게 빼앗기고 만다.  대학으로 돌아온 인디에게 정보국 사람들이 찾아온다. 정부로부터 성서에 나오는 성궤를 찾으라는 명령을 받는은 인디는 단서를 하나하나 찾아가며 성궤의 행방을 추적해 나간다. 그런데 나치군들도 역시 전쟁에 가지고 나가기만 하면 모든 전쟁에서 승리를 거둘 수 있는 무서운 힘을 지닌 성궤를 찾아나서는데...",
+    "releaseYear": 1981,
+    "runtimeMinutes": 115,
+    "collectionId": 84,
+    "collectionName": "인디아나 존스 시리즈",
+    "voteAverage": 7.926,
+    "voteCount": 13752,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/xB8nOHHz8bmuM3GoW3gFttUvEks.jpg",
+    "posterAlt": "인디아나 존스: 레이더스 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/85-raiders-of-the-lost-ark/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_621",
+    "tmdbMovieId": 21835,
+    "title": "서유기 선리기연",
+    "genres": [
+      "액션",
+      "모험",
+      "판타지"
+    ],
+    "genreIds": [
+      28,
+      12,
+      14,
+      35,
+      10749,
+      18
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "몰입감",
+      "세계관"
+    ],
+    "characters": [
+      "Joker / Monkey King",
+      "Piggy",
+      "Lin Zixia",
+      "Princess Iron Fan",
+      "Spider Demon",
+      "White-Bone Demon / Pak Jing Jing",
+      "Longevity Monk"
+    ],
+    "contextTags": [
+      "literary",
+      "travel"
+    ],
+    "overview": "지존보는 500년전의 세계로 와서 자하란 여자를 만나는데 이 여자는 500년후에 백정정과 춘삼십낭의 사부가 되는 반사대사이다. 자하는 바로 여래신등의 심지로 언니와 한몸이나 자신의 몽중인을 찾으러 속세로 나온다. 자신의 자청보검을 뽑을 수 있는 사람이 그녀의 꿈속의 낭군. 지존보는 자하가 월광보합을 갖고 있어서 어떻게든 월광보합으로 500년후의 세상으로 가서 백정정을 구하려고 한다.  한편 자신의 배필감은 자신의 자청보검을 뽑을 수 있다고 믿고 있던 자하는 지존보가 자청보검을 뽑는 것을 보고 자신의 낭군으로 점찍어 놓는다. 한편 지존보는 자하에게서 월광보합을 얻으려고 사랑한다고 거짓말을 한다. 그러나 지존보에게 사랑하는 여자가 있다는 걸 안 자하는 떠나고 다시 사부님을 만난 지존보는 사제들과 함께 우마왕에게 잡힌다.  우마왕은 지존보를 자신의 여동생인 향향과 혼인시키려 하고 자신이 생명을 구해줬던 자하를 자신의 첩으로 만드려고 한다. 몰래 도망을 친 지존보는 거미줄동굴로 가 백정정을 만난다. 그는 500년후의 세상으로 돌아갈 필요가 없게되자 당장 그녀와 혼인을 하려한다. 하지만 그의 마음은 이미 자하에게로 기울어져 있었으니. 이런 지존보의 마음을 안 백정정은 그의 곁을 떠나고 지존보는 관세음보살을 찾아가 손오공이 되겠다고 말하며 절대로 여자를 사랑하지 않겠다고 맹세하는데",
+    "releaseYear": 1995,
+    "runtimeMinutes": 99,
+    "collectionId": 201544,
+    "collectionName": "서유기 시리즈",
+    "voteAverage": 7.7,
+    "voteCount": 266,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vEiJhunvmxOzUYAzKsRhedc8DtJ.jpg",
+    "posterAlt": "서유기 선리기연 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/21835/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_622",
+    "tmdbMovieId": 339846,
+    "title": "베이워치: SOS 해상 구조대",
+    "genres": [
+      "코미디",
+      "액션",
+      "범죄"
+    ],
+    "genreIds": [
+      35,
+      28,
+      80
+    ],
+    "tags": [
+      "유머",
+      "캐릭터 매력",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Mitch Buchanan",
+      "Matt Brody",
+      "Victoria Leeds",
+      "Summer Quinn",
+      "CJ Parker",
+      "Stephanie Holden",
+      "Ronnie Greenbaum"
+    ],
+    "contextTags": [
+      "summer"
+    ],
+    "overview": "미치 뷰캐넌 이 대장으로 있는 해양구조대에 올림픽 수영 메달리스트 맷 브로디 가 합류한다. 이기적인 성격의 맷은 미치와 항상 티격태격하게 된다. 한편 해변에서는 플라카라고 불리는 마약이 자꾸만 발견되고 시의원이 죽는 사고도 벌어진다. 이것은 해변의 땅값을 떨어뜨린 뒤 몽땅 사들여 사유지화 하려는 거대 클럽의 사장 리즈 빅토리아의 음모였으며 이미 공무원들까지 매수된 상태였다. 눈치빠른 미치는 맷을 비롯하여 섬머, C.J, 로니 등 대원들과 함께 리즈의 음모를 파헤치며 해변을 지켜내기 위한 작전을 개시한다.",
+    "releaseYear": 2017,
+    "runtimeMinutes": 117,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.082,
+    "voteCount": 8544,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6HE4xd8zloDqmjMZuhUCCw2UcY1.jpg",
+    "posterAlt": "베이워치: SOS 해상 구조대 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/339846-baywatch/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_623",
+    "tmdbMovieId": 2832,
+    "title": "아이덴티티",
+    "genres": [
+      "미스터리",
+      "스릴러"
+    ],
+    "genreIds": [
+      9648,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "감성적인 음악",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Ed",
+      "Rhodes",
+      "Paris",
+      "Larry",
+      "Doctor",
+      "Ginny",
+      "George"
+    ],
+    "contextTags": [],
+    "overview": "폭풍우가 몰아치는 어느 밤... 네바다 주의 사막에 위치한 외딴 모텔에 10명의 사람들이 모여든다. 리무진 운전사와 그가 태우고 가던 여배우, 경찰과 그가 호송하던 살인범, 라스베이거스 매춘부와 신혼부부, 신경질적인 모텔 주인까지 포함한 총 11명. 사나운 폭풍우로 길은 사방이 막혀버리고 사람들은 어둠과 폭우가 걷히기를 기다리지만 연락이 두절된 호텔에 갇힌 이들은 하나 둘씩 살해당하기 시작한다. 죽음으로 시작된 살인의 그림자는 그들을 극도의 공포로 몰아간다. 현장에 남겨진 것이라곤 모텔 룸 넘버 10이 적힌 열쇠뿐... 연이은 죽음의 현장에는 9,8,7.. 카운트 다운을 알리는 열쇠만이 남아 끝나지 않은 살인을 예고하다. 서로가 서로를 의심하는 가운데 모두가 기억하기 싫은 비밀이 서서히 베일을 벗는데...",
+    "releaseYear": 2003,
+    "runtimeMinutes": 90,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.185,
+    "voteCount": 4423,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/91N7EeWISYM4mBsdQnGJtcrywhS.jpg",
+    "posterAlt": "아이덴티티 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/2832-identity/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_624",
+    "tmdbMovieId": 861,
+    "title": "토탈 리콜",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "여운",
+      "세계관"
+    ],
+    "characters": [
+      "Douglas Quaid / Hauser",
+      "Melina",
+      "Lori Quaid",
+      "Vilos Cohaagen",
+      "Richter",
+      "George / Kuato",
+      "Benny"
+    ],
+    "contextTags": [
+      "literary",
+      "travel",
+      "space"
+    ],
+    "overview": "서기 2084년. 어느 신도시에서 광산일을 하고 사는 퀘이드(아놀드 슈왈젠에거)는 미모의 아내 로리(샤론 스톤)와 행복하게 살아가지만 밤마다 이상한 꿈을 꾸게 된다. 한 번도 가본 적이 없는 화성에서 이름도 알 수 없는 갈색머리 여자와 행복하게 살고 있는 것이 자꾸 꿈으로 나타나자 퀘이드는 리콜이라는 여행사를 찾아간다. 이곳은 싼값으로 우주 여행을 다녀온 것처럼 뇌 속에 기억을 이식시켜줌으로써 욕구를 충족시켜주는 곳. 이식을 받던 퀘이드는 커다란 충격에서 깨어나 놀라운 사실들을 알게 되는데...",
+    "releaseYear": 1990,
+    "runtimeMinutes": 113,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.3,
+    "voteCount": 6531,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/q7uUVw1ryWoYgEKLo3MDBQbctw6.jpg",
+    "posterAlt": "토탈 리콜 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/861-total-recall/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_625",
+    "tmdbMovieId": 12429,
+    "title": "벼랑 위의 포뇨",
+    "genres": [
+      "애니메이션",
+      "판타지",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      14,
+      10751
+    ],
+    "tags": [
+      "감동",
+      "영상미",
+      "세계관",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Ponyo (voice)",
+      "Sosuke (voice)",
+      "Fujimoto (voice)",
+      "Risa (voice)",
+      "Gran Mamare (voice)",
+      "Koichi (voice)",
+      "Ponyo's Sister (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "호기심 많은 물고기 소녀 포뇨는 따분한 바다 생활에 싫증을 느끼고, 급기야 아빠 몰래 늘 동경하던 육지로 가출을 감행한다. 해파리를 타고 육지로 올라온 포뇨는 그물에 휩쓸려 유리병 속에 갇히는 위기에 처하게 된다. 때마침 해변가에 놀러 나온 소년 소스케의 도움으로 구출되는 포뇨. 이후 소스케가 마련해 준 초록 양동이에서 소스케와의 즐거운 육지 생활을 시작한다. 하지만 곧 바다의 주인이자 포뇨의 아빠인 후지모토에 의해 포뇨는 다시 바다로 끌려가게 된다. 우여곡절 끝에 여동생들의 도움으로 탈출에 성공한 포뇨는 거대한 파도와 함께 소스케에게로 향하는데...",
+    "releaseYear": 2008,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.761,
+    "voteCount": 4877,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/tGSuFBsqdXxIz3fTSBfsZU9FBMN.jpg",
+    "posterAlt": "벼랑 위의 포뇨 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/12429/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_626",
+    "tmdbMovieId": 1372,
+    "title": "블러드 다이아몬드",
+    "genres": [
+      "드라마",
+      "스릴러",
+      "액션"
+    ],
+    "genreIds": [
+      18,
+      53,
+      28
+    ],
+    "tags": [
+      "긴장감",
+      "배우들의 연기력",
+      "감동",
+      "몰입감"
+    ],
+    "characters": [
+      "Danny Archer",
+      "Solomon Vandy",
+      "Maddy Bowen",
+      "Dia Vandy",
+      "Colonel Coetzee",
+      "Cordell Brown",
+      "Jassie Vandy"
+    ],
+    "contextTags": [],
+    "overview": "밀수를 일삼는 용병 대니 아처(레오나르도 디카프리오)는 다이아몬드 광산에서 강제노역을 하던 솔로몬(디몬 하운수)이 유래 없이 크고 희귀한 다이아몬드를 발견해 숨기고 있다는 사실을 알게 된다. 아처는 그 다이아몬드가 아프리카에서 벗어날 기회임을 알고 그에게 접근하지만, 이 다이아몬드는 소년병으로 끌려간 솔로몬의 아들을 구하기 위한 것. 매디 보웬(제니퍼 코넬리)은 다이아몬드 산업의 부패를 폭로하고 숨겨진 진실을 밝히려고 하는 이상주의적 기자. 매디는 정보를 얻기 위해 아처를 찾지만 이내 그가 자신을 더 필요로 한다는 것을 알게 된다. 아처는 매디의 도움으로 솔로몬과 함께 반란 세력의 영토를 통과하기로 결정한다.",
+    "releaseYear": 2006,
+    "runtimeMinutes": 143,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.562,
+    "voteCount": 8398,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fXtepLzGBJGZwUoGpks24JN0gp.jpg",
+    "posterAlt": "블러드 다이아몬드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1372-blood-diamond/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_627",
+    "tmdbMovieId": 297,
+    "title": "조 블랙의 사랑",
+    "genres": [
+      "판타지",
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      14,
+      18,
+      10749
+    ],
+    "tags": [
+      "감동",
+      "감성적인 음악",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Joe Black / Young Man in Coffee Shop",
+      "William Parrish",
+      "Susan Parrish",
+      "Drew",
+      "Allison",
+      "Quince",
+      "Eddie Sloane"
+    ],
+    "contextTags": [],
+    "overview": "잠을 자던 대기업 회장 패리시(앤소니 홉킨스)는 '그래'하는 소리에 잠을 깬다. 65번째 생일을 며칠 앞둔 밤이었다. 그는 사업에도 성공을 했고, 두 딸과 큰 사위를 데리고 잘 살고 있었다. 그의 죽음을 예고하는 천상의 목소리를 듣게 된다. 한편, 그의 딸 수잔은 커피숍에서 만난 남자에게 깊이 빠지지만 그는 그날로 교통사고를 당해 세상을 떠난다. 같은 날 저녁, 패리쉬는 커피숍에서 죽은 남자의 육신을 빌린 저승사자를 만난다. 지상 구경을 하고 싶어진 저승사자는 패리쉬와 의논한 끝에, 손님으로 며칠간 그의 집에 머무는 대신 저승으로 떠날 시간을 며칠 늦춰주기로 약속한다. 패리쉬는 가족들에게 저승사자를 조 블랙이라는 이름으로 소개하고, 수잔은 블랙이 저승사자인 줄 모른채 그가 자신을 기억하지 못하는데 놀란다. 조는 그 며칠동안 수잔과 서서히 사랑에 빠지지만, 패리쉬와 함께 저승으로 떠나야 할 시간이 다가오는데...",
+    "releaseYear": 1998,
+    "runtimeMinutes": 178,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.367,
+    "voteCount": 5819,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vRY9o5NhIMPZYX2qYXe66JxlJuS.jpg",
+    "posterAlt": "조 블랙의 사랑 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/297-meet-joe-black/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_628",
+    "tmdbMovieId": 10830,
+    "title": "마틸다",
+    "genres": [
+      "코미디",
+      "가족",
+      "판타지"
+    ],
+    "genreIds": [
+      35,
+      10751,
+      14
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "여운",
+      "감동",
+      "유머"
+    ],
+    "characters": [
+      "Matilda Wormwood",
+      "Harry Wormwood / Narrator (voice)",
+      "Zinnia Wormwood",
+      "Miss Honey",
+      "Agatha Trunchbull",
+      "FBI Agent"
+    ],
+    "contextTags": [
+      "school",
+      "literary",
+      "family"
+    ],
+    "overview": "한심한 부모와 사악한 교장에 시달리던 어린 소녀가 새롭게 발견한 능력을 활용해 자신을 괴롭힌 이들에게 귀여운 복수를 시작한다.",
+    "releaseYear": 1996,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.182,
+    "voteCount": 4852,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/wYoDpWInsBEVSmWStnRH06ddoyk.jpg",
+    "posterAlt": "마틸다 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/10830-matilda/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_629",
+    "tmdbMovieId": 340837,
+    "title": "더 큐어",
+    "genres": [
+      "공포",
+      "미스터리",
+      "SF"
+    ],
+    "genreIds": [
+      27,
+      9648,
+      878
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Lockhart",
+      "Volmer",
+      "Hannah",
+      "Pembroke",
+      "Victoria Watkins",
+      "Deputy Director",
+      "Enrico"
+    ],
+    "contextTags": [],
+    "overview": "야심 많은 젊은 간부 ‘록하트’는 의문의 편지를 남긴 채 떠나버린 CEO를 찾아  스위스 알프스에 위치한 ‘웰니스 센터’로 향한다.  고풍스러우면서 비밀스러운 기운이 느껴지는 ‘웰니스 센터’.  '록하트’는 그곳의 특별한 치료법을 의심스럽게 여긴다. 예상치 못한 사고로 ‘웰니스 센터’에 머무르게 된 ‘록하트’는  그곳에서의 치료가 필요하다는 진단을 받게 되고,  비밀을 파헤치려 할수록 알 수 없는 일들이 벌어지는데…",
+    "releaseYear": 2017,
+    "runtimeMinutes": 146,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.351,
+    "voteCount": 4224,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/r8H3eNZlTf2J4WW28l1sLY7ju8i.jpg",
+    "posterAlt": "더 큐어 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/340837-a-cure-for-wellness/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_630",
+    "tmdbMovieId": 602,
+    "title": "인디펜던스 데이",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "세계관",
+      "몰입감",
+      "액션"
+    ],
+    "characters": [
+      "Capt. Steven Hiller",
+      "President Thomas J. Whitmore",
+      "David Levinson",
+      "Marilyn Whitmore",
+      "Julius Levinson",
+      "General William Grey",
+      "Russell Casse"
+    ],
+    "contextTags": [
+      "space"
+    ],
+    "overview": "7월 2일, 이상한 현상이 지구를 감싼다. 하늘은 이글이글 불타오르고 땅은 지진이 난 듯 격렬히 요동친다. 직경 550km, 무게가 달의 4분의 1이나 되는 거대한 괴 비행물체가 태양을 가려 지구는 그 빛을 잃어간다. 숨막히는 공포가 세계의 주요도시를 엄습하기 시작한다.  7월 3일, 거대하고 기괴한 비행물체에서 내뿜는 가공할 위력의 불기둥은 뉴욕의 마천루와 워싱턴의 백악관, 이집트의 피라밋 등을 순식간에 잿더미로 만들고, 거리의 자동차들은 휴지조각처럼 공중을 날아다닌다. 사람들은 당황하여 숨을 곳을 찾지만 도망칠 곳은 아무데도 없다. 인간의 힘으로 감당할 수 없는 엄청난 힘이 지구에 도달했음이 밝혀진다. 그들의 목적은 완전한 지구의 파멸.  7월 4일, 엄청난 파괴 속에서 살아남은 지구의 생존자들은 그 힘을 모아 거대한 괴비행물체에 대항하려 한다. 그러나 외계인들의 지구파괴는 더욱 맹렬해지고 인류 전체의 생존과 외계인으로부터 지구의 독립은 점점 어려워지는데.",
+    "releaseYear": 1996,
+    "runtimeMinutes": 130,
+    "collectionId": 304378,
+    "collectionName": "인디펜던스 데이 시리즈",
+    "voteAverage": 6.916,
+    "voteCount": 10541,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fy4Y1o2tGip4V1Pl1DYoRBLc1GR.jpg",
+    "posterAlt": "인디펜던스 데이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/602-independence-day/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_631",
+    "tmdbMovieId": 698687,
+    "title": "트랜스포머 ONE",
+    "genres": [
+      "애니메이션",
+      "SF",
+      "모험"
+    ],
+    "genreIds": [
+      16,
+      878,
+      12,
+      10751
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "영상미",
+      "유머",
+      "세계관"
+    ],
+    "characters": [
+      "Orion Pax / Optimus Prime (voice)",
+      "D-16 / Megatron (voice)",
+      "Elita-1 (voice)",
+      "B-127 (voice)",
+      "Sentinel Prime (voice)",
+      "Starscream (voice)",
+      "Alpha Trion (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "사이버트론 행성의 지하 광산에서 일하는 변신 못 하는 하급 로봇 오라이온 팩스와 D-16. 한 번도 가보지 못한 지상 세계를 꿈꾸던 둘은 쾌활한 수다쟁이 B-127, 카리스마 넘치는 엘리타 원과 함께 출입이 금지된 지상에 도달한다. 지상에서 잠들어 있던 알파 트라이온을 만난 넷은 그의 도움으로 잠재되어 있던 변신 능력을 얻게 된다. 막강한 힘과 변신 능력으로 자유를 느낀 것도 잠시, 자신들의 행성을 지배하고 있는 거대한 배후의 존재를 알게 되며 모든 것을 바꿀 전쟁을 시작하는데…",
+    "releaseYear": 2024,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.977,
+    "voteCount": 1679,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/c2JXlWzvXegSda8qaATr8I47kMx.jpg",
+    "posterAlt": "트랜스포머 ONE 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/698687-transformers-one/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_632",
+    "tmdbMovieId": 348893,
+    "title": "보이카: 언디스퓨티드 파이널",
+    "genres": [
+      "액션",
+      "드라마",
+      "스릴러"
+    ],
+    "genreIds": [
+      28,
+      18,
+      53,
+      80
+    ],
+    "tags": [
+      "액션",
+      "감성적인 음악",
+      "OST",
+      "몰입감"
+    ],
+    "characters": [
+      "Yuri Boyka",
+      "Alma",
+      "Zourab",
+      "Slava",
+      "Koshmar",
+      "Igor Kazmir",
+      "Kiril"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "‘유리 보이카’는 챔피언 벨트만을 노리는 세계 최고의 파이터. 그는 부다페스트에서 열리는 유럽지부 챔피언십에 나가기 위해 경기를 하던 중 사고로 상대 선수를 죽인다. 이에 죄책감을 느끼며 괴로워하던 보이카는 죽은 선수의 아내를 돕기 위해 위험을 무릅쓰고 러시아로 떠난다. 그러던 중 그녀는 범죄조직에게 팔려가게 되고 보이카는 그녀를 구하기 위해 링에서 위험한 적들과 끊임없이 싸워야만 하는데...",
+    "releaseYear": 2016,
+    "runtimeMinutes": 87,
+    "collectionId": 117777,
+    "collectionName": "언디스퓨티드 시리즈",
+    "voteAverage": 7.206,
+    "voteCount": 1477,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bv58O1paP9cYlcOL7OEUwmzmDzy.jpg",
+    "posterAlt": "보이카: 언디스퓨티드 파이널 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/348893-boyka-undisputed-iv/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_633",
+    "tmdbMovieId": 9820,
+    "title": "페어런트 트랩",
+    "genres": [
+      "코미디",
+      "가족",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10751,
+      10749
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "여운",
+      "감동"
+    ],
+    "characters": [
+      "Hallie Parker / Annie James",
+      "Nick Parker",
+      "Elizabeth James",
+      "Meredith Blake",
+      "Chessy",
+      "Martin",
+      "Marva Kulp, Sr."
+    ],
+    "contextTags": [
+      "summer",
+      "family"
+    ],
+    "overview": "즐거운 여름캠프의 추억을 만들기 위해 몰려든 소녀들로 붐비는 캠프 월든에는 멀리 캘리포니아에서 이곳까지 날아온 할리 파커도 있다. 드넓은 포도 농장에서 아빠와 함께 살고 있는 할리는 함께 말타기도 즐기고, 비밀도 나눌 수 있는 최고의 아빠를 두었지만, 대신 엄마가 없었다.  할리가 캠프장에서 새로운 친구들을 사귀고 있을 무렵. 의리의리한 리무진 한 대가 캠프장 안으로 미끄러져 들어온다. 그 안에서 사뿐히 내려선 소녀는 애니 제임스. 바다 건너 런던에서 온 애니는 웨딩 드레스 디자이너인 멋쟁이 엄마와 함께 살고 있다. 말쑥한 옷 맵시에 프랑스어를 유창하게 구사하며, 카드 놀이까지 잘하는 완벽한 꼬마 숙녀지만, 아버지에 대해서는 하나도 아는 것이 없다. 갓난 아기였을 때부터 가족이라곤 엄마와 애니, 그리고 할아버지 이렇게 셋 뿐이었으며, 엄마는 아빠 이야기도 거의 해주지 않았기 때문이다. 캠프 월든에서 할리와 애니, 두 소녀가 만났을 때, 친구들과 선생님들은 놀란 입을 다물 수 없었다.두 소녀가 너무나 꼭 닮아있었기 때문이다. 하지만, 누구보다고 놀란것은 본인들이었다. 알고보니 이들은 쌍둥이 자매였던 것이다.  꿈에도 그리던 엄마, 아빠가 살아있다는 것을 알게 된 할리와 애니는 깜찍한 계획을 세운다. 캠프가 끝나는 날. 서로가 상대방으로 가장하여 생활하고, 결국에는 두 분이 재결합하도록 일을 꾸미기로 한 것인데...",
+    "releaseYear": 1998,
+    "runtimeMinutes": 128,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.217,
+    "voteCount": 4567,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/p4dGmi8u9W0HHyVXcgWPoiFfKTF.jpg",
+    "posterAlt": "페어런트 트랩 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/9820-the-parent-trap/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_634",
+    "tmdbMovieId": 1593,
+    "title": "박물관이 살아있다!",
+    "genres": [
+      "판타지",
+      "가족",
+      "코미디"
+    ],
+    "genreIds": [
+      14,
+      10751,
+      35
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Larry Daley",
+      "Rebecca",
+      "Cecil",
+      "Gus",
+      "Reginald",
+      "Nick Daley",
+      "Dr. McPhee"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "야간 경비원 근무 첫날 밤, 박물관이 살아 움직이기 시작했다?!  엉뚱한 사업 아이템으로 하는 일 마다 늘 실패만 하는 래리 델리(벤 스틸러 분). 그를 더 이상 견뎌내지 못한 부인이 곁을 떠나자 래리는 하나 밖에 없는 아들에게만큼은 떳떳한 아버지가 되기 위해 직장을 찾아 나선다. 별 볼일 없는 그에게 온 유일한 기회는, 모든 사람들이 기피하는 자연사 박물관 야간 경비원. “아무것도 내보내지 말라”는 선배 경비원의 기이한 충고를 들은 근무 첫 날 밤, 래리는 박물관의 전시물들이 살아 움직이는 놀라운 광경을 목격한다.  밤마다 살아나는 박물관! 과연 여기에는 무슨 비밀이 있는 것일까??  박물관 전시품들은 매일 밤 제멋대로 움직이며 래리를 괴롭힌다. 마야인들, 로마의 글래디에이터들, 카우보이들이 살아나 그들끼리의 전쟁을 벌이기 시작하고, 네안데르탈인은 자신의 디스플레이 케이스를 불태우고, 가장 포악한 공룡 티라노사우루스는 래리를 못 잡아 먹어 안달이다. 이런 대혼란 속에서 래리가 상담할 상대는 왁스 모형인 루즈벨트 대통령(로빈 윌리엄스 분)뿐. 아들을 위해 어떤 역경 속에서도 박물관을 무사히 보호해야만 하는 래리는 첫 날 선배들에게 들었던 충고가 잊혀지지 않는다.  과연 이 박물관에는 무슨 비밀이 있는 것일까?",
+    "releaseYear": 2006,
+    "runtimeMinutes": 108,
+    "collectionId": 85943,
+    "collectionName": "박물관이 살아있다 시리즈",
+    "voteAverage": 6.599,
+    "voteCount": 11037,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/nmXzlGkOYIWouNhRyxU3NapPhDw.jpg",
+    "posterAlt": "박물관이 살아있다! 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1593-night-at-the-museum/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_635",
+    "tmdbMovieId": 951491,
+    "title": "쏘우 X",
+    "genres": [
+      "공포",
+      "미스터리"
+    ],
+    "genreIds": [
+      27,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "몰입감",
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "John Kramer",
+      "Amanda Young",
+      "Cecilia Pederson",
+      "Parker Sears",
+      "Gabriela",
+      "Diego",
+      "Mateo"
+    ],
+    "contextTags": [],
+    "overview": "존은 암을 치료할 수 있는 기적을 기대하며 위험하고 실험적인 의료 시술을 받기 위해 멕시코로 떠났지만, 이 모든 수술이 가장 취약한 사람들을 속이기 위한 사기라는 사실을 알게 된다",
+    "releaseYear": 2023,
+    "runtimeMinutes": 118,
+    "collectionId": 656,
+    "collectionName": "쏘우 시리즈",
+    "voteAverage": 7.163,
+    "voteCount": 2406,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/bvwEkotIuHxjuSCEXhhSna0BqQT.jpg",
+    "posterAlt": "쏘우 X 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/951491-saw-x/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_636",
+    "tmdbMovieId": 1771,
+    "title": "퍼스트 어벤져",
+    "genres": [
+      "액션",
+      "모험",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      12,
+      878
+    ],
+    "tags": [
+      "액션",
+      "반전",
+      "탄탄한 스토리",
+      "세계관"
+    ],
+    "characters": [
+      "Captain America / Steve Rogers",
+      "Peggy Carter",
+      "James Buchanan 'Bucky' Barnes",
+      "Colonel Chester Phillips",
+      "Johann Schmidt / Red Skull",
+      "Howard Stark",
+      "Heinz Kruger"
+    ],
+    "contextTags": [],
+    "overview": "그의 이름은 스티브 로저스. 남들보다 왜소하고 마른 체격으로 인해 입대마저 번번히 거부당하던 그는 포기를 모르는 근성과 강한 희생 정신을 인정받아 최고의 전사를 양성하는 슈퍼 솔져 프로젝트에 스카우트된다. 비밀리에 진행된 실험을 통해 가장 완벽한 육체와 인간의 한계를 초월한 신체 능력을 얻게 된 스티브. 그는 모두에게 캡틴으로 불리며, 시대의 영웅으로 새롭게 태어난다. 하지만 그의 등장에 맞서 거대한 히드라 조직을 앞세운 적의 공격은 한층 막강해지고, 그 핵심에 선 레드 스컬은 인류를 위협하는 최후의 전투를 준비하는데...세계를 위협하는 전쟁, 그 한가운데로 향한 캡틴 슈퍼히어로의 역사로 남을 그의 활약이 시작된다!",
+    "releaseYear": 2011,
+    "runtimeMinutes": 123,
+    "collectionId": 131295,
+    "collectionName": "캡틴 아메리카 시리즈",
+    "voteAverage": 7,
+    "voteCount": 22866,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/b1bdTrFrKq487IscyRI5LH7cv17.jpg",
+    "posterAlt": "퍼스트 어벤져 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1771-captain-america-the-first-avenger/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_637",
+    "tmdbMovieId": 881211,
+    "title": "'스누피 스페셜: 루시의 새해맞이' - Snoopy Presents: For Auld Lang Syne",
+    "genres": [
+      "애니메이션",
+      "가족",
+      "코미디"
+    ],
+    "genreIds": [
+      16,
+      10751,
+      35
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "감동",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Charlie Brown (voice)",
+      "Lucy (voice)",
+      "Linus (voice)",
+      "Snoopy (voice)",
+      "Woodstock / Spike / Olaf (voice)",
+      "Peppermint Patty (voice)",
+      "Sally (voice)"
+    ],
+    "contextTags": [
+      "new_year",
+      "family"
+    ],
+    "overview": "할머니가 크리스마스에 방문을 못 하게 되자, 루시는 최고의 새해 전야 파티를 열어 기분을 풀려고 한다. 한편, 찰리 브라운은 자정이 되기 전, 새해 결심 하나를 이루려고 한다.",
+    "releaseYear": 2021,
+    "runtimeMinutes": 38,
+    "collectionId": 1727840,
+    "collectionName": "Snoopy Presents Collection",
+    "voteAverage": 7.2,
+    "voteCount": 106,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fgjiiy9orqhxUrUuLtCx4fLcD0N.jpg",
+    "posterAlt": "'스누피 스페셜: 루시의 새해맞이' - Snoopy Presents: For Auld Lang Syne 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/881211-snoopy-presents-for-auld-lang-syne/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 350,
+          "providerName": "Apple TV",
+          "logoPath": "/mcbz1LgtErU9p4UdbZ0rG6RTWHX.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/mcbz1LgtErU9p4UdbZ0rG6RTWHX.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_638",
+    "tmdbMovieId": 36647,
+    "title": "블레이드",
+    "genres": [
+      "공포",
+      "액션"
+    ],
+    "genreIds": [
+      27,
+      28
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Blade",
+      "Deacon Frost",
+      "Whistler",
+      "Karen",
+      "Quinn",
+      "Dragonetti",
+      "Mercury"
+    ],
+    "contextTags": [],
+    "overview": "출산을 바로 앞둔 산모가 응급실에 실려온다. 이미 위독한 상황에 있는 산모에게서 뱃속의 아이라도 살리기 위해 응급수술이 시작된다. 그러나 누구도 산모가 뱀파이어에게 물렸다는 사실을 모른다.  산모의 몸 속에 스며든 뱀파이어의 피는 아기의 혈관 속으로 스며들어 아이의 운명을 바꾼다. 반은 인간, 반은 뱀파이어로 태어난 블레이드(웨슬리 스나입스)는 자신의 어머니를 죽게 한 뱀파이어에 대해 복수를 다짐한다.  한편 뱀파이어들은 인간세계에 은밀히 섞여서 살고 있다. 지역지구장을 맡고 있는 뱀파이어 프로스트(스티븐 도프)는 자신의 세력 확장을 위해 무자비한 방식으로 인간을 공격한다. 그런데 프로스트가 가장 무서워하는 존재는 인간과 뱀파이어의 우성 유전자만을 이어받은 블레이드인데...",
+    "releaseYear": 1998,
+    "runtimeMinutes": 121,
+    "collectionId": 735,
+    "collectionName": "블레이드 시리즈",
+    "voteAverage": 6.844,
+    "voteCount": 6783,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/rD74tCs0fEX618Urk43H1YGinAH.jpg",
+    "posterAlt": "블레이드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/36647-blade/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_639",
+    "tmdbMovieId": 399055,
+    "title": "셰이프 오브 워터: 사랑의 모양",
+    "genres": [
+      "드라마",
+      "판타지",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      14,
+      10749
+    ],
+    "tags": [
+      "반전",
+      "감성적인 음악",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Elisa Esposito",
+      "Richard Strickland",
+      "Giles",
+      "Zelda Fuller",
+      "Dr. Robert Hoffstetler",
+      "Amphibian Man",
+      "Fleming"
+    ],
+    "contextTags": [],
+    "overview": "우주 개발 경쟁이 한창인 1960년대, 미 항공우주 연구센터의 비밀 실험실에서 일하는 언어장애를 지닌 청소부 엘라이자의 곁에는 수다스럽지만 믿음직한 동료 젤다와 서로를 보살펴주는 가난한 이웃집 화가 자일스가 있다. 어느 날 실험실에 온몸이 비늘로 덮인 괴생명체가 수조에 갇힌 채 들어오고, 엘라이자는 신비로운 그에게 이끌려 조금씩 다가가게 된다. 음악을 함께 들으며 서로 교감하는 모습을 목격한 호프스테틀러 박사는 생명체에게 지능 및 공감 능력이 있다는 사실을 알게 되는데...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 123,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.2,
+    "voteCount": 12921,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9uh4pH6lxTIWlcToZ1PPpdhYJBD.jpg",
+    "posterAlt": "셰이프 오브 워터: 사랑의 모양 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/399055-the-shape-of-water/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_640",
+    "tmdbMovieId": 391713,
+    "title": "레이디 버드",
+    "genres": [
+      "드라마",
+      "코미디"
+    ],
+    "genreIds": [
+      18,
+      35
+    ],
+    "tags": [
+      "감동",
+      "연출",
+      "배우들의 연기력",
+      "유머"
+    ],
+    "characters": [
+      "Lady Bird McPherson",
+      "Marion McPherson",
+      "Larry McPherson",
+      "Danny O'Neill",
+      "Kyle Sheible",
+      "Julie Steffans",
+      "Sister Sarah Joan"
+    ],
+    "contextTags": [
+      "graduation",
+      "school"
+    ],
+    "overview": "스스로에게 레이디 버드라는 이름을 지어준 크리스틴은 엄마가 자신을 레이디 버드로 부르지 않는 것이 불만이다. 게다가 뉴욕 소재의 대학에 진학하고 싶다고 하자 시립대에나 진학하라는 말에 발끈한다. 말로는 엄마를 설득할 수 없을 것 같자 레이디 버드는 달리는 차 안에서 망설임 없이 뛰어내린다. 새크라멘토의 가톨릭 고등학교 졸업반인 레이디 버드는 어떻게든 고리타분한 새크라멘토를 벗어나고 싶어 한다. 우정도 사랑도 엄마와의 관계도 뜻대로 되지 않는 지금 여기에서의 시간에서 벗어나기 위해서라도 레이디 버드에게 뉴욕행은 간절하다.",
+    "releaseYear": 2017,
+    "runtimeMinutes": 94,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.3,
+    "voteCount": 9070,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/mnBtnrUqchSibHCvCAOUcdcuEDA.jpg",
+    "posterAlt": "레이디 버드 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/391713-lady-bird/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_641",
+    "tmdbMovieId": 458305,
+    "title": "비바리움",
+    "genres": [
+      "SF",
+      "미스터리",
+      "공포"
+    ],
+    "genreIds": [
+      878,
+      9648,
+      27
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Gemma",
+      "Tom",
+      "Young Boy",
+      "Older Boy",
+      "Martin",
+      "Baby",
+      "Molly"
+    ],
+    "contextTags": [],
+    "overview": "함께 살 곳을 찾던 ‘톰’과 ‘젬마’. 중개인으로부터 ‘욘더’라는 독특한 마을의 9호 집을 소개받는다. 똑같은 모양의 주택들이 즐비한 곳에서 알 수 없는 기묘함에 사로잡힌 순간, 중개인은 사라져 버린다. 어떤 방향으로 향해도 집 앞에 다다르는 이곳에서 우리의 선택은 없다, 오직 살아갈 뿐!",
+    "releaseYear": 2019,
+    "runtimeMinutes": 99,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.066,
+    "voteCount": 2611,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/7rmotLKRUqcslVuFXCzilXYYohF.jpg",
+    "posterAlt": "비바리움 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/458305-vivarium/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_642",
+    "tmdbMovieId": 982843,
+    "title": "대홍수",
+    "genres": [
+      "SF",
+      "모험",
+      "드라마"
+    ],
+    "genreIds": [
+      878,
+      12,
+      18
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Koo An-na",
+      "Son Hee-jo",
+      "Shin Ja-in",
+      "Lim Hyeon-mo",
+      "Lee Hwi-so",
+      "Shin Ga-won",
+      "Lee Ji-su"
+    ],
+    "contextTags": [],
+    "overview": "대홍수가 덮친 지구 종말의 날. 물에 잠겨가는 아파트에 갇힌 연구원과 어린 아들이 탈출을 시도한다. 그 순간 도착한 중대 임무. 그녀는 인류의 운명이 걸린 과제를 끝까지 완수할 수 있을까.",
+    "releaseYear": 2025,
+    "runtimeMinutes": 107,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.986,
+    "voteCount": 732,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/8SQWFPE6UhNGIMDimAOOg4T5Hem.jpg",
+    "posterAlt": "대홍수 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/982843/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_643",
+    "tmdbMovieId": 8392,
+    "title": "이웃집 토토로",
+    "genres": [
+      "판타지",
+      "애니메이션",
+      "가족"
+    ],
+    "genreIds": [
+      14,
+      16,
+      10751
+    ],
+    "tags": [
+      "세계관",
+      "영상미",
+      "감동",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Satsuki Kusakabe (voice)",
+      "Mei Kusakabe (voice)",
+      "Totoro (voice)",
+      "Tatsuo Kusakabe (voice)",
+      "Yasuko Kusakabe (voice)",
+      "Granny (voice)",
+      "Kanta Ogaki (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "1955년 일본의 아름다운 시골 마을, 상냥하고 의젓한 11살 사츠키와 장난꾸러기에 호기심 많은 4살의 메이 는 사이좋은 자매로 아빠와 함께 도시를 떠나 시골로 이사온다. 자상한 아빠 쿠사카베타츠오는 도쿄에서 대학 연구원이며, 입원 중이지만 따뜻한 미소를 잃지 않는 엄마가 있다. 곧 퇴원하실 엄마를 공기가 맑은 곳에서 맞이하기 위해서다. 숲 한복판에 금방이라도 쓰러질 것처럼 낡은 집을 보며 자매는 새로운 환경에 대한 호기심으로 잔뜩 들뜬다. 그러던 어느 날 사츠키가 학교에 간 동안 메이는 숲에서 정령을 만나다. 메이는 그 정령에게 토토로란 이름을 붙여주는데...",
+    "releaseYear": 1988,
+    "runtimeMinutes": 87,
+    "collectionId": 1687719,
+    "collectionName": "となりのトトロ コレクション",
+    "voteAverage": 8.065,
+    "voteCount": 8908,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/c9zCkL0rTkNQ1HB9cmeFIqbkS50.jpg",
+    "posterAlt": "이웃집 토토로 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/8392/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_644",
+    "tmdbMovieId": 752,
+    "title": "브이 포 벤데타",
+    "genres": [
+      "액션",
+      "스릴러",
+      "SF"
+    ],
+    "genreIds": [
+      28,
+      53,
+      878
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "몰입감"
+    ],
+    "characters": [
+      "Evey",
+      "V / William Rookwood",
+      "Finch",
+      "Deitrich",
+      "Adam Sutler",
+      "Creedy",
+      "Dominic"
+    ],
+    "contextTags": [],
+    "overview": "어느 날 밤 이비라는 소녀가 위험에 처하자 어디선가 한 남자가 나타나 놀라운 전투력으로 그녀의 목숨을 구해준다. 옛날 국회의사당을 폭파하려다 사형당한 가이 포크스의 가면을 쓰고 모든 것을 압도하는 카리스마를 가진 남자는 V라는 이니셜로만 알려진 의문의 사나이. 맥베스와 헨리 5세의 대사들을 인용하고, 현실세계의 아픔을 노래한 윌리엄 블레이크의 시를 읊으며 악을 응징하는 V는세상을 구할 혁명을 계획하고 있다. V의 숨겨진 과거를 알아가는 동안 자신에 관한 진실을 깨달아가는 이비는 점점 V에게 이끌려 그의 혁명에 동참하게 된다.",
+    "releaseYear": 2006,
+    "runtimeMinutes": 132,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.902,
+    "voteCount": 15674,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/XkLKkL5Cw4wWM6N4c4dP2IENmb.jpg",
+    "posterAlt": "브이 포 벤데타 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/752-v-for-vendetta/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_645",
+    "tmdbMovieId": 1242011,
+    "title": "투게더",
+    "genres": [
+      "공포",
+      "로맨스"
+    ],
+    "genreIds": [
+      27,
+      10749
+    ],
+    "tags": [
+      "감성적인 음악",
+      "감동",
+      "여운"
+    ],
+    "characters": [
+      "Tim",
+      "Millie",
+      "Jamie",
+      "Cath",
+      "Jordy",
+      "Luke",
+      "Carol"
+    ],
+    "contextTags": [],
+    "overview": "관계의 한계에 부딪힌 오래된 커플 팀과 밀리. 어느 날 서로의 몸이 점점 붙어버리기 시작하는데…",
+    "releaseYear": 2025,
+    "runtimeMinutes": 102,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.92,
+    "voteCount": 1225,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/ivWOD2MiC1HywIPBF2Ei2CN3ywY.jpg",
+    "posterAlt": "투게더 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1242011-together/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_646",
+    "tmdbMovieId": 353486,
+    "title": "쥬만지: 새로운 세계",
+    "genres": [
+      "모험",
+      "코미디",
+      "판타지"
+    ],
+    "genreIds": [
+      12,
+      35,
+      14,
+      28
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Dr. Smolder Bravestone",
+      "Franklin 'Mouse' Finbar",
+      "Professor Sheldon 'Shelly' Oberon",
+      "Ruby Roundhouse",
+      "Nigel Billingsley",
+      "Van Pelt",
+      "Jefferson 'Seaplane' McDonough"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "학교 창고를 청소하다가 낡은 ‘쥬만지’ 비디오 게임을 발견한 네 명의 아이들. 게임 버튼을 누르는 순간 화면 속으로 빨려 들어가버렸다! 거대한 몸집의 고고학자 닥터 브레이브스톤(드웨인 존슨)으로 변한 공부벌레 스펜서, 슈퍼 여전사 루비 라운드하우스(카렌 길런)가 된 운동신경 제로 마사, 저질체력의 동물학 전문가 무스 핀바(케빈 하트)가 된 예비 풋볼선수 프리지, 중년의 지도 연구학 교수 셸리 오베론(잭 블랙)으로 변해버린 SNS 중독 퀸카 베서니까지. 이들은 자신의 아바타가 가진 능력으로 게임 속 세계를 구하는 미션을 수행하고 현실로 돌아가야만 하는데….",
+    "releaseYear": 2017,
+    "runtimeMinutes": 119,
+    "collectionId": 495527,
+    "collectionName": "쥬만지 시리즈",
+    "voteAverage": 6.821,
+    "voteCount": 14600,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/11x6lYvl0jwKPzsGZCVDGO961fa.jpg",
+    "posterAlt": "쥬만지: 새로운 세계 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/353486-jumanji-welcome-to-the-jungle/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_647",
+    "tmdbMovieId": 8271,
+    "title": "디스터비아",
+    "genres": [
+      "스릴러",
+      "드라마",
+      "미스터리"
+    ],
+    "genreIds": [
+      53,
+      18,
+      9648
+    ],
+    "tags": [
+      "긴장감",
+      "몰입감",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Kale Brecht",
+      "Ashley Carlson",
+      "Julie Brecht",
+      "Robert Turner",
+      "Ronnie",
+      "Officer Gutierrez",
+      "Daniel Brecht"
+    ],
+    "contextTags": [],
+    "overview": "급작스런 아버지의 죽음으로 인해 문제아로 변한 케일(샤이아 라보프)은 결국 수업 중 교사를 폭행하게 되고, 법원은 그에게 90일간의 가택 연금을 결정한다. 발목엔 감시장치가 부착되고 30미터, 겨우 100걸음 밖으로는 나갈 수 없는 상황. 엄마(캐리 앤 모스)에게 비디오 게임과 케이블 TV마저 빼앗기자 집은 감옥이 된다. 지루함을 이겨볼 겸, 고성능 망원경으로 이웃들을 엿보기 시작하는 케일. 마침 옆집에 이사온 아름다운 소녀 애슐리(사라 로머)에게 호감을 느낀 케일은 그녀를 관찰하게 된다.  24시간 창밖 리얼리티 쇼가 계속되던 중, 케일은 또 다른 집에서 벌어지는 살인의 현장을 목격하게 되고 그가 최근 발생한 납치 연쇄살인 사건의 범인이라는 확신을 갖게 된다. 하지만 그 누구도 케일의 말을 믿어주지 않고, 그 남자의 알리바이는 누가 봐도 명확하다. 케일과 친구 로니, 그리고 애슐리까지 합세한 잠복근무는 결국 들키게 되고, 엄마는 옆집 남자에게 초대를 받는데……",
+    "releaseYear": 2007,
+    "runtimeMinutes": 105,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.689,
+    "voteCount": 4134,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fLqlxzEziNLLE8ZgsATFDLBJ9ft.jpg",
+    "posterAlt": "디스터비아 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/8271-disturbia/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_648",
+    "tmdbMovieId": 766507,
+    "title": "프레이",
+    "genres": [
+      "스릴러",
+      "액션",
+      "SF"
+    ],
+    "genreIds": [
+      53,
+      28,
+      878
+    ],
+    "tags": [
+      "반전",
+      "몰입감",
+      "긴장감",
+      "액션"
+    ],
+    "characters": [
+      "Naru",
+      "Taabe",
+      "Aruka",
+      "Wasape",
+      "Chief Kehetu",
+      "Predator",
+      "Sumu (Chief Wife)"
+    ],
+    "contextTags": [],
+    "overview": "300년 전 아메리카, 용맹한 전사를 꿈꾸는 원주민 소녀 나루는 갑작스러운 곰의 습격으로 절체절명의 위기에 놓인 순간, 정체를 알 수 없는 외계 포식자 프레데터를 목격하게 된다.  자신보다 강한 상대를 향한 무자비한 사냥을 시작한 프레데터. 최첨단 기술과 무기로 진화된 외계 포식자 프레데터의 위협이 점점 다가오고 나루는 부족을 지키기 위해 자신만의 기지와 무기로 생존을 건 사투를 시작하는데…",
+    "releaseYear": 2022,
+    "runtimeMinutes": 100,
+    "collectionId": 399,
+    "collectionName": "프레데터 시리즈",
+    "voteAverage": 7.66,
+    "voteCount": 7809,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/dBcot5vSnmn3XeAg1c4PZM63G5x.jpg",
+    "posterAlt": "프레이 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/766507-prey/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_649",
+    "tmdbMovieId": 324849,
+    "title": "레고 배트맨 무비",
+    "genres": [
+      "애니메이션",
+      "액션",
+      "코미디"
+    ],
+    "genreIds": [
+      16,
+      28,
+      35,
+      10751
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Batman / Bruce Wayne (voice)",
+      "Robin / Dick Grayson (voice)",
+      "Batgirl / Barbara Gordon (voice)",
+      "Alfred Pennyworth (voice)",
+      "Joker (voice)",
+      "Harley Quinn (voice)",
+      "Scarecrow (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "모난 성격 때문에 외톨이로 지내 알프레드 집사에게 늘 걱정만 한 가득 안겨주던 배트맨. 파티장에서 만난 로빈을 얼떨결에 입양하게 되고, 고담시에 새로 부임한 경찰청장 바바라 고든을 만나면서 누군가와 함께 있는 것이 의외로 재미있다는 걸 느낀다. 한편, 고담시를 노리는 악당들이 다가오고 있었으니...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.251,
+    "voteCount": 5473,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/qn0qfRNKaUJleYG8kZ8WwOc0Jos.jpg",
+    "posterAlt": "레고 배트맨 무비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/324849-the-lego-batman-movie/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_650",
+    "tmdbMovieId": 560016,
+    "title": "몽키맨",
+    "genres": [
+      "스릴러",
+      "범죄",
+      "액션"
+    ],
+    "genreIds": [
+      53,
+      80,
+      28
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "반전",
+      "감동"
+    ],
+    "characters": [
+      "Kid",
+      "Rana",
+      "Baba Shakti",
+      "Alphonso",
+      "Alpha",
+      "Queenie",
+      "Sita"
+    ],
+    "contextTags": [],
+    "overview": "잔혹한 과거의 잔상에서 벗어나지 못하고 괴로워하는 키드. 자신의 가족을 몰살한 경찰청장 라나 싱에게 복수하기 위해 인생을 바친 복수를 계획하지만 순간의 실수로 물거품이 된다. 복수에 실패해 경찰에 쫓기는 신세가 된 키드는 치명상을 입고 목숨을 잃을 위기에 처하지만 비밀스러운 조력자 히즈라들의 도움으로, 힘의 신 몽키맨으로 다시 태어난다.",
+    "releaseYear": 2024,
+    "runtimeMinutes": 122,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.86,
+    "voteCount": 1446,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/9hEdO3PcV0usDgRyfWOxGYAcoPB.jpg",
+    "posterAlt": "몽키맨 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/560016-monkey-man/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_651",
+    "tmdbMovieId": 292431,
+    "title": "러브",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "배우들의 연기력",
+      "감동",
+      "여운"
+    ],
+    "characters": [
+      "Murphy",
+      "Electra",
+      "Omi",
+      "Gaspar",
+      "Julio",
+      "Noé - Art Gallery Owner",
+      "Nora"
+    ],
+    "contextTags": [],
+    "overview": "이른 아침부터 울리는 전화벨 소리에 어린 아내, 두 살배기 아이와 함께 잠에서 깬 ‘머피’. 남겨진 음성 메시지에선 ‘일렉트라’의 어머니가 그녀의 행방을 묻고 있다.  그녀와 이별한 후 2년이 흘렀다. 끝없이 비가 내리던 그날 머피는 아파트에 혼자 남아 자신이 가장 사랑했던 여인 일렉트라와 함께한 시간을 떠올린다. 뜨거운 열정으로 가득했던, 설렘과 환희, 질투, 후회의 나날을…",
+    "releaseYear": 2015,
+    "runtimeMinutes": 130,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.455,
+    "voteCount": 2684,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/aF0D4MVp8ve9MT2EfEwxXlCyZQs.jpg",
+    "posterAlt": "러브 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/292431-love/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_652",
+    "tmdbMovieId": 4327,
+    "title": "미녀 삼총사",
+    "genres": [
+      "액션",
+      "코미디",
+      "모험"
+    ],
+    "genreIds": [
+      28,
+      35,
+      12
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "탄탄한 스토리",
+      "감동"
+    ],
+    "characters": [
+      "Natalie Cook",
+      "Dylan Sanders",
+      "Alex Munday",
+      "John Bosley",
+      "Eric Knox",
+      "Roger Corwin",
+      "Vivian Wood"
+    ],
+    "contextTags": [],
+    "overview": "미녀 삼총사 나탈리(카메론 디아즈), 딜런(드류 베리모어), 알렉스(루시 리우)는 사립탐정으로 녹스 테크놀로지사의 설립자인 과학자 에릭 녹스(샘 록웰)를 찾아달라는 의뢰를 받는다. 녹스 사건을 조사하던 미녀 삼총사는 녹스 일당의 속임수에 넘어갔음을 알게된다. 미녀 삼총사를 처치하고 녹스가 노린 것은 미녀들의 대부인 찰리(존 포사이드)를 처치하는 것.  녹스 일당으로 부터 찰리를 보호하기 위한 미녀 삼총사의 활약이 시작되는데...",
+    "releaseYear": 2000,
+    "runtimeMinutes": 98,
+    "collectionId": 86029,
+    "collectionName": "미녀 삼총사 시리즈",
+    "voteAverage": 5.854,
+    "voteCount": 4549,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/gQjKK8wUYCKLkz4DG23XSzvNfGb.jpg",
+    "posterAlt": "미녀 삼총사 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/4327-charlie-s-angels/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_653",
+    "tmdbMovieId": 488623,
+    "title": "기억의 밤",
+    "genres": [
+      "스릴러",
+      "미스터리",
+      "범죄"
+    ],
+    "genreIds": [
+      53,
+      9648,
+      80
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "몰입감",
+      "탄탄한 스토리"
+    ],
+    "characters": [
+      "Jin-seok",
+      "Yoo-seok / Choi Seong-uk",
+      "Jin-seok's Father / Mr. Park",
+      "Jin-seok's Father / Madam Min",
+      "Professor Choi",
+      "Professor Choi's Wife",
+      "High School Yoo-seok"
+    ],
+    "contextTags": [],
+    "overview": "새 집으로 이사 온 날 밤, 정체불명의 괴한들에게 납치된 형 유석. 동생 진석은 형이 납치된 후 매일 밤 환청과 환각에 시달리며 불안해한다. 납치된지 19일째 되는 날 돌아온 유석은 그동안의 모든 기억을 잃었다고 말한다. 하지만 돌아온 뒤로 어딘가 변해버린 유석을 의심하던 진석은 매일 밤 사라지는 형을 쫓던 중 충격적인 사실과 마주하게 되는데...",
+    "releaseYear": 2017,
+    "runtimeMinutes": 109,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.881,
+    "voteCount": 1348,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/pXHLaA2dvIfJ3NbslufKqvS48dt.jpg",
+    "posterAlt": "기억의 밤 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/488623/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_654",
+    "tmdbMovieId": 118340,
+    "title": "가디언즈 오브 갤럭시",
+    "genres": [
+      "액션",
+      "SF",
+      "모험"
+    ],
+    "genreIds": [
+      28,
+      878,
+      12
+    ],
+    "tags": [
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Peter Quill",
+      "Gamora",
+      "Drax",
+      "Groot (voice)",
+      "Rocket (voice)",
+      "Ronan",
+      "Yondu Udonta"
+    ],
+    "contextTags": [
+      "space"
+    ],
+    "overview": "자칭 전설의 무법자 스타로드, 그러나 현실은 우주를 떠도는 그저그런 좀도둑에 불과한 피터 퀼은 무엇인지도 모른 채 오브를 훔쳤다가 생고생의 길로 접어든다. 값나가는 유물인 줄 알았던 오브가 실은 어마어마한 힘을 지닌 인피니티 스톤이었던 것. 뜻하지 않게 갤럭시의 절대악 타노스와 로난의 타겟이 된 그는 감옥에서 만난 암살자 가모라, 거구의 파이터 드랙스, 현상금 사냥꾼 로켓과 그루트 콤비와 불편한 동맹을 맺고 일명 가디언즈 오브 갤럭시를 결성하는데...",
+    "releaseYear": 2014,
+    "runtimeMinutes": 122,
+    "collectionId": 284433,
+    "collectionName": "가디언즈 오브 갤럭시 시리즈",
+    "voteAverage": 7.906,
+    "voteCount": 29901,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/iDNor7CoQkJoDwIxFUeiyrAqjnh.jpg",
+    "posterAlt": "가디언즈 오브 갤럭시 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/118340-guardians-of-the-galaxy/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_655",
+    "tmdbMovieId": 810693,
+    "title": "극장판 주술회전 0",
+    "genres": [
+      "애니메이션",
+      "액션",
+      "판타지"
+    ],
+    "genreIds": [
+      16,
+      28,
+      14
+    ],
+    "tags": [
+      "영상미",
+      "세계관",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Yuta Okkotsu (voice)",
+      "Rika Orimoto (voice)",
+      "Satoru Gojo (voice)",
+      "Suguru Geto (voice)",
+      "Maki Zen'in (voice)",
+      "Toge Inumaki (voice)",
+      "Panda (voice)"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "어린 시절, 소꿉친구인 오리모토 리카를 교통사고로 눈 앞에서 잃은 옷코츠 유타. 옷코츠는 원령으로 변한 리카의 저주에 괴로워한 나머지 자신도 죽기를 바라지만, 최강의 주술사인 고죠 사토루에 의해 주술고전에 들어가게 된다. 그리고 동급생인 젠인 마키, 이누마키 토게, 판다를 만나면서 굳은 결심을 한다. 한편 옷코츠와 친구들 앞에 과거에 일반인을 대량으로 학살해서 고전에서 추방된 최악의 주저사인 게토 스구루가 나타난다. 주술사만의 낙원을 만들려는 게토는 비술사를 섬멸하겠다면서 신주쿠와 교토에 천의 저주를 내리는데...",
+    "releaseYear": 2021,
+    "runtimeMinutes": 105,
+    "collectionId": 1529614,
+    "collectionName": "극장판 주술회전 시리즈",
+    "voteAverage": 8.103,
+    "voteCount": 1788,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/gHcga1wgDD4MAeApoOM7yDn9BOq.jpg",
+    "posterAlt": "극장판 주술회전 0 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/810693-0/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 283,
+          "providerName": "Crunchyroll",
+          "logoPath": "/fzN5Jok5Ig1eJ7gyNGoMhnLSCfh.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fzN5Jok5Ig1eJ7gyNGoMhnLSCfh.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_656",
+    "tmdbMovieId": 81005,
+    "title": "잭 더 자이언트 킬러",
+    "genres": [
+      "판타지",
+      "액션",
+      "모험"
+    ],
+    "genreIds": [
+      14,
+      28,
+      12,
+      18
+    ],
+    "tags": [
+      "반전",
+      "감성적인 음악",
+      "OST",
+      "세계관"
+    ],
+    "characters": [
+      "Jack",
+      "Princess Isabelle",
+      "Elmont",
+      "Roderick",
+      "King Brahmwell",
+      "General Fallon",
+      "Crawe"
+    ],
+    "contextTags": [],
+    "overview": "‘클로이스트’의 시골 농장에서 삼촌과 함께 살고 있는 잭(니콜라스 홀트)은 시장에 말을 팔러 갔다가 돈 대신 콩 몇 알을 얻게 된다. 그날 밤 잭의 집으로 세찬 비바람을 피해 낯선 손님 이자벨(엘리너 톰린슨)이 찾아온다. 그리고 우연히 잭이 낮에 얻어온 콩이 물에 젖어 하늘로 뻗어 오르면서, 공주 이자벨은 엄청나게 자라는 마법의 콩나무에 휩쓸려 하늘과 땅 사이에 존재하는 무시무시한 거인들의 세상 ‘간투아’로 사라지게 된다.  이 사건을 계기로 인간들의 세계와 무시무시한 거인들의 세계가 연결되고, 오래 전 추방당했던 거인들은 그들이 잃었던 땅을 되찾기 위해 봉기한다. 그리고 잭은 이자벨을 구하고 인간세계를 정복하려는 거인들에 맞서는 거대한 전쟁에 합류하게 되는데...",
+    "releaseYear": 2013,
+    "runtimeMinutes": 114,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.897,
+    "voteCount": 5280,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/gOl2NW28GR0LTYILvzI0b6zpsrS.jpg",
+    "posterAlt": "잭 더 자이언트 킬러 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/81005-jack-the-giant-slayer/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_657",
+    "tmdbMovieId": 1966,
+    "title": "알렉산더",
+    "genres": [
+      "전쟁",
+      "역사",
+      "액션"
+    ],
+    "genreIds": [
+      10752,
+      36,
+      28,
+      12,
+      18,
+      10749
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "세계관",
+      "몰입감"
+    ],
+    "characters": [
+      "Alexander",
+      "Olympias",
+      "Philip",
+      "Hephaistion",
+      "Cassander",
+      "Old Ptolemy",
+      "Young Alexander"
+    ],
+    "contextTags": [],
+    "overview": "그토록 원대했던 젊은 그의 꿈을 어떻게 설명할 수 있을까?  역사의 판도를 바꾼 위대한 정복자!\r 술주정뱅이인 아버지이자 마케도니아의 왕인 필립, 그와 왕비는 서로 저주를 퍼부으며 증오한다. 그 사이에서 위대한 영웅들의 이야기를 들으며 자란 알렉산더는 세계를 하나의 제국으로 통일하는 원대한 꿈을 꾸며, 20세에 왕위에 오르게 된다. 이후 13년만에 그리스, 페르시아, 인도에 이르는 3개의 대륙을 정복해 대제국을 건설하고, 헬레니즘 문화를 형성한 역사상 가장 위대한 정복자 알렉산더 대왕. 33세 라는 젊은 나이에 생을 마감한 그의 짧지만 화려하고 무모하면서도 용감한 그의 인생이 펼쳐진다.",
+    "releaseYear": 2004,
+    "runtimeMinutes": 176,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.954,
+    "voteCount": 3537,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/5PwRMITicKEks73k9Fqe9fQdOLa.jpg",
+    "posterAlt": "알렉산더 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1966-alexander/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_658",
+    "tmdbMovieId": 293660,
+    "title": "데드풀",
+    "genres": [
+      "액션",
+      "모험",
+      "코미디"
+    ],
+    "genreIds": [
+      28,
+      12,
+      35
+    ],
+    "tags": [
+      "반전",
+      "액션",
+      "몰입감",
+      "유머"
+    ],
+    "characters": [
+      "Wade Wilson / Deadpool",
+      "Vanessa",
+      "Ajax",
+      "Weasel",
+      "Angel Dust",
+      "Blind Al",
+      "Negasonic Teenage Warhead"
+    ],
+    "contextTags": [],
+    "overview": "특수부대 요원 출신의 용병 웨이드 윌슨은 취향과 장난기마저 똑 닮은 바네사를 만나 행복한 나날을 보낸다. 하지만 행복은 광고처럼 짧은 법. 말기 암 선고를 받은 웨이드는 비밀 임상실험에 참여하며 재기를 노린다. 극한의 고문으로 이뤄진 실험 후 웨이드는 암을 치료할뿐더러 무한한 재생 능력을 얻으며 불사의 존재가 된다. 하지만 동시에 부작용으로 호러영화에 어울릴 법한 외양을 갖는다. 스스로 슈트까지 지어 입고 데드풀이 된 웨이드는 자신을 고문한 자를 찾아 제대로 복수한 뒤 당당히 바네사 앞에 나서려 한다.",
+    "releaseYear": 2016,
+    "runtimeMinutes": 108,
+    "collectionId": 448150,
+    "collectionName": "데드풀 시리즈",
+    "voteAverage": 7.625,
+    "voteCount": 32908,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/k1e0TlvDM4KsiSRyJENVrHxMqtK.jpg",
+    "posterAlt": "데드풀 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/293660-deadpool/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_659",
+    "tmdbMovieId": 399035,
+    "title": "커뮤터",
+    "genres": [
+      "액션",
+      "스릴러",
+      "미스터리"
+    ],
+    "genreIds": [
+      28,
+      53,
+      9648
+    ],
+    "tags": [
+      "반전",
+      "감동",
+      "액션",
+      "몰입감"
+    ],
+    "characters": [
+      "Michael MacCauley",
+      "Alex Murphy",
+      "Captain Hawthorne",
+      "Walt",
+      "Joanna",
+      "Karen MacCauley",
+      "Dylan"
+    ],
+    "contextTags": [],
+    "overview": "퇴근길 통근 열차에 오른 보험 판매원. 한 승객이 그에게 접근해 수상한 제안을 한다. 프린이라는 사람의 가방을 30분 이내에 찾으면 거액을 주겠다는 것. 하지만 제안을 거절하면 가족이 위험에 빠진다. 이 미션의 정체는 무엇인가.",
+    "releaseYear": 2018,
+    "runtimeMinutes": 104,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.368,
+    "voteCount": 4687,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/cW66JRUUI823oAyZhetukaIgPEa.jpg",
+    "posterAlt": "커뮤터 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/399035-the-commuter/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_660",
+    "tmdbMovieId": 76757,
+    "title": "주피터 어센딩",
+    "genres": [
+      "SF",
+      "판타지",
+      "액션"
+    ],
+    "genreIds": [
+      878,
+      14,
+      28
+    ],
+    "tags": [
+      "감동",
+      "연출",
+      "세계관",
+      "영상미"
+    ],
+    "characters": [
+      "Caine Wise",
+      "Jupiter Jones",
+      "Stinger Apini",
+      "Balem Abrasax",
+      "Titus Abrasax",
+      "Kalique Abrasax",
+      "Diomika Tsing"
+    ],
+    "contextTags": [
+      "space"
+    ],
+    "overview": "목성이 유난히 빛나던 밤, 태어난 주피터. 머나먼 은하의 별을 꿈꾸는 그녀의 현실은 이민자 가족들과 청소업을 하는 비루함뿐이다. 그러나 스카이 재커 케인이 주피터를 찾아 지구에 오면서 모든 운명이 달라진다. 주피터는 사실 자신이 지구의 주인이며 또한 인간은 아브라삭스 가문이 키우는 농작물 같은 존재라는 것을 알게 되는데…",
+    "releaseYear": 2015,
+    "runtimeMinutes": 127,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 5.469,
+    "voteCount": 7154,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/7i0h8dKeQv68WztzSbEJnod6C2Y.jpg",
+    "posterAlt": "주피터 어센딩 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/76757-jupiter-ascending/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_661",
+    "tmdbMovieId": 22794,
+    "title": "하늘에서 음식이 내린다면",
+    "genres": [
+      "애니메이션",
+      "코미디",
+      "가족"
+    ],
+    "genreIds": [
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Flint Lockwood (voice)",
+      "Sam Sparks (voice)",
+      "Tim Lockwood (voice)",
+      "\"Baby\" Brent (voice)",
+      "Mayor Shelbourne (voice)",
+      "Earl Devereaux (voice)",
+      "Cal Devereaux (voice)"
+    ],
+    "contextTags": [
+      "literary",
+      "family"
+    ],
+    "overview": "오늘은 햄버거 비! 내일은 스파게티 폭풍!  하늘에서 음식이 내린다면 어떤 일이 벌어질까?  먹을 거라고는 정어리 밖에 없는 작은 도시 `꿀꺽풍당` 섬을 위해 허당 과학자 `플린트`는 물을 음식으로 바꾸는 `수퍼음식복제기`를 발명한다. 하지만 실험도중 기계는 하늘로 날아가고, 모든 것이 실패로 돌아갔다고 생각한 순간 마을에는 맛있는 `햄버거 비`가 내리기 시작한다. 하늘로 올라간 `수퍼음식복제기`가 작동을 시작한 것. 그 때부터 섬에는 핫도그, 와플, 치킨, 아이스크림 등 맛있는 음식들이 매일매일 내리고 사람들은 달콤한 행복에 빠진다.  대박 큰 바나나, 집채 만한 팬케이크, 음식들이 점점 커진다고?!  하지만 점점 많은 음식들을 요구하는 사람들과 섬을 관광지로 개발하려는 탐욕스러운 `시장`의 욕심으로 인해 기계는 점차 멋대로 작동하기 시작한다. 그 결과 집채만한 팬케이크와 사람만한 핫도그 비가 내리는 등 점점 거대해지는 음식들로 인해 도시는 초유의 재난 상황을 맞게 된다. `플린트`는 이 사태를 해결하기 위해 음식 기상캐스터 `샘`, 옛날엔 얼짱 모델 `베이비 브렌트`, 베프 원숭이 `스티브`와 함께 기계를 파괴하기 위해 하늘로 향하는데...  지나치게(?) 맛있는 상상이 만들어낸 사상 초유의 `음식재난`이 시작된다!",
+    "releaseYear": 2009,
+    "runtimeMinutes": 90,
+    "collectionId": 177467,
+    "collectionName": "하늘에서 음식이 내린다면 시리즈",
+    "voteAverage": 6.661,
+    "voteCount": 6509,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2SYoJMDkWihYEgmOmcFPlPoCnhm.jpg",
+    "posterAlt": "하늘에서 음식이 내린다면 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/22794-cloudy-with-a-chance-of-meatballs/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_662",
+    "tmdbMovieId": 697843,
+    "title": "익스트랙션 2",
+    "genres": [
+      "액션",
+      "스릴러",
+      "범죄"
+    ],
+    "genreIds": [
+      28,
+      53,
+      80
+    ],
+    "tags": [
+      "액션",
+      "감동",
+      "세계관",
+      "몰입감"
+    ],
+    "characters": [
+      "Tyler Rake",
+      "Nik Khan",
+      "Yaz Khan",
+      "Zurab Radiani / Nikoloz Radiani",
+      "David Radiani",
+      "Ketevan Radiani",
+      "Sandro Radiani"
+    ],
+    "contextTags": [],
+    "overview": "고도로 숙련된 전직 특수 요원 타일러 레이크. 죽음의 문턱에서 가까스로 살아 돌아온 그가 또다시 위험천만한 작전에 뛰어든다. 임무는 하나. 무자비한 갱스터의 가족을 감옥에서 탈출시켜라.",
+    "releaseYear": 2023,
+    "runtimeMinutes": 122,
+    "collectionId": 735127,
+    "collectionName": "익스트랙션 시리즈",
+    "voteAverage": 7.389,
+    "voteCount": 2957,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/uJGYC2l97RWz8zJ9WFjLiUOqUva.jpg",
+    "posterAlt": "익스트랙션 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/697843-extraction-2/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_663",
+    "tmdbMovieId": 698508,
+    "title": "리디밍 러브",
+    "genres": [
+      "로맨스",
+      "드라마",
+      "서부"
+    ],
+    "genreIds": [
+      10749,
+      18,
+      37
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감성적인 음악",
+      "OST",
+      "감동"
+    ],
+    "characters": [
+      "Angel",
+      "Michael",
+      "Duke",
+      "Duchess",
+      "Paul",
+      "Mae",
+      "Sarah Stafford"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "올 봄, 이 사랑이 당신을 꿈꾸게 한다!  누구나 품을 수 있지만, 누구도 소유할 수 없는 ‘엔젤’  단 한 번도 원하는 삶을 살아본 적 없던 그녀에게 운명처럼 오직 그녀를 사랑하는 남자가 나타난다. 무조건적인 그의 사랑에 ‘엔젤’은 매번 도망치지만 조금씩, 그리고 천천히 진정한 세상을 알아가는데…",
+    "releaseYear": 2022,
+    "runtimeMinutes": 134,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.857,
+    "voteCount": 760,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/fiwiBgJNkRoDA1snWnPNxXVv4R.jpg",
+    "posterAlt": "리디밍 러브 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/698508-redeeming-love/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_664",
+    "tmdbMovieId": 402900,
+    "title": "오션스 8",
+    "genres": [
+      "범죄",
+      "코미디",
+      "액션"
+    ],
+    "genreIds": [
+      80,
+      35,
+      28
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Debbie Ocean",
+      "Lou",
+      "Daphne Kluger",
+      "Amita",
+      "Tammy",
+      "Constance",
+      "Nine Ball"
+    ],
+    "contextTags": [],
+    "overview": "전 애인의 배신으로 5년간 감옥에서 썩은 데비 오션은 가석방되자마자  믿음직한 동료 루와 함께 새로운 작전을 계획한다. 그들의 목표는 바로 뉴욕 메트로폴리탄 박물관에서 열리는 미국 최대 패션 행사인  메트 갈라에 참석하는 톱스타 다프네의 목에 걸린 1천 5백억 원의 다이아몬드 목걸이, 투생을 훔치는 것. 패션 디자이너 로즈 바일부터 보석 전문가 아미타, 소매치기 콘스탄스와 해커 나인 볼까지, 전격 결성된 각 분야 전문가들이 마침내 실행에 나서는데...",
+    "releaseYear": 2018,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.954,
+    "voteCount": 8849,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/mbE7RoCiFLljulqOhYSlkrnt5b0.jpg",
+    "posterAlt": "오션스 8 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/402900-ocean-s-eight/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_665",
+    "tmdbMovieId": 2666,
+    "title": "다크 시티",
+    "genres": [
+      "미스터리",
+      "SF"
+    ],
+    "genreIds": [
+      9648,
+      878
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "여운",
+      "감성적인 음악"
+    ],
+    "characters": [
+      "John Murdoch",
+      "Inspector Frank Bumstead",
+      "Dr. Daniel P. Schreber",
+      "Emma Murdoch",
+      "Mr. Hand",
+      "Mr. Book",
+      "Mr. Wall"
+    ],
+    "contextTags": [
+      "summer"
+    ],
+    "overview": "낯선 호텔에서 깨어난 존 머독은 자신이 누구인지조차 기억하지 못한다. 자신이 연쇄살인으로 쫓기는 중이라는 사실을 알게 되고 형사의 추적을 피하며 잊혀진 기억을 찾아 나간다.",
+    "releaseYear": 1998,
+    "runtimeMinutes": 100,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.327,
+    "voteCount": 3242,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/b4c1hDBjfpVsjDFOszCiJQtibYw.jpg",
+    "posterAlt": "다크 시티 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/2666-dark-city/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_666",
+    "tmdbMovieId": 78,
+    "title": "블레이드 러너",
+    "genres": [
+      "SF",
+      "드라마",
+      "스릴러"
+    ],
+    "genreIds": [
+      878,
+      18,
+      53
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "탄탄한 스토리",
+      "배우들의 연기력"
+    ],
+    "characters": [
+      "Deckard",
+      "Batty",
+      "Rachael",
+      "Gaff",
+      "Bryant",
+      "Pris",
+      "Sebastian"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "2019년, 지구의 파괴와 엄청난 인구증가로 인해 다른 행성을 식민지 이주가 본격화된다. 2주전 6명의 복제 인간 리플리컨트가 식민행성에서 탈출, 23명을 죽이고 우주선을 탈취하여 지구로 잠입한다. 전투용 로이 베티와 리온, 살인 훈련을 받은 조라, 식민행성 군인 클럽 소속의 위안부 프리스가 그들이다. 이들은 타이렐사에 침입하려 하지만 한 사람이 죽고, 직원으로 위장한 리온이 회사 간부의 테스트에 발각되어 도주한다. 이에 경찰은 복제 인간을 구별할 능력을 지닌 블레이드 러너 데커드를 호출하는데...",
+    "releaseYear": 1982,
+    "runtimeMinutes": 118,
+    "collectionId": 422837,
+    "collectionName": "블레이드 러너 시리즈",
+    "voteAverage": 7.936,
+    "voteCount": 15121,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/6yXqNiVIoJcMhio10Nkb5QMNeh8.jpg",
+    "posterAlt": "블레이드 러너 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/78-blade-runner/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 119,
+          "providerName": "Amazon Prime Video",
+          "logoPath": "/pvske1MyAoymrs5bguRfVqYiM9a.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pvske1MyAoymrs5bguRfVqYiM9a.jpg"
+        },
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_667",
+    "tmdbMovieId": 501929,
+    "title": "미첼 가족과 기계 전쟁",
+    "genres": [
+      "애니메이션",
+      "모험",
+      "코미디"
+    ],
+    "genreIds": [
+      16,
+      12,
+      35
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "감동",
+      "영상미",
+      "세계관"
+    ],
+    "characters": [
+      "Katie / Dog Cop (voice)",
+      "Rick (voice)",
+      "Linda (voice)",
+      "Aaron / Furbies / Talking Dog / Wifi Enthusiast (voice)",
+      "Mark (voice)",
+      "PAL (voice)",
+      "Deborahbot 5000 (voice)"
+    ],
+    "contextTags": [],
+    "overview": "자동차를 타고 국토를 횡단할까 했는데, 이게 무슨 날벼락. 로봇들이 세상을 점령하다니. 이제 이상하기로는 세계 최강, 미첼 가족이 나설 수밖에. 인류는 우리가 구한다. 어떻게든 되겠지!",
+    "releaseYear": 2021,
+    "runtimeMinutes": 110,
+    "collectionId": 1567035,
+    "collectionName": "The Mitchells vs. the Machines Collection",
+    "voteAverage": 7.834,
+    "voteCount": 3411,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/4e7QytwEHQUGnWxOXdwjEQExvZH.jpg",
+    "posterAlt": "미첼 가족과 기계 전쟁 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/501929-the-mitchells-vs-the-machines/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_668",
+    "tmdbMovieId": 980489,
+    "title": "그란 투리스모",
+    "genres": [
+      "모험",
+      "드라마",
+      "액션"
+    ],
+    "genreIds": [
+      12,
+      18,
+      28
+    ],
+    "tags": [
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동",
+      "액션"
+    ],
+    "characters": [
+      "Jann Mardenborough",
+      "Jack Salter",
+      "Danny Moore",
+      "Steve Mardenborough",
+      "Matty Davis",
+      "Audrey",
+      "Lesley Mardenborough"
+    ],
+    "contextTags": [],
+    "overview": "레이싱 게임 ‘그란 투리스모’의 덕후 ‘잔 마든보로’ 스피드라고는 게임으로만 만족해야 했던 그에게 레이싱 선수 발굴을 목표로 만들어진 ‘그란 투리스모 콘테스트’라는 기회가 찾아온다. 앉아서 게임만 하던 그의 앞에 닥친 혹독한 훈련과 치열한 경쟁.뛰어난 잠재력을 입증해 프로 레이싱 팀에 합류하는데 성공하지만 상대팀 선수들은 게이머 출신인 그를 인정하지 않고, 프로 레이싱의 세계는 그를 더욱 거칠게 몰아붙이는데...  리셋 버튼 없는 목숨을 건 실전! 게이머에서 레이서가 된 소년의 흥미로운 스토리가 스크린에서 펼쳐진다!",
+    "releaseYear": 2023,
+    "runtimeMinutes": 135,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.703,
+    "voteCount": 3464,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/mewjjhpju5JT1wDFJDMdctWcCqd.jpg",
+    "posterAlt": "그란 투리스모 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/980489-gran-turismo/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_669",
+    "tmdbMovieId": 10591,
+    "title": "내겐 너무 아찔한 그녀",
+    "genres": [
+      "코미디",
+      "로맨스"
+    ],
+    "genreIds": [
+      35,
+      10749
+    ],
+    "tags": [
+      "액션",
+      "배우들의 연기력",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Matthew Kidman",
+      "Danielle",
+      "Kelly",
+      "Eli",
+      "Klitz",
+      "Hugo Posh",
+      "Mr. Kidman"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "고등학교 졸업반인 매튜는 이웃집에 이사온 19세의 다니엘에게 첫 눈에 반한다. 아름다운 그녀에게 홀딱 빠진 매튜는 결국 다니엘과 사귀게 된다. 그러나 다니엘이 전직 포르노 스타라는 것을 알게 되고 갈등을 겪기 시작하는데...",
+    "releaseYear": 2004,
+    "runtimeMinutes": 110,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.749,
+    "voteCount": 4076,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/xwZJo5B48TdkbHS1V0GLWGbtEX6.jpg",
+    "posterAlt": "내겐 너무 아찔한 그녀 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/10591-the-girl-next-door/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_670",
+    "tmdbMovieId": 64688,
+    "title": "21 점프 스트리트",
+    "genres": [
+      "액션",
+      "코미디",
+      "범죄"
+    ],
+    "genreIds": [
+      28,
+      35,
+      80
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "감동",
+      "유머"
+    ],
+    "characters": [
+      "Schmidt",
+      "Jenko",
+      "Molly Tracey",
+      "Eric Molson",
+      "Mr. Walters",
+      "Domingo",
+      "Captain Dickson"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "고등학교 시절을 전혀 다르게 보낸 운동만 할줄 아는 젠코(채닝 테이텀)와 공부만 할 줄 아는 슈미트(조나 힐). 하지만, 둘다 '프롬(졸업 무도회)'을 못가긴 마찬가지였다. 졸업후 경찰학교에서 다시 만난 이둘은 서로의 약점을 채워주며 둘도 없는 단짝이 된다. 의욕에 불타는 초보 경찰이었지만 결국 곱상한 외모(?)때문에 고등학교 잠복근무로 부서 이동되어 버린다. 신종 약물이 활개치는 '21 점프 스트리트'의 한 고등학교에서 그 시절과는 정 반대의 고교생활이 펼쳐진다.",
+    "releaseYear": 2012,
+    "runtimeMinutes": 109,
+    "collectionId": 212562,
+    "collectionName": "점프 스트리트 시리즈",
+    "voteAverage": 6.886,
+    "voteCount": 11106,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/8frigUQH9rpSasBwMKoNPCzvjCW.jpg",
+    "posterAlt": "21 점프 스트리트 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/64688-21-jump-street/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_671",
+    "tmdbMovieId": 945729,
+    "title": "베니스 유령 살인사건",
+    "genres": [
+      "미스터리",
+      "스릴러",
+      "범죄"
+    ],
+    "genreIds": [
+      9648,
+      53,
+      80
+    ],
+    "tags": [
+      "긴장감",
+      "반전",
+      "탄탄한 스토리",
+      "여운"
+    ],
+    "characters": [
+      "Hercule Poirot",
+      "Maxime Gerard",
+      "Olga Seminoff",
+      "Dr Leslie Ferrier",
+      "Ariadne Oliver",
+      "Leopold Ferrier",
+      "Nicholas Holland"
+    ],
+    "contextTags": [
+      "halloween",
+      "literary"
+    ],
+    "overview": "세계적 명탐정 에르큘 포와로는 오랜 탐정 생활에서 은퇴하여 아름다운 도시 베니스에서 평범한 삶을 살아가고 있다. 그런 그에게 오랜 친구이자 베스트셀러 작가인 아리아드네 올리버가 찾아와 죽은 영혼을 부를 수 있다고 알려진 영험한 심령술사의 실체를 밝혀달라고 부탁하게 된다. 핼러윈 밤, 베니스 운하 위 위치한 고풍스러운 저택의 주인이자 1년 전 사랑하는 딸을 잃고 깊은 상실에 빠진 로웨나 드레이크의 초대로 교령회에 참석한 이들은 미스터리한 심령술사 조이스 레이놀즈가 죽은 영혼의 목소리를 전하는 광경을 보며 혼란에 빠지게 된다. 갑자기 발생한 끔찍한 살인 사건에 실체 없는 용의자를 쫓던 에르큘 포와로는 자신의 모든 믿음이 흔들리는 경험을 하며 충격에 빠지게 되는데....",
+    "releaseYear": 2023,
+    "runtimeMinutes": 104,
+    "collectionId": 735384,
+    "collectionName": "에르퀼 푸아로 (케네스 브래너) 시리즈",
+    "voteAverage": 6.6,
+    "voteCount": 2880,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/vkfpeBAbWVNo46SwvsSXZkRpREY.jpg",
+    "posterAlt": "베니스 유령 살인사건 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/945729-a-haunting-in-venice/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_672",
+    "tmdbMovieId": 615656,
+    "title": "메가로돈 2",
+    "genres": [
+      "액션",
+      "SF",
+      "공포"
+    ],
+    "genreIds": [
+      28,
+      878,
+      27
+    ],
+    "tags": [
+      "액션",
+      "탄탄한 스토리",
+      "몰입감"
+    ],
+    "characters": [
+      "Jonas Taylor",
+      "Jiuming Zhang",
+      "Meiying",
+      "DJ",
+      "Montes",
+      "Driscoll",
+      "Mac"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "전 세계에서 가장 깊은 마리아나 해구, 역사상 가장 거대하고 무자비한 포식자가 도사리는 그곳에서 강철 다이버 '조나스'(제이슨 스타뎀)가 더 맹렬하게 돌아온 '메가로돈'과 짜릿한 대결을 펼치는 액션 어드벤처",
+    "releaseYear": 2023,
+    "runtimeMinutes": 116,
+    "collectionId": 742536,
+    "collectionName": "메가로돈 시리즈",
+    "voteAverage": 6.374,
+    "voteCount": 4025,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/cbAHK6Vrt0GClMRUxH8TsgC2JqL.jpg",
+    "posterAlt": "메가로돈 2 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/615656-meg-2-the-trench/watch?locale=KR",
+      "flatrate": [],
+      "rent": [],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_673",
+    "tmdbMovieId": 675445,
+    "title": "퍼피 구조대 더 무비",
+    "genres": [
+      "액션",
+      "모험",
+      "애니메이션"
+    ],
+    "genreIds": [
+      28,
+      12,
+      16,
+      35,
+      10751
+    ],
+    "tags": [
+      "영상미",
+      "액션",
+      "몰입감",
+      "세계관"
+    ],
+    "characters": [
+      "Chase (voice)",
+      "Ryder (voice)",
+      "Liberty (voice)",
+      "Skye (voice)",
+      "Marshall (Voice)",
+      "Rubble (voice)",
+      "Rocky (voice)"
+    ],
+    "contextTags": [
+      "family"
+    ],
+    "overview": "시민들을 속여 어드벤처 시티의 시장이 된 날씨 악당 `험딩어`는 취임식 당일, 구름을 조종해 천둥번개를 만드는 등 시민들을 위협하며 본모습을 드러낸다. 그런 가운데, 용감한 시민 퍼피 `리버티`로부터 어드벤처 시티가 위험에 빠진 소식을 들은 퍼피 구조대는 신속하게 시티로 출동하는데…! 위기에 빠진 어드벤처 시티의 운명은?",
+    "releaseYear": 2021,
+    "runtimeMinutes": 88,
+    "collectionId": 893731,
+    "collectionName": "PAW Patrol (Theatrical) Collection",
+    "voteAverage": 7.3,
+    "voteCount": 1276,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/eCwoA6FoMyvBaO4HB4BzhAKa1Mw.jpg",
+    "posterAlt": "퍼피 구조대 더 무비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/675445-paw-patrol-the-movie/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_674",
+    "tmdbMovieId": 190859,
+    "title": "아메리칸 스나이퍼",
+    "genres": [
+      "전쟁",
+      "액션"
+    ],
+    "genreIds": [
+      10752,
+      28
+    ],
+    "tags": [
+      "액션",
+      "긴장감",
+      "탄탄한 스토리",
+      "몰입감"
+    ],
+    "characters": [
+      "Chris Kyle",
+      "Taya Renae Kyle",
+      "Goat-Winston",
+      "Young Chris Kyle",
+      "Wayne Kyle",
+      "Debbie Kyle",
+      "Jeff Kyle"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "녹색 얼굴의 악마들, 전쟁의 종결자 네이비 실 사이에서도 전설이라 불렸던 남자 ‘크리스 카일’.  총알이 난무하는 전쟁터에서도 군인들이 적을 소탕할 수 있었던 것은 최고의 스나이퍼가 자신들을 지켜줄 것이라는 믿음 때문이었다. 그러나 신은 그에게 관용을 허락하지 않았다.  단 4일간의 허니문, 첫 아이가 태어나는 순간에도 전쟁터를 떠나지 못한다.  더 이상 자신이 사랑했던 남자가 아닌 것 같다는 아내의 눈물에도 그는 조국을 지키기 위해, 한 명의 전우를 더 살리기 위해 적에게 총구를 겨누는데…",
+    "releaseYear": 2014,
+    "runtimeMinutes": 133,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 7.412,
+    "voteCount": 13728,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/pKbOLUANgHiiSjC7qs6AXfzW9cX.jpg",
+    "posterAlt": "아메리칸 스나이퍼 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/190859-american-sniper/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        },
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_675",
+    "tmdbMovieId": 537915,
+    "title": "애프터",
+    "genres": [
+      "드라마",
+      "로맨스"
+    ],
+    "genreIds": [
+      18,
+      10749
+    ],
+    "tags": [
+      "반전",
+      "탄탄한 스토리",
+      "배우들의 연기력",
+      "감동"
+    ],
+    "characters": [
+      "Tessa Young",
+      "Hardin Scott",
+      "Landon Gibson",
+      "Steph Jones",
+      "Noah Porter",
+      "Zed Evans",
+      "Molly Samuels"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "대학 입학 후 첫 파티에 초대 받게 된 신입생 ‘테사’는 진실게임을 하던 중 키스 벌칙에 걸리고 만다. 상대는 학교에서 유명한 반항아 ‘하딘’. 키스를 앞둔 0.1초 전, 모두가 주목하는 그 순간 ‘테사’는 ‘하딘’의 입술을 거절하고 만다. 강렬했던 첫 만남 이후, 마치 새로운 세상을 발견한 듯 한번도 경험한 적 없던 감정에 눈을 뜨게 된 두 사람. ‘하딘’은 자신의 비밀 장소로 ‘테사’를 초대하고 이제 두 사람은 서로를 모르기 전으로 절대 되돌아 갈 수 없음을 알게 되는데…",
+    "releaseYear": 2019,
+    "runtimeMinutes": 106,
+    "collectionId": 702624,
+    "collectionName": "애프터 시리즈",
+    "voteAverage": 7.105,
+    "voteCount": 8540,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/zTZ7Q9mAwBQoYaR8HgGbmBNp6AC.jpg",
+    "posterAlt": "애프터 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/537915-after/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 8,
+          "providerName": "Netflix",
+          "logoPath": "/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/pbpMk2JmcoNnQwx5JGpXngfoWtp.jpg"
+        },
+        {
+          "providerId": 97,
+          "providerName": "Watcha",
+          "logoPath": "/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/5gmEivxOGPdq4Afpq1f8ktLtEW1.jpg"
+        },
+        {
+          "providerId": 701,
+          "providerName": "FilmBox+",
+          "logoPath": "/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/fbveJTcro9Xw2KuPIIoPPePHiwy.jpg"
+        },
+        {
+          "providerId": 1796,
+          "providerName": "Netflix Standard with Ads",
+          "logoPath": "/dpR8r13zWDeUR0QkzWidrdMxa56.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/dpR8r13zWDeUR0QkzWidrdMxa56.jpg"
+        },
+        {
+          "providerId": 1883,
+          "providerName": "TVING",
+          "logoPath": "/qHThQdkJuROK0k5QTCrknaNukWe.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/qHThQdkJuROK0k5QTCrknaNukWe.jpg"
+        }
+      ],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 3,
+          "providerName": "Google Play Movies",
+          "logoPath": "/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/8z7rC8uIDaTM91X0ZfkRf04ydj2.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "id": "movie_676",
+    "tmdbMovieId": 1493859,
+    "title": "피자 무비",
+    "genres": [
+      "코미디",
+      "모험",
+      "판타지"
+    ],
+    "genreIds": [
+      35,
+      12,
+      14
+    ],
+    "tags": [
+      "감성적인 음악",
+      "OST",
+      "유머",
+      "캐릭터 매력"
+    ],
+    "characters": [
+      "Jack",
+      "Montgomery",
+      "Lizzy",
+      "Blake",
+      "Ashley",
+      "Logan",
+      "Sidney"
+    ],
+    "contextTags": [
+      "school"
+    ],
+    "overview": "한 무리의 대학생들이 배달시킨 피자를 찾으러 기숙사 로비로 내려간다. 하지만 문제가 하나 있다. 이들이 수제로 만든 약에 심하게 취해 있다는 것. 그 탓에 고작 두 층을 내려가는 단순한 여정이 정신이 아득해지는 기묘한 퀘스트로 변한다.",
+    "releaseYear": 2026,
+    "runtimeMinutes": 98,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.5,
+    "voteCount": 129,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/2LY19ZhEcN0DDRzOtIP6m4on7Rw.jpg",
+    "posterAlt": "피자 무비 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/1493859-pizza-movie/watch?locale=KR",
+      "flatrate": [
+        {
+          "providerId": 337,
+          "providerName": "Disney Plus",
+          "logoPath": "/97yvRBw1GzX7fXprcF80er19ot.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/97yvRBw1GzX7fXprcF80er19ot.jpg"
+        }
+      ],
+      "rent": [],
+      "buy": []
+    }
+  },
+  {
+    "id": "movie_677",
+    "tmdbMovieId": 346685,
+    "title": "걸 온 더 트레인",
+    "genres": [
+      "범죄",
+      "미스터리",
+      "스릴러"
+    ],
+    "genreIds": [
+      80,
+      9648,
+      53
+    ],
+    "tags": [
+      "긴장감",
+      "탄탄한 스토리",
+      "여운",
+      "반전"
+    ],
+    "characters": [
+      "Rachel Watson",
+      "Anna Watson",
+      "Megan Hipwell",
+      "Scott Hipwell",
+      "Tom Watson",
+      "Detective Sgt. Riley",
+      "Martha"
+    ],
+    "contextTags": [
+      "literary"
+    ],
+    "overview": "톰과의 이혼으로 알코올 의존자가 된 레이첼은 매일 같은 시간, 같은 칸 통근 열차에 앉아 창 밖 풍경을 보는 게 낙이다. 그런 그녀의 눈에 들어온 완벽한 커플, 메건 부부. 어느 날 메건이 실종되고, 그녀의 남편 스콧이 용의선상에 오르지만 톰의 새로운 부인 애나는 사건의 용의자로 레이첼을 지목한다.",
+    "releaseYear": 2016,
+    "runtimeMinutes": 112,
+    "collectionId": null,
+    "collectionName": null,
+    "voteAverage": 6.441,
+    "voteCount": 6071,
+    "posterUrl": "https://image.tmdb.org/t/p/w780/1w6pJJfB1HFUJ9tA8AMxLXYLCW1.jpg",
+    "posterAlt": "걸 온 더 트레인 포스터",
+    "watchProvidersKr": {
+      "region": "KR",
+      "link": "https://www.themoviedb.org/movie/346685-the-girl-on-the-train/watch?locale=KR",
+      "flatrate": [],
+      "rent": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
+        }
+      ],
+      "buy": [
+        {
+          "providerId": 356,
+          "providerName": "wavve",
+          "logoPath": "/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg",
+          "logoUrl": "https://image.tmdb.org/t/p/w92/hPcjSaWfMwEqXaCMu7Fkb529Dkc.jpg"
         }
       ]
     }

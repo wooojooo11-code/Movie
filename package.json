@@ -8,6 +8,7 @@
     "build": "node ./node_modules/vue-tsc/bin/vue-tsc.js -b && node ./node_modules/vite/bin/vite.js build && node ./scripts/write-spa-fallback.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "typecheck": "vue-tsc -b",
+    "test:situations": "node ./scripts/test-situation-recommendations.mjs",
     "sync:tmdb": "node ./scripts/sync-tmdb-data.mjs"
   },
   "dependencies": {

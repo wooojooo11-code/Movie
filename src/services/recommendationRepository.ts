@@ -1,7 +1,6 @@
 import {
   getSupabaseRatingHistoryRelation,
   getSupabaseRecommendationContextRelation,
-  getSupabaseRecommendationContextWeightsRelation,
   getSupabaseRecommendationExclusionsRelation,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
@@ -11,8 +10,7 @@ import {
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
 import type {
-  MoodContext,
-  RecommendationContextWeights,
+  ActiveSituation,
   RecommendationStateSnapshot,
   StoredRatingRecord
 } from '@/types/recommendation';
@@ -63,20 +61,16 @@ interface SupabaseRecommendationExclusionRow {
 }
 
 interface SupabaseRecommendationContextRow {
-  current_context: null | RecommendationStateSnapshot['currentContext'];
+  active_situation: ActiveSituation | null;
+  active_situation_updated_at: null | string;
+  current_context: null | string;
   updated_at: null | string;
   user_id?: string;
-  [key: string]: boolean | null | number | string | string[] | undefined;
-}
-
-interface SupabaseRecommendationContextWeightRow {
-  context_key: null | MoodContext;
-  genre_id: null | number;
-  weight: null | number;
+  [key: string]: unknown;
 }
 
 let hasRatingHistoryTable: boolean | null = null;
-let hasRecommendationContextWeightsTable: boolean | null = null;
+let supportsActiveSituationColumns: boolean | null = null;
 let supportsRatingsRawDirectionColumn: boolean | null = null;
 let supportsRatingHistoryRawDirectionColumn: boolean | null = null;
 
@@ -97,8 +91,9 @@ const isMissingSupabaseTableError = (error: unknown, tableName: string) =>
   getSupabaseErrorMessage(error).includes(`'public.${tableName}'`);
 
 const isMissingSupabaseColumnError = (error: unknown, tableName: string, columnName: string) =>
-  getSupabaseErrorCode(error) === '42703' &&
-  getSupabaseErrorMessage(error).includes(`column ${tableName}.${columnName} does not exist`);
+  (getSupabaseErrorCode(error) === '42703' || getSupabaseErrorCode(error) === 'PGRST204') &&
+  getSupabaseErrorMessage(error).includes(columnName) &&
+  getSupabaseErrorMessage(error).includes(tableName);
 
 const buildSupabaseRatingSelectColumns = (userColumn: string, includeRawDirection: boolean) =>
   [
@@ -201,8 +196,16 @@ const serializeRecommendationExclusionRow = (userId: string, movieId: string) =>
 
 const serializeRecommendationContextRow = (snapshot: RecommendationStateSnapshot) => ({
   [supabaseRecommendationContextUserColumn]: snapshot.userId,
-  current_context: snapshot.currentContext,
-  updated_at: snapshot.currentContextUpdatedAt
+  current_context: 'normal',
+  updated_at: snapshot.activeSituationUpdatedAt,
+  active_situation: snapshot.activeSituation,
+  active_situation_updated_at: snapshot.activeSituationUpdatedAt
+});
+
+const serializeLegacyRecommendationContextRow = (snapshot: RecommendationStateSnapshot) => ({
+  [supabaseRecommendationContextUserColumn]: snapshot.userId,
+  current_context: 'normal',
+  updated_at: snapshot.activeSituationUpdatedAt
 });
 
 export const localRecommendationRepository: RecommendationRepository = {
@@ -258,7 +261,10 @@ export const localRecommendationRepository: RecommendationRepository = {
         additionalTasteAnalysisBatches: [],
         ratingResumeSurface: existing.ratingResumeSurface ?? 'primary',
         dismissedRecommendationMovieIds: [],
-        selectedTasteAnalysisGenres: existing.selectedTasteAnalysisGenres ?? []
+        selectedTasteAnalysisGenres: existing.selectedTasteAnalysisGenres ?? [],
+        activeSituation: existing.activeSituation ?? { kind: 'none' },
+        activeSituationUpdatedAt:
+          existing.activeSituationUpdatedAt ?? new Date(0).toISOString()
       } satisfies RecommendationStateSnapshot)
     );
   }
@@ -366,10 +372,41 @@ export const remoteRecommendationRepository = {
       .eq(supabaseRecommendationExclusionsUserColumn, userId)
       .eq('reason', ALREADY_SEEN_REASON);
 
-    const { data: contextData, error: contextError } = await contextRelation
-      .select([supabaseRecommendationContextUserColumn, 'current_context', 'updated_at'].join(', '))
+    const shouldReadActiveSituation = supportsActiveSituationColumns !== false;
+    let { data: contextData, error: contextError } = await contextRelation
+      .select(
+        [
+          supabaseRecommendationContextUserColumn,
+          'current_context',
+          'updated_at',
+          ...(shouldReadActiveSituation ? ['active_situation', 'active_situation_updated_at'] : [])
+        ].join(', ')
+      )
       .eq(supabaseRecommendationContextUserColumn, userId)
       .maybeSingle();
+
+    if (
+      contextError &&
+      shouldReadActiveSituation &&
+      (isMissingSupabaseColumnError(
+        contextError,
+        'recommendation_context_settings',
+        'active_situation'
+      ) ||
+        isMissingSupabaseColumnError(
+          contextError,
+          'recommendation_context_settings',
+          'active_situation_updated_at'
+        ))
+    ) {
+      supportsActiveSituationColumns = false;
+      ({ data: contextData, error: contextError } = await contextRelation
+        .select([supabaseRecommendationContextUserColumn, 'current_context', 'updated_at'].join(', '))
+        .eq(supabaseRecommendationContextUserColumn, userId)
+        .maybeSingle());
+    } else if (!contextError && shouldReadActiveSituation) {
+      supportsActiveSituationColumns = true;
+    }
 
     if (ratingsError) {
       throw ratingsError;
@@ -404,8 +441,9 @@ export const remoteRecommendationRepository = {
         .filter((row) => row.reason === ALREADY_SEEN_REASON)
         .map((row) => row.movie_id),
       selectedTasteAnalysisGenres: [],
-      currentContext: contextRow?.current_context ?? 'normal',
-      currentContextUpdatedAt: contextRow?.updated_at ?? new Date(0).toISOString()
+      activeSituation: contextRow?.active_situation ?? { kind: 'none' },
+      activeSituationUpdatedAt:
+        contextRow?.active_situation_updated_at ?? new Date(0).toISOString()
     };
   },
   async save(snapshot: RecommendationStateSnapshot): Promise<void> {
@@ -477,12 +515,40 @@ export const remoteRecommendationRepository = {
       }
     }
 
-    const { error: contextSaveError } = await contextRelation.upsert(
-      serializeRecommendationContextRow(snapshot),
+    const shouldWriteActiveSituation = supportsActiveSituationColumns !== false;
+    let { error: contextSaveError } = await contextRelation.upsert(
+      shouldWriteActiveSituation
+        ? serializeRecommendationContextRow(snapshot)
+        : serializeLegacyRecommendationContextRow(snapshot),
       {
         onConflict: supabaseRecommendationContextUserColumn
       }
     );
+
+    if (
+      contextSaveError &&
+      shouldWriteActiveSituation &&
+      (isMissingSupabaseColumnError(
+        contextSaveError,
+        'recommendation_context_settings',
+        'active_situation'
+      ) ||
+        isMissingSupabaseColumnError(
+          contextSaveError,
+          'recommendation_context_settings',
+          'active_situation_updated_at'
+        ))
+    ) {
+      supportsActiveSituationColumns = false;
+      ({ error: contextSaveError } = await contextRelation.upsert(
+        serializeLegacyRecommendationContextRow(snapshot),
+        {
+          onConflict: supabaseRecommendationContextUserColumn
+        }
+      ));
+    } else if (!contextSaveError && shouldWriteActiveSituation) {
+      supportsActiveSituationColumns = true;
+    }
 
     if (contextSaveError) {
       throw contextSaveError;
@@ -657,66 +723,5 @@ export const remoteRatingHistoryRepository = {
     }
 
     hasRatingHistoryTable = true;
-  }
-};
-
-const allowedContexts: MoodContext[] = [
-  'normal',
-  'after_exam',
-  'bed_time',
-  'with_friends',
-  'after_academy'
-];
-
-export const remoteRecommendationContextWeightsRepository = {
-  async load(): Promise<null | Partial<RecommendationContextWeights>> {
-    if (!isSupabaseConfigured) {
-      return null;
-    }
-
-    if (hasRecommendationContextWeightsTable === false) {
-      return null;
-    }
-
-    const relation = getSupabaseRecommendationContextWeightsRelation() as any;
-
-    if (!relation) {
-      return null;
-    }
-
-    const { data, error } = await relation
-      .select('context_key, genre_id, weight')
-      .order('context_key', { ascending: true })
-      .order('genre_id', { ascending: true });
-
-    if (error && isMissingSupabaseTableError(error, 'recommendation_context_weights')) {
-      hasRecommendationContextWeightsTable = false;
-      return null;
-    }
-
-    if (error) {
-      throw error;
-    }
-
-    hasRecommendationContextWeightsTable = true;
-
-    const groupedWeights: Partial<RecommendationContextWeights> = {};
-
-    for (const row of (data ?? []) as SupabaseRecommendationContextWeightRow[]) {
-      if (
-        !row.context_key ||
-        !allowedContexts.includes(row.context_key) ||
-        typeof row.genre_id !== 'number' ||
-        typeof row.weight !== 'number'
-      ) {
-        continue;
-      }
-
-      const contextWeights = groupedWeights[row.context_key] ?? {};
-      contextWeights[row.genre_id] = row.weight;
-      groupedWeights[row.context_key] = contextWeights;
-    }
-
-    return groupedWeights;
   }
 };

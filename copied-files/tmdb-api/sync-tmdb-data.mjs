@@ -8,7 +8,7 @@ const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
-const TARGET_CATALOG_SIZE = 523;
+const TARGET_CATALOG_SIZE = 700;
 const FIRST_DISCOVERED_MOVIE_INDEX = 134;
 const DISCOVER_PAGE_LIMIT = 18;
 const DISCOVER_MIN_VOTE_COUNT = 100;
@@ -527,6 +527,46 @@ const deriveTags = (detail) => {
   return detail.genres.map((genre) => genre.name).slice(0, 2);
 };
 
+const contextTagMatchers = [
+  { tag: 'christmas', needles: ['christmas', 'xmas', 'holiday season'] },
+  { tag: 'halloween', needles: ['halloween'] },
+  { tag: 'birthday', needles: ['birthday', 'birth day'] },
+  { tag: 'new_year', needles: ['new year', 'new year\'s eve'] },
+  { tag: 'graduation', needles: ['graduation', 'graduate'] },
+  { tag: 'school', needles: ['school', 'college', 'university', 'high school'] },
+  { tag: 'literary', needles: ['based on novel', 'based on book', 'writer', 'author', 'literature'] },
+  { tag: 'travel', needles: ['travel', 'road trip', 'journey', 'vacation'] },
+  { tag: 'space', needles: ['space', 'astronaut', 'moon', 'solar eclipse', 'lunar eclipse'] },
+  { tag: 'winter', needles: ['winter', 'snow', 'christmas'] },
+  { tag: 'summer', needles: ['summer', 'beach', 'vacation'] },
+  { tag: 'spring', needles: ['spring'] }
+];
+
+const deriveContextTags = (detail) => {
+  const rawKeywords = unique(
+    (detail.keywords?.keywords ?? detail.keywords?.results ?? []).map((keyword) => keyword?.name?.trim())
+  );
+  const signalBlob = normalizeText(
+    [
+      rawKeywords.join(' '),
+      detail.overview ?? '',
+      detail.tagline ?? '',
+      detail.title ?? '',
+      detail.original_title ?? ''
+    ].join(' ')
+  );
+  const tags = contextTagMatchers
+    .filter((matcher) => matcher.needles.some((needle) => signalBlob.includes(normalizeText(needle))))
+    .map((matcher) => matcher.tag);
+  const genreNames = detail.genres.map((genre) => normalizeText(genre.name));
+
+  if (genreNames.some((genre) => genre === 'family' || genre === '가족')) {
+    tags.push('family');
+  }
+
+  return unique(tags);
+};
+
 const deriveCredits = (detail) => {
   const cast = Array.isArray(detail.credits?.cast) ? detail.credits.cast : [];
   const crew = Array.isArray(detail.credits?.crew) ? detail.credits.crew : [];
@@ -628,6 +668,7 @@ const buildCatalogMovie = async (seed, tmdbMovieId, detail, posterBaseUrl) => {
   const title = manualTitleOverrides[seed.id] ?? detail.title?.trim() ?? detail.original_title?.trim() ?? seed.query;
   const genres = detail.genres.map((genre) => genre.name).slice(0, MAX_GENRE_COUNT);
   const tags = deriveTags(detail);
+  const contextTags = deriveContextTags(detail);
   const watchProvidersKr = await fetchWatchProviders(tmdbMovieId);
 
   return {
@@ -639,8 +680,18 @@ const buildCatalogMovie = async (seed, tmdbMovieId, detail, posterBaseUrl) => {
       genreIds: detail.genres.map((genre) => genre.id),
       tags,
       characters: credits.characters,
+      contextTags,
       overview: detail.overview?.trim() || '',
       releaseYear: Number.parseInt(String(detail.release_date ?? '').slice(0, 4), 10) || seed.year,
+      runtimeMinutes: typeof detail.runtime === 'number' && detail.runtime > 0 ? detail.runtime : null,
+      collectionId:
+        typeof detail.belongs_to_collection?.id === 'number' ? detail.belongs_to_collection.id : null,
+      collectionName:
+        typeof detail.belongs_to_collection?.name === 'string'
+          ? detail.belongs_to_collection.name.trim()
+          : null,
+      voteAverage: typeof detail.vote_average === 'number' ? detail.vote_average : null,
+      voteCount: typeof detail.vote_count === 'number' ? detail.vote_count : null,
       posterUrl: `${posterBaseUrl}${detail.poster_path}`,
       posterAlt: `${title} 포스터`,
       watchProvidersKr

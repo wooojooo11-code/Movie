@@ -7,7 +7,6 @@ import LoginView from '@/views/LoginView.vue';
 import RatedMoviesView from '@/views/RatedMoviesView.vue';
 import RecommendationsView from '@/views/RecommendationsView.vue';
 import RatingView from '@/views/RatingView.vue';
-import { useRecommendationStore } from '@/services/recommendationStore';
 import { useAuthStore } from '@/stores/auth';
 
 const router = createRouter({
@@ -90,7 +89,6 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   const authStore = useAuthStore();
-  const recommendationStore = useRecommendationStore();
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const guestOnly = to.matched.some((record) => record.meta.guestOnly);
 
@@ -111,10 +109,6 @@ router.beforeEach(async (to) => {
         redirect: to.fullPath
       }
     };
-  }
-
-  if (to.name === 'recommendations' && recommendationStore.state.profile.totalRatings === 0) {
-    return { name: 'rating' };
   }
 
   return true;

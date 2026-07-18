@@ -2782,474 +2782,486 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
   },
   "movie_501": {
     "characters": [
-      "Ana",
-      "Fernando",
-      "Teresa",
-      "Isabel",
-      "Doña Lucía",
-      "Médico",
-      "Frankenstein"
+      "Marinette Dupain-Cheng / Ladybug (voice)",
+      "Adrien Agreste / Chat Noir (voice)",
+      "Alya Césaire (voice)",
+      "Nino Lahiffe (voice)",
+      "Gabriel Agreste / Le Papillon (voice)",
+      "Chloé Bourgeois / Nathalie Sancoeur (voice)",
+      "Sabrina Raincomprix (voice)"
     ],
     "cast": [
-      "아나 토렌트",
-      "Fernando Fernán Gómez",
-      "Teresa Gimpera",
-      "Isabel Tellería",
-      "Laly Soldevila",
-      "Miguel Picazo",
-      "José Villasante"
+      "Anouck Hautbois",
+      "Benjamin Bollen",
+      "Fanny Bloc",
+      "Alexandre Nguyen",
+      "Antoine Tomé",
+      "Marie Chevalot",
+      "Marie Nonnenmacher"
     ],
-    "director": "빅토르 에리세"
+    "director": "Jeremy Zag"
   },
   "movie_502": {
     "characters": [
-      "Ryota Yokoyama",
-      "Yukari Yokoyama",
-      "Chinami Yokoyama",
-      "Nobuo Kataoka",
-      "Atsushi Yokoyama",
-      "Satsuki Kataoka",
-      "Mutsu Kataoka"
+      "Pete Wagner",
+      "Ellie Wagner",
+      "Kim",
+      "Elizabeth “Lizzy” Viara",
+      "Jan",
+      "Sharon",
+      "Karen"
     ],
     "cast": [
-      "아베 히로시",
-      "夏川結衣",
-      "YOU",
-      "高橋和也",
-      "田中祥平",
-      "野本ほたる",
-      "林凌雅"
+      "마크 월버그",
+      "로즈 번",
+      "Allyn Rachel",
+      "이사벨라 메르세드",
+      "Julie Hagerty",
+      "티그 노타로",
+      "옥타비아 스펜서"
     ],
-    "director": "고레에다 히로카즈"
+    "director": "Sean Anders"
   },
   "movie_503": {
     "characters": [
-      "Projectionist",
-      "Ticket Woman",
-      "Japanese Tourist",
-      "Self",
-      "Peanut Eating Woman"
+      "Conan Edogawa (voice)",
+      "Shinichi Kudo (voice)",
+      "Ran Mouri (voice)",
+      "Kogoro Mouri (voice)",
+      "Yuusaku Kudo / Sherlock Holmes (voice)",
+      "Ai Haibara (voice)",
+      "Ayumi Yoshida (voice)"
     ],
     "cast": [
-      "이강생",
-      "陳湘琪",
-      "Kiyonobu Mitamura",
-      "묘천",
-      "石雋",
-      "陳昭榮",
-      "양구이메이"
+      "타카야마 미나미",
+      "야마구치 캇페이",
+      "야마자키 와카나",
+      "카미야 아키라",
+      "다나카 히데유키",
+      "하야시바라 메구미",
+      "이와이 유키코"
     ],
-    "director": "차이밍량"
+    "director": "こだま兼嗣"
   },
   "movie_504": {
     "characters": [
-      "Bud",
-      "Mother",
-      "Kevin",
-      "John",
-      "Helen",
-      "Edna",
-      "Curly"
+      "Katniss Everdeen",
+      "Peeta Mellark",
+      "Gale Hawthorne",
+      "Haymitch Abernathy",
+      "Effie Trinket",
+      "President Alma Coin",
+      "Plutarch Heavensbee"
     ],
     "cast": [
-      "Leigh McCormack",
-      "Marjorie Yates",
-      "Anthony Watson",
-      "Nicholas Lamont",
-      "Ayse Owens",
-      "Tina Malone",
-      "Jimmy Wilde"
+      "제니퍼 로렌스",
+      "조쉬 허처슨",
+      "리암 헴스워스",
+      "우디 해럴슨",
+      "엘리자베스 뱅크스",
+      "줄리앤 무어",
+      "필립 세이모어 호프만"
     ],
-    "director": "테렌스 데이비스"
+    "director": "프랜시스 로렌스"
   },
   "movie_505": {
     "characters": [
-      "Monsieur Hulot",
-      "Young Tourist",
-      "Mr. Schultz's Companion",
-      "Woman Selling Eyeglasses",
-      "Shopper in Department Store",
-      "Mr. Lacs's Secretary",
-      "Mme. Giffard"
+      "Shrek (voice)",
+      "Donkey (voice)",
+      "Princess Fiona (voice)",
+      "Puss in Boots (voice)",
+      "Queen Lillian (voice)",
+      "King Harold (voice)",
+      "Prince Charming (voice)"
     ],
     "cast": [
-      "자크 타티",
-      "Barbara Dennek",
-      "Rita Maiden",
-      "France Rumilly",
-      "France Delahalle",
-      "Valérie Camille",
-      "Erika Dentzler"
+      "마이크 마이어스",
+      "에디 머피",
+      "카메론 디아즈",
+      "안토니오 반데라스",
+      "줄리 앤드류스",
+      "존 클리즈",
+      "루퍼트 에버렛"
     ],
-    "director": "자크 타티"
+    "director": "크리스 밀러"
   },
   "movie_506": {
     "characters": [
-      "Tali",
-      "Mecha",
-      "Gregorio",
-      "Verónica",
-      "Mercedes",
-      "Momi",
-      "José"
+      "Xander Cage",
+      "Yelena",
+      "Yorgi",
+      "Agent Augustus Gibbons",
+      "Agent Toby Lee Shavers",
+      "Milan Sova",
+      "Kirill"
     ],
     "cast": [
-      "Mercedes Morán",
-      "Graciela Borges",
-      "Martín Adjemián",
-      "Leonora Balcarce",
-      "Silvia Baylé",
-      "Sofia Bertolotto",
-      "Juan Cruz Bordeu"
+      "빈 디젤",
+      "아시아 아르젠토",
+      "마튼 초카스",
+      "사무엘 L. 잭슨",
+      "Michael Roof",
+      "Richy Müller",
+      "Werner Daehn"
     ],
-    "director": "루크레시아 마르텔"
+    "director": "Rob Cohen"
   },
   "movie_507": {
     "characters": [
-      "Pickle",
-      "Belly Bottom",
-      "Kevin Huang",
-      "Congressman Gao",
-      "Peanut",
-      "Yeh Feng Ju",
-      "Deputy Speaker"
+      "Raquel",
+      "Ares Hidalgo",
+      "Yoshi",
+      "Daniela",
+      "Apolo Hidalgo",
+      "Artemis Hidalgo",
+      "Tere"
     ],
     "cast": [
-      "莊益增",
-      "陳竹昇",
-      "戴立忍",
-      "천이원",
-      "納豆",
-      "丁國琳",
-      "李永豐"
+      "Clara Galle",
+      "Julio Peña",
+      "Guillermo Lasheras",
+      "Natalia Azahara",
+      "Hugo Arbues",
+      "Eric Masip",
+      "Pilar Castro"
     ],
-    "director": "黃信堯"
+    "director": "Marçal Forés"
   },
   "movie_508": {
     "characters": [
-      "Self"
+      "Otto Anderson",
+      "Marisol",
+      "Jimmy",
+      "Malcolm",
+      "Tommy",
+      "Anita",
+      "Reuben"
     ],
     "cast": [
-      "아녜스 바르다",
-      "Bodan Litnanski",
-      "François Wertheimer"
+      "톰 행크스",
+      "마리아나 트레비노",
+      "카메론 브리튼",
+      "Mack Bayda",
+      "마누엘 가르시아 룰포",
+      "Juanita Jennings",
+      "Peter Lawson Jones"
     ],
-    "director": "아녜스 바르다"
+    "director": "마크 포스터"
   },
   "movie_509": {
     "characters": [
-      "Ahmed Ahmadpour",
-      "Mohamed Reza Nematzadeh",
-      "Teacher",
-      "Mother",
-      "Father",
-      "Persian Neighbour",
-      "Ali"
+      "Benjamin Franklin Gates",
+      "Abigail Chase",
+      "Riley Poole",
+      "Mitch Wilkinson",
+      "Patrick Gates",
+      "Emily Appleton",
+      "Peter Sadusky"
     ],
     "cast": [
-      "Babek Ahmed Poor",
-      "Ahmed Ahmed Poor",
-      "Kheda Barech Defai",
-      "Iran Outari",
-      "Ait Ansari",
-      "Sadika Taohidi",
-      "Biman Mouafi"
+      "니콜라스 케이지",
+      "다이앤 크루거",
+      "Justin Bartha",
+      "에드 해리스",
+      "존 보이트",
+      "헬렌 미렌",
+      "하비 카이텔"
     ],
-    "director": "압바스 키아로스타미"
+    "director": "Jon Turteltaub"
   },
   "movie_510": {
     "characters": [
-      "Xiao Si'r",
-      "Ming",
-      "Father",
-      "Mother",
-      "Eldest Sister",
-      "Elder Brother",
-      "Middle Sister"
+      "David / Walter",
+      "Daniels",
+      "Oram",
+      "Tennessee",
+      "Lope",
+      "Karine",
+      "Ricks"
     ],
     "cast": [
-      "장첸",
-      "楊靜怡",
-      "장국주",
-      "金燕玲",
-      "王琄",
-      "張翰",
-      "姜秀瓊"
+      "마이클 패스벤더",
+      "캐서린 워터스톤",
+      "빌리 크루덥",
+      "대니 맥브라이드",
+      "데미안 비치르",
+      "카먼 이조고",
+      "Jussie Smollett"
     ],
-    "director": "에드워드 양"
+    "director": "리들리 스콧"
   },
   "movie_511": {
     "characters": [
-      "Em",
-      "Kevin",
-      "Mike",
-      "Lee",
-      "Beth",
-      "Hugh",
-      "Amir"
+      "Po (voice)",
+      "Tigress (voice)",
+      "Master Shifu (voice)",
+      "Lord Shen (voice)",
+      "Monkey (voice)",
+      "Viper (voice)",
+      "Mantis (voice)"
     ],
     "cast": [
-      "Emily Baldoni",
-      "Maury Sterling",
-      "니컬러스 브렌던",
-      "로린 스카파리아",
-      "Elizabeth Gracen",
-      "Hugo Armstrong",
-      "Alex Manugian"
+      "잭 블랙",
+      "안젤리나 졸리",
+      "더스틴 호프만",
+      "게리 올드만",
+      "성룡",
+      "루시 리우",
+      "세스 로건"
     ],
-    "director": "James Ward Byrkit"
+    "director": "Jennifer Yuh Nelson"
   },
   "movie_512": {
     "characters": [
-      "Grey Trace",
-      "Detective Cortez",
-      "Eron Keen",
-      "Asha Trace",
-      "Fisk",
-      "Pamela",
-      "Stem (voice)"
+      "Hutch Mansell",
+      "Yulian Kuznetsov",
+      "Becca Mansell",
+      "David Mansell",
+      "Eddie Williams",
+      "The Barber",
+      "Harry Mansell"
     ],
     "cast": [
-      "로건 마셜그린",
-      "베티 게이브리얼",
-      "Harrison Gilbertson",
-      "Melanie Vallejo",
-      "Benedict Hardie",
-      "Linda Cropper",
-      "Simon Maiden"
+      "밥 오덴커크",
+      "Алексей Серебряков",
+      "코니 닐센",
+      "크리스토퍼 로이드",
+      "마이클 아이언사이드",
+      "콜린 새먼",
+      "RZA"
     ],
-    "director": "Leigh Whannell"
+    "director": "Илья Найшуллер"
   },
   "movie_513": {
     "characters": [
-      "Qui-Gon Jinn",
-      "Obi-Wan Kenobi",
-      "Padmé Amidala",
-      "Anakin Skywalker",
-      "Senator Palpatine",
-      "Shmi Skywalker",
-      "Governor Sio Bibble"
+      "Ruby Rossi",
+      "Jackie Rossi",
+      "Frank Rossi",
+      "Bernardo Villalobos",
+      "Miles",
+      "Leo Rossi",
+      "Gertie"
     ],
     "cast": [
-      "리암 니슨",
-      "이완 맥그리거",
-      "나탈리 포트만",
-      "제이크 로이드",
-      "이언 맥더미드",
-      "페르닐라 아우구스트",
-      "Oliver Ford Davies"
+      "에밀리아 존스",
+      "말리 매틀린",
+      "트로이 코처",
+      "에우헤니오 데르베스",
+      "퍼디아 월시필로",
+      "대니얼 듀랜트",
+      "에이미 포사이스"
     ],
-    "director": "조지 루카스"
+    "director": "션 헤이더"
   },
   "movie_514": {
     "characters": [
-      "Anakin Skywalker",
-      "Obi-Wan Kenobi",
-      "Padmé Amidala",
-      "Count Dooku",
-      "Mace Windu",
-      "Yoda (voice)",
-      "Chancellor Palpatine"
+      "Lilo",
+      "Nani",
+      "Stitch (voice)",
+      "Jumba",
+      "Pleakley",
+      "Cobra Bubbles",
+      "Tūtū"
     ],
     "cast": [
-      "헤이든 크리스텐슨",
-      "이완 맥그리거",
-      "나탈리 포트만",
-      "크리스토퍼 리",
-      "사무엘 L. 잭슨",
-      "프랭크 오즈",
-      "이언 맥더미드"
+      "마이아 케알로하",
+      "시드니 아구동",
+      "크리스 샌더스",
+      "잭 갤리퍼내키스",
+      "빌리 매그너슨",
+      "코트니 B. 밴스",
+      "에이미 힐"
     ],
-    "director": "조지 루카스"
+    "director": "딘 플레이셔 캠프"
   },
   "movie_515": {
     "characters": [
-      "Anakin Skywalker / Darth Vader",
-      "Obi-Wan Kenobi",
-      "Padmé Amidala",
-      "Chancellor Palpatine / Darth Sidious",
-      "Mace Windu",
-      "Senator Bail Organa",
-      "Yoda (voice)"
+      "Clover Paul",
+      "Max",
+      "Abe",
+      "Melanie Paul",
+      "Dr. Alan Hill",
+      "Nina Riley",
+      "Megan"
     ],
     "cast": [
-      "헤이든 크리스텐슨",
-      "이완 맥그리거",
-      "나탈리 포트만",
-      "이언 맥더미드",
-      "사무엘 L. 잭슨",
-      "지미 스미츠",
-      "프랭크 오즈"
+      "엘라 루빈",
+      "마이클 시미노",
+      "벨몬트 카멜리",
+      "마이아 미첼",
+      "피터 스토메어",
+      "오데사 아지언",
+      "유지영"
     ],
-    "director": "조지 루카스"
+    "director": "다비드 F. 산드베리"
   },
   "movie_516": {
     "characters": [
-      "Luke Skywalker",
-      "Han Solo",
-      "Princess Leia Organa",
-      "Grand Moff Tarkin",
-      "Obi-Wan \"Ben\" Kenobi",
-      "C-3PO",
-      "R2-D2"
+      "Caesar",
+      "Will Rodman",
+      "Caroline Aranha",
+      "Charles Rodman",
+      "John Landon",
+      "Dodge Landon",
+      "Robert Franklin"
     ],
     "cast": [
-      "마크 해밀",
-      "해리슨 포드",
-      "캐리 피셔",
-      "피터 커싱",
-      "앨릭 기니스",
-      "안소니 다니엘스",
-      "Kenny Baker"
+      "앤디 서키스",
+      "제임스 프랭코",
+      "프리다 핀토",
+      "존 리스고",
+      "브라이언 콕스",
+      "톰 펠튼",
+      "Tyler Labine"
     ],
-    "director": "조지 루카스"
+    "director": "루퍼트 와이어트"
   },
   "movie_517": {
     "characters": [
-      "Luke Skywalker",
-      "Han Solo",
-      "Princess Leia",
-      "Lando Calrissian",
-      "C-3PO",
-      "Darth Vader",
-      "Chewbacca"
+      "Manfred 'Manny' (voice)",
+      "Sid (voice)",
+      "Diego (voice)",
+      "Soto (voice)",
+      "Zeke (voice)",
+      "Rhino (voice)",
+      "Rhino / Start (voice)"
     ],
     "cast": [
-      "마크 해밀",
-      "해리슨 포드",
-      "캐리 피셔",
-      "빌리 디 윌리엄스",
-      "안소니 다니엘스",
-      "David Prowse",
-      "Peter Mayhew"
+      "레이 로마노",
+      "존 레귀자모",
+      "데니스 리어리",
+      "Goran Višnjić",
+      "잭 블랙",
+      "세드릭 더 엔터테이너",
+      "스티븐 루트"
     ],
-    "director": "어빈 케쉬너"
+    "director": "Chris Wedge"
   },
   "movie_518": {
     "characters": [
-      "Luke Skywalker",
-      "Han Solo",
-      "Princess Leia",
-      "Lando Calrissian",
-      "C-3PO",
-      "Chewbacca",
-      "Anakin Skywalker"
+      "Bruce Wayne",
+      "Commissioner Gordon",
+      "Bane",
+      "Blake",
+      "Selina",
+      "Miranda",
+      "Fox"
     ],
     "cast": [
-      "마크 해밀",
-      "해리슨 포드",
-      "캐리 피셔",
-      "빌리 디 윌리엄스",
-      "안소니 다니엘스",
-      "Peter Mayhew",
-      "Sebastian Shaw"
+      "크리스찬 베일",
+      "게리 올드만",
+      "톰 하디",
+      "조셉 고든레빗",
+      "앤 해서웨이",
+      "마리옹 꼬띠아르",
+      "모건 프리먼"
     ],
-    "director": "Richard Marquand"
+    "director": "크리스토퍼 놀란"
   },
   "movie_519": {
     "characters": [
-      "Rey",
-      "Finn",
-      "Poe Dameron",
-      "Kylo Ren",
-      "Princess Leia",
-      "Han Solo",
-      "Luke Skywalker"
+      "Tashi Donaldson",
+      "Art Donaldson",
+      "Patrick Zweig",
+      "Umpire (New Rochelle Final)",
+      "Art's Physiotherapist",
+      "Art's Security Guard",
+      "Tashi's Mother"
     ],
     "cast": [
-      "데이지 리들리",
-      "존 보예가",
-      "오스카 아이작",
-      "애덤 드라이버",
-      "캐리 피셔",
-      "해리슨 포드",
-      "마크 해밀"
+      "젠데이아",
+      "마이크 파이스트",
+      "조쉬 오코너",
+      "Darnell Appling",
+      "Bryan Doo",
+      "Shane T Harris",
+      "Nada Despotovich"
     ],
-    "director": "J.J. 에이브럼스"
+    "director": "루카 구아다니노"
   },
   "movie_520": {
     "characters": [
-      "Luke Skywalker / Dobbu Scay (voice)",
-      "Leia Organa",
-      "Kylo Ren",
-      "Rey",
-      "Finn",
-      "Poe Dameron",
-      "Snoke"
+      "Sonic (voice)",
+      "Tom Wachowski",
+      "Maddie Wachowski",
+      "Tails (voice)",
+      "Knuckles (voice)",
+      "Dr. Robotnik",
+      "Rachel"
     ],
     "cast": [
-      "마크 해밀",
-      "캐리 피셔",
-      "애덤 드라이버",
-      "데이지 리들리",
-      "존 보예가",
-      "오스카 아이작",
-      "앤디 서키스"
+      "벤 슈와츠",
+      "제임스 마스던",
+      "티카 섬프터",
+      "콜린 오샤우너시",
+      "이드리스 엘바",
+      "짐 캐리",
+      "나타샤 로스웰"
     ],
-    "director": "라이언 존슨"
+    "director": "Jeff Fowler"
   },
   "movie_521": {
     "characters": [
-      "General Leia Organa",
-      "Luke Skywalker",
-      "Rey",
-      "Kylo Ren / Ben Solo",
-      "Finn",
-      "Poe Dameron",
-      "C-3PO"
+      "James Cole",
+      "Dr. Kathryn Railly",
+      "Jeffrey Goines",
+      "Dr. Goines",
+      "Dr. Peters",
+      "Jose",
+      "Lt. Halperin"
     ],
     "cast": [
-      "캐리 피셔",
-      "마크 해밀",
-      "데이지 리들리",
-      "애덤 드라이버",
-      "존 보예가",
-      "오스카 아이작",
-      "안소니 다니엘스"
+      "브루스 윌리스",
+      "매들린 스토우",
+      "브래드 피트",
+      "크리스토퍼 플러머",
+      "데이비드 모스",
+      "존 세다",
+      "크리스토퍼 멜로니"
     ],
-    "director": "J.J. 에이브럼스"
+    "director": "테리 길리엄"
   },
   "movie_522": {
     "characters": [
-      "Jyn Erso",
-      "Cassian Andor",
-      "K-2SO",
-      "Chirrut Imwe",
-      "Baze Malbus",
-      "Orson Krennic",
-      "Governor Tarkin"
+      "Jim",
+      "Selena",
+      "Frank",
+      "Hannah",
+      "Major Henry West",
+      "Mark",
+      "Private Clifton"
     ],
     "cast": [
-      "펠리시티 존스",
-      "디에고 루나",
-      "앨런 튜딕",
-      "견자단",
-      "강문",
-      "벤 멘델슨",
-      "Guy Henry"
+      "킬리언 머피",
+      "나오미 해리스",
+      "브렌던 글리슨",
+      "메건 번스",
+      "크리스토퍼 에클스턴",
+      "노아 헌틀리",
+      "Luke Mably"
     ],
-    "director": "가랫 에드워즈"
+    "director": "대니 보일"
   },
   "movie_523": {
     "characters": [
-      "Han Solo",
-      "Chewbacca",
-      "Tobias Beckett",
-      "Qi'ra",
-      "Lando Calrissian",
-      "Val",
-      "L3-37"
+      "Kiki / Ursula (voice)",
+      "Jiji (voice)",
+      "Tombo (voice)",
+      "Osono (voice)",
+      "Kokiri (voice)",
+      "Okino (voice)",
+      "Old Lady (voice)"
     ],
     "cast": [
-      "올든 에런라이크",
-      "Joonas Suotamo",
-      "우디 해럴슨",
-      "에밀리아 클라크",
-      "도널드 글로버",
-      "탠디 뉴턴",
-      "피비 월러브리지"
+      "타카야마 미나미",
+      "사쿠마 레이",
+      "야마구치 캇페이",
+      "戸田恵子",
+      "信澤三惠子",
+      "三浦浩一",
+      "加藤治子"
     ],
-    "director": "론 하워드"
+    "director": "미야자키 하야오"
   },
   "movie_134": {
     "characters": [
@@ -10940,5 +10952,3238 @@ export const movieCreditsById: Record<string, MovieCreditsProfile> = {
       "앤드류 배첼러"
     ],
     "director": "Ric Roman Waugh"
+  },
+  "movie_524": {
+    "characters": [
+      "Mr. Han",
+      "Li Fong",
+      "Victor Lipani",
+      "Mia Lipani",
+      "Dr. Fong",
+      "Alan",
+      "Conor"
+    ],
+    "cast": [
+      "성룡",
+      "벤 왕",
+      "조슈아 잭슨",
+      "Sadie Stanley",
+      "밍나 원",
+      "와이엇 올레프",
+      "아라미스 나이트"
+    ],
+    "director": "Jonathan Entwistle"
+  },
+  "movie_525": {
+    "characters": [
+      "Emma Kurtzman",
+      "Adam Franklin",
+      "Alvin Franklin",
+      "Dr. Stephen Metzner",
+      "Patrice",
+      "Lucy",
+      "Katie Kurtzman"
+    ],
+    "cast": [
+      "나탈리 포트만",
+      "애쉬튼 커쳐",
+      "케빈 클라인",
+      "케리 엘위스",
+      "그레타 거윅",
+      "레이크 벨",
+      "올리비아 썰비"
+    ],
+    "director": "이반 라이트만"
+  },
+  "movie_526": {
+    "characters": [
+      "Elvira",
+      "Rebekka",
+      "Agnes",
+      "Alma",
+      "Prince Julian",
+      "Isak",
+      "Otto"
+    ],
+    "cast": [
+      "Lea Mathilde Skar-Myren",
+      "Ane Dahl Torp",
+      "Thea Sofie Loch Næss",
+      "Flo Fagerli",
+      "Isac Calmroth",
+      "Malte Gårdinger",
+      "Ralph Carlsson"
+    ],
+    "director": "Emilie Blichfeldt"
+  },
+  "movie_527": {
+    "characters": [
+      "Sam",
+      "Molly",
+      "Peter Friedkin",
+      "Candice Hooper",
+      "Olivia Castle",
+      "Isaac",
+      "Nathan"
+    ],
+    "cast": [
+      "Nicholas D'Agosto",
+      "Emma Bell",
+      "Miles Fisher",
+      "Ellen Wroe",
+      "Jacqueline MacInnes Wood",
+      "P. J. 번",
+      "Arlen Escarpeta"
+    ],
+    "director": "Steven Quale"
+  },
+  "movie_528": {
+    "characters": [
+      "Iris",
+      "Josh",
+      "Patrick",
+      "Kat",
+      "Eli",
+      "Sergey",
+      "Teddy"
+    ],
+    "cast": [
+      "소피 대처",
+      "잭 퀘이드",
+      "루카스 게이지",
+      "Megan Suri",
+      "하비 길렌",
+      "루퍼트 프렌드",
+      "Jaboukie Young-White"
+    ],
+    "director": "Drew Hancock"
+  },
+  "movie_529": {
+    "characters": [
+      "Buster Moon (voice)",
+      "Rosita (voice)",
+      "Mike (voice)",
+      "Ash (voice)",
+      "Eddie (voice)",
+      "Johnny (voice)",
+      "Meena (voice)"
+    ],
+    "cast": [
+      "매튜 매커너히",
+      "리즈 위더스푼",
+      "세스 맥팔레인",
+      "스칼렛 요한슨",
+      "존 C. 라일리",
+      "태런 에저턴",
+      "토리 켈리"
+    ],
+    "director": "Garth Jennings"
+  },
+  "movie_530": {
+    "characters": [
+      "Robert McCall",
+      "Emma Collins",
+      "Gio Bonucci",
+      "Frank Conroy",
+      "Aminah",
+      "Enzo Arisio",
+      "Vincent Quaranta"
+    ],
+    "cast": [
+      "덴젤 워싱턴",
+      "다코타 패닝",
+      "Eugenio Mastrandrea",
+      "데이비드 덴맨",
+      "Gaia Scodellaro",
+      "Remo Girone",
+      "Andrea Scarduzio"
+    ],
+    "director": "안톤 후쿠아"
+  },
+  "movie_531": {
+    "characters": [
+      "Bella Baxter",
+      "Duncan Wedderburn",
+      "Godwin Baxter",
+      "Max McCandles",
+      "Alfie Blessington",
+      "Toinette",
+      "Harry Astley"
+    ],
+    "cast": [
+      "엠마 스톤",
+      "마크 러팔로",
+      "윌렘 대포",
+      "라미 유세프",
+      "크리스토퍼 애벗",
+      "Suzy Bemba",
+      "제러드 카마이클"
+    ],
+    "director": "요르고스 란티모스"
+  },
+  "movie_532": {
+    "characters": [
+      "Dr. Randall Mindy",
+      "Kate Dibiasky",
+      "President Orlean",
+      "Brie Evantee",
+      "Dr. Teddy Oglethorpe",
+      "Jason Orlean",
+      "Peter Isherwell"
+    ],
+    "cast": [
+      "레오나르도 디카프리오",
+      "제니퍼 로렌스",
+      "메릴 스트립",
+      "케이트 블란쳇",
+      "롭 모건",
+      "조나 힐",
+      "마크 라이런스"
+    ],
+    "director": "아담 맥케이"
+  },
+  "movie_533": {
+    "characters": [
+      "Sherlock Holmes",
+      "Dr. John Watson",
+      "Madam Simza Heron",
+      "Professor James Moriarty",
+      "Irene Adler",
+      "Inspector Lestrade",
+      "Mary Morstan"
+    ],
+    "cast": [
+      "로버트 다우니 주니어",
+      "주드 로",
+      "누미 라파스",
+      "자레드 해리스",
+      "레이첼 맥아담스",
+      "에디 마산",
+      "켈리 라일리"
+    ],
+    "director": "가이 리치"
+  },
+  "movie_534": {
+    "characters": [
+      "Neo",
+      "Morpheus",
+      "Trinity",
+      "Agent Smith",
+      "Niobe",
+      "The Oracle",
+      "Link"
+    ],
+    "cast": [
+      "키아누 리브스",
+      "로렌스 피시번",
+      "캐리 앤 모스",
+      "휴고 위빙",
+      "제이다 핀켓 스미스",
+      "Mary Alice",
+      "해럴드 페리노"
+    ],
+    "director": "라나 워쇼스키"
+  },
+  "movie_535": {
+    "characters": [
+      "Stevie (voice)",
+      "Elliot (voice)",
+      "Dad (voice)",
+      "Baloney Tony (voice)",
+      "Mom / Additional Voices (voice)",
+      "Nightmara (voice)",
+      "Sandman (voice)"
+    ],
+    "cast": [
+      "Jolie Hoang-Rappaport",
+      "Elias Janssen",
+      "시무 리우",
+      "크레이그 로빈슨",
+      "크리스틴 밀리오티",
+      "Gia Carides",
+      "오미드 절릴리"
+    ],
+    "director": "Alexander Woo"
+  },
+  "movie_536": {
+    "characters": [
+      "Cataleya Restrepo",
+      "Emilio",
+      "Richard",
+      "Danny Delanay",
+      "Special Agent Ross",
+      "Cataleya Restrepo (Age10)",
+      "Head Marshall Warren"
+    ],
+    "cast": [
+      "조 샐다나",
+      "클리프 커티스",
+      "Callum Blue",
+      "Michael Vartan",
+      "Lennie James",
+      "아만들라 스텐버그",
+      "그레이엄 맥타비시"
+    ],
+    "director": "Olivier Megaton"
+  },
+  "movie_537": {
+    "characters": [
+      "Sam Wheat",
+      "Molly Jensen",
+      "Oda Mae Brown",
+      "Carl Bruner",
+      "Subway Ghost",
+      "Willie Lopez",
+      "Rose"
+    ],
+    "cast": [
+      "패트릭 스웨이지",
+      "데미 무어",
+      "우피 골드버그",
+      "토니 골드윈",
+      "Vincent Schiavelli",
+      "Rick Aviles",
+      "Martina Deignan"
+    ],
+    "director": "제리 주커"
+  },
+  "movie_538": {
+    "characters": [
+      "Man-su",
+      "Mi-ri",
+      "Choi Seon-chul",
+      "Gu Bum-mo",
+      "Lee A-ra",
+      "Ko Si-jo",
+      "Detective #1"
+    ],
+    "cast": [
+      "이병헌",
+      "손예진",
+      "박희순",
+      "이성민",
+      "염혜란",
+      "차승원",
+      "오달수"
+    ],
+    "director": "박찬욱"
+  },
+  "movie_539": {
+    "characters": [
+      "Sidney Prescott",
+      "Dewey Riley",
+      "Gale Weathers",
+      "Jill Roberts",
+      "Kirby Reed",
+      "Robbie Mercer",
+      "Deputy Judy Hicks"
+    ],
+    "cast": [
+      "니브 캠벨",
+      "데이비드 아켓",
+      "코트니 콕스",
+      "엠마 로버츠",
+      "헤이든 파네티어",
+      "Erik Knudsen",
+      "Marley Shelton"
+    ],
+    "director": "웨스 크레이븐"
+  },
+  "movie_540": {
+    "characters": [
+      "Carol Danvers / Vers / Captain Marvel",
+      "Nick Fury",
+      "Talos / Keller",
+      "Yon-Rogg",
+      "Supreme Intelligence / Dr. Wendy Lawson",
+      "Korath",
+      "Ronan"
+    ],
+    "cast": [
+      "브리 라슨",
+      "사무엘 L. 잭슨",
+      "벤 멘델슨",
+      "주드 로",
+      "아네트 베닝",
+      "자이먼 혼수",
+      "리 페이스"
+    ],
+    "director": "라이언 플렉"
+  },
+  "movie_541": {
+    "characters": [
+      "Skye (voice)",
+      "Victoria Vance (voice)",
+      "Liberty (voice)",
+      "Chase (voice)",
+      "Mayor Humdinger / Cap'n Turbot (voice)",
+      "Sam Stinger (voice)",
+      "Delores (voice)"
+    ],
+    "cast": [
+      "맥케나 그레이스",
+      "타라지 P. 헨슨",
+      "마사이 마틴",
+      "이언 아미티지",
+      "Ron Pardo",
+      "릴 렐 하워리",
+      "킴 카다시안"
+    ],
+    "director": "Cal Brunker"
+  },
+  "movie_542": {
+    "characters": [
+      "Jack Sparrow",
+      "Barbossa",
+      "Will Turner",
+      "Elizabeth Swann",
+      "Norrington",
+      "Davy Jones",
+      "Governor Weatherby Swann"
+    ],
+    "cast": [
+      "조니 뎁",
+      "제프리 러쉬",
+      "올랜도 블룸",
+      "키이라 나이틀리",
+      "잭 대븐포트",
+      "빌 나이",
+      "조너선 프라이스"
+    ],
+    "director": "고어 버빈스키"
+  },
+  "movie_543": {
+    "characters": [
+      "Sam Montgomery",
+      "Austin Ames",
+      "Fiona",
+      "Carter Farrell",
+      "Rhonda",
+      "Shelby Cummings",
+      "Mrs. Wells"
+    ],
+    "cast": [
+      "힐러리 더프",
+      "채드 마이클 머리",
+      "제니퍼 쿨리지",
+      "Dan Byrd",
+      "레지나 킹",
+      "Julie Gonzalo",
+      "린 샤예"
+    ],
+    "director": "Mark Rosman"
+  },
+  "movie_544": {
+    "characters": [
+      "Leonardo",
+      "Raphael",
+      "Donatello",
+      "Michelangelo",
+      "April O'Neil",
+      "Vern Fenwick",
+      "Eric Sacks"
+    ],
+    "cast": [
+      "Pete Ploszek",
+      "앨런 리치슨",
+      "Jeremy Howard",
+      "노엘 피셔",
+      "메간 폭스",
+      "윌 아넷",
+      "윌리엄 피츠너"
+    ],
+    "director": "조너선 리브스만"
+  },
+  "movie_545": {
+    "characters": [
+      "Bárbara 'Babi' Nucci",
+      "Marco Ladeia",
+      "Patrícia 'Patty' Alencar Rochetty",
+      "Thiago",
+      "Caio Laruzi Sampaio",
+      "Paula Góes Mesquita",
+      "Alexandre"
+    ],
+    "cast": [
+      "Giovanna Lancellotti",
+      "Leandro Lima",
+      "Camilla de Lucas",
+      "Bruno Montaleone",
+      "Micael Borges",
+      "Louise D'Tuani",
+      "Drayson Menezzes"
+    ],
+    "director": "Diego Freitas"
+  },
+  "movie_546": {
+    "characters": [
+      "Grant",
+      "Ellie",
+      "Malcolm",
+      "Hammond",
+      "Muldoon",
+      "Gennaro",
+      "Wu"
+    ],
+    "cast": [
+      "샘 닐",
+      "로라 던",
+      "제프 골드블룸",
+      "리처드 애튼버러",
+      "Bob Peck",
+      "Martin Ferrero",
+      "BD 웡"
+    ],
+    "director": "스티븐 스필버그"
+  },
+  "movie_547": {
+    "characters": [
+      "Alex (voice)",
+      "Marty / Additional Zebras (voice)",
+      "Melman (voice)",
+      "Gloria (voice)",
+      "Julien (voice)",
+      "Maurice (voice)",
+      "Mort (voice)"
+    ],
+    "cast": [
+      "벤 스틸러",
+      "크리스 락",
+      "데이빗 쉼머",
+      "제이다 핀켓 스미스",
+      "사샤 바론 코헨",
+      "세드릭 더 엔터테이너",
+      "앤디 릭터"
+    ],
+    "director": "Tom McGrath"
+  },
+  "movie_548": {
+    "characters": [
+      "Kikuchiyo",
+      "Kambei Shimada",
+      "Gorobei Katayama",
+      "Kyuzo",
+      "Heihachi Hayashida",
+      "Shichiroji",
+      "Katsushiro Okamoto"
+    ],
+    "cast": [
+      "미후네 토시로",
+      "시무라 타카시",
+      "이나바 요시오",
+      "미야구치 세이지",
+      "치아키 미노루",
+      "카토 다이수케",
+      "키무라 이사오"
+    ],
+    "director": "구로사와 아키라"
+  },
+  "movie_549": {
+    "characters": [
+      "Joker / Monkey King",
+      "Piggy",
+      "Longevity Monk",
+      "Spider Demon",
+      "White-Bone Demon / Pak Jing Jing",
+      "Sandy / Blindy",
+      "King Bull"
+    ],
+    "cast": [
+      "주성치",
+      "오맹달",
+      "나가영",
+      "남결영",
+      "막문위",
+      "江約誠",
+      "陆树铭"
+    ],
+    "director": "유진위"
+  },
+  "movie_550": {
+    "characters": [
+      "Dan Morgan",
+      "Jessica Morgan",
+      "Gwen",
+      "Nina Morgan",
+      "Kyle Morgan",
+      "McCaffrey",
+      "Cyrus"
+    ],
+    "cast": [
+      "마크 월버그",
+      "미셸 모나한",
+      "매기 큐",
+      "조 콜레티",
+      "Van Crosby",
+      "키어런 하인즈",
+      "Kellen Boyle"
+    ],
+    "director": "Simon Cellan Jones"
+  },
+  "movie_551": {
+    "characters": [
+      "Kya Clark",
+      "Tate Walker",
+      "Chase Andrews",
+      "Tom Milton",
+      "Mabel",
+      "Jumpin'",
+      "Jodie Clark"
+    ],
+    "cast": [
+      "데이지 에드거존스",
+      "Taylor John Smith",
+      "해리스 디킨슨",
+      "데이비드 스트러세언",
+      "Michael Hyatt",
+      "Sterling Macer Jr.",
+      "Logan Macrae"
+    ],
+    "director": "Olivia Newman"
+  },
+  "movie_552": {
+    "characters": [
+      "Alice",
+      "Nick",
+      "Maggie",
+      "Isla",
+      "Monty",
+      "Lewis",
+      "Lyla"
+    ],
+    "cast": [
+      "메간 폭스",
+      "미켈레 모로네",
+      "매들린 지마",
+      "마틸다 퍼스",
+      "Andrew Whipp",
+      "아타나스 스리브레브",
+      "Kate Nichols"
+    ],
+    "director": "SK Dale"
+  },
+  "movie_553": {
+    "characters": [
+      "Jack Skellington (singing) / Barrel / Clown with the Tear away Face (voice)",
+      "Jack Skellington (voice)",
+      "Sally / Shock (voice)",
+      "Dr. Finkelstein (voice)",
+      "Mayor (voice)",
+      "Lock (voice)",
+      "Oogie Boogie (voice)"
+    ],
+    "cast": [
+      "대니 엘프먼",
+      "Chris Sarandon",
+      "캐서린 오하라",
+      "William Hickey",
+      "글렌 셰딕스",
+      "폴 루벤스",
+      "Ken Page"
+    ],
+    "director": "헨리 셀릭"
+  },
+  "movie_554": {
+    "characters": [
+      "Ethan Hunt",
+      "Grace",
+      "Luther Stickell",
+      "Benji Dunn",
+      "Ilsa Faust",
+      "The White Widow",
+      "Gabriel"
+    ],
+    "cast": [
+      "톰 크루즈",
+      "헤일리 앳웰",
+      "빙 레임스",
+      "사이먼 페그",
+      "레베카 퍼거슨",
+      "바네사 커비",
+      "이사이 모랄레스"
+    ],
+    "director": "크리스토퍼 맥쿼리"
+  },
+  "movie_555": {
+    "characters": [
+      "Bella Swan",
+      "Edward Cullen",
+      "Jacob Black",
+      "Jane",
+      "Aro",
+      "Alice Cullen",
+      "Victoria"
+    ],
+    "cast": [
+      "크리스틴 스튜어트",
+      "로버트 패틴슨",
+      "테일러 로트너",
+      "다코타 패닝",
+      "마이클 쉰",
+      "애슐리 그린",
+      "라셸 르페브르"
+    ],
+    "director": "크리스 웨이츠"
+  },
+  "movie_556": {
+    "characters": [
+      "Cindy Campbell",
+      "Brenda Meeks",
+      "Shorty Meeks",
+      "Ray Wilkins",
+      "Buddy Wilkerson",
+      "Theo",
+      "Dwight Hartman"
+    ],
+    "cast": [
+      "안나 페리스",
+      "레지나 홀",
+      "말런 웨이언스",
+      "숀 웨이언스",
+      "크리스토퍼 마스터슨",
+      "캐슬린 로버트슨",
+      "데이비드 크로스"
+    ],
+    "director": "Keenen Ivory Wayans"
+  },
+  "movie_557": {
+    "characters": [
+      "Dominika Egorova",
+      "Nathaniel \"Natan\" Nash",
+      "Vanya Egorov",
+      "Matron",
+      "Vladimir Korchnoi",
+      "Alexei Zyuganov",
+      "Nina Egorova"
+    ],
+    "cast": [
+      "제니퍼 로렌스",
+      "조엘 에저튼",
+      "마티아스 스후나르츠",
+      "샬롯 램플링",
+      "제레미 아이언스",
+      "키어런 하인즈",
+      "조엘리 리처드슨"
+    ],
+    "director": "프랜시스 로렌스"
+  },
+  "movie_558": {
+    "characters": [
+      "Ford Brody",
+      "Elle Brody",
+      "Sandra Brody",
+      "Joe Brody",
+      "Dr. Ishiro Serizawa",
+      "Dr. Vivienne Graham",
+      "Huddleston"
+    ],
+    "cast": [
+      "에런 테일러존슨",
+      "엘리자베스 올슨",
+      "쥘리에트 비노쉬",
+      "브라이언 크랜스턴",
+      "와타나베 켄",
+      "샐리 호킨스",
+      "Al Sapienza"
+    ],
+    "director": "가랫 에드워즈"
+  },
+  "movie_559": {
+    "characters": [
+      "Luca Paguro (voice)",
+      "Alberto Scorfano (voice)",
+      "Giulia Marcovaldo (voice)",
+      "Ercole Visconti (voice)",
+      "Daniela Paguro (voice)",
+      "Massimo Marcovaldo (voice)",
+      "Lorenzo Paguro (voice)"
+    ],
+    "cast": [
+      "제이컵 트람블레이",
+      "잭 딜런 그레이저",
+      "Emma Berman",
+      "Saverio Raimondo",
+      "마야 루돌프",
+      "Marco Barricelli",
+      "짐 개피건"
+    ],
+    "director": "Enrico Casarosa"
+  },
+  "movie_560": {
+    "characters": [
+      "Diana Prince / Wonder Woman",
+      "Steve Trevor",
+      "Hippolyta",
+      "Antiope",
+      "Ludendorff",
+      "Sir Patrick / Ares",
+      "Sameer"
+    ],
+    "cast": [
+      "갤 가돗",
+      "크리스 파인",
+      "코니 닐센",
+      "로빈 라이트",
+      "대니 휴스턴",
+      "데이비드 슐리스",
+      "Saïd Taghmaoui"
+    ],
+    "director": "패티 젠킨스"
+  },
+  "movie_561": {
+    "characters": [
+      "Sophie Sheridan",
+      "Donna Sheridan",
+      "Sam Carmichael",
+      "Harry Bright",
+      "Bill Anderson",
+      "Tanya Chesham-Leigh",
+      "Rosie Mulligan"
+    ],
+    "cast": [
+      "아만다 사이프리드",
+      "메릴 스트립",
+      "피어스 브로스넌",
+      "콜린 퍼스",
+      "스텔란 스카스가드",
+      "크리스틴 바란스키",
+      "줄리 월터스"
+    ],
+    "director": "Phyllida Lloyd"
+  },
+  "movie_562": {
+    "characters": [
+      "Mr. Fox (voice)",
+      "Felicity Fox (voice)",
+      "Ash Fox (voice)",
+      "Kristofferson Silverfox (voice)",
+      "Kylie (voice)",
+      "Rat (voice)",
+      "Franklin Bean (voice)"
+    ],
+    "cast": [
+      "조지 클루니",
+      "메릴 스트립",
+      "제이슨 슈워츠먼",
+      "Eric Chase Anderson",
+      "Wallace Wolodarsky",
+      "윌렘 대포",
+      "마이클 갬본"
+    ],
+    "director": "웨스 앤더슨"
+  },
+  "movie_563": {
+    "characters": [
+      "Dana Polk",
+      "Marty Mikalski",
+      "Curt Vaughn",
+      "Holden McCrea",
+      "Jules Louden",
+      "Richard Sitterson",
+      "Steve Hadley"
+    ],
+    "cast": [
+      "크리스틴 코널리",
+      "프란 크랜즈",
+      "크리스 헴스워스",
+      "Jesse Williams",
+      "Anna Hutchison",
+      "리처드 젠킨스",
+      "브래들리 휘트포드"
+    ],
+    "director": "드류 고다드"
+  },
+  "movie_564": {
+    "characters": [
+      "Davis Okoye",
+      "Dr. Kate Caldwell",
+      "Claire Wyden",
+      "Harvey Russell",
+      "Brett Wyden",
+      "Burke",
+      "Dr. Kerry Atkins"
+    ],
+    "cast": [
+      "드웨인 존슨",
+      "나오미 해리스",
+      "말린 애커만",
+      "제프리 딘 모건",
+      "제이크 레이시",
+      "조 맹거넬로",
+      "Marley Shelton"
+    ],
+    "director": "브래드 페이턴"
+  },
+  "movie_565": {
+    "characters": [
+      "Buzz Lightyear (voice)",
+      "Izzy Hawthorne (voice)",
+      "SOX (voice)",
+      "Mo Morrison (voice)",
+      "Darby Steel (voice)",
+      "Zurg (voice)",
+      "Alisha Hawthorne (voice)"
+    ],
+    "cast": [
+      "크리스 에반스",
+      "키키 팔머",
+      "피터 손",
+      "타이카 와이티티",
+      "Dale Soules",
+      "제임스 브롤린",
+      "우조 압둘라"
+    ],
+    "director": "Angus MacLane"
+  },
+  "movie_566": {
+    "characters": [
+      "Lucius",
+      "Macrinus",
+      "General Acacius",
+      "Lucilla",
+      "Emperor Geta",
+      "Emperor Caracalla",
+      "Viggo"
+    ],
+    "cast": [
+      "폴 메스칼",
+      "덴젤 워싱턴",
+      "페드로 파스칼",
+      "코니 닐센",
+      "조셉 퀸",
+      "프레드 헤킨저",
+      "ליאור רז"
+    ],
+    "director": "리들리 스콧"
+  },
+  "movie_567": {
+    "characters": [
+      "Kim Jae-won",
+      "Han Seo-yoon",
+      "Choi Ji-min",
+      "Jeong Tae-hoon",
+      "Kim Seong-hyeon",
+      "Doctor",
+      "Korean Teacher"
+    ],
+    "cast": [
+      "추영우",
+      "신시아",
+      "조유정",
+      "진호은",
+      "조한철",
+      "이채경",
+      "장유상"
+    ],
+    "director": "김혜영"
+  },
+  "movie_568": {
+    "characters": [
+      "Puss in Boots (voice)",
+      "Kitty Softpaws (voice)",
+      "Humpty Dumpty (voice)",
+      "Jack (voice)",
+      "Jill (voice)",
+      "Imelda (voice)",
+      "Andy Beanstalk (voice)"
+    ],
+    "cast": [
+      "안토니오 반데라스",
+      "셀마 헤이엑",
+      "잭 갤리퍼내키스",
+      "빌리 밥 손튼",
+      "에이미 세다리스",
+      "Constance Marie",
+      "Mike Mitchell"
+    ],
+    "director": "크리스 밀러"
+  },
+  "movie_569": {
+    "characters": [
+      "Dr. David Jordan",
+      "Rory Adams",
+      "Miranda North",
+      "Sho Murakami",
+      "Ekaterina Golovkina",
+      "Hugh Derry",
+      "Kazumi"
+    ],
+    "cast": [
+      "제이크 질렌할",
+      "라이언 레이놀즈",
+      "레베카 퍼거슨",
+      "사나다 히로유키",
+      "Ольга Дыховичная",
+      "Ariyon Bakare",
+      "Naoko Mori"
+    ],
+    "director": "다니엘 에스피노사"
+  },
+  "movie_570": {
+    "characters": [
+      "Lucy",
+      "Professor Norman",
+      "Mr. Jang",
+      "Pierre Del Rio",
+      "The Limey",
+      "Richard",
+      "Caroline"
+    ],
+    "cast": [
+      "스칼렛 요한슨",
+      "모건 프리먼",
+      "최민식",
+      "암르 와케드",
+      "Julian Rhind-Tutt",
+      "필루 아스베크",
+      "리오 팁턴"
+    ],
+    "director": "뤽 베송"
+  },
+  "movie_571": {
+    "characters": [
+      "Susan Murphy / Ginormica (voice)",
+      "B.O.B. (voice)",
+      "Dr. Cockroach Ph.D. (voice)",
+      "Gallaxhar (voice)",
+      "The Missing Link (voice)",
+      "General W.R. Monger (voice)",
+      "Derek Dietl (voice)"
+    ],
+    "cast": [
+      "리즈 위더스푼",
+      "세스 로건",
+      "휴 로리",
+      "레인 윌슨",
+      "윌 아넷",
+      "키퍼 서덜랜드",
+      "폴 러드"
+    ],
+    "director": "콘래드 버논"
+  },
+  "movie_572": {
+    "characters": [
+      "Indiana Jones",
+      "Professor Henry Jones",
+      "Marcus Brody",
+      "Elsa",
+      "Sallah",
+      "Walter Donovan",
+      "Young Indy"
+    ],
+    "cast": [
+      "해리슨 포드",
+      "숀 코너리",
+      "Denholm Elliott",
+      "Alison Doody",
+      "존 라이스 데이비스",
+      "줄리안 글로버",
+      "리버 피닉스"
+    ],
+    "director": "스티븐 스필버그"
+  },
+  "movie_573": {
+    "characters": [
+      "Alithea",
+      "The Djinn",
+      "Professor Günhan",
+      "British Council Lady / The Watcher",
+      "Airport Djinn",
+      "Pale Djinn",
+      "The Queen of Sheba"
+    ],
+    "cast": [
+      "틸다 스윈튼",
+      "이드리스 엘바",
+      "Erdil Yaşaroğlu",
+      "Sabrina Elba",
+      "Sarah Houbolt",
+      "Seyithan Özdemir",
+      "Aamito Lagum"
+    ],
+    "director": "조지 밀러"
+  },
+  "movie_574": {
+    "characters": [
+      "Happy Gilmore",
+      "Virginia",
+      "Shooter McGavin",
+      "Frank Manatee",
+      "Hal L",
+      "Oscar Mejías",
+      "John Daly"
+    ],
+    "cast": [
+      "애덤 샌들러",
+      "줄리 보언",
+      "크리스토퍼 맥도널드",
+      "베니 사프디",
+      "벤 스틸러",
+      "배드 바니",
+      "존 데일리"
+    ],
+    "director": "Kyle Newacheck"
+  },
+  "movie_575": {
+    "characters": [
+      "Kim Sang-duk",
+      "Lee Hwa-rim",
+      "Ko Young-geun",
+      "Yoon Bong-gil",
+      "Park Ji-yong",
+      "Park Geun-hyeon",
+      "Oh Gwang-sim"
+    ],
+    "cast": [
+      "최민식",
+      "김고은",
+      "유해진",
+      "이도현",
+      "김재철",
+      "전진기",
+      "김선영"
+    ],
+    "director": "장재현"
+  },
+  "movie_576": {
+    "characters": [
+      "Carol Danvers / Captain Marvel",
+      "Monica Rambeau",
+      "Kamala Khan / Ms. Marvel",
+      "Nick Fury",
+      "Dar-Benn",
+      "Emperor Dro'ge",
+      "Prince Yan"
+    ],
+    "cast": [
+      "브리 라슨",
+      "테요나 패리스",
+      "이만 벨라니",
+      "사무엘 L. 잭슨",
+      "자웨 애쉬튼",
+      "게리 루이스",
+      "박서준"
+    ],
+    "director": "니아 다코스타"
+  },
+  "movie_577": {
+    "characters": [
+      "Mater (voice)",
+      "Lightning McQueen (voice)",
+      "Finn McMissile (voice)",
+      "Holley Shiftwell (voice)",
+      "Sir Miles Axlerod (voice)",
+      "Francesco Bernoulli (voice)",
+      "Brent Mustangburger (voice)"
+    ],
+    "cast": [
+      "Larry the Cable Guy",
+      "오웬 윌슨",
+      "마이클 케인",
+      "에밀리 모티머",
+      "에디 이자드",
+      "존 터투로",
+      "Brent Musburger"
+    ],
+    "director": "존 라세터"
+  },
+  "movie_578": {
+    "characters": [
+      "Shaun / Shang-Chi",
+      "Xu Wenwu",
+      "Katy",
+      "Trevor Slattery",
+      "Xialing",
+      "Li",
+      "Ying Nan"
+    ],
+    "cast": [
+      "시무 리우",
+      "양조위",
+      "아콰피나",
+      "벤 킹슬리",
+      "장멍얼",
+      "천파라",
+      "양자경"
+    ],
+    "director": "데스틴 대니얼 크레턴"
+  },
+  "movie_579": {
+    "characters": [
+      "Belle (voice)",
+      "Beast (voice)",
+      "Gaston (voice)",
+      "Lumiere (voice)",
+      "Cogsworth (voice)",
+      "Mrs. Potts (voice)",
+      "Maurice (voice)"
+    ],
+    "cast": [
+      "Paige O'Hara",
+      "Robby Benson",
+      "Richard White",
+      "Jerry Orbach",
+      "David Ogden Stiers",
+      "안젤라 랜즈베리",
+      "Rex Everhart"
+    ],
+    "director": "Gary Trousdale"
+  },
+  "movie_580": {
+    "characters": [
+      "Beetlejuice",
+      "Lydia",
+      "Delia",
+      "Astrid",
+      "Rory",
+      "Jackson",
+      "Delores"
+    ],
+    "cast": [
+      "마이클 키튼",
+      "위노나 라이더",
+      "캐서린 오하라",
+      "제나 오르테가",
+      "저스틴 서로",
+      "윌렘 대포",
+      "모니카 벨루치"
+    ],
+    "director": "팀 버튼"
+  },
+  "movie_581": {
+    "characters": [
+      "John Kramer / Jigsaw",
+      "Dr. Lawrence Gordon",
+      "Adam Radford",
+      "David Tapp",
+      "Alison Gordon",
+      "Detective Steven Sing",
+      "Diana Gordon"
+    ],
+    "cast": [
+      "토빈 벨",
+      "케리 엘위스",
+      "Leigh Whannell",
+      "대니 글로버",
+      "Monica Potter",
+      "켄 렁",
+      "Makenzie Vega"
+    ],
+    "director": "제임스 완"
+  },
+  "movie_582": {
+    "characters": [
+      "Katniss Everdeen",
+      "Peeta Mellark",
+      "Gale Hawthorne",
+      "Haymitch Abernathy",
+      "Effie Trinket",
+      "Cinna",
+      "Caesar Flickerman"
+    ],
+    "cast": [
+      "제니퍼 로렌스",
+      "조쉬 허처슨",
+      "리암 헴스워스",
+      "우디 해럴슨",
+      "엘리자베스 뱅크스",
+      "레니 크래비츠",
+      "스탠리 투치"
+    ],
+    "director": "게리 로스"
+  },
+  "movie_583": {
+    "characters": [
+      "Johnny (voice)",
+      "Mavis (voice)",
+      "Ericka (voice)",
+      "Van Helsing (voice)",
+      "Wayne (voice)",
+      "Wanda (voice)",
+      "Griffin (voice)"
+    ],
+    "cast": [
+      "앤디 샘버그",
+      "셀레나 고메즈",
+      "캐스린 한",
+      "짐 개피건",
+      "스티브 부세미",
+      "몰리 섀넌",
+      "데이비드 스페이드"
+    ],
+    "director": "Jennifer Kluska"
+  },
+  "movie_584": {
+    "characters": [
+      "Jack Sparrow",
+      "Angelica",
+      "Hector Barbossa",
+      "Edward \"Blackbeard\" Teach",
+      "Joshamee Gibbs",
+      "Philip",
+      "Syrena"
+    ],
+    "cast": [
+      "조니 뎁",
+      "페넬로페 크루스",
+      "제프리 러쉬",
+      "이언 맥셰인",
+      "Kevin McNally",
+      "샘 클라플린",
+      "아스트리드 베르제프리스베"
+    ],
+    "director": "롭 마셜"
+  },
+  "movie_585": {
+    "characters": [
+      "Jay Gatsby",
+      "Nick Carraway",
+      "Daisy Buchanan",
+      "Tom Buchanan",
+      "Jordan Baker",
+      "Myrtle Wilson",
+      "George Wilson"
+    ],
+    "cast": [
+      "레오나르도 디카프리오",
+      "토비 맥과이어",
+      "캐리 멀리건",
+      "조엘 에저튼",
+      "엘리자베스 데비키",
+      "아일라 피셔",
+      "제이슨 클라크"
+    ],
+    "director": "바즈 루어만"
+  },
+  "movie_586": {
+    "characters": [
+      "Mike Lowrey",
+      "Marcus Burnett",
+      "Kelly",
+      "Dorn",
+      "Rita",
+      "McGrath",
+      "Lockwood"
+    ],
+    "cast": [
+      "윌 스미스",
+      "마틴 로런스",
+      "바네사 허진스",
+      "알렉산더 루드위그",
+      "파올라 누녜스",
+      "에릭 데인",
+      "요안 그리피드"
+    ],
+    "director": "아딜 엘 아르비"
+  },
+  "movie_587": {
+    "characters": [
+      "Germain",
+      "Claude",
+      "Jeanne",
+      "Esther",
+      "Rapha fils",
+      "Rapha père",
+      "Le proviseur"
+    ],
+    "cast": [
+      "Fabrice Luchini",
+      "Ernst Umhauer",
+      "크리스틴 스콧 토머스",
+      "Emmanuelle Seigner",
+      "Bastien Ughetto",
+      "드니 메노셰",
+      "Jean-François Balmer"
+    ],
+    "director": "프랑수아 오종"
+  },
+  "movie_588": {
+    "characters": [
+      "Shinji Kaminaga",
+      "Hiroko Asami",
+      "Kimio Tamura",
+      "Akihisa Taki",
+      "Yumi Funaberi",
+      "Tatsuhiko Munakata",
+      "Mefilas"
+    ],
+    "cast": [
+      "사이토 타쿠미",
+      "나가사와 마사미",
+      "니시지마 히데토시",
+      "有岡大貴",
+      "아카리 하야미",
+      "다나카 테츠시",
+      "야마모토 코지"
+    ],
+    "director": "히구치 신지"
+  },
+  "movie_589": {
+    "characters": [
+      "Blu (voice)",
+      "Jewel (voice)",
+      "Linda (voice)",
+      "Alice / Goose (voice)",
+      "Pedro (voice)",
+      "Rafael (voice)",
+      "Chloe / Goose (voice)"
+    ],
+    "cast": [
+      "제시 아이젠버그",
+      "앤 해서웨이",
+      "레슬리 맨",
+      "제인 린치",
+      "윌아이엠",
+      "George López",
+      "완다 사이크스"
+    ],
+    "director": "Carlos Saldanha"
+  },
+  "movie_590": {
+    "characters": [
+      "Hercules",
+      "Amphiarus",
+      "Cotys",
+      "Autolycus",
+      "Tydeus",
+      "Atalanta",
+      "Iolaus"
+    ],
+    "cast": [
+      "드웨인 존슨",
+      "이언 맥셰인",
+      "존 허트",
+      "루퍼스 스웰",
+      "악셀 헨니",
+      "잉리 볼쇠 베르달",
+      "Reece Ritchie"
+    ],
+    "director": "브렛 래트너"
+  },
+  "movie_591": {
+    "characters": [
+      "Mermaid Shan",
+      "Liu Xuan",
+      "Ruolan",
+      "Brother Eight",
+      "Uncle Rich",
+      "Constable Mo",
+      "Long Jianfei"
+    ],
+    "cast": [
+      "임윤",
+      "등초",
+      "张雨绮",
+      "나지상",
+      "서극",
+      "문장",
+      "크리스"
+    ],
+    "director": "주성치"
+  },
+  "movie_592": {
+    "characters": [
+      "Mark Baum",
+      "Michael Burry",
+      "Jared Vennett",
+      "Ben Rickert",
+      "Cynthia Baum",
+      "Georgia Hale",
+      "Porter Collins"
+    ],
+    "cast": [
+      "스티브 카렐",
+      "크리스찬 베일",
+      "라이언 고슬링",
+      "브래드 피트",
+      "마리사 토메이",
+      "멜리사 레오",
+      "해미시 링클레이터"
+    ],
+    "director": "아담 맥케이"
+  },
+  "movie_593": {
+    "characters": [
+      "Adelaide Wilson / Red",
+      "Gabe Wilson / Abraham",
+      "Kitty Tyler / Dahlia",
+      "Josh Tyler / Tex",
+      "Zora Wilson / Umbrae",
+      "Jason Wilson / Pluto",
+      "Russell Thomas / Weyland"
+    ],
+    "cast": [
+      "루피타 뇽오",
+      "윈스턴 듀크",
+      "엘리자베스 모스",
+      "팀 헤이덱커",
+      "Shahadi Wright Joseph",
+      "Evan Alex",
+      "야히아 압둘 마틴 2세"
+    ],
+    "director": "조던 필"
+  },
+  "movie_594": {
+    "characters": [
+      "Caesar",
+      "The Colonel",
+      "Maurice",
+      "Rocket",
+      "Bad Ape",
+      "Nova",
+      "Red Donkey"
+    ],
+    "cast": [
+      "앤디 서키스",
+      "우디 해럴슨",
+      "케린 코너벌",
+      "Terry Notary",
+      "스티브 잔",
+      "어마이아 밀러",
+      "Ty Olsson"
+    ],
+    "director": "맷 리브스"
+  },
+  "movie_595": {
+    "characters": [
+      "Ashitaka (voice)",
+      "San / Kaya (voice)",
+      "Eboshi Gozen (voice)",
+      "Jikobo (voice)",
+      "Kouroku (voice)",
+      "Gonza (voice)",
+      "Mrs. Moro (voice)"
+    ],
+    "cast": [
+      "마츠다 요지",
+      "이시다 유리코",
+      "다나카 유코",
+      "코바야시 카오루",
+      "니시무라 마사히코",
+      "카미죠 츠네히코",
+      "미와 아키히로"
+    ],
+    "director": "미야자키 하야오"
+  },
+  "movie_596": {
+    "characters": [
+      "Lieutenant Alex Hopper",
+      "Commander Stone Hopper",
+      "Petty Officer Cora \"Weps\" Raikes",
+      "Sam",
+      "Captain Yugi Nagata",
+      "Cal Zapata",
+      "Admiral Shane"
+    ],
+    "cast": [
+      "Taylor Kitsch",
+      "알렉산더 스카스가드",
+      "리한나",
+      "브루클린 데커",
+      "아사노 타다노부",
+      "해미시 링클레이터",
+      "리암 니슨"
+    ],
+    "director": "피터 버그"
+  },
+  "movie_597": {
+    "characters": [
+      "Andie Anderson",
+      "Benjamin Barry",
+      "Michelle Rubin",
+      "Jeannie Ashcroft",
+      "Tony",
+      "Thayer",
+      "Judy Spears"
+    ],
+    "cast": [
+      "케이트 허드슨",
+      "매튜 매커너히",
+      "캐스린 한",
+      "Annie Parisse",
+      "아담 골드버그",
+      "토마스 레넌",
+      "Michael Michele"
+    ],
+    "director": "Donald Petrie"
+  },
+  "movie_598": {
+    "characters": [
+      "Rose O'Reilly",
+      "David Clark",
+      "Casey Mathis",
+      "Kenny Rossmore",
+      "Brad Gurdlinger",
+      "Don Fitzgerald",
+      "Edie Fitzgerald"
+    ],
+    "cast": [
+      "제니퍼 애니스턴",
+      "제이슨 수데이키스",
+      "엠마 로버츠",
+      "윌 폴터",
+      "에드 헬름스",
+      "닉 오퍼먼",
+      "캐스린 한"
+    ],
+    "director": "Rawson Marshall Thurber"
+  },
+  "movie_599": {
+    "characters": [
+      "Ace Ventura",
+      "Melissa Robinson",
+      "Lt. Lois Einhorn",
+      "Emilio",
+      "Dan Marino",
+      "Riddle",
+      "Roger Podacter"
+    ],
+    "cast": [
+      "짐 캐리",
+      "코트니 콕스",
+      "숀 영",
+      "Tone Loc",
+      "Dan Marino",
+      "Noble Willingham",
+      "트로이 에반스"
+    ],
+    "director": "Tom Shadyac"
+  },
+  "movie_600": {
+    "characters": [
+      "Scott Lang / Ant-Man",
+      "Hope Van Dyne / The Wasp",
+      "Dr. Hank Pym",
+      "Janet Van Dyne",
+      "Kang the Conqueror",
+      "Cassie Lang",
+      "M.O.D.O.K."
+    ],
+    "cast": [
+      "폴 러드",
+      "에반젤린 릴리",
+      "마이클 더글라스",
+      "미셸 파이퍼",
+      "조나단 메이저스",
+      "캐서린 뉴턴",
+      "코리 스톨"
+    ],
+    "director": "페이턴 리드"
+  },
+  "movie_601": {
+    "characters": [
+      "Grug (voice)",
+      "Eep (voice)",
+      "Guy (voice)",
+      "Ugga (voice)",
+      "Gran (voice)",
+      "Thunk (voice)",
+      "Belt (voice)"
+    ],
+    "cast": [
+      "니콜라스 케이지",
+      "엠마 스톤",
+      "라이언 레이놀즈",
+      "캐서린 키너",
+      "Cloris Leachman",
+      "Clark Duke",
+      "크리스 샌더스"
+    ],
+    "director": "커크 드 미코"
+  },
+  "movie_602": {
+    "characters": [
+      "Indiana Jones",
+      "Willie Scott",
+      "Short Round",
+      "Mola Ram",
+      "Chattar Lal",
+      "Phillip Blumburtt",
+      "Lao Che"
+    ],
+    "cast": [
+      "해리슨 포드",
+      "케이트 캡쇼",
+      "키호이콴",
+      "Amrish Puri",
+      "Roshan Seth",
+      "필립 스톤",
+      "교굉"
+    ],
+    "director": "스티븐 스필버그"
+  },
+  "movie_603": {
+    "characters": [
+      "Anastasia Steele",
+      "Christian Grey",
+      "Jack Hyde",
+      "Kate Kavanagh",
+      "Leila",
+      "Mia Grey",
+      "Carla"
+    ],
+    "cast": [
+      "다코타 존슨",
+      "제이미 도넌",
+      "Eric Johnson",
+      "엘로이즈 멈퍼드",
+      "벨라 히스코트",
+      "리타 오라",
+      "제니퍼 엘"
+    ],
+    "director": "James Foley"
+  },
+  "movie_604": {
+    "characters": [
+      "Cindy Campbell",
+      "Brenda Meeks",
+      "Shorty Meeks",
+      "Ray Wilkins",
+      "Bobby Prinze",
+      "Greg Phillippe",
+      "Buffy Gilmore"
+    ],
+    "cast": [
+      "안나 페리스",
+      "레지나 홀",
+      "말런 웨이언스",
+      "숀 웨이언스",
+      "존 에이브럼스",
+      "Lochlyn Munro",
+      "Shannon Elizabeth"
+    ],
+    "director": "Keenen Ivory Wayans"
+  },
+  "movie_605": {
+    "characters": [
+      "Sidney Prescott",
+      "Dewey Riley",
+      "Gale Weathers",
+      "Mark Kincaid",
+      "Jennifer Jolie",
+      "Roman Bridger",
+      "John Milton"
+    ],
+    "cast": [
+      "니브 캠벨",
+      "데이비드 아켓",
+      "코트니 콕스",
+      "패트릭 뎀시",
+      "파커 포시",
+      "Scott Foley",
+      "랜스 헨릭슨"
+    ],
+    "director": "웨스 크레이븐"
+  },
+  "movie_606": {
+    "characters": [
+      "Cade Yeager",
+      "Optimus Prime (voice)",
+      "Joshua Joyce",
+      "Harold Attinger",
+      "Tessa Yeager",
+      "Shane Dyson",
+      "Galvatron (voice)"
+    ],
+    "cast": [
+      "마크 월버그",
+      "Peter Cullen",
+      "스탠리 투치",
+      "켈시 그래머",
+      "니콜라 펠츠",
+      "잭 레이너",
+      "프랭크 웰커"
+    ],
+    "director": "마이클 베이"
+  },
+  "movie_607": {
+    "characters": [
+      "Asha (voice)",
+      "King Magnifico (voice)",
+      "Valentino (voice)",
+      "Queen Amaya (voice)",
+      "Sabino (voice)",
+      "Sakina (voice)",
+      "Dahlia (voice)"
+    ],
+    "cast": [
+      "아리아나 드보즈",
+      "크리스 파인",
+      "앨런 튜딕",
+      "Angelique Cabral",
+      "빅터 가버",
+      "나타샤 로스웰",
+      "Jennifer Kumiyama"
+    ],
+    "director": "Chris Buck"
+  },
+  "movie_608": {
+    "characters": [
+      "Kinney",
+      "Reaper",
+      "Abel",
+      "Bishop",
+      "Sugar",
+      "Staff Sgt. Nia Branson",
+      "Colonel Duz Packett"
+    ],
+    "cast": [
+      "리암 헴스워스",
+      "러셀 크로우",
+      "루크 헴스워스",
+      "리키 휘틀",
+      "Milo Ventimiglia",
+      "Chika Ikogwe",
+      "Daniel MacPherson"
+    ],
+    "director": "윌리엄 유뱅크"
+  },
+  "movie_609": {
+    "characters": [
+      "Cécile",
+      "Alice",
+      "Matt",
+      "Chance",
+      "Manu",
+      "Alice's Father",
+      "Maurice"
+    ],
+    "cast": [
+      "Déborah Révy",
+      "Hélène Zimmer",
+      "Gowan Didi",
+      "Johnny Amaro",
+      "Johan Libéreau",
+      "Jean-François Gallotte",
+      "Brice Fournier"
+    ],
+    "director": "Laurent Bouhnik"
+  },
+  "movie_610": {
+    "characters": [
+      "Callum Drift",
+      "Jack O'Malley",
+      "Zoe",
+      "Nick",
+      "Mrs. Claus",
+      "Krampus",
+      "Gryla"
+    ],
+    "cast": [
+      "드웨인 존슨",
+      "크리스 에반스",
+      "루시 리우",
+      "J.K. 시몬스",
+      "보니 헌트",
+      "크리스토페르 히비우",
+      "키어넌 십카"
+    ],
+    "director": "Jake Kasdan"
+  },
+  "movie_611": {
+    "characters": [
+      "Andrew Foster",
+      "Garrett Foster",
+      "Stephanie",
+      "Devin",
+      "Max Klemp",
+      "Jacomo Morier",
+      "Panahi"
+    ],
+    "cast": [
+      "스콧 이스트우드",
+      "Freddie Thorp",
+      "아나 데 아르마스",
+      "Gaia Weiss",
+      "Clemens Schick",
+      "시몽 아브카리앙",
+      "Moussa Maaskri"
+    ],
+    "director": "Antonio Negret"
+  },
+  "movie_612": {
+    "characters": [
+      "Nathan Lind",
+      "Ilene Andrews",
+      "Jia",
+      "Bernie Hayes",
+      "Madison Russell",
+      "Josh Valentine",
+      "Walter Simmons"
+    ],
+    "cast": [
+      "알렉산더 스카스가드",
+      "레베카 홀",
+      "케이리 호틀",
+      "브라이언 타이리 헨리",
+      "밀리 바비 브라운",
+      "줄리안 덴니슨",
+      "데미안 비치르"
+    ],
+    "director": "애덤 윈가드"
+  },
+  "movie_613": {
+    "characters": [
+      "Moana (voice)",
+      "Maui (voice)",
+      "Gramma Tala (voice)",
+      "Chief Tui (voice)",
+      "Tamatoa (voice)",
+      "Sina (voice)",
+      "Heihei / Villager #3 (voice)"
+    ],
+    "cast": [
+      "아울리이 크러발리오",
+      "드웨인 존슨",
+      "레이첼 하우스",
+      "테무에라 모리슨",
+      "저메인 클레멘트",
+      "니콜 셰르징거",
+      "앨런 튜딕"
+    ],
+    "director": "존 머스커"
+  },
+  "movie_614": {
+    "characters": [
+      "Indiana Jones",
+      "Helena",
+      "Dr. Voller",
+      "Klaber",
+      "Hauke",
+      "Teddy",
+      "Basil Shaw"
+    ],
+    "cast": [
+      "해리슨 포드",
+      "피비 월러브리지",
+      "매즈 미켈슨",
+      "보이드 홀브룩",
+      "Olivier Richters",
+      "Ethann Isidore",
+      "토비 존스"
+    ],
+    "director": "제임스 맨골드"
+  },
+  "movie_615": {
+    "characters": [
+      "Poppy Wright",
+      "Alex Nilsen",
+      "Sarah",
+      "Swapna Bakshi-Highsmith",
+      "David Nilsen",
+      "Nam",
+      "Trey"
+    ],
+    "cast": [
+      "에밀리 베이더",
+      "톰 블라이스",
+      "세라 캐서린 훅",
+      "자밀라 자밀",
+      "마일즈 헤이저",
+      "Tommy Do",
+      "Lucien Laviscount"
+    ],
+    "director": "Brett Haley"
+  },
+  "movie_616": {
+    "characters": [
+      "Willy Wonka",
+      "Charlie Bucket",
+      "Grandpa Joe",
+      "Mrs. Bucket",
+      "Mr. Bucket",
+      "Mrs. Beauregarde",
+      "Mr. Salt"
+    ],
+    "cast": [
+      "조니 뎁",
+      "프레디 하이모어",
+      "데이비드 켈리",
+      "헬레나 본햄 카터",
+      "노아 테일러",
+      "미시 파일",
+      "제임스 폭스"
+    ],
+    "director": "팀 버튼"
+  },
+  "movie_617": {
+    "characters": [
+      "Dr. Robert Ledgard",
+      "Vera Cruz / Gal",
+      "Marilia",
+      "Vicente",
+      "Zeca",
+      "Fulgencio",
+      "President of the Institute of Biotechnology"
+    ],
+    "cast": [
+      "안토니오 반데라스",
+      "엘레나 아나야",
+      "마리사 파레데스",
+      "Jan Cornet",
+      "Roberto Álamo",
+      "Eduard Fernández",
+      "José Luis Gómez"
+    ],
+    "director": "페드로 알모도바르"
+  },
+  "movie_618": {
+    "characters": [
+      "Samira",
+      "Eric",
+      "Reuben",
+      "Henri",
+      "Zena",
+      "Osahar",
+      "Max"
+    ],
+    "cast": [
+      "루피타 뇽오",
+      "조셉 퀸",
+      "알렉스 울프",
+      "자이먼 혼수",
+      "Eliane Umuhire",
+      "Takunda Khumalo",
+      "Alfie Todd"
+    ],
+    "director": "마이클 사노스키"
+  },
+  "movie_619": {
+    "characters": [
+      "Ralph (voice)",
+      "Vanellope (voice)",
+      "Shank (voice)",
+      "Yesss (voice)",
+      "Felix (voice)",
+      "Butcher Boy (voice)",
+      "eBay Bidder / Surge Protector (voice)"
+    ],
+    "cast": [
+      "존 C. 라일리",
+      "세라 실버먼",
+      "갤 가돗",
+      "타라지 P. 헨슨",
+      "잭 맥브레이어",
+      "티모시 사이먼스",
+      "필 존스턴"
+    ],
+    "director": "리치 무어"
+  },
+  "movie_620": {
+    "characters": [
+      "Indiana Jones",
+      "Marion Ravenwood",
+      "Dr. René Belloq",
+      "Sallah",
+      "Major Arnold Toht",
+      "Colonel Dietrich",
+      "Gobler"
+    ],
+    "cast": [
+      "해리슨 포드",
+      "캐런 앨런",
+      "폴 프리먼",
+      "존 라이스 데이비스",
+      "Ronald Lacey",
+      "Wolf Kahler",
+      "Anthony Higgins"
+    ],
+    "director": "스티븐 스필버그"
+  },
+  "movie_621": {
+    "characters": [
+      "Joker / Monkey King",
+      "Piggy",
+      "Lin Zixia",
+      "Princess Iron Fan",
+      "Spider Demon",
+      "White-Bone Demon / Pak Jing Jing",
+      "Longevity Monk"
+    ],
+    "cast": [
+      "주성치",
+      "오맹달",
+      "주인",
+      "蔡少芬",
+      "남결영",
+      "막문위",
+      "나가영"
+    ],
+    "director": "유진위"
+  },
+  "movie_622": {
+    "characters": [
+      "Mitch Buchanan",
+      "Matt Brody",
+      "Victoria Leeds",
+      "Summer Quinn",
+      "CJ Parker",
+      "Stephanie Holden",
+      "Ronnie Greenbaum"
+    ],
+    "cast": [
+      "드웨인 존슨",
+      "잭 에프론",
+      "프리양카 초프라",
+      "알렉산드라 다다리오",
+      "Kelly Rohrbach Walton",
+      "Ilfenesh Hadera",
+      "존 배스"
+    ],
+    "director": "Seth Gordon"
+  },
+  "movie_623": {
+    "characters": [
+      "Ed",
+      "Rhodes",
+      "Paris",
+      "Larry",
+      "Doctor",
+      "Ginny",
+      "George"
+    ],
+    "cast": [
+      "존 쿠삭",
+      "레이 리오타",
+      "아만다 피트",
+      "존 호크스",
+      "알프레드 몰리나",
+      "클리어 듀발",
+      "존 C. 맥긴리"
+    ],
+    "director": "제임스 맨골드"
+  },
+  "movie_624": {
+    "characters": [
+      "Douglas Quaid / Hauser",
+      "Melina",
+      "Lori Quaid",
+      "Vilos Cohaagen",
+      "Richter",
+      "George / Kuato",
+      "Benny"
+    ],
+    "cast": [
+      "아놀드 슈왈제네거",
+      "Rachel Ticotin",
+      "샤론 스톤",
+      "로니 콕스",
+      "마이클 아이언사이드",
+      "Marshall Bell",
+      "Mel Johnson Jr."
+    ],
+    "director": "폴 버호벤"
+  },
+  "movie_625": {
+    "characters": [
+      "Ponyo (voice)",
+      "Sosuke (voice)",
+      "Fujimoto (voice)",
+      "Risa (voice)",
+      "Gran Mamare (voice)",
+      "Koichi (voice)",
+      "Ponyo's Sister (voice)"
+    ],
+    "cast": [
+      "神月柚莉愛",
+      "土井洋輝",
+      "所ジョージ",
+      "山口智子",
+      "아마미 유키",
+      "長嶋一茂",
+      "矢野顕子"
+    ],
+    "director": "미야자키 하야오"
+  },
+  "movie_626": {
+    "characters": [
+      "Danny Archer",
+      "Solomon Vandy",
+      "Maddy Bowen",
+      "Dia Vandy",
+      "Colonel Coetzee",
+      "Cordell Brown",
+      "Jassie Vandy"
+    ],
+    "cast": [
+      "레오나르도 디카프리오",
+      "자이먼 혼수",
+      "제니퍼 코넬리",
+      "Kagiso Kuypers",
+      "아널드 보슬루",
+      "Antony Coleman",
+      "Benu Mabhena"
+    ],
+    "director": "에드워드 즈윅"
+  },
+  "movie_627": {
+    "characters": [
+      "Joe Black / Young Man in Coffee Shop",
+      "William Parrish",
+      "Susan Parrish",
+      "Drew",
+      "Allison",
+      "Quince",
+      "Eddie Sloane"
+    ],
+    "cast": [
+      "브래드 피트",
+      "안소니 홉킨스",
+      "클레어 폴러니",
+      "제이크 웨버",
+      "마시아 그레이 하든",
+      "제프리 탬버",
+      "David S. Howard"
+    ],
+    "director": "Martin Brest"
+  },
+  "movie_628": {
+    "characters": [
+      "Matilda Wormwood",
+      "Harry Wormwood / Narrator (voice)",
+      "Zinnia Wormwood",
+      "Miss Honey",
+      "Agatha Trunchbull",
+      "FBI Agent"
+    ],
+    "cast": [
+      "마라 윌슨",
+      "대니 드비토",
+      "Rhea Perlman",
+      "엠베스 데이비츠",
+      "Pam Ferris",
+      "폴 루벤스",
+      "Tracey Walter"
+    ],
+    "director": "대니 드비토"
+  },
+  "movie_629": {
+    "characters": [
+      "Lockhart",
+      "Volmer",
+      "Hannah",
+      "Pembroke",
+      "Victoria Watkins",
+      "Deputy Director",
+      "Enrico"
+    ],
+    "cast": [
+      "데인 드한",
+      "제이슨 아이작스",
+      "미아 고스",
+      "Harry Groener",
+      "실리아 임리",
+      "Adrian Schiller",
+      "Ivo Nandi"
+    ],
+    "director": "고어 버빈스키"
+  },
+  "movie_630": {
+    "characters": [
+      "Capt. Steven Hiller",
+      "President Thomas J. Whitmore",
+      "David Levinson",
+      "Marilyn Whitmore",
+      "Julius Levinson",
+      "General William Grey",
+      "Russell Casse"
+    ],
+    "cast": [
+      "윌 스미스",
+      "빌 풀먼",
+      "제프 골드블룸",
+      "메리 맥도널",
+      "Judd Hirsch",
+      "Robert Loggia",
+      "Randy Quaid"
+    ],
+    "director": "롤란트 에머리히"
+  },
+  "movie_631": {
+    "characters": [
+      "Orion Pax / Optimus Prime (voice)",
+      "D-16 / Megatron (voice)",
+      "Elita-1 (voice)",
+      "B-127 (voice)",
+      "Sentinel Prime (voice)",
+      "Starscream (voice)",
+      "Alpha Trion (voice)"
+    ],
+    "cast": [
+      "크리스 헴스워스",
+      "브라이언 타이리 헨리",
+      "스칼렛 요한슨",
+      "키건마이클 키",
+      "존 햄",
+      "스티브 부세미",
+      "로렌스 피시번"
+    ],
+    "director": "조시 쿨리"
+  },
+  "movie_632": {
+    "characters": [
+      "Yuri Boyka",
+      "Alma",
+      "Zourab",
+      "Slava",
+      "Koshmar",
+      "Igor Kazmir",
+      "Kiril"
+    ],
+    "cast": [
+      "스콧 애드킨스",
+      "Teodora Duhovnikova",
+      "Alon Aboutboul",
+      "Юлиан Вергов",
+      "마틴 포드",
+      "Brahim Achabbakhe",
+      "Paul Chahidi"
+    ],
+    "director": "Todor Chapkanov"
+  },
+  "movie_633": {
+    "characters": [
+      "Hallie Parker / Annie James",
+      "Nick Parker",
+      "Elizabeth James",
+      "Meredith Blake",
+      "Chessy",
+      "Martin",
+      "Marva Kulp, Sr."
+    ],
+    "cast": [
+      "린제이 로한",
+      "데니스 퀘이드",
+      "Natasha Richardson",
+      "Elaine Hendrix",
+      "Lisa Ann Walter",
+      "사이몬 컨즈",
+      "Polly Holliday"
+    ],
+    "director": "낸시 마이어스"
+  },
+  "movie_634": {
+    "characters": [
+      "Larry Daley",
+      "Rebecca",
+      "Cecil",
+      "Gus",
+      "Reginald",
+      "Nick Daley",
+      "Dr. McPhee"
+    ],
+    "cast": [
+      "벤 스틸러",
+      "칼라 구지노",
+      "딕 밴 다이크",
+      "미키 루니",
+      "빌 콥스",
+      "Jake Cherry",
+      "리키 저베이스"
+    ],
+    "director": "숀 레비"
+  },
+  "movie_635": {
+    "characters": [
+      "John Kramer",
+      "Amanda Young",
+      "Cecilia Pederson",
+      "Parker Sears",
+      "Gabriela",
+      "Diego",
+      "Mateo"
+    ],
+    "cast": [
+      "토빈 벨",
+      "Shawnee Smith",
+      "Synnøve Macody Lund",
+      "Steven Brand",
+      "Renata Vaca",
+      "Joshua Okamoto",
+      "Octavio Hinojosa Martínez"
+    ],
+    "director": "Kevin Greutert"
+  },
+  "movie_636": {
+    "characters": [
+      "Captain America / Steve Rogers",
+      "Peggy Carter",
+      "James Buchanan 'Bucky' Barnes",
+      "Colonel Chester Phillips",
+      "Johann Schmidt / Red Skull",
+      "Howard Stark",
+      "Heinz Kruger"
+    ],
+    "cast": [
+      "크리스 에반스",
+      "헤일리 앳웰",
+      "세바스찬 스탠",
+      "토미 리 존스",
+      "휴고 위빙",
+      "도미닉 쿠퍼",
+      "리차드 아미티지"
+    ],
+    "director": "조 존스턴"
+  },
+  "movie_637": {
+    "characters": [
+      "Charlie Brown (voice)",
+      "Lucy (voice)",
+      "Linus (voice)",
+      "Snoopy (voice)",
+      "Woodstock / Spike / Olaf (voice)",
+      "Peppermint Patty (voice)",
+      "Sally (voice)"
+    ],
+    "cast": [
+      "Etienne Kellici",
+      "Isabella Leo",
+      "Wyatt White",
+      "Terry McGurrin",
+      "로버트 팅클러",
+      "Lexi Perri",
+      "Hattie Kragten"
+    ],
+    "director": "Clay Kaytis"
+  },
+  "movie_638": {
+    "characters": [
+      "Blade",
+      "Deacon Frost",
+      "Whistler",
+      "Karen",
+      "Quinn",
+      "Dragonetti",
+      "Mercury"
+    ],
+    "cast": [
+      "웨슬리 스나입스",
+      "스티븐 도프",
+      "크리스 크리스토퍼슨",
+      "N'Bushe Wright",
+      "Donal Logue",
+      "우도 키어",
+      "Arly Jover"
+    ],
+    "director": "스티븐 노링턴"
+  },
+  "movie_639": {
+    "characters": [
+      "Elisa Esposito",
+      "Richard Strickland",
+      "Giles",
+      "Zelda Fuller",
+      "Dr. Robert Hoffstetler",
+      "Amphibian Man",
+      "Fleming"
+    ],
+    "cast": [
+      "샐리 호킨스",
+      "마이클 섀넌",
+      "리처드 젠킨스",
+      "옥타비아 스펜서",
+      "마이클 스툴바그",
+      "더그 존스",
+      "데이비드 휴렛"
+    ],
+    "director": "기예르모 델 토로"
+  },
+  "movie_640": {
+    "characters": [
+      "Lady Bird McPherson",
+      "Marion McPherson",
+      "Larry McPherson",
+      "Danny O'Neill",
+      "Kyle Sheible",
+      "Julie Steffans",
+      "Sister Sarah Joan"
+    ],
+    "cast": [
+      "시얼샤 로넌",
+      "로리 멧칼프",
+      "트레이시 레츠",
+      "루카스 헤지스",
+      "티모시 샬라메",
+      "비니 펠드스타인",
+      "로이스 스미스"
+    ],
+    "director": "그레타 거윅"
+  },
+  "movie_641": {
+    "characters": [
+      "Gemma",
+      "Tom",
+      "Young Boy",
+      "Older Boy",
+      "Martin",
+      "Baby",
+      "Molly"
+    ],
+    "cast": [
+      "이모젠 푸츠",
+      "제시 아이젠버그",
+      "Senan Jennings",
+      "Éanna Hardwicke",
+      "조너선 아리스",
+      "Côme Thiry",
+      "Molly McCann"
+    ],
+    "director": "Lorcan Finnegan"
+  },
+  "movie_642": {
+    "characters": [
+      "Koo An-na",
+      "Son Hee-jo",
+      "Shin Ja-in",
+      "Lim Hyeon-mo",
+      "Lee Hwi-so",
+      "Shin Ga-won",
+      "Lee Ji-su"
+    ],
+    "cast": [
+      "김다미",
+      "박해수",
+      "권은성",
+      "전혜진",
+      "박병은",
+      "이학주",
+      "전유나"
+    ],
+    "director": "김병우"
+  },
+  "movie_643": {
+    "characters": [
+      "Satsuki Kusakabe (voice)",
+      "Mei Kusakabe (voice)",
+      "Totoro (voice)",
+      "Tatsuo Kusakabe (voice)",
+      "Yasuko Kusakabe (voice)",
+      "Granny (voice)",
+      "Kanta Ogaki (voice)"
+    ],
+    "cast": [
+      "히다카 노리코",
+      "사카모토 치카",
+      "타카기 히토시",
+      "糸井重里",
+      "시마모토 스미",
+      "北林谷栄",
+      "雨笠利幸"
+    ],
+    "director": "미야자키 하야오"
+  },
+  "movie_644": {
+    "characters": [
+      "Evey",
+      "V / William Rookwood",
+      "Finch",
+      "Deitrich",
+      "Adam Sutler",
+      "Creedy",
+      "Dominic"
+    ],
+    "cast": [
+      "나탈리 포트만",
+      "휴고 위빙",
+      "스티븐 레이",
+      "스티븐 프라이",
+      "존 허트",
+      "Tim Pigott-Smith",
+      "루퍼트 그레이브스"
+    ],
+    "director": "제임스 맥테이그"
+  },
+  "movie_645": {
+    "characters": [
+      "Tim",
+      "Millie",
+      "Jamie",
+      "Cath",
+      "Jordy",
+      "Luke",
+      "Carol"
+    ],
+    "cast": [
+      "데이브 프랭코",
+      "앨리슨 브리",
+      "데이먼 헤리먼",
+      "미아 몰리세이",
+      "칼 리치몬드",
+      "잭 케니",
+      "프란세스카 워터스"
+    ],
+    "director": "Michael Shanks"
+  },
+  "movie_646": {
+    "characters": [
+      "Dr. Smolder Bravestone",
+      "Franklin 'Mouse' Finbar",
+      "Professor Sheldon 'Shelly' Oberon",
+      "Ruby Roundhouse",
+      "Nigel Billingsley",
+      "Van Pelt",
+      "Jefferson 'Seaplane' McDonough"
+    ],
+    "cast": [
+      "드웨인 존슨",
+      "케빈 하트",
+      "잭 블랙",
+      "카렌 길런",
+      "리스 다비",
+      "바비 카나베일",
+      "닉 조나스"
+    ],
+    "director": "Jake Kasdan"
+  },
+  "movie_647": {
+    "characters": [
+      "Kale Brecht",
+      "Ashley Carlson",
+      "Julie Brecht",
+      "Robert Turner",
+      "Ronnie",
+      "Officer Gutierrez",
+      "Daniel Brecht"
+    ],
+    "cast": [
+      "샤이아 라보프",
+      "Sarah Roemer",
+      "캐리 앤 모스",
+      "데이비드 모스",
+      "Aaron Yoo",
+      "Jose Pablo Cantillo",
+      "Matt Craven"
+    ],
+    "director": "D.J. Caruso"
+  },
+  "movie_648": {
+    "characters": [
+      "Naru",
+      "Taabe",
+      "Aruka",
+      "Wasape",
+      "Chief Kehetu",
+      "Predator",
+      "Sumu (Chief Wife)"
+    ],
+    "cast": [
+      "엠버 미드선더",
+      "Dakota Beavers",
+      "Michelle Thrush",
+      "Stormee Kipp",
+      "Julian Black Antelope",
+      "Dane DiLiegro",
+      "Stefany Mathias"
+    ],
+    "director": "댄 트랙턴버그"
+  },
+  "movie_649": {
+    "characters": [
+      "Batman / Bruce Wayne (voice)",
+      "Robin / Dick Grayson (voice)",
+      "Batgirl / Barbara Gordon (voice)",
+      "Alfred Pennyworth (voice)",
+      "Joker (voice)",
+      "Harley Quinn (voice)",
+      "Scarecrow (voice)"
+    ],
+    "cast": [
+      "윌 아넷",
+      "마이클 세라",
+      "로사리오 도슨",
+      "랄프 파인즈",
+      "잭 갤리퍼내키스",
+      "제니 슬레이트",
+      "제이슨 맨주커스"
+    ],
+    "director": "크리스 매케이"
+  },
+  "movie_650": {
+    "characters": [
+      "Kid",
+      "Rana",
+      "Baba Shakti",
+      "Alphonso",
+      "Alpha",
+      "Queenie",
+      "Sita"
+    ],
+    "cast": [
+      "데브 파텔",
+      "Sikandar Kher",
+      "Makrand Deshpande",
+      "Pitobash",
+      "Vipin Sharma",
+      "Ashwini Kalsekar",
+      "소비타 둘리팔라"
+    ],
+    "director": "데브 파텔"
+  },
+  "movie_651": {
+    "characters": [
+      "Murphy",
+      "Electra",
+      "Omi",
+      "Gaspar",
+      "Julio",
+      "Noé - Art Gallery Owner",
+      "Nora"
+    ],
+    "cast": [
+      "칼 글루스먼",
+      "Aomi Muyock",
+      "Klara Kristin",
+      "Ugo Fox",
+      "Juan Saavedra",
+      "가스파 노에",
+      "Isabelle Nicou"
+    ],
+    "director": "가스파 노에"
+  },
+  "movie_652": {
+    "characters": [
+      "Natalie Cook",
+      "Dylan Sanders",
+      "Alex Munday",
+      "John Bosley",
+      "Eric Knox",
+      "Roger Corwin",
+      "Vivian Wood"
+    ],
+    "cast": [
+      "카메론 디아즈",
+      "드류 배리모어",
+      "루시 리우",
+      "빌 머레이",
+      "샘 록웰",
+      "팀 커리",
+      "켈리 린치"
+    ],
+    "director": "맥지"
+  },
+  "movie_653": {
+    "characters": [
+      "Jin-seok",
+      "Yoo-seok / Choi Seong-uk",
+      "Jin-seok's Father / Mr. Park",
+      "Jin-seok's Father / Madam Min",
+      "Professor Choi",
+      "Professor Choi's Wife",
+      "High School Yoo-seok"
+    ],
+    "cast": [
+      "강하늘",
+      "김무열",
+      "문성근",
+      "나영희",
+      "남명렬",
+      "이나라",
+      "정택현"
+    ],
+    "director": "장항준"
+  },
+  "movie_654": {
+    "characters": [
+      "Peter Quill",
+      "Gamora",
+      "Drax",
+      "Groot (voice)",
+      "Rocket (voice)",
+      "Ronan",
+      "Yondu Udonta"
+    ],
+    "cast": [
+      "크리스 프랫",
+      "조 샐다나",
+      "데이브 바티스타",
+      "빈 디젤",
+      "브래들리 쿠퍼",
+      "리 페이스",
+      "마이클 루커"
+    ],
+    "director": "제임스 건"
+  },
+  "movie_655": {
+    "characters": [
+      "Yuta Okkotsu (voice)",
+      "Rika Orimoto (voice)",
+      "Satoru Gojo (voice)",
+      "Suguru Geto (voice)",
+      "Maki Zen'in (voice)",
+      "Toge Inumaki (voice)",
+      "Panda (voice)"
+    ],
+    "cast": [
+      "오가타 메구미",
+      "하나자와 카나",
+      "나카무라 유이치",
+      "사쿠라이 타카히로",
+      "코마츠 미카코",
+      "우치야마 고키",
+      "세키 토모카즈"
+    ],
+    "director": "박성후"
+  },
+  "movie_656": {
+    "characters": [
+      "Jack",
+      "Princess Isabelle",
+      "Elmont",
+      "Roderick",
+      "King Brahmwell",
+      "General Fallon",
+      "Crawe"
+    ],
+    "cast": [
+      "니콜라스 홀트",
+      "Eleanor Tomlinson",
+      "이완 맥그리거",
+      "스탠리 투치",
+      "이언 맥셰인",
+      "빌 나이",
+      "에디 마산"
+    ],
+    "director": "브라이언 싱어"
+  },
+  "movie_657": {
+    "characters": [
+      "Alexander",
+      "Olympias",
+      "Philip",
+      "Hephaistion",
+      "Cassander",
+      "Old Ptolemy",
+      "Young Alexander"
+    ],
+    "cast": [
+      "콜린 파렐",
+      "안젤리나 졸리",
+      "발 킬머",
+      "자레드 레토",
+      "조나단 리스 마이어스",
+      "안소니 홉킨스",
+      "Jessie Kamm"
+    ],
+    "director": "올리버 스톤"
+  },
+  "movie_658": {
+    "characters": [
+      "Wade Wilson / Deadpool",
+      "Vanessa",
+      "Ajax",
+      "Weasel",
+      "Angel Dust",
+      "Blind Al",
+      "Negasonic Teenage Warhead"
+    ],
+    "cast": [
+      "라이언 레이놀즈",
+      "모레나 바카린",
+      "에드 스크레인",
+      "T.J. 밀러",
+      "지나 카라노",
+      "레슬리 어검스",
+      "브리아나 힐데브란드"
+    ],
+    "director": "팀 밀러"
+  },
+  "movie_659": {
+    "characters": [
+      "Michael MacCauley",
+      "Alex Murphy",
+      "Captain Hawthorne",
+      "Walt",
+      "Joanna",
+      "Karen MacCauley",
+      "Dylan"
+    ],
+    "cast": [
+      "리암 니슨",
+      "패트릭 윌슨",
+      "샘 닐",
+      "조너선 뱅크스",
+      "베라 파미가",
+      "엘리자베스 맥거번",
+      "Killian Scott"
+    ],
+    "director": "Jaume Collet-Serra"
+  },
+  "movie_660": {
+    "characters": [
+      "Caine Wise",
+      "Jupiter Jones",
+      "Stinger Apini",
+      "Balem Abrasax",
+      "Titus Abrasax",
+      "Kalique Abrasax",
+      "Diomika Tsing"
+    ],
+    "cast": [
+      "채닝 테이텀",
+      "밀라 쿠니스",
+      "숀 빈",
+      "에디 레드메인",
+      "Douglas Booth",
+      "터펜스 미들턴",
+      "니키 아무카버드"
+    ],
+    "director": "라나 워쇼스키"
+  },
+  "movie_661": {
+    "characters": [
+      "Flint Lockwood (voice)",
+      "Sam Sparks (voice)",
+      "Tim Lockwood (voice)",
+      "\"Baby\" Brent (voice)",
+      "Mayor Shelbourne (voice)",
+      "Earl Devereaux (voice)",
+      "Cal Devereaux (voice)"
+    ],
+    "cast": [
+      "빌 헤이더",
+      "안나 페리스",
+      "제임스 칸",
+      "앤디 샘버그",
+      "브루스 캠벨",
+      "Mr. T",
+      "Bobb'e J. Thompson"
+    ],
+    "director": "필 로드"
+  },
+  "movie_662": {
+    "characters": [
+      "Tyler Rake",
+      "Nik Khan",
+      "Yaz Khan",
+      "Zurab Radiani / Nikoloz Radiani",
+      "David Radiani",
+      "Ketevan Radiani",
+      "Sandro Radiani"
+    ],
+    "cast": [
+      "크리스 헴스워스",
+      "골쉬프테 파라하니",
+      "Adam Bessa",
+      "თორნიკე გოგრიჭიანი",
+      "თორნიკე ბზიავა",
+      "თინათინ დალაქიშვილი",
+      "ანდრო ჯაფარიძე"
+    ],
+    "director": "샘 하그레이브"
+  },
+  "movie_663": {
+    "characters": [
+      "Angel",
+      "Michael",
+      "Duke",
+      "Duchess",
+      "Paul",
+      "Mae",
+      "Sarah Stafford"
+    ],
+    "cast": [
+      "애비게일 카우언",
+      "Tom Lewis",
+      "에릭 데인",
+      "팜케 얀센",
+      "로건 마셜그린",
+      "니나 도브레브",
+      "Livi Birch"
+    ],
+    "director": "D.J. Caruso"
+  },
+  "movie_664": {
+    "characters": [
+      "Debbie Ocean",
+      "Lou",
+      "Daphne Kluger",
+      "Amita",
+      "Tammy",
+      "Constance",
+      "Nine Ball"
+    ],
+    "cast": [
+      "산드라 블록",
+      "케이트 블란쳇",
+      "앤 해서웨이",
+      "민디 케일링",
+      "사라 폴슨",
+      "아콰피나",
+      "리한나"
+    ],
+    "director": "게리 로스"
+  },
+  "movie_665": {
+    "characters": [
+      "John Murdoch",
+      "Inspector Frank Bumstead",
+      "Dr. Daniel P. Schreber",
+      "Emma Murdoch",
+      "Mr. Hand",
+      "Mr. Book",
+      "Mr. Wall"
+    ],
+    "cast": [
+      "루퍼스 스웰",
+      "윌리엄 허트",
+      "키퍼 서덜랜드",
+      "제니퍼 코넬리",
+      "Richard O'Brien",
+      "Ian Richardson",
+      "Bruce Spence"
+    ],
+    "director": "알렉스 프로야스"
+  },
+  "movie_666": {
+    "characters": [
+      "Deckard",
+      "Batty",
+      "Rachael",
+      "Gaff",
+      "Bryant",
+      "Pris",
+      "Sebastian"
+    ],
+    "cast": [
+      "해리슨 포드",
+      "루트거 하우어",
+      "숀 영",
+      "에드워드 제임스 올모스",
+      "M. 에멧 월시",
+      "대릴 해나",
+      "William Sanderson"
+    ],
+    "director": "리들리 스콧"
+  },
+  "movie_667": {
+    "characters": [
+      "Katie / Dog Cop (voice)",
+      "Rick (voice)",
+      "Linda (voice)",
+      "Aaron / Furbies / Talking Dog / Wifi Enthusiast (voice)",
+      "Mark (voice)",
+      "PAL (voice)",
+      "Deborahbot 5000 (voice)"
+    ],
+    "cast": [
+      "Abbi Jacobson",
+      "대니 맥브라이드",
+      "마야 루돌프",
+      "Mike Rianda",
+      "에릭 안드레",
+      "올리비아 콜먼",
+      "프레드 아미슨"
+    ],
+    "director": "Mike Rianda"
+  },
+  "movie_668": {
+    "characters": [
+      "Jann Mardenborough",
+      "Jack Salter",
+      "Danny Moore",
+      "Steve Mardenborough",
+      "Matty Davis",
+      "Audrey",
+      "Lesley Mardenborough"
+    ],
+    "cast": [
+      "아치 마데퀘",
+      "데이비드 하버",
+      "올랜도 블룸",
+      "자이먼 혼수",
+      "대런 바넷",
+      "메이브 코티어-릴리",
+      "Geri Halliwell-Horner"
+    ],
+    "director": "닐 블롬캠프"
+  },
+  "movie_669": {
+    "characters": [
+      "Matthew Kidman",
+      "Danielle",
+      "Kelly",
+      "Eli",
+      "Klitz",
+      "Hugo Posh",
+      "Mr. Kidman"
+    ],
+    "cast": [
+      "에밀 허쉬",
+      "엘리샤 커스버트",
+      "티모시 올리펀트",
+      "Christopher Rodriguez Marquette",
+      "폴 다노",
+      "제임스 리마",
+      "Timothy Bottoms"
+    ],
+    "director": "Luke Greenfield"
+  },
+  "movie_670": {
+    "characters": [
+      "Schmidt",
+      "Jenko",
+      "Molly Tracey",
+      "Eric Molson",
+      "Mr. Walters",
+      "Domingo",
+      "Captain Dickson"
+    ],
+    "cast": [
+      "조나 힐",
+      "채닝 테이텀",
+      "브리 라슨",
+      "데이브 프랭코",
+      "Rob Riggle",
+      "DeRay Davis",
+      "아이스 큐브"
+    ],
+    "director": "필 로드"
+  },
+  "movie_671": {
+    "characters": [
+      "Hercule Poirot",
+      "Maxime Gerard",
+      "Olga Seminoff",
+      "Dr Leslie Ferrier",
+      "Ariadne Oliver",
+      "Leopold Ferrier",
+      "Nicholas Holland"
+    ],
+    "cast": [
+      "케네스 브래너",
+      "카일 앨런",
+      "카미유 코탱",
+      "제이미 도넌",
+      "티나 페이",
+      "주드 힐",
+      "Ali Khan"
+    ],
+    "director": "케네스 브래너"
+  },
+  "movie_672": {
+    "characters": [
+      "Jonas Taylor",
+      "Jiuming Zhang",
+      "Meiying",
+      "DJ",
+      "Montes",
+      "Driscoll",
+      "Mac"
+    ],
+    "cast": [
+      "제이슨 스타뎀",
+      "오경",
+      "Shuya Sophia Cai",
+      "Page Kennedy",
+      "Sergio Peris-Mencheta",
+      "Sienna Guillory",
+      "클리프 커티스"
+    ],
+    "director": "벤 휘틀리"
+  },
+  "movie_673": {
+    "characters": [
+      "Chase (voice)",
+      "Ryder (voice)",
+      "Liberty (voice)",
+      "Skye (voice)",
+      "Marshall (Voice)",
+      "Rubble (voice)",
+      "Rocky (voice)"
+    ],
+    "cast": [
+      "이언 아미티지",
+      "Will Brisbin",
+      "마사이 마틴",
+      "Lilly Bartlam",
+      "Kingsley Marshall",
+      "Keegan Hedley",
+      "Callum Shoniker"
+    ],
+    "director": "Cal Brunker"
+  },
+  "movie_674": {
+    "characters": [
+      "Chris Kyle",
+      "Taya Renae Kyle",
+      "Goat-Winston",
+      "Young Chris Kyle",
+      "Wayne Kyle",
+      "Debbie Kyle",
+      "Jeff Kyle"
+    ],
+    "cast": [
+      "브래들리 쿠퍼",
+      "시에나 밀러",
+      "카일 갤너",
+      "Cole Konis",
+      "Ben Reed",
+      "Elise Robertson",
+      "Keir O'Donnell"
+    ],
+    "director": "클린트 이스트우드"
+  },
+  "movie_675": {
+    "characters": [
+      "Tessa Young",
+      "Hardin Scott",
+      "Landon Gibson",
+      "Steph Jones",
+      "Noah Porter",
+      "Zed Evans",
+      "Molly Samuels"
+    ],
+    "cast": [
+      "Josephine Langford",
+      "히어로 파인스 티핀",
+      "Shane Paul McGhie",
+      "Khadijha Red Thunder",
+      "딜런 아널드",
+      "Samuel Larsen",
+      "Inanna Sarkis"
+    ],
+    "director": "Jenny Gage"
+  },
+  "movie_676": {
+    "characters": [
+      "Jack",
+      "Montgomery",
+      "Lizzy",
+      "Blake",
+      "Ashley",
+      "Logan",
+      "Sidney"
+    ],
+    "cast": [
+      "게이튼 매터래조",
+      "Sean Giambrone",
+      "룰루 윌슨",
+      "Jack Martin",
+      "페이턴 엘리자베스 리",
+      "Marcus Scribner",
+      "칼렙 헤론"
+    ],
+    "director": "Nick Kocher"
+  },
+  "movie_677": {
+    "characters": [
+      "Rachel Watson",
+      "Anna Watson",
+      "Megan Hipwell",
+      "Scott Hipwell",
+      "Tom Watson",
+      "Detective Sgt. Riley",
+      "Martha"
+    ],
+    "cast": [
+      "에밀리 블런트",
+      "레베카 퍼거슨",
+      "헤일리 베넷",
+      "루크 에반스",
+      "저스틴 서로",
+      "앨리슨 제니",
+      "리사 쿠드로"
+    ],
+    "director": "테이트 테일러"
   }
 };

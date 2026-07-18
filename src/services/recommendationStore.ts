@@ -781,6 +781,27 @@ const fallbackRecommendationPool = computed<RecommendedCatalogMovie[]>(() => {
   return mapScoredMoviesToCatalogMovies(scoredMovies);
 });
 
+const fixedPresetRecommendationPool = computed<RecommendedCatalogMovie[] | null>(() => {
+  if (activeSituation.value.kind !== 'preset') {
+    return null;
+  }
+
+  const fixedMovieIds = getSituationPreset(activeSituation.value.presetId)?.rule.tmdbMovieIds ?? [];
+
+  if (fixedMovieIds.length === 0) {
+    return null;
+  }
+
+  // 명시적으로 고른 프랜차이즈/영화 묶음은 이미 평가한 작품도 다시 볼 수 있게 한다.
+  // 단, 사용자가 직접 '관심 없음'으로 제외한 작품은 계속 숨긴다.
+  const scoredMovies = recommendMovies(catalogMovies, state.profile, {
+    excludeMovieIds: state.dismissedRecommendationMovieIds,
+    limit: recommendationPoolLimit
+  });
+
+  return mapScoredMoviesToCatalogMovies(scoredMovies);
+});
+
 const rawRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => {
   return fallbackRecommendationPool.value.slice(0, recommendationVisibleLimit);
 });
@@ -796,7 +817,7 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
     hasTasteProfile: state.profile.totalRatings > 0,
     impressions: state.recommendationImpressions,
     likedMovieIds: likedMovieIds.value,
-    movies: fallbackRecommendationPool.value
+    movies: fixedPresetRecommendationPool.value ?? fallbackRecommendationPool.value
   }).slice(0, recommendationVisibleLimit);
 });
 

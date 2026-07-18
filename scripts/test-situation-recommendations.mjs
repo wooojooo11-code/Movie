@@ -13,6 +13,7 @@ const {
   situationOptionGroups,
   situationPresets
 } = await jiti.import('../src/data/situations.ts');
+const { catalogMovies } = await jiti.import('../src/data/catalog.ts');
 
 const manualSelection = {
   mood: 'tense',
@@ -134,6 +135,30 @@ assert.deepEqual(
   legoResults.map((entry) => entry.id),
   ['lego', 'lego-batman'],
   'LEGO preset returns only official LEGO movies in configured order'
+);
+
+assert.equal(
+  new Set(catalogMovies.map((entry) => entry.id)).size,
+  catalogMovies.length,
+  'every catalog movie has a unique ID'
+);
+
+const catalogMovieMap = Object.fromEntries(catalogMovies.map((entry) => [entry.id, entry]));
+const darthCatalogResults = rankSituationMovies({
+  activeSituation: { kind: 'preset', presetId: 'darth_vader' },
+  catalogMovies,
+  hasTasteProfile: false,
+  impressions: [],
+  likedMovieIds: [],
+  movies: catalogMovies.map((entry) => ({
+    ...catalogMovieMap[entry.id],
+    recommendationScore: 0
+  }))
+});
+assert.deepEqual(
+  darthCatalogResults.map((entry) => entry.tmdbMovieId),
+  [1893, 1894, 1895, 11, 1891, 1892, 140607, 181808, 181812, 330459],
+  'Darth Vader preset is preserved after catalog movies are mapped by ID'
 );
 
 const weightedResults = rankSituationMovies({

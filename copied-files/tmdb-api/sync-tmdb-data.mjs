@@ -162,29 +162,29 @@ const movieSeeds = [
   { id: 'movie_131', query: 'Avatar', year: 2009 },
   { id: 'movie_132', query: 'The Rock', year: 1996 },
   { id: 'movie_133', query: 'Speed', year: 1994 },
-  { id: 'movie_501', query: 'The Spirit of the Beehive', year: 1973 },
-  { id: 'movie_502', query: 'Still Walking', year: 2008 },
-  { id: 'movie_503', query: 'Goodbye, Dragon Inn', year: 2003 },
-  { id: 'movie_504', query: 'The Long Day Closes', year: 1992 },
-  { id: 'movie_505', query: 'Playtime', year: 1967 },
-  { id: 'movie_506', query: 'La Ciénaga', year: 2001 },
-  { id: 'movie_507', query: 'The Great Buddha+', year: 2017 },
-  { id: 'movie_508', query: 'The Gleaners and I', year: 2000 },
-  { id: 'movie_509', query: "Where Is the Friend's House?", year: 1987 },
-  { id: 'movie_510', query: 'A Brighter Summer Day', year: 1991 },
-  { id: 'movie_511', query: 'Coherence', year: 2013 },
-  { id: 'movie_512', query: 'Upgrade', year: 2018 },
-  { id: 'movie_513', query: 'Star Wars: Episode I - The Phantom Menace', year: 1999 },
-  { id: 'movie_514', query: 'Star Wars: Episode II - Attack of the Clones', year: 2002 },
-  { id: 'movie_515', query: 'Star Wars: Episode III - Revenge of the Sith', year: 2005 },
-  { id: 'movie_516', query: 'Star Wars', year: 1977 },
-  { id: 'movie_517', query: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
-  { id: 'movie_518', query: 'Star Wars: Episode VI - Return of the Jedi', year: 1983 },
-  { id: 'movie_519', query: 'Star Wars: The Force Awakens', year: 2015 },
-  { id: 'movie_520', query: 'Star Wars: The Last Jedi', year: 2017 },
-  { id: 'movie_521', query: 'Star Wars: The Rise of Skywalker', year: 2019 },
-  { id: 'movie_522', query: 'Rogue One: A Star Wars Story', year: 2016 },
-  { id: 'movie_523', query: 'Solo: A Star Wars Story', year: 2018 }
+  { id: 'movie_cinephile_501', query: 'The Spirit of the Beehive', year: 1973 },
+  { id: 'movie_cinephile_502', query: 'Still Walking', year: 2008 },
+  { id: 'movie_cinephile_503', query: 'Goodbye, Dragon Inn', year: 2003 },
+  { id: 'movie_cinephile_504', query: 'The Long Day Closes', year: 1992 },
+  { id: 'movie_cinephile_505', query: 'Playtime', year: 1967 },
+  { id: 'movie_cinephile_506', query: 'La Ciénaga', year: 2001 },
+  { id: 'movie_cinephile_507', query: 'The Great Buddha+', year: 2017 },
+  { id: 'movie_cinephile_508', query: 'The Gleaners and I', year: 2000 },
+  { id: 'movie_cinephile_509', query: "Where Is the Friend's House?", year: 1987 },
+  { id: 'movie_cinephile_510', query: 'A Brighter Summer Day', year: 1991 },
+  { id: 'movie_cinephile_511', query: 'Coherence', year: 2013 },
+  { id: 'movie_cinephile_512', query: 'Upgrade', year: 2018 },
+  { id: 'movie_cinephile_513', query: 'Star Wars: Episode I - The Phantom Menace', year: 1999 },
+  { id: 'movie_cinephile_514', query: 'Star Wars: Episode II - Attack of the Clones', year: 2002 },
+  { id: 'movie_cinephile_515', query: 'Star Wars: Episode III - Revenge of the Sith', year: 2005 },
+  { id: 'movie_cinephile_516', query: 'Star Wars', year: 1977 },
+  { id: 'movie_cinephile_517', query: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 },
+  { id: 'movie_cinephile_518', query: 'Star Wars: Episode VI - Return of the Jedi', year: 1983 },
+  { id: 'movie_cinephile_519', query: 'Star Wars: The Force Awakens', year: 2015 },
+  { id: 'movie_cinephile_520', query: 'Star Wars: The Last Jedi', year: 2017 },
+  { id: 'movie_cinephile_521', query: 'Star Wars: The Rise of Skywalker', year: 2019 },
+  { id: 'movie_cinephile_522', query: 'Rogue One: A Star Wars Story', year: 2016 },
+  { id: 'movie_cinephile_523', query: 'Solo: A Star Wars Story', year: 2018 }
 ];
 
 const catalogLists = [
@@ -293,21 +293,21 @@ const manualTmdbMovieIdOverrides = {
   movie_105: 258480,
   movie_117: 587792,
   movie_123: 7326,
-  movie_513: 1893,
-  movie_514: 1894,
-  movie_515: 1895,
-  movie_516: 11,
-  movie_517: 1891,
-  movie_518: 1892,
-  movie_519: 140607,
-  movie_520: 181808,
-  movie_521: 181812,
-  movie_522: 330459,
-  movie_523: 348350
+  movie_cinephile_513: 1893,
+  movie_cinephile_514: 1894,
+  movie_cinephile_515: 1895,
+  movie_cinephile_516: 11,
+  movie_cinephile_517: 1891,
+  movie_cinephile_518: 1892,
+  movie_cinephile_519: 140607,
+  movie_cinephile_520: 181808,
+  movie_cinephile_521: 181812,
+  movie_cinephile_522: 330459,
+  movie_cinephile_523: 348350
 };
 
 const manualTitleOverrides = {
-  movie_511: '코히런스'
+  movie_cinephile_511: '코히런스'
 };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -891,9 +891,7 @@ const mapWithConcurrency = async (items, concurrency, mapper) => {
 const toTypedTsExport = (importLine, exportName, typeName, value) =>
   `${importLine}\n\nexport const ${exportName}: ${typeName} = ${JSON.stringify(value, null, 2)};\n`;
 
-const cinephileMovieSeeds = movieSeeds.filter(
-  (seed) => Number.parseInt(seed.id.slice('movie_'.length), 10) > 500
-);
+const cinephileMovieSeeds = movieSeeds.filter((seed) => seed.id.startsWith('movie_cinephile_'));
 
 const readCatalogData = async () => {
   const source = await readFile(path.join(srcDataDir, 'catalog.ts'), 'utf8');

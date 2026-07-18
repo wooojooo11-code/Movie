@@ -10034,7 +10034,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_501",
+    "id": "movie_cinephile_501",
     "tmdbMovieId": 4495,
     "title": "벌집의 정령",
     "genres": [
@@ -10073,7 +10073,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_502",
+    "id": "movie_cinephile_502",
     "tmdbMovieId": 25050,
     "title": "걸어도 걸어도",
     "genres": [
@@ -10171,7 +10171,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_503",
+    "id": "movie_cinephile_503",
     "tmdbMovieId": 56616,
     "title": "안녕, 용문객잔",
     "genres": [
@@ -10204,7 +10204,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_504",
+    "id": "movie_cinephile_504",
     "tmdbMovieId": 49956,
     "title": "긴 하루가 지나고",
     "genres": [
@@ -10241,7 +10241,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_505",
+    "id": "movie_cinephile_505",
     "tmdbMovieId": 10227,
     "title": "플레이타임",
     "genres": [
@@ -10276,7 +10276,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_506",
+    "id": "movie_cinephile_506",
     "tmdbMovieId": 58429,
     "title": "늪",
     "genres": [
@@ -10334,7 +10334,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_507",
+    "id": "movie_cinephile_507",
     "tmdbMovieId": 475149,
     "title": "대불+",
     "genres": [
@@ -10373,7 +10373,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_508",
+    "id": "movie_cinephile_508",
     "tmdbMovieId": 44379,
     "title": "이삭줍는 사람들과 나",
     "genres": [
@@ -10464,7 +10464,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_509",
+    "id": "movie_cinephile_509",
     "tmdbMovieId": 49964,
     "title": "내 친구의 집은 어디인가",
     "genres": [
@@ -10505,7 +10505,7 @@ export const catalogMovies: CatalogMovie[] = [
     "watchProvidersKr": null
   },
   {
-    "id": "movie_510",
+    "id": "movie_cinephile_510",
     "tmdbMovieId": 15804,
     "title": "고령가 소년 살인 사건",
     "genres": [
@@ -10561,7 +10561,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_511",
+    "id": "movie_cinephile_511",
     "tmdbMovieId": 220289,
     "title": "코히런스",
     "genres": [
@@ -10614,7 +10614,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_512",
+    "id": "movie_cinephile_512",
     "tmdbMovieId": 500664,
     "title": "업그레이드",
     "genres": [
@@ -10687,7 +10687,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_513",
+    "id": "movie_cinephile_513",
     "tmdbMovieId": 1893,
     "title": "스타워즈 에피소드 1: 보이지 않는 위험",
     "genres": [
@@ -10748,7 +10748,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_514",
+    "id": "movie_cinephile_514",
     "tmdbMovieId": 1894,
     "title": "스타워즈 에피소드 2: 클론의 습격",
     "genres": [
@@ -10811,7 +10811,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_515",
+    "id": "movie_cinephile_515",
     "tmdbMovieId": 1895,
     "title": "스타워즈 에피소드 3: 시스의 복수",
     "genres": [
@@ -10880,7 +10880,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_516",
+    "id": "movie_cinephile_516",
     "tmdbMovieId": 11,
     "title": "스타워즈 에피소드 4: 새로운 희망",
     "genres": [
@@ -10948,7 +10948,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_517",
+    "id": "movie_cinephile_517",
     "tmdbMovieId": 1891,
     "title": "스타워즈 에피소드 5: 제국의 역습",
     "genres": [
@@ -11010,7 +11010,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_518",
+    "id": "movie_cinephile_518",
     "tmdbMovieId": 1892,
     "title": "스타워즈 에피소드 6: 제다이의 귀환",
     "genres": [
@@ -11078,7 +11078,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_519",
+    "id": "movie_cinephile_519",
     "tmdbMovieId": 140607,
     "title": "스타워즈 에피소드 7: 깨어난 포스",
     "genres": [
@@ -11145,7 +11145,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_520",
+    "id": "movie_cinephile_520",
     "tmdbMovieId": 181808,
     "title": "스타워즈 에피소드 8: 라스트 제다이",
     "genres": [
@@ -11212,7 +11212,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_521",
+    "id": "movie_cinephile_521",
     "tmdbMovieId": 181812,
     "title": "스타워즈 에피소드 9: 라이즈 오브 스카이워커",
     "genres": [
@@ -11274,7 +11274,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_522",
+    "id": "movie_cinephile_522",
     "tmdbMovieId": 330459,
     "title": "로그 원: 스타워즈 스토리",
     "genres": [
@@ -11337,7 +11337,7 @@ export const catalogMovies: CatalogMovie[] = [
     }
   },
   {
-    "id": "movie_523",
+    "id": "movie_cinephile_523",
     "tmdbMovieId": 348350,
     "title": "한 솔로: 스타워즈 스토리",
     "genres": [

@@ -218,6 +218,10 @@ const applyManualSituation = () => {
 const applyPreset = (presetId: (typeof situationPresets)[number]['id']) => {
   void recommendationStore.setActiveSituation({ kind: 'preset', presetId });
 };
+
+const applyDefaultSituation = () => {
+  void recommendationStore.setActiveSituation({ kind: 'none' });
+};
 </script>
 
 <template>
@@ -265,8 +269,8 @@ const applyPreset = (presetId: (typeof situationPresets)[number]['id']) => {
           <h2 class="text-base font-semibold text-[#15171c]">직접 상황 설정</h2>
         </div>
 
-        <div class="grid max-w-sm grid-cols-2 gap-2.5">
-          <label v-for="group in situationOptionGroups" :key="group.key" class="grid gap-1">
+        <div class="grid max-w-sm grid-cols-3 gap-2.5">
+          <label v-for="group in situationOptionGroups" :key="group.key" class="grid min-w-0 gap-1">
             <span class="text-xs font-semibold text-[#15171c]">{{ group.label }}</span>
             <select
               class="focus-ring corner-soft min-h-9 w-full border border-app-line bg-app-panelSoft px-2.5 text-xs font-medium text-[#15171c]"
@@ -298,6 +302,18 @@ const applyPreset = (presetId: (typeof situationPresets)[number]['id']) => {
         </div>
 
         <div class="flex flex-wrap gap-2">
+          <button
+            type="button"
+            class="focus-ring corner-pill min-h-9 border px-3 text-left text-xs font-medium transition-colors"
+            :class="
+              activeSituation.kind === 'none'
+                ? 'border-app-accent bg-app-accent text-white'
+                : 'border-app-line bg-app-panelSoft text-app-muted hover:border-app-accent hover:text-[#15171c]'
+            "
+            @click="applyDefaultSituation"
+          >
+            기본
+          </button>
           <button
             v-for="preset in situationPresets"
             :key="preset.id"

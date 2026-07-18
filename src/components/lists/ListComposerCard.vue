@@ -296,7 +296,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
     <div class="mt-3 flex gap-2">
       <button
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-accent bg-app-accent px-3 py-2 text-xs font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
+        class="focus-ring corner-soft inline-flex min-h-9 w-[5.75rem] shrink-0 items-center justify-center whitespace-nowrap border border-app-accent bg-app-accent px-2 py-2 text-xs font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
         :disabled="!canSave"
         @click="emit('save')"
       >

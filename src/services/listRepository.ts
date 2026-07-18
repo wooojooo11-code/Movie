@@ -81,6 +81,41 @@ const normalizeSharedListRow = (row: SupabaseUserListRow): SharedMovieListRecord
   canBeReshared: false
 });
 
+const resolveCanonicalSharedSourceRow = (
+  row: SupabaseUserListRow,
+  rowMap: ReadonlyMap<string, SupabaseUserListRow>
+) => {
+  let currentRow = row;
+  const visitedIds = new Set<string>([row.id]);
+
+  while (currentRow.source_list_id) {
+    const sourceRow = rowMap.get(currentRow.source_list_id);
+
+    if (!sourceRow || visitedIds.has(sourceRow.id)) {
+      break;
+    }
+
+    visitedIds.add(sourceRow.id);
+    currentRow = sourceRow;
+  }
+
+  return currentRow;
+};
+
+const normalizeSharedListRows = (rows: readonly SupabaseUserListRow[]) => {
+  const rowMap = new Map(rows.map((row) => [row.id, row]));
+
+  return rows.map((row) => {
+    const canonicalSourceRow = resolveCanonicalSharedSourceRow(row, rowMap);
+
+    return normalizeSharedListRow({
+      ...row,
+      movie_ids: canonicalSourceRow.movie_ids,
+      title: canonicalSourceRow.title
+    });
+  });
+};
+
 const normalizeInteractionRow = (row: SupabaseListInteractionRow): ListInteractionRecord => ({
   listId: row.list_id,
   saved: row.saved ?? false,
@@ -251,7 +286,7 @@ export const remoteListRepository = {
       throw error;
     }
 
-    return ((data ?? []) as unknown as SupabaseUserListRow[]).map(normalizeSharedListRow);
+    return normalizeSharedListRows((data ?? []) as unknown as SupabaseUserListRow[]);
   },
   async save(snapshot: ListsStateSnapshot): Promise<void> {
     if (!isRemoteSyncEnabled(snapshot.userId)) {

@@ -89,13 +89,11 @@ const seriesResults = rankSituationMovies({
 assert.deepEqual(seriesResults.map((entry) => entry.id), ['next-part'], 'series mode keeps collection sequels');
 
 const exactCandidates = [
-  movie('generic', { genreIds: [878, 28], tags: ['세계관', '액션'], recommendationScore: 99 }),
-  movie('darth', {
-    genreIds: [878, 28],
-    tags: ['세계관', '액션'],
-    characters: ['Darth Vader'],
-    recommendationScore: 0
-  }),
+  movie('episode-one', { tmdbMovieId: 1893, recommendationScore: 0 }),
+  movie('episode-eight', { tmdbMovieId: 181808, recommendationScore: 99 }),
+  movie('episode-nine', { tmdbMovieId: 181812, recommendationScore: 4 }),
+  movie('rogue-one', { tmdbMovieId: 330459, recommendationScore: 2 }),
+  movie('generic', { tmdbMovieId: 999, genreIds: [878, 28], tags: ['세계관', '액션'] }),
   movie('lego', { title: '레고 무비', overview: '레고 세계의 모험', genreIds: [16, 12] })
 ];
 const darthResults = rankSituationMovies({
@@ -112,7 +110,11 @@ const legoResults = rankSituationMovies({
   likedMovieIds: [],
   movies: exactCandidates
 });
-assert.equal(darthResults[0].id, 'darth', 'Darth Vader character match has priority');
+assert.deepEqual(
+  darthResults.map((entry) => entry.id),
+  ['episode-one', 'episode-eight', 'episode-nine', 'rogue-one'],
+  'Darth Vader preset returns only the configured Star Wars movies in order'
+);
 assert.equal(legoResults[0].id, 'lego', 'LEGO title or overview match has priority');
 
 console.log('Situation recommendation tests passed.');

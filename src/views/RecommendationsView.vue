@@ -228,7 +228,6 @@ const applyPreset = (presetId: (typeof situationPresets)[number]['id']) => {
       <div class="flex items-start justify-between gap-4">
         <div>
           <h1 class="text-[25px] font-semibold leading-tight text-[#15171c]">지금, 어떤 영화가 필요해?</h1>
-          <p class="mt-1 text-sm text-app-muted">취향과 지금의 상황을 함께 반영해 추천해 드려요.</p>
         </div>
         <span class="shrink-0 text-xs font-medium text-app-muted">
           {{ recommendationStore.state.profile.totalRatings }}개 평가
@@ -261,37 +260,30 @@ const applyPreset = (presetId: (typeof situationPresets)[number]['id']) => {
     </section>
 
     <section class="grid gap-4 lg:grid-cols-2">
-      <article class="corner-hard border border-app-line bg-app-panel p-4 sm:p-5">
-        <div class="mb-4">
-          <h2 class="text-lg font-semibold text-[#15171c]">직접 상황 설정</h2>
-          <p class="mt-1 text-sm text-app-muted">6가지 조건을 하나씩 고르고 추천받아 보세요.</p>
+      <article class="corner-hard border border-app-line bg-app-panel p-4">
+        <div class="mb-3">
+          <h2 class="text-base font-semibold text-[#15171c]">직접 상황 설정</h2>
         </div>
 
-        <div class="grid gap-4">
-          <fieldset v-for="group in situationOptionGroups" :key="group.key" class="min-w-0">
-            <legend class="mb-2 text-sm font-semibold text-[#15171c]">{{ group.label }}</legend>
-            <div class="flex flex-wrap gap-2">
-              <button
-                v-for="option in group.options"
-                :key="option.value"
-                type="button"
-                class="focus-ring corner-pill min-h-8 border px-3 text-xs font-medium transition-colors"
-                :class="
-                  getManualSelectionValue(group.key) === option.value
-                    ? 'border-app-accent bg-app-accent text-white'
-                    : 'border-app-line bg-app-panelSoft text-app-muted hover:border-app-accent hover:text-[#15171c]'
-                "
-                @click="setManualSelection(group.key, option.value)"
-              >
+        <div class="grid max-w-sm grid-cols-2 gap-2.5">
+          <label v-for="group in situationOptionGroups" :key="group.key" class="grid gap-1">
+            <span class="text-xs font-semibold text-[#15171c]">{{ group.label }}</span>
+            <select
+              class="focus-ring corner-soft min-h-9 w-full border border-app-line bg-app-panelSoft px-2.5 text-xs font-medium text-[#15171c]"
+              :value="getManualSelectionValue(group.key) ?? ''"
+              @change="setManualSelection(group.key, ($event.target as HTMLSelectElement).value)"
+            >
+              <option value="" disabled>선택</option>
+              <option v-for="option in group.options" :key="option.value" :value="option.value">
                 {{ option.label }}
-              </button>
-            </div>
-          </fieldset>
+              </option>
+            </select>
+          </label>
         </div>
 
         <button
           type="button"
-          class="focus-ring corner-soft mt-5 inline-flex min-h-11 w-full items-center justify-center bg-app-accent px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-app-line disabled:text-app-muted"
+          class="focus-ring corner-soft mt-4 inline-flex min-h-10 items-center justify-center bg-app-accent px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-app-line disabled:text-app-muted"
           :disabled="!isManualSelectionComplete"
           @click="applyManualSituation"
         >

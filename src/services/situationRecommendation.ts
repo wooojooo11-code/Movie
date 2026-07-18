@@ -148,14 +148,21 @@ export const rankSituationMovies = ({
       ? filterByViewingTime(movies, activeSituation.selection.viewingTime, collectionCounts)
       : [...movies];
   const rule = getSituationRule(activeSituation);
-  const tasteScores = normalizeScores(candidates.map((movie) => movie.recommendationScore));
+  const explicitMovieOrder = new Map((rule?.tmdbMovieIds ?? []).map((tmdbMovieId, index) => [tmdbMovieId, index]));
+  const scopedCandidates =
+    explicitMovieOrder.size > 0
+      ? candidates.filter((movie) => explicitMovieOrder.has(movie.tmdbMovieId))
+      : candidates;
+  const tasteScores = normalizeScores(scopedCandidates.map((movie) => movie.recommendationScore));
   const qualityScores = normalizeScores(
-    candidates.map((movie, index) => getCatalogQuality(movie, index, candidates.length))
+    scopedCandidates.map((movie, index) => getCatalogQuality(movie, index, scopedCandidates.length))
   );
-  const ruleMatches = candidates.map((movie) => (rule ? getRuleMatch(movie, rule) : { exactMatch: false, score: 0 }));
+  const ruleMatches = scopedCandidates.map((movie) =>
+    rule ? getRuleMatch(movie, rule) : { exactMatch: false, score: 0 }
+  );
   const situationScores = normalizeScores(ruleMatches.map((match) => match.score));
 
-  return candidates
+  return scopedCandidates
     .map((movie, index) => {
       const collectionBoost =
         activeSituation.kind === 'manual' &&
@@ -182,6 +189,11 @@ export const rankSituationMovies = ({
       };
     })
     .sort((left, right) => {
+      if (explicitMovieOrder.size > 0) {
+        return (explicitMovieOrder.get(left.movie.tmdbMovieId) ?? Infinity) -
+          (explicitMovieOrder.get(right.movie.tmdbMovieId) ?? Infinity);
+      }
+
       if (left.exactMatch !== right.exactMatch) {
         return left.exactMatch ? -1 : 1;
       }

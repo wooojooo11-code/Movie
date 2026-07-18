@@ -16,6 +16,7 @@ export interface SituationRule {
   genreIds?: number[];
   tags?: string[];
   textIncludes?: string[];
+  tmdbMovieIds?: number[];
 }
 
 export interface SituationPreset {
@@ -245,7 +246,9 @@ export const situationPresets: SituationPreset[] = [
   {
     id: 'darth_vader',
     label: '다스 베이더 보고 싶을 때',
-    rule: { characterIncludes: ['darth vader'], genreIds: [878, 28], tags: ['세계관', '액션'] }
+    rule: {
+      tmdbMovieIds: [1893, 1894, 1895, 11, 1891, 1892, 140607, 181808, 181812, 330459]
+    }
   }
 ];
 

@@ -42,21 +42,24 @@ export const popularLists: PopularList[] = topPopularCatalogLists.map((list) => 
   moviePreviews: getPopularListMoviePreviews(list.movieIds)
 }));
 
-export const popularRecommendedLists: RecommendedCatalogList[] = topPopularCatalogLists.map((list) => ({
-  ...list,
-  recommendationScore: 0,
-  moviePreviews: list.movieIds
-    .map((movieId) => movieMap[movieId])
-    .filter((movie): movie is (typeof catalogMovies)[number] => Boolean(movie))
-    .slice(0, 3)
-    .map((movie) => ({
+const popularListMap = Object.fromEntries(popularLists.map((list) => [list.id, list]));
+
+export const popularRecommendedLists: RecommendedCatalogList[] = topPopularCatalogLists.map((list) => {
+  const homePopularList = popularListMap[list.id];
+  const homeMoviePreviews = homePopularList?.moviePreviews ?? getPopularListMoviePreviews(list.movieIds);
+
+  return {
+    ...list,
+    title: homePopularList?.title ?? list.title,
+    saveCount: homePopularList?.saveCount ?? list.saveCount,
+    averageRating: homePopularList?.averageRating ?? list.averageRating,
+    recommendationScore: 0,
+    moviePreviews: homeMoviePreviews.map((movie) => ({
       id: movie.id,
       title: movie.title,
       posterUrl: movie.posterUrl,
       posterAlt: movie.posterAlt
     })),
-  moviePreviewTitles: list.movieIds
-    .map((movieId) => movieMap[movieId]?.title)
-    .filter((title): title is string => Boolean(title))
-    .slice(0, 3)
-}));
+    moviePreviewTitles: homeMoviePreviews.map((movie) => movie.title)
+  };
+});

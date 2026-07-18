@@ -544,6 +544,10 @@ export function calculateMovieRecommendationScore(
     }
   }
 
+  for (const character of movie.characters) {
+    score += profile.characterScores[character] ?? 0;
+  }
+
   return score;
 }
 

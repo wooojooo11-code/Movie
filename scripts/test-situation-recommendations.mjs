@@ -66,6 +66,7 @@ const rankForTime = (viewingTime) =>
     activeSituation: { kind: 'manual', selection: { ...manualSelection, viewingTime } },
     catalogMovies: timeCandidates,
     hasTasteProfile: false,
+    impressions: [],
     likedMovieIds: [],
     movies: timeCandidates
   }).map((entry) => entry.id);
@@ -83,6 +84,7 @@ const seriesResults = rankSituationMovies({
   activeSituation: { kind: 'manual', selection: { ...manualSelection, viewingTime: 'series' } },
   catalogMovies: franchiseCandidates,
   hasTasteProfile: true,
+  impressions: [],
   likedMovieIds: ['rated-part'],
   movies: franchiseCandidates.filter((entry) => entry.id !== 'rated-part')
 });
@@ -100,6 +102,7 @@ const darthResults = rankSituationMovies({
   activeSituation: { kind: 'preset', presetId: 'darth_vader' },
   catalogMovies: exactCandidates,
   hasTasteProfile: true,
+  impressions: [],
   likedMovieIds: [],
   movies: exactCandidates
 });
@@ -107,6 +110,7 @@ const legoResults = rankSituationMovies({
   activeSituation: { kind: 'preset', presetId: 'while_building_lego' },
   catalogMovies: exactCandidates,
   hasTasteProfile: false,
+  impressions: [],
   likedMovieIds: [],
   movies: exactCandidates
 });
@@ -116,5 +120,31 @@ assert.deepEqual(
   'Darth Vader preset returns only the configured Star Wars movies in order'
 );
 assert.equal(legoResults[0].id, 'lego', 'LEGO title or overview match has priority');
+
+const weightedResults = rankSituationMovies({
+  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  catalogMovies: exactCandidates,
+  hasTasteProfile: true,
+  impressions: [{ movieId: 'generic', lastShownAt: new Date().toISOString(), showCount: 1 }],
+  likedMovieIds: [],
+  movies: exactCandidates
+});
+const weightedMovie = weightedResults[0];
+const weightedScores = weightedMovie.recommendationScoreBreakdown;
+assert.ok(weightedScores, 'score breakdown is available');
+assert.equal(
+  weightedMovie.recommendationScore,
+  Math.max(
+    0,
+    Math.min(
+      100,
+      weightedScores.preference * 0.4 +
+        weightedScores.situation * 0.35 +
+        weightedScores.quality * 0.15 +
+        weightedScores.novelty * 0.1
+    )
+  ),
+  'final score uses 40/35/15/10 weighting'
+);
 
 console.log('Situation recommendation tests passed.');

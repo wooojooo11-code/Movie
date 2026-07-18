@@ -159,6 +159,12 @@ export interface AdditionalTasteAnalysisBatch {
   createdAt: string;
 }
 
+export interface RecommendationImpression {
+  lastShownAt: string;
+  movieId: string;
+  showCount: number;
+}
+
 export interface RecommendationStateSnapshot {
   userId: string;
   profile: UserPreferenceProfile;
@@ -166,6 +172,7 @@ export interface RecommendationStateSnapshot {
   additionalTasteAnalysisBatches: AdditionalTasteAnalysisBatch[];
   ratingResumeSurface: RatingResumeSurface;
   dismissedRecommendationMovieIds: string[];
+  recommendationImpressions: RecommendationImpression[];
   selectedTasteAnalysisGenres: TasteAnalysisGenre[];
   activeSituation: ActiveSituation;
   activeSituationUpdatedAt: string;
@@ -191,7 +198,15 @@ export interface RecommendedMoviePreview {
   posterUrl: string;
 }
 
-export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {}
+export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {
+  recommendationReasons?: string[];
+  recommendationScoreBreakdown?: {
+    novelty: number;
+    preference: number;
+    quality: number;
+    situation: number;
+  };
+}
 
 export interface RecommendedCatalogList extends CatalogMovieList, ScoredMovieList {
   moviePreviews: RecommendedMoviePreview[];

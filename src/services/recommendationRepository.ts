@@ -261,6 +261,7 @@ export const localRecommendationRepository: RecommendationRepository = {
         additionalTasteAnalysisBatches: [],
         ratingResumeSurface: existing.ratingResumeSurface ?? 'primary',
         dismissedRecommendationMovieIds: [],
+        recommendationImpressions: existing.recommendationImpressions ?? [],
         selectedTasteAnalysisGenres: existing.selectedTasteAnalysisGenres ?? [],
         activeSituation: existing.activeSituation ?? { kind: 'none' },
         activeSituationUpdatedAt:
@@ -440,6 +441,7 @@ export const remoteRecommendationRepository = {
       dismissedRecommendationMovieIds: ((exclusionsData ?? []) as unknown as SupabaseRecommendationExclusionRow[])
         .filter((row) => row.reason === ALREADY_SEEN_REASON)
         .map((row) => row.movie_id),
+      recommendationImpressions: [],
       selectedTasteAnalysisGenres: [],
       activeSituation: contextRow?.active_situation ?? { kind: 'none' },
       activeSituationUpdatedAt:

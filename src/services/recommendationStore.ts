@@ -32,6 +32,7 @@ import type {
   RatedCatalogMovieRecord,
   RecommendedCatalogList,
   RecommendedCatalogMovie,
+  RecommendationImpression,
   RecommendationStateSnapshot,
   SituationPresetId,
   SituationSelection,
@@ -111,6 +112,37 @@ const normalizeAdditionalTasteAnalysisBatches = (
           : new Date(0).toISOString()
     }))
     .filter((batch) => batch.movieIds.length > 0);
+
+const normalizeRecommendationImpressions = (value: readonly RecommendationImpression[] | undefined) => {
+  const impressionsByMovieId = new Map<string, RecommendationImpression>();
+
+  for (const impression of value ?? []) {
+    if (!impression || typeof impression.movieId !== 'string' || impression.movieId.length === 0) {
+      continue;
+    }
+
+    const timestamp = new Date(impression.lastShownAt).getTime();
+
+    if (!Number.isFinite(timestamp)) {
+      continue;
+    }
+
+    const normalized: RecommendationImpression = {
+      movieId: impression.movieId,
+      lastShownAt: new Date(timestamp).toISOString(),
+      showCount: Math.max(1, Math.floor(impression.showCount ?? 1))
+    };
+    const current = impressionsByMovieId.get(normalized.movieId);
+
+    if (!current || new Date(normalized.lastShownAt).getTime() >= new Date(current.lastShownAt).getTime()) {
+      impressionsByMovieId.set(normalized.movieId, normalized);
+    }
+  }
+
+  return [...impressionsByMovieId.values()]
+    .sort((left, right) => new Date(right.lastShownAt).getTime() - new Date(left.lastShownAt).getTime())
+    .slice(0, 120);
+};
 
 const normalizeActiveSituation = (value: unknown): ActiveSituation => {
   if (!value || typeof value !== 'object' || !('kind' in value)) {
@@ -197,6 +229,7 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
       additionalTasteAnalysisBatches: [],
       ratingResumeSurface: 'primary',
       dismissedRecommendationMovieIds: [],
+      recommendationImpressions: [],
       selectedTasteAnalysisGenres: [],
       activeSituation: { kind: 'none' },
       activeSituationUpdatedAt: new Date(0).toISOString()
@@ -226,6 +259,7 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
     additionalTasteAnalysisBatches: normalizedAdditionalTasteAnalysisBatches,
     ratingResumeSurface,
     dismissedRecommendationMovieIds: saved.dismissedRecommendationMovieIds ?? [],
+    recommendationImpressions: normalizeRecommendationImpressions(saved.recommendationImpressions),
     selectedTasteAnalysisGenres: normalizedSelectedTasteAnalysisGenres,
     activeSituation: normalizeActiveSituation((saved as Partial<RecommendationStateSnapshot>).activeSituation),
     activeSituationUpdatedAt: normalizeActiveSituationUpdatedAt(
@@ -327,6 +361,7 @@ const mergeSnapshots = (
     ),
     ratingResumeSurface: localSnapshot.ratingResumeSurface,
     dismissedRecommendationMovieIds,
+    recommendationImpressions: localSnapshot.recommendationImpressions,
     selectedTasteAnalysisGenres,
     activeSituation: shouldUseRemoteSituation
       ? remoteSnapshot.activeSituation
@@ -425,6 +460,7 @@ const state = reactive<RecommendationStateSnapshot>({
   additionalTasteAnalysisBatches: initialSnapshot.additionalTasteAnalysisBatches,
   ratingResumeSurface: initialSnapshot.ratingResumeSurface,
   dismissedRecommendationMovieIds: initialSnapshot.dismissedRecommendationMovieIds,
+  recommendationImpressions: initialSnapshot.recommendationImpressions,
   selectedTasteAnalysisGenres: initialSnapshot.selectedTasteAnalysisGenres,
   activeSituation: initialSnapshot.activeSituation,
   activeSituationUpdatedAt: initialSnapshot.activeSituationUpdatedAt
@@ -458,6 +494,7 @@ const applySnapshot = (snapshot: RecommendationStateSnapshot) => {
   state.additionalTasteAnalysisBatches = snapshot.additionalTasteAnalysisBatches;
   state.ratingResumeSurface = snapshot.ratingResumeSurface;
   state.dismissedRecommendationMovieIds = snapshot.dismissedRecommendationMovieIds;
+  state.recommendationImpressions = snapshot.recommendationImpressions;
   state.selectedTasteAnalysisGenres = snapshot.selectedTasteAnalysisGenres;
   state.activeSituation = snapshot.activeSituation;
   state.activeSituationUpdatedAt = snapshot.activeSituationUpdatedAt;
@@ -502,6 +539,7 @@ const buildSnapshot = (): RecommendationStateSnapshot => ({
   additionalTasteAnalysisBatches: state.additionalTasteAnalysisBatches,
   ratingResumeSurface: state.ratingResumeSurface,
   dismissedRecommendationMovieIds: state.dismissedRecommendationMovieIds,
+  recommendationImpressions: state.recommendationImpressions,
   selectedTasteAnalysisGenres: state.selectedTasteAnalysisGenres,
   activeSituation: activeSituation.value,
   activeSituationUpdatedAt: activeSituationUpdatedAt.value
@@ -756,6 +794,7 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
     activeSituation: activeSituation.value,
     catalogMovies,
     hasTasteProfile: state.profile.totalRatings > 0,
+    impressions: state.recommendationImpressions,
     likedMovieIds: likedMovieIds.value,
     movies: fallbackRecommendationPool.value
   }).slice(0, recommendationVisibleLimit);
@@ -945,11 +984,32 @@ const setRatingResumeSurface = (surface: RatingResumeSurface) => {
   localRecommendationRepository.save(buildSnapshot());
 };
 
+const recordCurrentRecommendationImpressions = () => {
+  const now = new Date().toISOString();
+  const impressionsByMovieId = new Map(
+    state.recommendationImpressions.map((impression) => [impression.movieId, impression] as const)
+  );
+
+  for (const movie of contextAwareRecommendedMovies.value) {
+    const current = impressionsByMovieId.get(movie.id);
+    impressionsByMovieId.set(movie.id, {
+      movieId: movie.id,
+      lastShownAt: now,
+      showCount: (current?.showCount ?? 0) + 1
+    });
+  }
+
+  state.recommendationImpressions = normalizeRecommendationImpressions(
+    [...impressionsByMovieId.values()]
+  );
+};
+
 const setActiveSituation = (nextSituation: ActiveSituation) => {
   if (JSON.stringify(activeSituation.value) === JSON.stringify(nextSituation)) {
     return Promise.resolve();
   }
 
+  recordCurrentRecommendationImpressions();
   activeSituation.value = nextSituation;
   activeSituationUpdatedAt.value = new Date().toISOString();
   state.activeSituation = activeSituation.value;
@@ -973,6 +1033,7 @@ const resetTasteAnalysis = () => {
   state.additionalTasteAnalysisBatches = [];
   state.ratingResumeSurface = 'primary';
   state.dismissedRecommendationMovieIds = [];
+  state.recommendationImpressions = [];
   state.activeSituation = activeSituation.value;
   state.activeSituationUpdatedAt = activeSituationUpdatedAt.value;
   remoteSyncErrorMessage.value = '';
@@ -1026,6 +1087,7 @@ const setActiveUser = async (userId: string) => {
       ),
       ratingResumeSurface: localSnapshot.ratingResumeSurface,
       dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
+      recommendationImpressions: [],
       selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
         remoteSnapshot.selectedTasteAnalysisGenres
       ),

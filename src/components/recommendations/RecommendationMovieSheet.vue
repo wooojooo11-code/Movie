@@ -24,6 +24,7 @@ const emit = defineEmits<{
 }>();
 
 const visibleTags = computed(() => props.movie.tags.slice(0, 3));
+const recommendationReasons = computed(() => props.movie.recommendationReasons ?? []);
 const isDecisionDialogOpen = ref(false);
 const ratingFlowMode = ref<null | 'negative' | 'positive'>(null);
 const watchProviders = computed(() => props.movie.watchProvidersKr);
@@ -164,6 +165,21 @@ watch(
           </section>
         </div>
       </div>
+
+      <section
+        v-if="recommendationReasons.length > 0"
+        class="mt-4 border-t border-app-line pt-4"
+      >
+        <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">
+          이 영화를 추천한 이유
+        </p>
+        <ul class="mt-2 grid gap-1.5 text-xs leading-5 text-[#15171c]">
+          <li v-for="reason in recommendationReasons" :key="reason" class="flex gap-1.5">
+            <span class="text-app-accent">•</span>
+            <span>{{ reason }}</span>
+          </li>
+        </ul>
+      </section>
 
       <section v-if="movie.overview" class="mt-4 border-t border-app-line pt-4">
         <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">Overview</p>

@@ -34,11 +34,12 @@ This creates:
 Run:
 
 - `supabase/migrations/202605281430_create_public_recommendation_context_settings.sql`
+- `supabase/migrations/202607181300_add_active_situation_to_recommendation_context_settings.sql`
 
 This creates:
 
 - `public.recommendation_context_settings`
-- storage for the last selected recommendation context
+- storage for the last selected direct situation or recommendation preset
 - RLS policies so each user can only read/write their own context row
 
 ## 4. User lists tables
@@ -161,23 +162,12 @@ This lets `already seen` recommendations stay hidden across devices for the same
 
 ### `public.recommendation_context_settings`
 
-Stores the last recommendation context selected by the user:
+Stores the last recommendation situation selected by the user:
 
-- `normal`
-- `after_exam`
-- `bed_time`
-- `with_friends`
-- `after_academy`
+- `active_situation`: a direct six-condition selection, a preset id, or the default state
+- `active_situation_updated_at`: timestamp used to resolve the newest selection across devices
 
-### `public.recommendation_context_weights`
-
-Stores the genre weights for each recommendation context:
-
-- `context_key`
-- `genre_id`
-- `weight`
-
-The app reads these rows first and falls back to built-in defaults only if the table is empty or unavailable.
+The legacy `current_context` field remains only for compatibility with older app versions.
 
 ### `public.user_lists`
 

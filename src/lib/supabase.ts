@@ -29,10 +29,6 @@ export const supabaseRecommendationContextTable =
   import.meta.env.VITE_SUPABASE_RECOMMENDATION_CONTEXT_TABLE?.trim() || 'recommendation_context_settings';
 export const supabaseRecommendationContextUserColumn =
   import.meta.env.VITE_SUPABASE_RECOMMENDATION_CONTEXT_USER_COLUMN?.trim() || 'user_id';
-export const supabaseRecommendationContextWeightsSchema =
-  import.meta.env.VITE_SUPABASE_RECOMMENDATION_CONTEXT_WEIGHTS_SCHEMA?.trim() || 'public';
-export const supabaseRecommendationContextWeightsTable =
-  import.meta.env.VITE_SUPABASE_RECOMMENDATION_CONTEXT_WEIGHTS_TABLE?.trim() || 'recommendation_context_weights';
 export const supabaseUserListsSchema = import.meta.env.VITE_SUPABASE_USER_LISTS_SCHEMA?.trim() || 'public';
 export const supabaseUserListsTable =
   import.meta.env.VITE_SUPABASE_USER_LISTS_TABLE?.trim() || 'user_lists';
@@ -90,16 +86,6 @@ export const getSupabaseRecommendationContextRelation = () => {
   }
 
   return supabase.schema(supabaseRecommendationContextSchema).from(supabaseRecommendationContextTable);
-};
-
-export const getSupabaseRecommendationContextWeightsRelation = () => {
-  if (!supabase) {
-    return null;
-  }
-
-  return supabase
-    .schema(supabaseRecommendationContextWeightsSchema)
-    .from(supabaseRecommendationContextWeightsTable);
 };
 
 export const getSupabaseUserListsRelation = () => {

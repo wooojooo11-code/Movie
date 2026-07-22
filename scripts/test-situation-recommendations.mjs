@@ -131,6 +131,19 @@ assert.deepEqual(
   ['episode-one', 'episode-eight', 'episode-nine', 'rogue-one'],
   'Darth Vader preset returns only the configured Star Wars movies in order'
 );
+const darthFallbackResults = rankSituationMovies({
+  activeSituation: { kind: 'preset', presetId: 'darth_vader' },
+  catalogMovies: exactCandidates,
+  hasTasteProfile: false,
+  impressions: [],
+  likedMovieIds: [],
+  movies: []
+});
+assert.deepEqual(
+  darthFallbackResults.map((entry) => entry.id),
+  ['episode-one', 'episode-eight', 'episode-nine', 'rogue-one'],
+  'fixed Star Wars preset recovers its catalog movies when the regular candidate pool is empty'
+);
 assert.deepEqual(
   legoResults.map((entry) => entry.id),
   ['lego', 'lego-batman'],

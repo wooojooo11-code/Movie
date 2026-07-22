@@ -9,6 +9,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "typecheck": "vue-tsc -b",
     "test:situations": "node ./scripts/test-situation-recommendations.mjs",
+    "test:catalog-surfaces": "node ./scripts/test-catalog-surfaces.mjs",
     "sync:tmdb": "node ./scripts/sync-tmdb-data.mjs"
   },
   "dependencies": {

@@ -249,10 +249,24 @@ export const rankSituationMovies = ({
   const explicitMovieOrder = new Map(
     (presetRule?.tmdbMovieIds ?? []).map((tmdbMovieId, index) => [tmdbMovieId, index])
   );
-  const scopedCandidates =
+  const presetCandidates =
     explicitMovieOrder.size > 0
       ? candidates.filter((movie) => explicitMovieOrder.has(movie.tmdbMovieId))
       : candidates;
+  const fixedCatalogFallback =
+    explicitMovieOrder.size > 0
+      ? catalogMovies
+          .filter((movie) => explicitMovieOrder.has(movie.tmdbMovieId))
+          .map((movie) => ({
+            ...movie,
+            genreIds: movie.genreIds ?? [],
+            recommendationScore: 0
+          }))
+      : [];
+  // 고정 프리셋은 목록 자체가 추천 의도다. 일반 후보 풀에서 모두 빠져도
+  // 카탈로그의 지정 작품으로 복구해 빈 결과 화면을 만들지 않는다.
+  const scopedCandidates =
+    explicitMovieOrder.size > 0 && presetCandidates.length === 0 ? fixedCatalogFallback : presetCandidates;
   const preferenceScores = normalizeScores(scopedCandidates.map((movie) => movie.recommendationScore));
   const impressionByMovieId = new Map(impressions.map((impression) => [impression.movieId, impression]));
 

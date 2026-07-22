@@ -191,13 +191,70 @@ assert.equal(
     0,
     Math.min(
       100,
-      weightedScores.preference * 0.4 +
+      weightedScores.preference * 0.45 +
         weightedScores.situation * 0.35 +
-        weightedScores.quality * 0.15 +
+        weightedScores.quality * 0.1 +
         weightedScores.novelty * 0.1
     )
   ),
-  'final score uses 40/35/15/10 weighting'
+  'final score keeps preference first with 45/35/10/10 weighting'
+);
+
+const diverseGenreIds = [10749, 18, 35, 53, 878];
+const diverseCandidates = diverseGenreIds.flatMap((genreId, genreIndex) =>
+  Array.from({ length: 3 }, (_, movieIndex) =>
+    movie(`diverse-${genreId}-${movieIndex}`, {
+      collectionId: genreIndex * 10 + movieIndex,
+      genreIds: [genreId],
+      recommendationScore: 100 - genreIndex * 3 - movieIndex
+    })
+  )
+);
+const diverseResults = rankSituationMovies({
+  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  catalogMovies: diverseCandidates,
+  hasTasteProfile: false,
+  impressions: [],
+  likedMovieIds: [],
+  movies: diverseCandidates
+}).slice(0, 10);
+const primaryGenreCounts = new Map();
+
+for (const result of diverseResults) {
+  const primaryGenreId = result.genreIds[0];
+  primaryGenreCounts.set(primaryGenreId, (primaryGenreCounts.get(primaryGenreId) ?? 0) + 1);
+}
+
+assert.ok(
+  [...primaryGenreCounts.values()].every((count) => count <= 2),
+  'the first ten situation recommendations limit each primary genre to two movies when alternatives exist'
+);
+assert.equal(
+  new Set(diverseResults.map((result) => result.collectionId)).size,
+  diverseResults.length,
+  'the first ten situation recommendations avoid duplicate franchises when alternatives exist'
+);
+
+const recentCandidates = Array.from({ length: 11 }, (_, index) =>
+  movie(`recent-${index}`, {
+    collectionId: index,
+    genreIds: [10749],
+    recommendationScore: 100 - index
+  })
+);
+const recentResults = rankSituationMovies({
+  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  catalogMovies: recentCandidates,
+  hasTasteProfile: false,
+  impressions: [{ movieId: 'recent-0', lastShownAt: new Date().toISOString(), showCount: 1 }],
+  likedMovieIds: [],
+  movies: recentCandidates
+}).slice(0, 10);
+
+assert.equal(
+  recentResults.some((result) => result.id === 'recent-0'),
+  false,
+  'a movie shown within the last fourteen days is excluded when enough fresh alternatives exist'
 );
 
 console.log('Situation recommendation tests passed.');

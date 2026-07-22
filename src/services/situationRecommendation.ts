@@ -30,12 +30,19 @@ interface RuleMatch {
 }
 
 interface SituationScore {
+  isStrongMatch: boolean;
   reasons: string[];
   score: number;
 }
 
 const HOUR_MS = 60 * 60 * 1000;
 const RECENT_RECOMMENDATION_HOURS = 7 * 24;
+const RECENT_RECOMMENDATION_EXCLUSION_HOURS = 14 * 24;
+const RECOMMENDATION_RESULT_COUNT = 10;
+const SITUATION_FIRST_RESULT_COUNT = 7;
+const TASTE_SAFE_RESULT_COUNT = 8;
+const TASTE_SAFE_SCORE = 40;
+const MAX_MOVIES_PER_PRIMARY_GENRE = 2;
 
 const clampScore = (value: number) => Math.max(0, Math.min(100, value));
 const normalizeText = (value: string) => value.trim().toLocaleLowerCase();
@@ -151,6 +158,9 @@ const getManualSituationScore = (movie: CatalogMovie, activeSituation: Extract<A
   }));
 
   return {
+    isStrongMatch:
+      matches.some((match) => match.weight === 0.35 && match.matched) ||
+      matches.filter((match) => match.matched).length >= 2,
     reasons: matches
       .filter((match) => match.matched)
       .sort((left, right) => right.weight - left.weight)
@@ -170,12 +180,13 @@ const getSituationScore = (movie: CatalogMovie, activeSituation: ActiveSituation
     const match = preset ? getRuleMatch(movie, preset.rule) : { matched: false, score: 0 };
 
     return {
+      isStrongMatch: match.matched,
       reasons: match.matched ? [`‘${preset?.label}’ 상황에 잘 맞아요.`] : [],
       score: match.score
     };
   }
 
-  return { reasons: [], score: 50 };
+  return { isStrongMatch: false, reasons: [], score: 50 };
 };
 
 const getNoveltyScore = (
@@ -217,6 +228,150 @@ const getRecommendationReasons = (
   }
 
   return [...new Set(reasons)].slice(0, 3);
+};
+
+interface RankedSituationMovie {
+  index: number;
+  movie: RecommendedCatalogMovie;
+  preferenceScore: number;
+  situation: SituationScore;
+}
+
+const isRecentlyRecommended = (
+  movie: CatalogMovie,
+  impressionByMovieId: ReadonlyMap<string, RecommendationImpression>
+) => {
+  const impression = impressionByMovieId.get(movie.id);
+
+  if (!impression) {
+    return false;
+  }
+
+  const elapsedHours = (Date.now() - new Date(impression.lastShownAt).getTime()) / HOUR_MS;
+  return elapsedHours >= 0 && elapsedHours <= RECENT_RECOMMENDATION_EXCLUSION_HOURS;
+};
+
+const getPrimaryGenreKey = (movie: CatalogMovie) => {
+  const genreId = movie.genreIds?.[0];
+
+  if (genreId != null) {
+    return `genre:${genreId}`;
+  }
+
+  return movie.genres[0] ? `genre:${movie.genres[0]}` : `movie:${movie.id}`;
+};
+
+const canAddDiverseMovie = (
+  entry: RankedSituationMovie,
+  selectedCollectionIds: ReadonlySet<number>,
+  selectedGenreCounts: ReadonlyMap<string, number>
+) => {
+  const collectionIsNew =
+    entry.movie.collectionId == null || !selectedCollectionIds.has(entry.movie.collectionId);
+  const primaryGenreCount = selectedGenreCounts.get(getPrimaryGenreKey(entry.movie)) ?? 0;
+
+  return collectionIsNew && primaryGenreCount < MAX_MOVIES_PER_PRIMARY_GENRE;
+};
+
+const addCandidate = (
+  entry: RankedSituationMovie,
+  selected: RankedSituationMovie[],
+  selectedIds: Set<string>,
+  selectedCollectionIds: Set<number>,
+  selectedGenreCounts: Map<string, number>
+) => {
+  selected.push(entry);
+  selectedIds.add(entry.movie.id);
+
+  if (entry.movie.collectionId != null) {
+    selectedCollectionIds.add(entry.movie.collectionId);
+  }
+
+  const genreKey = getPrimaryGenreKey(entry.movie);
+  selectedGenreCounts.set(genreKey, (selectedGenreCounts.get(genreKey) ?? 0) + 1);
+};
+
+const addFromCandidateGroup = (
+  candidates: readonly RankedSituationMovie[],
+  targetCount: number,
+  selected: RankedSituationMovie[],
+  selectedIds: Set<string>,
+  selectedCollectionIds: Set<number>,
+  selectedGenreCounts: Map<string, number>,
+  allowDiversityFallback = false
+) => {
+  while (selected.length < targetCount) {
+    const availableCandidates = candidates.filter((entry) => !selectedIds.has(entry.movie.id));
+    const nextCandidate = availableCandidates.find((entry) =>
+      canAddDiverseMovie(entry, selectedCollectionIds, selectedGenreCounts)
+    );
+    const candidate = nextCandidate ?? (allowDiversityFallback ? availableCandidates[0] : undefined);
+
+    if (!candidate) {
+      return;
+    }
+
+    addCandidate(candidate, selected, selectedIds, selectedCollectionIds, selectedGenreCounts);
+  }
+};
+
+const applySituationDiversity = (
+  rankedMovies: readonly RankedSituationMovie[],
+  hasTasteProfile: boolean,
+  impressionByMovieId: ReadonlyMap<string, RecommendationImpression>
+) => {
+  const resultCount = Math.min(RECOMMENDATION_RESULT_COUNT, rankedMovies.length);
+  const freshMovies = rankedMovies.filter((entry) => !isRecentlyRecommended(entry.movie, impressionByMovieId));
+  const candidatePool = freshMovies.length >= resultCount ? freshMovies : rankedMovies;
+  const tasteSafeMovies = hasTasteProfile
+    ? candidatePool.filter((entry) => entry.preferenceScore >= TASTE_SAFE_SCORE)
+    : candidatePool;
+  const strongSituationMovies = tasteSafeMovies.filter((entry) => entry.situation.isStrongMatch);
+  const relaxedSituationMovies = tasteSafeMovies.filter((entry) => entry.situation.score > 0);
+  const selected: RankedSituationMovie[] = [];
+  const selectedIds = new Set<string>();
+  const selectedCollectionIds = new Set<number>();
+  const selectedGenreCounts = new Map<string, number>();
+  const situationFirstTarget = Math.min(SITUATION_FIRST_RESULT_COUNT, resultCount);
+  const tasteSafeTarget = hasTasteProfile
+    ? Math.min(TASTE_SAFE_RESULT_COUNT, resultCount)
+    : resultCount;
+
+  addFromCandidateGroup(
+    strongSituationMovies,
+    situationFirstTarget,
+    selected,
+    selectedIds,
+    selectedCollectionIds,
+    selectedGenreCounts
+  );
+  addFromCandidateGroup(
+    relaxedSituationMovies,
+    situationFirstTarget,
+    selected,
+    selectedIds,
+    selectedCollectionIds,
+    selectedGenreCounts
+  );
+  addFromCandidateGroup(
+    tasteSafeMovies,
+    tasteSafeTarget,
+    selected,
+    selectedIds,
+    selectedCollectionIds,
+    selectedGenreCounts
+  );
+  addFromCandidateGroup(
+    candidatePool,
+    resultCount,
+    selected,
+    selectedIds,
+    selectedCollectionIds,
+    selectedGenreCounts,
+    true
+  );
+
+  return [...selected, ...rankedMovies.filter((entry) => !selectedIds.has(entry.movie.id))];
 };
 
 export const rankSituationMovies = ({
@@ -263,14 +418,12 @@ export const rankSituationMovies = ({
             recommendationScore: 0
           }))
       : [];
-  // 고정 프리셋은 목록 자체가 추천 의도다. 일반 후보 풀에서 모두 빠져도
-  // 카탈로그의 지정 작품으로 복구해 빈 결과 화면을 만들지 않는다.
+  // Fixed presets intentionally return their configured franchise or movie set.
   const scopedCandidates =
     explicitMovieOrder.size > 0 && presetCandidates.length === 0 ? fixedCatalogFallback : presetCandidates;
   const preferenceScores = normalizeScores(scopedCandidates.map((movie) => movie.recommendationScore));
   const impressionByMovieId = new Map(impressions.map((impression) => [impression.movieId, impression]));
-
-  return scopedCandidates
+  const rankedMovies = scopedCandidates
     .map((movie, index) => {
       const preferenceScore = hasTasteProfile ? preferenceScores[index] : 0;
       const situation = getSituationScore(movie, activeSituation);
@@ -284,11 +437,13 @@ export const rankSituationMovies = ({
           ? 3
           : 0;
       const finalScore = hasTasteProfile
-        ? preferenceScore * 0.4 + situation.score * 0.35 + qualityScore * 0.15 + noveltyScore * 0.1
-        : situation.score * 0.55 + qualityScore * 0.25 + noveltyScore * 0.2;
+        ? preferenceScore * 0.45 + situation.score * 0.35 + qualityScore * 0.1 + noveltyScore * 0.1
+        : situation.score * 0.65 + qualityScore * 0.15 + noveltyScore * 0.2;
 
       return {
         index,
+        preferenceScore,
+        situation,
         movie: {
           ...movie,
           recommendationReasons: getRecommendationReasons(
@@ -306,7 +461,7 @@ export const rankSituationMovies = ({
             novelty: noveltyScore
           }
         }
-      };
+      } satisfies RankedSituationMovie;
     })
     .sort((left, right) => {
       if (explicitMovieOrder.size > 0) {
@@ -319,6 +474,12 @@ export const rankSituationMovies = ({
       }
 
       return left.index - right.index;
-    })
-    .map(({ movie }) => movie);
+    });
+
+  const orderedMovies =
+    activeSituation.kind === 'none' || explicitMovieOrder.size > 0
+      ? rankedMovies
+      : applySituationDiversity(rankedMovies, hasTasteProfile, impressionByMovieId);
+
+  return orderedMovies.map(({ movie }) => movie);
 };

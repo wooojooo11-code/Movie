@@ -14,10 +14,10 @@ const { popularLists, popularRecommendedLists } = await jiti.import('../src/data
 
 const catalogMovieIds = new Set(catalogMovies.map((movie) => movie.id));
 
-assert.equal(new Set(trendingMovies.map((movie) => movie.id)).size, trendingMovies.length, 'home movies are unique');
-assert.ok(
-  trendingMovies.every((movie) => catalogMovieIds.has(movie.id)),
-  'home movies always resolve from the recommendation catalog'
+assert.deepEqual(
+  trendingMovies.map((movie) => movie.id),
+  Array.from({ length: 10 }, (_, index) => `kobis-2024-${index + 1}`),
+  'home restores the KOBIS 2024 popular-movie ranking'
 );
 assert.ok(
   trendingMovies.every((movie) => movie.similarMovies.every((similarMovie) => catalogMovieIds.has(similarMovie.id))),

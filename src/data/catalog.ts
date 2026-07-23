@@ -53362,7 +53362,8 @@ export const catalogLists: CatalogMovieList[] = [
     "movieIds": [
       "movie_2",
       "movie_8",
-      "movie_26"
+      "movie_26",
+      "movie_81"
     ],
     "saveCount": 1032,
     "averageRating": 4.3
@@ -53373,7 +53374,10 @@ export const catalogLists: CatalogMovieList[] = [
     "movieIds": [
       "movie_15",
       "movie_19",
-      "movie_32"
+      "movie_32",
+      "movie_13",
+      "movie_99",
+      "movie_106"
     ],
     "saveCount": 2184,
     "averageRating": 4.5
@@ -53384,7 +53388,9 @@ export const catalogLists: CatalogMovieList[] = [
     "movieIds": [
       "movie_7",
       "movie_15",
-      "movie_30"
+      "movie_30",
+      "movie_12",
+      "movie_333"
     ],
     "saveCount": 1492,
     "averageRating": 4.4
@@ -53395,7 +53401,10 @@ export const catalogLists: CatalogMovieList[] = [
     "movieIds": [
       "movie_1",
       "movie_6",
-      "movie_21"
+      "movie_21",
+      "movie_81",
+      "movie_89",
+      "movie_96"
     ],
     "saveCount": 1260,
     "averageRating": 4.2
@@ -53417,7 +53426,8 @@ export const catalogLists: CatalogMovieList[] = [
     "movieIds": [
       "movie_4",
       "movie_16",
-      "movie_28"
+      "movie_28",
+      "movie_125"
     ],
     "saveCount": 1893,
     "averageRating": 4.1

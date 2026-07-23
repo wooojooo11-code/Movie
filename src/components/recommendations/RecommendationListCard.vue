@@ -1,61 +1,26 @@
 <script setup lang="ts">
-import { useLibraryStore } from '@/services/libraryStore';
+import PopularListCard from '@/components/home/PopularListCard.vue';
+import type { PopularList } from '@/types/home';
 import type { RecommendedCatalogList } from '@/types/recommendation';
 
 defineProps<{
+  homeList: PopularList;
   isSaved: boolean;
   list: RecommendedCatalogList;
 }>();
 
 defineEmits<{
+  open: [];
   openLists: [];
   save: [list: RecommendedCatalogList];
 }>();
-
-const libraryStore = useLibraryStore();
-
-const formatCount = (count: number) => count.toLocaleString('ko-KR');
-const isSavedMovie = (movieId: string) => libraryStore.savedMovieIds.value.includes(movieId);
 </script>
 
 <template>
-  <article class="corner-hard border border-app-line bg-app-panel px-4 py-4">
-    <div class="flex items-start justify-between gap-3">
-      <h3 class="line-clamp-2 text-base font-medium leading-snug text-white">
-        {{ list.title }}
-      </h3>
-      <span class="shrink-0 text-xs text-app-muted">{{ list.averageRating.toFixed(1) }}</span>
-    </div>
+  <article class="grid gap-2">
+    <PopularListCard :list="homeList" @open="$emit('open')" />
 
-    <p class="mt-1.5 text-sm text-app-muted">저장 {{ formatCount(list.saveCount) }}</p>
-
-    <div class="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-2.5">
-      <article v-for="movie in list.moviePreviews" :key="movie.id" class="flex min-w-0 w-[4.35rem] flex-col items-center">
-        <img
-          :src="movie.posterUrl"
-          :alt="movie.posterAlt"
-          class="h-16 w-11 object-cover"
-          loading="lazy"
-        />
-        <p class="mt-1.5 line-clamp-2 text-center text-[11px] font-medium leading-4 text-white">
-          {{ movie.title }}
-        </p>
-        <button
-          type="button"
-          class="focus-ring corner-soft mt-2 inline-flex min-h-7 max-w-full items-center justify-center border px-1.5 text-[10px] font-medium leading-none"
-          :class="
-            isSavedMovie(movie.id)
-              ? 'border-app-accent bg-app-accent text-white'
-              : 'border-app-line bg-app-panelSoft text-white'
-          "
-          @click="libraryStore.toggleMovie(movie.id)"
-        >
-          {{ isSavedMovie(movie.id) ? '보관 중' : '보고싶어요' }}
-        </button>
-      </article>
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
+    <div class="flex flex-wrap gap-2 px-1">
       <button
         type="button"
         class="focus-ring corner-soft inline-flex min-h-8 shrink-0 items-center justify-center border px-2.5 text-xs whitespace-nowrap"

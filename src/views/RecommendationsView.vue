@@ -9,13 +9,15 @@ import {
   situationOptionGroups,
   situationPresets
 } from '@/data/situations';
-import { popularRecommendedLists } from '@/data/popularLists';
+import { popularLists, popularRecommendedLists } from '@/data/popularLists';
+import PopularListSheet from '@/components/home/PopularListSheet.vue';
 import RecommendationListCard from '@/components/recommendations/RecommendationListCard.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
+import type { PopularList } from '@/types/home';
 import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type {
   RecommendedCatalogList,
@@ -29,8 +31,14 @@ const listStore = useListStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
+const selectedPopularList = ref<PopularList | null>(null);
 const isSavingRecommendationRating = ref(false);
 const manualSelection = ref<Partial<SituationSelection>>({});
+
+const popularListPairs = popularRecommendedLists.map((recommendationList) => ({
+  homeList: popularLists.find((list) => list.id === recommendationList.id)!,
+  recommendationList
+}));
 
 const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
 const isManualSelectionComplete = computed(() => isCompleteSituationSelection(manualSelection.value));
@@ -52,6 +60,14 @@ const openMovieSheet = (movie: RecommendedCatalogMovie) => {
 
 const closeMovieSheet = () => {
   selectedMovie.value = null;
+};
+
+const openPopularList = (list: PopularList) => {
+  selectedPopularList.value = list;
+};
+
+const closePopularList = () => {
+  selectedPopularList.value = null;
 };
 
 const selectedMovieRatingRecord = computed(() => {
@@ -379,11 +395,13 @@ const applyDefaultSituation = () => {
 
       <div class="grid gap-3">
         <RecommendationListCard
-          v-for="list in popularRecommendedLists"
-          :key="list.id"
-          :is-saved="listStore.hasImportedList(list.id)"
-          :list="list"
-          @save="saveRecommendedList(list)"
+          v-for="pair in popularListPairs"
+          :key="pair.recommendationList.id"
+          :home-list="pair.homeList"
+          :is-saved="listStore.hasImportedList(pair.recommendationList.id)"
+          :list="pair.recommendationList"
+          @open="openPopularList(pair.homeList)"
+          @save="saveRecommendedList(pair.recommendationList)"
           @open-lists="openListsPage"
         />
       </div>
@@ -397,6 +415,12 @@ const applyDefaultSituation = () => {
       @rate-dislike-submit="handleRecommendationDislike"
       @rate-like-submit="handleRecommendationLike"
       @close="closeMovieSheet"
+    />
+
+    <PopularListSheet
+      v-if="selectedPopularList"
+      :list="selectedPopularList"
+      @close="closePopularList"
     />
   </main>
 </template>

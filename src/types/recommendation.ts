@@ -46,15 +46,21 @@ export type SituationReason =
   | 'focus'
   | 'motivation'
   | 'free_time'
-  | 'no_thoughts';
+  | 'no_thoughts'
+  | 'laugh'
+  | 'action'
+  | 'mystery_twist'
+  | 'visuals'
+  | 'new_world'
+  | 'true_story';
 
 export interface SituationSelection {
-  companion: SituationCompanion;
-  mood: SituationMood;
-  reason: SituationReason;
-  specialDay: SituationSpecialDay;
-  viewingTime: SituationViewingTime;
-  weather: SituationWeather;
+  companion?: SituationCompanion;
+  mood?: SituationMood;
+  reason?: readonly SituationReason[];
+  specialDay?: SituationSpecialDay;
+  viewingTime?: SituationViewingTime;
+  weather?: SituationWeather;
 }
 
 export type SituationPresetId =
@@ -70,9 +76,7 @@ export type SituationPresetId =
   | 'autumn_vibes'
   | 'sunday_night'
   | 'solar_eclipse'
-  | 'lunar_eclipse'
-  | 'while_building_lego'
-  | 'darth_vader';
+  | 'lunar_eclipse';
 
 export type ActiveSituation =
   | { kind: 'manual'; selection: SituationSelection }

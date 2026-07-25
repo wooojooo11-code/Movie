@@ -18,12 +18,12 @@ const getCatalogMoviePreview = (movieId: string): TrendingMovieSimilarPreview | 
   };
 };
 
-const getCatalogMoviePreviews = (movieIds: string[]): TrendingMovieSimilarPreview[] =>
+const getCatalogMoviePreviews = (movieIds: readonly string[]): TrendingMovieSimilarPreview[] =>
   movieIds
     .map((movieId) => getCatalogMoviePreview(movieId))
     .filter((movie): movie is TrendingMovieSimilarPreview => Boolean(movie));
 
-export const trendingMovies: TrendingMovie[] = [
+const previousTrendingMovies: TrendingMovie[] = [
   {
     id: 'kobis-2024-1',
     rank: 1,
@@ -164,3 +164,151 @@ export const trendingMovies: TrendingMovie[] = [
     similarMovies: getCatalogMoviePreviews(['movie_21', 'movie_43', 'movie_68'])
   }
 ];
+
+type LatestTrendingMovieSelection = {
+  catalogMovieId: null | string;
+  rank: number;
+  title: string;
+  audienceLabel: string;
+  genres: string[];
+  cast: string[];
+  rating: number;
+  similarMovieIds: string[];
+  posterUrl?: string;
+};
+
+const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
+  {
+    catalogMovieId: 'movie_137',
+    rank: 1,
+    title: '주토피아 2',
+    audienceLabel: '연간 관객 770만',
+    genres: ['애니메이션', '모험', '코미디'],
+    cast: ['지니퍼 굿윈', '제이슨 베이트먼', '키 호이 콴'],
+    rating: 7.7,
+    similarMovieIds: ['movie_31', 'movie_54', 'movie_55']
+  },
+  {
+    catalogMovieId: 'movie_134',
+    rank: 2,
+    title: '극장판 귀멸의 칼날: 무한성편',
+    audienceLabel: '연간 관객 569만',
+    genres: ['애니메이션', '액션', '판타지'],
+    cast: ['하나에 나츠키', '키토 아카리', '시모노 히로'],
+    rating: 7.8,
+    similarMovieIds: ['movie_31', 'movie_73', 'movie_76']
+  },
+  {
+    catalogMovieId: null,
+    rank: 3,
+    title: '좀비딸',
+    audienceLabel: '연간 관객 564만',
+    genres: ['코미디', '드라마'],
+    cast: ['조정석', '이정은', '조여정'],
+    rating: 7.4,
+    similarMovieIds: ['movie_16', 'movie_20', 'movie_24'],
+    posterUrl:
+      'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2025/08/thumb_x192/thn_424f0d4c7d984ff1b8a2d27cd4d19f29.jpg&w=240&h=320&zc=0'
+  },
+  {
+    catalogMovieId: 'movie_188',
+    rank: 4,
+    title: 'F1 더 무비',
+    audienceLabel: '연간 관객 521만',
+    genres: ['드라마', '액션'],
+    cast: ['브래드 피트', '댐슨 이드리스', '하비에르 바르뎀'],
+    rating: 7.6,
+    similarMovieIds: ['movie_14', 'movie_17', 'movie_23']
+  },
+  {
+    catalogMovieId: 'movie_138',
+    rank: 5,
+    title: '아바타: 불과 재',
+    audienceLabel: '연간 관객 456만',
+    genres: ['SF', '모험', '액션'],
+    cast: ['샘 워싱턴', '조 샐다나', '시고니 위버'],
+    rating: 7.3,
+    similarMovieIds: ['movie_33', 'movie_37', 'movie_38']
+  },
+  {
+    catalogMovieId: null,
+    rank: 6,
+    title: '극장판 체인소 맨: 레제편',
+    audienceLabel: '연간 관객 343만',
+    genres: ['애니메이션', '액션', '판타지'],
+    cast: ['토야 키쿠노스케', '우에다 레이나', '이자와 시오리'],
+    rating: 7.6,
+    similarMovieIds: ['movie_31', 'movie_73', 'movie_76'],
+    posterUrl:
+      'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2025/09/thumb_x192/thn_fb5e3ca88d744654a0fc29fa706a4a9f.jpg&w=240&h=320&zc=0'
+  },
+  {
+    catalogMovieId: 'movie_180',
+    rank: 7,
+    title: '미션 임파서블: 파이널 레코닝',
+    audienceLabel: '연간 관객 339만',
+    genres: ['액션', '스릴러', '모험'],
+    cast: ['톰 크루즈', '헤일리 앳웰', '사이먼 페그'],
+    rating: 7.2,
+    similarMovieIds: ['movie_10', 'movie_17', 'movie_25']
+  },
+  {
+    catalogMovieId: null,
+    rank: 8,
+    title: '야당',
+    audienceLabel: '연간 관객 338만',
+    genres: ['범죄', '액션', '드라마'],
+    cast: ['강하늘', '유해진', '박해준'],
+    rating: 7.2,
+    similarMovieIds: ['movie_18', 'movie_25', 'movie_28'],
+    posterUrl:
+      'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/02/thumb_x192/thn_52d99a2ed6ac4af48b2e90ca1594b2ba.jpg&w=240&h=320&zc=0'
+  },
+  {
+    catalogMovieId: 'movie_346',
+    rank: 9,
+    title: '미키 17',
+    audienceLabel: '연간 관객 301만',
+    genres: ['SF', '코미디', '드라마'],
+    cast: ['로버트 패틴슨', '나오미 애키', '스티븐 연'],
+    rating: 7.0,
+    similarMovieIds: ['movie_33', 'movie_34', 'movie_36']
+  },
+  {
+    catalogMovieId: 'movie_508',
+    rank: 10,
+    title: '어쩔수가없다',
+    audienceLabel: '연간 관객 294만',
+    genres: ['스릴러', '범죄', '드라마'],
+    cast: ['이병헌', '손예진', '박희순'],
+    rating: 7.5,
+    similarMovieIds: ['movie_18', 'movie_21', 'movie_29']
+  }
+] as const;
+
+const latestTrendingMovies = latestTrendingMovieSelections
+  .map((selection): TrendingMovie | null => {
+    const catalogMovie = selection.catalogMovieId ? movieMap[selection.catalogMovieId] : null;
+    const posterUrl = catalogMovie?.posterUrl ?? selection.posterUrl;
+
+    if (!posterUrl) {
+      return null;
+    }
+
+    return {
+      id: `kobis-2025-${selection.rank}`,
+      rank: selection.rank,
+      title: selection.title,
+      audienceLabel: selection.audienceLabel,
+      sourceLabel: 'KOBIS 2025 연간 박스오피스',
+      genres: [...selection.genres],
+      cast: [...selection.cast],
+      rating: selection.rating,
+      posterUrl,
+      posterAlt: `${selection.title} 포스터`,
+      similarMovies: getCatalogMoviePreviews(selection.similarMovieIds)
+    };
+  })
+  .filter((movie): movie is TrendingMovie => movie !== null);
+
+export const trendingMovies = latestTrendingMovies.length > 0 ? latestTrendingMovies : previousTrendingMovies;

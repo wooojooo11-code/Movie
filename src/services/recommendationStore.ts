@@ -1,7 +1,7 @@
 ﻿import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogLists, catalogMovies } from '@/data/catalog';
-import { getSituationPreset, isCompleteSituationSelection } from '@/data/situations';
+import { getSituationPreset, normalizeSituationSelection } from '@/data/situations';
 import {
   buildAdditionalTasteAnalysisBatch,
   getPrimaryRatingMovies,
@@ -35,7 +35,6 @@ import type {
   RecommendationImpression,
   RecommendationStateSnapshot,
   SituationPresetId,
-  SituationSelection,
   StoredRatingRecord,
   TasteAnalysisGenre
 } from '@/types/recommendation';
@@ -155,14 +154,16 @@ const normalizeActiveSituation = (value: unknown): ActiveSituation => {
       : { kind: 'none' };
   }
 
-  if (
-    value.kind === 'manual' &&
-    'selection' in value &&
-    isCompleteSituationSelection(value.selection as Partial<SituationSelection>)
-  ) {
+  if (value.kind === 'manual' && 'selection' in value) {
+    const selection = normalizeSituationSelection(value.selection);
+
+    if (!selection) {
+      return { kind: 'none' };
+    }
+
     return {
       kind: 'manual',
-      selection: value.selection as SituationSelection
+      selection
     };
   }
 

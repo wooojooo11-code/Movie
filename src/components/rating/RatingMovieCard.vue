@@ -9,10 +9,12 @@ const props = withDefaults(
     movie: RatingMovie;
     interactive?: boolean;
     size?: 'compact' | 'default' | 'detail';
+    showTrailer?: boolean;
   }>(),
   {
     interactive: true,
-    size: 'default'
+    size: 'default',
+    showTrailer: false
   }
 );
 
@@ -107,6 +109,11 @@ const watchAvailabilityText = computed(() => {
 });
 const quickWatchLinks = computed(() => getWatchProviderLinks(props.movie).slice(0, 4));
 const tmdbWatchLink = computed(() => props.movie.watchProvidersKr?.link ?? null);
+const trailerSearchLink = computed(() => {
+  const query = `${props.movie.title} ${props.movie.releaseYear} 공식 예고편`;
+
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+});
 
 const onPointerDown = (event: PointerEvent) => {
   if (!props.interactive) {
@@ -186,14 +193,47 @@ const onPointerUp = (event: PointerEvent) => {
     @pointercancel="onPointerUp"
   >
     <div class="flex flex-col bg-app-panel" :class="containerClassName">
-      <div class="flex items-center justify-center bg-app-poster">
-        <img
-          :src="movie.posterUrl"
-          :alt="movie.posterAlt"
-          class="w-full object-contain"
-          :class="posterClassName"
-          loading="lazy"
-        />
+      <div
+        class="bg-app-poster"
+        :class="showTrailer ? 'grid grid-cols-2 items-center gap-3' : 'flex items-center justify-center'"
+      >
+        <div class="flex items-center justify-center">
+          <img
+            :src="movie.posterUrl"
+            :alt="movie.posterAlt"
+            class="w-full object-contain"
+            :class="posterClassName"
+            loading="lazy"
+          />
+        </div>
+
+        <a
+          v-if="showTrailer"
+          :href="trailerSearchLink"
+          target="_blank"
+          rel="noreferrer"
+          :aria-label="`${movie.title} 공식 예고편 YouTube에서 보기`"
+          class="focus-ring corner-soft group relative aspect-video self-center overflow-hidden border border-app-line bg-[#15171c]"
+          @click.stop
+          @pointerdown.stop
+          @pointermove.stop
+          @pointerup.stop
+          @pointercancel.stop
+        >
+          <img
+            :src="movie.posterUrl"
+            alt=""
+            aria-hidden="true"
+            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-sm transition duration-200 group-hover:scale-100"
+            loading="lazy"
+          />
+          <span class="absolute inset-0 bg-black/30"></span>
+          <span class="relative flex h-full flex-col items-center justify-center gap-1.5 px-2 text-center text-white">
+            <span class="grid size-8 place-items-center rounded-full border border-white/80 bg-black/35 text-sm">▶</span>
+            <span class="text-xs font-semibold">예고편 보기</span>
+            <span class="text-[10px] text-white/75">YouTube에서 열기</span>
+          </span>
+        </a>
       </div>
 
       <div class="w-full border-t border-app-line pt-4">

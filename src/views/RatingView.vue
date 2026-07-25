@@ -770,7 +770,13 @@ watch(
 
     <template v-if="isDetailMode && currentMovie">
       <div ref="detailFlowTop">
-        <RatingMovieCard :key="currentMovie.id" :movie="currentMovie" :interactive="false" size="detail" />
+        <RatingMovieCard
+          :key="currentMovie.id"
+          :movie="currentMovie"
+          :interactive="false"
+          size="detail"
+          show-trailer
+        />
       </div>
 
       <div class="flex justify-end">
@@ -807,6 +813,7 @@ watch(
         :movie="currentMovie"
         :interactive="true"
         size="compact"
+        show-trailer
         class="mx-auto w-[82%] sm:w-full"
         @decide="savePrimaryMovieDecision"
       />
@@ -887,6 +894,7 @@ watch(
             :key="`${manualSelectedMovie.id}-${manualFeedbackMode ?? 'manual-primary'}`"
             :movie="manualSelectedMovie"
             :interactive="manualFeedbackMode == null"
+            show-trailer
             @decide="saveManualMovieDecision"
           />
           <div class="flex justify-end">

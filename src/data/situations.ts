@@ -102,7 +102,13 @@ export const situationOptionGroups = [
       { value: 'focus', label: '집중' },
       { value: 'motivation', label: '동기부여' },
       { value: 'free_time', label: '시간 나서' },
-      { value: 'no_thoughts', label: '아무 생각 없음' }
+      { value: 'no_thoughts', label: '아무 생각 없음' },
+      { value: 'laugh', label: '웃고 싶어서' },
+      { value: 'action', label: '액션' },
+      { value: 'mystery_twist', label: '추리·반전' },
+      { value: 'visuals', label: '영상미' },
+      { value: 'new_world', label: '새로운 세계관' },
+      { value: 'true_story', label: '실화' }
     ]
   }
 ] as const;
@@ -157,31 +163,35 @@ export const reasonRules: Record<SituationReason, SituationRule> = {
   focus: { genreIds: [53, 9648], tags: ['몰입감', '긴장감', '빠른전개'] },
   motivation: { tags: ['성장', '감동', '몰입감'] },
   free_time: { genreIds: [12, 878], tags: ['몰입감', '세계관'] },
-  no_thoughts: { genreIds: [35, 16], tags: ['유쾌함', '유머'] }
+  no_thoughts: { genreIds: [35, 16], tags: ['유쾌함', '유머'] },
+  laugh: { genreIds: [35], tags: ['유쾌함', '유머'] },
+  action: { genreIds: [28, 12], tags: ['액션', '빠른전개', '몰입감'] },
+  mystery_twist: { genreIds: [53, 9648, 80], tags: ['반전', '긴장감', '탄탄한 스토리'] },
+  visuals: { tags: ['영상미', '연출', '세계관'] },
+  new_world: { genreIds: [878, 14, 12], tags: ['세계관', '영상미', '몰입감'] },
+  true_story: {
+    genreIds: [18, 36],
+    tags: ['감동', '성장', '탄탄한 스토리'],
+    textIncludes: ['실화', 'based on a true story', 'based on true story', 'true story']
+  }
 };
 
-export const manualSituationRule = (selection: SituationSelection): SituationRule => ({
-  genreIds: [
-    ...(moodRules[selection.mood].genreIds ?? []),
-    ...(companionRules[selection.companion].genreIds ?? []),
-    ...(weatherRules[selection.weather].genreIds ?? []),
-    ...(specialDayRules[selection.specialDay].genreIds ?? []),
-    ...(reasonRules[selection.reason].genreIds ?? [])
-  ],
-  tags: [
-    ...(moodRules[selection.mood].tags ?? []),
-    ...(companionRules[selection.companion].tags ?? []),
-    ...(weatherRules[selection.weather].tags ?? []),
-    ...(specialDayRules[selection.specialDay].tags ?? []),
-    ...(reasonRules[selection.reason].tags ?? [])
-  ],
-  contextTags: [
-    ...(companionRules[selection.companion].contextTags ?? []),
-    ...(weatherRules[selection.weather].contextTags ?? []),
-    ...(specialDayRules[selection.specialDay].contextTags ?? [])
-  ],
-  textIncludes: [...(weatherRules[selection.weather].textIncludes ?? [])]
-});
+export const manualSituationRule = (selection: SituationSelection): SituationRule => {
+  const selectedRules = [
+    selection.mood ? moodRules[selection.mood] : undefined,
+    selection.companion ? companionRules[selection.companion] : undefined,
+    selection.weather ? weatherRules[selection.weather] : undefined,
+    selection.specialDay ? specialDayRules[selection.specialDay] : undefined,
+    ...(selection.reason ?? []).map((reason) => reasonRules[reason])
+  ];
+
+  return {
+    genreIds: selectedRules.flatMap((rule) => rule?.genreIds ?? []),
+    tags: selectedRules.flatMap((rule) => rule?.tags ?? []),
+    contextTags: selectedRules.flatMap((rule) => rule?.contextTags ?? []),
+    textIncludes: selectedRules.flatMap((rule) => rule?.textIncludes ?? [])
+  };
+};
 
 export const situationPresets: SituationPreset[] = [
   { id: 'after_breakup', label: '헤어지고 난 첫 주', rule: { tags: ['감동', '여운', 'OST'] } },
@@ -240,21 +250,6 @@ export const situationPresets: SituationPreset[] = [
     id: 'lunar_eclipse',
     label: '월식',
     rule: { contextTags: ['space'], genreIds: [878], tags: ['세계관', '영상미'] }
-  },
-  {
-    id: 'while_building_lego',
-    label: '레고하면서',
-    rule: {
-      // 카탈로그에 있는 공식 극장판 LEGO 영화만 대상으로 한다.
-      tmdbMovieIds: [137106, 324849]
-    }
-  },
-  {
-    id: 'darth_vader',
-    label: '다스 베이더 보고 싶을 때',
-    rule: {
-      tmdbMovieIds: [1893, 1894, 1895, 11, 1891, 1892, 140607, 181808, 181812, 330459]
-    }
   }
 ];
 
@@ -269,22 +264,75 @@ export const getSituationOptionLabel = (
   return group?.options.find((option) => option.value === value)?.label ?? value;
 };
 
-export const getManualSituationLabels = (selection: SituationSelection) =>
-  situationOptionGroups.map((group) =>
-    getSituationOptionLabel(group.key, selection[group.key as keyof SituationSelection])
+export const getManualSituationLabels = (selection: SituationSelection) => {
+  const selectedValues = [
+    ['mood', selection.mood ? [selection.mood] : []],
+    ['companion', selection.companion ? [selection.companion] : []],
+    ['weather', selection.weather ? [selection.weather] : []],
+    ['viewingTime', selection.viewingTime ? [selection.viewingTime] : []],
+    ['specialDay', selection.specialDay ? [selection.specialDay] : []],
+    ['reason', selection.reason ?? []]
+  ] as const;
+
+  return selectedValues.flatMap(([key, values]) =>
+    values.map((value) => getSituationOptionLabel(key, value))
   );
+};
+
+const manualSituationOptionValues = Object.fromEntries(
+  situationOptionGroups.map((group) => [group.key, new Set(group.options.map((option) => option.value))])
+) as Record<(typeof situationOptionGroups)[number]['key'], Set<string>>;
+
+export const normalizeSituationSelection = (value: unknown): SituationSelection | null => {
+  if (!value || typeof value !== 'object') {
+    return null;
+  }
+
+  const rawSelection = value as Record<string, unknown>;
+  const selection: SituationSelection = {};
+  const singleValueKeys = ['mood', 'companion', 'weather', 'viewingTime', 'specialDay'] as const;
+
+  for (const key of singleValueKeys) {
+    const selectedValue = rawSelection[key];
+
+    if (selectedValue == null || selectedValue === '') {
+      continue;
+    }
+
+    if (typeof selectedValue !== 'string' || !manualSituationOptionValues[key].has(selectedValue)) {
+      return null;
+    }
+
+    Object.assign(selection, { [key]: selectedValue });
+  }
+
+  const rawReasons = rawSelection.reason;
+  const reasons = Array.isArray(rawReasons)
+    ? rawReasons
+    : typeof rawReasons === 'string'
+      ? [rawReasons]
+      : [];
+
+  if (
+    reasons.some(
+      (reason) => typeof reason !== 'string' || !manualSituationOptionValues.reason.has(reason)
+    ) ||
+    new Set(reasons).size !== reasons.length ||
+    reasons.length > 2
+  ) {
+    return null;
+  }
+
+  if (reasons.length > 0) {
+    selection.reason = reasons as SituationReason[];
+  }
+
+  return Object.keys(selection).length > 0 ? selection : null;
+};
 
 export const isCompleteSituationSelection = (
-  selection: Partial<SituationSelection>
-): selection is SituationSelection =>
-  Boolean(
-    selection.mood &&
-      selection.companion &&
-      selection.weather &&
-      selection.viewingTime &&
-      selection.specialDay &&
-      selection.reason
-  );
+  selection: Partial<SituationSelection> | unknown
+): selection is SituationSelection => normalizeSituationSelection(selection) !== null;
 
 export const situationViewingTimeLabels: Record<SituationViewingTime, string> = {
   any: '상관없음',

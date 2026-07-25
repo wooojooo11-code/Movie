@@ -12,6 +12,7 @@ import type {
   CatalogMovie,
   RecommendationImpression,
   RecommendedCatalogMovie,
+  SituationReason,
   SituationViewingTime
 } from '@/types/recommendation';
 
@@ -145,21 +146,36 @@ const filterByViewingTime = (
 const getManualSituationScore = (movie: CatalogMovie, activeSituation: Extract<ActiveSituation, { kind: 'manual' }>) => {
   const selection = activeSituation.selection;
   const categoryRules = [
-    { label: '현재 기분', rule: moodRules[selection.mood], weight: 0.2 },
-    { label: '누구와 보는지', rule: companionRules[selection.companion], weight: 0.15 },
-    { label: '오늘 날씨', rule: weatherRules[selection.weather], weight: 0.1 },
-    { label: '특별한 날', rule: specialDayRules[selection.specialDay], weight: 0.2 },
-    { label: '보고 싶은 이유', rule: reasonRules[selection.reason], weight: 0.35 }
+    ...(selection.mood
+      ? [{ label: '현재 기분', rule: moodRules[selection.mood], weight: 0.2, isReason: false }]
+      : []),
+    ...(selection.companion
+      ? [{ label: '누구와 보는지', rule: companionRules[selection.companion], weight: 0.15, isReason: false }]
+      : []),
+    ...(selection.weather
+      ? [{ label: '오늘 날씨', rule: weatherRules[selection.weather], weight: 0.1, isReason: false }]
+      : []),
+    ...(selection.specialDay
+      ? [{ label: '특별한 날', rule: specialDayRules[selection.specialDay], weight: 0.2, isReason: false }]
+      : []),
+    ...(selection.reason ?? []).map((reason: SituationReason) => ({
+      label: '보고 싶은 이유',
+      rule: reasonRules[reason],
+      weight: 0.35 / (selection.reason?.length ?? 1),
+      isReason: true
+    }))
   ];
-  const matches = categoryRules.map(({ label, rule, weight }) => ({
+  const totalWeight = categoryRules.reduce((total, category) => total + category.weight, 0);
+  const matches = categoryRules.map(({ label, rule, weight, isReason }) => ({
     label,
-    weight,
+    weight: totalWeight > 0 ? weight / totalWeight : 0,
+    isReason,
     ...getRuleMatch(movie, rule)
   }));
 
   return {
     isStrongMatch:
-      matches.some((match) => match.weight === 0.35 && match.matched) ||
+      matches.some((match) => match.isReason && match.matched) ||
       matches.filter((match) => match.matched).length >= 2,
     reasons: matches
       .filter((match) => match.matched)
@@ -219,7 +235,11 @@ const getRecommendationReasons = (
     reasons.push('평소 좋아한 장르와 키워드에 가까워요.');
   }
 
-  if (activeSituation.kind === 'manual' && typeof movie.runtimeMinutes === 'number') {
+  if (
+    activeSituation.kind === 'manual' &&
+    activeSituation.selection.viewingTime &&
+    typeof movie.runtimeMinutes === 'number'
+  ) {
     reasons.push(`선택한 시간에 맞는 ${movie.runtimeMinutes}분 영화예요.`);
   }
 
@@ -396,7 +416,7 @@ export const rankSituationMovies = ({
       .map((movie) => movie.collectionId as number)
   );
   const candidates =
-    activeSituation.kind === 'manual'
+    activeSituation.kind === 'manual' && activeSituation.selection.viewingTime
       ? filterByViewingTime(movies, activeSituation.selection.viewingTime, collectionCounts)
       : [...movies];
   const presetRule =

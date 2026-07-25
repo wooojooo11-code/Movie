@@ -22,6 +22,7 @@ import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type {
   RecommendedCatalogList,
   RecommendedCatalogMovie,
+  SituationReason,
   SituationSelection,
   StoredRatingRecord
 } from '@/types/recommendation';
@@ -33,7 +34,7 @@ const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 const selectedPopularList = ref<PopularList | null>(null);
 const isSavingRecommendationRating = ref(false);
-const manualSelection = ref<Partial<SituationSelection>>({});
+const manualSelection = ref<SituationSelection>({});
 
 const popularListPairs = popularRecommendedLists.map((recommendationList) => ({
   homeList: popularLists.find((list) => list.id === recommendationList.id)!,
@@ -211,13 +212,42 @@ const openMoreTasteAnalysis = async () => {
   });
 };
 
-const getManualSelectionValue = (key: keyof SituationSelection) => manualSelection.value[key];
+const getManualSelectionValue = (key: keyof SituationSelection) => {
+  const value = manualSelection.value[key];
+  return typeof value === 'string' ? value : '';
+};
 
 const setManualSelection = (key: keyof SituationSelection, value: string) => {
+  if (key === 'reason') {
+    return;
+  }
+
   manualSelection.value = {
     ...manualSelection.value,
     [key]: value
-  } as Partial<SituationSelection>;
+  } as SituationSelection;
+};
+
+const selectedReasons = computed(() => manualSelection.value.reason ?? []);
+const isReasonSelected = (reason: string) => selectedReasons.value.includes(reason as SituationReason);
+
+const toggleReasonSelection = (reason: string) => {
+  const currentReasons = selectedReasons.value;
+  const normalizedReason = reason as SituationReason;
+  const nextReasons = currentReasons.includes(normalizedReason)
+    ? currentReasons.filter((selectedReason) => selectedReason !== normalizedReason)
+    : currentReasons.length < 2
+      ? [...currentReasons, normalizedReason]
+      : currentReasons;
+
+  manualSelection.value = {
+    ...manualSelection.value,
+    ...(nextReasons.length > 0 ? { reason: nextReasons } : { reason: undefined })
+  };
+};
+
+const resetManualSituation = () => {
+  manualSelection.value = {};
 };
 
 const applyManualSituation = () => {
@@ -283,12 +313,38 @@ const applyDefaultSituation = () => {
       <article class="corner-hard border border-app-line bg-app-panel p-4">
         <div class="mb-3">
           <h2 class="text-base font-semibold text-[#15171c]">직접 상황 설정</h2>
+          <p class="mt-1 text-xs text-app-muted">한 가지만 골라도 추천받을 수 있어요.</p>
         </div>
 
         <div class="grid max-w-sm grid-cols-3 gap-2.5">
-          <label v-for="group in situationOptionGroups" :key="group.key" class="grid min-w-0 gap-1">
+          <label
+            v-for="group in situationOptionGroups"
+            :key="group.key"
+            class="grid min-w-0 gap-1"
+            :class="group.key === 'reason' ? 'col-span-3' : ''"
+          >
             <span class="text-xs font-semibold text-[#15171c]">{{ group.label }}</span>
+            <div v-if="group.key === 'reason'" class="flex flex-wrap gap-1.5">
+              <button
+                v-for="option in group.options"
+                :key="option.value"
+                type="button"
+                class="focus-ring corner-pill min-h-8 border px-2.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-45"
+                :class="
+                  isReasonSelected(option.value)
+                    ? 'border-app-accent bg-app-accent text-white'
+                    : 'border-app-line bg-app-panelSoft text-[#15171c] hover:border-app-accent'
+                "
+                :disabled="!isReasonSelected(option.value) && selectedReasons.length >= 2"
+                :aria-pressed="isReasonSelected(option.value)"
+                @click="toggleReasonSelection(option.value)"
+              >
+                {{ option.label }}
+              </button>
+              <span class="self-center text-[11px] text-app-muted">최대 2개</span>
+            </div>
             <select
+              v-else
               class="focus-ring corner-soft min-h-9 w-full border border-app-line bg-app-panelSoft px-2.5 text-xs font-medium text-[#15171c]"
               :value="getManualSelectionValue(group.key) ?? ''"
               @change="setManualSelection(group.key, ($event.target as HTMLSelectElement).value)"
@@ -301,14 +357,24 @@ const applyDefaultSituation = () => {
           </label>
         </div>
 
-        <button
-          type="button"
-          class="focus-ring corner-soft mt-4 inline-flex min-h-10 items-center justify-center bg-app-accent px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-app-line disabled:text-app-muted"
-          :disabled="!isManualSelectionComplete"
-          @click="applyManualSituation"
-        >
-          이 상황으로 추천받기
-        </button>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <button
+            type="button"
+            class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center bg-app-accent px-4 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:bg-app-line disabled:text-app-muted"
+            :disabled="!isManualSelectionComplete"
+            @click="applyManualSituation"
+          >
+            이 상황으로 추천받기
+          </button>
+          <button
+            type="button"
+            class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#15171c] transition-colors hover:border-app-accent disabled:cursor-not-allowed disabled:opacity-45"
+            :disabled="Object.keys(manualSelection).length === 0"
+            @click="resetManualSituation"
+          >
+            선택 초기화
+          </button>
+        </div>
       </article>
 
       <article class="corner-hard border border-app-line bg-app-panel p-4 sm:p-5">

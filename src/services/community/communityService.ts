@@ -50,6 +50,13 @@ const ensureSupabase = () => {
 const asString = (value: unknown, fallback = '') => (typeof value === 'string' ? value : fallback);
 const asNumber = (value: unknown, fallback = 0) => (typeof value === 'number' ? value : fallback);
 const asNullableString = (value: unknown): null | string => (typeof value === 'string' && value ? value : null);
+// 이전 bigint 컬럼을 아직 마이그레이션하지 않은 환경도 게시글을 읽을 수 있게 합니다.
+const asMovieId = (value: unknown): null | string =>
+  typeof value === 'string' && value
+    ? value
+    : typeof value === 'number' && Number.isFinite(value)
+      ? String(value)
+      : null;
 
 const toProfile = (row: Row): CommunityProfile => ({
   id: asString(row.user_id),
@@ -58,10 +65,10 @@ const toProfile = (row: Row): CommunityProfile => ({
 });
 
 const toMovie = (id: unknown, title: unknown, posterPath: unknown): null | CommunityMovieReference => {
-  const movieId = asNumber(id, 0);
+  const movieId = asMovieId(id);
   const movieTitle = asNullableString(title);
 
-  return movieId > 0 && movieTitle
+  return movieId && movieTitle
     ? { id: movieId, title: movieTitle, posterPath: asNullableString(posterPath) }
     : null;
 };
@@ -244,6 +251,21 @@ export const fetchCommunityFeed = async (request: CommunityFeedRequest): Promise
 
 export const fetchPopularPosts = async (viewerId?: null | string) =>
   (await fetchCommunityFeed({ category: 'all', sort: 'popular', query: '', offset: 0, limit: 3, viewerId })).posts;
+
+export const fetchViewerPostInteractions = async (postIds: readonly string[], userId?: null | string) => {
+  const liked = new Set<string>();
+  const saved = new Set<string>();
+  if (!userId || postIds.length === 0) return { liked, saved };
+  ensureSupabase();
+  const [likes, saves] = await Promise.all([
+    getCommunityLikesRelation()!.select('post_id').eq('user_id', userId).in('post_id', postIds),
+    getCommunitySavesRelation()!.select('post_id').eq('user_id', userId).in('post_id', postIds)
+  ]);
+  if (likes.error || saves.error) throw likes.error ?? saves.error;
+  for (const row of (likes.data ?? []) as Row[]) liked.add(asString(row.post_id));
+  for (const row of (saves.data ?? []) as Row[]) saved.add(asString(row.post_id));
+  return { liked, saved };
+};
 
 export const fetchCommunityPost = async (postId: string, viewerId?: null | string): Promise<CommunityPostDetail> => {
   ensureSupabase();

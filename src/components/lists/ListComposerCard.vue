@@ -6,6 +6,7 @@ import type { MovieSearchResult, SearchableCatalogMovie } from '@/types/lists';
 
 const props = withDefaults(
   defineProps<{
+    description: string;
     title: string;
     isPrivate: boolean;
     canShare?: boolean;
@@ -27,6 +28,7 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
+  'update:description': [value: string];
   'update:title': [value: string];
   'update:search-query': [value: string];
   'toggle-private': [];
@@ -42,6 +44,10 @@ const rootClassName = computed(() =>
 
 const handleTitleInput = (event: Event) => {
   emit('update:title', (event.target as HTMLInputElement).value);
+};
+
+const handleDescriptionInput = (event: Event) => {
+  emit('update:description', (event.target as HTMLTextAreaElement).value);
 };
 
 const handleSearchInput = (event: Event) => {
@@ -161,6 +167,18 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
           placeholder="비 오는 날 보기 좋은 영화"
           class="focus-ring h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
           @input="handleTitleInput"
+        />
+      </label>
+
+      <label class="mt-3 block">
+        <span class="mb-2 block text-xs font-semibold text-app-muted">리스트 설명</span>
+        <textarea
+          :value="description"
+          rows="2"
+          maxlength="500"
+          placeholder="이 리스트를 소개해 주세요"
+          class="focus-ring w-full border border-app-line bg-app-panelSoft px-3 py-2 text-sm text-white placeholder:text-app-muted"
+          @input="handleDescriptionInput"
         />
       </label>
 

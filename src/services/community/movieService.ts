@@ -1,3 +1,4 @@
+import { catalogMovies } from '@/data/catalog';
 import type { CommunityMovieReference } from '@/types/community';
 
 export interface CommunityMovieDetail extends CommunityMovieReference {
@@ -7,29 +8,53 @@ export interface CommunityMovieDetail extends CommunityMovieReference {
   runtimeMinutes: null | number;
 }
 
-const assertMovieResponse = (value: unknown): CommunityMovieDetail => {
-  if (!value || typeof value !== 'object') throw new Error('영화 정보를 읽지 못했습니다.');
-  const movie = value as Partial<CommunityMovieDetail>;
-  if (!Number.isInteger(movie.id) || !movie.title) throw new Error('영화 정보 형식이 올바르지 않습니다.');
+/** 앱에 포함된 카탈로그 한 건을 커뮤니티에서 쓰는 가벼운 형태로 바꿉니다. */
+const toMovieReference = (movie: (typeof catalogMovies)[number]): CommunityMovieReference => ({
+  id: movie.id,
+  title: movie.title,
+  posterPath: movie.posterUrl,
+  releaseYear: movie.releaseYear
+});
+
+const normalizeQuery = (value: string) => value.trim().toLocaleLowerCase('ko-KR');
+
+const matchesQuery = (movie: (typeof catalogMovies)[number], query: string) => {
+  const searchableText = [movie.title, ...movie.genres, ...movie.tags].join(' ').toLocaleLowerCase('ko-KR');
+  return searchableText.includes(query);
+};
+
+/**
+ * 커뮤니티는 외부 TMDB 검색을 호출하지 않습니다.
+ * 앱에 저장된 영화 카탈로그만 검색하므로 추천·리스트 화면과 같은 영화 집합을 사용합니다.
+ */
+export const searchCommunityMovies = (query: string): CommunityMovieReference[] => {
+  const normalizedQuery = normalizeQuery(query);
+  if (normalizedQuery.length < 2) return [];
+
+  return catalogMovies
+    .filter((movie) => matchesQuery(movie, normalizedQuery))
+    .slice(0, 20)
+    .map(toMovieReference);
+};
+
+/**
+ * 새 글은 카탈로그 ID(movie_*)로 찾습니다.
+ * 이전 버전에서 저장된 숫자형 ID는 앱 카탈로그 안의 tmdbMovieId와만 대조해 읽기 호환을 유지합니다.
+ */
+export const getCommunityMovieDetail = (movieId: string): CommunityMovieDetail => {
+  const movie = catalogMovies.find(
+    (candidate) => candidate.id === movieId || String(candidate.tmdbMovieId) === movieId
+  );
+
+  if (!movie) {
+    throw new Error('앱 영화 데이터에서 해당 영화를 찾지 못했습니다.');
+  }
+
   return {
-    id: movie.id, title: movie.title, posterPath: typeof movie.posterPath === 'string' ? movie.posterPath : null,
-    overview: typeof movie.overview === 'string' ? movie.overview : '', backdropPath: typeof movie.backdropPath === 'string' ? movie.backdropPath : null,
-    genres: Array.isArray(movie.genres) ? movie.genres.filter((genre): genre is string => typeof genre === 'string') : [],
-    runtimeMinutes: Number.isInteger(movie.runtimeMinutes) ? movie.runtimeMinutes : null,
-    releaseYear: Number.isInteger(movie.releaseYear) ? movie.releaseYear : null
+    ...toMovieReference(movie),
+    overview: movie.overview,
+    backdropPath: null,
+    genres: movie.genres,
+    runtimeMinutes: movie.runtimeMinutes ?? null
   };
-};
-
-export const searchCommunityMovies = async (query: string, signal?: AbortSignal): Promise<CommunityMovieReference[]> => {
-  const response = await fetch(`/.netlify/functions/tmdb-search-movies?query=${encodeURIComponent(query.trim())}`, { signal });
-  if (!response.ok) throw new Error('영화 검색에 실패했습니다.');
-  const payload: unknown = await response.json();
-  if (!Array.isArray(payload)) throw new Error('영화 검색 결과 형식이 올바르지 않습니다.');
-  return payload.filter((movie): movie is CommunityMovieReference => Boolean(movie && typeof movie === 'object' && Number.isInteger((movie as CommunityMovieReference).id) && typeof (movie as CommunityMovieReference).title === 'string'));
-};
-
-export const fetchCommunityMovieDetail = async (movieId: string | number, signal?: AbortSignal) => {
-  const response = await fetch(`/.netlify/functions/tmdb-movie-detail?id=${encodeURIComponent(String(movieId))}`, { signal });
-  if (!response.ok) throw new Error('영화 정보를 불러오지 못했습니다.');
-  return assertMovieResponse(await response.json());
 };

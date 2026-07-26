@@ -19,6 +19,7 @@ export interface SearchableCatalogMovie extends CatalogMovie, MovieCreditsProfil
 
 export interface BaseMovieListRecord extends CatalogMovieList {
   createdAt: string;
+  description: string;
   ownerId: string;
   ownerName: string;
   isPrivate: boolean;
@@ -35,6 +36,7 @@ export interface UserMovieListRecord extends BaseMovieListRecord {
 }
 
 export interface DraftUserList {
+  description: string;
   id: string | null;
   title: string;
   isPrivate: boolean;

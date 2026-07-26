@@ -184,89 +184,86 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
               {{ answeredAtLabel }}
             </span>
           </div>
-        </div>
-      </div>
 
-      <div class="mt-4 grid gap-3 border-t border-app-line pt-3">
-        <div v-if="questionText" class="grid gap-1">
-          <p class="text-[10px] text-app-muted">좋아요 이유</p>
-          <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
-            {{ questionText }}
-          </p>
-        </div>
+          <div class="mt-3 grid gap-3 border-t border-app-line pt-3">
+            <div v-if="questionText" class="grid gap-1">
+              <p class="text-[10px] text-app-muted">좋아요 이유</p>
+              <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
+                {{ questionText }}
+              </p>
+            </div>
 
-        <div v-if="entry.ratingRecord.input.reviewTags.length > 0" class="grid gap-1.5">
-          <p class="text-[10px] text-app-muted">선택한 감상</p>
-          <div class="flex flex-wrap gap-1">
-            <span
-              v-for="tag in entry.ratingRecord.input.reviewTags"
-              :key="tag"
-              class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
-            >
-              {{ tag }}
-            </span>
+            <div v-if="entry.ratingRecord.input.reviewTags.length > 0" class="grid gap-1.5">
+              <p class="text-[10px] text-app-muted">선택한 감상</p>
+              <div class="flex flex-wrap gap-1">
+                <span
+                  v-for="tag in entry.ratingRecord.input.reviewTags"
+                  :key="tag"
+                  class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+
+            <div v-if="favoriteCharactersDisplay.length > 0" class="grid gap-1.5">
+              <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
+              <div class="flex flex-wrap gap-1">
+                <span
+                  v-for="favoriteCharacter in favoriteCharactersDisplay"
+                  :key="favoriteCharacter"
+                  class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
+                >
+                  {{ favoriteCharacter }}
+                </span>
+              </div>
+            </div>
+
+            <div v-if="reviewText" class="grid gap-1">
+              <p class="text-[10px] text-app-muted">메모</p>
+              <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
+                {{ reviewText }}
+              </p>
+            </div>
+
+            <div v-if="quickWatchLinks.length > 0 || tmdbWatchLink" class="grid gap-2">
+              <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">OTT 바로가기</p>
+              <div class="flex flex-wrap gap-1.5">
+                <a
+                  v-for="link in quickWatchLinks"
+                  :key="link.key"
+                  :href="link.href"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center px-2.5 py-1.5 text-[10px] font-medium"
+                  :class="link.accentClassName"
+                >
+                  {{ link.buttonLabel }}
+                </a>
+
+                <a
+                  v-if="tmdbWatchLink"
+                  :href="tmdbWatchLink"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 py-1.5 text-[10px] font-medium text-white"
+                >
+                  전체 보기
+                </a>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <WatchToggleButton :movie-id="entry.movie.id" size="sm" full-width />
+              <RouterLink
+                :to="`/history/${entry.movie.id}/edit`"
+                class="focus-ring corner-soft inline-flex min-h-8 w-full items-center justify-center border border-app-line bg-app-panelSoft px-2.5 py-1.5 text-[11px] font-medium text-white"
+              >
+                평가 수정
+              </RouterLink>
+            </div>
           </div>
         </div>
-
-        <div v-if="favoriteCharactersDisplay.length > 0" class="grid gap-1.5">
-          <p class="text-[10px] text-app-muted">{{ characterLabel }}</p>
-          <div class="flex flex-wrap gap-1">
-            <span
-              v-for="favoriteCharacter in favoriteCharactersDisplay"
-              :key="favoriteCharacter"
-              class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] text-white"
-            >
-              {{ favoriteCharacter }}
-            </span>
-          </div>
-        </div>
-
-        <div v-if="reviewText" class="grid gap-1">
-          <p class="text-[10px] text-app-muted">메모</p>
-          <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">
-            {{ reviewText }}
-          </p>
-        </div>
-      </div>
-
-      <div
-        v-if="quickWatchLinks.length > 0 || tmdbWatchLink"
-        class="mt-4 grid gap-2 border-t border-app-line pt-3"
-      >
-        <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">OTT 바로가기</p>
-        <div class="flex flex-wrap gap-1.5">
-          <a
-            v-for="link in quickWatchLinks"
-            :key="link.key"
-            :href="link.href"
-            target="_blank"
-            rel="noreferrer"
-            class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center px-2.5 py-1.5 text-[10px] font-medium"
-            :class="link.accentClassName"
-          >
-            {{ link.buttonLabel }}
-          </a>
-
-          <a
-            v-if="tmdbWatchLink"
-            :href="tmdbWatchLink"
-            target="_blank"
-            rel="noreferrer"
-            class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-2.5 py-1.5 text-[10px] font-medium text-white"
-          >
-            전체 보기
-          </a>
-        </div>
-      </div>
-
-      <div class="mt-4 grid grid-cols-2 gap-2">
-        <WatchToggleButton :movie-id="entry.movie.id" size="sm" full-width />
-        <RouterLink
-          :to="`/history/${entry.movie.id}/edit`"
-          class="focus-ring corner-soft inline-flex min-h-8 w-full items-center justify-center border border-app-line bg-app-panelSoft px-2.5 py-1.5 text-[11px] font-medium text-white"
-        >
-          평가 수정
-        </RouterLink>
       </div>
     </template>
   </article>

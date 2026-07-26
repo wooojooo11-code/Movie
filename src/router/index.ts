@@ -8,8 +8,10 @@ import RatedMoviesView from '@/views/RatedMoviesView.vue';
 import RecommendationsView from '@/views/RecommendationsView.vue';
 import RatingView from '@/views/RatingView.vue';
 import TheatersView from '@/views/TheatersView.vue';
-import CommunityView from '@/views/CommunityView.vue';
+import CommunityPage from '@/views/CommunityPage.vue';
 import { useAuthStore } from '@/stores/auth';
+import MovieDetailPage from '@/views/MovieDetailPage.vue';
+import PostDetailPage from '@/views/PostDetailPage.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -67,7 +69,17 @@ const router = createRouter({
     {
       path: '/community',
       name: 'community',
-      component: CommunityView
+      component: CommunityPage
+    },
+    {
+      path: '/community/:postId',
+      name: 'community-post',
+      component: PostDetailPage
+    },
+    {
+      path: '/movies/:movieId',
+      name: 'movie-detail',
+      component: MovieDetailPage
     },
     {
       path: '/library',

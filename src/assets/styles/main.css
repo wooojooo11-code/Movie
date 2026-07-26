@@ -32,6 +32,32 @@ body {
   background: #ffffff;
 }
 
+/* 기존 화면을 바꾸지 않고 커뮤니티 화면만 시스템 다크 모드에서도 읽기 쉽게 만듭니다. */
+@media (prefers-color-scheme: dark) {
+  .community-surface {
+    --app-text-heading: #f4f7fb;
+    --app-text-body: #d9e2ec;
+    background-color: #111820;
+  }
+
+  .community-surface [class*='bg-app-panel'] {
+    background-color: #17202b !important;
+  }
+
+  .community-surface [class*='bg-app-panelSoft'],
+  .community-surface [class*='bg-[#eef6ff]'] {
+    background-color: #1d2b39 !important;
+  }
+
+  .community-surface [class*='border-app-line'] {
+    border-color: #344556 !important;
+  }
+
+  .community-surface [class*='text-app-muted'] {
+    color: #b6c5d4 !important;
+  }
+}
+
 button,
 input,
 select,

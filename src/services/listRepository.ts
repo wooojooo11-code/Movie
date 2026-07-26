@@ -28,6 +28,7 @@ export interface ListRepository {
 interface SupabaseUserListRow {
   average_rating: null | number;
   created_at: null | string;
+  description: null | string;
   id: string;
   is_private: boolean | null;
   movie_ids: null | string[];
@@ -65,6 +66,7 @@ const normalizeUserListRow = (row: SupabaseUserListRow): UserMovieListRecord => 
   id: row.id,
   ownerId: getRowUserId(row, supabaseUserListsUserColumn),
   ownerName: row.owner_name?.trim() || '사용자',
+  description: row.description?.trim() || '',
   title: row.title?.trim() || '이름 없는 리스트',
   movieIds: row.movie_ids ?? [],
   saveCount: row.save_count ?? 0,
@@ -129,6 +131,7 @@ const serializeUserListRow = (
   id: list.id,
   [supabaseUserListsUserColumn]: userId,
   owner_name: list.ownerName,
+  description: list.description,
   title: list.title,
   movie_ids: [...list.movieIds],
   save_count: list.saveCount,
@@ -204,6 +207,7 @@ const loadOwnedListsAndInteractions = async (userId: string): Promise<RemoteList
             'id',
             supabaseUserListsUserColumn,
             'owner_name',
+            'description',
             'title',
             'movie_ids',
             'save_count',
@@ -268,6 +272,7 @@ export const remoteListRepository = {
           'id',
           supabaseUserListsUserColumn,
           'owner_name',
+          'description',
           'title',
           'movie_ids',
           'save_count',

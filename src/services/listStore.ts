@@ -22,6 +22,7 @@ const FALLBACK_USER_ID = 'guest-user';
 type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
 const createEmptyDraft = (): DraftUserList => ({
+  description: '',
   id: null,
   title: '',
   isPrivate: false,
@@ -126,6 +127,7 @@ const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null):
     userId,
     userLists: (snapshot.userLists ?? []).map((list) => ({
       ...list,
+      description: list.description ?? '',
       isPrivate: hasDuplicateMovieIds(list.movieIds) ? true : list.isPrivate,
       sourceListId: list.sourceListId ?? null
     })),
@@ -397,6 +399,7 @@ const createImportedUserList = (
     id: `user_list_${Date.now()}`,
     ownerId: state.userId,
     ownerName: state.ownerName,
+    description: '',
     title: list.title,
     movieIds: [...list.movieIds],
     saveCount: overrides?.saveCount ?? (nextIsPrivate ? 0 : 1),
@@ -429,14 +432,34 @@ const syncDraftPrivacyWithShareRule = () => {
   }
 };
 
-const myLists = computed<ResolvedUserListCard[]>(() =>
-  [...state.userLists]
+const myLists = computed<ResolvedUserListCard[]>(() => {
+  // 저장한 공개 리스트는 복사본 대신 원본 ID를 그대로 참조해 내 리스트에 보여줍니다.
+  const ownedLists = state.userLists.filter((list) => !list.sourceListId);
+  const savedReferences: UserMovieListRecord[] = state.sharedCatalog
+    .filter((list) => list.ownerId !== state.userId && getInteraction(list.id)?.saved)
+    .map((list) => ({
+      id: list.id,
+      ownerId: list.ownerId,
+      ownerName: list.ownerName,
+      description: list.description,
+      title: list.title,
+      movieIds: [...list.movieIds],
+      saveCount: list.saveCount,
+      averageRating: list.averageRating,
+      ratingCount: list.ratingCount,
+      isPrivate: false,
+      sourceListId: list.id,
+      createdAt: list.createdAt,
+      updatedAt: list.updatedAt
+    }));
+
+  return [...ownedLists, ...savedReferences]
     .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
     .map((list) => ({
       ...list,
       moviePreviews: resolveMoviePreviews(list.movieIds)
-    }))
-);
+    }));
+});
 
 const sharedLists = computed<ResolvedSharedListCard[]>(() =>
   state.sharedCatalog.map((list) => {
@@ -485,6 +508,10 @@ const updateDraftTitle = (title: string) => {
   state.draft.title = title;
 };
 
+const updateDraftDescription = (description: string) => {
+  state.draft.description = description;
+};
+
 const toggleDraftPrivacy = () => {
   if (draftShareRestrictionReason.value) {
     state.draft.isPrivate = true;
@@ -508,6 +535,7 @@ const saveDraft = async () => {
     id: currentList?.id ?? `user_list_${Date.now()}`,
     ownerId: state.userId,
     ownerName: currentList?.ownerName ?? state.ownerName,
+    description: state.draft.description.trim(),
     title: state.draft.title.trim(),
     movieIds: [...state.draft.movieIds],
     saveCount: currentList?.saveCount ?? (nextIsPrivate ? 0 : 1),
@@ -548,6 +576,7 @@ const editUserList = (listId: string) => {
 
   state.draft = {
     id: target.id,
+    description: target.description ?? '',
     title: target.title,
     isPrivate: target.isPrivate,
     movieIds: [...target.movieIds]
@@ -572,6 +601,13 @@ const removeFromMyLists = async (listId: string) => {
   const target = state.userLists.find((list) => list.id === listId);
 
   if (!target) {
+    const current = getInteraction(listId);
+    if (current?.saved) {
+      state.interactions = state.interactions.map((interaction) =>
+        interaction.listId === listId ? { ...interaction, saved: false } : interaction
+      );
+      await persistState();
+    }
     return;
   }
 
@@ -609,7 +645,6 @@ const removeFromMyLists = async (listId: string) => {
 };
 
 const toggleSharedListSave = async (listId: string) => {
-  const sourceList = state.sharedCatalog.find((list) => list.id === listId);
   const current = getInteraction(listId);
   const nextInteractions = [...state.interactions];
   const existingIndex = nextInteractions.findIndex((interaction) => interaction.listId === listId);
@@ -627,22 +662,6 @@ const toggleSharedListSave = async (listId: string) => {
   }
 
   state.interactions = nextInteractions;
-
-  if (sourceList) {
-    if (nextSaved) {
-      const alreadyImported = state.userLists.some((list) => list.sourceListId === listId);
-
-      if (!alreadyImported) {
-        state.userLists = [createImportedUserList(sourceList), ...state.userLists];
-      }
-    } else {
-      state.userLists = state.userLists.filter((list) => list.sourceListId !== listId);
-
-      if (state.draft.id && !state.userLists.some((list) => list.id === state.draft.id)) {
-        resetDraft();
-      }
-    }
-  }
 
   await persistState();
 
@@ -671,49 +690,17 @@ const setSharedListRating = async (listId: string, rating: null | number) => {
   await persistState();
 };
 
-const hasImportedList = (sourceListId: string) =>
-  state.userLists.some((list) => list.sourceListId === sourceListId);
+const hasImportedList = (sourceListId: string) => Boolean(getInteraction(sourceListId)?.saved);
 
 const saveRecommendedList = async (list: { id: string; movieIds: readonly string[]; title: string }) => {
-  const existing = state.userLists.find((userList) => userList.sourceListId === list.id);
   const currentInteraction = getInteraction(list.id);
   const nextInteractions = [...state.interactions];
   const existingInteractionIndex = nextInteractions.findIndex(
     (interaction) => interaction.listId === list.id
   );
-
-  if (existing) {
-    const updatedInteraction: ListInteractionRecord = {
-      listId: list.id,
-      saved: false,
-      personalRating: currentInteraction?.personalRating ?? null
-    };
-
-    if (existingInteractionIndex >= 0) {
-      nextInteractions.splice(existingInteractionIndex, 1, updatedInteraction);
-    } else {
-      nextInteractions.push(updatedInteraction);
-    }
-
-    state.interactions = nextInteractions;
-    state.userLists = state.userLists.filter((userList) => userList.sourceListId !== list.id);
-
-    if (state.draft.id && !state.userLists.some((userList) => userList.id === state.draft.id)) {
-      resetDraft();
-    }
-
-    await persistState();
-
-    if (state.listSearchQuery.trim()) {
-      await refreshListSearchResults();
-    }
-
-    return null;
-  }
-
   const updatedInteraction: ListInteractionRecord = {
     listId: list.id,
-    saved: true,
+    saved: !(currentInteraction?.saved ?? false),
     personalRating: currentInteraction?.personalRating ?? null
   };
 
@@ -724,16 +711,13 @@ const saveRecommendedList = async (list: { id: string; movieIds: readonly string
   }
 
   state.interactions = nextInteractions;
-
-  const nextRecord = createImportedUserList(list);
-  state.userLists = [nextRecord, ...state.userLists];
   await persistState();
 
   if (state.listSearchQuery.trim()) {
     await refreshListSearchResults();
   }
 
-  return nextRecord.id;
+  return updatedInteraction.saved ? list.id : null;
 };
 
 const setActiveUser = async (userId: string, ownerName = '나') => {
@@ -799,6 +783,7 @@ export const listStore = {
   updateMovieSearchQuery,
   updateListSearchQuery,
   updateDraftTitle,
+  updateDraftDescription,
   toggleDraftPrivacy,
   addMovieToDraft,
   removeMovieFromDraft,

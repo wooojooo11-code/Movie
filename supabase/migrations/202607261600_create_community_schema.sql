@@ -8,6 +8,13 @@ create extension if not exists pg_trgm;
 alter table public.user_lists
   add column if not exists description text not null default '';
 
+-- 공개 리스트 카드는 로그인하지 않은 커뮤니티 방문자도 읽을 수 있어야 합니다.
+drop policy if exists "Authenticated users can read own or shared user lists" on public.user_lists;
+drop policy if exists "Users can read own user lists" on public.user_lists;
+create policy "Public can read shared user lists or own lists"
+on public.user_lists for select to public
+using (is_private = false or auth.uid() = user_id);
+
 create table if not exists public.community_profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   nickname text not null default '영화 친구' check (char_length(trim(nickname)) between 1 and 40),
@@ -22,7 +29,7 @@ create table if not exists public.community_posts (
   category text not null check (category in ('movie_recommendation', 'list_share', 'mission_proof', 'movie_poll', 'daily_question')),
   title text not null check (char_length(trim(title)) between 1 and 140),
   content text not null default '' check (char_length(content) <= 5000),
-  movie_id bigint null,
+  movie_id text null,
   movie_title text null,
   movie_poster_path text null,
   list_id text null references public.user_lists (id) on delete set null,
@@ -82,11 +89,11 @@ create table if not exists public.community_poll_options (
   id uuid primary key default gen_random_uuid(),
   poll_id uuid not null references public.community_polls (id) on delete cascade,
   option_text text not null check (char_length(trim(option_text)) between 1 and 120),
-  movie_id bigint null,
+  movie_id text null,
   movie_title text null,
   movie_poster_path text null,
   vote_count integer not null default 0 check (vote_count >= 0),
-  position smallint not null check (position between 1 and 4),
+  position integer not null check (position >= 1),
   constraint community_poll_options_position_unique unique (poll_id, position)
 );
 
@@ -103,7 +110,7 @@ create table if not exists public.recommendation_relays (
   id uuid primary key default gen_random_uuid(),
   post_id uuid not null references public.community_posts (id) on delete cascade,
   parent_relay_id uuid null references public.recommendation_relays (id) on delete cascade,
-  movie_id bigint not null,
+  movie_id text not null,
   movie_title text not null,
   movie_poster_path text null,
   user_id uuid not null references auth.users (id) on delete cascade,
@@ -115,7 +122,7 @@ create table if not exists public.community_mission_proofs (
   post_id uuid primary key references public.community_posts (id) on delete cascade,
   mission_id text null,
   mission_name text not null,
-  movie_id bigint null,
+  movie_id text null,
   movie_title text null,
   movie_poster_path text null,
   reflection text not null default '' check (char_length(reflection) <= 1000),
@@ -241,9 +248,12 @@ create or replace function public.refresh_community_post_count_trigger()
 returns trigger language plpgsql security definer set search_path = public as $$
 declare
   v_column text := tg_argv[0];
+  v_post_id uuid;
 begin
-  perform public.refresh_community_post_count(coalesce(new.post_id, old.post_id), v_column);
-  return coalesce(new, old);
+  v_post_id := case when tg_op = 'DELETE' then old.post_id else new.post_id end;
+  perform public.refresh_community_post_count(v_post_id, v_column);
+  if tg_op = 'DELETE' then return old; end if;
+  return new;
 end;
 $$;
 
@@ -272,8 +282,12 @@ begin
   if tg_op = 'UPDATE' and old.option_id <> new.option_id then
     perform public.refresh_poll_option_vote_count(old.option_id);
   end if;
-  perform public.refresh_poll_option_vote_count(coalesce(new.option_id, old.option_id));
-  return coalesce(new, old);
+  if tg_op = 'DELETE' then
+    perform public.refresh_poll_option_vote_count(old.option_id);
+    return old;
+  end if;
+  perform public.refresh_poll_option_vote_count(new.option_id);
+  return new;
 end;
 $$;
 
@@ -284,12 +298,14 @@ for each row execute function public.refresh_poll_option_vote_count_trigger();
 -- 저장한 리스트 수는 원본 리스트 행에서 계산합니다. 저장자는 원본을 수정할 수 없습니다.
 create or replace function public.refresh_user_list_save_count_trigger()
 returns trigger language plpgsql security definer set search_path = public as $$
-declare v_list_id text := coalesce(new.list_id, old.list_id);
+declare v_list_id text;
 begin
+  v_list_id := case when tg_op = 'DELETE' then old.list_id else new.list_id end;
   update public.user_lists
   set save_count = (select count(*) from public.list_interactions where list_id = v_list_id and saved = true)
   where id = v_list_id;
-  return coalesce(new, old);
+  if tg_op = 'DELETE' then return old; end if;
+  return new;
 end;
 $$;
 
@@ -322,7 +338,7 @@ begin
     user_id, category, title, content, movie_id, movie_title, movie_poster_path, list_id, image_url, has_spoiler
   ) values (
     auth.uid(), v_category, trim(payload ->> 'title'), coalesce(payload ->> 'content', ''),
-    nullif(payload ->> 'movie_id', '')::bigint, nullif(payload ->> 'movie_title', ''),
+    nullif(payload ->> 'movie_id', ''), nullif(payload ->> 'movie_title', ''),
     nullif(payload ->> 'movie_poster_path', ''), v_list_id, nullif(payload ->> 'image_url', ''),
     coalesce((payload ->> 'has_spoiler')::boolean, false)
   ) returning id into v_post_id;
@@ -335,11 +351,11 @@ begin
       v_option_count := v_option_count + 1;
       insert into public.community_poll_options (poll_id, option_text, movie_id, movie_title, movie_poster_path, position)
       values (
-        v_poll_id, trim(v_option ->> 'option_text'), nullif(v_option ->> 'movie_id', '')::bigint,
+        v_poll_id, trim(v_option ->> 'option_text'), nullif(v_option ->> 'movie_id', ''),
         nullif(v_option ->> 'movie_title', ''), nullif(v_option ->> 'movie_poster_path', ''), v_option_count
       );
     end loop;
-    if v_option_count < 2 or v_option_count > 4 then raise exception 'POLL_OPTIONS_INVALID'; end if;
+    if v_option_count < 2 then raise exception 'POLL_OPTIONS_INVALID'; end if;
   end if;
 
   if v_category = 'mission_proof' then
@@ -347,7 +363,7 @@ begin
       post_id, mission_id, mission_name, movie_id, movie_title, movie_poster_path, reflection, image_url, completed_at, badge_label
     ) values (
       v_post_id, nullif(payload ->> 'mission_id', ''), coalesce(nullif(payload ->> 'mission_name', ''), '영화 미션'),
-      nullif(payload ->> 'mission_movie_id', '')::bigint, nullif(payload ->> 'mission_movie_title', ''),
+      nullif(payload ->> 'mission_movie_id', ''), nullif(payload ->> 'mission_movie_title', ''),
       nullif(payload ->> 'mission_movie_poster_path', ''), coalesce(payload ->> 'mission_reflection', ''),
       nullif(payload ->> 'mission_image_url', ''), coalesce(nullif(payload ->> 'mission_completed_at', '')::date, current_date),
       coalesce(nullif(payload ->> 'mission_badge_label', ''), 'MISSION COMPLETE')

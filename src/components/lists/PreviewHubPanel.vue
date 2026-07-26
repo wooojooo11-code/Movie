@@ -53,6 +53,7 @@ const officialSources = [
 
 const activeTab = ref<PreviewTab>('all');
 const academyFilter = ref<AcademyFilter>('all');
+const visibleMovieCount = ref(12);
 const isTrailerDialogOpen = ref(false);
 const isTrailerLoading = ref(false);
 const trailerLoadFailed = ref(false);
@@ -69,8 +70,11 @@ const featuredMovies = computed(() => {
     }
   });
 
-  return [...uniqueMovies.values()].slice(0, 3);
+  return [...uniqueMovies.values()];
 });
+
+const visibleFeaturedMovies = computed(() => featuredMovies.value.slice(0, visibleMovieCount.value));
+const hasMoreFeaturedMovies = computed(() => visibleFeaturedMovies.value.length < featuredMovies.value.length);
 
 const academyAwardMovies = computed(() => {
   const uniqueMovies = new Map<string, CatalogMovie>();
@@ -318,44 +322,7 @@ const closeTrailer = () => {
         </div>
 
         <div v-if="selectedMovie" class="mt-3">
-          <div class="overflow-hidden border border-app-line bg-app-panelSoft">
-            <img
-              :src="selectedMovie.posterUrl"
-              :alt="selectedMovie.posterAlt"
-              class="h-32 w-full object-cover object-center"
-              loading="lazy"
-            />
-            <div class="flex items-center justify-between gap-3 p-3">
-              <div class="min-w-0">
-                <p class="truncate text-sm font-semibold text-[#15171c]">{{ selectedMovie.title }}</p>
-                <p class="mt-1 text-[11px] text-app-muted">{{ selectedMovie.releaseYear }} · 공식 예고편</p>
-              </div>
-              <button
-                type="button"
-                class="focus-ring corner-soft inline-flex min-h-9 shrink-0 items-center justify-center bg-app-accent px-3 text-xs font-semibold text-white"
-                @click="openTrailer"
-              >
-                ▶ 재생
-              </button>
-            </div>
-          </div>
-
-          <div class="mt-2 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            <button
-              v-for="movie in featuredMovies"
-              :key="movie.id"
-              type="button"
-              class="focus-ring corner-soft flex w-14 shrink-0 flex-col overflow-hidden border text-left"
-              :class="selectedMovie.id === movie.id ? 'border-app-accent' : 'border-app-line'"
-              :aria-label="`${movie.title} 예고편 선택`"
-              @click="selectMovie(movie.id)"
-            >
-              <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-[4.5rem] w-full object-cover" loading="lazy" />
-              <span class="line-clamp-2 px-1 py-1 text-[9px] leading-3 text-[#15171c]">{{ movie.title }}</span>
-            </button>
-          </div>
-
-          <article class="corner-soft mt-3 overflow-hidden border border-app-line bg-white">
+          <article class="corner-soft overflow-hidden border border-app-line bg-white">
             <div class="relative h-24 overflow-hidden bg-[#15171c]">
               <img
                 :src="selectedMovie.posterUrl"
@@ -384,6 +351,53 @@ const closeTrailer = () => {
               </a>
             </div>
           </article>
+
+          <div class="mt-3 overflow-hidden border border-app-line bg-app-panelSoft">
+            <img
+              :src="selectedMovie.posterUrl"
+              :alt="selectedMovie.posterAlt"
+              class="h-32 w-full object-cover object-center"
+              loading="lazy"
+            />
+            <div class="flex items-center justify-between gap-3 p-3">
+              <div class="min-w-0">
+                <p class="truncate text-sm font-semibold text-[#15171c]">{{ selectedMovie.title }}</p>
+                <p class="mt-1 text-[11px] text-app-muted">{{ selectedMovie.releaseYear }} · 공식 예고편</p>
+              </div>
+              <button
+                type="button"
+                class="focus-ring corner-soft inline-flex min-h-9 shrink-0 items-center justify-center bg-app-accent px-3 text-xs font-semibold text-white"
+                @click="openTrailer"
+              >
+                ▶ 재생
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-2 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+            <button
+              v-for="movie in visibleFeaturedMovies"
+              :key="movie.id"
+              type="button"
+              class="focus-ring corner-soft flex w-14 shrink-0 flex-col overflow-hidden border text-left"
+              :class="selectedMovie.id === movie.id ? 'border-app-accent' : 'border-app-line'"
+              :aria-label="`${movie.title} 예고편 선택`"
+              @click="selectMovie(movie.id)"
+            >
+              <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-[4.5rem] w-full object-cover" loading="lazy" />
+              <span class="line-clamp-2 px-1 py-1 text-[9px] leading-3 text-[#15171c]">{{ movie.title }}</span>
+            </button>
+            <button
+              v-if="hasMoreFeaturedMovies"
+              type="button"
+              class="focus-ring corner-soft flex h-[6.5rem] w-14 shrink-0 flex-col items-center justify-center border border-dashed border-app-line bg-white text-app-muted transition-colors hover:border-app-accent hover:text-app-accent"
+              aria-label="영화 12개 더 보기"
+              @click="visibleMovieCount += 12"
+            >
+              <span aria-hidden="true" class="text-2xl font-light leading-none">+</span>
+              <span class="mt-1 text-[9px] font-semibold">더 보기</span>
+            </button>
+          </div>
         </div>
       </section>
     </div>

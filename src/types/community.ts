@@ -19,7 +19,8 @@ export interface CommunityProfile {
 }
 
 export interface CommunityMovieReference {
-  id: number;
+  /** 앱 카탈로그의 영화 ID입니다. 예: movie_42 */
+  id: string;
   title: string;
   posterPath: null | string;
   releaseYear?: null | number;

@@ -9,7 +9,7 @@ const ensureConfigured = () => {
 };
 
 const toMovie = (row: Row): CommunityMovieReference => ({
-  id: Number(row.movie_id), title: String(row.movie_title), posterPath: typeof row.movie_poster_path === 'string' ? row.movie_poster_path : null
+  id: String(row.movie_id), title: String(row.movie_title), posterPath: typeof row.movie_poster_path === 'string' ? row.movie_poster_path : null
 });
 
 export const fetchRecommendationRelays = async (postId: string): Promise<RecommendationRelay[]> => {

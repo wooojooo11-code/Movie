@@ -8,11 +8,17 @@ const DEFAULT_REGION = 'KR';
 const FALLBACK_POSTER_BASE_URL = 'https://image.tmdb.org/t/p/';
 const FALLBACK_POSTER_SIZE = 'w780';
 const TMDB_PROVIDER_LOGO_BASE_URL = 'https://image.tmdb.org/t/p/w92';
-const TARGET_CATALOG_SIZE = 750;
+const TARGET_CATALOG_SIZE = 2000;
 const FIRST_DISCOVERED_MOVIE_INDEX = 134;
-const DISCOVER_PAGE_LIMIT = 18;
-const DISCOVER_MIN_VOTE_COUNT = 100;
+const DISCOVER_PAGE_LIMIT = 35;
+const DISCOVER_MIN_VOTE_COUNT = 50;
 const DISCOVER_CANDIDATE_MULTIPLIER = 4;
+const DISCOVER_FALLBACK_SORTS = [
+  'popularity.desc',
+  'primary_release_date.desc',
+  'vote_count.desc',
+  'revenue.desc'
+];
 const DETAIL_FETCH_CONCURRENCY = 4;
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
 const MAX_TAG_COUNT = 4;
@@ -730,26 +736,51 @@ const fetchCatalogMovieByTmdbMovieId = async (seed, posterBaseUrl) => {
   return buildCatalogMovie(seed, seed.tmdbMovieId, detail, posterBaseUrl);
 };
 
-const buildDiscoverSearchParams = (tmdbGenreId, page) => ({
-  language: DEFAULT_LANGUAGE,
-  region: DEFAULT_REGION,
-  watch_region: DEFAULT_REGION,
-  with_watch_monetization_types: 'flatrate|rent|buy',
-  include_adult: 'false',
-  include_video: 'false',
-  sort_by: 'popularity.desc',
-  with_genres: String(tmdbGenreId),
-  'vote_count.gte': String(DISCOVER_MIN_VOTE_COUNT),
-  'release_date.lte': new Date().toISOString().slice(0, 10),
-  page
-});
+const buildDiscoverSearchParams = ({
+  page,
+  sortBy = 'popularity.desc',
+  tmdbGenreId = null,
+  minVoteCount = DISCOVER_MIN_VOTE_COUNT
+}) => {
+  const params = {
+    language: DEFAULT_LANGUAGE,
+    region: DEFAULT_REGION,
+    watch_region: DEFAULT_REGION,
+    with_watch_monetization_types: 'flatrate|rent|buy',
+    include_adult: 'false',
+    include_video: 'false',
+    sort_by: sortBy,
+    'vote_count.gte': String(minVoteCount),
+    'release_date.lte': new Date().toISOString().slice(0, 10),
+    page
+  };
 
-const collectDiscoverCandidatesForGenre = async (genre, excludedTmdbMovieIds, targetCount) => {
+  if (tmdbGenreId !== null) {
+    params.with_genres = String(tmdbGenreId);
+  }
+
+  return params;
+};
+
+const collectDiscoverCandidates = async ({
+  excludedTmdbMovieIds,
+  targetCount,
+  tmdbGenreId = null,
+  sourceKey,
+  sortBy = 'popularity.desc'
+}) => {
   const seenTmdbMovieIds = new Set(excludedTmdbMovieIds);
   const candidates = [];
 
   for (let page = 1; page <= DISCOVER_PAGE_LIMIT && candidates.length < targetCount; page += 1) {
-    const payload = await tmdbFetch('/discover/movie', buildDiscoverSearchParams(genre.tmdbGenreId, page));
+    const payload = await tmdbFetch(
+      '/discover/movie',
+      buildDiscoverSearchParams({
+        page,
+        sortBy,
+        tmdbGenreId
+      })
+    );
     const results = Array.isArray(payload.results) ? payload.results : [];
 
     for (const result of results) {
@@ -769,7 +800,7 @@ const collectDiscoverCandidatesForGenre = async (genre, excludedTmdbMovieIds, ta
       }
 
       candidates.push({
-        sourceGenre: genre.key,
+        sourceGenre: sourceKey,
         tmdbMovieId: result.id,
         titleHint,
         year: releaseYear
@@ -783,6 +814,51 @@ const collectDiscoverCandidatesForGenre = async (genre, excludedTmdbMovieIds, ta
 
     if (page >= Number(payload.total_pages ?? 0)) {
       break;
+    }
+  }
+
+  return candidates;
+};
+
+const collectDiscoverCandidatesForGenre = async (genre, excludedTmdbMovieIds, targetCount) =>
+  collectDiscoverCandidates({
+    excludedTmdbMovieIds,
+    targetCount,
+    tmdbGenreId: genre.tmdbGenreId,
+    sourceKey: genre.key
+  });
+
+const collectFallbackDiscoverCandidates = async (excludedTmdbMovieIds, targetCount) => {
+  if (targetCount <= 0) {
+    return [];
+  }
+
+  const candidates = [];
+  const seenTmdbMovieIds = new Set(excludedTmdbMovieIds);
+  const candidateTargetPerSort = Math.max(
+    60,
+    Math.ceil(targetCount / DISCOVER_FALLBACK_SORTS.length) * DISCOVER_CANDIDATE_MULTIPLIER
+  );
+
+  for (const sortBy of DISCOVER_FALLBACK_SORTS) {
+    const sortCandidates = await collectDiscoverCandidates({
+      excludedTmdbMovieIds: seenTmdbMovieIds,
+      targetCount: candidateTargetPerSort,
+      sourceKey: sortBy,
+      sortBy
+    });
+
+    for (const candidate of sortCandidates) {
+      if (seenTmdbMovieIds.has(candidate.tmdbMovieId)) {
+        continue;
+      }
+
+      seenTmdbMovieIds.add(candidate.tmdbMovieId);
+      candidates.push(candidate);
+
+      if (candidates.length >= targetCount) {
+        return candidates;
+      }
     }
   }
 
@@ -854,6 +930,20 @@ const buildDiscoveredMovieSeeds = async (excludedTmdbMovieIds, startIndex, targe
     excludedTmdbMovieIds,
     targetCount
   );
+
+  if (selectedCandidates.length < targetCount) {
+    const missingCount = targetCount - selectedCandidates.length;
+    console.log(
+      `Collected ${selectedCandidates.length} genre-balanced candidates. Filling ${missingCount} slots with fallback discovery...`
+    );
+
+    const fallbackCandidates = await collectFallbackDiscoverCandidates(
+      [...excludedTmdbMovieIds, ...selectedCandidates.map((candidate) => candidate.tmdbMovieId)],
+      missingCount
+    );
+
+    selectedCandidates.push(...fallbackCandidates);
+  }
 
   if (selectedCandidates.length < targetCount) {
     throw new Error(

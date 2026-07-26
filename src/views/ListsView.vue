@@ -352,6 +352,7 @@ const handleListSearchInput = (event: Event) => {
 
       <div class="min-h-0 overflow-y-auto px-3 py-3 sm:px-5 sm:py-5">
         <ListComposerCard
+          :description="listStore.state.draft.description"
           :title="listStore.state.draft.title"
           :is-private="listStore.state.draft.isPrivate"
           :can-share="listStore.canShareDraft.value"
@@ -365,6 +366,7 @@ const handleListSearchInput = (event: Event) => {
           :movie-results="listStore.state.movieResults"
           :selected-movie-ids="listStore.state.draft.movieIds"
           @update:title="listStore.updateDraftTitle"
+          @update:description="listStore.updateDraftDescription"
           @update:search-query="listStore.updateMovieSearchQuery"
           @toggle-private="listStore.toggleDraftPrivacy"
           @remove-movie="listStore.removeMovieFromDraft"

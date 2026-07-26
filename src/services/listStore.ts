@@ -179,10 +179,12 @@ const state = reactive({
   sharedCatalog: [] as SharedMovieListRecord[],
   interactions: initialSnapshot.interactions,
   draft: createEmptyDraft(),
-  searchQuery: '',
+  movieSearchQuery: '',
+  listSearchQuery: '',
   movieResults: [] as MovieSearchResult[],
   listResults: [] as ListSearchResult[],
-  isSearching: false
+  isSearchingMovies: false,
+  isSearchingLists: false
 });
 
 const applyCurrentUserShareRules = () => {
@@ -220,7 +222,8 @@ const REMOTE_SAVE_FAILURE_MESSAGE = '리스트 변경 내용을 Supabase에 저�
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
 
-let latestSearchToken = 0;
+let latestMovieSearchToken = 0;
+let latestListSearchToken = 0;
 let remoteSaveChain: Promise<void> = Promise.resolve();
 
 const getErrorMessage = (error: unknown, fallback: string) => {
@@ -232,14 +235,18 @@ const getErrorMessage = (error: unknown, fallback: string) => {
 };
 
 const applySnapshot = (snapshot: ListsStateSnapshot) => {
+  latestMovieSearchToken += 1;
+  latestListSearchToken += 1;
   state.userId = snapshot.userId;
   state.userLists = snapshot.userLists;
   state.interactions = snapshot.interactions;
   state.draft = createEmptyDraft();
-  state.searchQuery = '';
+  state.movieSearchQuery = '';
+  state.listSearchQuery = '';
   state.movieResults = [];
   state.listResults = [];
-  state.isSearching = false;
+  state.isSearchingMovies = false;
+  state.isSearchingLists = false;
 };
 
 const runRemoteTask = async (
@@ -271,31 +278,53 @@ const enqueueRemoteTask = (
   return remoteSaveChain;
 };
 
-const refreshSearchResults = async () => {
-  const trimmedQuery = state.searchQuery.trim();
-  const searchToken = ++latestSearchToken;
-
-  if (!trimmedQuery) {
-    state.movieResults = [];
-    state.listResults = [];
-    state.isSearching = false;
-    return;
-  }
-
-  state.isSearching = true;
-  const results = await mockListSearchService.search(trimmedQuery, {
+const searchCatalog = (query: string) =>
+  mockListSearchService.search(query, {
     movies: searchableMovies,
     userLists: state.userLists,
     sharedLists: state.sharedCatalog
   });
 
-  if (searchToken !== latestSearchToken) {
+const refreshMovieSearchResults = async () => {
+  const trimmedQuery = state.movieSearchQuery.trim();
+  const searchToken = ++latestMovieSearchToken;
+
+  if (!trimmedQuery) {
+    state.movieResults = [];
+    state.isSearchingMovies = false;
+    return;
+  }
+
+  state.isSearchingMovies = true;
+  const results = await searchCatalog(trimmedQuery);
+
+  if (searchToken !== latestMovieSearchToken) {
     return;
   }
 
   state.movieResults = results.movies;
+  state.isSearchingMovies = false;
+};
+
+const refreshListSearchResults = async () => {
+  const trimmedQuery = state.listSearchQuery.trim();
+  const searchToken = ++latestListSearchToken;
+
+  if (!trimmedQuery) {
+    state.listResults = [];
+    state.isSearchingLists = false;
+    return;
+  }
+
+  state.isSearchingLists = true;
+  const results = await searchCatalog(trimmedQuery);
+
+  if (searchToken !== latestListSearchToken) {
+    return;
+  }
+
   state.listResults = results.lists;
-  state.isSearching = false;
+  state.isSearchingLists = false;
 };
 
 const persistState = async () => {
@@ -335,11 +364,11 @@ const resetDraft = () => {
   state.draft = createEmptyDraft();
 };
 
-const resetSearchState = () => {
-  state.searchQuery = '';
+const resetMovieSearchState = () => {
+  latestMovieSearchToken += 1;
+  state.movieSearchQuery = '';
   state.movieResults = [];
-  state.listResults = [];
-  state.isSearching = false;
+  state.isSearchingMovies = false;
 };
 
 type ImportableList = {
@@ -428,9 +457,14 @@ const sharedLists = computed<ResolvedSharedListCard[]>(() =>
   })
 );
 
-const updateSearchQuery = async (query: string) => {
-  state.searchQuery = query;
-  await refreshSearchResults();
+const updateMovieSearchQuery = async (query: string) => {
+  state.movieSearchQuery = query;
+  await refreshMovieSearchResults();
+};
+
+const updateListSearchQuery = async (query: string) => {
+  state.listSearchQuery = query;
+  await refreshListSearchResults();
 };
 
 const addMovieToDraft = (movieId: string) => {
@@ -496,7 +530,11 @@ const saveDraft = async () => {
   state.userLists = nextLists;
   await persistState();
   resetDraft();
-  resetSearchState();
+  resetMovieSearchState();
+
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
+  }
 
   return true;
 };
@@ -525,8 +563,8 @@ const deleteUserList = async (listId: string) => {
     resetDraft();
   }
 
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
   }
 };
 
@@ -565,8 +603,8 @@ const removeFromMyLists = async (listId: string) => {
     resetDraft();
   }
 
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
   }
 };
 
@@ -608,8 +646,8 @@ const toggleSharedListSave = async (listId: string) => {
 
   await persistState();
 
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
   }
 };
 
@@ -666,8 +704,8 @@ const saveRecommendedList = async (list: { id: string; movieIds: readonly string
 
     await persistState();
 
-    if (state.searchQuery.trim()) {
-      await refreshSearchResults();
+    if (state.listSearchQuery.trim()) {
+      await refreshListSearchResults();
     }
 
     return null;
@@ -691,8 +729,8 @@ const saveRecommendedList = async (list: { id: string; movieIds: readonly string
   state.userLists = [nextRecord, ...state.userLists];
   await persistState();
 
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
   }
 
   return nextRecord.id;
@@ -741,8 +779,8 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
     console.error('[listStore] Failed to load lists from Supabase.', error);
   }
 
-  if (state.searchQuery.trim()) {
-    await refreshSearchResults();
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
   }
 };
 
@@ -758,12 +796,14 @@ export const listStore = {
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
   resolveMoviePreviews,
-  updateSearchQuery,
+  updateMovieSearchQuery,
+  updateListSearchQuery,
   updateDraftTitle,
   toggleDraftPrivacy,
   addMovieToDraft,
   removeMovieFromDraft,
   resetDraft,
+  resetMovieSearchState,
   saveDraft,
   editUserList,
   deleteUserList,

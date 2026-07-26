@@ -2,12 +2,7 @@
 import { computed, type DeepReadonly } from 'vue';
 
 import WatchToggleButton from '@/components/common/WatchToggleButton.vue';
-import type {
-  MovieSearchResult,
-  ResolvedListSearchCard,
-  SearchMatchField,
-  SearchableCatalogMovie
-} from '@/types/lists';
+import type { MovieSearchResult, SearchableCatalogMovie } from '@/types/lists';
 
 const props = withDefaults(
   defineProps<{
@@ -21,7 +16,6 @@ const props = withDefaults(
     searchQuery: string;
     isSearching: boolean;
     movieResults: readonly DeepReadonly<MovieSearchResult>[];
-    listResults: readonly DeepReadonly<ResolvedListSearchCard>[];
     selectedMovieIds: readonly string[];
     isFramed?: boolean;
   }>(),
@@ -41,16 +35,6 @@ const emit = defineEmits<{
   save: [];
   reset: [];
 }>();
-
-const matchLabelMap: Record<SearchMatchField, string> = {
-  title: '제목',
-  director: '감독',
-  actor: '배우',
-  genre: '장르',
-  tag: '태그',
-  owner: '작성자',
-  movie: '포함 영화'
-};
 
 const rootClassName = computed(() =>
   props.isFramed ? 'corner-hard border border-app-line bg-app-panel p-4' : ''
@@ -103,11 +87,11 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
       </div>
 
       <label class="mt-3 block">
-        <span class="sr-only">영화 또는 리스트 검색</span>
+        <span class="sr-only">영화 검색</span>
         <input
           :value="searchQuery"
           type="search"
-          placeholder="영화, 감독, 배우, 리스트 검색"
+          placeholder="영화, 감독, 배우 검색"
           class="focus-ring h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
           @input="handleSearchInput"
         />
@@ -165,66 +149,6 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
           </div>
         </section>
 
-        <section class="grid gap-3">
-          <div class="flex items-center justify-between gap-3">
-            <h4 class="text-sm font-semibold text-white">리스트</h4>
-            <span class="text-xs font-semibold text-app-muted">{{ listResults.length }}개</span>
-          </div>
-
-          <div v-if="listResults.length > 0" class="grid gap-3">
-            <article
-              v-for="result in listResults"
-              :key="`${result.source}-${result.list.id}`"
-              class="corner-hard border border-app-line bg-app-panelSoft p-4"
-            >
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <h4 class="text-sm font-semibold text-white">{{ result.list.title }}</h4>
-                    <span
-                      class="corner-pill border px-2.5 py-1 text-[11px] font-semibold"
-                      :class="
-                        result.source === 'mine'
-                          ? 'border-app-line bg-app-panel text-app-muted'
-                          : 'border-app-accent bg-app-accent text-white'
-                      "
-                    >
-                      {{ result.source === 'mine' ? '내 리스트' : '공유 리스트' }}
-                    </span>
-                  </div>
-                  <p class="mt-2 text-xs text-app-muted">
-                    {{ result.list.ownerName }} · 평균 {{ result.list.averageRating.toFixed(1) }} · 저장
-                    {{ result.list.saveCount.toLocaleString('ko-KR') }}
-                  </p>
-                </div>
-              </div>
-
-              <div class="mt-3 flex flex-wrap gap-2">
-                <span
-                  v-for="field in result.matchedBy"
-                  :key="`${result.list.id}-${field}`"
-                  class="corner-pill border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-app-muted"
-                >
-                  {{ matchLabelMap[field] }}
-                </span>
-                <span
-                  v-for="movieTitle in result.movieTitles"
-                  :key="`${result.list.id}-${movieTitle}`"
-                  class="corner-pill border border-app-line bg-app-panel px-2 py-1 text-[11px] font-semibold text-white"
-                >
-                  {{ movieTitle }}
-                </span>
-              </div>
-            </article>
-          </div>
-
-          <div
-            v-else
-            class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
-          >
-            맞는 리스트가 없어요.
-          </div>
-        </section>
       </div>
     </div>
 

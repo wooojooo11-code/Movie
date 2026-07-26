@@ -111,3 +111,22 @@ export const getSupabaseMovieLibraryRelation = () => {
 
   return supabase.schema(supabaseMovieLibrarySchema).from(supabaseMovieLibraryTable);
 };
+
+// 커뮤니티는 기존 공개(public) 스키마에 고정된 테이블명을 사용합니다.
+// 환경변수를 늘리지 않아도 기존 Supabase 연결 정보만으로 동작하게 합니다.
+const getCommunityRelation = (table: string) => (supabase ? supabase.from(table) : null);
+
+export const getCommunityProfilesRelation = () => getCommunityRelation('community_profiles');
+export const getCommunityPostsRelation = () => getCommunityRelation('community_posts');
+export const getCommunityCommentsRelation = () => getCommunityRelation('community_comments');
+export const getCommunityLikesRelation = () => getCommunityRelation('community_likes');
+export const getCommunitySavesRelation = () => getCommunityRelation('community_saves');
+export const getCommunityFollowsRelation = () => getCommunityRelation('community_follows');
+export const getCommunityPollsRelation = () => getCommunityRelation('community_polls');
+export const getCommunityPollOptionsRelation = () => getCommunityRelation('community_poll_options');
+export const getCommunityPollVotesRelation = () => getCommunityRelation('community_poll_votes');
+export const getRecommendationRelaysRelation = () => getCommunityRelation('recommendation_relays');
+export const getCommunityMissionProofsRelation = () => getCommunityRelation('community_mission_proofs');
+export const getDailyQuestionsRelation = () => getCommunityRelation('daily_questions');
+export const getDailyQuestionAnswersRelation = () => getCommunityRelation('daily_question_answers');
+export const getCommunityReportsRelation = () => getCommunityRelation('community_reports');

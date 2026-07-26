@@ -120,16 +120,19 @@ const screeningMovies = computed(() => libraryStore.savedMovies.value.map((item)
 
 const openCreateComposer = () => {
   listStore.resetDraft();
+  listStore.resetMovieSearchState();
   isComposerOpen.value = true;
 };
 
 const openEditComposer = (listId: string) => {
   listStore.editUserList(listId);
+  listStore.resetMovieSearchState();
   isComposerOpen.value = true;
 };
 
 const closeComposer = () => {
   listStore.resetDraft();
+  listStore.resetMovieSearchState();
   isComposerOpen.value = false;
 };
 
@@ -144,13 +147,27 @@ const handleSaveDraft = async () => {
 const handleResetDraft = () => {
   listStore.resetDraft();
 };
+
+const handleListSearchInput = (event: Event) => {
+  void listStore.updateListSearchQuery((event.target as HTMLInputElement).value);
+};
 </script>
 
 <template>
   <main class="mx-auto w-full max-w-6xl px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6">
     <div class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <div class="flex min-w-0 flex-col gap-6">
-        <section class="flex items-center justify-end gap-2">
+        <section class="flex flex-wrap items-center justify-end gap-2">
+      <label class="min-w-[11rem] flex-1 sm:max-w-xs">
+        <span class="sr-only">리스트 검색</span>
+        <input
+          :value="listStore.state.listSearchQuery"
+          type="search"
+          placeholder="리스트 검색"
+          class="focus-ring min-h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
+          @input="handleListSearchInput"
+        />
+      </label>
       <button
         type="button"
         class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-2.5 text-xs font-medium text-white"
@@ -171,6 +188,58 @@ const handleResetDraft = () => {
       </label>
         </section>
 
+        <section v-if="listStore.state.listSearchQuery.trim()" class="grid gap-3">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-lg font-semibold text-white">리스트 검색 결과</h2>
+          <p v-if="listStore.state.isSearchingLists" class="mt-1 text-xs text-app-muted">검색 중</p>
+        </div>
+        <span class="text-xs font-medium text-app-muted">{{ searchListCards.length }}개</span>
+      </div>
+
+      <div
+        v-if="searchListCards.length > 0"
+        class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2"
+      >
+        <article
+          v-for="result in searchListCards"
+          :key="`${result.source}-${result.list.id}`"
+          class="corner-hard w-[calc(100vw-2rem)] shrink-0 snap-start border border-app-line bg-app-panel p-4 sm:w-[23rem]"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <h3 class="truncate text-base font-semibold text-white">{{ result.list.title }}</h3>
+              <p class="mt-2 text-sm text-app-muted">
+                {{ result.list.ownerName }} · 평균 {{ result.list.averageRating.toFixed(1) }} · 저장 {{ result.list.saveCount.toLocaleString('ko-KR') }}
+              </p>
+            </div>
+            <span
+              class="corner-pill shrink-0 border px-2.5 py-1 text-[11px] font-semibold"
+              :class="result.source === 'mine' ? 'border-app-line bg-app-panelSoft text-app-muted' : 'border-app-accent bg-app-accent text-white'"
+            >
+              {{ result.source === 'mine' ? '내 리스트' : '공유 리스트' }}
+            </span>
+          </div>
+          <div v-if="result.movieTitles.length > 0" class="mt-3 flex flex-wrap gap-2">
+            <span
+              v-for="movieTitle in result.movieTitles"
+              :key="`${result.list.id}-${movieTitle}`"
+              class="corner-pill border border-app-line bg-app-panelSoft px-2 py-1 text-[11px] font-medium text-app-muted"
+            >
+              {{ movieTitle }}
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <div
+        v-else-if="!listStore.state.isSearchingLists"
+        class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-6 text-sm text-app-muted"
+      >
+        일치하는 리스트가 없어요.
+      </div>
+        </section>
+
         <section class="grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
@@ -179,10 +248,14 @@ const handleResetDraft = () => {
         <span class="text-xs font-medium text-app-muted">{{ listStore.myLists.value.length }}개</span>
       </div>
 
-      <div v-if="listStore.myLists.value.length > 0" class="grid gap-3">
+      <div
+        v-if="listStore.myLists.value.length > 0"
+        class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2"
+      >
         <UserListCard
           v-for="list in sortedMyLists"
           :key="list.id"
+          class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
           @edit="openEditComposer"
@@ -215,10 +288,11 @@ const handleResetDraft = () => {
         아직 보관한 영화가 없어요.
       </div>
 
-      <div v-else class="grid grid-cols-2 gap-3">
+      <div v-else class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2">
         <LibraryMovieCard
           v-for="item in libraryStore.savedMovies.value"
           :key="item.movieId"
+          class="w-36 shrink-0 snap-start sm:w-40"
           :item="item"
           @remove="libraryStore.removeMovie"
         />
@@ -233,10 +307,11 @@ const handleResetDraft = () => {
         <span class="text-xs font-medium text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
       </div>
 
-      <div class="grid gap-3">
+      <div class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2">
         <SharedListCard
           v-for="list in sortedSharedLists"
           :key="list.id"
+          class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
           :show-save-button="list.ownerId !== listStore.state.userId"
@@ -285,13 +360,12 @@ const handleResetDraft = () => {
           :can-save="listStore.canSaveDraft.value"
           :is-editing="Boolean(listStore.state.draft.id)"
           :is-framed="false"
-          :search-query="listStore.state.searchQuery"
-          :is-searching="listStore.state.isSearching"
+          :search-query="listStore.state.movieSearchQuery"
+          :is-searching="listStore.state.isSearchingMovies"
           :movie-results="listStore.state.movieResults"
-          :list-results="searchListCards"
           :selected-movie-ids="listStore.state.draft.movieIds"
           @update:title="listStore.updateDraftTitle"
-          @update:search-query="listStore.updateSearchQuery"
+          @update:search-query="listStore.updateMovieSearchQuery"
           @toggle-private="listStore.toggleDraftPrivacy"
           @remove-movie="listStore.removeMovieFromDraft"
           @add-movie="listStore.addMovieToDraft"

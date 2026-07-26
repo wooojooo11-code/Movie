@@ -8,6 +8,7 @@ import RatedMoviesView from '@/views/RatedMoviesView.vue';
 import RecommendationsView from '@/views/RecommendationsView.vue';
 import RatingView from '@/views/RatingView.vue';
 import TheatersView from '@/views/TheatersView.vue';
+import CommunityView from '@/views/CommunityView.vue';
 import { useAuthStore } from '@/stores/auth';
 
 const router = createRouter({
@@ -62,6 +63,11 @@ const router = createRouter({
       path: '/theaters',
       name: 'theaters',
       component: TheatersView
+    },
+    {
+      path: '/community',
+      name: 'community',
+      component: CommunityView
     },
     {
       path: '/library',

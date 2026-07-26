@@ -12,18 +12,14 @@ import {
   situationOptionGroups,
   situationPresets
 } from '@/data/situations';
-import PopularListSheet from '@/components/home/PopularListSheet.vue';
-import RecommendationListCard from '@/components/recommendations/RecommendationListCard.vue';
+import MissionBingo from '@/components/home/MissionBingo.vue';
+import FavoritePeopleMovieRows from '@/components/recommendations/FavoritePeopleMovieRows.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
-import { useListStore } from '@/services/listStore';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import { getWatchProviderSummary } from '@/services/watchProviderSummary';
-import type { PopularList } from '@/types/home';
 import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type {
-  RecommendedCatalogList,
   RecommendedCatalogMovie,
   SituationReason,
   SituationSelection,
@@ -31,41 +27,11 @@ import type {
 } from '@/types/recommendation';
 import type { RatingFeedbackPayload } from '@/types/recommendation';
 
-const listStore = useListStore();
 const recommendationStore = useRecommendationStore();
 const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
-const selectedPopularList = ref<PopularList | null>(null);
 const isSavingRecommendationRating = ref(false);
 const manualSelection = ref<SituationSelection>({});
-
-const catalogMovieMap = new Map(recommendationStore.catalogMovies.map((movie) => [movie.id, movie]));
-const recommendedListPairs = computed(() =>
-  recommendationStore.recommendedLists.value.map((recommendationList) => ({
-    recommendationList,
-    homeList: {
-      id: recommendationList.id,
-      title: recommendationList.title,
-      saveCount: recommendationList.saveCount,
-      averageRating: recommendationList.averageRating,
-      moviePreviews: recommendationList.moviePreviews.flatMap((preview) => {
-        const movie = catalogMovieMap.get(preview.id);
-
-        if (!movie) {
-          return [];
-        }
-
-        return {
-          ...preview,
-          releaseYear: movie.releaseYear,
-          genres: movie.genres,
-          summaryTags: movie.tags.slice(0, 2),
-          watchAvailabilityText: getWatchProviderSummary(movie)
-        };
-      })
-    } satisfies PopularList
-  }))
-);
 
 const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
 const isManualSelectionComplete = computed(() => isCompleteSituationSelection(manualSelection.value));
@@ -87,14 +53,6 @@ const openMovieSheet = (movie: RecommendedCatalogMovie) => {
 
 const closeMovieSheet = () => {
   selectedMovie.value = null;
-};
-
-const openPopularList = (list: PopularList) => {
-  selectedPopularList.value = list;
-};
-
-const closePopularList = () => {
-  selectedPopularList.value = null;
 };
 
 const selectedMovieRatingRecord = computed(() => {
@@ -200,14 +158,6 @@ const handleRecommendationLike = async (feedback: PositiveRatingInput) => {
       feedback: payload
     }
   );
-};
-
-const saveRecommendedList = (list: RecommendedCatalogList) => {
-  void listStore.saveRecommendedList(list);
-};
-
-const openListsPage = () => {
-  void router.push('/lists');
 };
 
 const openMoreTasteAnalysis = async () => {
@@ -480,30 +430,13 @@ const applyDefaultSituation = () => {
       </div>
     </section>
 
-    <section>
-      <div class="mb-3">
-          <h2 class="text-lg font-semibold text-[#15171c]">나를 위한 추천 리스트</h2>
-      </div>
-
-      <div v-if="recommendedListPairs.length > 0" class="grid gap-3">
-        <RecommendationListCard
-          v-for="pair in recommendedListPairs"
-          :key="pair.recommendationList.id"
-          :home-list="pair.homeList"
-          :is-saved="listStore.hasImportedList(pair.recommendationList.id)"
-          :list="pair.recommendationList"
-          @open="openPopularList(pair.homeList)"
-          @save="saveRecommendedList(pair.recommendationList)"
-          @open-lists="openListsPage"
-        />
-      </div>
-
-      <div
-        v-else
-        class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm text-app-muted"
-      >
-        아직 추천할 리스트를 준비하고 있어요.
-      </div>
+    <section class="grid items-start gap-4 lg:grid-cols-[minmax(19rem,0.8fr)_minmax(0,1.2fr)]">
+      <MissionBingo compact />
+      <FavoritePeopleMovieRows
+        :entries="recommendationStore.ratedMoviesHistory.value"
+        :movies="recommendationStore.favoritePeopleRecommendationPool.value"
+        @open="openMovieSheet"
+      />
     </section>
 
     <RecommendationMovieSheet
@@ -514,12 +447,6 @@ const applyDefaultSituation = () => {
       @rate-dislike-submit="handleRecommendationDislike"
       @rate-like-submit="handleRecommendationLike"
       @close="closeMovieSheet"
-    />
-
-    <PopularListSheet
-      v-if="selectedPopularList"
-      :list="selectedPopularList"
-      @close="closePopularList"
     />
   </main>
 </template>

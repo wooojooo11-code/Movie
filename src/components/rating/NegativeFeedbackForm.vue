@@ -5,6 +5,7 @@ import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
 import {
   MAX_FAVORITE_CAST_CHOICES,
+  MAX_REVIEW_TAG_CHOICES,
   normalizeFavoriteCharacters,
   type CharacterChoice,
   type NegativeRatingInput
@@ -107,7 +108,7 @@ const toggleReviewTag = (tag: ReviewTag) => {
     return;
   }
 
-  if (form.reviewTags.length >= 3) {
+  if (form.reviewTags.length >= MAX_REVIEW_TAG_CHOICES) {
     return;
   }
 
@@ -175,7 +176,9 @@ const submitForm = () => {
 
     <div class="mt-5">
       <p class="mb-3 text-sm font-medium text-app-muted">어떤 점이 별로였나요</p>
-      <p class="mb-3 text-xs text-app-muted">최대 3개까지 고를 수 있어요</p>
+      <p class="mb-3 text-xs text-app-muted">
+        최대 {{ MAX_REVIEW_TAG_CHOICES }}개까지 고를 수 있어요.
+      </p>
 
       <div class="grid gap-4">
         <div

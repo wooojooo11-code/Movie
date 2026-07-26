@@ -38,6 +38,7 @@ const detailFlowTop = ref<HTMLElement | null>(null);
 
 const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
+const isDetailPaused = computed(() => route.query.detailPaused === 'true');
 const pendingDetailedRatings = computed(() => recommendationStore.pendingDetailedRatings.value);
 const tasteAnalysisMovieIdSet = computed(
   () =>
@@ -76,7 +77,13 @@ const currentRatingMovie = computed(() =>
     : recommendationStore.getNextRatingMovie()
 );
 const currentDetailMovie = computed(() => recommendationStore.getPendingDetailMovie());
-const currentMovie = computed(() => (isDetailMode.value ? currentDetailMovie.value : currentRatingMovie.value));
+const currentMovie = computed(() => {
+  if (isDetailPaused.value) {
+    return null;
+  }
+
+  return isDetailMode.value ? currentDetailMovie.value : currentRatingMovie.value;
+});
 const isAdditionalTasteAnalysisSurface = computed(() => {
   const surface = recommendationStore.state.ratingResumeSurface;
 
@@ -273,6 +280,10 @@ const completedCount = computed(() => {
 });
 
 const stageLabel = computed(() => {
+  if (isDetailPaused.value) {
+    return '상세 평가 잠시 멈춤';
+  }
+
   if (isDetailMode.value) {
     return currentDetailMovie.value ? '상세 평가 진행' : '상세 평가 완료';
   }
@@ -285,6 +296,10 @@ const stageLabel = computed(() => {
 });
 
 const completionTitle = computed(() => {
+  if (isDetailPaused.value) {
+    return '상세 평가를 잠시 멈췄어요.';
+  }
+
   if (isDetailMode.value) {
     return '상세 평가를 마쳤어요.';
   }
@@ -297,6 +312,10 @@ const completionTitle = computed(() => {
 });
 
 const completionDescription = computed(() => {
+  if (isDetailPaused.value) {
+    return '남은 상세 평가는 그대로 두었어요. 다음 20편을 평가하거나 원하는 영화를 직접 찾아 평가할 수 있어요.';
+  }
+
   if (isDetailMode.value) {
     return '남겨준 감상을 더 자세히 반영해서 추천을 더 정확하게 맞출게요.';
   }
@@ -313,6 +332,21 @@ const completionDescription = computed(() => {
 });
 
 const secondaryAction = computed<null | { isMoreAction?: boolean; label: string; to: string }>(() => {
+  if (isDetailPaused.value && recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
+    return {
+      label: '다음 20편 평가하기',
+      to: '/rating?mode=more',
+      isMoreAction: true
+    };
+  }
+
+  if (isDetailPaused.value && currentDetailMovie.value) {
+    return {
+      label: '상세 평가 이어하기',
+      to: '/rating?mode=detail'
+    };
+  }
+
   if (!isDetailMode.value && currentDetailMovie.value) {
     return {
       label: '상세 평가하러 가기',
@@ -355,6 +389,19 @@ const openNextAdditionalTasteAnalysis = async () => {
     query: {
       mode: 'more',
       batch: String(Date.now())
+    }
+  });
+};
+
+const pauseDetailedRating = async () => {
+  if (!isDetailMode.value) {
+    return;
+  }
+
+  await router.replace({
+    path: '/rating',
+    query: {
+      detailPaused: 'true'
     }
   });
 };
@@ -783,6 +830,16 @@ watch(
         <WatchToggleButton :movie-id="currentMovie.id" size="md" />
       </div>
 
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
+          @click="pauseDetailedRating"
+        >
+          상세 평가 멈추기
+        </button>
+      </div>
+
       <PositiveFeedbackForm
         v-if="isCurrentDetailPositive"
         :key="`${currentMovie.id}-detail`"
@@ -862,7 +919,7 @@ watch(
         </RouterLink>
       </div>
 
-      <section v-if="!isDetailMode" class="mt-6 border-t border-app-line pt-5">
+      <section v-if="!isDetailMode || isDetailPaused" class="mt-6 border-t border-app-line pt-5">
         <div class="flex items-start justify-between gap-3">
           <div>
             <h2 class="text-lg font-semibold text-[#15171c]">직접 영화 찾아서 평가하기</h2>

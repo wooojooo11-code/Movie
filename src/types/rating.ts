@@ -37,6 +37,7 @@ export const requiresDetailedRatingFeedback = (
 
 export const NO_FAVORITE_CHARACTER = '선택안함';
 export const MAX_FAVORITE_CAST_CHOICES = 3;
+export const MAX_REVIEW_TAG_CHOICES = 4;
 
 export const normalizeFavoriteCharacters = (
   value: null | readonly string[] | string | undefined

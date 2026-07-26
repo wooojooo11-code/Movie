@@ -164,7 +164,10 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
         />
 
         <div class="min-w-0">
-          <div class="flex flex-wrap items-center gap-1.5">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+            <h2 class="text-[15px] font-semibold leading-6 text-white">
+              {{ entry.movie.title }}
+            </h2>
             <span class="corner-pill border px-2 py-1 text-[10px] font-medium" :class="decisionClassName">
               {{ decisionLabel }}
             </span>
@@ -174,23 +177,17 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
             >
               {{ starLabel }}
             </span>
+            <span v-if="compactMetaLabel" class="text-[11px] text-app-muted">
+              {{ compactMetaLabel }}
+            </span>
+            <span v-if="answeredAtLabel" class="text-[11px] text-app-muted">
+              {{ answeredAtLabel }}
+            </span>
           </div>
-
-          <h2 class="mt-2 text-[15px] font-semibold leading-6 text-white">
-            {{ entry.movie.title }}
-          </h2>
         </div>
       </div>
 
       <div class="mt-4 grid gap-3 border-t border-app-line pt-3">
-        <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">내 평가</p>
-        <dl class="flex flex-wrap gap-x-4 gap-y-2 text-[12px] text-white">
-          <div v-for="item in ratingSummaryItems" :key="item.label" class="inline-flex items-center gap-1.5">
-            <dt class="text-[10px] text-app-muted">{{ item.label }}</dt>
-            <dd class="leading-5 text-white">{{ item.value }}</dd>
-          </div>
-        </dl>
-
         <div v-if="questionText" class="grid gap-1">
           <p class="text-[10px] text-app-muted">좋아요 이유</p>
           <p class="whitespace-pre-wrap text-[12px] leading-5 text-white">

@@ -782,6 +782,10 @@ const fallbackRecommendationPool = computed<RecommendedCatalogMovie[]>(() => {
   return mapScoredMoviesToCatalogMovies(scoredMovies);
 });
 
+const favoritePeopleRecommendationPool = computed<RecommendedCatalogMovie[]>(() =>
+  fallbackRecommendationPool.value
+);
+
 const fixedPresetRecommendationPool = computed<RecommendedCatalogMovie[] | null>(() => {
   if (activeSituation.value.kind !== 'preset') {
     return null;
@@ -1175,6 +1179,7 @@ export const recommendationStore = {
   resumeTasteAnalysisPath,
   ratedMoviesHistory,
   contextAwareRecommendedMovies,
+  favoritePeopleRecommendationPool,
   recommendedMovies,
   rawRecommendedMovies,
   isRecommendationFallbackMode,

@@ -24,8 +24,11 @@ const bookingProviders = [
   { label: '메가박스', url: 'https://www.megabox.co.kr/booking' }
 ];
 
+const MOVIES_PER_PAGE = 5;
+
 const activeCollection = ref<TheatricalCollection>('nowPlaying');
 const selectedGenre = ref('');
+const visibleMovieCount = ref(MOVIES_PER_PAGE);
 const theatricalData = ref<TheatricalMoviesResponse | null>(null);
 const isMovieLoading = ref(false);
 const movieErrorMessage = ref('');
@@ -51,7 +54,18 @@ const filteredMovies = computed(() =>
     ? activeMovies.value.filter((movie) => movie.genres.includes(selectedGenre.value))
     : activeMovies.value
 );
+const displayedMovies = computed(() => filteredMovies.value.slice(0, visibleMovieCount.value));
+const remainingMovieCount = computed(() => Math.max(0, filteredMovies.value.length - displayedMovies.value.length));
+const canShowMoreMovies = computed(() => remainingMovieCount.value > 0);
 const activeTab = computed(() => collectionTabs.find((tab) => tab.id === activeCollection.value) ?? collectionTabs[0]);
+
+const resetMoviePagination = () => {
+  visibleMovieCount.value = MOVIES_PER_PAGE;
+};
+
+const showMoreMovies = () => {
+  visibleMovieCount.value += MOVIES_PER_PAGE;
+};
 
 const refreshMovies = async () => {
   if (isMovieLoading.value) {
@@ -63,6 +77,7 @@ const refreshMovies = async () => {
 
   try {
     theatricalData.value = await loadTheatricalMovies();
+    resetMoviePagination();
   } catch (error) {
     console.warn('Unable to load theatrical movies.', error);
     movieErrorMessage.value = '신작 정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
@@ -165,7 +180,11 @@ watch(activeCollection, () => {
   if (selectedGenre.value && !visibleGenres.value.some((genre) => genre.name === selectedGenre.value)) {
     selectedGenre.value = '';
   }
+
+  resetMoviePagination();
 });
+
+watch(selectedGenre, resetMoviePagination);
 
 onMounted(() => {
   void refreshMovies();
@@ -201,7 +220,9 @@ onMounted(() => {
           <h2 id="movie-schedule-title" class="text-lg font-semibold text-[#15171c]">신작 · 개봉 일정</h2>
           <p class="mt-1 text-xs text-app-muted">{{ activeTab.description }}</p>
         </div>
-        <span v-if="theatricalData" class="text-xs text-app-muted">{{ filteredMovies.length }}편</span>
+        <span v-if="theatricalData" class="text-xs text-app-muted">
+          {{ displayedMovies.length }} / {{ filteredMovies.length }}편
+        </span>
       </div>
 
       <div class="mt-4 flex border-b border-app-line" role="tablist" aria-label="신작 구분">
@@ -253,7 +274,17 @@ onMounted(() => {
         이 조건에 맞는 영화가 없습니다.
       </div>
       <div v-else class="mt-4 grid gap-3">
-        <TheatricalMovieCard v-for="movie in filteredMovies" :key="movie.id" :movie="movie" @book="bookingMovie = movie" />
+        <TheatricalMovieCard v-for="movie in displayedMovies" :key="movie.id" :movie="movie" @book="bookingMovie = movie" />
+      </div>
+
+      <div v-if="canShowMoreMovies" class="mt-4 flex justify-center">
+        <button
+          type="button"
+          class="focus-ring corner-soft min-h-10 border border-app-line bg-app-panel px-4 text-sm font-semibold text-[#174a77]"
+          @click="showMoreMovies"
+        >
+          영화 {{ Math.min(MOVIES_PER_PAGE, remainingMovieCount) }}편 더보기
+        </button>
       </div>
 
       <p class="mt-3 text-[11px] leading-4 text-app-muted">

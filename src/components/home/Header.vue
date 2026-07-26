@@ -117,6 +117,13 @@ const signOut = async () => {
         >
           극장
         </RouterLink>
+        <RouterLink
+          to="/community"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
+        >
+          커뮤니티
+        </RouterLink>
       </nav>
     </div>
   </header>

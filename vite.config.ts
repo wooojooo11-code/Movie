@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
-// Netlify functions are JavaScript-only and are mounted here for local development.
+// Netlify functions are JavaScript-only, so mount this endpoint in local dev and preview servers.
 // @ts-expect-error This server-only module is intentionally outside the browser TypeScript project.
 import theatricalMoviesHandlerModule from './netlify/functions/tmdb-theatrical.mjs';
 
@@ -12,8 +12,18 @@ const theatricalMoviesHandler = theatricalMoviesHandlerModule as () => Promise<R
 
 const theatricalMoviesDevPlugin = (): Plugin => ({
   name: 'theatrical-movies-dev-function',
-  apply: 'serve',
   configureServer(server) {
+    server.middlewares.use('/.netlify/functions/tmdb-theatrical', (_request, response, next) => {
+      void theatricalMoviesHandler()
+        .then(async (functionResponse) => {
+          response.statusCode = functionResponse.status;
+          functionResponse.headers.forEach((value, name) => response.setHeader(name, value));
+          response.end(Buffer.from(await functionResponse.arrayBuffer()));
+        })
+        .catch(next);
+    });
+  },
+  configurePreviewServer(server) {
     server.middlewares.use('/.netlify/functions/tmdb-theatrical', (_request, response, next) => {
       void theatricalMoviesHandler()
         .then(async (functionResponse) => {

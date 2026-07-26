@@ -48,7 +48,7 @@ const formatReleaseDate = (value: string | null) => {
       <p v-if="movie.genres.length > 0" class="mt-2 line-clamp-1 text-xs text-app-muted">
         {{ movie.genres.join(' · ') }}
       </p>
-      <p v-if="movie.overview" class="mt-2 line-clamp-2 text-xs leading-4 text-[#445267]">
+      <p v-if="movie.overview" class="mt-2 text-xs leading-4 text-[#445267]">
         {{ movie.overview }}
       </p>
       <div class="mt-auto pt-3">

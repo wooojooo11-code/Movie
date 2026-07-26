@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue';
 
 import RatedMovieHistoryCard from '@/components/history/RatedMovieHistoryCard.vue';
+import TasteInsightsPanel from '@/components/history/TasteInsightsPanel.vue';
 import { useRecommendationStore } from '@/services/recommendationStore';
 
 type HistoryViewMode = 'grid' | 'list';
@@ -137,6 +138,8 @@ watch(
     </section>
 
     <template v-else>
+      <TasteInsightsPanel :entries="ratedMoviesHistory" />
+
       <p
         v-if="filteredRatedMoviesHistory.length === 0"
         class="corner-hard border border-dashed border-app-line bg-app-panel px-4 py-5 text-sm leading-6 text-app-muted"

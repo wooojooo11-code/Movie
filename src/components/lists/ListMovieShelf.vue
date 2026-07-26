@@ -25,22 +25,23 @@ const movieCards = computed(() =>
 
 <template>
   <div class="mt-4 flex min-w-0 max-w-full gap-2 overflow-x-auto pb-1 scrollbar-hide">
-    <article v-for="entry in movieCards" :key="entry.movie.id" class="w-[4.9rem] shrink-0">
+    <article v-for="entry in movieCards" :key="entry.movie.id" class="flex w-[4.9rem] shrink-0 flex-col">
       <img
         :src="entry.movie.posterUrl"
         :alt="entry.movie.posterAlt"
         class="corner-soft h-[6.6rem] w-full border border-app-line object-cover"
         loading="lazy"
       />
-      <p class="mt-2 line-clamp-2 text-[11px] font-medium leading-4 text-white">
+      <p class="mt-2 line-clamp-2 min-h-8 text-[11px] font-medium leading-4 text-white">
         {{ entry.movie.title }}
       </p>
       <p
         v-if="entry.watchAvailabilityText"
-        class="mt-1 text-[10px] leading-4 text-app-muted"
+        class="mt-1 line-clamp-2 min-h-8 text-[10px] leading-4 text-app-muted"
       >
         OTT · {{ entry.watchAvailabilityText }}
       </p>
+      <p v-else aria-hidden="true" class="mt-1 min-h-8"></p>
       <button
         type="button"
         class="focus-ring corner-soft mt-1.5 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"

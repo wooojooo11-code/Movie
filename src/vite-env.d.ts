@@ -2,6 +2,7 @@
 /// <reference types="vite-plugin-pwa/client" />
 
 interface ImportMetaEnv {
+  readonly VITE_KAKAO_MAP_JAVASCRIPT_KEY?: string;
   readonly VITE_SUPABASE_ANON_KEY?: string;
   readonly VITE_SUPABASE_LIST_INTERACTIONS_SCHEMA?: string;
   readonly VITE_SUPABASE_LIST_INTERACTIONS_TABLE?: string;

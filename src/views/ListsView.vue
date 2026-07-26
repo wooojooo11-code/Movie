@@ -159,8 +159,7 @@ const handleResetDraft = () => {
         리스트 만들기
       </button>
 
-      <label class="flex shrink-0 items-center gap-1 text-xs font-medium text-app-muted">
-        <span class="whitespace-nowrap">정렬순</span>
+      <label class="flex shrink-0 items-center text-xs font-medium text-app-muted">
         <select
           v-model="listSortOption"
           class="focus-ring min-h-10 w-[5.1rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"

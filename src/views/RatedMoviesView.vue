@@ -96,8 +96,7 @@ watch(
           />
         </label>
 
-        <div class="flex items-center justify-between gap-3 sm:justify-end">
-          <span class="text-xs font-medium text-app-muted">보기 방식</span>
+        <div class="flex items-center justify-end gap-3">
           <div class="corner-pill inline-flex border border-app-line bg-app-panelSoft">
             <button
               type="button"

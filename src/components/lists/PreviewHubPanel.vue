@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import {
+  academyAwardMovieIds,
+  getAcademyAwardCategories,
+  type AcademyAwardCategory
+} from '@/data/academyAwards';
 import { catalogMovies } from '@/data/catalog';
 import { getYouTubeEmbedUrl, loadMovieTrailer } from '@/services/movieTrailer';
 import type { CatalogMovie } from '@/types/recommendation';
@@ -9,14 +14,29 @@ const props = defineProps<{
   movies: readonly CatalogMovie[];
 }>();
 
-type PreviewTab = 'all' | 'apply' | 'results' | 'videos';
+type PreviewTab = 'all' | 'apply' | 'results' | 'videos' | 'academy';
+type AcademyFilter = 'all' | AcademyAwardCategory;
 
 const tabs: { id: PreviewTab; label: string }[] = [
   { id: 'all', label: '전체' },
   { id: 'apply', label: '신청' },
   { id: 'results', label: '당첨 결과' },
-  { id: 'videos', label: '영상' }
+  { id: 'videos', label: '영상' },
+  { id: 'academy', label: '아카데미' }
 ];
+
+const academyFilters: { id: AcademyFilter; label: string }[] = [
+  { id: 'all', label: '전체' },
+  { id: 'bestPicture', label: '최우수 작품상' },
+  { id: 'bestDirector', label: '감독상 수상 감독' },
+  { id: 'actingWinner', label: '연기상 수상 배우' }
+];
+
+const academyCategoryLabels: Record<AcademyAwardCategory, string> = {
+  bestPicture: '최우수 작품상',
+  bestDirector: '감독상 수상 감독',
+  actingWinner: '연기상 수상 배우 출연'
+};
 
 const officialSources = [
   {
@@ -32,6 +52,7 @@ const officialSources = [
 ] as const;
 
 const activeTab = ref<PreviewTab>('all');
+const academyFilter = ref<AcademyFilter>('all');
 const isTrailerDialogOpen = ref(false);
 const isTrailerLoading = ref(false);
 const trailerLoadFailed = ref(false);
@@ -51,6 +72,29 @@ const featuredMovies = computed(() => {
   return [...uniqueMovies.values()].slice(0, 3);
 });
 
+const academyAwardMovies = computed(() => {
+  const uniqueMovies = new Map<string, CatalogMovie>();
+
+  [...props.movies, ...catalogMovies].forEach((movie) => {
+    if (!uniqueMovies.has(movie.id)) {
+      uniqueMovies.set(movie.id, movie);
+    }
+  });
+
+  return [...uniqueMovies.values()]
+    .filter((movie) => getAcademyAwardCategories(movie.id).length > 0)
+    .sort((left, right) => right.releaseYear - left.releaseYear || left.title.localeCompare(right.title, 'ko'));
+});
+
+const filteredAcademyAwardMovies = computed(() => {
+  if (academyFilter.value === 'all') {
+    return academyAwardMovies.value;
+  }
+
+  const selectedCategory = academyFilter.value;
+  return academyAwardMovies.value.filter((movie) => academyAwardMovieIds[selectedCategory].includes(movie.id));
+});
+
 const selectedMovie = computed(
   () => featuredMovies.value.find((movie) => movie.id === selectedMovieId.value) ?? featuredMovies.value[0] ?? null
 );
@@ -65,6 +109,15 @@ const trailerSearchLink = computed(() => {
   }
 
   const query = `${selectedMovie.value.title} ${selectedMovie.value.releaseYear} 공식 예고편`;
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+});
+
+const screeningCoverageSearchLink = computed(() => {
+  if (!selectedMovie.value) {
+    return 'https://www.youtube.com';
+  }
+
+  const query = `${selectedMovie.value.title} 언론시사회 VIP 시사회 포토월 무대인사`;
   return `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
 });
 
@@ -199,13 +252,69 @@ const closeTrailer = () => {
         </div>
       </section>
 
+      <section v-if="activeTab === 'academy'" aria-labelledby="academy-awards-heading">
+        <div class="flex items-end justify-between gap-3">
+          <div>
+            <p class="text-xs font-semibold text-app-accent">Academy Awards</p>
+            <h3 id="academy-awards-heading" class="mt-1 text-sm font-semibold text-[#15171c]">아카데미 수상 이력 영화</h3>
+          </div>
+          <span class="corner-pill bg-app-panelSoft px-2 py-1 text-[10px] font-semibold text-app-muted">
+            {{ filteredAcademyAwardMovies.length }}편
+          </span>
+        </div>
+
+        <p class="mt-2 text-[11px] leading-4 text-app-muted">
+          현재 카탈로그 수록작만 표시합니다. 작품상 수상작, 감독상 수상 감독의 작품, 남녀 주·조연상 수상 배우 출연작을 모두 포함합니다.
+        </p>
+
+        <div class="mt-3 flex gap-1 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label="아카데미 수상 기준">
+          <button
+            v-for="filter in academyFilters"
+            :key="filter.id"
+            type="button"
+            class="focus-ring corner-pill shrink-0 px-2.5 py-1.5 text-[11px] font-semibold transition-colors"
+            :class="academyFilter === filter.id ? 'bg-app-accent text-white' : 'bg-app-panelSoft text-app-muted'"
+            :aria-pressed="academyFilter === filter.id"
+            @click="academyFilter = filter.id"
+          >
+            {{ filter.label }}
+          </button>
+        </div>
+
+        <ul class="mt-3 grid gap-2" aria-label="아카데미 수상 이력 영화 목록">
+          <li v-for="movie in filteredAcademyAwardMovies" :key="movie.id">
+            <article class="corner-soft flex gap-3 border border-app-line bg-app-panelSoft p-2">
+              <img
+                :src="movie.posterUrl"
+                :alt="movie.posterAlt"
+                class="h-[4.5rem] w-12 shrink-0 object-cover"
+                loading="lazy"
+              />
+              <div class="min-w-0 py-0.5">
+                <p class="truncate text-sm font-semibold text-[#15171c]">{{ movie.title }}</p>
+                <p class="mt-0.5 text-[11px] text-app-muted">{{ movie.releaseYear }}</p>
+                <div class="mt-2 flex flex-wrap gap-1">
+                  <span
+                    v-for="category in getAcademyAwardCategories(movie.id)"
+                    :key="category"
+                    class="corner-pill border border-app-accent/30 bg-white px-1.5 py-0.5 text-[10px] font-semibold text-app-accent"
+                  >
+                    {{ academyCategoryLabels[category] }}
+                  </span>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
       <section v-if="activeTab === 'all' || activeTab === 'videos'" aria-labelledby="screening-video-heading">
         <div class="flex items-end justify-between gap-3">
           <div>
             <p class="text-xs font-semibold text-app-accent">영상</p>
-            <h3 id="screening-video-heading" class="mt-1 text-sm font-semibold text-[#15171c]">관심 영화 예고편</h3>
+            <h3 id="screening-video-heading" class="mt-1 text-sm font-semibold text-[#15171c]">관심 영화 영상</h3>
           </div>
-          <span class="text-[11px] text-app-muted">앱에서 재생</span>
+          <span class="text-[11px] text-app-muted">예고편 · 시사회 현장</span>
         </div>
 
         <div v-if="selectedMovie" class="mt-3">
@@ -245,6 +354,36 @@ const closeTrailer = () => {
               <span class="line-clamp-2 px-1 py-1 text-[9px] leading-3 text-[#15171c]">{{ movie.title }}</span>
             </button>
           </div>
+
+          <article class="corner-soft mt-3 overflow-hidden border border-app-line bg-white">
+            <div class="relative h-24 overflow-hidden bg-[#15171c]">
+              <img
+                :src="selectedMovie.posterUrl"
+                :alt="`${selectedMovie.posterAlt} 시사회 현장 영상`"
+                class="h-full w-full object-cover opacity-45"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 flex items-end p-3">
+                <span class="corner-pill border border-white/50 bg-black/40 px-2 py-1 text-[10px] font-semibold text-white">
+                  언론 · VIP 시사회
+                </span>
+              </div>
+            </div>
+            <div class="p-3">
+              <p class="text-sm font-semibold text-[#15171c]">뉴스로 보는 시사회 현장</p>
+              <p class="mt-1 text-[11px] leading-4 text-app-muted">
+                포토월, 배우 인터뷰, 무대인사 등 뉴스·제작사 채널의 현장 영상을 찾아볼 수 있어요.
+              </p>
+              <a
+                :href="screeningCoverageSearchLink"
+                target="_blank"
+                rel="noreferrer"
+                class="focus-ring corner-soft mt-3 inline-flex min-h-9 items-center justify-center border border-app-accent px-3 text-xs font-semibold text-app-accent transition-colors hover:bg-app-accent hover:text-white"
+              >
+                시사회 현장 영상 찾기
+              </a>
+            </div>
+          </article>
         </div>
       </section>
     </div>

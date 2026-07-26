@@ -16,8 +16,8 @@ const catalogMovieIds = new Set(catalogMovies.map((movie) => movie.id));
 
 assert.deepEqual(
   trendingMovies.map((movie) => movie.id),
-  Array.from({ length: 10 }, (_, index) => `kobis-2024-${index + 1}`),
-  'home restores the KOBIS 2024 popular-movie ranking'
+  Array.from({ length: 10 }, (_, index) => `kobis-2025-${index + 1}`),
+  'home restores the KOBIS 2025 popular-movie ranking'
 );
 assert.ok(
   trendingMovies.every((movie) => movie.similarMovies.every((similarMovie) => catalogMovieIds.has(similarMovie.id))),

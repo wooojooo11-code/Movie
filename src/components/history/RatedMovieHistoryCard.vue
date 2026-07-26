@@ -129,16 +129,14 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
         </div>
       </div>
 
-      <div class="mt-2 flex items-start justify-between gap-2">
-        <h2 class="line-clamp-2 min-w-0 flex-1 text-[14px] font-semibold leading-5 text-white">
-          {{ entry.movie.title }}
-        </h2>
-        <p v-if="compactMetaLabel" class="shrink-0 whitespace-nowrap pt-0.5 text-[10px] leading-4 text-app-muted">
-          {{ compactMetaLabel }}
-        </p>
-      </div>
+      <h2 class="mt-2 line-clamp-2 text-[14px] font-semibold leading-5 text-white">
+        {{ entry.movie.title }}
+      </h2>
 
       <dl class="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] leading-4 text-app-muted">
+        <div v-if="compactMetaLabel" class="whitespace-nowrap">
+          {{ compactMetaLabel }}
+        </div>
         <div v-for="item in ratingSummaryItems" :key="item.label" class="inline-flex items-center gap-1 whitespace-nowrap">
           <dt>{{ item.label }}</dt>
           <dd class="text-white">{{ item.value }}</dd>

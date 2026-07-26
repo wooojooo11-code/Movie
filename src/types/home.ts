@@ -13,7 +13,7 @@ export interface TrendingMovie {
   sourceLabel: string;
   genres: string[];
   cast: string[];
-  rating: number;
+  rating: number | null;
   posterUrl: string;
   posterAlt: string;
   similarMovies: TrendingMovieSimilarPreview[];

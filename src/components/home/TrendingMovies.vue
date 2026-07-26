@@ -7,6 +7,12 @@ import type { TrendingMovie } from '@/types/home';
 
 defineProps<{
   movies: TrendingMovie[];
+  isLoading?: boolean;
+  status?: string;
+}>();
+
+const emit = defineEmits<{
+  refresh: [];
 }>();
 
 const scroller = ref<HTMLElement | null>(null);
@@ -80,9 +86,21 @@ const closeMovie = () => {
 <template>
   <section id="trending-movies" aria-labelledby="trending-movies-title">
     <div class="mb-3 flex items-end justify-between gap-4">
-      <h2 id="trending-movies-title" class="text-lg font-semibold text-[#15171c]">인기 영화</h2>
+      <div>
+        <h2 id="trending-movies-title" class="text-lg font-semibold text-[#15171c]">인기 영화</h2>
+        <p v-if="status" class="mt-1 text-[11px] text-app-muted" aria-live="polite">{{ status }}</p>
+      </div>
 
       <div class="flex shrink-0 gap-2">
+        <button
+          type="button"
+          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c] disabled:cursor-wait disabled:opacity-50"
+          aria-label="KOBIS 인기 영화 새로고침"
+          :disabled="isLoading"
+          @click="emit('refresh')"
+        >
+          ↻
+        </button>
         <button
           type="button"
           class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"

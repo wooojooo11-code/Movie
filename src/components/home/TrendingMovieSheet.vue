@@ -35,7 +35,7 @@ defineEmits<{
               <h3 class="mt-1 text-lg font-semibold leading-snug text-[#15171c]">
                 {{ movie.title }}
               </h3>
-              <p class="mt-1 text-sm text-app-muted">평점 {{ movie.rating.toFixed(1) }}</p>
+              <p v-if="movie.rating !== null" class="mt-1 text-sm text-app-muted">평점 {{ movie.rating.toFixed(1) }}</p>
             </div>
 
             <button
@@ -48,13 +48,13 @@ defineEmits<{
           </div>
 
           <dl class="mt-4 grid gap-3 text-sm">
-            <div>
+            <div v-if="movie.genres.length > 0">
               <dt class="text-app-muted">장르</dt>
               <dd class="mt-1 leading-5 text-[#15171c]">
                 {{ movie.genres.join(' · ') }}
               </dd>
             </div>
-            <div>
+            <div v-if="movie.cast.length > 0">
               <dt class="text-app-muted">출연진</dt>
               <dd class="mt-1 leading-5 text-[#15171c]">
                 {{ movie.cast.join(', ') }}

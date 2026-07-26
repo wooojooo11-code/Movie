@@ -96,6 +96,7 @@ export type SituationContextTag =
   | 'spring'
   | 'summer'
   | 'travel'
+  | 'true_story'
   | 'winter';
 export type RatingResumeSurface =
   | 'primary'

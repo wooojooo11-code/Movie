@@ -86,6 +86,25 @@ const timeCandidates = [
   movie('medium', { runtimeMinutes: 120 }),
   movie('long', { runtimeMinutes: 135 })
 ];
+
+const trueStoryCandidates = [
+  movie('true-story', { contextTags: ['true_story'], recommendationScore: 1 }),
+  movie('drama-but-not-true', { genreIds: [18, 36], recommendationScore: 99 }),
+  movie('tagged-but-not-true', { tags: ['감동', '성장', '탄탄한 스토리'], recommendationScore: 98 })
+];
+const trueStoryResults = rankSituationMovies({
+  activeSituation: { kind: 'manual', selection: { reason: ['true_story'] } },
+  catalogMovies: trueStoryCandidates,
+  hasTasteProfile: true,
+  impressions: [],
+  likedMovieIds: [],
+  movies: trueStoryCandidates
+});
+assert.deepEqual(
+  trueStoryResults.map((entry) => entry.id),
+  ['true-story'],
+  'true-story reason only returns movies marked as based on true events'
+);
 const rankForTime = (viewingTime) =>
   rankSituationMovies({
     activeSituation: { kind: 'manual', selection: { ...manualSelection, viewingTime } },

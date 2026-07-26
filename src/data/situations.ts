@@ -170,9 +170,7 @@ export const reasonRules: Record<SituationReason, SituationRule> = {
   visuals: { tags: ['영상미', '연출', '세계관'] },
   new_world: { genreIds: [878, 14, 12], tags: ['세계관', '영상미', '몰입감'] },
   true_story: {
-    genreIds: [18, 36],
-    tags: ['감동', '성장', '탄탄한 스토리'],
-    textIncludes: ['실화', 'based on a true story', 'based on true story', 'true story']
+    contextTags: ['true_story']
   }
 };
 

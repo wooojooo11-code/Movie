@@ -14,8 +14,8 @@ export default {
           panelSoft: '#f5f6f8',
           poster: '#f0f2f5',
           line: '#d9dde3',
-          accent: '#739dc4',
-          muted: '#5f6774'
+          accent: '#5f8fc2',
+          muted: '#63758c'
         }
       },
       boxShadow: {

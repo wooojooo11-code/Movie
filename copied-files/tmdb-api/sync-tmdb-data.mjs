@@ -534,6 +534,10 @@ const contextTagMatchers = [
   { tag: 'new_year', needles: ['new year', 'new year\'s eve'] },
   { tag: 'graduation', needles: ['graduation', 'graduate'] },
   { tag: 'school', needles: ['school', 'college', 'university', 'high school'] },
+  {
+    tag: 'true_story',
+    needles: ['based on a true story', 'based on true story', 'true story', '실화', '실제 사건', '실제 인물']
+  },
   { tag: 'literary', needles: ['based on novel', 'based on book', 'writer', 'author', 'literature'] },
   { tag: 'travel', needles: ['travel', 'road trip', 'journey', 'vacation'] },
   { tag: 'space', needles: ['space', 'astronaut', 'moon', 'solar eclipse', 'lunar eclipse'] },

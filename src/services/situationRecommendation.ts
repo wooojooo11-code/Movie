@@ -7,6 +7,7 @@ import {
   type SituationRule,
   weatherRules
 } from '@/data/situations';
+import { trueStoryTmdbMovieIds } from '@/data/trueStories';
 import type {
   ActiveSituation,
   CatalogMovie,
@@ -61,6 +62,9 @@ const normalizeScores = (values: readonly number[]) => {
 
 const getQualityScore = (movie: CatalogMovie) =>
   clampScore((movie.voteAverage ?? 0) * 7 + Math.min((movie.voteCount ?? 0) / 100, 30));
+
+const isTrueStoryMovie = (movie: CatalogMovie) =>
+  movie.contextTags?.includes('true_story') || trueStoryTmdbMovieIds.has(movie.tmdbMovieId);
 
 const getRuleMatch = (movie: CatalogMovie, rule: SituationRule): RuleMatch => {
   const genreIds = new Set(movie.genreIds ?? []);
@@ -415,10 +419,13 @@ export const rankSituationMovies = ({
       .filter((movie) => likedMovieIds.includes(movie.id) && movie.collectionId != null)
       .map((movie) => movie.collectionId as number)
   );
+  const trueStoryOnly =
+    activeSituation.kind === 'manual' && activeSituation.selection.reason?.includes('true_story');
+  const situationCandidates = trueStoryOnly ? movies.filter(isTrueStoryMovie) : [...movies];
   const candidates =
     activeSituation.kind === 'manual' && activeSituation.selection.viewingTime
-      ? filterByViewingTime(movies, activeSituation.selection.viewingTime, collectionCounts)
-      : [...movies];
+      ? filterByViewingTime(situationCandidates, activeSituation.selection.viewingTime, collectionCounts)
+      : situationCandidates;
   const presetRule =
     activeSituation.kind === 'preset' ? getSituationPreset(activeSituation.presetId)?.rule : null;
   const explicitMovieOrder = new Map(

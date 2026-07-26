@@ -34,7 +34,6 @@ const decisionClassNames = {
 } as const;
 
 const isGridMode = computed(() => props.viewMode === 'grid');
-const isStaggeredGridCard = computed(() => isGridMode.value && props.index % 2 === 1);
 
 const decisionLabel = computed(
   () => decisionLabels[props.entry.ratingRecord.rawDecision] ?? props.entry.ratingRecord.rawDecision
@@ -103,7 +102,7 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
 <template>
   <article
     class="corner-hard border border-app-line bg-app-panel"
-    :class="[isGridMode ? 'overflow-hidden p-2.5' : 'px-4 py-4', isStaggeredGridCard ? 'mt-6' : '']"
+    :class="isGridMode ? 'overflow-hidden p-2.5' : 'px-4 py-4'"
   >
     <template v-if="isGridMode">
       <div class="relative">
@@ -130,12 +129,21 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
         </div>
       </div>
 
-      <h2 class="mt-2 line-clamp-2 text-[14px] font-semibold leading-5 text-white">
-        {{ entry.movie.title }}
-      </h2>
-      <p class="mt-1 text-[11px] leading-4 text-app-muted">
-        {{ compactMetaLabel }}
-      </p>
+      <div class="mt-2 flex items-start justify-between gap-2">
+        <h2 class="line-clamp-2 min-w-0 flex-1 text-[14px] font-semibold leading-5 text-white">
+          {{ entry.movie.title }}
+        </h2>
+        <p v-if="compactMetaLabel" class="shrink-0 whitespace-nowrap pt-0.5 text-[10px] leading-4 text-app-muted">
+          {{ compactMetaLabel }}
+        </p>
+      </div>
+
+      <dl class="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] leading-4 text-app-muted">
+        <div v-for="item in ratingSummaryItems" :key="item.label" class="inline-flex items-center gap-1 whitespace-nowrap">
+          <dt>{{ item.label }}</dt>
+          <dd class="text-white">{{ item.value }}</dd>
+        </div>
+      </dl>
 
       <div class="mt-3 grid grid-cols-[auto_minmax(0,1fr)] gap-1.5">
         <WatchToggleButton :movie-id="entry.movie.id" size="sm" />
@@ -178,8 +186,8 @@ const tmdbWatchLink = computed(() => props.entry.movie.watchProvidersKr?.link ??
 
       <div class="mt-4 grid gap-3 border-t border-app-line pt-3">
         <p class="text-[10px] font-medium tracking-[0.08em] text-app-muted">내 평가</p>
-        <dl class="grid gap-2 text-[12px] text-white">
-          <div v-for="item in ratingSummaryItems" :key="item.label" class="grid gap-1">
+        <dl class="flex flex-wrap gap-x-4 gap-y-2 text-[12px] text-white">
+          <div v-for="item in ratingSummaryItems" :key="item.label" class="inline-flex items-center gap-1.5">
             <dt class="text-[10px] text-app-muted">{{ item.label }}</dt>
             <dd class="leading-5 text-white">{{ item.value }}</dd>
           </div>

@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue';
 
 import LibraryMovieCard from '@/components/library/LibraryMovieCard.vue';
 import ListComposerCard from '@/components/lists/ListComposerCard.vue';
+import PreviewHubPanel from '@/components/lists/PreviewHubPanel.vue';
 import SharedListCard from '@/components/lists/SharedListCard.vue';
 import UserListCard from '@/components/lists/UserListCard.vue';
 import { useLibraryStore } from '@/services/libraryStore';
@@ -115,6 +116,8 @@ const searchListCards = computed(() =>
   }))
 );
 
+const screeningMovies = computed(() => libraryStore.savedMovies.value.map((item) => item.movie));
+
 const openCreateComposer = () => {
   listStore.resetDraft();
   isComposerOpen.value = true;
@@ -144,10 +147,10 @@ const handleResetDraft = () => {
 </script>
 
 <template>
-  <main
-    class="mx-auto flex w-full max-w-md flex-col gap-6 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-xl"
-  >
-    <section class="flex items-center justify-end gap-2">
+  <main class="mx-auto w-full max-w-6xl px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6">
+    <div class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div class="flex min-w-0 flex-col gap-6">
+        <section class="flex items-center justify-end gap-2">
       <button
         type="button"
         class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-2.5 text-xs font-medium text-white"
@@ -167,9 +170,9 @@ const handleResetDraft = () => {
           </option>
         </select>
       </label>
-    </section>
+        </section>
 
-    <section class="grid gap-3">
+        <section class="grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">내 리스트</h2>
@@ -196,9 +199,9 @@ const handleResetDraft = () => {
       >
         아직 만든 리스트가 없어요.
       </div>
-    </section>
+        </section>
 
-    <section id="library" class="grid scroll-mt-32 gap-3">
+        <section id="library" class="grid scroll-mt-32 gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">보관함</h2>
@@ -221,9 +224,9 @@ const handleResetDraft = () => {
           @remove="libraryStore.removeMovie"
         />
       </div>
-    </section>
+        </section>
 
-    <section class="grid gap-3">
+        <section class="grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">공유 리스트</h2>
@@ -243,7 +246,11 @@ const handleResetDraft = () => {
           @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
         />
       </div>
-    </section>
+        </section>
+      </div>
+
+      <PreviewHubPanel :movies="screeningMovies" />
+    </div>
   </main>
 
   <div

@@ -4,6 +4,7 @@ import {
   getSupabaseRecommendationExclusionsRelation,
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
+  supabase,
   supabaseRatingHistoryUserColumn,
   supabaseRecommendationContextUserColumn,
   supabaseRecommendationExclusionsUserColumn,
@@ -11,6 +12,7 @@ import {
 } from '@/lib/supabase';
 import type {
   ActiveSituation,
+  CollaborativeRecommendationSignal,
   RecommendationStateSnapshot,
   StoredRatingRecord
 } from '@/types/recommendation';
@@ -69,10 +71,17 @@ interface SupabaseRecommendationContextRow {
   [key: string]: unknown;
 }
 
+interface SupabaseCollaborativeRecommendationSignalRow {
+  collaborative_score: number | string | null;
+  movie_id: string;
+  similar_user_count: number | string | null;
+}
+
 let hasRatingHistoryTable: boolean | null = null;
 let supportsActiveSituationColumns: boolean | null = null;
 let supportsRatingsRawDirectionColumn: boolean | null = null;
 let supportsRatingHistoryRawDirectionColumn: boolean | null = null;
+let hasCollaborativeRecommendationSignalsFunction: boolean | null = null;
 
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
 
@@ -94,6 +103,14 @@ const isMissingSupabaseColumnError = (error: unknown, tableName: string, columnN
   (getSupabaseErrorCode(error) === '42703' || getSupabaseErrorCode(error) === 'PGRST204') &&
   getSupabaseErrorMessage(error).includes(columnName) &&
   getSupabaseErrorMessage(error).includes(tableName);
+
+const isMissingSupabaseFunctionError = (error: unknown, functionName: string) =>
+  getSupabaseErrorCode(error) === 'PGRST202' && getSupabaseErrorMessage(error).includes(functionName);
+
+const toNonNegativeNumber = (value: number | string | null) => {
+  const parsed = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+};
 
 const buildSupabaseRatingSelectColumns = (userColumn: string, includeRawDirection: boolean) =>
   [
@@ -725,5 +742,38 @@ export const remoteRatingHistoryRepository = {
     }
 
     hasRatingHistoryTable = true;
+  }
+};
+
+export const remoteCollaborativeRecommendationRepository = {
+  async load(userId: string): Promise<CollaborativeRecommendationSignal[]> {
+    if (
+      !isRemoteSyncEnabled(userId) ||
+      hasCollaborativeRecommendationSignalsFunction === false ||
+      !supabase
+    ) {
+      return [];
+    }
+
+    const { data, error } = await supabase.rpc('get_collaborative_recommendation_signals');
+
+    if (error && isMissingSupabaseFunctionError(error, 'get_collaborative_recommendation_signals')) {
+      hasCollaborativeRecommendationSignalsFunction = false;
+      return [];
+    }
+
+    if (error) {
+      throw error;
+    }
+
+    hasCollaborativeRecommendationSignalsFunction = true;
+
+    return ((data ?? []) as SupabaseCollaborativeRecommendationSignalRow[])
+      .map((row) => ({
+        movieId: row.movie_id,
+        score: toNonNegativeNumber(row.collaborative_score),
+        similarUserCount: Math.floor(toNonNegativeNumber(row.similar_user_count))
+      }))
+      .filter((signal) => signal.movieId.length > 0 && signal.score > 0 && signal.similarUserCount > 0);
   }
 };

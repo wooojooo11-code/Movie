@@ -1,24 +1,13 @@
-const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
-const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+import { jsonResponse } from './_shared/http.mjs';
+import { fetchTmdbJson, toTmdbImageUrl } from './_shared/tmdb.mjs';
+
 const KOREA_REGION = 'KR';
 const KOREAN_LANGUAGE = 'ko-KR';
-
-const jsonResponse = (body, status = 200, cacheControl = 'no-store') =>
-  new Response(JSON.stringify(body), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': cacheControl
-    }
-  });
 
 const isRecord = (value) => Boolean(value) && typeof value === 'object';
 
 const toReleaseDate = (value) =>
   typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
-
-const toPosterUrl = (value) =>
-  typeof value === 'string' && value.startsWith('/') ? `${TMDB_IMAGE_BASE_URL}${value}` : null;
 
 const normalizeGenre = (genre) => {
   if (!isRecord(genre) || !Number.isInteger(genre.id) || typeof genre.name !== 'string') {
@@ -51,30 +40,11 @@ export const normalizeTheatricalMovie = (movie, genresById) => {
   return {
     id: movie.id,
     title,
-    posterUrl: toPosterUrl(movie.poster_path),
+    posterUrl: toTmdbImageUrl(movie.poster_path),
     releaseDate: toReleaseDate(movie.release_date),
     genres,
     overview: typeof movie.overview === 'string' && movie.overview.trim() ? movie.overview.trim() : null
   };
-};
-
-const fetchTmdb = async (path, token) => {
-  const url = new URL(`${TMDB_API_BASE_URL}${path}`);
-  url.searchParams.set('language', KOREAN_LANGUAGE);
-  url.searchParams.set('region', KOREA_REGION);
-
-  const response = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      Authorization: `Bearer ${token}`
-    }
-  });
-
-  if (!response.ok) {
-    throw new Error(`TMDB returned ${response.status}.`);
-  }
-
-  return response.json();
 };
 
 const toMovieList = (payload, genresById) => {
@@ -113,9 +83,9 @@ export default async () => {
 
   try {
     const [genrePayload, nowPlayingPayload, upcomingPayload] = await Promise.all([
-      fetchTmdb('/genre/movie/list', token),
-      fetchTmdb('/movie/now_playing', token),
-      fetchTmdb('/movie/upcoming', token)
+      fetchTmdbJson('/genre/movie/list', token, { language: KOREAN_LANGUAGE, region: KOREA_REGION }),
+      fetchTmdbJson('/movie/now_playing', token, { language: KOREAN_LANGUAGE, region: KOREA_REGION }),
+      fetchTmdbJson('/movie/upcoming', token, { language: KOREAN_LANGUAGE, region: KOREA_REGION })
     ]);
 
     if (!isRecord(genrePayload) || !Array.isArray(genrePayload.genres)) {

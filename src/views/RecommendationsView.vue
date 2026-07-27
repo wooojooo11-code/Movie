@@ -272,11 +272,11 @@ const applyDefaultSituation = () => {
         <button
           v-else-if="hasMoreTasteAnalysis"
           type="button"
-          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center gap-2 border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#15171c]"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center gap-2 border border-[#174a77] bg-[#174a77] px-4 text-sm font-semibold text-[#e7f3fc] transition-colors hover:bg-[#123b5f]"
           @click="openMoreTasteAnalysis"
         >
           <span
-            class="corner-pill inline-flex h-5 w-5 items-center justify-center border border-app-line text-[13px] leading-none text-[#15171c]"
+            class="corner-pill inline-flex h-5 w-5 items-center justify-center border border-[#b9d7ec] bg-[#e7f3fc] text-[13px] leading-none text-[#174a77]"
           >
             +
           </span>

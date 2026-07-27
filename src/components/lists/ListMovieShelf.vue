@@ -47,8 +47,8 @@ const movieCards = computed(() =>
         class="focus-ring corner-soft mt-1.5 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"
         :class="
           isSaved(entry.movie.id)
-            ? 'border-app-accent bg-app-accent text-white'
-            : 'border-app-line bg-app-panelSoft text-white'
+            ? 'border-[#0d3e6b] bg-[#0d3e6b] !text-white'
+            : 'border-app-accent bg-app-accent !text-white'
         "
         @click="$emit('toggle-watch', entry.movie.id)"
       >

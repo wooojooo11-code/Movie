@@ -12,6 +12,8 @@ import CommunityPage from '@/views/CommunityPage.vue';
 import { useAuthStore } from '@/stores/auth';
 import MovieDetailPage from '@/views/MovieDetailPage.vue';
 import PostDetailPage from '@/views/PostDetailPage.vue';
+import ProfileTitlesView from '@/views/ProfileTitlesView.vue';
+import ProfileView from '@/views/ProfileView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -75,6 +77,16 @@ const router = createRouter({
       path: '/community/:postId',
       name: 'community-post',
       component: PostDetailPage
+    },
+    {
+      path: '/profile/:userId',
+      name: 'profile',
+      component: ProfileView
+    },
+    {
+      path: '/profile/:userId/titles',
+      name: 'profile-titles',
+      component: ProfileTitlesView
     },
     {
       path: '/movies/:movieId',

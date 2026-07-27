@@ -64,6 +64,12 @@ const toProfile = (row: Row): CommunityProfile => ({
   avatarUrl: asNullableString(row.author_avatar_url)
 });
 
+const toDailyAnswerAuthor = (userId: string, profile?: Row): CommunityProfile => ({
+  id: userId,
+  nickname: asString(profile?.nickname, 'Movie friend'),
+  avatarUrl: asNullableString(profile?.avatar_url)
+});
+
 const toMovie = (id: unknown, title: unknown, posterPath: unknown): null | CommunityMovieReference => {
   const movieId = asMovieId(id);
   const movieTitle = asNullableString(title);
@@ -393,8 +399,54 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
   return {
     id: asString(question.id), question: asString(question.question), activeDate: asString(question.active_date),
     answerCount: count ?? 0,
-    viewerAnswer: answer ? { id: asString(answer.id), questionId: asString(answer.question_id), userId: asString(answer.user_id), content: asString(answer.content), createdAt: asString(answer.created_at), updatedAt: asString(answer.updated_at) } : null
+    viewerAnswer: answer ? {
+      id: asString(answer.id), questionId: asString(answer.question_id), userId: asString(answer.user_id),
+      content: asString(answer.content), createdAt: asString(answer.created_at), updatedAt: asString(answer.updated_at),
+      author: toDailyAnswerAuthor(asString(answer.user_id))
+    } : null
   };
+};
+
+// Hide the viewer's own answer so this view focuses on other community members.
+export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserId?: null | string): Promise<DailyQuestionAnswer[]> => {
+  ensureSupabase();
+  let query = getDailyQuestionAnswersRelation()!
+    .select('id, question_id, user_id, content, created_at, updated_at')
+    .eq('question_id', questionId);
+
+  if (excludeUserId) {
+    query = query.neq('user_id', excludeUserId);
+  }
+
+  const { data, error } = await query.order('created_at', { ascending: false }).limit(100);
+  if (error) throw error;
+
+  const answers = (data ?? []) as Row[];
+  const userIds = [...new Set(answers.map((answer) => asString(answer.user_id)).filter(Boolean))];
+  const profilesById = new Map<string, Row>();
+
+  if (userIds.length > 0) {
+    const { data: profiles, error: profilesError } = await getCommunityProfilesRelation()!
+      .select('id, nickname, avatar_url')
+      .in('id', userIds);
+    if (profilesError) throw profilesError;
+    for (const profile of (profiles ?? []) as Row[]) {
+      profilesById.set(asString(profile.id), profile);
+    }
+  }
+
+  return answers.map((answer) => {
+    const userId = asString(answer.user_id);
+    return {
+      id: asString(answer.id),
+      questionId: asString(answer.question_id),
+      userId,
+      content: asString(answer.content),
+      createdAt: asString(answer.created_at),
+      updatedAt: asString(answer.updated_at),
+      author: toDailyAnswerAuthor(userId, profilesById.get(userId))
+    };
+  });
 };
 
 export const saveDailyQuestionAnswer = async (questionId: string, userId: string, content: string): Promise<DailyQuestionAnswer> => {
@@ -404,7 +456,11 @@ export const saveDailyQuestionAnswer = async (questionId: string, userId: string
     .select('*').single();
   if (error) throw error;
   const row = data as Row;
-  return { id: asString(row.id), questionId: asString(row.question_id), userId: asString(row.user_id), content: asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at) };
+  return {
+    id: asString(row.id), questionId: asString(row.question_id), userId: asString(row.user_id),
+    content: asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
+    author: toDailyAnswerAuthor(asString(row.user_id))
+  };
 };
 
 export const fetchMyShareableLists = async (userId: string): Promise<CommunityListReference[]> => {

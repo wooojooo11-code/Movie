@@ -59,17 +59,11 @@ const rowLabel = (kind: FavoritePersonMovieRow['kind']) => (kind === 'actor' ? '
 
 <template>
   <section class="corner-hard border border-app-line bg-app-panel p-4 sm:p-5" aria-labelledby="favorite-people-title">
-    <div class="flex items-start justify-between gap-4">
+    <div>
       <div>
         <p class="text-[10px] font-semibold tracking-[0.12em] text-app-accent">PICK FOR YOU</p>
         <h2 id="favorite-people-title" class="mt-1 text-lg font-semibold text-white">좋아하는 사람의 영화</h2>
       </div>
-      <RouterLink
-        to="/history"
-        class="focus-ring corner-soft shrink-0 border border-app-line bg-app-panelSoft px-2.5 py-1.5 text-[10px] font-medium text-app-muted"
-      >
-        취향 보기
-      </RouterLink>
     </div>
 
     <div v-if="rows.length > 0" class="mt-4 grid gap-4">

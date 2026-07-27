@@ -321,7 +321,7 @@ onMounted(() => {
           />
           <button
             type="submit"
-            class="focus-ring corner-soft min-h-10 shrink-0 border border-app-line bg-app-panel px-3 text-sm font-medium text-[#15171c] disabled:cursor-wait disabled:opacity-50"
+            class="focus-ring corner-soft min-h-10 shrink-0 border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white disabled:cursor-wait disabled:opacity-50"
             :disabled="isCinemaLoading"
           >
             검색

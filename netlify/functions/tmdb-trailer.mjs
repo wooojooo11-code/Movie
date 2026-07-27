@@ -1,13 +1,5 @@
-const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
-
-const jsonResponse = (body, status = 200, cacheControl = 'no-store') =>
-  new Response(JSON.stringify(body), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': cacheControl
-    }
-  });
+import { jsonResponse } from './_shared/http.mjs';
+import { fetchTmdbJson } from './_shared/tmdb.mjs';
 
 const trailerTypeRank = new Map([
   ['Trailer', 0],
@@ -72,18 +64,7 @@ export default async (request) => {
   }
 
   try {
-    const response = await fetch(`${TMDB_API_BASE_URL}/movie/${movieId}/videos`, {
-      headers: {
-        Accept: 'application/json',
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`TMDB returned ${response.status}.`);
-    }
-
-    const trailer = selectYouTubeTrailer((await response.json())?.results);
+    const trailer = selectYouTubeTrailer((await fetchTmdbJson(`/movie/${movieId}/videos`, token))?.results);
 
     if (!trailer) {
       return jsonResponse({ error: 'No embeddable YouTube trailer is available.' }, 404, 'public, max-age=3600');

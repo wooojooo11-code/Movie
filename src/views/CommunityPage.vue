@@ -10,12 +10,14 @@ import CommunitySortMenu from '@/components/community/CommunitySortMenu.vue';
 import CommunityTabs from '@/components/community/CommunityTabs.vue';
 import CreatePostModal from '@/components/community/CreatePostModal.vue';
 import DailyQuestionCard from '@/components/community/DailyQuestionCard.vue';
+import DailyQuestionAnswersModal from '@/components/community/DailyQuestionAnswersModal.vue';
 import { castPollVote, clearPollVote, fetchPollOptionCounts } from '@/services/community/pollService';
 import {
   createCommunityPost,
   ensureCommunityProfile,
   fetchCommunityFeed,
   fetchDailyQuestion,
+  fetchDailyQuestionAnswers,
   fetchMyShareableLists,
   fetchPopularPosts,
   fetchViewerPostInteractions,
@@ -26,8 +28,9 @@ import {
 import { useListStore } from '@/services/listStore';
 import { getMissionProofChoices } from '@/services/community/missionProofService';
 import { useRecommendationStore } from '@/services/recommendationStore';
+import { checkTitlesForEvent } from '@/services/titleService';
 import { useAuthStore } from '@/stores/auth';
-import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion } from '@/types/community';
+import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion, DailyQuestionAnswer } from '@/types/community';
 
 const authStore = useAuthStore();
 const listStore = useListStore();
@@ -41,14 +44,19 @@ const searchQuery = ref('');
 const posts = ref<CommunityPost[]>([]);
 const popularPosts = ref<CommunityPost[]>([]);
 const dailyQuestion = ref<DailyQuestion | null>(null);
+const dailyAnswers = ref<DailyQuestionAnswer[]>([]);
 const shareableLists = ref<CommunityListReference[]>([]);
 const likedIds = ref(new Set<string>());
 const savedIds = ref(new Set<string>());
 const hasMore = ref(false);
 const loading = ref(false);
 const loadingDaily = ref(false);
+const loadingDailyAnswers = ref(false);
+const dailyAnswerListOpen = ref(false);
+const dailyAnswersError = ref('');
 const submitting = ref(false);
 const errorMessage = ref('');
+const composerError = ref('');
 const isComposerOpen = ref(false);
 let searchTimer: number | undefined;
 
@@ -105,49 +113,95 @@ const refresh = async () => {
   await Promise.all([loadDailyQuestion(), loadSupportingContent()]);
 };
 
-const openComposer = () => { if (!canWrite.value) goToLogin(); else isComposerOpen.value = true; };
+const openComposer = () => {
+  if (!canWrite.value) { goToLogin(); return; }
+  composerError.value = '';
+  isComposerOpen.value = true;
+};
+const closeComposer = () => {
+  composerError.value = '';
+  isComposerOpen.value = false;
+};
 
 const submitPost = async (draft: CommunityPostDraft) => {
   if (!viewerId.value) { goToLogin(); return; }
   submitting.value = true;
+  composerError.value = '';
   try {
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
     await createCommunityPost(draft);
     isComposerOpen.value = false;
     await refresh();
-  } catch (error) { errorMessage.value = error instanceof Error ? error.message : '게시글 등록에 실패했습니다.'; }
+  } catch (error) {
+    // 모달을 닫지 않고 원인을 바로 보여 주어 사용자가 입력값을 고칠 수 있게 합니다.
+    const message = error instanceof Error ? error.message : '게시글 등록에 실패했습니다.';
+    composerError.value = message;
+    errorMessage.value = message;
+  }
   finally { submitting.value = false; }
 };
 
 const submitDailyAnswer = async (content: string) => {
   if (!viewerId.value || !dailyQuestion.value) { goToLogin(); return; }
   try {
+    await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
     await saveDailyQuestionAnswer(dailyQuestion.value.id, viewerId.value, content);
+    void checkTitlesForEvent('daily_question');
     await loadDailyQuestion();
+    if (dailyAnswerListOpen.value) await loadDailyAnswers();
   } catch (error) { errorMessage.value = error instanceof Error ? error.message : '답변 저장에 실패했습니다.'; }
 };
 
-const toggleLike = async (post: CommunityPost) => {
-  if (!viewerId.value) { goToLogin(); return; }
-  const wasLiked = likedIds.value.has(post.id);
-  const nextLiked = new Set(likedIds.value);
-  wasLiked ? nextLiked.delete(post.id) : nextLiked.add(post.id);
-  likedIds.value = nextLiked;
-  post.likeCount += wasLiked ? -1 : 1;
-  try { await toggleCommunityLike(post.id, viewerId.value, wasLiked); }
-  catch (error) { likedIds.value = new Set(wasLiked ? [...likedIds.value, post.id] : [...likedIds.value].filter((id) => id !== post.id)); post.likeCount += wasLiked ? 1 : -1; errorMessage.value = '좋아요를 반영하지 못했습니다.'; }
+// 답변 목록은 버튼을 눌렀을 때만 불러와 첫 화면의 요청 수를 늘리지 않습니다.
+const loadDailyAnswers = async () => {
+  if (!dailyQuestion.value) return;
+  loadingDailyAnswers.value = true;
+  dailyAnswersError.value = '';
+  try {
+    dailyAnswers.value = await fetchDailyQuestionAnswers(dailyQuestion.value.id, viewerId.value);
+  } catch (error) {
+    dailyAnswersError.value = error instanceof Error ? error.message : '다른 사람들의 답변을 불러오지 못했습니다.';
+  } finally {
+    loadingDailyAnswers.value = false;
+  }
 };
 
-const toggleSave = async (post: CommunityPost) => {
-  if (!viewerId.value) { goToLogin(); return; }
-  const wasSaved = savedIds.value.has(post.id);
-  const nextSaved = new Set(savedIds.value);
-  wasSaved ? nextSaved.delete(post.id) : nextSaved.add(post.id);
-  savedIds.value = nextSaved;
-  post.saveCount += wasSaved ? -1 : 1;
-  try { await toggleCommunitySave(post.id, viewerId.value, wasSaved); }
-  catch { savedIds.value = new Set(wasSaved ? [...savedIds.value, post.id] : [...savedIds.value].filter((id) => id !== post.id)); post.saveCount += wasSaved ? 1 : -1; errorMessage.value = '저장을 반영하지 못했습니다.'; }
+const openDailyAnswers = () => {
+  if (!dailyQuestion.value) return;
+  dailyAnswerListOpen.value = true;
+  void loadDailyAnswers();
 };
+
+const withToggledId = (ids: Set<string>, id: string, active: boolean) => {
+  const nextIds = new Set(ids);
+  active ? nextIds.add(id) : nextIds.delete(id);
+  return nextIds;
+};
+
+const togglePostInteraction = async (
+  post: CommunityPost,
+  activeIds: typeof likedIds,
+  countField: 'likeCount' | 'saveCount',
+  toggle: (postId: string, userId: string, active: boolean) => Promise<boolean>,
+  failureMessage: string
+) => {
+  if (!viewerId.value) { goToLogin(); return; }
+  const wasActive = activeIds.value.has(post.id);
+  activeIds.value = withToggledId(activeIds.value, post.id, !wasActive);
+  post[countField] += wasActive ? -1 : 1;
+  try { await toggle(post.id, viewerId.value, wasActive); }
+  catch {
+    activeIds.value = withToggledId(activeIds.value, post.id, wasActive);
+    post[countField] += wasActive ? 1 : -1;
+    errorMessage.value = failureMessage;
+  }
+};
+
+const toggleLike = (post: CommunityPost) =>
+  togglePostInteraction(post, likedIds, 'likeCount', toggleCommunityLike, '좋아요를 반영하지 못했습니다.');
+
+const toggleSave = (post: CommunityPost) =>
+  togglePostInteraction(post, savedIds, 'saveCount', toggleCommunitySave, '저장을 반영하지 못했습니다.');
 
 const updatePollCounts = async (post: CommunityPost) => {
   if (!post.poll) return;
@@ -182,10 +236,12 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
 <template>
   <main class="community-surface mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-xl">
     <CommunityHeader />
-    <DailyQuestionCard class="mt-6" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" />
+    <DailyQuestionCard class="mt-6" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
     <section class="mt-8" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">POPULAR</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">인기 게시글</h2></div></div>
-      <div class="mt-4 grid gap-3"><CommunityPostCard v-for="post in popularPosts" :key="post.id" :post="post" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
+      <div class="scrollbar-hide -mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2" aria-label="인기 게시글 가로 목록">
+        <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="w-[min(22rem,calc(100vw-2rem))] shrink-0 snap-start" :post="post" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
+      </div>
     </section>
     <section class="mt-8" aria-labelledby="latest-posts-title">
       <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">LATEST</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">최신 게시글</h2></div><CommunitySortMenu v-model="sort" /></div>
@@ -200,6 +256,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
         <button type="button" class="focus-ring pointer-events-auto grid size-14 place-items-center rounded-full border border-app-accent bg-app-accent text-sm font-bold text-white active:scale-95" aria-label="글쓰기" @click="openComposer">글쓰기</button>
       </div>
     </div>
-    <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :mission-choices="missionChoices" :submitting="submitting" @close="isComposerOpen = false" @submit="submitPost" />
+    <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :mission-choices="missionChoices" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
+    <DailyQuestionAnswersModal :open="dailyAnswerListOpen" :question="dailyQuestion" :answers="dailyAnswers" :loading="loadingDailyAnswers" :error-message="dailyAnswersError" @close="dailyAnswerListOpen = false" />
   </main>
 </template>

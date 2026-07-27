@@ -81,8 +81,8 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
               class="focus-ring corner-soft mt-1.5 inline-flex min-h-7 w-full items-center justify-center border px-1.5 text-[10px] font-medium"
               :class="
                 isSaved(movie.id)
-                  ? 'border-app-accent bg-app-accent text-white'
-                  : 'border-app-line bg-app-panelSoft text-[#15171c]'
+                  ? 'border-[#0d3e6b] bg-[#0d3e6b] !text-white'
+                  : 'border-app-accent bg-app-accent !text-white'
               "
               @click="libraryStore.toggleMovie(movie.id)"
             >

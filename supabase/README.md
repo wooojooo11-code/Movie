@@ -17,6 +17,16 @@ This creates:
 - RLS policies so each user can only read/write their own ratings
 - a separate history table so evaluated movies can stay saved even after taste-analysis reset
 
+## Collaborative recommendation signals
+
+Run:
+
+- `supabase/migrations/202607271200_add_collaborative_recommendation_signals.sql`
+
+This adds a privacy-safe RPC used for user-based collaborative filtering. It only returns
+aggregate movie scores and the number of similar users; individual users' ratings and
+identities remain protected by the existing RLS policies.
+
 ## 2. Recommendation exclusions table
 
 Run:

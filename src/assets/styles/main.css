@@ -81,6 +81,10 @@ a {
 }
 
 @layer components {
+  .button-primary {
+    @apply border border-app-accent bg-app-accent !text-white;
+  }
+
   .corner-soft {
     border-radius: var(--app-radius-soft) !important;
   }

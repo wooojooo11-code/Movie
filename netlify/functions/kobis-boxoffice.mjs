@@ -1,15 +1,10 @@
+import { jsonResponse } from './_shared/http.mjs';
+import { fetchTmdbJson, toTmdbImageUrl } from './_shared/tmdb.mjs';
+
 const KOBIS_DAILY_BOX_OFFICE_URL =
   'https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
+const KOREAN_LANGUAGE = 'ko-KR';
 const KOREA_TIME_OFFSET_MS = 9 * 60 * 60 * 1000;
-
-const jsonResponse = (body, status = 200, cacheControl = 'no-store') =>
-  new Response(JSON.stringify(body), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': cacheControl
-    }
-  });
 
 const getPreviousKoreaDate = (daysAgo) => {
   const koreaNow = new Date(Date.now() + KOREA_TIME_OFFSET_MS);
@@ -20,6 +15,72 @@ const getPreviousKoreaDate = (daysAgo) => {
   const day = String(koreaNow.getUTCDate()).padStart(2, '0');
 
   return `${year}${month}${day}`;
+};
+
+const normalizeMovieTitle = (title) =>
+  typeof title === 'string' ? title.toLocaleLowerCase('ko-KR').replace(/[^\p{L}\p{N}]+/gu, '') : '';
+
+const getReleaseYear = (releaseDate) => {
+  const match = typeof releaseDate === 'string' ? /^(\d{4})-\d{2}-\d{2}$/.exec(releaseDate) : null;
+  return match ? Number(match[1]) : null;
+};
+
+const getTmdbMovieTitle = (movie) =>
+  typeof movie?.title === 'string' ? movie.title : typeof movie?.original_title === 'string' ? movie.original_title : '';
+
+const findPoster = async (movie, token) => {
+  const targetTitle = normalizeMovieTitle(movie.movieNm);
+
+  if (!targetTitle) {
+    return null;
+  }
+
+  const releaseYear = getReleaseYear(movie.openDt);
+  const payload = await fetchTmdbJson('/search/movie', token, {
+    language: KOREAN_LANGUAGE,
+    query: movie.movieNm,
+    year: releaseYear
+  });
+  const results = Array.isArray(payload?.results) ? payload.results : [];
+  const exactTitleMatches = results.filter(
+    (candidate) => normalizeMovieTitle(getTmdbMovieTitle(candidate)) === targetTitle
+  );
+
+  if (exactTitleMatches.length === 0) {
+    return null;
+  }
+
+  const bestMatch = [...exactTitleMatches].sort((left, right) => {
+    const leftYear = getReleaseYear(left.release_date);
+    const rightYear = getReleaseYear(right.release_date);
+    const leftYearDistance = releaseYear && leftYear ? Math.abs(releaseYear - leftYear) : Number.MAX_SAFE_INTEGER;
+    const rightYearDistance = releaseYear && rightYear ? Math.abs(releaseYear - rightYear) : Number.MAX_SAFE_INTEGER;
+
+    if (leftYearDistance !== rightYearDistance) {
+      return leftYearDistance - rightYearDistance;
+    }
+
+    return Number(right.popularity ?? 0) - Number(left.popularity ?? 0);
+  })[0];
+
+  return toTmdbImageUrl(bestMatch?.poster_path);
+};
+
+const enrichPosters = async (movies, token) => {
+  if (!token) {
+    return movies.map((movie) => ({ ...movie, posterUrl: null }));
+  }
+
+  return Promise.all(
+    movies.map(async (movie) => {
+      try {
+        return { ...movie, posterUrl: await findPoster(movie, token) };
+      } catch (error) {
+        console.warn(`Unable to find a poster for KOBIS movie ${movie.movieCd}.`, error);
+        return { ...movie, posterUrl: null };
+      }
+    })
+  );
 };
 
 const getDailyBoxOffice = async (apiKey, targetDate) => {
@@ -50,6 +111,7 @@ const getDailyBoxOffice = async (apiKey, targetDate) => {
       rank: Number(movie.rank),
       movieCd: String(movie.movieCd),
       movieNm: String(movie.movieNm),
+      openDt: typeof movie.openDt === 'string' ? movie.openDt : null,
       audiCnt: Number(movie.audiCnt),
       audiAcc: Number(movie.audiAcc)
     }))
@@ -58,6 +120,7 @@ const getDailyBoxOffice = async (apiKey, targetDate) => {
 
 export default async () => {
   const apiKey = process.env.KOBIS_API_KEY?.trim();
+  const tmdbToken = process.env.TMDB_BEARER_TOKEN?.trim();
 
   if (!apiKey) {
     return jsonResponse({ error: 'KOBIS API key is not configured.' }, 503);
@@ -70,7 +133,11 @@ export default async () => {
       const boxOffice = await getDailyBoxOffice(apiKey, getPreviousKoreaDate(daysAgo));
 
       if (boxOffice) {
-        return jsonResponse(boxOffice, 200, 'public, max-age=900, s-maxage=900');
+        return jsonResponse(
+          { ...boxOffice, movies: await enrichPosters(boxOffice.movies, tmdbToken) },
+          200,
+          'public, max-age=900, s-maxage=900'
+        );
       }
     }
 

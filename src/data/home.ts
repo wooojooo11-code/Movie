@@ -179,7 +179,7 @@ type LatestTrendingMovieSelection = {
 
 const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
   {
-    catalogMovieId: 'movie_137',
+    catalogMovieId: 'movie_142',
     rank: 1,
     title: '주토피아 2',
     audienceLabel: '연간 관객 770만',
@@ -189,7 +189,7 @@ const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
     similarMovieIds: ['movie_31', 'movie_54', 'movie_55']
   },
   {
-    catalogMovieId: 'movie_134',
+    catalogMovieId: 'movie_139',
     rank: 2,
     title: '극장판 귀멸의 칼날: 무한성편',
     audienceLabel: '연간 관객 569만',
@@ -211,7 +211,7 @@ const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
       'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2025/08/thumb_x192/thn_424f0d4c7d984ff1b8a2d27cd4d19f29.jpg&w=240&h=320&zc=0'
   },
   {
-    catalogMovieId: 'movie_188',
+    catalogMovieId: 'movie_212',
     rank: 4,
     title: 'F1 더 무비',
     audienceLabel: '연간 관객 521만',
@@ -243,14 +243,15 @@ const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
       'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2025/09/thumb_x192/thn_fb5e3ca88d744654a0fc29fa706a4a9f.jpg&w=240&h=320&zc=0'
   },
   {
-    catalogMovieId: 'movie_180',
+    catalogMovieId: null,
     rank: 7,
     title: '미션 임파서블: 파이널 레코닝',
     audienceLabel: '연간 관객 339만',
     genres: ['액션', '스릴러', '모험'],
     cast: ['톰 크루즈', '헤일리 앳웰', '사이먼 페그'],
     rating: 7.2,
-    similarMovieIds: ['movie_10', 'movie_17', 'movie_25']
+    similarMovieIds: ['movie_10', 'movie_17', 'movie_25'],
+    posterUrl: 'https://image.tmdb.org/t/p/w780/5nUgyjBem5QctwzQoDyJ3kuE7xh.jpg'
   },
   {
     catalogMovieId: null,

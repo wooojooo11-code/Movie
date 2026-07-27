@@ -8,6 +8,7 @@ import SharedListCard from '@/components/lists/SharedListCard.vue';
 import UserListCard from '@/components/lists/UserListCard.vue';
 import { useLibraryStore } from '@/services/libraryStore';
 import { useListStore } from '@/services/listStore';
+import { checkTitlesForEvent } from '@/services/titleService';
 
 const libraryStore = useLibraryStore();
 const listStore = useListStore();
@@ -141,6 +142,7 @@ const handleSaveDraft = async () => {
 
   if (didSave) {
     isComposerOpen.value = false;
+    void checkTitlesForEvent('list');
   }
 };
 

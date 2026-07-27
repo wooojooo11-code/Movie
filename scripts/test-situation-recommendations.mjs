@@ -163,17 +163,18 @@ const weightedScores = weightedMovie.recommendationScoreBreakdown;
 assert.ok(weightedScores, 'score breakdown is available');
 assert.equal(
   weightedMovie.recommendationScore,
-  Math.max(
-    0,
-    Math.min(
-      100,
-      weightedScores.preference * 0.45 +
-        weightedScores.situation * 0.35 +
-        weightedScores.quality * 0.1 +
-        weightedScores.novelty * 0.1
-    )
-  ),
-  'final score keeps preference first with 45/35/10/10 weighting'
+      Math.max(
+        0,
+        Math.min(
+          100,
+          weightedScores.preference * 0.36 +
+            weightedScores.collaborative * 0.2 +
+            weightedScores.situation * 0.28 +
+            weightedScores.quality * 0.08 +
+            weightedScores.novelty * 0.08
+        )
+      ),
+  'final score keeps the existing score proportions and adds a 20% collaborative signal'
 );
 
 const diverseGenreIds = [10749, 18, 35, 53, 878];
@@ -231,6 +232,38 @@ assert.equal(
   recentResults.some((result) => result.id === 'recent-0'),
   false,
   'a movie shown within the last fourteen days is excluded when enough fresh alternatives exist'
+);
+
+const collaborativeCandidates = [
+  movie('baseline-taste', { collectionId: 1, recommendationScore: 50 }),
+  movie('similar-users-liked', { collectionId: 2, recommendationScore: 50 })
+];
+const collaborativeResults = rankSituationMovies({
+  activeSituation: { kind: 'none' },
+  catalogMovies: collaborativeCandidates,
+  collaborativeSignals: [
+    {
+      movieId: 'similar-users-liked',
+      score: 3,
+      similarUserCount: 1
+    }
+  ],
+  hasTasteProfile: true,
+  impressions: [],
+  likedMovieIds: [],
+  movies: collaborativeCandidates
+});
+
+assert.equal(
+  collaborativeResults[0].id,
+  'similar-users-liked',
+  'a movie liked by a similar user is promoted above an equally matched baseline movie'
+);
+assert.ok(
+  collaborativeResults[0].recommendationReasons?.includes(
+    '취향이 비슷한 이용자 1명이 이 영화를 재미있게 봤어요.'
+  ),
+  'the promoted movie explains the privacy-safe collaborative recommendation reason'
 );
 
 console.log('Situation recommendation tests passed.');

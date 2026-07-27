@@ -6,13 +6,11 @@ import CommentForm from '@/components/community/CommentForm.vue';
 import CommentList from '@/components/community/CommentList.vue';
 import MissionProofCard from '@/components/community/MissionProofCard.vue';
 import MoviePoll from '@/components/community/MoviePoll.vue';
-import RecommendationRelay from '@/components/community/RecommendationRelay.vue';
 import SharedMovieListCard from '@/components/community/SharedMovieListCard.vue';
 import SpoilerCover from '@/components/community/SpoilerCover.vue';
 import { createComment, deleteComment, fetchComments } from '@/services/community/commentService';
 import { castPollVote, clearPollVote, fetchPollOptionCounts } from '@/services/community/pollService';
 import { reportCommunityPost } from '@/services/community/reportService';
-import { createRecommendationRelay, fetchRecommendationRelays } from '@/services/community/relayService';
 import {
   deleteCommunityPost,
   ensureCommunityProfile,
@@ -51,8 +49,8 @@ const goToLogin = () => router.push({ name: 'login', query: { redirect: route.fu
 const load = async () => {
   loading.value = true; errorMessage.value = '';
   try {
-    const [loadedPost, loadedComments, relays] = await Promise.all([fetchCommunityPost(postId.value, viewerId.value), fetchComments(postId.value), fetchRecommendationRelays(postId.value)]);
-    post.value = { ...loadedPost, relays }; comments.value = loadedComments;
+    const [loadedPost, loadedComments] = await Promise.all([fetchCommunityPost(postId.value, viewerId.value), fetchComments(postId.value)]);
+    post.value = loadedPost; comments.value = loadedComments;
   } catch (error) { errorMessage.value = error instanceof Error ? error.message : '게시글을 불러오지 못했습니다.'; }
   finally { loading.value = false; }
 };
@@ -128,11 +126,6 @@ const clearVote = async () => {
   try { await clearPollVote(post.value.poll.id, viewerId.value); post.value.poll.viewerOptionId = null; await refreshPoll(); }
   catch { errorMessage.value = '투표 취소에 실패했습니다.'; }
 };
-const addRelay = async (payload: Parameters<typeof createRecommendationRelay>[0] extends never ? never : { parentRelayId: null | string; movie: any; reason: string }) => {
-  if (!post.value || !viewerId.value) { goToLogin(); return; }
-  try { await createRecommendationRelay({ postId: post.value.id, userId: viewerId.value, ...payload }); post.value.relays = await fetchRecommendationRelays(post.value.id); }
-  catch { errorMessage.value = '추천 릴레이 등록에 실패했습니다.'; }
-};
 const saveList = async (listId: string) => { if (!viewerId.value) { goToLogin(); return; } try { await listStore.toggleSharedListSave(listId); } catch { errorMessage.value = '리스트 저장에 실패했습니다.'; } };
 
 watch(postId, () => { void load(); });
@@ -146,7 +139,7 @@ onMounted(() => { void load(); });
     <p v-else-if="errorMessage && !post" class="corner-soft mt-5 border border-[#d9a7a7] bg-[#fff6f6] p-4 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
     <template v-else-if="post">
       <article class="corner-soft mt-5 border border-app-line bg-app-panel p-4">
-        <div class="flex items-start gap-3"><img v-if="post.author.avatarUrl" :src="post.author.avatarUrl" :alt="`${post.author.nickname} 프로필`" class="size-10 rounded-full border border-app-line object-cover" /><span v-else class="grid size-10 place-items-center rounded-full border border-app-accent bg-[#dcecff] text-sm font-bold text-[#174a77]">{{ post.author.nickname.slice(0, 1) }}</span><div class="min-w-0 flex-1"><p class="text-sm font-semibold text-[#15171c]">{{ post.author.nickname }}</p><p class="mt-1 text-xs text-app-muted">{{ new Date(post.createdAt).toLocaleString('ko-KR') }}</p><span class="corner-pill mt-2 inline-flex border border-[#bed3e8] bg-[#eef6ff] px-2 py-1 text-[10px] font-semibold text-[#174a77]">{{ COMMUNITY_CATEGORY_LABELS[post.category] }}</span></div></div>
+        <div class="flex items-start gap-3"><img v-if="post.author.avatarUrl" :src="post.author.avatarUrl" :alt="`${post.author.nickname} 프로필`" class="size-10 rounded-full border border-app-line object-cover" /><span v-else class="grid size-10 place-items-center rounded-full border border-app-accent bg-[#dcecff] text-sm font-bold text-[#174a77]">{{ post.author.nickname.slice(0, 1) }}</span><div class="min-w-0 flex-1"><RouterLink :to="{ name: 'profile', params: { userId: post.author.id } }" class="focus-ring text-sm font-semibold text-[#15171c] hover:text-[#174a77]">{{ post.author.nickname }}</RouterLink><p class="mt-1 text-xs text-app-muted">{{ new Date(post.createdAt).toLocaleString('ko-KR') }}</p><span class="corner-pill mt-2 inline-flex border border-[#bed3e8] bg-[#eef6ff] px-2 py-1 text-[10px] font-semibold text-[#174a77]">{{ COMMUNITY_CATEGORY_LABELS[post.category] }}</span></div></div>
         <form v-if="editing" class="mt-5 grid gap-3" @submit.prevent="saveEdit"><input v-model="editTitle" maxlength="140" class="focus-ring corner-soft h-10 border border-app-line px-3 text-sm text-[#15171c]" /><textarea v-model="editContent" rows="8" class="focus-ring corner-soft border border-app-line px-3 py-2 text-sm text-[#15171c]" /><input v-model="editImageUrl" type="url" class="focus-ring corner-soft h-10 border border-app-line px-3 text-sm text-[#15171c]" placeholder="대표 이미지 URL" /><label class="text-sm text-[#15171c]"><input v-model="editHasSpoiler" type="checkbox" class="mr-2" />스포일러 포함</label><div class="flex gap-2"><button class="focus-ring corner-soft border border-app-accent bg-app-accent px-3 py-2 text-sm font-semibold text-white" :disabled="submitting">저장</button><button type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-sm text-app-muted" @click="editing = false">취소</button></div></form>
         <template v-else><h1 class="mt-5 text-xl font-semibold leading-8 text-[#15171c]">{{ post.title }}</h1><SpoilerCover class="mt-4" :has-spoiler="post.hasSpoiler"><p class="whitespace-pre-wrap text-sm leading-7 text-app-muted">{{ post.content }}</p><img v-if="post.imageUrl" :src="post.imageUrl" alt="게시글 대표 이미지" class="mt-4 max-h-[32rem] w-full border border-app-line object-cover" /></SpoilerCover></template>
         <RouterLink v-if="post.movie" :to="`/movies/${post.movie.id}`" class="focus-ring mt-5 flex items-center gap-3 border-y border-app-line py-3"><img :src="post.movie.posterPath ?? '/app-icon.svg'" :alt="`${post.movie.title} 포스터`" class="h-20 w-14 border border-app-line object-cover" /><span><span class="block text-xs text-app-muted">관련 영화</span><span class="mt-1 block text-sm font-semibold text-[#174a77]">{{ post.movie.title }}</span></span></RouterLink>
@@ -155,7 +148,6 @@ onMounted(() => { void load(); });
         <MissionProofCard v-if="post.missionProof" class="mt-4" :proof="post.missionProof" />
         <div class="mt-5 flex flex-wrap gap-2 border-t border-app-line pt-4"><button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasLiked ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" @click="toggleLike">좋아요 {{ post.likeCount }}</button><button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasSaved ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" @click="toggleSave">저장 {{ post.saveCount }}</button><button v-if="!isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-[#174a77]" @click="toggleFollow">{{ post.viewer.isFollowingAuthor ? '팔로우 취소' : '작성자 팔로우' }}</button><button v-if="!isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-app-muted" @click="report">신고</button><button v-if="isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-[#174a77]" @click="beginEdit">수정</button><button v-if="isOwner" type="button" class="focus-ring corner-soft border border-[#d9a7a7] px-3 py-2 text-xs text-[#a13c3c]" @click="removePost">삭제</button></div>
       </article>
-      <RecommendationRelay class="mt-5" :relays="post.relays" :is-authenticated="isAuthenticated" :submitting="submitting" @add="addRelay" @login="goToLogin" />
       <section id="comments" class="mt-6" aria-labelledby="comments-title"><h2 id="comments-title" class="text-lg font-semibold text-[#15171c]">댓글 {{ post.commentCount }}</h2><CommentForm class="mt-4" :is-authenticated="isAuthenticated" :submitting="submitting" @submit="addComment" @login="goToLogin" /><div class="mt-5"><CommentList :comments="comments" :current-user-id="viewerId" :loading="commentsLoading" @remove="removeComment" /></div></section>
       <p v-if="errorMessage" class="corner-soft mt-5 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
     </template>

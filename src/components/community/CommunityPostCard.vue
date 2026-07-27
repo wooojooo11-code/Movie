@@ -40,7 +40,12 @@ const relativeTime = computed(() => {
       <span v-else class="grid size-9 shrink-0 place-items-center rounded-full border border-app-accent bg-[#dcecff] text-xs font-bold text-[#174a77]" aria-hidden="true">{{ post.author.nickname.slice(0, 1) }}</span>
       <div class="min-w-0 flex-1">
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span class="text-sm font-semibold text-[#15171c]">{{ post.author.nickname }}</span>
+          <RouterLink
+            :to="{ name: 'profile', params: { userId: post.author.id } }"
+            class="focus-ring text-sm font-semibold text-[#15171c] hover:text-[#174a77]"
+          >
+            {{ post.author.nickname }}
+          </RouterLink>
           <span class="text-xs text-app-muted">{{ relativeTime }}</span>
         </div>
         <span class="corner-pill mt-1 inline-flex border border-[#bed3e8] bg-[#eef6ff] px-2 py-1 text-[10px] font-semibold text-[#174a77]">{{ COMMUNITY_CATEGORY_LABELS[post.category] }}</span>
@@ -68,10 +73,10 @@ const relativeTime = computed(() => {
     <MoviePoll v-if="post.poll" class="mt-3" :poll="post.poll" @vote="$emit('vote', { post, optionId: $event })" @clear="$emit('clear-vote', post)" />
     <MissionProofCard v-if="post.missionProof" class="mt-3" :proof="post.missionProof" />
 
-    <div v-if="showActions" class="mt-4 flex items-center gap-2 border-t border-app-line pt-3 text-xs">
-      <button type="button" class="focus-ring corner-soft px-2 py-1.5 font-medium" :class="viewerLiked ? 'text-[#174a77]' : 'text-app-muted'" @click="$emit('like', post)">좋아요 {{ post.likeCount }}</button>
-      <RouterLink :to="`/community/${post.id}#comments`" class="focus-ring corner-soft px-2 py-1.5 text-app-muted">댓글 {{ post.commentCount }}</RouterLink>
-      <button type="button" class="focus-ring corner-soft ml-auto px-2 py-1.5 font-medium" :class="viewerSaved ? 'text-[#174a77]' : 'text-app-muted'" @click="$emit('save', post)">저장 {{ post.saveCount }}</button>
+    <div v-if="showActions" class="mt-4 flex flex-wrap items-center gap-2 border-t border-app-line pt-3">
+      <button type="button" class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border px-3 py-2 text-xs font-semibold transition-colors active:scale-[0.98]" :class="viewerLiked ? 'border-[#174a77] bg-[#e5f1fc] text-[#174a77]' : 'border-app-line bg-app-bg text-app-muted hover:border-[#8bb7df] hover:text-[#174a77]'" @click="$emit('like', post)">좋아요 {{ post.likeCount }}</button>
+      <RouterLink :to="`/community/${post.id}#comments`" class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-line bg-app-bg px-3 py-2 text-xs font-semibold text-app-muted transition-colors hover:border-[#8bb7df] hover:text-[#174a77] active:scale-[0.98]">댓글 {{ post.commentCount }}</RouterLink>
+      <button type="button" class="focus-ring corner-soft ml-auto inline-flex min-h-9 items-center justify-center border px-3 py-2 text-xs font-semibold transition-colors active:scale-[0.98]" :class="viewerSaved ? 'border-[#174a77] bg-[#e5f1fc] text-[#174a77]' : 'border-app-line bg-app-bg text-app-muted hover:border-[#8bb7df] hover:text-[#174a77]'" @click="$emit('save', post)">저장 {{ post.saveCount }}</button>
     </div>
   </article>
 </template>

@@ -130,3 +130,11 @@ export const getCommunityMissionProofsRelation = () => getCommunityRelation('com
 export const getDailyQuestionsRelation = () => getCommunityRelation('daily_questions');
 export const getDailyQuestionAnswersRelation = () => getCommunityRelation('daily_question_answers');
 export const getCommunityReportsRelation = () => getCommunityRelation('community_reports');
+
+// Profile and title tables intentionally use fixed public names so they can be read by public profile URLs.
+const getProfileRelation = (table: string) => (supabase ? supabase.from(table) : null);
+
+export const getProfilesRelation = () => getProfileRelation('profiles');
+export const getTitlesRelation = () => getProfileRelation('titles');
+export const getUserTitlesRelation = () => getProfileRelation('user_titles');
+export const getProfileDisplayTitlesRelation = () => getProfileRelation('profile_display_titles');

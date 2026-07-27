@@ -170,6 +170,12 @@ export interface RecommendationImpression {
   showCount: number;
 }
 
+export interface CollaborativeRecommendationSignal {
+  movieId: string;
+  score: number;
+  similarUserCount: number;
+}
+
 export interface RecommendationStateSnapshot {
   userId: string;
   profile: UserPreferenceProfile;
@@ -206,6 +212,7 @@ export interface RecommendedMoviePreview {
 export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {
   recommendationReasons?: string[];
   recommendationScoreBreakdown?: {
+    collaborative: number;
     novelty: number;
     preference: number;
     quality: number;

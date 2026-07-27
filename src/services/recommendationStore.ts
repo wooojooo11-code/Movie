@@ -19,14 +19,17 @@ import {
 import {
   localRatingHistoryRepository,
   localRecommendationRepository,
+  remoteCollaborativeRecommendationRepository,
   remoteRatingHistoryRepository,
   remoteRecommendationRepository
 } from '@/services/recommendationRepository';
 import { rankSituationMovies } from '@/services/situationRecommendation';
+import { checkTitlesForMovieActivity } from '@/services/titleService';
 import type {
   ActiveSituation,
   AdditionalTasteAnalysisBatch,
   CatalogMovie,
+  CollaborativeRecommendationSignal,
   RatingResumeSurface,
   RatingFeedbackPayload,
   RatedCatalogMovieRecord,
@@ -476,6 +479,7 @@ const ratingHistoryState = reactive<{
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
+const collaborativeRecommendationSignals = ref<CollaborativeRecommendationSignal[]>([]);
 const activeSituation = ref<ActiveSituation>(initialSnapshot.activeSituation);
 const activeSituationUpdatedAt = ref(initialSnapshot.activeSituationUpdatedAt);
 let remoteSaveChain: Promise<void> = Promise.resolve();
@@ -508,6 +512,19 @@ const applyRatingHistory = (userId: string, ratings: readonly StoredRatingRecord
   ratingHistoryState.ratings = [...normalizeStoredRatings(ratings)].sort(
     (left, right) => getAnsweredAtTime(left) - getAnsweredAtTime(right)
   );
+};
+
+const refreshCollaborativeRecommendationSignals = async (userId: string) => {
+  try {
+    const signals = await remoteCollaborativeRecommendationRepository.load(userId);
+
+    if (state.userId === userId) {
+      collaborativeRecommendationSignals.value = signals;
+    }
+  } catch (error) {
+    // This is an optional ranking signal. Keep the existing recommendation algorithm available.
+    console.warn('[recommendationStore] Collaborative recommendation signals are unavailable.', error);
+  }
 };
 
 const runRemoteTask = async (task: () => Promise<void>, fallbackMessage: string) => {
@@ -574,6 +591,7 @@ const persistState = (options?: {
 
       if (historyRecords.length > 0) {
         await remoteRatingHistoryRepository.save(snapshot.userId, historyRecords);
+        await refreshCollaborativeRecommendationSignals(snapshot.userId);
       }
     },
     '평가 기록을 Supabase에 저장하지 못했어요.'
@@ -819,6 +837,7 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
   return rankSituationMovies({
     activeSituation: activeSituation.value,
     catalogMovies,
+    collaborativeSignals: collaborativeRecommendationSignals.value,
     hasTasteProfile: state.profile.totalRatings > 0,
     impressions: state.recommendationImpressions,
     likedMovieIds: likedMovieIds.value,
@@ -955,7 +974,7 @@ const ensureAdditionalTasteAnalysisBatch = (requestedBatchIndex?: null | number)
   return state.additionalTasteAnalysisBatches.length - 1;
 };
 
-const submitSwipeRating = (
+const submitSwipeRating = async (
   movie: CatalogMovie,
   input: RatingInput,
   options?: {
@@ -964,8 +983,8 @@ const submitSwipeRating = (
     detailCompleted: boolean;
     feedback?: RatingFeedbackPayload;
   }
-) =>
-  upsertRatingRecord({
+) => {
+  await upsertRatingRecord({
     rawDecision: options?.rawDecision ?? input.status,
     rawDirection: options?.rawDirection ?? null,
     detailCompleted:
@@ -975,6 +994,10 @@ const submitSwipeRating = (
     reviewText: options?.feedback?.reviewText ?? '',
     questionText: options?.feedback?.questionText ?? ''
   });
+
+  // This RPC only evaluates data already persisted in Supabase; it never receives a title ID from the browser.
+  void checkTitlesForMovieActivity([movie]);
+};
 
 const dismissRecommendedMovie = (movieId: string) => {
   if (state.dismissedRecommendationMovieIds.includes(movieId)) {
@@ -1076,10 +1099,12 @@ const setActiveUser = async (userId: string) => {
   const normalizedUserId = userId || FALLBACK_USER_ID;
   const localSnapshot = loadSnapshot(normalizedUserId);
   const localRatingHistory = loadRatingHistory(normalizedUserId);
+  collaborativeRecommendationSignals.value = [];
   applySnapshot(localSnapshot);
   applyRatingHistory(normalizedUserId, localRatingHistory);
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
+  void refreshCollaborativeRecommendationSignals(normalizedUserId);
 
   try {
     const [remoteSnapshot, remoteRatingHistory] = await Promise.all([
@@ -1096,7 +1121,10 @@ const setActiveUser = async (userId: string) => {
     if (!remoteSnapshot) {
       if (shouldResyncRatingHistory(remoteRatingHistory, mergedRatingHistory)) {
         void enqueueRemoteTask(
-          () => remoteRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory),
+          async () => {
+            await remoteRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
+            await refreshCollaborativeRecommendationSignals(normalizedUserId);
+          },
           '평가 이력을 Supabase와 다시 맞추지 못했어요.'
         );
       }
@@ -1147,6 +1175,10 @@ const setActiveUser = async (userId: string) => {
 
           if (shouldResyncHistory) {
             await remoteRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
+          }
+
+          if (shouldResyncHistory) {
+            await refreshCollaborativeRecommendationSignals(normalizedUserId);
           }
         },
         '최신 평가 상태를 Supabase와 다시 맞추지 못했어요.'

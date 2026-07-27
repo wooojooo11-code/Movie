@@ -9,6 +9,7 @@ import {
   type MissionBingoBoardId
 } from '@/services/missionBingo';
 import { useRecommendationStore } from '@/services/recommendationStore';
+import { recordBingoCompletion } from '@/services/titleService';
 
 const recommendationStore = useRecommendationStore();
 const props = withDefaults(
@@ -42,11 +43,13 @@ const restoreStoredBoard = () => {
     : defaultMissionBingoBoardId;
 };
 
-const requestNewBoard = () => {
+const requestNewBoard = async () => {
   if (!canRequestNewBoard.value) {
     return;
   }
 
+  // The RPC independently recalculates the completed line before storing a completion.
+  await recordBingoCompletion(activeBoardId.value);
   activeBoardId.value = getNextMissionBingoBoardId(activeBoardId.value);
 };
 
@@ -99,7 +102,7 @@ watch(activeBoardId, (boardId) => {
         :class="[
           props.compact ? 'min-h-20 p-2' : 'min-h-32 p-2.5 sm:min-h-36 sm:p-3',
           isMissionComplete(mission.progress, mission.target)
-            ? 'border-app-accent bg-app-accent text-white'
+            ? 'border-[#9bcda6] bg-[#e2f4e6] text-[#1e5d37]'
             : 'border-app-line bg-app-panelSoft text-white'
         ]"
       >
@@ -108,7 +111,7 @@ watch(activeBoardId, (boardId) => {
           :class="[
             props.compact ? 'mb-1' : 'mb-2',
             isMissionComplete(mission.progress, mission.target)
-              ? 'border-white/40 bg-white/10 text-white'
+              ? 'border-[#9bcda6] bg-[#f5fbf6] text-[#2f7047]'
               : 'border-app-line text-app-muted'
           ]"
         >
@@ -119,7 +122,7 @@ watch(activeBoardId, (boardId) => {
           class="line-clamp-2 text-[10px] leading-snug sm:text-[11px]"
           :class="[
             props.compact ? 'mt-0.5' : 'mt-1',
-            isMissionComplete(mission.progress, mission.target) ? 'text-white/80' : 'text-app-muted'
+            isMissionComplete(mission.progress, mission.target) ? 'text-[#4a7d5a]' : 'text-app-muted'
           ]"
         >
           {{ mission.description }}
@@ -127,11 +130,11 @@ watch(activeBoardId, (boardId) => {
         <div class="mt-auto" :class="props.compact ? 'pt-1.5' : 'pt-3'">
           <div
             class="h-1 overflow-hidden"
-            :class="isMissionComplete(mission.progress, mission.target) ? 'bg-white/25' : 'bg-app-line'"
+            :class="isMissionComplete(mission.progress, mission.target) ? 'bg-[#c6e4ce]' : 'bg-app-line'"
           >
             <span
               class="block h-full transition-[width] duration-300"
-              :class="isMissionComplete(mission.progress, mission.target) ? 'bg-white' : 'bg-app-accent'"
+              :class="isMissionComplete(mission.progress, mission.target) ? 'bg-[#68a878]' : 'bg-app-accent'"
               :style="{ width: `${(getMissionProgress(mission.progress, mission.target) / mission.target) * 100}%` }"
             />
           </div>
@@ -141,7 +144,7 @@ watch(activeBoardId, (boardId) => {
         </div>
         <span
           v-if="isMissionComplete(mission.progress, mission.target)"
-          class="absolute right-2.5 top-2.5 grid size-4 place-items-center rounded-full border border-white/50 text-[10px] leading-none"
+          class="absolute right-2.5 top-2.5 grid size-4 place-items-center rounded-full border border-[#8fbe9a] text-[10px] leading-none text-[#2f7047]"
           aria-label="완료"
         >
           ✓
@@ -150,10 +153,10 @@ watch(activeBoardId, (boardId) => {
     </div>
 
     <div v-if="canRequestNewBoard" class="mt-3 flex flex-wrap items-center justify-between gap-2">
-      <p class="text-xs font-medium text-app-accent">{{ bingo.completedLineCount }}줄 빙고를 완성했어요!</p>
+      <p class="text-xs font-medium text-[#3f8552]">{{ bingo.completedLineCount }}줄 빙고를 완성했어요!</p>
       <button
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-app-accent bg-app-accent px-3 text-xs font-semibold text-white"
+        class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center border border-[#9bcda6] bg-[#e2f4e6] px-3 text-xs font-semibold text-[#1e5d37]"
         @click="requestNewBoard"
       >
         새 빙고판 받기

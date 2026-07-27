@@ -48,8 +48,8 @@ const toggle = async () => {
       props.fullWidth ? 'w-full' : '',
       sizeClassName,
       isSaved
-        ? 'border-app-accent bg-app-accent text-white'
-        : 'border-app-line bg-app-panelSoft text-[#15171c]'
+        ? 'border-[#0d3e6b] bg-[#0d3e6b] !text-white hover:bg-[#082d50]'
+        : 'button-primary'
     ]"
     :disabled="isSubmitting"
     @click="toggle"

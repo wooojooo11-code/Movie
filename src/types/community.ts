@@ -98,6 +98,7 @@ export interface DailyQuestionAnswer {
   content: string;
   createdAt: string;
   updatedAt: string;
+  author: CommunityProfile;
 }
 
 export interface CommunityPostDraft {
@@ -120,6 +121,22 @@ export interface CommunityPostDraft {
     badgeLabel: string;
   };
 }
+
+const cloneMovieReference = (movie: CommunityPostDraft['movie']) => (movie ? { ...movie } : null);
+
+export const cloneCommunityPostDraft = (draft: CommunityPostDraft): CommunityPostDraft => ({
+  ...draft,
+  movie: cloneMovieReference(draft.movie),
+  pollOptions: draft.pollOptions.map((option) => ({ ...option, movie: cloneMovieReference(option.movie) })),
+  mission: { ...draft.mission, movie: cloneMovieReference(draft.mission.movie) }
+});
+
+export const isCommunityPostDraftSubmittable = (draft: CommunityPostDraft) => {
+  if (!draft.title.trim()) return false;
+  if (draft.category === 'list_share') return Boolean(draft.listId);
+  if (draft.category === 'movie_poll') return draft.pollOptions.filter((option) => option.optionText.trim()).length >= 2;
+  return draft.category !== 'mission_proof' || Boolean(draft.mission.name.trim());
+};
 
 export interface CommunityFeedPage {
   posts: CommunityPost[];

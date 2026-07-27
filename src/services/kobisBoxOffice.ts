@@ -5,8 +5,10 @@ type KobisBoxOfficeMovie = {
   rank: number;
   movieCd: string;
   movieNm: string;
+  openDt: null | string;
   audiCnt: number;
   audiAcc: number;
+  posterUrl: null | string;
 };
 
 type KobisBoxOfficeResponse = {
@@ -27,9 +29,16 @@ const fallbackPosterUrl = `data:image/svg+xml,${encodeURIComponent(`
   </svg>
 `)}`;
 
-const normalizeMovieTitle = (title: string) => title.toLocaleLowerCase('ko-KR').replace(/[\s\W_]+/gu, '');
+const normalizeMovieTitle = (title: string) => title.toLocaleLowerCase('ko-KR').replace(/[^\p{L}\p{N}]+/gu, '');
 
-const catalogMovieByTitle = new Map(catalogMovies.map((movie) => [normalizeMovieTitle(movie.title), movie]));
+const createCatalogMovieIndex = (movies: typeof catalogMovies) =>
+  movies.reduce((index, movie) => {
+    const title = normalizeMovieTitle(movie.title);
+    index.set(title, [...(index.get(title) ?? []), movie]);
+    return index;
+  }, new Map<string, typeof catalogMovies>());
+
+const catalogMoviesByTitle = createCatalogMovieIndex(catalogMovies);
 
 const formatAudienceCount = (count: number) => new Intl.NumberFormat('ko-KR').format(count);
 
@@ -41,8 +50,26 @@ const formatBoxOfficeDate = (value: string) => {
   return `${value.slice(4, 6)}.${value.slice(6, 8)}`;
 };
 
+const getReleaseYear = (releaseDate: null | string) => {
+  const match = typeof releaseDate === 'string' ? /^(\d{4})-\d{2}-\d{2}$/.exec(releaseDate) : null;
+  return match ? Number(match[1]) : null;
+};
+
+const findCatalogMovie = (movie: KobisBoxOfficeMovie) => {
+  const candidates = catalogMoviesByTitle.get(normalizeMovieTitle(movie.movieNm)) ?? [];
+
+  if (candidates.length === 1) {
+    return candidates[0];
+  }
+
+  const releaseYear = getReleaseYear(movie.openDt);
+  const sameYearCandidates = releaseYear ? candidates.filter((candidate) => candidate.releaseYear === releaseYear) : [];
+
+  return sameYearCandidates.length === 1 ? sameYearCandidates[0] : null;
+};
+
 const toTrendingMovie = (movie: KobisBoxOfficeMovie, boxOfficeDate: string): TrendingMovie => {
-  const catalogMovie = catalogMovieByTitle.get(normalizeMovieTitle(movie.movieNm));
+  const catalogMovie = findCatalogMovie(movie);
   const rating = catalogMovie?.voteAverage;
 
   return {
@@ -54,7 +81,7 @@ const toTrendingMovie = (movie: KobisBoxOfficeMovie, boxOfficeDate: string): Tre
     genres: catalogMovie?.genres ?? [],
     cast: [],
     rating: typeof rating === 'number' ? Math.round(rating * 10) / 10 : null,
-    posterUrl: catalogMovie?.posterUrl ?? fallbackPosterUrl,
+    posterUrl: movie.posterUrl ?? catalogMovie?.posterUrl ?? fallbackPosterUrl,
     posterAlt: `${movie.movieNm} 포스터`,
     similarMovies: []
   };
@@ -73,11 +100,13 @@ const isKobisBoxOfficeResponse = (value: unknown): value is KobisBoxOfficeRespon
     response.movies.every(
       (movie) =>
         movie &&
-        typeof movie.rank === 'number' &&
+        Number.isFinite(movie.rank) &&
         typeof movie.movieCd === 'string' &&
         typeof movie.movieNm === 'string' &&
-        typeof movie.audiCnt === 'number' &&
-        typeof movie.audiAcc === 'number'
+        (typeof movie.openDt === 'string' || movie.openDt === null) &&
+        Number.isFinite(movie.audiCnt) &&
+        Number.isFinite(movie.audiAcc) &&
+        (typeof movie.posterUrl === 'string' || movie.posterUrl === null)
     )
   );
 };

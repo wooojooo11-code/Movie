@@ -5,12 +5,13 @@
 1. `supabase/migrations/202607261600_create_community_schema.sql`을 적용합니다.
 2. `supabase/migrations/202607261700_allow_unlimited_poll_options.sql`을 적용합니다.
 3. `supabase/migrations/202607261800_use_app_catalog_movie_ids.sql`을 적용합니다.
-4. 브라우저 환경에는 기존 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`만 설정되어 있는지 확인합니다.
+4. `supabase/migrations/202607271000_seed_30_day_daily_questions.sql`을 적용합니다.
+5. 브라우저 환경에는 기존 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`만 설정되어 있는지 확인합니다.
 
 ## 주요 경로
 
 - `/community`: 오늘의 질문, 인기·최신 게시글, 검색·정렬·탭
-- `/community/:postId`: 게시글 상세, 댓글, 투표, 추천 릴레이
+- `/community/:postId`: 게시글 상세, 댓글, 투표
 - `/movies/:movieId`: 앱 카탈로그를 기반으로 한 영화 상세
 
 ## 앱 영화 데이터 연결
@@ -28,3 +29,4 @@
 - 좋아요·저장·투표·팔로우는 사용자별 고유 제약으로 중복되지 않습니다.
 - 공유 리스트 저장은 `list_interactions`에 원본 `list_id`만 연결합니다.
 - 대표 이미지와 미션 인증 이미지는 HTTPS URL만 사용합니다.
+- 오늘의 질문은 한국 시간 기준으로 30개 질문을 순서대로 표시하며, 31일째부터 같은 순서로 반복합니다.

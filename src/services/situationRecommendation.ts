@@ -11,6 +11,7 @@ import { trueStoryTmdbMovieIds } from '@/data/trueStories';
 import type {
   ActiveSituation,
   CatalogMovie,
+  CollaborativeRecommendationSignal,
   RecommendationImpression,
   RecommendedCatalogMovie,
   SituationReason,
@@ -20,6 +21,7 @@ import type {
 interface SituationRankingOptions {
   activeSituation: ActiveSituation;
   catalogMovies: readonly CatalogMovie[];
+  collaborativeSignals: readonly CollaborativeRecommendationSignal[];
   hasTasteProfile: boolean;
   impressions: readonly RecommendationImpression[];
   likedMovieIds: readonly string[];
@@ -58,6 +60,14 @@ const normalizeScores = (values: readonly number[]) => {
   }
 
   return values.map((value) => ((value - min) / (max - min)) * 100);
+};
+
+const normalizeCollaborativeScores = (values: readonly number[]) => {
+  if (values.every((value) => value <= 0)) {
+    return values.map(() => 0);
+  }
+
+  return normalizeScores(values);
 };
 
 const getQualityScore = (movie: CatalogMovie) =>
@@ -229,11 +239,17 @@ const getNoveltyScore = (
 const getRecommendationReasons = (
   movie: CatalogMovie,
   preferenceScore: number,
+  collaborativeScore: number,
+  similarUserCount: number,
   situation: SituationScore,
   qualityScore: number,
   activeSituation: ActiveSituation
 ) => {
   const reasons = [...situation.reasons];
+
+  if (collaborativeScore >= 35 && similarUserCount > 0) {
+    reasons.unshift(`취향이 비슷한 이용자 ${similarUserCount}명이 이 영화를 재미있게 봤어요.`);
+  }
 
   if (preferenceScore >= 60) {
     reasons.push('평소 좋아한 장르와 키워드에 가까워요.');
@@ -401,6 +417,7 @@ const applySituationDiversity = (
 export const rankSituationMovies = ({
   activeSituation,
   catalogMovies,
+  collaborativeSignals = [],
   hasTasteProfile,
   impressions,
   likedMovieIds,
@@ -449,10 +466,18 @@ export const rankSituationMovies = ({
   const scopedCandidates =
     explicitMovieOrder.size > 0 && presetCandidates.length === 0 ? fixedCatalogFallback : presetCandidates;
   const preferenceScores = normalizeScores(scopedCandidates.map((movie) => movie.recommendationScore));
+  const collaborativeSignalByMovieId = new Map(
+    collaborativeSignals.map((signal) => [signal.movieId, signal])
+  );
+  const collaborativeScores = normalizeCollaborativeScores(
+    scopedCandidates.map((movie) => collaborativeSignalByMovieId.get(movie.id)?.score ?? 0)
+  );
   const impressionByMovieId = new Map(impressions.map((impression) => [impression.movieId, impression]));
   const rankedMovies = scopedCandidates
     .map((movie, index) => {
       const preferenceScore = hasTasteProfile ? preferenceScores[index] : 0;
+      const collaborativeSignal = collaborativeSignalByMovieId.get(movie.id);
+      const collaborativeScore = hasTasteProfile ? collaborativeScores[index] : 0;
       const situation = getSituationScore(movie, activeSituation);
       const qualityScore = getQualityScore(movie);
       const noveltyScore = getNoveltyScore(movie, impressionByMovieId, preferenceScore);
@@ -464,7 +489,12 @@ export const rankSituationMovies = ({
           ? 3
           : 0;
       const finalScore = hasTasteProfile
-        ? preferenceScore * 0.45 + situation.score * 0.35 + qualityScore * 0.1 + noveltyScore * 0.1
+        ?
+            preferenceScore * 0.36 +
+            collaborativeScore * 0.2 +
+            situation.score * 0.28 +
+            qualityScore * 0.08 +
+            noveltyScore * 0.08
         : situation.score * 0.65 + qualityScore * 0.15 + noveltyScore * 0.2;
 
       return {
@@ -476,12 +506,15 @@ export const rankSituationMovies = ({
           recommendationReasons: getRecommendationReasons(
             movie,
             preferenceScore,
+            collaborativeScore,
+            collaborativeSignal?.similarUserCount ?? 0,
             situation,
             qualityScore,
             activeSituation
           ),
           recommendationScore: clampScore(finalScore + collectionBoost),
           recommendationScoreBreakdown: {
+            collaborative: collaborativeScore,
             preference: preferenceScore,
             situation: situation.score,
             quality: qualityScore,

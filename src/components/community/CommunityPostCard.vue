@@ -31,6 +31,11 @@ const relativeTime = computed(() => {
   if (minutes < 1440) return `${Math.floor(minutes / 60)}시간 전`;
   return `${Math.floor(minutes / 1440)}일 전`;
 });
+
+// 새 다중 연결 데이터와 이전 단일 연결 게시글을 모두 표시합니다.
+const relatedMovies = computed(() =>
+  props.post.movies.length > 0 ? props.post.movies : props.post.movie ? [props.post.movie] : []
+);
 </script>
 
 <template>
@@ -40,12 +45,7 @@ const relativeTime = computed(() => {
       <span v-else class="grid size-9 shrink-0 place-items-center rounded-full border border-app-accent bg-[#dcecff] text-xs font-bold text-[#174a77]" aria-hidden="true">{{ post.author.nickname.slice(0, 1) }}</span>
       <div class="min-w-0 flex-1">
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <RouterLink
-            :to="{ name: 'profile', params: { userId: post.author.id } }"
-            class="focus-ring text-sm font-semibold text-[#15171c] hover:text-[#174a77]"
-          >
-            {{ post.author.nickname }}
-          </RouterLink>
+          <RouterLink :to="{ name: 'profile', params: { userId: post.author.id } }" class="focus-ring text-sm font-semibold text-[#15171c] hover:text-[#174a77]">{{ post.author.nickname }}</RouterLink>
           <span class="text-xs text-app-muted">{{ relativeTime }}</span>
         </div>
         <span class="corner-pill mt-1 inline-flex border border-[#bed3e8] bg-[#eef6ff] px-2 py-1 text-[10px] font-semibold text-[#174a77]">{{ COMMUNITY_CATEGORY_LABELS[post.category] }}</span>
@@ -61,13 +61,12 @@ const relativeTime = computed(() => {
       <p class="mt-2 text-xs font-medium text-[#174a77]">더보기</p>
     </RouterLink>
 
-    <RouterLink v-if="post.movie" :to="`/movies/${post.movie.id}`" class="focus-ring mt-3 flex items-center gap-2 border-y border-app-line py-3">
-      <img :src="post.movie.posterPath ?? '/app-icon.svg'" :alt="`${post.movie.title} 포스터`" class="h-14 w-10 border border-app-line object-cover" loading="lazy" />
-      <span class="min-w-0">
-        <span class="block text-[11px] text-app-muted">관련 영화</span>
-        <span class="mt-1 block truncate text-sm font-semibold text-[#174a77]">{{ post.movie.title }}</span>
-      </span>
-    </RouterLink>
+    <div v-if="relatedMovies.length" class="scrollbar-hide -mx-4 mt-3 flex gap-2 overflow-x-auto border-y border-app-line px-4 py-3" aria-label="관련 영화">
+      <RouterLink v-for="movie in relatedMovies" :key="movie.id" :to="`/movies/${movie.id}`" class="focus-ring w-24 shrink-0 text-left">
+        <img :src="movie.posterPath ?? '/app-icon.svg'" :alt="`${movie.title} 포스터`" class="h-32 w-24 border border-app-line object-cover" loading="lazy" />
+        <span class="mt-1 block truncate text-xs font-semibold text-[#174a77]">{{ movie.title }}</span>
+      </RouterLink>
+    </div>
 
     <SharedMovieListCard v-if="post.list" class="mt-3" :list="post.list" @save="$emit('save-list', $event)" />
     <MoviePoll v-if="post.poll" class="mt-3" :poll="post.poll" @vote="$emit('vote', { post, optionId: $event })" @clear="$emit('clear-vote', post)" />

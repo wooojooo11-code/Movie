@@ -266,7 +266,7 @@ const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
       'https://www.koreanfilm.or.kr/timthumb.php?src=http://kobis.or.kr/common/mast/movie/2024/02/thumb_x192/thn_52d99a2ed6ac4af48b2e90ca1594b2ba.jpg&w=240&h=320&zc=0'
   },
   {
-    catalogMovieId: 'movie_346',
+    catalogMovieId: 'movie_340',
     rank: 9,
     title: '미키 17',
     audienceLabel: '연간 관객 301만',
@@ -276,7 +276,7 @@ const latestTrendingMovieSelections: readonly LatestTrendingMovieSelection[] = [
     similarMovieIds: ['movie_33', 'movie_34', 'movie_36']
   },
   {
-    catalogMovieId: 'movie_508',
+    catalogMovieId: 'movie_424',
     rank: 10,
     title: '어쩔수가없다',
     audienceLabel: '연간 관객 294만',

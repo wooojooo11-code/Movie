@@ -2,6 +2,7 @@ import {
   getCommunityFollowsRelation,
   getCommunityLikesRelation,
   getCommunityMissionProofsRelation,
+  getCommunityPostMoviesRelation,
   getCommunityPollOptionsRelation,
   getCommunityPollVotesRelation,
   getCommunityPollsRelation,
@@ -93,23 +94,35 @@ const toList = (row: Row | undefined): null | CommunityListReference => {
   };
 };
 
-const toPost = (row: Row, lists = new Map<string, CommunityListReference>()): CommunityPost => ({
-  id: asString(row.id),
-  userId: asString(row.user_id),
-  category: row.category as CommunityCategory,
-  title: asString(row.title),
-  content: asString(row.content),
-  movie: toMovie(row.movie_id, row.movie_title, row.movie_poster_path),
-  list: row.list_id ? lists.get(asString(row.list_id)) ?? null : null,
-  imageUrl: asNullableString(row.image_url),
-  hasSpoiler: Boolean(row.has_spoiler),
-  author: toProfile(row),
-  likeCount: asNumber(row.like_count),
-  commentCount: asNumber(row.comment_count),
-  saveCount: asNumber(row.save_count),
-  createdAt: asString(row.created_at),
-  updatedAt: asString(row.updated_at)
-});
+const toPost = (
+  row: Row,
+  lists = new Map<string, CommunityListReference>(),
+  moviesByPost = new Map<string, CommunityMovieReference[]>()
+): CommunityPost => {
+  const id = asString(row.id);
+  const legacyMovie = toMovie(row.movie_id, row.movie_title, row.movie_poster_path);
+  // 새 연결 테이블이 아직 없는 이전 게시글도 첫 번째 영화를 그대로 보여줍니다.
+  const movies = moviesByPost.get(id) ?? (legacyMovie ? [legacyMovie] : []);
+
+  return {
+    id,
+    userId: asString(row.user_id),
+    category: row.category as CommunityCategory,
+    title: asString(row.title),
+    content: asString(row.content),
+    movie: movies[0] ?? legacyMovie,
+    movies,
+    list: row.list_id ? lists.get(asString(row.list_id)) ?? null : null,
+    imageUrl: asNullableString(row.image_url),
+    hasSpoiler: Boolean(row.has_spoiler),
+    author: toProfile(row),
+    likeCount: asNumber(row.like_count),
+    commentCount: asNumber(row.comment_count),
+    saveCount: asNumber(row.save_count),
+    createdAt: asString(row.created_at),
+    updatedAt: asString(row.updated_at)
+  };
+};
 
 const queryListReferences = async (posts: readonly Row[]) => {
   const listIds = [...new Set(posts.map((post) => asNullableString(post.list_id)).filter(Boolean))] as string[];
@@ -128,6 +141,39 @@ const queryListReferences = async (posts: readonly Row[]) => {
   }
 
   return new Map((data ?? []).map((row: Row) => [asString(row.id), toList(row)!]));
+};
+
+const queryPostMovies = async (posts: readonly Row[]) => {
+  const postIds = [...new Set(posts.map((post) => asString(post.id)).filter(Boolean))];
+  const relation = getCommunityPostMoviesRelation();
+
+  if (!relation || postIds.length === 0) {
+    return new Map<string, CommunityMovieReference[]>();
+  }
+
+  const { data, error } = await relation
+    .select('post_id, movie_id, movie_title, movie_poster_path, position')
+    .in('post_id', postIds)
+    .order('position', { ascending: true });
+
+  // 새 SQL을 적용하기 전에도 기존 커뮤니티 화면은 계속 열리도록 이전 단일 영화 값으로 되돌립니다.
+  if (error) {
+    if (error.code === '42P01' || error.code === 'PGRST205') {
+      return new Map<string, CommunityMovieReference[]>();
+    }
+    throw error;
+  }
+
+  const moviesByPost = new Map<string, CommunityMovieReference[]>();
+  for (const row of (data ?? []) as Row[]) {
+    const movie = toMovie(row.movie_id, row.movie_title, row.movie_poster_path);
+    const postId = asString(row.post_id);
+    if (!movie || !postId) continue;
+    const movies = moviesByPost.get(postId) ?? [];
+    movies.push(movie);
+    moviesByPost.set(postId, movies);
+  }
+  return moviesByPost;
 };
 
 const queryPolls = async (postIds: readonly string[], viewerId?: null | string) => {
@@ -212,12 +258,13 @@ const queryMissionProofs = async (postIds: readonly string[]) => {
 };
 
 const decoratePosts = async (rows: readonly Row[], viewerId?: null | string) => {
-  const [lists, polls, missionProofs] = await Promise.all([
+  const [lists, polls, missionProofs, moviesByPost] = await Promise.all([
     queryListReferences(rows),
     queryPolls(rows.map((row) => asString(row.id)), viewerId),
-    queryMissionProofs(rows.map((row) => asString(row.id)))
+    queryMissionProofs(rows.map((row) => asString(row.id))),
+    queryPostMovies(rows)
   ]);
-  return rows.map((row) => ({ ...toPost(row, lists), poll: polls.get(asString(row.id)), missionProof: missionProofs.get(asString(row.id)) }));
+  return rows.map((row) => ({ ...toPost(row, lists, moviesByPost), poll: polls.get(asString(row.id)), missionProof: missionProofs.get(asString(row.id)) }));
 };
 
 const cleanSearchTerm = (query: string) => query.trim().replace(/[(),%_]/g, ' ').replace(/\s+/g, ' ');
@@ -307,13 +354,21 @@ export const ensureCommunityProfile = async (userId: string, nickname: string, a
 
 export const createCommunityPost = async (draft: CommunityPostDraft) => {
   ensureSupabase();
+  // 첫 번째 영화는 이전 검색·정렬 호환용으로 게시글 본문에도 함께 저장합니다.
+  const relatedMovies = draft.movies.length > 0 ? draft.movies : draft.movie ? [draft.movie] : [];
+  const primaryMovie = relatedMovies[0] ?? null;
   const payload = {
     category: draft.category,
     title: draft.title.trim(),
     content: draft.content.trim(),
-    movie_id: draft.movie?.id ?? null,
-    movie_title: draft.movie?.title ?? null,
-    movie_poster_path: draft.movie?.posterPath ?? null,
+    movie_id: primaryMovie?.id ?? null,
+    movie_title: primaryMovie?.title ?? null,
+    movie_poster_path: primaryMovie?.posterPath ?? null,
+    related_movies: relatedMovies.map((movie) => ({
+      movie_id: movie.id,
+      movie_title: movie.title,
+      movie_poster_path: movie.posterPath
+    })),
     list_id: draft.listId,
     image_url: draft.imageUrl.trim() || null,
     has_spoiler: draft.hasSpoiler,

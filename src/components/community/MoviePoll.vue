@@ -25,15 +25,23 @@ const vote = async (optionId: string) => {
         v-for="option in poll.options"
         :key="option.id"
         type="button"
-        class="focus-ring corner-soft relative overflow-hidden border border-app-line bg-app-panel px-3 py-2.5 text-left active:scale-[0.99]"
-        :class="poll.viewerOptionId === option.id ? 'border-app-accent' : ''"
+        class="focus-ring corner-soft relative overflow-hidden border px-3 py-2.5 text-left transition-colors active:scale-[0.99]"
+        :class="poll.viewerOptionId === option.id ? 'border-[#174a77] bg-[#e5f1fc] ring-1 ring-[#174a77]/20' : 'border-app-line bg-app-panel'"
+        :aria-pressed="poll.viewerOptionId === option.id"
         :disabled="disabled || submitting"
         @click="vote(option.id)"
       >
-        <span class="absolute inset-y-0 left-0 bg-[#dcecff] transition-[width]" :style="{ width: `${totalVotes ? Math.round((option.voteCount / totalVotes) * 100) : 0}%` }" />
-        <span class="relative flex items-center justify-between gap-3">
+        <span
+          class="absolute inset-y-0 left-0 transition-[width]"
+          :class="poll.viewerOptionId === option.id ? 'bg-[#b7d8f2]' : 'bg-[#dcecff]'"
+          :style="{ width: `${totalVotes ? Math.round((option.voteCount / totalVotes) * 100) : 0}%` }"
+        />
+        <span class="relative flex items-center justify-between gap-2">
           <span class="min-w-0 text-xs font-semibold text-[#15171c]">{{ option.optionText }}</span>
-          <span class="shrink-0 text-xs text-app-muted">{{ option.voteCount }}표 · {{ totalVotes ? Math.round((option.voteCount / totalVotes) * 100) : 0 }}%</span>
+          <span class="ml-auto flex shrink-0 items-center gap-2">
+            <span v-if="poll.viewerOptionId === option.id" class="corner-pill border border-[#174a77] bg-[#174a77] px-2 py-0.5 text-[10px] font-semibold text-white">내 선택</span>
+            <span class="text-xs text-app-muted">{{ option.voteCount }}표 · {{ totalVotes ? Math.round((option.voteCount / totalVotes) * 100) : 0 }}%</span>
+          </span>
         </span>
       </button>
     </div>

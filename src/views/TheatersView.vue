@@ -13,8 +13,8 @@ import type {
   TheatricalMoviesResponse
 } from '@/types/theaters';
 
-const collectionTabs: { id: TheatricalCollection; label: string; description: string }[] = [
-  { id: 'nowPlaying', label: '상영 중', description: '현재 극장에서 만날 수 있는 영화' },
+const collectionTabs: { id: TheatricalCollection; label: string; description?: string }[] = [
+  { id: 'nowPlaying', label: '상영 중' },
   { id: 'upcoming', label: '개봉 예정', description: '한국 개봉일 기준으로 정렬' }
 ];
 
@@ -218,7 +218,7 @@ onMounted(() => {
       <div class="flex items-end justify-between gap-3">
         <div>
           <h2 id="movie-schedule-title" class="text-lg font-semibold text-[#15171c]">신작 · 개봉 일정</h2>
-          <p class="mt-1 text-xs text-app-muted">{{ activeTab.description }}</p>
+          <p v-if="activeTab.description" class="mt-1 text-xs text-app-muted">{{ activeTab.description }}</p>
         </div>
         <span v-if="theatricalData" class="text-xs text-app-muted">
           {{ displayedMovies.length }} / {{ filteredMovies.length }}편

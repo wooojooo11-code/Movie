@@ -9,11 +9,12 @@ import TitleCollectionModal from '@/components/profile/TitleCollectionModal.vue'
 import TitleShowcase from '@/components/profile/TitleShowcase.vue';
 import { useProfile } from '@/composables/useProfile';
 import { useTitles } from '@/composables/useTitles';
+import { movieCreditsById } from '@/data/movieCredits';
 import { ensureProfile, saveProfile } from '@/services/profileService';
-import { saveTitlePresentation, syncProfileMovieMetadata } from '@/services/titleService';
+import { saveTitlePresentation } from '@/services/titleService';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import { useAuthStore } from '@/stores/auth';
-import type { ProfileEditInput } from '@/types/profile';
+import type { ProfileEditInput, ProfileTaste, ProfileTastePerson } from '@/types/profile';
 
 const route = useRoute();
 const authStore = useAuthStore();
@@ -35,6 +36,38 @@ const isOwner = computed(() => Boolean(authStore.user?.id && authStore.user.id =
 const loadingPage = computed(() => loading.value || titlesLoading.value);
 const visibleTitles = computed(() => profile.value?.displayTitles ?? []);
 
+const getLocalFavoritePerson = (kind: 'actor' | 'director'): null | ProfileTastePerson => {
+  const counts = new Map<string, number>();
+
+  for (const { movie, ratingRecord } of recommendationStore.ratedMoviesHistory.value) {
+    if (ratingRecord.input.status !== 'like' && ratingRecord.input.status !== 'dislike') continue;
+
+    const credits = movieCreditsById[movie.id];
+    const people = kind === 'director' ? [credits?.director] : credits?.cast ?? [];
+    for (const person of new Set(people.filter((value): value is string => Boolean(value?.trim())))) {
+      counts.set(person, (counts.get(person) ?? 0) + 1);
+    }
+  }
+
+  const [person, count] = [...counts.entries()].sort(
+    ([leftName, leftCount], [rightName, rightCount]) =>
+      rightCount - leftCount || leftName.localeCompare(rightName, 'ko-KR')
+  )[0] ?? [];
+
+  return person && count ? { name: person, profileUrl: null, count } : null;
+};
+
+const displayedTaste = computed<null | ProfileTaste>(() => {
+  const taste = profile.value?.taste;
+  if (!taste || !isOwner.value) return taste ?? null;
+
+  return {
+    ...taste,
+    favoriteDirector: taste.favoriteDirector ?? getLocalFavoritePerson('director'),
+    favoriteActor: taste.favoriteActor ?? getLocalFavoritePerson('actor')
+  };
+});
+
 const load = async () => {
   if (!userId.value) return;
   saveError.value = '';
@@ -46,8 +79,6 @@ const load = async () => {
         authStore.displayName,
         (authStore.user.user_metadata.avatar_url as string | undefined) ?? null
       );
-      // One background cache pass makes existing rating history available to the public profile RPC too.
-      await syncProfileMovieMetadata(recommendationStore.ratedMoviesHistory.value.map(({ movie }) => movie));
     } catch (error) {
       saveError.value = error instanceof Error ? error.message : '프로필 준비에 실패했습니다.';
     }
@@ -134,7 +165,7 @@ onMounted(() => { void load(); });
     <div v-else class="space-y-5">
       <ProfileHeader :overview="profile" :is-owner="isOwner" @edit="editOpen = true" />
       <p v-if="saveError || titlesError" class="corner-soft border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ saveError || titlesError }}</p>
-      <MovieTasteCard :taste="profile.taste" :is-owner="isOwner" />
+      <MovieTasteCard :taste="displayedTaste ?? profile.taste" :is-owner="isOwner" />
       <TitleShowcase :titles="visibleTitles" :is-owner="isOwner" @open="titleCollectionOpen = true" />
     </div>
 

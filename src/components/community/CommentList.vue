@@ -13,7 +13,14 @@ defineEmits<{ remove: [commentId: string] }>();
       <div class="flex items-start gap-2">
         <img v-if="comment.author.avatarUrl" :src="comment.author.avatarUrl" :alt="`${comment.author.nickname} 프로필`" class="size-7 rounded-full border border-app-line object-cover" />
         <span v-else class="grid size-7 place-items-center rounded-full border border-app-accent bg-[#dcecff] text-[10px] font-bold text-[#174a77]">{{ comment.author.nickname.slice(0, 1) }}</span>
-        <div class="min-w-0 flex-1"><p class="text-xs font-semibold text-[#15171c]">{{ comment.author.nickname }} <span class="ml-1 font-normal text-app-muted">{{ new Date(comment.createdAt).toLocaleDateString('ko-KR') }}</span></p><p class="mt-1 text-sm leading-5 text-app-muted">{{ comment.content }}</p></div>
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-semibold text-[#15171c]">{{ comment.author.nickname }} <span class="ml-1 font-normal text-app-muted">{{ new Date(comment.createdAt).toLocaleDateString('ko-KR') }}</span></p>
+          <RouterLink v-if="comment.movie" :to="`/movies/${comment.movie.id}`" class="focus-ring mt-2 flex max-w-full items-center gap-2 border border-[#bed3e8] bg-[#eef6ff] p-2">
+            <img :src="comment.movie.posterPath ?? '/app-icon.svg'" :alt="`${comment.movie.title} 포스터`" class="h-12 w-8 border border-app-line object-cover" />
+            <span class="min-w-0"><span class="block text-[10px] font-semibold text-app-accent">다음 영화 추천</span><span class="mt-1 block truncate text-sm font-semibold text-[#174a77]">{{ comment.movie.title }}</span></span>
+          </RouterLink>
+          <p v-if="comment.content" class="mt-2 text-sm leading-5 text-app-muted">{{ comment.content }}</p>
+        </div>
         <button v-if="comment.userId === currentUserId" type="button" class="focus-ring text-xs text-app-muted underline" @click="$emit('remove', comment.id)">삭제</button>
       </div>
     </article>

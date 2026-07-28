@@ -9,6 +9,7 @@ import {
   isCommunityPostDraftSubmittable,
   type CommunityCategory,
   type CommunityListReference,
+  type CommunityMovieReference,
   type CommunityPostDraft
 } from '@/types/community';
 
@@ -29,23 +30,38 @@ watch(() => props.open, (isOpen) => {
 const categoryOptions = computed(() => Object.entries(COMMUNITY_CATEGORY_LABELS) as Array<[CommunityCategory, string]>);
 const canSubmit = computed(() => isCommunityPostDraftSubmittable(draft));
 
+// 같은 영화를 여러 번 넣지 않고, 원하는 만큼 계속 관련 영화로 연결합니다.
+const addRelatedMovie = (movie: CommunityMovieReference) => {
+  if (draft.movies.some((selected) => selected.id === movie.id)) return;
+  draft.movies.push({ ...movie });
+  // 기존 단일 영화 필드는 이전 게시글 검색·수정 코드와의 호환을 위해 첫 번째 영화만 유지합니다.
+  draft.movie = draft.movies[0] ?? null;
+};
+
+const removeRelatedMovie = (movieId: string) => {
+  draft.movies = draft.movies.filter((movie) => movie.id !== movieId);
+  draft.movie = draft.movies[0] ?? null;
+};
+
 const addPollOption = () => { draft.pollOptions.push({ optionText: '', movie: null }); };
 const removePollOption = (index: number) => { if (draft.pollOptions.length > 2) draft.pollOptions.splice(index, 1); };
 const selectMission = (event: Event) => {
   const selected = props.missionChoices?.find((mission) => mission.id === (event.target as HTMLSelectElement).value);
-  if (selected) {
-    draft.mission.id = selected.id;
-    draft.mission.name = selected.name;
-    draft.mission.badgeLabel = selected.badgeLabel;
-  }
+  if (!selected) return;
+  draft.mission.id = selected.id;
+  draft.mission.name = selected.name;
+  draft.mission.badgeLabel = selected.badgeLabel;
 };
-// reactive 프록시는 그대로 외부로 넘기지 않고 도메인 복사본으로 전환합니다.
-const submit = () => { if (canSubmit.value && !props.submitting) emit('submit', cloneCommunityPostDraft(toRaw(draft))); };
+
+// Vue 반응형 객체는 그대로 복제할 수 없으므로, 전송 직전에 일반 객체로 변환합니다.
+const submit = () => {
+  if (canSubmit.value && !props.submitting) emit('submit', cloneCommunityPostDraft(toRaw(draft)));
+};
 </script>
 
 <template>
-  <div v-if="open" class="fixed inset-0 z-50 flex items-end bg-black/30 p-0 sm:items-center sm:p-6">
-    <section class="corner-hard max-h-[92dvh] w-full overflow-y-auto border border-app-line bg-app-panel p-4 sm:corner-soft sm:mx-auto sm:max-w-xl sm:p-5" role="dialog" aria-modal="true" aria-labelledby="create-post-title">
+  <div v-if="open" class="fixed inset-0 z-50 flex items-center bg-black/30 p-4">
+    <section class="corner-soft mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line bg-app-panel p-4 sm:max-w-xl sm:p-5" role="dialog" aria-modal="true" aria-labelledby="create-post-title">
       <div class="flex items-start justify-between gap-4">
         <div>
           <p class="text-xs font-semibold text-app-accent">WRITE</p>
@@ -75,21 +91,26 @@ const submit = () => { if (canSubmit.value && !props.submitting) emit('submit', 
         </label>
 
         <div>
-          <MovieSearchInput @select="draft.movie = $event" />
-          <div v-if="draft.movie" class="mt-2 flex items-center gap-2 text-xs text-[#174a77]">
-            <img :src="draft.movie.posterPath ?? '/app-icon.svg'" alt="" class="h-10 w-7 border border-app-line object-cover" />
-            <span>{{ draft.movie.title }}</span>
-            <button type="button" class="focus-ring ml-auto underline" @click="draft.movie = null">선택 해제</button>
+          <MovieSearchInput @select="addRelatedMovie" />
+          <div v-if="draft.movies.length" class="mt-2 max-h-48 overflow-y-auto pr-1">
+            <p class="text-xs font-semibold text-[#174a77]">관련 영화 {{ draft.movies.length }}편</p>
+            <div class="mt-2 grid gap-2">
+              <div v-for="movie in draft.movies" :key="movie.id" class="flex items-center gap-2 border border-app-line bg-app-panelSoft p-2 text-xs text-[#174a77]">
+                <img :src="movie.posterPath ?? '/app-icon.svg'" :alt="`${movie.title} 포스터`" class="h-10 w-7 border border-app-line object-cover" />
+                <span class="min-w-0 flex-1 truncate">{{ movie.title }}</span>
+                <button type="button" class="focus-ring corner-soft border border-app-line px-2 py-1 text-xs text-app-muted" :aria-label="`${movie.title} 삭제`" @click="removeRelatedMovie(movie.id)">삭제</button>
+              </div>
+            </div>
           </div>
         </div>
 
         <label v-if="draft.category === 'list_share'" class="block">
           <span class="mb-1 block text-xs font-semibold text-app-muted">공유할 리스트</span>
           <select v-model="draft.listId" required class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]">
-            <option :value="null" disabled>리스트를 선택하세요</option>
+            <option :value="null" disabled>리스트를 선택해 주세요</option>
             <option v-for="list in lists" :key="list.id" :value="list.id">{{ list.title }}</option>
           </select>
-          <p v-if="!lists.length" class="mt-2 text-xs text-app-muted">공개로 설정된 내 리스트가 없어요.</p>
+          <p v-if="!lists.length" class="mt-2 text-xs text-app-muted">공개로 설정한 리스트가 없어요.</p>
         </label>
 
         <template v-if="draft.category === 'movie_poll'">
@@ -99,7 +120,6 @@ const submit = () => { if (canSubmit.value && !props.submitting) emit('submit', 
           </label>
           <fieldset class="grid gap-2">
             <legend class="text-xs font-semibold text-app-muted">투표 항목 (2개 이상)</legend>
-            <!-- 빈 추가 항목은 서버 전송 전에 제외하므로 등록을 막지 않습니다. -->
             <div v-for="(option, index) in draft.pollOptions" :key="index" class="flex gap-2">
               <input v-model="option.optionText" maxlength="120" class="focus-ring corner-soft min-w-0 flex-1 border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :placeholder="`항목 ${index + 1}`" />
               <button v-if="draft.pollOptions.length > 2" type="button" class="focus-ring corner-soft border border-app-line px-3 text-xs text-app-muted" @click="removePollOption(index)">삭제</button>
@@ -118,7 +138,7 @@ const submit = () => { if (canSubmit.value && !props.submitting) emit('submit', 
           </label>
           <label class="block">
             <span class="mb-1 block text-xs font-semibold text-app-muted">완료한 미션 이름</span>
-            <input v-model="draft.mission.name" required class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" placeholder="예: 액션 영화 3편 감상" />
+            <input v-model="draft.mission.name" required class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" placeholder="예: 미션 영화 3편 감상" />
           </label>
           <label class="block">
             <span class="mb-1 block text-xs font-semibold text-app-muted">짧은 감상</span>
@@ -138,7 +158,6 @@ const submit = () => { if (canSubmit.value && !props.submitting) emit('submit', 
           <input v-model="draft.hasSpoiler" type="checkbox" class="size-4 border-app-line" />
           스포일러가 포함되어 있어요
         </label>
-        <!-- 클릭을 직접 처리해 브라우저 기본 검증 때문에 등록 요청이 묻히지 않게 합니다. -->
         <button type="button" class="focus-ring corner-soft min-h-11 border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white disabled:opacity-50" :disabled="!canSubmit || submitting" @click="submit">{{ submitting ? '등록 중…' : '게시글 등록' }}</button>
       </form>
     </section>

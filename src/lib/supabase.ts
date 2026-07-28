@@ -118,6 +118,7 @@ const getCommunityRelation = (table: string) => (supabase ? supabase.from(table)
 
 export const getCommunityProfilesRelation = () => getCommunityRelation('community_profiles');
 export const getCommunityPostsRelation = () => getCommunityRelation('community_posts');
+export const getCommunityPostMoviesRelation = () => getCommunityRelation('community_post_movies');
 export const getCommunityCommentsRelation = () => getCommunityRelation('community_comments');
 export const getCommunityLikesRelation = () => getCommunityRelation('community_likes');
 export const getCommunitySavesRelation = () => getCommunityRelation('community_saves');

@@ -51,6 +51,8 @@ export interface CommunityPost {
   title: string;
   content: string;
   movie: null | CommunityMovieReference;
+  /** 게시글에 연결한 영화 전체 목록입니다. `movie`는 이전 게시글 호환용 첫 번째 영화입니다. */
+  movies: CommunityMovieReference[];
   list: null | CommunityListReference;
   imageUrl: null | string;
   hasSpoiler: boolean;
@@ -78,6 +80,8 @@ export interface CommunityComment {
   postId: string;
   userId: string;
   content: string;
+  /** 선택하면 이 댓글은 별도 영역이 아닌 '다음 영화 추천 댓글'로 표시됩니다. */
+  movie: null | CommunityMovieReference;
   createdAt: string;
   updatedAt: string;
   author: CommunityProfile;
@@ -106,6 +110,8 @@ export interface CommunityPostDraft {
   title: string;
   content: string;
   movie: null | CommunityMovieReference;
+  /** 작성 중 추가한 관련 영화입니다. 개수 제한은 두지 않습니다. */
+  movies: CommunityMovieReference[];
   listId: null | string;
   imageUrl: string;
   hasSpoiler: boolean;
@@ -122,11 +128,12 @@ export interface CommunityPostDraft {
   };
 }
 
-const cloneMovieReference = (movie: CommunityPostDraft['movie']) => (movie ? { ...movie } : null);
+const cloneMovieReference = (movie: null | CommunityMovieReference) => (movie ? { ...movie } : null);
 
 export const cloneCommunityPostDraft = (draft: CommunityPostDraft): CommunityPostDraft => ({
   ...draft,
   movie: cloneMovieReference(draft.movie),
+  movies: draft.movies.map((movie) => ({ ...movie })),
   pollOptions: draft.pollOptions.map((option) => ({ ...option, movie: cloneMovieReference(option.movie) })),
   mission: { ...draft.mission, movie: cloneMovieReference(draft.mission.movie) }
 });
@@ -168,6 +175,7 @@ export const createEmptyCommunityPostDraft = (): CommunityPostDraft => ({
   title: '',
   content: '',
   movie: null,
+  movies: [],
   listId: null,
   imageUrl: '',
   hasSpoiler: false,

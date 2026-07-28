@@ -4,6 +4,10 @@ import { onScopeDispose, ref, watch } from 'vue';
 import { searchCommunityMovies } from '@/services/community/movieService';
 import type { CommunityMovieReference } from '@/types/community';
 
+const props = withDefaults(defineProps<{ label?: string; placeholder?: string }>(), {
+  label: '관련 영화 찾기',
+  placeholder: '영화 제목을 2글자 이상 입력'
+});
 const emit = defineEmits<{ select: [movie: CommunityMovieReference] }>();
 const query = ref('');
 const results = ref<CommunityMovieReference[]>([]);
@@ -19,13 +23,21 @@ watch(query, (value) => {
   debounceId = window.setTimeout(async () => {
     loading.value = true;
     error.value = '';
-    try { results.value = searchCommunityMovies(value); }
-    catch { error.value = '앱 영화 데이터를 검색하지 못했어요.'; }
-    finally { loading.value = false; }
+    try {
+      results.value = searchCommunityMovies(value);
+    } catch {
+      error.value = '영화 데이터를 검색하지 못했어요.';
+    } finally {
+      loading.value = false;
+    }
   }, 300);
 });
 
-const selectMovie = (movie: CommunityMovieReference) => { emit('select', movie); query.value = ''; resetResults(); };
+const selectMovie = (movie: CommunityMovieReference) => {
+  emit('select', movie);
+  query.value = '';
+  resetResults();
+};
 
 onScopeDispose(() => { window.clearTimeout(debounceId); });
 </script>
@@ -33,8 +45,8 @@ onScopeDispose(() => { window.clearTimeout(debounceId); });
 <template>
   <div class="relative">
     <label class="block">
-      <span class="mb-1 block text-xs font-semibold text-app-muted">관련 영화 찾기</span>
-      <input v-model="query" type="search" class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" placeholder="영화 제목을 2글자 이상 입력" />
+      <span class="mb-1 block text-xs font-semibold text-app-muted">{{ props.label }}</span>
+      <input v-model="query" type="search" class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :placeholder="props.placeholder" />
     </label>
     <p v-if="loading" class="mt-2 text-xs text-app-muted">검색 중…</p>
     <p v-else-if="error" class="mt-2 text-xs text-[#a13c3c]">{{ error }}</p>

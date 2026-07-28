@@ -32,7 +32,7 @@ const installApp = async () => {
       </RouterLink>
 
       <button
-        v-if="pwaPrompt.isInstallable"
+        v-if="!pwaPrompt.isInstalled && pwaPrompt.isInstallable"
         type="button"
         class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm text-white"
         @click="installApp"

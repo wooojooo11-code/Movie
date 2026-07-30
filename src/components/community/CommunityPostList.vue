@@ -6,6 +6,8 @@ defineProps<{
   posts: CommunityPost[];
   likedIds?: ReadonlySet<string>;
   savedIds?: ReadonlySet<string>;
+  savedListIds?: ReadonlySet<string>;
+  savingSaveIds?: ReadonlySet<string>;
   loading?: boolean;
   hasMore?: boolean;
 }>();
@@ -34,6 +36,8 @@ defineEmits<{
         :post="post"
         :viewer-liked="likedIds?.has(post.id)"
         :viewer-saved="savedIds?.has(post.id)"
+        :saved-list-ids="savedListIds"
+        :saving-save="savingSaveIds?.has(post.id)"
         @like="$emit('like', $event)"
         @save="$emit('save', $event)"
         @save-list="$emit('save-list', $event)"

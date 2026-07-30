@@ -34,7 +34,7 @@ const posterUrls = computed(() =>
         <p v-if="list.description" class="mt-1 line-clamp-2 text-xs leading-4 text-app-muted">{{ list.description }}</p>
         <p class="mt-2 text-xs text-app-muted">영화 {{ list.movieIds.length }}편 · 저장 {{ list.saveCount }}</p>
       </div>
-      <button type="button" class="focus-ring corner-soft shrink-0 border border-app-accent px-3 py-2 text-xs font-semibold text-[#174a77] active:scale-[0.98]" @click="$emit('save', list.id)">
+      <button type="button" class="focus-ring corner-soft shrink-0 border border-app-accent px-3 py-2 text-xs font-semibold text-[#174a77] active:scale-[0.98] disabled:cursor-default disabled:bg-[#e5f1fc] disabled:text-[#174a77]" :disabled="saved" @click="$emit('save', list.id)">
         {{ saved ? '저장됨' : '내 보관함에 저장' }}
       </button>
     </div>

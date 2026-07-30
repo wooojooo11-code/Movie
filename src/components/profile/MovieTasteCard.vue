@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import FavoritePersonCard from '@/components/profile/FavoritePersonCard.vue';
 import GenreTopThree from '@/components/profile/GenreTopThree.vue';
-import type { ProfileTaste } from '@/types/profile';
+import type { ProfileTaste, ProfileTitle } from '@/types/profile';
 
 defineProps<{
   isOwner: boolean;
   taste: ProfileTaste;
+  titles: readonly Pick<ProfileTitle, 'description' | 'icon' | 'id' | 'name'>[];
 }>();
+
+defineEmits<{ openTitles: [] }>();
 </script>
 
 <template>
@@ -31,6 +34,36 @@ defineProps<{
         <FavoritePersonCard label="가장 많이 본 배우" :person="taste.favoriteActor" />
       </div>
     </div>
+
+    <section class="mt-5 border-t border-app-line pt-5" aria-labelledby="profile-title-section-title">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">PROFILE TITLE</p>
+          <h3 id="profile-title-section-title" class="mt-1 text-base font-bold text-[#263649]">프로필 칭호</h3>
+        </div>
+        <button
+          type="button"
+          class="focus-ring corner-soft min-h-9 border border-app-line bg-app-panelSoft px-3 text-xs font-semibold text-[#34465b]"
+          @click="$emit('openTitles')"
+        >
+          전체 칭호 보기
+        </button>
+      </div>
+
+      <div v-if="titles.length" class="mt-4 flex flex-wrap gap-2">
+        <span
+          v-for="title in titles"
+          :key="title.id"
+          class="corner-pill inline-flex max-w-full items-center gap-1.5 border border-[#ead39a] bg-[#fff9e9] px-3 py-1.5 text-sm font-semibold text-[#6f5515]"
+        >
+          <span aria-hidden="true">{{ title.icon }}</span>
+          <span class="truncate">{{ title.name }}</span>
+        </span>
+      </div>
+      <p v-else class="mt-4 text-sm leading-relaxed text-app-muted">
+        영화 활동을 시작하고 첫 번째 칭호를 획득해보세요.
+      </p>
+    </section>
 
     <RouterLink
       v-if="isOwner && taste.watchedCount === 0"

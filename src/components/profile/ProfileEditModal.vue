@@ -87,7 +87,7 @@ const submit = () => {
           <input v-model="nickname" maxlength="40" class="focus-ring corner-soft mt-2 min-h-11 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" />
         </label>
         <label class="block text-sm font-semibold text-[#263649]">
-          한 줄 영화 소개
+          한줄소개
           <textarea v-model="bio" maxlength="160" rows="3" class="focus-ring corner-soft mt-2 w-full border border-app-line bg-app-panel p-3 text-sm leading-relaxed text-[#15171c]" />
         </label>
         <label class="block text-sm font-semibold text-[#263649]">

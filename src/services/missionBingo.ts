@@ -149,7 +149,7 @@ const buildTasteMissions = (context: MissionContext): MovieMission[] => {
       label: '평점 8점대 명작',
       description: '많은 사랑을 받은 작품을 만나요',
       progress: countWatchedMovies(watchedMovieIds, (movieId) => (movieMap[movieId]?.voteAverage ?? 0) >= 8),
-      target: 3
+      target: 2
     },
     {
       id: 'director',
@@ -233,14 +233,14 @@ const buildGenreMissions = ({ watchedMovieIds }: MissionContext): MovieMission[]
     label: '판타지 영화',
     description: '마법 같은 세계를 경험해요',
     progress: countMoviesByGenre(watchedMovieIds, '판타지'),
-    target: 2
+    target: 5
   },
   {
     id: 'romance',
     label: '로맨스 영화',
     description: '설레는 이야기를 한 편 더해요',
     progress: countMoviesByGenre(watchedMovieIds, '로맨스'),
-    target: 2
+    target: 3
   },
   {
     id: 'horror',
@@ -313,7 +313,7 @@ const buildCinemaMissions = (context: MissionContext): MovieMission[] => {
       label: '평점 8점대 명작',
       description: '많은 사랑을 받은 작품을 만나요',
       progress: countWatchedMovies(watchedMovieIds, (movieId) => (movieMap[movieId]?.voteAverage ?? 0) >= 8),
-      target: 3
+      target: 2
     },
     {
       id: 'genre-explorer',
@@ -327,7 +327,7 @@ const buildCinemaMissions = (context: MissionContext): MovieMission[] => {
       label: '좋아요 영화',
       description: '내 취향 지도를 더 선명하게 해요',
       progress: likedMovieCount,
-      target: 5
+      target: 2
     }
   ];
 };

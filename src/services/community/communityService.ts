@@ -423,8 +423,38 @@ const toggleRelation = async (relation: any, key: string, postId: string, userId
 
 export const toggleCommunityLike = (postId: string, userId: string, active: boolean) =>
   toggleRelation(getCommunityLikesRelation()!, 'like', postId, userId, active);
-export const toggleCommunitySave = (postId: string, userId: string, active: boolean) =>
-  toggleRelation(getCommunitySavesRelation()!, 'save', postId, userId, active);
+
+export const toggleCommunitySave = async (postId: string, userId: string) => {
+  ensureSupabase();
+  const savesRelation = getCommunitySavesRelation()!;
+  const { data: existingSave, error: existingSaveError } = await savesRelation
+    .select('id')
+    .eq('post_id', postId)
+    .eq('user_id', userId)
+    .maybeSingle();
+
+  if (existingSaveError) throw existingSaveError;
+
+  const { error: mutationError } = existingSave
+    ? await savesRelation.delete().eq('post_id', postId).eq('user_id', userId)
+    : await savesRelation.insert({ post_id: postId, user_id: userId });
+
+  // A second browser tab can attempt the same save at the same time. In that case,
+  // the unique constraint means the post is already saved, which is the desired state.
+  if (mutationError && mutationError.code !== '23505') throw mutationError;
+
+  const [{ data: savedRow, error: savedRowError }, { data: postRow, error: postRowError }] = await Promise.all([
+    savesRelation.select('id').eq('post_id', postId).eq('user_id', userId).maybeSingle(),
+    getCommunityPostsRelation()!.select('save_count').eq('id', postId).maybeSingle()
+  ]);
+
+  if (savedRowError || postRowError) throw savedRowError ?? postRowError;
+
+  return {
+    saved: Boolean(savedRow),
+    saveCount: Math.max(0, asNumber((postRow as Row | null)?.save_count))
+  };
+};
 
 export const toggleCommunityFollow = async (followingId: string, userId: string, active: boolean) => {
   ensureSupabase();

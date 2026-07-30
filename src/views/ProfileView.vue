@@ -6,7 +6,6 @@ import ProfileEditModal from '@/components/profile/ProfileEditModal.vue';
 import ProfileHeader from '@/components/profile/ProfileHeader.vue';
 import MovieTasteCard from '@/components/profile/MovieTasteCard.vue';
 import TitleCollectionModal from '@/components/profile/TitleCollectionModal.vue';
-import TitleShowcase from '@/components/profile/TitleShowcase.vue';
 import { useProfile } from '@/composables/useProfile';
 import { useTitles } from '@/composables/useTitles';
 import { movieCreditsById } from '@/data/movieCredits';
@@ -165,8 +164,24 @@ onMounted(() => { void load(); });
     <div v-else class="space-y-5">
       <ProfileHeader :overview="profile" :is-owner="isOwner" @edit="editOpen = true" />
       <p v-if="saveError || titlesError" class="corner-soft border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ saveError || titlesError }}</p>
-      <MovieTasteCard :taste="displayedTaste ?? profile.taste" :is-owner="isOwner" />
-      <TitleShowcase :titles="visibleTitles" :is-owner="isOwner" @open="titleCollectionOpen = true" />
+      <MovieTasteCard
+        :taste="displayedTaste ?? profile.taste"
+        :is-owner="isOwner"
+        :titles="visibleTitles"
+        @open-titles="titleCollectionOpen = true"
+      />
+      <RouterLink
+        v-if="isOwner"
+        to="/history"
+        class="focus-ring corner-hard flex items-center justify-between gap-4 border border-app-line bg-app-panel p-5 transition-colors hover:border-app-accent sm:p-6"
+      >
+        <div>
+          <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">RATINGS</p>
+          <h2 class="mt-1 text-lg font-bold text-[#15171c]">평가기록</h2>
+          <p class="mt-2 text-sm text-app-muted">내가 평가한 영화와 감상 기록을 확인하세요.</p>
+        </div>
+        <span class="shrink-0 text-sm font-semibold text-app-accent">보기</span>
+      </RouterLink>
     </div>
 
     <ProfileEditModal

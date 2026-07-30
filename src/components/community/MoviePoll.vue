@@ -39,7 +39,7 @@ const vote = async (optionId: string) => {
         <span class="relative flex items-center justify-between gap-2">
           <span class="min-w-0 text-xs font-semibold text-[#15171c]">{{ option.optionText }}</span>
           <span class="ml-auto flex shrink-0 items-center gap-2">
-            <span v-if="poll.viewerOptionId === option.id" class="corner-pill border border-[#174a77] bg-[#174a77] px-2 py-0.5 text-[10px] font-semibold text-white">내 선택</span>
+            <span v-if="poll.viewerOptionId === option.id" class="corner-pill border border-[#8bb7df] bg-[#eef6ff] px-2 py-0.5 text-[10px] font-semibold text-[#174a77]">내 선택</span>
             <span class="text-xs text-app-muted">{{ option.voteCount }}표 · {{ totalVotes ? Math.round((option.voteCount / totalVotes) * 100) : 0 }}%</span>
           </span>
         </span>

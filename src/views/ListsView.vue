@@ -3,7 +3,6 @@ import { computed, ref, watch } from 'vue';
 
 import LibraryMovieCard from '@/components/library/LibraryMovieCard.vue';
 import ListComposerCard from '@/components/lists/ListComposerCard.vue';
-import PreviewHubPanel from '@/components/lists/PreviewHubPanel.vue';
 import SharedListCard from '@/components/lists/SharedListCard.vue';
 import UserListCard from '@/components/lists/UserListCard.vue';
 import { useLibraryStore } from '@/services/libraryStore';
@@ -117,8 +116,6 @@ const searchListCards = computed(() =>
   }))
 );
 
-const screeningMovies = computed(() => libraryStore.savedMovies.value.map((item) => item.movie));
-
 const openCreateComposer = () => {
   listStore.resetDraft();
   listStore.resetMovieSearchState();
@@ -157,8 +154,7 @@ const handleListSearchInput = (event: Event) => {
 
 <template>
   <main class="mx-auto w-full max-w-6xl px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6">
-    <div class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <div class="flex min-w-0 flex-col gap-6">
+    <div class="flex min-w-0 flex-col gap-6">
         <section class="flex flex-wrap items-center justify-end gap-2">
       <label class="min-w-[11rem] flex-1 sm:max-w-xs">
         <span class="sr-only">리스트 검색</span>
@@ -323,9 +319,6 @@ const handleListSearchInput = (event: Event) => {
         />
       </div>
         </section>
-      </div>
-
-      <PreviewHubPanel :movies="screeningMovies" />
     </div>
   </main>
 

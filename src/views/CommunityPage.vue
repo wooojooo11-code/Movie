@@ -48,6 +48,7 @@ const dailyAnswers = ref<DailyQuestionAnswer[]>([]);
 const shareableLists = ref<CommunityListReference[]>([]);
 const likedIds = ref(new Set<string>());
 const savedIds = ref(new Set<string>());
+const savingSaveIds = ref(new Set<string>());
 const hasMore = ref(false);
 const loading = ref(false);
 const loadingDaily = ref(false);
@@ -63,6 +64,9 @@ let searchTimer: number | undefined;
 const viewerId = computed(() => authStore.user?.id ?? null);
 const canWrite = computed(() => authStore.isAuthenticated && Boolean(viewerId.value));
 const missionChoices = computed(() => getMissionProofChoices(recommendationStore.ratedMoviesHistory.value.map(({ ratingRecord }) => ratingRecord)));
+const savedListIds = computed(() =>
+  new Set(listStore.state.interactions.filter((interaction) => interaction.saved).map((interaction) => interaction.listId))
+);
 
 const goToLogin = () => router.push({ name: 'login', query: { redirect: route.fullPath } });
 
@@ -200,8 +204,28 @@ const togglePostInteraction = async (
 const toggleLike = (post: CommunityPost) =>
   togglePostInteraction(post, likedIds, 'likeCount', toggleCommunityLike, '좋아요를 반영하지 못했습니다.');
 
-const toggleSave = (post: CommunityPost) =>
-  togglePostInteraction(post, savedIds, 'saveCount', toggleCommunitySave, '저장을 반영하지 못했습니다.');
+const applyPostSaveState = (postId: string, saved: boolean, saveCount: number) => {
+  savedIds.value = withToggledId(savedIds.value, postId, saved);
+
+  for (const candidate of [...posts.value, ...popularPosts.value]) {
+    if (candidate.id === postId) candidate.saveCount = Math.max(0, saveCount);
+  }
+};
+
+const toggleSave = async (post: CommunityPost) => {
+  if (!viewerId.value) { goToLogin(); return; }
+  if (savingSaveIds.value.has(post.id)) return;
+
+  savingSaveIds.value = withToggledId(savingSaveIds.value, post.id, true);
+  try {
+    const result = await toggleCommunitySave(post.id, viewerId.value);
+    applyPostSaveState(post.id, result.saved, result.saveCount);
+  } catch {
+    errorMessage.value = '저장을 반영하지 못했습니다.';
+  } finally {
+    savingSaveIds.value = withToggledId(savingSaveIds.value, post.id, false);
+  }
+};
 
 const updatePollCounts = async (post: CommunityPost) => {
   if (!post.poll) return;
@@ -222,7 +246,11 @@ const clearVote = async (post: CommunityPost) => {
 // 리스트 저장은 listStore가 원본 ID를 참조하도록 관리합니다.
 const saveList = async (listId: string) => {
   if (!viewerId.value) { goToLogin(); return; }
-  try { await listStore.toggleSharedListSave(listId); }
+  if (savedListIds.value.has(listId)) return;
+  try {
+    await listStore.toggleSharedListSave(listId);
+    void refresh();
+  }
   catch { errorMessage.value = '리스트 저장에 실패했습니다.'; }
 };
 
@@ -240,7 +268,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
     <section class="mt-8" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">POPULAR</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">인기 게시글</h2></div></div>
       <div class="scrollbar-hide -mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2" aria-label="인기 게시글 가로 목록">
-        <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="w-[min(22rem,calc(100vw-2rem))] shrink-0 snap-start" :post="post" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
+        <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="w-[min(22rem,calc(100vw-2rem))] shrink-0 snap-start" :post="post" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" :saved-list-ids="savedListIds" :saving-save="savingSaveIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
       </div>
     </section>
     <section class="mt-8" aria-labelledby="latest-posts-title">
@@ -248,7 +276,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
       <div class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
       <div class="mt-4"><CommunityTabs v-model="activeTab" /></div>
       <p v-if="errorMessage" class="corner-soft mt-4 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
-      <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :loading="loading" :has-more="hasMore" @more="loadFeed(false)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
+      <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" :has-more="hasMore" @more="loadFeed(false)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
     </section>
     <!-- 고정 버튼도 본문과 같은 최대 폭 안에서 오른쪽에 배치한다. -->
     <div class="pointer-events-none fixed inset-x-0 bottom-5 z-30">

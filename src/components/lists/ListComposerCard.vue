@@ -170,7 +170,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
         />
       </label>
 
-      <label class="mt-3 block">
+      <label v-if="isEditing" class="mt-3 block">
         <span class="mb-2 block text-xs font-semibold text-app-muted">리스트 설명</span>
         <textarea
           :value="description"

@@ -44,11 +44,15 @@ const editTitle = ref('');
 const editContent = ref('');
 const editImageUrl = ref('');
 const editHasSpoiler = ref(false);
+const savingSave = ref(false);
 
 const viewerId = computed(() => authStore.user?.id ?? null);
 const isOwner = computed(() => post.value?.userId === viewerId.value);
 const isAuthenticated = computed(() => authStore.isAuthenticated && Boolean(viewerId.value));
 const postId = computed(() => String(route.params.postId));
+const savedListIds = computed(() =>
+  new Set(listStore.state.interactions.filter((interaction) => interaction.saved).map((interaction) => interaction.listId))
+);
 const relatedMovies = computed(() => {
   if (!post.value) return [];
   return post.value.movies.length > 0 ? post.value.movies : post.value.movie ? [post.value.movie] : [];
@@ -127,15 +131,16 @@ const toggleLike = async () => {
 
 const toggleSave = async () => {
   if (!post.value || !viewerId.value) { goToLogin(); return; }
-  const before = post.value.viewer.hasSaved;
-  post.value.viewer.hasSaved = !before;
-  post.value.saveCount += before ? -1 : 1;
+  if (savingSave.value) return;
+  savingSave.value = true;
   try {
-    await toggleCommunitySave(post.value.id, viewerId.value, before);
+    const result = await toggleCommunitySave(post.value.id, viewerId.value);
+    post.value.viewer.hasSaved = result.saved;
+    post.value.saveCount = Math.max(0, result.saveCount);
   } catch {
-    post.value.viewer.hasSaved = before;
-    post.value.saveCount += before ? 1 : -1;
     errorMessage.value = '저장을 반영하지 못했습니다.';
+  } finally {
+    savingSave.value = false;
   }
 };
 
@@ -167,7 +172,7 @@ const addComment = async (input: { content: string; movie: null | CommunityMovie
   submitting.value = true;
   try {
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
-    comments.value.push(await createComment(post.value.id, viewerId.value, input));
+    comments.value.unshift(await createComment(post.value.id, viewerId.value, input));
     post.value.commentCount += 1;
   } catch {
     errorMessage.value = '댓글 등록에 실패했습니다.';
@@ -214,8 +219,10 @@ const clearVote = async () => {
 };
 const saveList = async (listId: string) => {
   if (!viewerId.value) { goToLogin(); return; }
+  if (savedListIds.value.has(listId)) return;
   try {
     await listStore.toggleSharedListSave(listId);
+    void load();
   } catch {
     errorMessage.value = '리스트 저장에 실패했습니다.';
   }
@@ -269,13 +276,13 @@ onMounted(() => { void load(); });
           </div>
         </section>
 
-        <SharedMovieListCard v-if="post.list" class="mt-4" :list="post.list" @save="saveList" />
+        <SharedMovieListCard v-if="post.list" class="mt-4" :list="post.list" :saved="savedListIds.has(post.list.id)" @save="saveList" />
         <MoviePoll v-if="post.poll" class="mt-4" :poll="post.poll" @vote="vote" @clear="clearVote" />
         <MissionProofCard v-if="post.missionProof" class="mt-4" :proof="post.missionProof" />
 
         <div class="mt-5 flex flex-wrap gap-2 border-t border-app-line pt-4">
-          <button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasLiked ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" @click="toggleLike">좋아요 {{ post.likeCount }}</button>
-          <button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasSaved ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" @click="toggleSave">저장 {{ post.saveCount }}</button>
+          <button type="button" class="focus-ring corner-soft inline-flex items-center gap-1.5 border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasLiked ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" :aria-label="`좋아요 ${post.likeCount}개`" @click="toggleLike"><span aria-hidden="true" class="text-base leading-none">{{ post.viewer.hasLiked ? '♥' : '♡' }}</span><span>{{ post.likeCount }}</span></button>
+          <button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold disabled:cursor-wait disabled:opacity-60" :class="post.viewer.hasSaved ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" :disabled="savingSave" @click="toggleSave">저장 {{ post.saveCount }}</button>
           <button v-if="!isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-[#174a77]" @click="toggleFollow">{{ post.viewer.isFollowingAuthor ? '팔로우 취소' : '작성자 팔로우' }}</button>
           <button v-if="!isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-app-muted" @click="report">신고</button>
           <button v-if="isOwner" type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-[#174a77]" @click="beginEdit">수정</button>
@@ -284,7 +291,7 @@ onMounted(() => { void load(); });
       </article>
 
       <section id="comments" class="mt-6" aria-labelledby="comments-title">
-        <h2 id="comments-title" class="text-lg font-semibold text-[#15171c]">댓글 {{ post.commentCount }}</h2>
+        <h2 id="comments-title" class="text-lg font-semibold text-[#15171c]" :aria-label="`댓글 ${post.commentCount}개`"><span aria-hidden="true" class="mr-1 text-base">💬</span>{{ post.commentCount }}</h2>
         <CommentForm class="mt-4" :is-authenticated="isAuthenticated" :submitting="submitting" @submit="addComment" @login="goToLogin" />
         <div class="mt-5"><CommentList :comments="comments" :current-user-id="viewerId" :loading="commentsLoading" @remove="removeComment" /></div>
       </section>

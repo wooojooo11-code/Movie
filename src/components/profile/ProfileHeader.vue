@@ -41,7 +41,7 @@ defineEmits<{ edit: [] }>();
         <p v-if="overview.profile.bio" class="mt-2 break-words text-sm leading-relaxed text-app-muted">
           {{ overview.profile.bio }}
         </p>
-        <p v-else class="mt-2 text-sm text-app-muted">아직 한 줄 영화 소개가 없어요.</p>
+        <p v-else class="mt-2 text-sm text-app-muted">아직 한줄소개가 없어요.</p>
       </div>
     </div>
 

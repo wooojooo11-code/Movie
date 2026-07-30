@@ -31,7 +31,10 @@ const toComment = (row: Row, profile?: Row): CommunityComment => ({
 
 export const fetchComments = async (postId: string): Promise<CommunityComment[]> => {
   ensureConfigured();
-  const { data, error } = await getCommunityCommentsRelation()!.select('*').eq('post_id', postId).order('created_at');
+  const { data, error } = await getCommunityCommentsRelation()!
+    .select('*')
+    .eq('post_id', postId)
+    .order('created_at', { ascending: false });
   if (error) throw error;
   const rows = (data ?? []) as Row[];
   const userIds = [...new Set(rows.map((row) => String(row.user_id)))];

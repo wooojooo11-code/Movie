@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import MissionProofCard from '@/components/community/MissionProofCard.vue';
 import MoviePoll from '@/components/community/MoviePoll.vue';
 import SharedMovieListCard from '@/components/community/SharedMovieListCard.vue';
 import SpoilerCover from '@/components/community/SpoilerCover.vue';
@@ -72,8 +71,6 @@ const relatedMovies = computed(() =>
 
     <SharedMovieListCard v-if="post.list" class="mt-3" :list="post.list" :saved="savedListIds?.has(post.list.id)" @save="$emit('save-list', $event)" />
     <MoviePoll v-if="post.poll" class="mt-3" :poll="post.poll" @vote="$emit('vote', { post, optionId: $event })" @clear="$emit('clear-vote', post)" />
-    <MissionProofCard v-if="post.missionProof" class="mt-3" :proof="post.missionProof" />
-
     <div v-if="showActions" class="mt-4 flex flex-wrap items-center gap-2 border-t border-app-line pt-3">
       <button type="button" class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center gap-1.5 border px-3 py-2 text-xs font-semibold transition-colors active:scale-[0.98]" :class="viewerLiked ? 'border-[#174a77] bg-[#e5f1fc] text-[#174a77]' : 'border-app-line bg-app-bg text-app-muted hover:border-[#8bb7df] hover:text-[#174a77]'" :aria-label="`좋아요 ${post.likeCount}개`" @click="$emit('like', post)"><span aria-hidden="true" class="text-base leading-none">{{ viewerLiked ? '♥' : '♡' }}</span><span>{{ post.likeCount }}</span></button>
       <RouterLink :to="`/community/${post.id}#comments`" class="focus-ring corner-soft inline-flex min-h-9 items-center justify-center gap-1.5 border border-app-line bg-app-bg px-3 py-2 text-xs font-semibold text-app-muted transition-colors hover:border-[#8bb7df] hover:text-[#174a77] active:scale-[0.98]" :aria-label="`댓글 ${post.commentCount}개`"><span aria-hidden="true" class="text-sm leading-none">💬</span><span>{{ post.commentCount }}</span></RouterLink>

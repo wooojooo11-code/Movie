@@ -11,7 +11,6 @@
     "test:situations": "node ./scripts/test-situation-recommendations.mjs",
     "test:catalog-surfaces": "node ./scripts/test-catalog-surfaces.mjs",
     "test:kobis-boxoffice": "node ./scripts/test-kobis-boxoffice.mjs",
-    "test:theatrical": "node ./scripts/test-tmdb-theatrical.mjs",
     "sync:tmdb": "node ./scripts/sync-tmdb-data.mjs"
   },
   "dependencies": {

@@ -1,5 +1,12 @@
 # 영화 커뮤니티 기능 안내
 
+## 미션 인증 기능 제거
+
+커뮤니티에서는 미션 인증 탭, 작성 항목, 카드, 상세 표시를 더 이상 제공하지 않습니다.
+
+- `202608021000_remove_community_mission_proof.sql`을 실행하면 새 미션 인증 글은 작성할 수 없고, 기존 미션 인증 글은 목록과 상세 화면에서 보이지 않습니다.
+- `community_mission_proofs` 테이블과 이전 데이터는 삭제하지 않습니다. 필요하면 나중에 별도 백업·정리 작업을 할 수 있습니다.
+
 ## Supabase 적용 순서
 
 Supabase Dashboard의 SQL Editor에서 아래 파일을 순서대로 각각 실행합니다.
@@ -10,6 +17,7 @@ Supabase Dashboard의 SQL Editor에서 아래 파일을 순서대로 각각 실�
 4. `supabase/migrations/202607271000_seed_30_day_daily_questions.sql`
 5. `supabase/migrations/202607281000_add_unlimited_related_post_movies.sql`
 6. `supabase/migrations/202607281100_add_comment_movie_recommendations.sql`
+7. `supabase/migrations/202608021000_remove_community_mission_proof.sql`
 
 브라우저 환경에는 기존 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`만 설정되어 있으면 됩니다. 키 값은 코드에 넣지 않습니다.
 

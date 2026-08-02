@@ -1,7 +1,6 @@
 import {
   getCommunityFollowsRelation,
   getCommunityLikesRelation,
-  getCommunityMissionProofsRelation,
   getCommunityPostMoviesRelation,
   getCommunityPollOptionsRelation,
   getCommunityPollVotesRelation,
@@ -26,8 +25,7 @@ import type {
   CommunityProfile,
   CommunitySort,
   DailyQuestion,
-  DailyQuestionAnswer,
-  MissionProof
+  DailyQuestionAnswer
 } from '@/types/community';
 import type { CommunityPoll, CommunityPollOption } from '@/types/poll';
 
@@ -236,35 +234,13 @@ const queryPolls = async (postIds: readonly string[], viewerId?: null | string) 
   );
 };
 
-const queryMissionProofs = async (postIds: readonly string[]) => {
-  const relation = getCommunityMissionProofsRelation();
-  if (!relation || postIds.length === 0) return new Map<string, MissionProof>();
-  const { data, error } = await relation.select('*').in('post_id', postIds);
-  if (error) throw error;
-  return new Map(
-    ((data ?? []) as Row[]).map((row) => [
-      asString(row.post_id),
-      {
-        missionId: asNullableString(row.mission_id),
-        missionName: asString(row.mission_name),
-        movie: toMovie(row.movie_id, row.movie_title, row.movie_poster_path),
-        reflection: asString(row.reflection),
-        imageUrl: asNullableString(row.image_url),
-        completedAt: asString(row.completed_at),
-        badgeLabel: asString(row.badge_label, 'MISSION COMPLETE')
-      }
-    ])
-  );
-};
-
 const decoratePosts = async (rows: readonly Row[], viewerId?: null | string) => {
-  const [lists, polls, missionProofs, moviesByPost] = await Promise.all([
+  const [lists, polls, moviesByPost] = await Promise.all([
     queryListReferences(rows),
     queryPolls(rows.map((row) => asString(row.id)), viewerId),
-    queryMissionProofs(rows.map((row) => asString(row.id))),
     queryPostMovies(rows)
   ]);
-  return rows.map((row) => ({ ...toPost(row, lists, moviesByPost), poll: polls.get(asString(row.id)), missionProof: missionProofs.get(asString(row.id)) }));
+  return rows.map((row) => ({ ...toPost(row, lists, moviesByPost), poll: polls.get(asString(row.id)) }));
 };
 
 const cleanSearchTerm = (query: string) => query.trim().replace(/[(),%_]/g, ' ').replace(/\s+/g, ' ');
@@ -273,7 +249,7 @@ export const fetchCommunityFeed = async (request: CommunityFeedRequest): Promise
   ensureSupabase();
   const relation = getCommunityPostsRelation()!;
   const pageSize = request.limit ?? 10;
-  let query = relation.select('*');
+  let query = relation.select('*').neq('category', 'mission_proof');
 
   if (request.category !== 'all') {
     query = query.eq('category', request.category);
@@ -326,6 +302,7 @@ export const fetchCommunityPost = async (postId: string, viewerId?: null | strin
   const { data, error } = await relation.select('*').eq('id', postId).maybeSingle();
   if (error) throw error;
   if (!data) throw new Error('게시글을 찾을 수 없습니다.');
+  if ((data as Row).category === 'mission_proof') throw new Error('게시글을 찾을 수 없습니다.');
   const [post] = await decoratePosts([data as Row], viewerId);
   const viewer = { hasLiked: false, hasSaved: false, isFollowingAuthor: false };
 
@@ -378,16 +355,7 @@ export const createCommunityPost = async (draft: CommunityPostDraft) => {
       movie_id: option.movie?.id ?? null,
       movie_title: option.movie?.title ?? null,
       movie_poster_path: option.movie?.posterPath ?? null
-    })),
-    mission_id: draft.mission.id,
-    mission_name: draft.mission.name.trim(),
-    mission_movie_id: draft.mission.movie?.id ?? null,
-    mission_movie_title: draft.mission.movie?.title ?? null,
-    mission_movie_poster_path: draft.mission.movie?.posterPath ?? null,
-    mission_reflection: draft.mission.reflection.trim(),
-    mission_image_url: draft.mission.imageUrl.trim() || null,
-    mission_completed_at: draft.mission.completedAt,
-    mission_badge_label: draft.mission.badgeLabel.trim()
+    }))
   };
   const { data, error } = await supabase!.rpc('create_community_post', { payload });
   if (error) throw error;

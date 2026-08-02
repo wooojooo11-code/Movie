@@ -11,13 +11,6 @@ import type {
 import type { RatingDirection } from '@/types/rating';
 
 export type SituationMood = 'sad' | 'stressed' | 'comfort' | 'okay' | 'excited' | 'laugh' | 'tense';
-export type SituationCompanion =
-  | 'alone'
-  | 'friend'
-  | 'partner'
-  | 'family'
-  | 'parents'
-  | 'siblings';
 export type SituationWeather =
   | 'rain'
   | 'snow'
@@ -55,7 +48,6 @@ export type SituationReason =
   | 'true_story';
 
 export interface SituationSelection {
-  companion?: SituationCompanion;
   mood?: SituationMood;
   reason?: readonly SituationReason[];
   specialDay?: SituationSpecialDay;
@@ -74,9 +66,7 @@ export type SituationPresetId =
   | 'cleaning'
   | 'before_confession'
   | 'autumn_vibes'
-  | 'sunday_night'
-  | 'solar_eclipse'
-  | 'lunar_eclipse';
+  | 'sunday_night';
 
 export type ActiveSituation =
   | { kind: 'manual'; selection: SituationSelection }

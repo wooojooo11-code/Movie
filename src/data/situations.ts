@@ -1,5 +1,4 @@
 import type {
-  SituationCompanion,
   SituationContextTag,
   SituationMood,
   SituationPresetId,
@@ -37,18 +36,6 @@ export const situationOptionGroups = [
       { value: 'excited', label: '설렘' },
       { value: 'laugh', label: '웃음' },
       { value: 'tense', label: '긴장감' }
-    ]
-  },
-  {
-    key: 'companion',
-    label: '누구와',
-    options: [
-      { value: 'alone', label: '혼자' },
-      { value: 'friend', label: '친구' },
-      { value: 'partner', label: '연인' },
-      { value: 'family', label: '가족' },
-      { value: 'parents', label: '부모님' },
-      { value: 'siblings', label: '형제자매' }
     ]
   },
   {
@@ -123,15 +110,6 @@ export const moodRules: Record<SituationMood, SituationRule> = {
   tense: { genreIds: [53, 9648, 27], tags: ['긴장감', '몰입감', '반전'] }
 };
 
-export const companionRules: Record<SituationCompanion, SituationRule> = {
-  alone: { genreIds: [18, 16], tags: ['여운', '영상미', '감동'] },
-  friend: { genreIds: [35, 28, 53], tags: ['유쾌함', '긴장감', '액션'] },
-  partner: { genreIds: [10749], tags: ['감성적인 음악', '영상미', '감동'] },
-  family: { genreIds: [16, 10751], contextTags: ['family'], tags: ['감동', '유쾌함'] },
-  parents: { genreIds: [18, 16], contextTags: ['family'], tags: ['감동', '여운'] },
-  siblings: { genreIds: [35, 28, 53], tags: ['유쾌함', '액션', '긴장감'] }
-};
-
 export const weatherRules: Record<SituationWeather, SituationRule> = {
   rain: { tags: ['여운', '감성적인 음악'], textIncludes: ['비', 'rain'] },
   snow: { contextTags: ['winter'], tags: ['감동', '여운'] },
@@ -177,7 +155,6 @@ export const reasonRules: Record<SituationReason, SituationRule> = {
 export const manualSituationRule = (selection: SituationSelection): SituationRule => {
   const selectedRules = [
     selection.mood ? moodRules[selection.mood] : undefined,
-    selection.companion ? companionRules[selection.companion] : undefined,
     selection.weather ? weatherRules[selection.weather] : undefined,
     selection.specialDay ? specialDayRules[selection.specialDay] : undefined,
     ...(selection.reason ?? []).map((reason) => reasonRules[reason])
@@ -238,16 +215,6 @@ export const situationPresets: SituationPreset[] = [
     id: 'sunday_night',
     label: '일요일 밤',
     rule: { genreIds: [16, 18], tags: ['감동', '여운', '유쾌함'] }
-  },
-  {
-    id: 'solar_eclipse',
-    label: '일식',
-    rule: { contextTags: ['space'], genreIds: [878], tags: ['세계관', '영상미'] }
-  },
-  {
-    id: 'lunar_eclipse',
-    label: '월식',
-    rule: { contextTags: ['space'], genreIds: [878], tags: ['세계관', '영상미'] }
   }
 ];
 
@@ -265,7 +232,6 @@ export const getSituationOptionLabel = (
 export const getManualSituationLabels = (selection: SituationSelection) => {
   const selectedValues = [
     ['mood', selection.mood ? [selection.mood] : []],
-    ['companion', selection.companion ? [selection.companion] : []],
     ['weather', selection.weather ? [selection.weather] : []],
     ['viewingTime', selection.viewingTime ? [selection.viewingTime] : []],
     ['specialDay', selection.specialDay ? [selection.specialDay] : []],
@@ -288,7 +254,7 @@ export const normalizeSituationSelection = (value: unknown): SituationSelection 
 
   const rawSelection = value as Record<string, unknown>;
   const selection: SituationSelection = {};
-  const singleValueKeys = ['mood', 'companion', 'weather', 'viewingTime', 'specialDay'] as const;
+  const singleValueKeys = ['mood', 'weather', 'viewingTime', 'specialDay'] as const;
 
   for (const key of singleValueKeys) {
     const selectedValue = rawSelection[key];

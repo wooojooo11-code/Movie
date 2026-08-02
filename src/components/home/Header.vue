@@ -1,15 +1,28 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { onMounted, onUnmounted, ref, watchEffect, type WatchHandle } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { useRecommendationStore } from '@/services/recommendationStore';
 import { useAuthStore } from '@/stores/auth';
 
 const authStore = useAuthStore();
-const recommendationStore = useRecommendationStore();
 const router = useRouter();
+const tasteAnalysisTo = ref('/rating');
+let stopTasteAnalysisPathSync: null | WatchHandle = null;
 
-const tasteAnalysisTo = computed(() => recommendationStore.resumeTasteAnalysisPath.value);
+onMounted(() => {
+  void (async () => {
+    const { useRecommendationStore } = await import('@/services/recommendationStore');
+    const recommendationStore = useRecommendationStore();
+
+    stopTasteAnalysisPathSync = watchEffect(() => {
+      tasteAnalysisTo.value = recommendationStore.resumeTasteAnalysisPath.value;
+    });
+  })();
+});
+
+onUnmounted(() => {
+  stopTasteAnalysisPathSync?.();
+});
 
 const signOut = async () => {
   try {
@@ -103,13 +116,6 @@ const signOut = async () => {
           active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           리스트
-        </RouterLink>
-        <RouterLink
-          to="/theaters"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
-          active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
-        >
-          극장
         </RouterLink>
         <RouterLink
           to="/community"

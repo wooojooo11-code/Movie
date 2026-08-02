@@ -26,15 +26,12 @@ import {
   toggleCommunitySave
 } from '@/services/community/communityService';
 import { useListStore } from '@/services/listStore';
-import { getMissionProofChoices } from '@/services/community/missionProofService';
-import { useRecommendationStore } from '@/services/recommendationStore';
 import { checkTitlesForEvent } from '@/services/titleService';
 import { useAuthStore } from '@/stores/auth';
 import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion, DailyQuestionAnswer } from '@/types/community';
 
 const authStore = useAuthStore();
 const listStore = useListStore();
-const recommendationStore = useRecommendationStore();
 const router = useRouter();
 const route = useRoute();
 
@@ -63,7 +60,6 @@ let searchTimer: number | undefined;
 
 const viewerId = computed(() => authStore.user?.id ?? null);
 const canWrite = computed(() => authStore.isAuthenticated && Boolean(viewerId.value));
-const missionChoices = computed(() => getMissionProofChoices(recommendationStore.ratedMoviesHistory.value.map(({ ratingRecord }) => ratingRecord)));
 const savedListIds = computed(() =>
   new Set(listStore.state.interactions.filter((interaction) => interaction.saved).map((interaction) => interaction.listId))
 );
@@ -284,7 +280,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
         <button type="button" class="focus-ring pointer-events-auto grid size-14 place-items-center rounded-full border border-app-accent bg-app-accent text-sm font-bold text-white active:scale-95" aria-label="글쓰기" @click="openComposer">글쓰기</button>
       </div>
     </div>
-    <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :mission-choices="missionChoices" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
+    <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
     <DailyQuestionAnswersModal :open="dailyAnswerListOpen" :question="dailyQuestion" :answers="dailyAnswers" :loading="loadingDailyAnswers" :error-message="dailyAnswersError" @close="dailyAnswerListOpen = false" />
   </main>
 </template>

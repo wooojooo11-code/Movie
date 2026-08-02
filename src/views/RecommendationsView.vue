@@ -2,17 +2,17 @@ Exit code: 0
 Wall time: 0.3 seconds
 Output:
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import {
+  getSituationOptionLabel,
   getManualSituationLabels,
   getSituationPreset,
   isCompleteSituationSelection,
   situationOptionGroups,
   situationPresets
 } from '@/data/situations';
-import MissionBingo from '@/components/home/MissionBingo.vue';
 import FavoritePeopleMovieRows from '@/components/recommendations/FavoritePeopleMovieRows.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
@@ -32,6 +32,7 @@ const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 const isSavingRecommendationRating = ref(false);
 const manualSelection = ref<SituationSelection>({});
+const reasonDropdown = ref<HTMLDetailsElement | null>(null);
 
 const hasMoreTasteAnalysis = computed(() => recommendationStore.hasAdditionalTasteAnalysisMovies.value);
 const isManualSelectionComplete = computed(() => isCompleteSituationSelection(manualSelection.value));
@@ -205,7 +206,31 @@ const setManualSelection = (key: keyof SituationSelection, value: string) => {
 };
 
 const selectedReasons = computed(() => manualSelection.value.reason ?? []);
+const selectedReasonSummary = computed(() =>
+  selectedReasons.value.length > 0
+    ? selectedReasons.value.map((reason) => getSituationOptionLabel('reason', reason)).join(', ')
+    : '이유 선택'
+);
 const isReasonSelected = (reason: string) => selectedReasons.value.includes(reason as SituationReason);
+
+const setReasonDropdown = (element: Element | { $el?: Element } | null) => {
+  const dropdownElement = element instanceof Element ? element : element?.$el;
+  reasonDropdown.value = dropdownElement instanceof HTMLDetailsElement ? dropdownElement : null;
+};
+
+const closeReasonDropdown = () => {
+  if (reasonDropdown.value) {
+    reasonDropdown.value.open = false;
+  }
+};
+
+const handleReasonDropdownPointerDown = (event: PointerEvent) => {
+  const dropdown = reasonDropdown.value;
+
+  if (dropdown?.open && event.target instanceof Node && !dropdown.contains(event.target)) {
+    closeReasonDropdown();
+  }
+};
 
 const toggleReasonSelection = (reason: string) => {
   const currentReasons = selectedReasons.value;
@@ -220,7 +245,19 @@ const toggleReasonSelection = (reason: string) => {
     ...manualSelection.value,
     ...(nextReasons.length > 0 ? { reason: nextReasons } : { reason: undefined })
   };
+
+  if (!currentReasons.includes(normalizedReason) && nextReasons.length === 2) {
+    closeReasonDropdown();
+  }
 };
+
+onMounted(() => {
+  document.addEventListener('pointerdown', handleReasonDropdownPointerDown);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pointerdown', handleReasonDropdownPointerDown);
+});
 
 const resetManualSituation = () => {
   manualSelection.value = {};
@@ -293,32 +330,43 @@ const applyDefaultSituation = () => {
         </div>
 
         <div class="grid max-w-sm grid-cols-3 gap-2.5">
-          <label
+          <div
             v-for="group in situationOptionGroups"
             :key="group.key"
             class="grid min-w-0 gap-1"
-            :class="group.key === 'reason' ? 'col-span-3' : ''"
           >
             <span class="text-xs font-semibold text-[#15171c]">{{ group.label }}</span>
-            <div v-if="group.key === 'reason'" class="flex flex-wrap gap-1.5">
-              <button
-                v-for="option in group.options"
-                :key="option.value"
-                type="button"
-                class="focus-ring corner-pill min-h-8 border px-2.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-45"
-                :class="
-                  isReasonSelected(option.value)
-                    ? 'border-app-accent bg-app-accent text-white'
-                    : 'border-app-line bg-app-panelSoft text-[#15171c] hover:border-app-accent'
-                "
-                :disabled="!isReasonSelected(option.value) && selectedReasons.length >= 2"
-                :aria-pressed="isReasonSelected(option.value)"
-                @click="toggleReasonSelection(option.value)"
+            <details v-if="group.key === 'reason'" :ref="setReasonDropdown" class="relative">
+              <summary
+                class="focus-ring corner-soft flex min-h-9 list-none items-center justify-between gap-2 border border-app-line bg-app-panelSoft px-2.5 text-xs font-medium text-[#15171c] [&::-webkit-details-marker]:hidden"
               >
-                {{ option.label }}
-              </button>
-              <span class="self-center text-[11px] text-app-muted">최대 2개</span>
-            </div>
+                <span class="truncate">{{ selectedReasonSummary }}</span>
+                <span class="shrink-0 text-[11px] text-app-muted">최대 2개</span>
+              </summary>
+              <div
+                class="absolute inset-x-0 z-10 mt-1 max-h-64 overflow-y-auto border border-app-line bg-app-panel p-1.5 shadow-lg"
+              >
+                <label
+                  v-for="option in group.options"
+                  :key="option.value"
+                  class="flex min-h-8 items-center gap-2 px-2 text-xs text-[#15171c] hover:bg-app-panelSoft"
+                  :class="
+                    !isReasonSelected(option.value) && selectedReasons.length >= 2
+                      ? 'cursor-not-allowed opacity-45'
+                      : 'cursor-pointer'
+                  "
+                >
+                  <input
+                    type="checkbox"
+                    class="size-3.5 accent-app-accent"
+                    :checked="isReasonSelected(option.value)"
+                    :disabled="!isReasonSelected(option.value) && selectedReasons.length >= 2"
+                    @change="toggleReasonSelection(option.value)"
+                  />
+                  {{ option.label }}
+                </label>
+              </div>
+            </details>
             <select
               v-else
               class="focus-ring corner-soft min-h-9 w-full border border-app-line bg-app-panelSoft px-2.5 text-xs font-medium text-[#15171c]"
@@ -330,7 +378,7 @@ const applyDefaultSituation = () => {
                 {{ option.label }}
               </option>
             </select>
-          </label>
+          </div>
         </div>
 
         <div class="mt-4 flex flex-wrap gap-2">
@@ -430,14 +478,11 @@ const applyDefaultSituation = () => {
       </div>
     </section>
 
-    <section class="grid items-start gap-4 lg:grid-cols-[minmax(19rem,0.8fr)_minmax(0,1.2fr)]">
-      <MissionBingo compact />
-      <FavoritePeopleMovieRows
-        :entries="recommendationStore.ratedMoviesHistory.value"
-        :movies="recommendationStore.favoritePeopleRecommendationPool.value"
-        @open="openMovieSheet"
-      />
-    </section>
+    <FavoritePeopleMovieRows
+      :entries="recommendationStore.ratedMoviesHistory.value"
+      :movies="recommendationStore.favoritePeopleRecommendationPool.value"
+      @open="openMovieSheet"
+    />
 
     <RecommendationMovieSheet
       v-if="selectedMovie"

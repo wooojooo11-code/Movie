@@ -62,4 +62,4 @@ export interface ProfileEditInput {
   avatarFile?: File | null;
 }
 
-export type TitleCheckEvent = 'bingo' | 'daily_question' | 'list' | 'rating' | 'watch';
+export type TitleCheckEvent = 'daily_question' | 'list' | 'rating' | 'watch';

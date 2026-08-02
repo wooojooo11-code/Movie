@@ -1,11 +1,13 @@
 import { catalogMovies } from '@/data/catalog';
 import type { CommunityMovieReference } from '@/types/community';
+import type { CatalogMovie } from '@/types/recommendation';
 
 export interface CommunityMovieDetail extends CommunityMovieReference {
   overview: string;
   backdropPath: null | string;
   genres: string[];
   runtimeMinutes: null | number;
+  watchProvidersKr: CatalogMovie['watchProvidersKr'];
 }
 
 /** 앱에 포함된 카탈로그 한 건을 커뮤니티에서 쓰는 가벼운 형태로 바꿉니다. */
@@ -55,6 +57,7 @@ export const getCommunityMovieDetail = (movieId: string): CommunityMovieDetail =
     overview: movie.overview,
     backdropPath: null,
     genres: movie.genres,
-    runtimeMinutes: movie.runtimeMinutes ?? null
+    runtimeMinutes: movie.runtimeMinutes ?? null,
+    watchProvidersKr: movie.watchProvidersKr
   };
 };

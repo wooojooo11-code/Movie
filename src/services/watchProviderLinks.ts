@@ -1,5 +1,9 @@
 import type { CatalogMovie } from '@/types/recommendation';
 
+type WatchProviderMovie = Pick<CatalogMovie, 'title' | 'watchProvidersKr'> & {
+  releaseYear?: null | number;
+};
+
 export interface WatchProviderLink {
   accentClassName: string;
   buttonLabel: string;
@@ -12,7 +16,7 @@ interface WatchProviderLinkDefinition {
   buttonLabel: string;
   key: string;
   matches: string[];
-  buildHref: (movie: CatalogMovie) => string;
+  buildHref: (movie: WatchProviderMovie) => string;
 }
 
 const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
@@ -63,7 +67,7 @@ const normalizeProviderName = (providerName: string) =>
     .toLocaleLowerCase()
     .replace(/\s+/g, ' ');
 
-export const getWatchProviderLinks = (movie: CatalogMovie): WatchProviderLink[] => {
+export const getWatchProviderLinks = (movie: WatchProviderMovie): WatchProviderLink[] => {
   const watchProviders = movie.watchProvidersKr;
 
   if (!watchProviders) {

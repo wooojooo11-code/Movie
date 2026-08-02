@@ -1,5 +1,4 @@
 import {
-  companionRules,
   getSituationPreset,
   moodRules,
   reasonRules,
@@ -14,7 +13,6 @@ import type {
   CollaborativeRecommendationSignal,
   RecommendationImpression,
   RecommendedCatalogMovie,
-  SituationReason,
   SituationViewingTime
 } from '@/types/recommendation';
 
@@ -163,16 +161,13 @@ const getManualSituationScore = (movie: CatalogMovie, activeSituation: Extract<A
     ...(selection.mood
       ? [{ label: '현재 기분', rule: moodRules[selection.mood], weight: 0.2, isReason: false }]
       : []),
-    ...(selection.companion
-      ? [{ label: '누구와 보는지', rule: companionRules[selection.companion], weight: 0.15, isReason: false }]
-      : []),
     ...(selection.weather
       ? [{ label: '오늘 날씨', rule: weatherRules[selection.weather], weight: 0.1, isReason: false }]
       : []),
     ...(selection.specialDay
       ? [{ label: '특별한 날', rule: specialDayRules[selection.specialDay], weight: 0.2, isReason: false }]
       : []),
-    ...(selection.reason ?? []).map((reason: SituationReason) => ({
+    ...(selection.reason ?? []).map((reason) => ({
       label: '보고 싶은 이유',
       rule: reasonRules[reason],
       weight: 0.35 / (selection.reason?.length ?? 1),

@@ -9,7 +9,7 @@ import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
 import { getCharacterChoices } from '@/services/movieCreditsService';
-import type { RatingInput } from '@/services/movie_recommendation_algorithm';
+import { createRatingInput } from '@/services/ratingInput';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import type { CatalogMovie, RatingResumeSurface, StoredRatingRecord } from '@/types/recommendation';
@@ -305,7 +305,7 @@ const completionTitle = computed(() => {
   }
 
   if (isAdditionalTasteAnalysisSurface.value) {
-    return '추가 20편 평가가 끝났어요.';
+    return '추가 10편 평가가 끝났어요.';
   }
 
   return '취향분석이 끝났어요.';
@@ -313,7 +313,7 @@ const completionTitle = computed(() => {
 
 const completionDescription = computed(() => {
   if (isDetailPaused.value) {
-    return '남은 상세 평가는 그대로 두었어요. 다음 20편을 평가하거나 원하는 영화를 직접 찾아 평가할 수 있어요.';
+    return '남은 상세 평가는 그대로 두었어요. 다음 10편을 평가하거나 원하는 영화를 직접 찾아 평가할 수 있어요.';
   }
 
   if (isDetailMode.value) {
@@ -325,7 +325,7 @@ const completionDescription = computed(() => {
   }
 
   if (isAdditionalTasteAnalysisSurface.value) {
-    return '이번 20편 평가도 기존 취향기록에 누적했어요. 더 이어서 평가하거나 바로 추천을 볼 수 있어요.';
+    return '이번 10편 평가도 기존 취향기록에 누적했어요. 더 이어서 평가하거나 바로 추천을 볼 수 있어요.';
   }
 
   return '영화를 하나씩 남긴 평가를 바탕으로 추천을 준비했어요.';
@@ -334,7 +334,7 @@ const completionDescription = computed(() => {
 const secondaryAction = computed<null | { isMoreAction?: boolean; label: string; to: string }>(() => {
   if (isDetailPaused.value && recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
     return {
-      label: '다음 20편 평가하기',
+      label: '다음 10편 평가하기',
       to: '/rating?mode=more',
       isMoreAction: true
     };
@@ -356,7 +356,7 @@ const secondaryAction = computed<null | { isMoreAction?: boolean; label: string;
 
   if (!isDetailMode.value && recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
     return {
-      label: '다음 20편 평가하기',
+      label: '다음 10편 평가하기',
       to: '/rating?mode=more',
       isMoreAction: true
     };
@@ -465,15 +465,11 @@ const savePrimaryMovieDecision = async (selection: RatingSelection | RatingSelec
   isSavingPrimaryDecision.value = true;
 
   try {
-    const input: RatingInput = {
-      movieId: movie.id,
-      userId: recommendationStore.state.userId,
-      status: toStoredRatingStatus(decision),
-      rating: null,
-      reviewTags: [],
-      favoriteCharacters: [],
-      answeredAt: new Date().toISOString()
-    };
+    const input = createRatingInput(
+      recommendationStore.state.userId,
+      movie.id,
+      toStoredRatingStatus(decision)
+    );
 
     await recommendationStore.submitSwipeRating(movie, input, {
       rawDecision: decision,
@@ -494,15 +490,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'dislike',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacters: feedback.favoriteCharacters,
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'dislike', feedback);
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: record.rawDecision,
@@ -530,15 +518,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'like',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacters: feedback.favoriteCharacters,
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'like', feedback);
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'like',
@@ -566,15 +546,9 @@ const skipPositiveFeedback = async () => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'like',
-    rating: currentDetailRecord.value?.input.rating ?? null,
-    reviewTags: [],
-    favoriteCharacters: [],
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'like', {
+    rating: currentDetailRecord.value?.input.rating ?? null
+  });
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'like',
@@ -596,15 +570,9 @@ const skipNegativeFeedback = async () => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'dislike',
-    rating: record.input.rating ?? null,
-    reviewTags: [],
-    favoriteCharacters: [],
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'dislike', {
+    rating: record.input.rating ?? null
+  });
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: record.rawDecision,
@@ -653,15 +621,11 @@ const saveManualMovieDecision = async (selection: RatingSelection | RatingSelect
   isSavingManualDecision.value = true;
 
   try {
-    const input: RatingInput = {
-      movieId: movie.id,
-      userId: recommendationStore.state.userId,
-      status: toStoredRatingStatus(decision),
-      rating: null,
-      reviewTags: [],
-      favoriteCharacters: [],
-      answeredAt: new Date().toISOString()
-    };
+    const input = createRatingInput(
+      recommendationStore.state.userId,
+      movie.id,
+      toStoredRatingStatus(decision)
+    );
 
     await recommendationStore.submitSwipeRating(movie, input, {
       rawDecision: decision,
@@ -682,15 +646,7 @@ const submitManualPositiveFeedback = async (feedback: PositiveRatingInput) => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'like',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacters: feedback.favoriteCharacters,
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'like', feedback);
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'like',
@@ -715,15 +671,7 @@ const submitManualNegativeFeedback = async (feedback: NegativeRatingInput) => {
     return;
   }
 
-    const input: RatingInput = {
-      movieId: movie.id,
-      userId: recommendationStore.state.userId,
-    status: 'dislike',
-    rating: feedback.stars,
-    reviewTags: feedback.reviewTags,
-    favoriteCharacters: feedback.favoriteCharacters,
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'dislike', feedback);
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'dislike',
@@ -748,15 +696,7 @@ const skipManualPositiveFeedback = async () => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'like',
-    rating: null,
-    reviewTags: [],
-    favoriteCharacters: [],
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'like');
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'like',
@@ -774,15 +714,7 @@ const skipManualNegativeFeedback = async () => {
     return;
   }
 
-  const input: RatingInput = {
-    movieId: movie.id,
-    userId: recommendationStore.state.userId,
-    status: 'dislike',
-    rating: null,
-    reviewTags: [],
-    favoriteCharacters: [],
-    answeredAt: new Date().toISOString()
-  };
+  const input = createRatingInput(recommendationStore.state.userId, movie.id, 'dislike');
 
   await recommendationStore.submitSwipeRating(movie, input, {
     rawDecision: 'dislike',

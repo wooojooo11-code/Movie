@@ -127,7 +127,6 @@ export const getCommunityPollsRelation = () => getCommunityRelation('community_p
 export const getCommunityPollOptionsRelation = () => getCommunityRelation('community_poll_options');
 export const getCommunityPollVotesRelation = () => getCommunityRelation('community_poll_votes');
 export const getRecommendationRelaysRelation = () => getCommunityRelation('recommendation_relays');
-export const getCommunityMissionProofsRelation = () => getCommunityRelation('community_mission_proofs');
 export const getDailyQuestionsRelation = () => getCommunityRelation('daily_questions');
 export const getDailyQuestionAnswersRelation = () => getCommunityRelation('daily_question_answers');
 export const getCommunityReportsRelation = () => getCommunityRelation('community_reports');

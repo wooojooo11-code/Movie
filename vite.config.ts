@@ -1,47 +1,14 @@
 import { fileURLToPath, URL } from 'node:url';
 
 import vue from '@vitejs/plugin-vue';
-import { defineConfig, loadEnv, type Plugin } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-
-// Netlify functions are JavaScript-only, so mount this endpoint in local dev and preview servers.
-// @ts-expect-error This server-only module is intentionally outside the browser TypeScript project.
-import theatricalMoviesHandlerModule from './netlify/functions/tmdb-theatrical.mjs';
-
-const theatricalMoviesHandler = theatricalMoviesHandlerModule as () => Promise<Response>;
-
-const theatricalMoviesDevPlugin = (): Plugin => ({
-  name: 'theatrical-movies-dev-function',
-  configureServer(server) {
-    server.middlewares.use('/.netlify/functions/tmdb-theatrical', (_request, response, next) => {
-      void theatricalMoviesHandler()
-        .then(async (functionResponse) => {
-          response.statusCode = functionResponse.status;
-          functionResponse.headers.forEach((value, name) => response.setHeader(name, value));
-          response.end(Buffer.from(await functionResponse.arrayBuffer()));
-        })
-        .catch(next);
-    });
-  },
-  configurePreviewServer(server) {
-    server.middlewares.use('/.netlify/functions/tmdb-theatrical', (_request, response, next) => {
-      void theatricalMoviesHandler()
-        .then(async (functionResponse) => {
-          response.statusCode = functionResponse.status;
-          functionResponse.headers.forEach((value, name) => response.setHeader(name, value));
-          response.end(Buffer.from(await functionResponse.arrayBuffer()));
-        })
-        .catch(next);
-    });
-  }
-});
 
 export default defineConfig(({ mode }) => {
   Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
 
   return {
     plugins: [
-      theatricalMoviesDevPlugin(),
       vue(),
       VitePWA({
       registerType: 'autoUpdate',
@@ -87,18 +54,6 @@ export default defineConfig(({ mode }) => {
             name: '리스트',
             short_name: '리스트',
             url: '/lists',
-            icons: [
-              {
-                src: '/pwa-192x192.png',
-                sizes: '192x192',
-                type: 'image/png'
-              }
-            ]
-          },
-          {
-            name: '극장',
-            short_name: '극장',
-            url: '/theaters',
             icons: [
               {
                 src: '/pwa-192x192.png',

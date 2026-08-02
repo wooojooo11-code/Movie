@@ -1,11 +1,10 @@
 import type { CommunityPoll } from '@/types/poll';
 import type { RecommendationRelay } from '@/types/relay';
 
-/** 커뮤니티 탭과 DB category 값을 분리해 오타를 방지합니다. */
+/** 화면 탭과 DB category 값을 같은 타입으로 관리합니다. */
 export type CommunityCategory =
   | 'movie_recommendation'
   | 'list_share'
-  | 'mission_proof'
   | 'movie_poll'
   | 'daily_question';
 
@@ -19,7 +18,7 @@ export interface CommunityProfile {
 }
 
 export interface CommunityMovieReference {
-  /** 앱 카탈로그의 영화 ID입니다. 예: movie_42 */
+  /** 앱 카탈로그 영화 ID입니다. 예: movie_42 */
   id: string;
   title: string;
   posterPath: null | string;
@@ -34,24 +33,15 @@ export interface CommunityListReference {
   saveCount: number;
 }
 
-export interface MissionProof {
-  missionId: null | string;
-  missionName: string;
-  movie: null | CommunityMovieReference;
-  reflection: string;
-  imageUrl: null | string;
-  completedAt: string;
-  badgeLabel: string;
-}
-
 export interface CommunityPost {
   id: string;
   userId: string;
   category: CommunityCategory;
   title: string;
   content: string;
+  /** 이전 게시글 호환용 첫 번째 관련 영화입니다. */
   movie: null | CommunityMovieReference;
-  /** 게시글에 연결한 영화 전체 목록입니다. `movie`는 이전 게시글 호환용 첫 번째 영화입니다. */
+  /** 게시글에 연결한 관련 영화 전체 목록입니다. */
   movies: CommunityMovieReference[];
   list: null | CommunityListReference;
   imageUrl: null | string;
@@ -63,10 +53,10 @@ export interface CommunityPost {
   createdAt: string;
   updatedAt: string;
   poll?: CommunityPoll;
-  missionProof?: MissionProof;
 }
 
 export interface CommunityPostDetail extends CommunityPost {
+  /** 이전 추천 릴레이 데이터 호환용 필드이며, 현재 화면에는 표시하지 않습니다. */
   relays: RecommendationRelay[];
   viewer: {
     hasLiked: boolean;
@@ -80,7 +70,7 @@ export interface CommunityComment {
   postId: string;
   userId: string;
   content: string;
-  /** 선택하면 이 댓글은 별도 영역이 아닌 '다음 영화 추천 댓글'로 표시됩니다. */
+  /** 선택하면 이 댓글은 '다음 영화 추천 댓글'로 표시됩니다. */
   movie: null | CommunityMovieReference;
   createdAt: string;
   updatedAt: string;
@@ -110,22 +100,13 @@ export interface CommunityPostDraft {
   title: string;
   content: string;
   movie: null | CommunityMovieReference;
-  /** 작성 중 추가한 관련 영화입니다. 개수 제한은 두지 않습니다. */
+  /** 작성 중 추가한 관련 영화이며 개수 제한은 없습니다. */
   movies: CommunityMovieReference[];
   listId: null | string;
   imageUrl: string;
   hasSpoiler: boolean;
   pollQuestion: string;
   pollOptions: Array<{ optionText: string; movie: null | CommunityMovieReference }>;
-  mission: {
-    id: null | string;
-    name: string;
-    movie: null | CommunityMovieReference;
-    reflection: string;
-    imageUrl: string;
-    completedAt: string;
-    badgeLabel: string;
-  };
 }
 
 const cloneMovieReference = (movie: null | CommunityMovieReference) => (movie ? { ...movie } : null);
@@ -134,15 +115,14 @@ export const cloneCommunityPostDraft = (draft: CommunityPostDraft): CommunityPos
   ...draft,
   movie: cloneMovieReference(draft.movie),
   movies: draft.movies.map((movie) => ({ ...movie })),
-  pollOptions: draft.pollOptions.map((option) => ({ ...option, movie: cloneMovieReference(option.movie) })),
-  mission: { ...draft.mission, movie: cloneMovieReference(draft.mission.movie) }
+  pollOptions: draft.pollOptions.map((option) => ({ ...option, movie: cloneMovieReference(option.movie) }))
 });
 
 export const isCommunityPostDraftSubmittable = (draft: CommunityPostDraft) => {
   if (!draft.title.trim()) return false;
   if (draft.category === 'list_share') return Boolean(draft.listId);
   if (draft.category === 'movie_poll') return draft.pollOptions.filter((option) => option.optionText.trim()).length >= 2;
-  return draft.category !== 'mission_proof' || Boolean(draft.mission.name.trim());
+  return true;
 };
 
 export interface CommunityFeedPage {
@@ -153,7 +133,6 @@ export interface CommunityFeedPage {
 export const COMMUNITY_CATEGORY_LABELS: Record<CommunityCategory, string> = {
   movie_recommendation: '영화 추천',
   list_share: '리스트 공유',
-  mission_proof: '미션 인증',
   movie_poll: '영화 투표',
   daily_question: '오늘의 질문'
 };
@@ -183,14 +162,5 @@ export const createEmptyCommunityPostDraft = (): CommunityPostDraft => ({
   pollOptions: [
     { optionText: '', movie: null },
     { optionText: '', movie: null }
-  ],
-  mission: {
-    id: null,
-    name: '',
-    movie: null,
-    reflection: '',
-    imageUrl: '',
-    completedAt: new Date().toISOString().slice(0, 10),
-    badgeLabel: 'MISSION COMPLETE'
-  }
+  ]
 });

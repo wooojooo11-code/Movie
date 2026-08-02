@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import EditRatingView from '@/views/EditRatingView.vue';
-import HomeView from '@/views/HomeView.vue';
-import ListsView from '@/views/ListsView.vue';
-import LoginView from '@/views/LoginView.vue';
-import RatedMoviesView from '@/views/RatedMoviesView.vue';
-import RecommendationsView from '@/views/RecommendationsView.vue';
-import RatingView from '@/views/RatingView.vue';
-import TheatersView from '@/views/TheatersView.vue';
-import CommunityPage from '@/views/CommunityPage.vue';
 import { useAuthStore } from '@/stores/auth';
-import MovieDetailPage from '@/views/MovieDetailPage.vue';
-import PostDetailPage from '@/views/PostDetailPage.vue';
-import ProfileTitlesView from '@/views/ProfileTitlesView.vue';
-import ProfileView from '@/views/ProfileView.vue';
+
+const HomeView = () => import('@/views/HomeView.vue');
+const RatingView = () => import('@/views/RatingView.vue');
+const RecommendationsView = () => import('@/views/RecommendationsView.vue');
+const RatedMoviesView = () => import('@/views/RatedMoviesView.vue');
+const EditRatingView = () => import('@/views/EditRatingView.vue');
+const ListsView = () => import('@/views/ListsView.vue');
+const CommunityPage = () => import('@/views/CommunityPage.vue');
+const PostDetailPage = () => import('@/views/PostDetailPage.vue');
+const ProfileView = () => import('@/views/ProfileView.vue');
+const ProfileTitlesView = () => import('@/views/ProfileTitlesView.vue');
+const MovieDetailPage = () => import('@/views/MovieDetailPage.vue');
+const LoginView = () => import('@/views/LoginView.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,11 +62,6 @@ const router = createRouter({
       meta: {
         requiresAuth: true
       }
-    },
-    {
-      path: '/theaters',
-      name: 'theaters',
-      component: TheatersView
     },
     {
       path: '/community',
@@ -135,7 +130,7 @@ router.beforeEach(async (to) => {
   }
 
   if (guestOnly && authStore.isAuthenticated) {
-    return authStore.getPostLoginPath('/');
+    return await authStore.getPostLoginPath('/');
   }
 
   if (requiresAuth && authStore.isConfigured && !authStore.isAuthenticated) {

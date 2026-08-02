@@ -67,19 +67,6 @@ export const checkTitlesForMovieActivity = async (movies: readonly CatalogMovie[
   return checkTitlesForEvent('watch');
 };
 
-export const recordBingoCompletion = async (boardId: 'cinema' | 'genre' | 'taste') => {
-  if (!supabase) return false;
-  try {
-    const { data, error } = await supabase.rpc('record_profile_bingo_completion', { p_board_id: boardId });
-    if (error) throw error;
-    if (data) await checkTitlesForEvent('bingo');
-    return Boolean(data);
-  } catch (error) {
-    console.warn('[titleService] Bingo title verification skipped.', error);
-    return false;
-  }
-};
-
 export const saveTitlePresentation = async (featuredTitleId: null | string, displayTitleIds: readonly string[]) => {
   if (!supabase) throw new Error('Supabase 연결이 필요합니다.');
   const { error } = await supabase.rpc('set_profile_title_presentation', {

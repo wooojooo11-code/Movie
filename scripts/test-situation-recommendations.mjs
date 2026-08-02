@@ -10,6 +10,7 @@ const jiti = jitiPackage(import.meta.url, {
 const { rankSituationMovies } = await jiti.import('../src/services/situationRecommendation.ts');
 const {
   isCompleteSituationSelection,
+  normalizeSituationSelection,
   situationOptionGroups,
   situationPresets
 } = await jiti.import('../src/data/situations.ts');
@@ -17,7 +18,6 @@ const { catalogMovies } = await jiti.import('../src/data/catalog.ts');
 
 const manualSelection = {
   mood: 'tense',
-  companion: 'friend',
   weather: 'cloudy',
   viewingTime: 'under_90',
   specialDay: 'halloween',
@@ -47,24 +47,20 @@ const movie = (id, overrides = {}) => ({
   ...overrides
 });
 
-assert.equal(situationOptionGroups.length, 6, 'six direct situation groups are available');
+assert.equal(situationOptionGroups.length, 5, 'five direct situation groups are available');
 assert.deepEqual(
   situationOptionGroups.map((group) => group.options.length),
-  [7, 6, 8, 5, 11, 12],
+  [7, 8, 5, 11, 12],
   'every requested direct-selection option is present'
 );
-assert.equal(situationPresets.length, 13, 'all supported recommendation presets are available');
+assert.equal(situationPresets.length, 11, 'all supported recommendation presets are available');
 assert.equal(isCompleteSituationSelection(manualSelection), true, 'complete direct selection is accepted');
 assert.equal(isCompleteSituationSelection({ mood: 'tense' }), true, 'a single direct selection is accepted');
+assert.equal(isCompleteSituationSelection({ reason: ['focus'] }), true, 'one reason can be selected');
 assert.equal(
-  isCompleteSituationSelection({ reason: ['focus', 'action'] }),
-  true,
-  'two reasons can be selected together'
-);
-assert.equal(
-  isCompleteSituationSelection({ reason: ['focus', 'action', 'visuals'] }),
-  false,
-  'more than two reasons are rejected'
+  normalizeSituationSelection({ reason: ['focus', 'action'] })?.reason?.join(','),
+  'focus,action',
+  'two reasons are preserved in a single dropdown selection'
 );
 
 const singleSelectionCandidates = [movie('single-selection-a'), movie('single-selection-b')];

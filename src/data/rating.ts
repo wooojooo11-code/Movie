@@ -12,20 +12,21 @@ export const tasteAnalysisGenreOptions: TasteAnalysisGenre[] = [
   'SF'
 ];
 
-export const tasteAnalysisBatchSize = 20;
+const tasteAnalysisBatchGenres = [
+  { genreId: 28 },
+  { genreId: 10749 },
+  { genreId: 53 },
+  { genreId: 878 },
+  { genreId: 35 }
+] as const;
+const moviesPerTasteAnalysisGenre = 2;
+
+export const tasteAnalysisBatchSize =
+  tasteAnalysisBatchGenres.length * moviesPerTasteAnalysisGenre;
 export const minTasteAnalysisGenreSelection = 3;
 export const maxTasteAnalysisGenreSelection = 4;
 export const tasteAnalysisLikeSelectionTarget = 3;
 export const tasteAnalysisDislikeSelectionTarget = 3;
-
-const tasteAnalysisGenreAliases: Record<TasteAnalysisGenre, readonly string[]> = {
-  액션: ['액션'],
-  애니메이션: ['애니메이션'],
-  로맨스: ['로맨스'],
-  코미디: ['코미디'],
-  추리: ['추리', '미스터리'],
-  SF: ['SF']
-};
 
 const tasteAnalysisGenreSet = new Set<TasteAnalysisGenre>(tasteAnalysisGenreOptions);
 
@@ -50,54 +51,42 @@ export const normalizeTasteAnalysisGenres = (
     .slice(0, maxTasteAnalysisGenreSelection);
 };
 
-const buildPrioritizedTasteAnalysisSequence = (selectedGenres: readonly string[]) => {
-  const normalizedGenres = normalizeTasteAnalysisGenres(selectedGenres);
-  const effectiveGenres =
-    normalizedGenres.length > 0 ? normalizedGenres : [...tasteAnalysisGenreOptions];
-
-  const usedMovieIds = new Set<string>();
+const buildTasteAnalysisBatch = (
+  _selectedGenres: readonly string[],
+  excludedMovieIds: readonly string[] = []
+) => {
+  const usedMovieIds = new Set(excludedMovieIds);
   const prioritizedMovies: RatingMovie[] = [];
-  const genrePools = effectiveGenres.map((genre) =>
-    catalogMovies.filter((movie) =>
-      tasteAnalysisGenreAliases[genre].some((alias) => movie.genres.includes(alias))
-    )
+  const genrePools = tasteAnalysisBatchGenres.map(({ genreId }) =>
+    catalogMovies.filter((movie) => movie.genreIds?.includes(genreId))
   );
+  for (const pool of genrePools) {
+    let addedForGenre = 0;
 
-  let appendedInPass = true;
-
-  while (appendedInPass) {
-    appendedInPass = false;
-
-    for (const pool of genrePools) {
-      const nextMovie = pool.find((movie) => !usedMovieIds.has(movie.id));
-
-      if (!nextMovie) {
+    for (const movie of pool) {
+      if (usedMovieIds.has(movie.id)) {
         continue;
       }
 
-      prioritizedMovies.push(nextMovie);
-      usedMovieIds.add(nextMovie.id);
-      appendedInPass = true;
+      prioritizedMovies.push(movie);
+      usedMovieIds.add(movie.id);
+      addedForGenre += 1;
+
+      if (addedForGenre === moviesPerTasteAnalysisGenre) {
+        break;
+      }
     }
   }
 
   const fallbackMovies = catalogMovies.filter((movie) => !usedMovieIds.has(movie.id));
-  return [...prioritizedMovies, ...fallbackMovies];
-};
-
-const buildBatchFromSequence = (
-  selectedGenres: readonly string[],
-  excludedMovieIds: readonly string[] = []
-) => {
-  const excludedMovieIdSet = new Set(excludedMovieIds);
-
-  return buildPrioritizedTasteAnalysisSequence(selectedGenres)
-    .filter((movie) => !excludedMovieIdSet.has(movie.id))
-    .slice(0, tasteAnalysisBatchSize);
+  return [...prioritizedMovies, ...fallbackMovies].slice(
+    0,
+    tasteAnalysisBatchSize
+  );
 };
 
 export const getPrimaryRatingMovies = (selectedGenres: readonly string[]) =>
-  buildBatchFromSequence(selectedGenres);
+  buildTasteAnalysisBatch(selectedGenres);
 
 export const getUnratedMoviesFromPool = (
   ratedMovieIds: readonly string[],
@@ -119,7 +108,7 @@ export const buildAdditionalTasteAnalysisBatch = (
   ratedMovieIds: readonly string[],
   reservedMovieIds: readonly string[] = []
 ): RatingMovie[] =>
-  buildBatchFromSequence(selectedGenres, [
+  buildTasteAnalysisBatch(selectedGenres, [
     ...getPrimaryRatingMovies(selectedGenres).map((movie) => movie.id),
     ...ratedMovieIds,
     ...reservedMovieIds

@@ -58,14 +58,14 @@ const setMode = (mode: AuthMode) => {
   });
 };
 
-const resolveRedirectPath = () => {
+const resolveRedirectPath = async () => {
   const redirect = route.query.redirect;
 
   if (typeof redirect === 'string' && redirect.startsWith('/') && !authStore.shouldStartRatingFlow) {
     return redirect;
   }
 
-  return authStore.getPostLoginPath('/');
+  return await authStore.getPostLoginPath('/');
 };
 
 const submit = async () => {
@@ -90,7 +90,7 @@ const submit = async () => {
     }
 
     await authStore.signIn(state.identifier.trim(), state.password.trim());
-    void router.replace(resolveRedirectPath());
+    await router.replace(await resolveRedirectPath());
   } catch {
     // store message is shown below
   }

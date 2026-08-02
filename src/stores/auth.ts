@@ -8,9 +8,6 @@ import {
   supabaseAuthStorageKey,
   supabaseRatingsUserColumn
 } from '@/lib/supabase';
-import { useLibraryStore } from '@/services/libraryStore';
-import { useListStore } from '@/services/listStore';
-import { useRecommendationStore } from '@/services/recommendationStore';
 
 let hasLifecycleListeners = false;
 let isSigningOut = false;
@@ -30,6 +27,20 @@ interface AuthState {
 }
 
 const SESSION_SYNC_THROTTLE_MS = 4000;
+
+const loadDomainStores = async () => {
+  const [libraryModule, listModule, recommendationModule] = await Promise.all([
+    import('@/services/libraryStore'),
+    import('@/services/listStore'),
+    import('@/services/recommendationStore')
+  ]);
+
+  return {
+    useLibraryStore: libraryModule.useLibraryStore,
+    useListStore: listModule.useListStore,
+    useRecommendationStore: recommendationModule.useRecommendationStore
+  };
+};
 
 const extractAuthMessage = (error: unknown, fallback: string) => {
   if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
@@ -179,6 +190,7 @@ export const useAuthStore = defineStore('auth', {
       this.isInitialized = true;
     },
     async applySession(session: null | Session) {
+      const { useLibraryStore, useListStore, useRecommendationStore } = await loadDomainStores();
       const libraryStore = useLibraryStore();
       const recommendationStore = useRecommendationStore();
       const listStore = useListStore();
@@ -314,7 +326,8 @@ export const useAuthStore = defineStore('auth', {
       this.ratingCount = count ?? 0;
       return this.ratingCount;
     },
-    getPostLoginPath(fallbackPath = '/') {
+    async getPostLoginPath(fallbackPath = '/') {
+      const { useRecommendationStore } = await import('@/services/recommendationStore');
       const recommendationStore = useRecommendationStore();
 
       if (this.ratingCount === 0 || recommendationStore.shouldResumeTasteAnalysis.value) {
@@ -343,7 +356,7 @@ export const useAuthStore = defineStore('auth', {
         }
 
         await this.reconcileResolvedSession(data.session);
-        return this.getPostLoginPath('/');
+        return await this.getPostLoginPath('/');
       } catch (error) {
         this.errorMessage = extractAuthMessage(error, '로그인에 실패했어요.');
         throw error;

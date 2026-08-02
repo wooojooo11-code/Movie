@@ -4,7 +4,6 @@ import { useRoute, useRouter } from 'vue-router';
 
 import CommentForm from '@/components/community/CommentForm.vue';
 import CommentList from '@/components/community/CommentList.vue';
-import MissionProofCard from '@/components/community/MissionProofCard.vue';
 import MoviePoll from '@/components/community/MoviePoll.vue';
 import SharedMovieListCard from '@/components/community/SharedMovieListCard.vue';
 import SpoilerCover from '@/components/community/SpoilerCover.vue';
@@ -278,8 +277,6 @@ onMounted(() => { void load(); });
 
         <SharedMovieListCard v-if="post.list" class="mt-4" :list="post.list" :saved="savedListIds.has(post.list.id)" @save="saveList" />
         <MoviePoll v-if="post.poll" class="mt-4" :poll="post.poll" @vote="vote" @clear="clearVote" />
-        <MissionProofCard v-if="post.missionProof" class="mt-4" :proof="post.missionProof" />
-
         <div class="mt-5 flex flex-wrap gap-2 border-t border-app-line pt-4">
           <button type="button" class="focus-ring corner-soft inline-flex items-center gap-1.5 border px-3 py-2 text-xs font-semibold" :class="post.viewer.hasLiked ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" :aria-label="`좋아요 ${post.likeCount}개`" @click="toggleLike"><span aria-hidden="true" class="text-base leading-none">{{ post.viewer.hasLiked ? '♥' : '♡' }}</span><span>{{ post.likeCount }}</span></button>
           <button type="button" class="focus-ring corner-soft border px-3 py-2 text-xs font-semibold disabled:cursor-wait disabled:opacity-60" :class="post.viewer.hasSaved ? 'border-app-accent text-[#174a77]' : 'border-app-line text-app-muted'" :disabled="savingSave" @click="toggleSave">저장 {{ post.saveCount }}</button>

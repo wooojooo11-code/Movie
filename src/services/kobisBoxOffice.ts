@@ -17,6 +17,7 @@ type KobisBoxOfficeResponse = {
 };
 
 const KOBIS_BOX_OFFICE_ENDPOINT = '/.netlify/functions/kobis-boxoffice';
+const KOBIS_REQUEST_RETRY_DELAYS = [0, 700, 1_500];
 
 const fallbackPosterUrl = `data:image/svg+xml,${encodeURIComponent(`
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Movie poster placeholder">
@@ -112,21 +113,36 @@ const isKobisBoxOfficeResponse = (value: unknown): value is KobisBoxOfficeRespon
 };
 
 export const loadKobisBoxOfficeMovies = async (): Promise<TrendingMovie[]> => {
-  const response = await fetch(KOBIS_BOX_OFFICE_ENDPOINT, {
-    headers: {
-      Accept: 'application/json'
+  let lastError: unknown;
+
+  for (const retryDelay of KOBIS_REQUEST_RETRY_DELAYS) {
+    if (retryDelay > 0) {
+      await new Promise<void>((resolve) => window.setTimeout(resolve, retryDelay));
     }
-  });
 
-  if (!response.ok) {
-    throw new Error(`KOBIS box office request failed with status ${response.status}.`);
+    try {
+      const response = await fetch(KOBIS_BOX_OFFICE_ENDPOINT, {
+        cache: 'no-store',
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`KOBIS box office request failed with status ${response.status}.`);
+      }
+
+      const payload: unknown = await response.json();
+
+      if (!isKobisBoxOfficeResponse(payload) || payload.movies.length === 0) {
+        throw new Error('KOBIS box office response is invalid.');
+      }
+
+      return payload.movies.map((movie) => toTrendingMovie(movie, payload.boxOfficeDate));
+    } catch (error) {
+      lastError = error;
+    }
   }
 
-  const payload: unknown = await response.json();
-
-  if (!isKobisBoxOfficeResponse(payload) || payload.movies.length === 0) {
-    throw new Error('KOBIS box office response is invalid.');
-  }
-
-  return payload.movies.map((movie) => toTrendingMovie(movie, payload.boxOfficeDate));
+  throw lastError instanceof Error ? lastError : new Error('KOBIS box office request failed.');
 };

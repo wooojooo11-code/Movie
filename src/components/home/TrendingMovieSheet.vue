@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import type { TrendingMovie } from '@/types/home';
 
+const bookingPartners = [
+  {
+    name: 'CGV',
+    href: 'https://cgv.co.kr/cnm/movieBook'
+  },
+  {
+    name: '롯데시네마',
+    href: 'https://www.lottecinema.co.kr/NLCHS/ticketing'
+  }
+];
+
 defineProps<{
   movie: TrendingMovie;
 }>();
@@ -17,7 +28,7 @@ defineEmits<{
     @click.self="$emit('close')"
   >
     <section
-      class="corner-hard mx-auto w-full max-w-[23rem] border border-app-line px-4 py-4"
+      class="corner-hard mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line px-4 py-4 sm:max-w-xl"
       style="background-color: rgba(255, 255, 255, 0.96)"
     >
       <div class="flex items-start gap-3">
@@ -70,6 +81,24 @@ defineEmits<{
             </div>
           </dl>
 
+        </div>
+      </div>
+
+      <div class="mt-5 border-t border-app-line pt-4">
+        <p class="text-sm font-semibold text-[#15171c]">예매하러 가기</p>
+        <p class="mt-1 text-xs leading-5 text-app-muted">극장과 시간을 선택해 예매할 수 있어요.</p>
+
+        <div class="mt-3 grid grid-cols-2 gap-2">
+          <a
+            v-for="partner in bookingPartners"
+            :key="partner.name"
+            :href="partner.href"
+            target="_blank"
+            rel="noreferrer"
+            class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center bg-app-accent px-3 text-sm font-semibold text-white"
+          >
+            {{ partner.name }} 예매
+          </a>
         </div>
       </div>
 

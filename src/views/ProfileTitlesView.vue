@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 
 import TitleProgressCard from '@/components/profile/TitleProgressCard.vue';
 import { useTitles } from '@/composables/useTitles';
+import { filterBingoProfileTitles } from '@/services/profileTitleVisibility';
 import { saveTitlePresentation } from '@/services/titleService';
 import { useAuthStore } from '@/stores/auth';
 
@@ -14,6 +15,7 @@ const saveError = ref('');
 const saving = ref(false);
 const userId = computed(() => (typeof route.params.userId === 'string' ? route.params.userId : ''));
 const isOwner = computed(() => authStore.user?.id === userId.value);
+const profileTitles = computed(() => filterBingoProfileTitles(titles.value));
 
 const load = () => userId.value && loadTitles(userId.value);
 
@@ -31,11 +33,11 @@ const save = async (featuredTitleId: null | string, displayTitleIds: readonly st
 };
 
 const setFeatured = (titleId: string) => {
-  void save(titleId, titles.value.filter((title) => title.isDisplayed).map((title) => title.id));
+  void save(titleId, profileTitles.value.filter((title) => title.isDisplayed).map((title) => title.id));
 };
 
 const toggleDisplayed = (titleId: string) => {
-  const current = titles.value.filter((title) => title.isDisplayed).map((title) => title.id);
+  const current = profileTitles.value.filter((title) => title.isDisplayed).map((title) => title.id);
   const next = current.includes(titleId) ? current.filter((id) => id !== titleId) : [...current, titleId];
   if (next.length > 3) {
     saveError.value = '프로필에 전시할 칭호는 최대 3개입니다.';
@@ -60,9 +62,9 @@ onMounted(load);
     <div v-if="loading" class="mt-5 space-y-3" aria-live="polite">
       <div v-for="index in 4" :key="index" class="corner-soft h-40 animate-pulse border border-app-line bg-app-panelSoft" />
     </div>
-    <div v-else-if="titles.length" class="mt-5 space-y-3">
+    <div v-else-if="profileTitles.length" class="mt-5 space-y-3">
       <TitleProgressCard
-        v-for="title in titles"
+        v-for="title in profileTitles"
         :key="title.id"
         :title="title"
         :is-owner="isOwner"

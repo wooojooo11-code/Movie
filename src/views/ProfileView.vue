@@ -10,6 +10,7 @@ import { useProfile } from '@/composables/useProfile';
 import { useTitles } from '@/composables/useTitles';
 import { movieCreditsById } from '@/data/movieCredits';
 import { ensureProfile, saveProfile } from '@/services/profileService';
+import { filterBingoProfileTitles, sanitizeProfileOverviewTitles } from '@/services/profileTitleVisibility';
 import { saveTitlePresentation } from '@/services/titleService';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import { useAuthStore } from '@/stores/auth';
@@ -33,7 +34,13 @@ const saveError = ref('');
 const userId = computed(() => (typeof route.params.userId === 'string' ? route.params.userId : ''));
 const isOwner = computed(() => Boolean(authStore.user?.id && authStore.user.id === userId.value));
 const loadingPage = computed(() => loading.value || titlesLoading.value);
-const visibleTitles = computed(() => profile.value?.displayTitles ?? []);
+const profileTitles = computed(() => filterBingoProfileTitles(titles.value));
+const visibleTitles = computed(() =>
+  (displayedOverview.value?.displayTitles ?? []).filter((title) => title.name)
+);
+const displayedOverview = computed(() =>
+  profile.value ? sanitizeProfileOverviewTitles(profile.value, profileTitles.value) : null
+);
 
 const getLocalFavoritePerson = (kind: 'actor' | 'director'): null | ProfileTastePerson => {
   const counts = new Map<string, number>();
@@ -120,12 +127,12 @@ const saveEdit = async (payload: {
 };
 
 const setFeatured = (titleId: string) => {
-  const displayedIds = titles.value.filter((title) => title.isDisplayed).map((title) => title.id);
+  const displayedIds = profileTitles.value.filter((title) => title.isDisplayed).map((title) => title.id);
   void updatePresentation(titleId, displayedIds);
 };
 
 const toggleDisplayed = (titleId: string) => {
-  const currentIds = titles.value.filter((title) => title.isDisplayed).map((title) => title.id);
+  const currentIds = profileTitles.value.filter((title) => title.isDisplayed).map((title) => title.id);
   const displayIds = currentIds.includes(titleId)
     ? currentIds.filter((id) => id !== titleId)
     : [...currentIds, titleId];
@@ -133,7 +140,7 @@ const toggleDisplayed = (titleId: string) => {
     saveError.value = '프로필에 전시할 칭호는 최대 3개입니다.';
     return;
   }
-  const featuredId = titles.value.find((title) => title.isFeatured)?.id ?? null;
+  const featuredId = profileTitles.value.find((title) => title.isFeatured)?.id ?? null;
   void updatePresentation(featuredId, displayIds);
 };
 
@@ -162,7 +169,7 @@ onMounted(() => { void load(); });
     </section>
 
     <div v-else class="space-y-5">
-      <ProfileHeader :overview="profile" :is-owner="isOwner" @edit="editOpen = true" />
+      <ProfileHeader :overview="displayedOverview ?? profile" :is-owner="isOwner" @edit="editOpen = true" />
       <p v-if="saveError || titlesError" class="corner-soft border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ saveError || titlesError }}</p>
       <MovieTasteCard
         :taste="displayedTaste ?? profile.taste"
@@ -173,14 +180,16 @@ onMounted(() => { void load(); });
       <RouterLink
         v-if="isOwner"
         to="/history"
-        class="focus-ring corner-hard flex items-center justify-between gap-4 border border-app-line bg-app-panel p-5 transition-colors hover:border-app-accent sm:p-6"
+        class="focus-ring corner-hard flex items-center justify-between gap-4 border-2 border-[#174a77] bg-[#eef6ff] p-5 transition-colors hover:bg-[#e6f2ff] sm:p-6"
       >
         <div>
-          <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">RATINGS</p>
+          <p class="text-xs font-semibold tracking-[0.12em] text-[#174a77]">RATINGS</p>
           <h2 class="mt-1 text-lg font-bold text-[#15171c]">평가기록</h2>
-          <p class="mt-2 text-sm text-app-muted">내가 평가한 영화와 감상 기록을 확인하세요.</p>
+          <p class="mt-2 text-sm text-[#48627c]">내가 평가한 영화와 감상 기록을 확인하세요.</p>
         </div>
-        <span class="shrink-0 text-sm font-semibold text-app-accent">보기</span>
+        <span class="corner-pill shrink-0 border border-[#174a77] bg-[#174a77] px-4 py-2 text-sm font-semibold text-white">
+          평가기록 보기
+        </span>
       </RouterLink>
     </div>
 
@@ -188,14 +197,14 @@ onMounted(() => { void load(); });
       v-if="profile"
       :open="editOpen"
       :profile="profile.profile"
-      :titles="titles"
+      :titles="profileTitles"
       :saving="saving"
       @close="editOpen = false"
       @save="saveEdit"
     />
     <TitleCollectionModal
       :open="titleCollectionOpen"
-      :titles="titles"
+      :titles="profileTitles"
       :is-owner="isOwner"
       @close="titleCollectionOpen = false"
       @set-featured="setFeatured"

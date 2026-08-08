@@ -40,22 +40,10 @@ const isDetailMode = computed(() => route.query.mode === 'detail');
 const isMoreMode = computed(() => route.query.mode === 'more');
 const isDetailPaused = computed(() => route.query.detailPaused === 'true');
 const pendingDetailedRatings = computed(() => recommendationStore.pendingDetailedRatings.value);
-const tasteAnalysisMovieIdSet = computed(
-  () =>
-    new Set([
-      ...recommendationStore.primaryRatingMovies.value.map((movie) => movie.id),
-      ...recommendationStore.state.additionalTasteAnalysisBatches.flatMap((batch) => batch.movieIds)
-    ])
-);
 const detailRatingRecords = computed(() =>
   recommendationStore.state.ratings.filter(
-    (rating) =>
-      tasteAnalysisMovieIdSet.value.has(rating.input.movieId) &&
-      getDetailedRatingFeedbackMode(rating.rawDecision, rating.rawDirection) != null
+    (rating) => getDetailedRatingFeedbackMode(rating.rawDecision, rating.rawDirection) != null
   )
-);
-const pendingDetailedTasteAnalysisRatings = computed(() =>
-  pendingDetailedRatings.value.filter((rating) => tasteAnalysisMovieIdSet.value.has(rating.input.movieId))
 );
 const activeRatingMovies = computed(() =>
   activeAdditionalBatchIndex.value != null
@@ -273,7 +261,7 @@ const totalCount = computed(() => {
 
 const completedCount = computed(() => {
   if (isDetailMode.value) {
-    return Math.max(0, detailRatingRecords.value.length - pendingDetailedTasteAnalysisRatings.value.length);
+    return detailRatingRecords.value.filter((rating) => rating.detailCompleted).length;
   }
 
   return activeRatedCount.value;
@@ -856,14 +844,22 @@ watch(
           <div>
             <h2 class="text-lg font-semibold text-[#15171c]">직접 영화 찾아서 평가하기</h2>
           </div>
-          <button
-            v-if="manualSelectedMovie"
-            type="button"
-            class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
-            @click="resetManualRatingFlow"
-          >
-            닫기
-          </button>
+          <div class="flex shrink-0 items-center gap-2">
+            <RouterLink
+              to="/history"
+              class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
+            >
+              평가 수정하기
+            </RouterLink>
+            <button
+              v-if="manualSelectedMovie"
+              type="button"
+              class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
+              @click="resetManualRatingFlow"
+            >
+              닫기
+            </button>
+          </div>
         </div>
 
         <div class="mt-4">

@@ -49,12 +49,6 @@ const signOut = async () => {
 
         <div class="flex items-center gap-2">
           <template v-if="authStore.isAuthenticated">
-            <RouterLink
-              :to="{ name: 'profile', params: { userId: authStore.user?.id } }"
-              class="corner-soft max-w-[8.5rem] truncate border border-app-line bg-app-panel px-3 py-2 text-sm text-white"
-            >
-              {{ authStore.displayName }}
-            </RouterLink>
             <button
               type="button"
               class="focus-ring corner-soft border border-[#e5a2a2] bg-[#fff0f0] px-3 py-2 text-sm font-medium text-[#a13c3c] transition-colors hover:bg-[#ffe4e4]"

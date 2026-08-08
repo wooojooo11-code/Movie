@@ -38,10 +38,11 @@ const copyProfileLink = async () => {
   <div class="relative">
     <button
       type="button"
-      class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panel px-3 text-sm font-semibold text-[#34465b] hover:bg-app-panelSoft"
+      class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center gap-2 border-2 border-[#174a77] bg-[#eef6ff] px-4 text-sm font-semibold text-[#174a77] transition-colors hover:bg-[#e6f2ff]"
       @click="copyProfileLink"
     >
-      공유
+      <span aria-hidden="true">↗</span>
+      <span>프로필 공유</span>
     </button>
     <p
       v-if="copied"

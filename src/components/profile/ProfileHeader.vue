@@ -45,15 +45,16 @@ defineEmits<{ edit: [] }>();
       </div>
     </div>
 
-    <div class="mt-5 flex flex-wrap gap-2 border-t border-app-line pt-4">
+    <div class="mt-5 flex flex-wrap gap-3 border-t border-app-line pt-4">
       <ProfileShareButton />
       <button
         v-if="isOwner"
         type="button"
-        class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-accent bg-app-accent px-3 text-sm font-semibold text-white"
+        class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center gap-2 border-2 border-app-accent bg-app-accent px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
         @click="$emit('edit')"
       >
-        프로필 수정
+        <span aria-hidden="true">✎</span>
+        <span>프로필 수정</span>
       </button>
     </div>
   </section>

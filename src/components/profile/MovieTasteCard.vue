@@ -43,10 +43,11 @@ defineEmits<{ openTitles: [] }>();
         </div>
         <button
           type="button"
-          class="focus-ring corner-soft min-h-9 border border-app-line bg-app-panelSoft px-3 text-xs font-semibold text-[#34465b]"
+          class="focus-ring corner-soft inline-flex min-h-10 items-center gap-2 border-2 border-[#174a77] bg-[#eef6ff] px-4 text-sm font-semibold text-[#174a77] transition-colors hover:bg-[#e6f2ff]"
           @click="$emit('openTitles')"
         >
-          전체 칭호 보기
+          <span>전체 칭호 보기</span>
+          <span aria-hidden="true">→</span>
         </button>
       </div>
 

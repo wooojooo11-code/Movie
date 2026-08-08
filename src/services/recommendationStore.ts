@@ -7,7 +7,8 @@ import {
   getPrimaryRatingMovies,
   maxTasteAnalysisGenreSelection,
   minTasteAnalysisGenreSelection,
-  normalizeTasteAnalysisGenres
+  normalizeTasteAnalysisGenres,
+  tasteAnalysisBatchSize
 } from '@/data/rating';
 import {
   applyRatingToProfile,
@@ -98,9 +99,11 @@ const normalizeStoredRatings = (ratings: readonly StoredRatingRecord[] | undefin
   });
 
 const normalizeAdditionalTasteAnalysisBatches = (
-  batches: RecommendationStateSnapshot['additionalTasteAnalysisBatches']
-) =>
-  (batches ?? [])
+  batches: RecommendationStateSnapshot['additionalTasteAnalysisBatches'],
+  ratedMovieIds: readonly string[] = [],
+  selectedGenres: readonly string[] = []
+) => {
+  const normalizedBatches = (batches ?? [])
     .map((batch) => ({
       id: batch.id,
       movieIds: [
@@ -114,6 +117,29 @@ const normalizeAdditionalTasteAnalysisBatches = (
           : new Date(0).toISOString()
     }))
     .filter((batch) => batch.movieIds.length > 0);
+
+  const ratedMovieIdSet = new Set(ratedMovieIds);
+  const reservedMovieIds: string[] = [];
+
+  return normalizedBatches.map((batch) => {
+    const isLegacyIncompleteBatch =
+      batch.movieIds.length > tasteAnalysisBatchSize &&
+      batch.movieIds.some((movieId) => !ratedMovieIdSet.has(movieId));
+    const nextBatch = isLegacyIncompleteBatch
+      ? {
+          ...batch,
+          movieIds: buildAdditionalTasteAnalysisBatch(
+            selectedGenres,
+            ratedMovieIds,
+            reservedMovieIds
+          ).map((movie) => movie.id)
+        }
+      : batch;
+
+    reservedMovieIds.push(...nextBatch.movieIds);
+    return nextBatch;
+  });
+};
 
 const normalizeRecommendationImpressions = (value: readonly RecommendationImpression[] | undefined) => {
   const impressionsByMovieId = new Map<string, RecommendationImpression>();
@@ -241,11 +267,13 @@ const loadSnapshot = (userId: string): RecommendationStateSnapshot => {
   }
 
   const normalizedRatings = normalizeStoredRatings(saved.ratings);
-  const normalizedAdditionalTasteAnalysisBatches = normalizeAdditionalTasteAnalysisBatches(
-    saved.additionalTasteAnalysisBatches
-  );
   const normalizedSelectedTasteAnalysisGenres = normalizeSelectedTasteAnalysisGenres(
     saved.selectedTasteAnalysisGenres
+  );
+  const normalizedAdditionalTasteAnalysisBatches = normalizeAdditionalTasteAnalysisBatches(
+    saved.additionalTasteAnalysisBatches,
+    normalizedRatings.map((rating) => rating.input.movieId),
+    normalizedSelectedTasteAnalysisGenres
   );
   const ratingResumeSurface = normalizeRatingResumeSurface(
     (saved as Partial<RecommendationStateSnapshot>).ratingResumeSurface,
@@ -1132,19 +1160,23 @@ const setActiveUser = async (userId: string) => {
       return;
     }
 
+    const normalizedRemoteRatings = normalizeStoredRatings(remoteSnapshot.ratings);
+    const normalizedRemoteSelectedTasteAnalysisGenres = normalizeSelectedTasteAnalysisGenres(
+      remoteSnapshot.selectedTasteAnalysisGenres
+    );
     const normalizedRemoteSnapshot = {
       userId: normalizedUserId,
       profile: remoteSnapshot.profile,
-      ratings: normalizeStoredRatings(remoteSnapshot.ratings),
+      ratings: normalizedRemoteRatings,
       additionalTasteAnalysisBatches: normalizeAdditionalTasteAnalysisBatches(
-        remoteSnapshot.additionalTasteAnalysisBatches
+        remoteSnapshot.additionalTasteAnalysisBatches,
+        normalizedRemoteRatings.map((rating) => rating.input.movieId),
+        normalizedRemoteSelectedTasteAnalysisGenres
       ),
       ratingResumeSurface: localSnapshot.ratingResumeSurface,
       dismissedRecommendationMovieIds: remoteSnapshot.dismissedRecommendationMovieIds ?? [],
       recommendationImpressions: [],
-      selectedTasteAnalysisGenres: normalizeSelectedTasteAnalysisGenres(
-        remoteSnapshot.selectedTasteAnalysisGenres
-      ),
+      selectedTasteAnalysisGenres: normalizedRemoteSelectedTasteAnalysisGenres,
       activeSituation: normalizeActiveSituation(remoteSnapshot.activeSituation),
       activeSituationUpdatedAt: normalizeActiveSituationUpdatedAt(
         remoteSnapshot.activeSituationUpdatedAt

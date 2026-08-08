@@ -311,7 +311,7 @@ const completionTitle = computed(() => {
   return '취향분석이 끝났어요.';
 });
 
-const completionDescription = computed(() => {
+const completionDescription = computed<null | string>(() => {
   if (isDetailPaused.value) {
     return '남은 상세 평가는 그대로 두었어요. 다음 10편을 평가하거나 원하는 영화를 직접 찾아 평가할 수 있어요.';
   }
@@ -321,7 +321,7 @@ const completionDescription = computed(() => {
   }
 
   if (currentDetailMovie.value) {
-    return '재밌음과 재미없음으로 남긴 영화들을 마지막에 한 번에 상세 평가할 수 있어요.';
+    return null;
   }
 
   if (isAdditionalTasteAnalysisSurface.value) {
@@ -821,7 +821,7 @@ watch(
       <h1 class="mt-2 text-2xl font-semibold text-[#15171c]">
         {{ completionTitle }}
       </h1>
-      <p class="mt-3 text-sm leading-6 text-app-muted">
+      <p v-if="completionDescription" class="mt-3 text-sm leading-6 text-app-muted">
         {{ completionDescription }}
       </p>
 
@@ -855,9 +855,6 @@ watch(
         <div class="flex items-start justify-between gap-3">
           <div>
             <h2 class="text-lg font-semibold text-[#15171c]">직접 영화 찾아서 평가하기</h2>
-            <p class="mt-1 text-sm leading-6 text-app-muted">
-              보고 싶었던 영화를 검색해서 바로 평가하면 추천을 더 빨리 다듬을 수 있어요.
-            </p>
           </div>
           <button
             v-if="manualSelectedMovie"

@@ -14,6 +14,7 @@ import {
   isSupabaseConfigured,
   supabase
 } from '@/lib/supabase';
+import { getSituationDailyQuestion } from '@/data/situations';
 import type {
   CommunityCategory,
   CommunityFeedPage,
@@ -449,8 +450,10 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
   ]);
   if (countError || answerResult.error) throw countError ?? answerResult.error;
   const answer = answerResult.data as Row | null;
+  const activeDate = asString(question.active_date);
+  const situationQuestion = getSituationDailyQuestion(activeDate);
   return {
-    id: asString(question.id), question: asString(question.question), activeDate: asString(question.active_date),
+    id: asString(question.id), question: situationQuestion?.question ?? asString(question.question), activeDate,
     answerCount: count ?? 0,
     viewerAnswer: answer ? {
       id: asString(answer.id), questionId: asString(answer.question_id), userId: asString(answer.user_id),

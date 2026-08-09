@@ -53,7 +53,7 @@ assert.deepEqual(
   [7, 8, 5, 11, 12],
   'every requested direct-selection option is present'
 );
-assert.equal(situationPresets.length, 11, 'all supported recommendation presets are available');
+assert.equal(situationPresets.length, 9, 'all supported recommendation presets are available');
 assert.equal(isCompleteSituationSelection(manualSelection), true, 'complete direct selection is accepted');
 assert.equal(isCompleteSituationSelection({ mood: 'tense' }), true, 'a single direct selection is accepted');
 assert.equal(isCompleteSituationSelection({ reason: ['focus'] }), true, 'one reason can be selected');

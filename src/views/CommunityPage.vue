@@ -258,28 +258,22 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
 </script>
 
 <template>
-  <main class="community-surface mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-xl">
-    <CommunityHeader />
-    <DailyQuestionCard class="mt-6" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
-    <section class="mt-8" aria-labelledby="popular-posts-title">
-      <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">POPULAR</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">인기 게시글</h2></div></div>
-      <div class="scrollbar-hide -mx-4 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2" aria-label="인기 게시글 가로 목록">
-        <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="w-[min(22rem,calc(100vw-2rem))] shrink-0 snap-start" :post="post" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" :saved-list-ids="savedListIds" :saving-save="savingSaveIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
+  <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-xl">
+    <CommunityHeader @compose="openComposer" />
+    <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+    <section class="mt-7" aria-labelledby="popular-posts-title">
+      <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div></div>
+      <div class="scrollbar-hide mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" aria-label="인기 게시글 가로 목록">
+        <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="snap-start" :post="post" compact :show-actions="false" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" :saved-list-ids="savedListIds" :saving-save="savingSaveIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
       </div>
     </section>
-    <section class="mt-8" aria-labelledby="latest-posts-title">
-      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">LATEST</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">최신 게시글</h2></div><CommunitySortMenu v-model="sort" /></div>
+    <section class="mt-7" aria-labelledby="latest-posts-title">
+      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">FEED</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">모두의 이야기</h2></div><CommunitySortMenu v-model="sort" /></div>
       <div class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
-      <div class="mt-4"><CommunityTabs v-model="activeTab" /></div>
+      <div class="mt-3"><CommunityTabs v-model="activeTab" /></div>
       <p v-if="errorMessage" class="corner-soft mt-4 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
       <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" :has-more="hasMore" @more="loadFeed(false)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
     </section>
-    <!-- 고정 버튼도 본문과 같은 최대 폭 안에서 오른쪽에 배치한다. -->
-    <div class="pointer-events-none fixed inset-x-0 bottom-5 z-30">
-      <div class="mx-auto flex w-full max-w-md justify-end px-4 sm:max-w-xl">
-        <button type="button" class="focus-ring pointer-events-auto grid size-14 place-items-center rounded-full border border-app-accent bg-app-accent text-sm font-bold text-white active:scale-95" aria-label="글쓰기" @click="openComposer">글쓰기</button>
-      </div>
-    </div>
     <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
     <DailyQuestionAnswersModal :open="dailyAnswerListOpen" :question="dailyQuestion" :answers="dailyAnswers" :loading="loadingDailyAnswers" :error-message="dailyAnswersError" @close="dailyAnswerListOpen = false" />
   </main>

@@ -6,12 +6,14 @@ import type { RatingDecision, RatingDirection, RatingSelection } from '@/types/r
 const props = withDefaults(
   defineProps<{
     activeDirection?: null | RatingDirection;
+    layout?: 'cross' | 'two-rows';
     selectedButtonClassName?: string;
     selectedDescriptionClassName?: string;
     selectedEnterBadgeClassName?: string;
   }>(),
   {
     activeDirection: null,
+    layout: 'cross',
     selectedButtonClassName: 'border-[#15171c] bg-[#15171c] text-[#ffffff]',
     selectedDescriptionClassName: 'text-[#d9dde3]',
     selectedEnterBadgeClassName: 'border border-[#15171c] bg-[#15171c] text-[#ffffff]'
@@ -150,7 +152,23 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-2">
+  <div v-if="props.layout === 'two-rows'" class="grid grid-cols-3 gap-2">
+    <button
+      v-for="button in actionButtons"
+      :key="button.direction"
+      type="button"
+      :aria-label="button.label"
+      :aria-keyshortcuts="button.shortcut"
+      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center px-1 text-center"
+      :class="getButtonClassName(button)"
+      @click="emitSelection(button)"
+    >
+      <span class="text-[24px] font-bold leading-none">{{ button.arrow }}</span>
+      <span class="mt-1 text-[10px] font-semibold leading-4 text-inherit">{{ button.label }}</span>
+    </button>
+  </div>
+
+  <div v-else class="grid grid-cols-3 gap-2">
     <div />
     <button
       type="button"

@@ -789,9 +789,10 @@ watch(
         :key="`${currentMovie.id}-primary`"
         :movie="currentMovie"
         :interactive="true"
+        primary-layout
         size="compact"
         show-trailer
-        class="mx-auto w-[82%] sm:w-full"
+        class="w-full"
         @decide="savePrimaryMovieDecision"
       />
 
@@ -799,7 +800,7 @@ watch(
         <WatchToggleButton :movie-id="currentMovie.id" size="md" />
       </div>
 
-      <RatingActions @decide="savePrimaryMovieDecision" />
+      <RatingActions class="sm:hidden" @decide="savePrimaryMovieDecision" />
     </template>
 
     <section v-else class="corner-hard border border-app-line bg-app-panel px-5 py-5">

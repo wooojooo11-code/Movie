@@ -26,9 +26,11 @@ import type {
   CommunityProfile,
   CommunitySort,
   DailyQuestion,
-  DailyQuestionAnswer
+  DailyQuestionAnswer,
+  DailyQuestionAnswerInput
 } from '@/types/community';
 import type { CommunityPoll, CommunityPollOption } from '@/types/poll';
+import type { CommunitySituationMovieSignal, SituationPresetId } from '@/types/recommendation';
 
 type Row = Record<string, any>;
 
@@ -453,11 +455,15 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
   const activeDate = asString(question.active_date);
   const situationQuestion = getSituationDailyQuestion(activeDate);
   return {
-    id: asString(question.id), question: situationQuestion?.question ?? asString(question.question), activeDate,
+    id: asString(question.id),
+    question: situationQuestion?.question ?? asString(question.question),
+    activeDate,
+    situationPresetId: situationQuestion?.situationId ?? null,
     answerCount: count ?? 0,
     viewerAnswer: answer ? {
       id: asString(answer.id), questionId: asString(answer.question_id), userId: asString(answer.user_id),
       content: asString(answer.content), createdAt: asString(answer.created_at), updatedAt: asString(answer.updated_at),
+      movie: toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path),
       author: toDailyAnswerAuthor(asString(answer.user_id))
     } : null
   };
@@ -467,7 +473,7 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
 export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserId?: null | string): Promise<DailyQuestionAnswer[]> => {
   ensureSupabase();
   let query = getDailyQuestionAnswersRelation()!
-    .select('id, question_id, user_id, content, created_at, updated_at')
+    .select('id, question_id, user_id, content, movie_id, movie_title, movie_poster_path, created_at, updated_at')
     .eq('question_id', questionId);
 
   if (excludeUserId) {
@@ -498,6 +504,7 @@ export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserI
       questionId: asString(answer.question_id),
       userId,
       content: asString(answer.content),
+      movie: toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path),
       createdAt: asString(answer.created_at),
       updatedAt: asString(answer.updated_at),
       author: toDailyAnswerAuthor(userId, profilesById.get(userId))
@@ -505,18 +512,63 @@ export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserI
   });
 };
 
-export const saveDailyQuestionAnswer = async (questionId: string, userId: string, content: string): Promise<DailyQuestionAnswer> => {
+export const saveDailyQuestionAnswer = async (
+  questionId: string,
+  userId: string,
+  input: DailyQuestionAnswerInput
+): Promise<DailyQuestionAnswer> => {
   ensureSupabase();
   const { data, error } = await getDailyQuestionAnswersRelation()!
-    .upsert({ question_id: questionId, user_id: userId, content: content.trim() }, { onConflict: 'question_id,user_id' })
+    .upsert(
+      {
+        question_id: questionId,
+        user_id: userId,
+        content: input.content.trim(),
+        movie_id: input.movie.id,
+        movie_title: input.movie.title,
+        movie_poster_path: input.movie.posterPath
+      },
+      { onConflict: 'question_id,user_id' }
+    )
     .select('*').single();
   if (error) throw error;
   const row = data as Row;
   return {
     id: asString(row.id), questionId: asString(row.question_id), userId: asString(row.user_id),
     content: asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
+    movie: toMovie(row.movie_id, row.movie_title, row.movie_poster_path),
     author: toDailyAnswerAuthor(asString(row.user_id))
   };
+};
+
+export const fetchSituationCommunityMovieSignals = async (
+  situationPresetId: SituationPresetId
+): Promise<CommunitySituationMovieSignal[]> => {
+  ensureSupabase();
+
+  const { data: questions, error: questionsError } = await getDailyQuestionsRelation()!
+    .select('id')
+    .eq('situation_preset_id', situationPresetId);
+  if (questionsError) throw questionsError;
+
+  const questionIds = (questions ?? []).map((question: Row) => asString(question.id)).filter(Boolean);
+  if (questionIds.length === 0) return [];
+
+  const { data: answers, error: answersError } = await getDailyQuestionAnswersRelation()!
+    .select('movie_id')
+    .in('question_id', questionIds);
+  if (answersError) throw answersError;
+
+  const countByMovieId = new Map<string, number>();
+  for (const answer of (answers ?? []) as Row[]) {
+    const movieId = asMovieId(answer.movie_id);
+    if (!movieId) continue;
+    countByMovieId.set(movieId, (countByMovieId.get(movieId) ?? 0) + 1);
+  }
+
+  return [...countByMovieId.entries()]
+    .map(([movieId, answerCount]) => ({ movieId, answerCount }))
+    .sort((left, right) => right.answerCount - left.answerCount || left.movieId.localeCompare(right.movieId));
 };
 
 export const fetchMyShareableLists = async (userId: string): Promise<CommunityListReference[]> => {

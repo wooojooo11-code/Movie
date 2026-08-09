@@ -166,6 +166,11 @@ export interface CollaborativeRecommendationSignal {
   similarUserCount: number;
 }
 
+export interface CommunitySituationMovieSignal {
+  movieId: string;
+  answerCount: number;
+}
+
 export interface RecommendationStateSnapshot {
   userId: string;
   profile: UserPreferenceProfile;
@@ -203,6 +208,7 @@ export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {
   recommendationReasons?: string[];
   recommendationScoreBreakdown?: {
     collaborative: number;
+    communitySituation: number;
     novelty: number;
     preference: number;
     quality: number;

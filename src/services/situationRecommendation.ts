@@ -11,6 +11,7 @@ import type {
   ActiveSituation,
   CatalogMovie,
   CollaborativeRecommendationSignal,
+  CommunitySituationMovieSignal,
   RecommendationImpression,
   RecommendedCatalogMovie,
   SituationViewingTime
@@ -20,6 +21,7 @@ interface SituationRankingOptions {
   activeSituation: ActiveSituation;
   catalogMovies: readonly CatalogMovie[];
   collaborativeSignals: readonly CollaborativeRecommendationSignal[];
+  communitySituationSignals: readonly CommunitySituationMovieSignal[];
   hasTasteProfile: boolean;
   impressions: readonly RecommendationImpression[];
   likedMovieIds: readonly string[];
@@ -236,11 +238,16 @@ const getRecommendationReasons = (
   preferenceScore: number,
   collaborativeScore: number,
   similarUserCount: number,
+  communitySituationAnswerCount: number,
   situation: SituationScore,
   qualityScore: number,
   activeSituation: ActiveSituation
 ) => {
   const reasons = [...situation.reasons];
+
+  if (communitySituationAnswerCount > 0) {
+    reasons.unshift(`이 상황에서 커뮤니티 ${communitySituationAnswerCount}명이 추천한 영화예요.`);
+  }
 
   if (collaborativeScore >= 35 && similarUserCount > 0) {
     reasons.unshift(`취향이 비슷한 이용자 ${similarUserCount}명이 이 영화를 재미있게 봤어요.`);
@@ -413,6 +420,7 @@ export const rankSituationMovies = ({
   activeSituation,
   catalogMovies,
   collaborativeSignals = [],
+  communitySituationSignals = [],
   hasTasteProfile,
   impressions,
   likedMovieIds,
@@ -467,12 +475,29 @@ export const rankSituationMovies = ({
   const collaborativeScores = normalizeCollaborativeScores(
     scopedCandidates.map((movie) => collaborativeSignalByMovieId.get(movie.id)?.score ?? 0)
   );
+  const communitySignalByMovieId = new Map(
+    communitySituationSignals.map((signal) => [signal.movieId, signal])
+  );
+  const maxCommunitySituationAnswerCount = Math.max(
+    0,
+    ...communitySituationSignals.map((signal) => signal.answerCount)
+  );
+  const hasCommunitySituationSignals =
+    activeSituation.kind === 'preset' && maxCommunitySituationAnswerCount > 0;
   const impressionByMovieId = new Map(impressions.map((impression) => [impression.movieId, impression]));
   const rankedMovies = scopedCandidates
     .map((movie, index) => {
       const preferenceScore = hasTasteProfile ? preferenceScores[index] : 0;
       const collaborativeSignal = collaborativeSignalByMovieId.get(movie.id);
       const collaborativeScore = hasTasteProfile ? collaborativeScores[index] : 0;
+      const communitySituationAnswerCount =
+        activeSituation.kind === 'preset'
+          ? communitySignalByMovieId.get(movie.id)?.answerCount ?? 0
+          : 0;
+      const communitySituationScore =
+        hasCommunitySituationSignals && communitySituationAnswerCount > 0
+          ? (Math.log1p(communitySituationAnswerCount) / Math.log1p(maxCommunitySituationAnswerCount)) * 100
+          : 0;
       const situation = getSituationScore(movie, activeSituation);
       const qualityScore = getQualityScore(movie);
       const noveltyScore = getNoveltyScore(movie, impressionByMovieId, preferenceScore);
@@ -484,13 +509,23 @@ export const rankSituationMovies = ({
           ? 3
           : 0;
       const finalScore = hasTasteProfile
-        ?
-            preferenceScore * 0.36 +
-            collaborativeScore * 0.2 +
-            situation.score * 0.28 +
-            qualityScore * 0.08 +
-            noveltyScore * 0.08
-        : situation.score * 0.65 + qualityScore * 0.15 + noveltyScore * 0.2;
+        ? hasCommunitySituationSignals
+          ?
+              preferenceScore * 0.32 +
+              collaborativeScore * 0.18 +
+              situation.score * 0.25 +
+              communitySituationScore * 0.17 +
+              qualityScore * 0.04 +
+              noveltyScore * 0.04
+          :
+              preferenceScore * 0.36 +
+              collaborativeScore * 0.2 +
+              situation.score * 0.28 +
+              qualityScore * 0.08 +
+              noveltyScore * 0.08
+        : hasCommunitySituationSignals
+          ? situation.score * 0.5 + communitySituationScore * 0.3 + qualityScore * 0.1 + noveltyScore * 0.1
+          : situation.score * 0.65 + qualityScore * 0.15 + noveltyScore * 0.2;
 
       return {
         index,
@@ -503,6 +538,7 @@ export const rankSituationMovies = ({
             preferenceScore,
             collaborativeScore,
             collaborativeSignal?.similarUserCount ?? 0,
+            communitySituationAnswerCount,
             situation,
             qualityScore,
             activeSituation
@@ -510,6 +546,7 @@ export const rankSituationMovies = ({
           recommendationScore: clampScore(finalScore + collectionBoost),
           recommendationScoreBreakdown: {
             collaborative: collaborativeScore,
+            communitySituation: communitySituationScore,
             preference: preferenceScore,
             situation: situation.score,
             quality: qualityScore,

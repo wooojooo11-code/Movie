@@ -2,10 +2,8 @@
 import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
-import type { ReviewTag } from '@/services/movie_recommendation_algorithm';
 import {
   MAX_FAVORITE_CAST_CHOICES,
-  MAX_REVIEW_TAG_CHOICES,
   normalizeFavoriteCharacters,
   type CharacterChoice,
   type NegativeRatingInput
@@ -32,45 +30,6 @@ const emit = defineEmits<{
   skip: [];
 }>();
 
-const negativeReviewTagCategories: Array<{ label: string; tags: ReviewTag[] }> = [
-  {
-    label: '스토리',
-    tags: [
-      '스토리는 전개가 너무 느렸어요',
-      '이야기가 이해하기 어려웠어요',
-      '결말이 아쉬웠어요',
-      '몰입하기 어려웠어요'
-    ]
-  },
-  {
-    label: '캐릭터',
-    tags: [
-      '주인공에게 공감이 안됐어요',
-      '캐릭터가 매력적이지 않았어요',
-      '배우연기가 아쉬웠어요',
-      '등장인물이 너무 많았어요'
-    ]
-  },
-  {
-    label: '연출',
-    tags: [
-      '영상미가 아쉬웠어요',
-      '장면 전환이 아쉬웠어요',
-      '연출 의도를 이해하기 어려웠어요',
-      'CG가 너무 어색했어요'
-    ]
-  },
-  {
-    label: '분위기',
-    tags: [
-      '액션이 부자연스러워요',
-      '긴장감이 부족했어요',
-      '유머가 제취향이 아니었어요',
-      '감정선이 부족했어요'
-    ]
-  }
-];
-
 const form = reactive<NegativeRatingInput>({
   stars: null,
   reviewTags: [],
@@ -80,7 +39,7 @@ const form = reactive<NegativeRatingInput>({
 
 const applyInitialValue = (value?: null | Partial<NegativeRatingInput>) => {
   form.stars = value?.stars ?? null;
-  form.reviewTags = [...(value?.reviewTags ?? [])];
+  form.reviewTags = [];
   form.favoriteCharacters = normalizeFavoriteCharacters(
     value?.favoriteCharacters ??
       (value as Partial<NegativeRatingInput> & { favoriteCharacter?: null | string | string[] })
@@ -100,21 +59,6 @@ watch(
   }
 );
 
-const toggleReviewTag = (tag: ReviewTag) => {
-  const currentIndex = form.reviewTags.indexOf(tag);
-
-  if (currentIndex >= 0) {
-    form.reviewTags.splice(currentIndex, 1);
-    return;
-  }
-
-  if (form.reviewTags.length >= MAX_REVIEW_TAG_CHOICES) {
-    return;
-  }
-
-  form.reviewTags.push(tag);
-};
-
 const toggleFavoriteCharacter = (name: string) => {
   const currentIndex = form.favoriteCharacters.indexOf(name);
 
@@ -133,7 +77,7 @@ const toggleFavoriteCharacter = (name: string) => {
 const submitForm = () => {
   emit('submit', {
     stars: form.stars,
-    reviewTags: [...form.reviewTags],
+    reviewTags: [],
     favoriteCharacters: [...form.favoriteCharacters],
     reviewText: form.reviewText.trim()
   });
@@ -175,44 +119,13 @@ const submitForm = () => {
     </div>
 
     <div class="mt-5">
-      <p class="mb-3 text-sm font-medium text-app-muted">어떤 점이 별로였나요</p>
-      <p class="mb-3 text-xs text-app-muted">
-        최대 {{ MAX_REVIEW_TAG_CHOICES }}개까지 고를 수 있어요.
-      </p>
-
-      <div class="grid gap-4">
-        <div
-          v-for="category in negativeReviewTagCategories"
-          :key="category.label"
-          class="border-t border-app-line pt-4 first:border-t-0 first:pt-0"
-        >
-          <p class="mb-2 text-xs font-semibold tracking-[0.08em] text-app-muted">
-            {{ category.label }}
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <button
-              v-for="tag in category.tags"
-              :key="tag"
-              type="button"
-              class="focus-ring corner-pill border px-3 py-2 text-sm font-medium transition-colors"
-              :class="
-                form.reviewTags.includes(tag)
-                  ? 'border-app-accent bg-app-accent text-white'
-                  : 'border-app-line bg-app-panelSoft text-[#15171c]'
-              "
-              @click="toggleReviewTag(tag)"
-            >
-              {{ tag }}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <textarea
+      <label for="negative-review" class="mb-2 block text-sm font-medium text-app-muted">한 줄평</label>
+      <input
         id="negative-review"
         v-model="form.reviewText"
-        class="focus-ring mt-3 min-h-24 w-full resize-none border border-app-line bg-app-panelSoft px-4 py-3 text-sm text-[#15171c] placeholder:text-app-muted"
-        placeholder="짧게 메모를 남겨도 좋아요"
+        maxlength="120"
+        class="focus-ring h-11 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-[#15171c] placeholder:text-app-muted"
+        placeholder="이 영화에 대한 한 줄평을 남겨주세요 (선택)"
       />
     </div>
 

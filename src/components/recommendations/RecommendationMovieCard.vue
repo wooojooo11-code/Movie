@@ -26,7 +26,7 @@ defineEmits<{
     <img
       :src="movie.posterUrl"
       :alt="movie.posterAlt"
-      class="poster-hover-image aspect-[4/5] w-full object-cover transition duration-200 group-active:scale-[0.985]"
+      class="aspect-[2/3] w-full bg-app-poster object-contain transition duration-200 group-active:scale-[0.985]"
       loading="lazy"
     />
   </button>

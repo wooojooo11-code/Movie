@@ -28,7 +28,7 @@ import {
 import { useListStore } from '@/services/listStore';
 import { checkTitlesForEvent } from '@/services/titleService';
 import { useAuthStore } from '@/stores/auth';
-import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion, DailyQuestionAnswer } from '@/types/community';
+import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion, DailyQuestionAnswer, DailyQuestionAnswerInput } from '@/types/community';
 
 const authStore = useAuthStore();
 const listStore = useListStore();
@@ -141,11 +141,11 @@ const submitPost = async (draft: CommunityPostDraft) => {
   finally { submitting.value = false; }
 };
 
-const submitDailyAnswer = async (content: string) => {
+const submitDailyAnswer = async (input: DailyQuestionAnswerInput) => {
   if (!viewerId.value || !dailyQuestion.value) { goToLogin(); return; }
   try {
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
-    await saveDailyQuestionAnswer(dailyQuestion.value.id, viewerId.value, content);
+    await saveDailyQuestionAnswer(dailyQuestion.value.id, viewerId.value, input);
     void checkTitlesForEvent('daily_question');
     await loadDailyQuestion();
     if (dailyAnswerListOpen.value) await loadDailyAnswers();

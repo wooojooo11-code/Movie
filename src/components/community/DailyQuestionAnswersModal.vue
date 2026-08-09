@@ -56,6 +56,13 @@ const initial = (nickname: string) => nickname.trim().slice(0, 1) || '?';
                     <p class="truncate text-sm font-semibold text-[#15171c]">{{ answer.author.nickname }}</p>
                     <time class="shrink-0 text-[11px] text-app-muted" :datetime="answer.createdAt">{{ formatCreatedAt(answer.createdAt) }}</time>
                   </div>
+                  <div v-if="answer.movie" class="mt-2 flex items-center gap-2 border-l-2 border-app-accent pl-2.5">
+                    <img :src="answer.movie.posterPath ?? '/app-icon.svg'" :alt="`${answer.movie.title} 포스터`" class="h-10 w-7 shrink-0 border border-app-line object-cover" />
+                    <div class="min-w-0">
+                      <p class="truncate text-xs font-semibold text-[#15171c]">{{ answer.movie.title }}</p>
+                      <p v-if="answer.movie.releaseYear" class="mt-0.5 text-[11px] text-app-muted">{{ answer.movie.releaseYear }}</p>
+                    </div>
+                  </div>
                   <p class="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-[#30343b]">{{ answer.content }}</p>
                 </div>
               </div>

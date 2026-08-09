@@ -140,7 +140,7 @@ watch(
         <img
           :src="movie.posterUrl"
           :alt="movie.posterAlt"
-          class="h-24 w-[4.1rem] shrink-0 object-cover"
+          class="h-24 w-16 shrink-0 bg-app-poster object-contain"
           loading="lazy"
         />
 

@@ -1,4 +1,5 @@
 import type { CommunityPoll } from '@/types/poll';
+import type { SituationPresetId } from '@/types/recommendation';
 import type { RecommendationRelay } from '@/types/relay';
 
 /** 화면 탭과 DB category 값을 같은 타입으로 관리합니다. */
@@ -81,6 +82,7 @@ export interface DailyQuestion {
   id: string;
   question: string;
   activeDate: string;
+  situationPresetId: null | SituationPresetId;
   answerCount: number;
   viewerAnswer: null | DailyQuestionAnswer;
 }
@@ -90,9 +92,15 @@ export interface DailyQuestionAnswer {
   questionId: string;
   userId: string;
   content: string;
+  movie: null | CommunityMovieReference;
   createdAt: string;
   updatedAt: string;
   author: CommunityProfile;
+}
+
+export interface DailyQuestionAnswerInput {
+  content: string;
+  movie: CommunityMovieReference;
 }
 
 export interface CommunityPostDraft {

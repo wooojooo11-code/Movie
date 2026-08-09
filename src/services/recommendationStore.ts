@@ -17,6 +17,7 @@ import {
   recommendMovies,
   type RatingInput
 } from '@/services/movie_recommendation_algorithm';
+import { fetchSituationCommunityMovieSignals } from '@/services/community/communityService';
 import {
   localRatingHistoryRepository,
   localRecommendationRepository,
@@ -31,6 +32,7 @@ import type {
   AdditionalTasteAnalysisBatch,
   CatalogMovie,
   CollaborativeRecommendationSignal,
+  CommunitySituationMovieSignal,
   RatingResumeSurface,
   RatingFeedbackPayload,
   RatedCatalogMovieRecord,
@@ -508,9 +510,11 @@ const ratingHistoryState = reactive<{
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
 const collaborativeRecommendationSignals = ref<CollaborativeRecommendationSignal[]>([]);
+const communitySituationMovieSignals = ref<CommunitySituationMovieSignal[]>([]);
 const activeSituation = ref<ActiveSituation>(initialSnapshot.activeSituation);
 const activeSituationUpdatedAt = ref(initialSnapshot.activeSituationUpdatedAt);
 let remoteSaveChain: Promise<void> = Promise.resolve();
+let communitySituationSignalRequestId = 0;
 
 const getErrorMessage = (error: unknown, fallback: string) => {
   if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
@@ -552,6 +556,34 @@ const refreshCollaborativeRecommendationSignals = async (userId: string) => {
   } catch (error) {
     // This is an optional ranking signal. Keep the existing recommendation algorithm available.
     console.warn('[recommendationStore] Collaborative recommendation signals are unavailable.', error);
+  }
+};
+
+const refreshCommunitySituationMovieSignals = async () => {
+  const situation = activeSituation.value;
+  const requestId = ++communitySituationSignalRequestId;
+
+  if (situation.kind !== 'preset') {
+    communitySituationMovieSignals.value = [];
+    return;
+  }
+
+  try {
+    const signals = await fetchSituationCommunityMovieSignals(situation.presetId);
+
+    if (
+      requestId === communitySituationSignalRequestId &&
+      activeSituation.value.kind === 'preset' &&
+      activeSituation.value.presetId === situation.presetId
+    ) {
+      communitySituationMovieSignals.value = signals;
+    }
+  } catch (error) {
+    if (requestId === communitySituationSignalRequestId) {
+      communitySituationMovieSignals.value = [];
+    }
+    // Community answers are an optional ranking signal. Core recommendations remain available.
+    console.warn('[recommendationStore] Community situation signals are unavailable.', error);
   }
 };
 
@@ -866,6 +898,7 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
     activeSituation: activeSituation.value,
     catalogMovies,
     collaborativeSignals: collaborativeRecommendationSignals.value,
+    communitySituationSignals: communitySituationMovieSignals.value,
     hasTasteProfile: state.profile.totalRatings > 0,
     impressions: state.recommendationImpressions,
     likedMovieIds: likedMovieIds.value,
@@ -1083,6 +1116,7 @@ const recordCurrentRecommendationImpressions = () => {
 
 const setActiveSituation = (nextSituation: ActiveSituation) => {
   if (JSON.stringify(activeSituation.value) === JSON.stringify(nextSituation)) {
+    void refreshCommunitySituationMovieSignals();
     return Promise.resolve();
   }
 
@@ -1091,6 +1125,7 @@ const setActiveSituation = (nextSituation: ActiveSituation) => {
   activeSituationUpdatedAt.value = new Date().toISOString();
   state.activeSituation = activeSituation.value;
   state.activeSituationUpdatedAt = activeSituationUpdatedAt.value;
+  void refreshCommunitySituationMovieSignals();
 
   return persistState();
 };
@@ -1128,11 +1163,13 @@ const setActiveUser = async (userId: string) => {
   const localSnapshot = loadSnapshot(normalizedUserId);
   const localRatingHistory = loadRatingHistory(normalizedUserId);
   collaborativeRecommendationSignals.value = [];
+  communitySituationMovieSignals.value = [];
   applySnapshot(localSnapshot);
   applyRatingHistory(normalizedUserId, localRatingHistory);
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
   void refreshCollaborativeRecommendationSignals(normalizedUserId);
+  void refreshCommunitySituationMovieSignals();
 
   try {
     const [remoteSnapshot, remoteRatingHistory] = await Promise.all([
@@ -1188,6 +1225,7 @@ const setActiveUser = async (userId: string) => {
     localRecommendationRepository.save(mergedSnapshot);
     applyRatingHistory(normalizedUserId, mergedRatingHistory);
     localRatingHistoryRepository.save(normalizedUserId, mergedRatingHistory);
+    void refreshCommunitySituationMovieSignals();
 
     const shouldResyncRecommendation = shouldResyncRemoteSnapshot(
       normalizedRemoteSnapshot,
@@ -1248,6 +1286,7 @@ export const recommendationStore = {
   rawRecommendedMovies,
   isRecommendationFallbackMode,
   recommendedLists,
+  communitySituationMovieSignals: readonly(communitySituationMovieSignals),
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
   getAdditionalTasteAnalysisBatchMovies,
@@ -1259,6 +1298,7 @@ export const recommendationStore = {
   setRatingResumeSurface,
   setTasteAnalysisGenres,
   setActiveSituation,
+  refreshCommunitySituationMovieSignals,
   submitSwipeRating,
   dismissRecommendedMovie,
   resetDismissedRecommendations,

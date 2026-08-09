@@ -47,6 +47,12 @@ const activeSituationTitle = computed(() => {
 const activeSituationLabels = computed(() =>
   activeSituation.value.kind === 'manual' ? getManualSituationLabels(activeSituation.value.selection) : []
 );
+const communitySituationAnswerCount = computed(() =>
+  recommendationStore.communitySituationMovieSignals.value.reduce(
+    (total, signal) => total + signal.answerCount,
+    0
+  )
+);
 
 const openMovieSheet = (movie: RecommendedCatalogMovie) => {
   selectedMovie.value = movie;
@@ -253,6 +259,7 @@ const toggleReasonSelection = (reason: string) => {
 
 onMounted(() => {
   document.addEventListener('pointerdown', handleReasonDropdownPointerDown);
+  void recommendationStore.refreshCommunitySituationMovieSignals();
 });
 
 onBeforeUnmount(() => {
@@ -451,6 +458,12 @@ const applyDefaultSituation = () => {
               {{ label }}
             </span>
           </div>
+          <p
+            v-if="activeSituation.kind === 'preset' && communitySituationAnswerCount > 0"
+            class="mt-2 text-xs text-app-muted"
+          >
+            커뮤니티가 이 상황에서 남긴 영화 추천 {{ communitySituationAnswerCount }}건을 반영하고 있어요.
+          </p>
         </div>
         <span class="shrink-0 text-xs text-app-muted">
           {{ recommendationStore.contextAwareRecommendedMovies.value.length }}개

@@ -55,7 +55,7 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
             <img
               :src="movie.posterUrl"
               :alt="movie.posterAlt"
-              class="aspect-[4/5] w-full object-cover"
+              class="aspect-[2/3] w-full bg-app-poster object-contain"
               loading="lazy"
             />
             <p class="mt-1.5 line-clamp-2 text-[12px] font-semibold leading-4 text-[#15171c]">

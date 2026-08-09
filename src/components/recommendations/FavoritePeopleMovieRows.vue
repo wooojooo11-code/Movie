@@ -92,7 +92,7 @@ const rowLabel = (kind: FavoritePersonMovieRow['kind']) => (kind === 'actor' ? '
             <img
               :src="movie.posterUrl"
               :alt="movie.posterAlt"
-              class="corner-soft aspect-[4/5] w-full border border-app-line object-cover transition duration-200 group-hover:-translate-y-0.5"
+              class="corner-soft aspect-[2/3] w-full border border-app-line bg-app-poster object-contain transition duration-200 group-hover:-translate-y-0.5"
               loading="lazy"
             />
             <span class="mt-1 block truncate text-[10px] leading-4 text-white">{{ movie.title }}</span>

@@ -19,7 +19,8 @@ defineEmits<{ remove: [commentId: string] }>();
             <img :src="comment.movie.posterPath ?? '/app-icon.svg'" :alt="`${comment.movie.title} 포스터`" class="h-12 w-8 border border-app-line object-cover" />
             <span class="min-w-0"><span class="block text-[10px] font-semibold text-app-accent">다음 영화 추천</span><span class="mt-1 block truncate text-sm font-semibold text-[#174a77]">{{ comment.movie.title }}</span></span>
           </RouterLink>
-          <p v-if="comment.content" class="mt-2 text-sm leading-5 text-app-muted">{{ comment.content }}</p>
+          <p v-if="comment.movie && comment.content" class="mt-2 text-sm leading-5 text-app-muted"><span class="mr-1 text-xs font-semibold text-[#174a77]">추천 이유</span>{{ comment.content }}</p>
+          <p v-else-if="comment.content" class="mt-2 whitespace-pre-wrap text-sm leading-5 text-[#30343b]">{{ comment.content }}</p>
         </div>
         <button v-if="comment.userId === currentUserId" type="button" class="focus-ring text-xs text-app-muted underline" @click="$emit('remove', comment.id)">삭제</button>
       </div>

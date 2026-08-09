@@ -6,6 +6,7 @@ import CommunityHeader from '@/components/community/CommunityHeader.vue';
 import CommunityPostCard from '@/components/community/CommunityPostCard.vue';
 import CommunityPostList from '@/components/community/CommunityPostList.vue';
 import CommunitySearchBar from '@/components/community/CommunitySearchBar.vue';
+import SavedCommunityPostsCard from '@/components/community/SavedCommunityPostsCard.vue';
 import CommunitySortMenu from '@/components/community/CommunitySortMenu.vue';
 import CommunityTabs from '@/components/community/CommunityTabs.vue';
 import CreatePostModal from '@/components/community/CreatePostModal.vue';
@@ -20,6 +21,7 @@ import {
   fetchDailyQuestionAnswers,
   fetchMyShareableLists,
   fetchPopularPosts,
+  fetchSavedCommunityPosts,
   fetchViewerPostInteractions,
   saveDailyQuestionAnswer,
   toggleCommunityLike,
@@ -43,12 +45,14 @@ const popularPosts = ref<CommunityPost[]>([]);
 const dailyQuestion = ref<DailyQuestion | null>(null);
 const dailyAnswers = ref<DailyQuestionAnswer[]>([]);
 const shareableLists = ref<CommunityListReference[]>([]);
+const savedPosts = ref<CommunityPost[]>([]);
+const savedPostCount = ref(0);
 const likedIds = ref(new Set<string>());
 const savedIds = ref(new Set<string>());
 const savingSaveIds = ref(new Set<string>());
-const hasMore = ref(false);
 const loading = ref(false);
 const loadingDaily = ref(false);
+const loadingSavedPosts = ref(false);
 const loadingDailyAnswers = ref(false);
 const dailyAnswerListOpen = ref(false);
 const dailyAnswersError = ref('');
@@ -57,6 +61,7 @@ const errorMessage = ref('');
 const composerError = ref('');
 const isComposerOpen = ref(false);
 let searchTimer: number | undefined;
+const COMMUNITY_FEED_PAGE_SIZE = 100;
 
 const viewerId = computed(() => authStore.user?.id ?? null);
 const canWrite = computed(() => authStore.isAuthenticated && Boolean(viewerId.value));
@@ -79,16 +84,54 @@ const loadDailyQuestion = async () => {
   finally { loadingDaily.value = false; }
 };
 
-const loadFeed = async (reset = true) => {
+const loadSavedPosts = async () => {
+  if (!viewerId.value) {
+    savedPosts.value = [];
+    savedPostCount.value = 0;
+    loadingSavedPosts.value = false;
+    return;
+  }
+
+  loadingSavedPosts.value = true;
+  try {
+    const result = await fetchSavedCommunityPosts(viewerId.value);
+    savedPosts.value = result.posts;
+    savedPostCount.value = result.totalCount;
+  } catch (error) {
+    errorMessage.value = error instanceof Error ? error.message : '저장한 글을 불러오지 못했습니다.';
+  } finally {
+    loadingSavedPosts.value = false;
+  }
+};
+
+const loadFeed = async () => {
   if (loading.value) return;
   loading.value = true;
   errorMessage.value = '';
   try {
-    const page = await fetchCommunityFeed({ category: activeTab.value, sort: sort.value, query: searchQuery.value, offset: reset ? 0 : posts.value.length, viewerId: viewerId.value });
-    posts.value = reset ? page.posts : [...posts.value, ...page.posts];
-    hasMore.value = page.hasMore;
-    if (reset) { likedIds.value = new Set(); savedIds.value = new Set(); }
-    await syncViewerInteractions(page.posts);
+    const allPosts: CommunityPost[] = [];
+    let offset = 0;
+    let hasNextPage = true;
+
+    // 더 보기 버튼 없이 모든 게시글을 보여 주기 위해, 서버 결과를 끝까지 이어서 가져옵니다.
+    while (hasNextPage) {
+      const page = await fetchCommunityFeed({
+        category: activeTab.value,
+        sort: sort.value,
+        query: searchQuery.value,
+        offset,
+        limit: COMMUNITY_FEED_PAGE_SIZE,
+        viewerId: viewerId.value
+      });
+      allPosts.push(...page.posts);
+      offset += page.posts.length;
+      hasNextPage = page.hasMore && page.posts.length > 0;
+    }
+
+    posts.value = allPosts;
+    likedIds.value = new Set();
+    savedIds.value = new Set();
+    await syncViewerInteractions(allPosts);
   } catch (error) { errorMessage.value = error instanceof Error ? error.message : '게시글을 불러오지 못했습니다.'; }
   finally { loading.value = false; }
 };
@@ -109,8 +152,8 @@ const loadSupportingContent = async () => {
 
 const refresh = async () => {
   // 게시글 상호작용 상태를 먼저 초기화한 뒤 인기글 상태를 합쳐 경합을 피합니다.
-  await loadFeed(true);
-  await Promise.all([loadDailyQuestion(), loadSupportingContent()]);
+  await loadFeed();
+  await Promise.all([loadDailyQuestion(), loadSupportingContent(), loadSavedPosts()]);
 };
 
 const openComposer = () => {
@@ -216,6 +259,7 @@ const toggleSave = async (post: CommunityPost) => {
   try {
     const result = await toggleCommunitySave(post.id, viewerId.value);
     applyPostSaveState(post.id, result.saved, result.saveCount);
+    void loadSavedPosts();
   } catch {
     errorMessage.value = '저장을 반영하지 못했습니다.';
   } finally {
@@ -250,17 +294,20 @@ const saveList = async (listId: string) => {
   catch { errorMessage.value = '리스트 저장에 실패했습니다.'; }
 };
 
-watch([activeTab, sort], () => { void loadFeed(true); });
-watch(searchQuery, () => { window.clearTimeout(searchTimer); searchTimer = window.setTimeout(() => { void loadFeed(true); }, 300); });
+watch([activeTab, sort], () => { void loadFeed(); });
+watch(searchQuery, () => { window.clearTimeout(searchTimer); searchTimer = window.setTimeout(() => { void loadFeed(); }, 300); });
 watch(viewerId, () => { void refresh(); });
 onMounted(() => { void refresh(); });
 onScopeDispose(() => window.clearTimeout(searchTimer));
 </script>
 
 <template>
-  <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-xl">
+  <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-xl lg:max-w-2xl lg:px-6">
     <CommunityHeader @compose="openComposer" />
-    <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+    <div class="mt-5 grid gap-3 sm:grid-cols-[minmax(0,1fr)_15rem] sm:items-center">
+      <DailyQuestionCard :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+      <SavedCommunityPostsCard :posts="savedPosts" :total-count="savedPostCount" :is-authenticated="canWrite" :loading="loadingSavedPosts" />
+    </div>
     <section class="mt-7" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div></div>
       <div class="scrollbar-hide mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" aria-label="인기 게시글 가로 목록">
@@ -272,7 +319,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
       <div class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
       <div class="mt-3"><CommunityTabs v-model="activeTab" /></div>
       <p v-if="errorMessage" class="corner-soft mt-4 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
-      <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" :has-more="hasMore" @more="loadFeed(false)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
+      <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
     </section>
     <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
     <DailyQuestionAnswersModal :open="dailyAnswerListOpen" :question="dailyQuestion" :answers="dailyAnswers" :loading="loadingDailyAnswers" :error-message="dailyAnswersError" @close="dailyAnswerListOpen = false" />

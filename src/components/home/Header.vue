@@ -49,6 +49,9 @@ const signOut = async () => {
 
         <div class="flex items-center gap-2">
           <template v-if="authStore.isAuthenticated">
+            <span class="max-w-28 truncate text-sm font-semibold text-app-muted" :title="authStore.displayName">
+              {{ authStore.displayName }}
+            </span>
             <button
               type="button"
               class="focus-ring corner-soft border border-[#e5a2a2] bg-[#fff0f0] px-3 py-2 text-sm font-medium text-[#a13c3c] transition-colors hover:bg-[#ffe4e4]"

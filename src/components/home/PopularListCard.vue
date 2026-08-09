@@ -19,11 +19,11 @@ const formatRating = (rating: number) => rating.toFixed(1);
     class="focus-ring corner-hard w-full border border-app-line bg-app-panel px-4 py-4 text-left"
     @click="$emit('open', list)"
   >
-    <div class="mb-3 flex flex-nowrap gap-2 overflow-x-auto pb-1">
+    <div class="mb-3 flex gap-2">
       <div
         v-for="movie in list.moviePreviews"
         :key="movie.id"
-        class="w-12 shrink-0 sm:w-14"
+        class="min-w-0 flex-1"
       >
         <img
           :src="movie.posterUrl"

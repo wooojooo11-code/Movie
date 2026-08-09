@@ -44,6 +44,7 @@ const editContent = ref('');
 const editImageUrl = ref('');
 const editHasSpoiler = ref(false);
 const savingSave = ref(false);
+const commentSubmissionId = ref(0);
 
 const viewerId = computed(() => authStore.user?.id ?? null);
 const isOwner = computed(() => post.value?.userId === viewerId.value);
@@ -173,8 +174,9 @@ const addComment = async (input: { content: string; movie: null | CommunityMovie
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
     comments.value.unshift(await createComment(post.value.id, viewerId.value, input));
     post.value.commentCount += 1;
-  } catch {
-    errorMessage.value = '댓글 등록에 실패했습니다.';
+    commentSubmissionId.value += 1;
+  } catch (error) {
+    errorMessage.value = error instanceof Error ? error.message : '댓글 등록에 실패했습니다.';
   } finally {
     submitting.value = false;
   }
@@ -289,7 +291,7 @@ onMounted(() => { void load(); });
 
       <section id="comments" class="mt-6" aria-labelledby="comments-title">
         <h2 id="comments-title" class="text-lg font-semibold text-[#15171c]" :aria-label="`댓글 ${post.commentCount}개`"><span aria-hidden="true" class="mr-1 text-base">💬</span>{{ post.commentCount }}</h2>
-        <CommentForm class="mt-4" :is-authenticated="isAuthenticated" :submitting="submitting" @submit="addComment" @login="goToLogin" />
+        <CommentForm class="mt-4" :is-authenticated="isAuthenticated" :submitting="submitting" :submission-id="commentSubmissionId" @submit="addComment" @login="goToLogin" />
         <div class="mt-5"><CommentList :comments="comments" :current-user-id="viewerId" :loading="commentsLoading" @remove="removeComment" /></div>
       </section>
       <p v-if="errorMessage" class="corner-soft mt-5 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>

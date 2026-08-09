@@ -315,6 +315,42 @@ export const fetchViewerPostInteractions = async (postIds: readonly string[], us
   return { liked, saved };
 };
 
+// 저장한 글은 최신 저장 순서대로 일부만 보여 주고, 전체 개수는 별도로 함께 반환합니다.
+export const fetchSavedCommunityPosts = async (userId: string, limit = 3) => {
+  ensureSupabase();
+  const savesRelation = getCommunitySavesRelation()!;
+  const { data: saves, error: savesError, count } = await savesRelation
+    .select('post_id, created_at', { count: 'exact' })
+    .eq('user_id', userId)
+    .order('created_at', { ascending: false })
+    .limit(limit);
+  if (savesError) throw savesError;
+
+  const savedPostIds = ((saves ?? []) as Row[]).map((save) => asString(save.post_id)).filter(Boolean);
+  if (savedPostIds.length === 0) return { posts: [] as CommunityPost[], totalCount: count ?? 0 };
+
+  const { data: postRows, error: postsError } = await getCommunityPostsRelation()!
+    .select('*')
+    .in('id', savedPostIds)
+    .neq('category', 'mission_proof');
+  if (postsError) throw postsError;
+
+  const decoratedPosts = (await decoratePosts((postRows ?? []) as Row[], userId)) as CommunityPost[];
+  const postsById = new Map<string, CommunityPost>(decoratedPosts.map((post) => [post.id, post]));
+  const posts: CommunityPost[] = [];
+
+  // 저장한 시각 순서를 유지하기 위해, 조회 결과를 저장 목록의 id 순서로 다시 정렬합니다.
+  savedPostIds.forEach((postId) => {
+    const post = postsById.get(postId);
+    if (post) posts.push(post);
+  });
+
+  return {
+    posts,
+    totalCount: count ?? savedPostIds.length
+  };
+};
+
 export const fetchCommunityPost = async (postId: string, viewerId?: null | string): Promise<CommunityPostDetail> => {
   ensureSupabase();
   const relation = getCommunityPostsRelation()!;

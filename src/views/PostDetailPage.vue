@@ -267,10 +267,10 @@ onMounted(() => { void load(); });
 
         <section v-if="relatedMovies.length" class="mt-5 border-y border-app-line py-3" aria-labelledby="related-movies-title">
           <h2 id="related-movies-title" class="text-xs font-semibold text-app-muted">관련 영화 {{ relatedMovies.length }}편</h2>
-          <div class="scrollbar-hide mt-3 flex gap-3 overflow-x-auto pb-1">
-            <RouterLink v-for="movie in relatedMovies" :key="movie.id" :to="`/movies/${movie.id}`" class="focus-ring w-28 shrink-0">
-              <img :src="movie.posterPath ?? '/app-icon.svg'" :alt="`${movie.title} 포스터`" class="h-40 w-28 border border-app-line object-cover" />
-              <span class="mt-2 block truncate text-sm font-semibold text-[#174a77]">{{ movie.title }}</span>
+          <div class="scrollbar-hide mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-1">
+            <RouterLink v-for="movie in relatedMovies" :key="movie.id" :to="`/movies/${movie.id}`" class="focus-ring w-32 shrink-0 snap-start">
+              <img :src="movie.posterPath ?? '/app-icon.svg'" :alt="`${movie.title} 포스터`" class="h-44 w-32 border border-app-line object-cover" />
+              <span class="mt-2 block whitespace-normal break-keep text-sm font-semibold leading-6 text-[#174a77]">{{ movie.title }}</span>
             </RouterLink>
           </div>
         </section>

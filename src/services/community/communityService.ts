@@ -248,6 +248,22 @@ const decoratePosts = async (rows: readonly Row[], viewerId?: null | string) => 
 
 const cleanSearchTerm = (query: string) => query.trim().replace(/[(),%_]/g, ' ').replace(/\s+/g, ' ');
 
+// 예전 Supabase 설정에는 여러 관련 영화를 담는 테이블이 없을 수 있어, 글을 만들기 전에 안내 가능한 오류로 바꿉니다.
+const ensureMultipleRelatedMoviesSupported = async () => {
+  const relation = getCommunityPostMoviesRelation();
+  if (!relation) throw new Error('관련 영화 저장 기능을 사용할 수 없습니다.');
+
+  const { error } = await relation.select('post_id').limit(1);
+  if (error) {
+    if (error.code === '42P01' || error.code === 'PGRST205') {
+      throw new Error('여러 관련 영화를 등록하려면 최신 커뮤니티 SQL을 먼저 실행해 주세요.');
+    }
+    throw error;
+  }
+
+  return relation;
+};
+
 export const fetchCommunityFeed = async (request: CommunityFeedRequest): Promise<CommunityFeedPage> => {
   ensureSupabase();
   const relation = getCommunityPostsRelation()!;
@@ -337,6 +353,8 @@ export const createCommunityPost = async (draft: CommunityPostDraft) => {
   // 첫 번째 영화는 이전 검색·정렬 호환용으로 게시글 본문에도 함께 저장합니다.
   const relatedMovies = draft.movies.length > 0 ? draft.movies : draft.movie ? [draft.movie] : [];
   const primaryMovie = relatedMovies[0] ?? null;
+  // 여러 편을 선택했다면 글을 만들기 전에 저장 테이블이 준비됐는지 먼저 확인합니다.
+  const postMoviesRelation = relatedMovies.length > 1 ? await ensureMultipleRelatedMoviesSupported() : null;
   const payload = {
     category: draft.category,
     title: draft.title.trim(),
@@ -362,7 +380,25 @@ export const createCommunityPost = async (draft: CommunityPostDraft) => {
   };
   const { data, error } = await supabase!.rpc('create_community_post', { payload });
   if (error) throw error;
-  return asString(data);
+
+  const postId = asString(data);
+
+  // 오래된 RPC가 첫 번째 영화만 저장해도, 선택한 모든 영화를 보조 테이블에 한 번 더 저장해 누락을 막습니다.
+  if (postMoviesRelation && postId) {
+    const { error: moviesError } = await postMoviesRelation.upsert(
+      relatedMovies.map((movie, index) => ({
+        post_id: postId,
+        movie_id: movie.id,
+        movie_title: movie.title,
+        movie_poster_path: movie.posterPath,
+        position: index + 1
+      })),
+      { onConflict: 'post_id,movie_id', ignoreDuplicates: true }
+    );
+    if (moviesError) throw moviesError;
+  }
+
+  return postId;
 };
 
 export const updateCommunityPost = async (postId: string, draft: Pick<CommunityPostDraft, 'title' | 'content' | 'imageUrl' | 'hasSpoiler' | 'movie'>) => {

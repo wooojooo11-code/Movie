@@ -23,14 +23,15 @@ defineEmits<{
 
 <template>
   <div>
-    <div v-if="loading && posts.length === 0" class="grid gap-4">
-      <div v-for="index in 3" :key="index" class="corner-soft h-80 animate-pulse border border-app-line bg-app-panelSoft" />
+    <div v-if="loading && posts.length === 0" class="scrollbar-hide flex gap-4 overflow-x-auto pb-2">
+      <div v-for="index in 3" :key="index" class="corner-soft h-80 w-[19rem] shrink-0 animate-pulse border border-app-line bg-app-panelSoft" />
     </div>
 
-    <div v-else-if="posts.length" class="grid gap-4" aria-label="게시글 피드">
+    <div v-else-if="posts.length" class="scrollbar-hide flex snap-x snap-mandatory items-start gap-4 overflow-x-auto pb-2" aria-label="게시글 가로 피드">
       <CommunityPostCard
         v-for="post in posts"
         :key="post.id"
+        class="w-[19rem] shrink-0 snap-start"
         :post="post"
         :viewer-liked="likedIds?.has(post.id)"
         :viewer-saved="savedIds?.has(post.id)"

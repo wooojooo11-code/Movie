@@ -113,24 +113,25 @@ const previewImage = computed(() => props.post.imageUrl ?? relatedMovies.value[0
       />
     </SpoilerCover>
 
-    <section v-if="relatedMovies.length" class="scrollbar-hide flex gap-2 overflow-x-auto border-b border-app-line px-4 py-3" aria-label="관련 영화">
-      <RouterLink
-        v-for="movie in relatedMovies"
-        :key="movie.id"
-        :to="`/movies/${movie.id}`"
-        class="focus-ring flex w-36 shrink-0 items-center gap-2 text-left"
-      >
-        <img
-          :src="movie.posterPath ?? '/app-icon.svg'"
-          :alt="`${movie.title} 포스터`"
-          class="h-12 w-8 shrink-0 border border-app-line object-cover"
-          loading="lazy"
-        />
-        <span class="min-w-0">
-          <span class="block truncate text-xs font-semibold text-[#15171c]">{{ movie.title }}</span>
+    <section v-if="relatedMovies.length" class="border-b border-app-line px-4 py-3" aria-label="관련 영화">
+      <p class="text-xs font-semibold text-app-muted">관련 영화</p>
+      <div class="scrollbar-hide mt-2 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-1">
+        <RouterLink
+          v-for="movie in relatedMovies"
+          :key="movie.id"
+          :to="`/movies/${movie.id}`"
+          class="focus-ring w-24 shrink-0 snap-start text-left"
+        >
+          <img
+            :src="movie.posterPath ?? '/app-icon.svg'"
+            :alt="`${movie.title} 포스터`"
+            class="h-36 w-24 border border-app-line object-cover"
+            loading="lazy"
+          />
+          <span class="mt-2 block whitespace-normal break-keep text-xs font-semibold leading-5 text-[#15171c]">{{ movie.title }}</span>
           <span v-if="movie.releaseYear" class="mt-0.5 block text-[10px] text-app-muted">{{ movie.releaseYear }}</span>
-        </span>
-      </RouterLink>
+        </RouterLink>
+      </div>
     </section>
 
     <div class="px-4 py-3">
@@ -158,16 +159,6 @@ const previewImage = computed(() => props.post.imageUrl ?? relatedMovies.value[0
             <path d="M21 11.5a8 8 0 0 1-8.5 8 8.8 8.8 0 0 1-4-.9L3 20l1.5-4.3A7.8 7.8 0 0 1 4 12a8 8 0 0 1 8.5-8A8 8 0 0 1 21 11.5Z" />
           </svg>
         </RouterLink>
-        <RouterLink
-          :to="`/community/${post.id}`"
-          class="focus-ring grid size-10 place-items-center rounded-full text-[#15171c] transition-colors active:scale-95"
-          aria-label="게시글 공유 화면 보기"
-        >
-          <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path d="m21 3-8 18-3.5-7.5L2 10l19-7Z" />
-            <path d="m9.5 13.5 4-4" />
-          </svg>
-        </RouterLink>
         <button
           type="button"
           class="focus-ring ml-auto grid size-10 place-items-center rounded-full transition-colors active:scale-95 disabled:cursor-wait disabled:opacity-60"
@@ -186,7 +177,7 @@ const previewImage = computed(() => props.post.imageUrl ?? relatedMovies.value[0
       <RouterLink :to="`/community/${post.id}`" class="focus-ring mt-2 block">
         <h2 class="text-sm font-bold leading-6 text-[#15171c]">{{ post.title }}</h2>
         <SpoilerCover :has-spoiler="post.hasSpoiler" preview>
-          <p v-if="post.content" class="mt-1 line-clamp-3 whitespace-pre-wrap text-sm leading-6 text-app-muted">{{ post.content }}</p>
+          <p v-if="post.content" class="mt-1 whitespace-pre-wrap text-sm leading-6 text-app-muted">{{ post.content }}</p>
         </SpoilerCover>
       </RouterLink>
       <RouterLink v-if="post.commentCount" :to="`/community/${post.id}#comments`" class="focus-ring mt-2 inline-flex text-xs text-app-muted hover:text-[#174a77]">

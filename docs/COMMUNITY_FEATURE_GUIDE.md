@@ -18,6 +18,7 @@ Supabase Dashboard의 SQL Editor에서 아래 파일을 순서대로 각각 실�
 5. `supabase/migrations/202607281000_add_unlimited_related_post_movies.sql`
 6. `supabase/migrations/202607281100_add_comment_movie_recommendations.sql`
 7. `supabase/migrations/202608021000_remove_community_mission_proof.sql`
+8. `supabase/migrations/202608090900_ensure_multiple_related_movies.sql`
 
 브라우저 환경에는 기존 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`만 설정되어 있으면 됩니다. 키 값은 코드에 넣지 않습니다.
 
@@ -34,7 +35,7 @@ Supabase Dashboard의 SQL Editor에서 아래 파일을 순서대로 각각 실�
 - 첫 번째 영화는 이전 게시글 검색·정렬 호환을 위해 `community_posts.movie_*` 열에도 저장됩니다.
 - 전체 연결 목록은 `community_post_movies` 테이블에 순서대로 저장됩니다.
 - 기존 단일 영화 게시글은 새 SQL을 실행할 때 첫 번째 관련 영화로 자동 이관됩니다.
-- 새 SQL을 실행하기 전에는 화면이 기존 단일 영화 방식으로 안전하게 표시됩니다. 여러 편을 실제로 저장하려면 5번 SQL을 반드시 실행해야 합니다.
+- 여러 편의 관련 영화가 하나만 저장되는 경우에는 8번 SQL을 실행하세요. 앱은 등록 직후 모든 선택 영화를 다시 확인해 저장합니다.
 
 ## 다음 영화 추천 댓글
 

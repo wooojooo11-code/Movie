@@ -53,7 +53,7 @@ assert.deepEqual(
   [7, 8, 5, 11, 12],
   'every requested direct-selection option is present'
 );
-assert.equal(situationPresets.length, 9, 'all supported recommendation presets are available');
+assert.equal(situationPresets.length, 7, 'all supported recommendation presets are available');
 assert.equal(isCompleteSituationSelection(manualSelection), true, 'complete direct selection is accepted');
 assert.equal(isCompleteSituationSelection({ mood: 'tense' }), true, 'a single direct selection is accepted');
 assert.equal(isCompleteSituationSelection({ reason: ['focus'] }), true, 'one reason can be selected');
@@ -147,7 +147,7 @@ const weightedCandidates = [
   movie('weighted-comedy', { genreIds: [35], recommendationScore: 20 })
 ];
 const weightedResults = rankSituationMovies({
-  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  activeSituation: { kind: 'preset', presetId: 'winter_vibes' },
   catalogMovies: weightedCandidates,
   hasTasteProfile: true,
   impressions: [{ movieId: 'weighted-comedy', lastShownAt: new Date().toISOString(), showCount: 1 }],
@@ -184,7 +184,7 @@ const diverseCandidates = diverseGenreIds.flatMap((genreId, genreIndex) =>
   )
 );
 const diverseResults = rankSituationMovies({
-  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  activeSituation: { kind: 'preset', presetId: 'winter_vibes' },
   catalogMovies: diverseCandidates,
   hasTasteProfile: false,
   impressions: [],
@@ -216,7 +216,7 @@ const recentCandidates = Array.from({ length: 11 }, (_, index) =>
   })
 );
 const recentResults = rankSituationMovies({
-  activeSituation: { kind: 'preset', presetId: 'autumn_vibes' },
+  activeSituation: { kind: 'preset', presetId: 'winter_vibes' },
   catalogMovies: recentCandidates,
   hasTasteProfile: false,
   impressions: [{ movieId: 'recent-0', lastShownAt: new Date().toISOString(), showCount: 1 }],

@@ -4,7 +4,7 @@ import { computed, ref } from 'vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
 import { getYouTubeEmbedUrl, loadMovieTrailer } from '@/services/movieTrailer';
 import { getWatchProviderLinks } from '@/services/watchProviderLinks';
-import type { RatingMovie, RatingSelection } from '@/types/rating';
+import type { RatingDirection, RatingMovie, RatingSelection } from '@/types/rating';
 
 const props = withDefaults(
   defineProps<{
@@ -13,17 +13,27 @@ const props = withDefaults(
     primaryLayout?: boolean;
     size?: 'compact' | 'default' | 'detail';
     showTrailer?: boolean;
+    showWatchOptions?: boolean;
+    showPreviousRatingEdit?: boolean;
+    previousRating?: null | {
+      decision: RatingSelection['decision'];
+      direction: null | RatingDirection;
+    };
   }>(),
   {
     interactive: true,
     primaryLayout: false,
     size: 'default',
-    showTrailer: false
+    showTrailer: false,
+    showWatchOptions: true,
+    showPreviousRatingEdit: false,
+    previousRating: null
   }
 );
 
 const emit = defineEmits<{
   decide: [selection: RatingSelection];
+  editPreviousRating: [];
 }>();
 
 const startX = ref(0);
@@ -78,6 +88,53 @@ const titleClassName = computed(() => {
 
   return 'text-[32px] font-semibold leading-tight text-[#15171c]';
 });
+const previousRatingPresentation = computed<null | { badgeClassName: string; borderClassName: string; label: string }>(
+  () => {
+    const previousRating = props.previousRating;
+
+    if (!previousRating) {
+      return null;
+    }
+
+    if (previousRating.decision === 'like' && previousRating.direction === 'right') {
+      return {
+        label: '재미있음으로 평가함',
+        badgeClassName: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+        borderClassName: 'border-emerald-400'
+      };
+    }
+
+    if (previousRating.decision === 'like') {
+      return {
+        label: '관심있음으로 평가함',
+        badgeClassName: 'border-sky-200 bg-sky-50 text-sky-800',
+        borderClassName: 'border-sky-400'
+      };
+    }
+
+    if (previousRating.decision === 'dislike') {
+      return {
+        label: '재미없음으로 평가함',
+        badgeClassName: 'border-rose-200 bg-rose-50 text-rose-800',
+        borderClassName: 'border-rose-400'
+      };
+    }
+
+    if (previousRating.decision === 'not_interested') {
+      return {
+        label: '관심없음으로 평가함',
+        badgeClassName: 'border-slate-300 bg-slate-100 text-slate-700',
+        borderClassName: 'border-slate-400'
+      };
+    }
+
+    return {
+      label: '안 본 영화로 평가함',
+      badgeClassName: 'border-violet-200 bg-violet-50 text-violet-800',
+      borderClassName: 'border-violet-400'
+    };
+  }
+);
 const overviewText = computed(() => props.movie.overview.trim());
 const watchAvailability = computed(() => {
   const providers = props.movie.watchProvidersKr;
@@ -222,7 +279,9 @@ const onPointerUp = (event: PointerEvent) => {
     class="corner-hard select-none overflow-hidden border border-app-line bg-app-panel transition-transform"
     :class="[
       interactive ? 'touch-none cursor-grab active:cursor-grabbing' : 'cursor-default',
-      { 'transition-none': isDragging }
+      primaryLayout ? 'sm:min-h-[calc(100dvh-11rem)]' : '',
+      { 'transition-none': isDragging },
+      previousRatingPresentation?.borderClassName
     ]"
     :style="cardStyle"
     @pointerdown="onPointerDown"
@@ -230,22 +289,13 @@ const onPointerUp = (event: PointerEvent) => {
     @pointerup="onPointerUp"
     @pointercancel="onPointerUp"
   >
-    <div v-if="primaryLayout" class="bg-app-panel p-4 sm:p-5">
-      <div class="flex flex-col gap-4 sm:grid sm:grid-cols-[7rem_minmax(0,1fr)_9rem] sm:grid-rows-[auto_auto] sm:gap-x-4 sm:gap-y-3">
-        <div class="flex items-center justify-center bg-app-poster sm:col-start-1 sm:row-start-1">
-          <img
-            :src="movie.posterUrl"
-            :alt="movie.posterAlt"
-            class="h-[228px] w-full object-contain sm:h-[164px]"
-            loading="lazy"
-          />
-        </div>
-
+    <div v-if="primaryLayout" class="bg-app-panel sm:grid sm:min-h-[calc(100dvh-11rem)] sm:grid-cols-[minmax(20rem,0.95fr)_minmax(0,1.05fr)] sm:items-stretch">
+      <div class="overflow-hidden border-b border-app-line bg-[#10141c] sm:border-b-0 sm:border-r">
         <button
           v-if="showTrailer"
           type="button"
           :aria-label="`${movie.title} 예고편 앱에서 재생하기`"
-          class="focus-ring corner-soft group relative aspect-video overflow-hidden border border-app-line bg-[#15171c] sm:col-start-1 sm:row-start-2"
+          class="focus-ring group relative block aspect-[16/10] w-full overflow-hidden bg-[#15171c] text-left sm:aspect-[16/11]"
           @click.stop="openTrailer"
           @pointerdown.stop
           @pointermove.stop
@@ -256,81 +306,85 @@ const onPointerUp = (event: PointerEvent) => {
             :src="movie.posterUrl"
             alt=""
             aria-hidden="true"
-            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-sm transition duration-200 group-hover:scale-100"
+            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-55 blur-sm transition duration-500 group-hover:scale-100"
             loading="lazy"
           />
-          <span class="absolute inset-0 bg-black/30"></span>
-          <span class="relative flex h-full flex-col items-center justify-center gap-1.5 px-2 text-center text-white">
-            <span class="grid size-8 place-items-center rounded-full border border-white/80 bg-black/35 text-sm">▶</span>
-            <span class="text-xs font-semibold">예고편 보기</span>
-            <span class="text-[10px] text-white/75">앱에서 재생</span>
+          <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#07090d]/95 via-[#07090d]/25 to-[#07090d]/45"></span>
+          <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.18em] text-white">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#e45050] shadow-[0_0_10px_rgba(228,80,80,0.9)]"></span>
+            TRAILER
+          </span>
+          <span class="absolute right-3 top-3 text-[10px] font-medium tracking-[0.12em] text-white/70">
+            {{ movie.releaseYear }}
+          </span>
+          <span class="relative flex h-full flex-col items-center justify-center">
+            <span class="grid size-16 place-items-center rounded-full border border-white/70 bg-black/35 shadow-[0_6px_20px_rgba(0,0,0,0.45)] transition duration-200 group-hover:scale-110 group-hover:bg-white/20">
+              <span class="ml-1 block h-0 w-0 border-y-[9px] border-l-[14px] border-y-transparent border-l-white"></span>
+            </span>
+            <span class="mt-4 text-base font-semibold text-white">공식 예고편 재생</span>
+          </span>
+          <span class="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 text-[10px] font-medium text-white/80">
+            <span>앱에서 바로 보기</span>
+            <span class="tracking-[0.12em]">PLAY NOW</span>
           </span>
         </button>
 
-        <div class="min-w-0 border-t border-app-line pt-4 sm:col-start-2 sm:row-start-1 sm:border-t-0 sm:pt-0">
-          <p
-            class="corner-pill mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]"
-          >
-            {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
-          </p>
-          <h1 class="text-[28px] font-semibold leading-tight text-[#15171c] sm:text-[30px]">
-            {{ movie.title }}
-          </h1>
-          <p class="mt-3 text-sm font-medium text-app-muted">
-            {{ movie.tags.join(' · ') }}
-          </p>
+        <div v-else class="flex aspect-video items-center justify-center bg-app-poster sm:aspect-[16/11]">
+          <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-full w-full object-contain" loading="lazy" />
         </div>
 
-        <RatingActions
-          layout="two-rows"
-          class="hidden sm:grid sm:col-start-3 sm:row-start-1 sm:self-start"
-          @decide="emitDecision"
-        />
-
-        <div class="border-t border-app-line pt-3 sm:col-start-2 sm:col-span-2 sm:row-start-2">
-          <p v-if="overviewText" class="line-clamp-3 text-sm leading-6 text-[#3d424a]">
-            {{ overviewText }}
-          </p>
-
-          <div class="mt-3 border-t border-app-line pt-3">
-            <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">OTT</p>
-            <p v-if="watchAvailabilityText" class="mt-1 text-xs leading-5 text-[#15171c]">
-              {{ watchAvailabilityText }}
-            </p>
-            <p v-else class="mt-1 text-xs leading-5 text-app-muted">
-              현재 확인된 KR OTT 정보가 없어요.
-            </p>
-
-            <div v-if="quickWatchLinks.length > 0 || tmdbWatchLink" class="mt-2 flex flex-wrap gap-2">
-              <a
-                v-for="link in quickWatchLinks"
-                :key="link.key"
-                :href="link.href"
-                target="_blank"
-                rel="noreferrer"
-                class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center px-3 text-[10px] font-medium"
-                :class="link.accentClassName"
-                @click.stop
-                @pointerdown.stop
-                @pointerup.stop
-              >
-                {{ link.buttonLabel }}
-              </a>
-
-              <a
-                v-if="tmdbWatchLink"
-                :href="tmdbWatchLink"
-                target="_blank"
-                rel="noreferrer"
-                class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-[10px] font-medium text-[#15171c]"
-                @click.stop
-                @pointerdown.stop
-                @pointerup.stop
-              >
-                전체 OTT 보기
-              </a>
-            </div>
+        <div class="relative z-10 -mt-20 flex items-end gap-4 px-5 pb-5 sm:px-6">
+          <div class="corner-soft w-[104px] shrink-0 overflow-hidden border-2 border-white/90 bg-app-poster shadow-[0_10px_24px_rgba(0,0,0,0.45)] sm:w-[144px]">
+            <img
+              :src="movie.posterUrl"
+              :alt="movie.posterAlt"
+              class="aspect-[2/3] w-full object-contain"
+              loading="lazy"
+            />
           </div>
+          <div class="min-w-0 pb-2 text-white">
+            <p class="text-[10px] font-bold tracking-[0.14em] text-white/60">NOW SHOWING</p>
+            <p class="mt-1 text-base font-semibold">예고편으로 먼저 만나보세요</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 sm:flex sm:flex-col sm:p-6">
+        <p
+          v-if="previousRatingPresentation"
+          class="corner-pill mb-3 inline-flex w-fit border px-3 py-1.5 text-xs font-bold sm:text-sm"
+          :class="previousRatingPresentation.badgeClassName"
+        >
+          {{ previousRatingPresentation.label }}
+        </p>
+        <p
+          class="corner-pill mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c] sm:text-sm"
+        >
+          {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
+        </p>
+        <h1 class="text-[28px] font-semibold leading-tight text-[#15171c] sm:text-[34px]">
+          {{ movie.title }}
+        </h1>
+        <p class="mt-3 text-sm font-medium text-app-muted sm:text-base">
+          {{ movie.tags.join(' · ') }}
+        </p>
+        <p v-if="overviewText" class="mt-4 text-sm leading-6 text-[#3d424a] sm:text-[15px] sm:leading-7">
+          {{ overviewText }}
+        </p>
+        <div class="mt-5 hidden sm:grid sm:mt-auto sm:gap-3 sm:pt-6">
+          <RatingActions @decide="emitDecision" />
+          <button
+            v-if="showPreviousRatingEdit"
+            type="button"
+            class="focus-ring corner-soft inline-flex min-h-10 w-full items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
+            @click.stop="emit('editPreviousRating')"
+            @pointercancel.stop
+            @pointerdown.stop
+            @pointermove.stop
+            @pointerup.stop
+          >
+            이전 평가 수정하기
+          </button>
         </div>
       </div>
     </div>
@@ -379,6 +433,13 @@ const onPointerUp = (event: PointerEvent) => {
 
       <div class="w-full border-t border-app-line pt-4">
         <p
+          v-if="previousRatingPresentation"
+          class="corner-pill mb-3 inline-flex border px-3 py-1.5 text-xs font-bold"
+          :class="previousRatingPresentation.badgeClassName"
+        >
+          {{ previousRatingPresentation.label }}
+        </p>
+        <p
           class="corner-pill mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]"
         >
           {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
@@ -394,7 +455,7 @@ const onPointerUp = (event: PointerEvent) => {
           {{ overviewText }}
         </p>
 
-        <div class="mt-4 border-t border-app-line pt-3">
+        <div v-if="showWatchOptions" class="mt-4 border-t border-app-line pt-3">
           <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">OTT</p>
           <p v-if="watchAvailabilityText" class="mt-1 text-xs leading-5 text-[#15171c]">
             {{ watchAvailabilityText }}

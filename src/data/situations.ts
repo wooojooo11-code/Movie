@@ -176,19 +176,9 @@ export const situationPresets: SituationPreset[] = [
     rule: { genreIds: [16, 18], tags: ['영상미', '감성적인 음악', '여운'] }
   },
   {
-    id: 'cant_sleep',
-    label: '잠이 안 옴',
-    rule: { genreIds: [9648, 10749], tags: ['여운', '탄탄한 스토리'] }
-  },
-  {
     id: 'before_travel',
     label: '여행 가기 전 기분 내기',
     rule: { contextTags: ['travel'], genreIds: [12, 35], tags: ['영상미', '유쾌함'] }
-  },
-  {
-    id: 'monday_school',
-    label: '월요일 학교 가기 싫을 때',
-    rule: { contextTags: ['school'], genreIds: [35, 16], tags: ['유쾌함', '성장'] }
   },
   { id: 'cleaning', label: '청소하면서', rule: { genreIds: [35, 16], tags: ['유쾌함', 'OST'] } },
   {
@@ -197,9 +187,9 @@ export const situationPresets: SituationPreset[] = [
     rule: { genreIds: [10749], tags: ['감성적인 음악', '성장', '감동'] }
   },
   {
-    id: 'autumn_vibes',
-    label: '가을 감성',
-    rule: { genreIds: [10749, 18], tags: ['감성적인 음악', '영상미', '여운'] }
+    id: 'winter_vibes',
+    label: '겨울 감성',
+    rule: { contextTags: ['winter'], genreIds: [10749, 18], tags: ['감성적인 음악', '영상미', '여운'] }
   },
   {
     id: 'sunday_night',
@@ -218,14 +208,12 @@ export interface SituationDailyQuestion {
 export const situationDailyQuestions: readonly SituationDailyQuestion[] = [
   { situationId: 'after_breakup', question: '헤어지고 난 첫 주에 보고 싶은 영화는?' },
   { situationId: 'offline_rest', question: '인터넷 없이 쉬고 싶은 날, 곁에 두고 싶은 영화는?' },
-  { situationId: 'cant_sleep', question: '잠 못 드는 밤에도 끝까지 보고 싶은 영화는?' },
   { situationId: 'sunset', question: '해 질 무렵 가장 먼저 떠오르는 영화는?' },
   { situationId: 'after_reading', question: '책을 덮은 뒤 여운처럼 이어 보고 싶은 영화는?' },
   { situationId: 'before_travel', question: '여행을 떠나기 전 설렘을 더해 줄 영화는?' },
-  { situationId: 'monday_school', question: '월요일 아침, 학교 가기 싫을 때 보고 싶은 영화는?' },
   { situationId: 'cleaning', question: '청소하는 날 틀어 두기 좋은 영화는?' },
   { situationId: 'before_confession', question: '고백하기 전 용기가 필요할 때 보고 싶은 영화는?' },
-  { situationId: 'autumn_vibes', question: '가을 감성을 가장 잘 담은 영화는?' },
+  { situationId: 'winter_vibes', question: '겨울 감성을 가장 잘 담은 영화는?' },
   { situationId: 'sunday_night', question: '일요일 밤을 다정하게 마무리해 줄 영화는?' }
 ];
 

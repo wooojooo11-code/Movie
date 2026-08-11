@@ -2,17 +2,42 @@ import { computed, reactive, readonly, ref } from 'vue';
 
 import { catalogMovies } from '@/data/catalog';
 import { localLibraryRepository, remoteLibraryRepository } from '@/services/libraryRepository';
-import type { LibraryMovieRecord, LibraryStateSnapshot, ResolvedLibraryMovieRecord } from '@/types/library';
+import type {
+  LibraryMovieDetails,
+  LibraryMovieRecord,
+  LibraryStateSnapshot,
+  ResolvedLibraryMovieRecord
+} from '@/types/library';
 
 const FALLBACK_USER_ID = 'guest-user';
 
 type RemoteSyncStatus = 'error' | 'idle' | 'success' | 'syncing';
 
-const state = reactive<LibraryStateSnapshot>(
-  localLibraryRepository.load(FALLBACK_USER_ID) ?? {
-    userId: FALLBACK_USER_ID,
-    movies: []
+const normalizeLibraryRating = (value: unknown): null | number => {
+  if (typeof value !== 'number' || !Number.isFinite(value) || value < 0.5 || value > 5) {
+    return null;
   }
+
+  return Math.round(value * 2) / 2;
+};
+
+const normalizeLibraryMovieRecord = (record: Partial<LibraryMovieRecord>): LibraryMovieRecord => ({
+  movieId: record.movieId ?? '',
+  rating: normalizeLibraryRating(record.rating),
+  reviewText: typeof record.reviewText === 'string' ? record.reviewText.slice(0, 160).trim() : '',
+  savedAt: record.savedAt ?? new Date(0).toISOString(),
+  source: 'want_to_watch'
+});
+
+const normalizeSnapshot = (userId: string, snapshot: LibraryStateSnapshot | null): LibraryStateSnapshot => ({
+  userId,
+  movies: (snapshot?.movies ?? [])
+    .map((record) => normalizeLibraryMovieRecord(record))
+    .filter((record) => record.movieId.length > 0)
+});
+
+const state = reactive<LibraryStateSnapshot>(
+  normalizeSnapshot(FALLBACK_USER_ID, localLibraryRepository.load(FALLBACK_USER_ID))
 );
 
 const remoteSyncErrorMessage = ref('');
@@ -29,11 +54,6 @@ const getErrorMessage = (error: unknown, fallback: string) => {
 
   return fallback;
 };
-
-const normalizeSnapshot = (userId: string, snapshot: LibraryStateSnapshot | null): LibraryStateSnapshot => ({
-  userId,
-  movies: snapshot?.movies ?? []
-});
 
 const applySnapshot = (snapshot: LibraryStateSnapshot) => {
   state.userId = snapshot.userId;
@@ -100,11 +120,30 @@ const saveMovie = async (movieId: string) => {
 
   const nextRecord: LibraryMovieRecord = {
     movieId,
+    rating: null,
+    reviewText: '',
     savedAt: new Date().toISOString(),
     source: 'want_to_watch'
   };
 
   state.movies = [nextRecord, ...state.movies];
+  await persistState();
+  return true;
+};
+
+const saveMovieWithDetails = async (movieId: string, details: LibraryMovieDetails) => {
+  const existingRecord = state.movies.find((movie) => movie.movieId === movieId);
+  const nextRecord: LibraryMovieRecord = {
+    movieId,
+    rating: normalizeLibraryRating(details.rating),
+    reviewText: details.reviewText.slice(0, 160).trim(),
+    savedAt: existingRecord?.savedAt ?? new Date().toISOString(),
+    source: 'want_to_watch'
+  };
+
+  state.movies = existingRecord
+    ? state.movies.map((movie) => (movie.movieId === movieId ? nextRecord : movie))
+    : [nextRecord, ...state.movies];
   await persistState();
   return true;
 };
@@ -162,6 +201,7 @@ export const libraryStore = {
   hasMovie,
   removeMovie,
   saveMovie,
+  saveMovieWithDetails,
   savedMovieIds,
   savedMovies,
   setActiveUser,

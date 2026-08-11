@@ -58,14 +58,12 @@ export interface SituationSelection {
 export type SituationPresetId =
   | 'after_breakup'
   | 'offline_rest'
-  | 'cant_sleep'
   | 'sunset'
   | 'after_reading'
   | 'before_travel'
-  | 'monday_school'
   | 'cleaning'
   | 'before_confession'
-  | 'autumn_vibes'
+  | 'winter_vibes'
   | 'sunday_night';
 
 export type ActiveSituation =

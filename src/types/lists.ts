@@ -49,6 +49,12 @@ export interface ListInteractionRecord {
   personalRating: number | null;
 }
 
+export interface SimilarTasteListSignal {
+  listId: string;
+  sharedLikeCount: number;
+  similarityScore: number;
+}
+
 export interface ListsStateSnapshot {
   userId: string;
   userLists: UserMovieListRecord[];

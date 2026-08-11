@@ -89,9 +89,13 @@ const submitForm = () => {
 </script>
 
 <template>
-  <section class="corner-hard border border-app-line bg-app-panel p-4">
+  <section class="corner-hard border border-app-line bg-app-panel p-4 shadow-[0_14px_32px_rgba(21,23,28,0.08)] sm:p-5">
     <div class="flex items-center justify-between gap-3">
-      <h2 class="text-lg font-semibold text-[#15171c]">상세 평가</h2>
+      <div>
+        <p class="text-[10px] font-bold tracking-[0.16em] text-app-accent">DETAIL REVIEW</p>
+        <h2 class="mt-1 text-lg font-semibold text-[#15171c]">좋았던 순간을 남겨주세요</h2>
+        <p class="mt-1 text-xs text-app-muted">별점과 한 줄평이 다음 추천에 반영돼요.</p>
+      </div>
       <button
         v-if="props.showSkipButton"
         type="button"
@@ -102,8 +106,11 @@ const submitForm = () => {
       </button>
     </div>
 
-    <div class="mt-4">
-      <label class="mb-2 block text-sm font-medium text-app-muted">별점</label>
+    <div class="corner-soft mt-5 border border-app-line bg-app-panelSoft p-3 sm:p-4">
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <label class="block text-sm font-semibold text-[#15171c]">내 별점</label>
+        <span class="text-[11px] text-app-muted">0.5점 단위</span>
+      </div>
       <HalfStarRating
         v-model="form.stars"
         size="md"
@@ -112,8 +119,11 @@ const submitForm = () => {
       />
     </div>
 
-    <div class="mt-5">
-      <label for="review" class="mb-2 block text-sm font-medium text-app-muted">한 줄평</label>
+    <div class="corner-soft mt-4 border border-app-line bg-app-panelSoft p-3 sm:p-4">
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <label for="review" class="block text-sm font-semibold text-[#15171c]">한 줄평</label>
+        <span class="text-[11px] text-app-muted">선택</span>
+      </div>
       <input
         id="review"
         v-model="form.reviewText"
@@ -123,9 +133,9 @@ const submitForm = () => {
       />
     </div>
 
-    <div class="mt-5">
+    <div class="corner-soft mt-4 border border-app-line bg-app-panelSoft p-3 sm:p-4">
       <div class="mb-2 flex items-center justify-between gap-3">
-        <label class="block text-sm font-medium text-app-muted">
+        <label class="block text-sm font-semibold text-[#15171c]">
           좋았던 배우/역할은 누구였나요?
         </label>
         <button
@@ -141,7 +151,11 @@ const submitForm = () => {
         최대 {{ MAX_FAVORITE_CAST_CHOICES }}명까지 고를 수 있어요.
       </p>
 
-      <div v-if="props.characters.length > 0" class="grid gap-2">
+      <div
+        v-if="props.characters.length > 0"
+        class="grid gap-2"
+        :class="props.compactControls ? '' : 'sm:grid-cols-2'"
+      >
         <button
           v-for="character in props.characters"
           :key="character.name"
@@ -180,7 +194,10 @@ const submitForm = () => {
       </p>
     </div>
 
-    <div :class="props.compactControls ? 'mt-5 flex justify-center' : 'mt-5'">
+    <div
+      class="mt-5 border-t border-app-line pt-4"
+      :class="props.compactControls ? 'flex justify-center' : ''"
+    >
       <button
         type="button"
         class="focus-ring corner-soft border border-app-accent bg-app-accent font-semibold text-white"

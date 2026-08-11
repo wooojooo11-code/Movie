@@ -55,6 +55,10 @@ const handleSearchInput = (event: Event) => {
 };
 
 const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(movieId);
+
+const availableMovieResults = computed(() =>
+  props.movieResults.filter((result) => !isMovieSelected(result.movie.id))
+);
 </script>
 
 <template>
@@ -107,12 +111,12 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
         <section class="grid gap-3">
           <div class="flex items-center justify-between gap-3">
             <h4 class="text-sm font-semibold text-white">영화</h4>
-            <span class="text-xs font-semibold text-app-muted">{{ movieResults.length }}개</span>
+            <span class="text-xs font-semibold text-app-muted">{{ availableMovieResults.length }}개</span>
           </div>
 
-          <div v-if="movieResults.length > 0" class="grid gap-3">
+          <div v-if="availableMovieResults.length > 0" class="grid gap-3">
             <article
-              v-for="result in movieResults"
+              v-for="result in availableMovieResults"
               :key="result.movie.id"
               class="corner-hard flex items-center gap-3 border border-app-line bg-app-panelSoft p-3"
             >
@@ -131,16 +135,10 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
                   <WatchToggleButton :movie-id="result.movie.id" size="sm" />
                   <button
                     type="button"
-                    class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border px-3 text-[11px] font-semibold"
-                    :class="
-                      isMovieSelected(result.movie.id)
-                        ? 'border-app-line bg-app-panel text-app-muted'
-                        : 'border-app-accent bg-app-accent text-white'
-                    "
-                    :disabled="isMovieSelected(result.movie.id)"
+                    class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-accent bg-app-accent px-3 text-[11px] font-semibold text-white"
                     @click="emit('add-movie', result.movie.id)"
                   >
-                    {{ isMovieSelected(result.movie.id) ? '담음' : '담기' }}
+                    담기
                   </button>
                 </div>
               </div>
@@ -151,7 +149,7 @@ const isMovieSelected = (movieId: string) => props.selectedMovieIds.includes(mov
             v-else
             class="corner-hard border border-dashed border-app-line bg-app-panelSoft px-4 py-5 text-sm text-app-muted"
           >
-            맞는 영화가 없어요.
+            {{ movieResults.length > 0 ? '검색 결과 영화는 모두 담았어요.' : '맞는 영화가 없어요.' }}
           </div>
         </section>
 

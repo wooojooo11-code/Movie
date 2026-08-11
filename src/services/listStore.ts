@@ -14,6 +14,7 @@ import type {
   ResolvedUserListCard,
   SearchableCatalogMovie,
   SharedMovieListRecord,
+  SimilarTasteListSignal,
   UserMovieListRecord
 } from '@/types/lists';
 
@@ -223,6 +224,7 @@ const REMOTE_SAVE_FAILURE_MESSAGE = '리스트 변경 내용을 Supabase에 저�
 
 const remoteSyncErrorMessage = ref('');
 const remoteSyncStatus = ref<RemoteSyncStatus>('idle');
+const similarTasteListSignals = ref<SimilarTasteListSignal[]>([]);
 
 let latestMovieSearchToken = 0;
 let latestListSearchToken = 0;
@@ -278,6 +280,24 @@ const enqueueRemoteTask = (
     .then(() => runRemoteTask(task));
 
   return remoteSaveChain;
+};
+
+const refreshSimilarTasteListRecommendations = async () => {
+  const userId = state.userId;
+
+  try {
+    const signals = await remoteListRepository.loadSimilarTasteListSignals(userId);
+
+    if (state.userId === userId) {
+      similarTasteListSignals.value = signals;
+    }
+  } catch (error) {
+    if (state.userId === userId) {
+      similarTasteListSignals.value = [];
+    }
+
+    console.warn('[listStore] Similar-taste list recommendations are unavailable.', error);
+  }
 };
 
 const searchCatalog = (query: string) =>
@@ -479,6 +499,28 @@ const sharedLists = computed<ResolvedSharedListCard[]>(() =>
     };
   })
 );
+
+const similarTasteRecommendedLists = computed(() => {
+  const signalByListId = new Map(
+    similarTasteListSignals.value.map((signal) => [signal.listId, signal])
+  );
+
+  return sharedLists.value
+    .filter((list) => list.ownerId !== state.userId && !list.viewerSaved)
+    .map((list) => {
+      const signal = signalByListId.get(list.id);
+
+      return signal ? { ...list, ...signal } : null;
+    })
+    .filter((list): list is ResolvedSharedListCard & SimilarTasteListSignal => Boolean(list))
+    .sort(
+      (left, right) =>
+        right.similarityScore - left.similarityScore ||
+        right.sharedLikeCount - left.sharedLikeCount ||
+        new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime()
+    )
+    .slice(0, 6);
+});
 
 const updateMovieSearchQuery = async (query: string) => {
   state.movieSearchQuery = query;
@@ -725,6 +767,7 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
   state.ownerName = ownerName.trim() || '나';
   applySnapshot(normalizeSnapshot(normalizedUserId, localListRepository.load(normalizedUserId)));
   state.sharedCatalog = [];
+  similarTasteListSignals.value = [];
   remoteSyncErrorMessage.value = '';
   remoteSyncStatus.value = 'idle';
 
@@ -763,6 +806,8 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
     console.error('[listStore] Failed to load lists from Supabase.', error);
   }
 
+  void refreshSimilarTasteListRecommendations();
+
   if (state.listSearchQuery.trim()) {
     await refreshListSearchResults();
   }
@@ -777,6 +822,7 @@ export const listStore = {
   draftShareRestrictionReason,
   myLists,
   sharedLists,
+  similarTasteRecommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),
   resolveMoviePreviews,
@@ -797,6 +843,7 @@ export const listStore = {
   saveRecommendedList,
   toggleSharedListSave,
   setSharedListRating,
+  refreshSimilarTasteListRecommendations,
   setActiveUser
 };
 

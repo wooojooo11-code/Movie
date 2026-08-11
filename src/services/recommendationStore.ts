@@ -180,8 +180,10 @@ const normalizeActiveSituation = (value: unknown): ActiveSituation => {
   }
 
   if (value.kind === 'preset' && 'presetId' in value && typeof value.presetId === 'string') {
-    return getSituationPreset(value.presetId as SituationPresetId)
-      ? { kind: 'preset', presetId: value.presetId as SituationPresetId }
+    const presetId = value.presetId === 'autumn_vibes' ? 'winter_vibes' : value.presetId;
+
+    return getSituationPreset(presetId as SituationPresetId)
+      ? { kind: 'preset', presetId: presetId as SituationPresetId }
       : { kind: 'none' };
   }
 

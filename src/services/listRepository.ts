@@ -2,6 +2,7 @@ import {
   getSupabaseListInteractionsRelation,
   getSupabaseUserListsRelation,
   isSupabaseConfigured,
+  supabase,
   supabaseListInteractionsUserColumn,
   supabaseUserListsUserColumn
 } from '@/lib/supabase';
@@ -10,6 +11,7 @@ import type {
   ListsStateSnapshot,
   RemoteListsPayload,
   SharedMovieListRecord,
+  SimilarTasteListSignal,
   UserMovieListRecord
 } from '@/types/lists';
 
@@ -52,7 +54,28 @@ interface SupabaseListInteractionRow {
   [key: string]: boolean | null | number | string | undefined;
 }
 
+interface SupabaseSimilarTasteListRecommendationRow {
+  list_id: string;
+  shared_like_count: number | string | null;
+  taste_similarity: number | string | null;
+}
+
+let hasSimilarTasteListRecommendationsFunction: boolean | null = null;
+
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
+const toNonNegativeNumber = (value: number | string | null) => {
+  const parsed = typeof value === 'number' ? value : Number(value);
+
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+};
+const isMissingSupabaseFunctionError = (error: unknown, functionName: string) =>
+  error &&
+  typeof error === 'object' &&
+  'code' in error &&
+  'message' in error &&
+  error.code === 'PGRST202' &&
+  typeof error.message === 'string' &&
+  error.message.includes(functionName);
 
 const getRowUserId = (
   row: SupabaseListInteractionRow | SupabaseUserListRow,
@@ -292,6 +315,39 @@ export const remoteListRepository = {
     }
 
     return normalizeSharedListRows((data ?? []) as unknown as SupabaseUserListRow[]);
+  },
+  async loadSimilarTasteListSignals(userId: string): Promise<SimilarTasteListSignal[]> {
+    if (
+      !isRemoteSyncEnabled(userId) ||
+      hasSimilarTasteListRecommendationsFunction === false ||
+      !supabase
+    ) {
+      return [];
+    }
+
+    const { data, error } = await supabase.rpc('get_similar_taste_list_recommendations');
+
+    if (error && isMissingSupabaseFunctionError(error, 'get_similar_taste_list_recommendations')) {
+      hasSimilarTasteListRecommendationsFunction = false;
+      return [];
+    }
+
+    if (error) {
+      throw error;
+    }
+
+    hasSimilarTasteListRecommendationsFunction = true;
+
+    return ((data ?? []) as SupabaseSimilarTasteListRecommendationRow[])
+      .map((row) => ({
+        listId: row.list_id,
+        sharedLikeCount: Math.floor(toNonNegativeNumber(row.shared_like_count)),
+        similarityScore: toNonNegativeNumber(row.taste_similarity)
+      }))
+      .filter(
+        (signal) =>
+          signal.listId.length > 0 && signal.sharedLikeCount > 0 && signal.similarityScore > 0
+      );
   },
   async save(snapshot: ListsStateSnapshot): Promise<void> {
     if (!isRemoteSyncEnabled(snapshot.userId)) {

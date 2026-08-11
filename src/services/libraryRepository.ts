@@ -14,11 +14,13 @@ const getStorageKey = (userId: string) => `${STORAGE_PREFIX}:${userId}`;
 interface SupabaseMovieLibraryRow {
   created_at?: null | string;
   movie_id: string;
+  rating?: null | number;
+  review_text?: null | string;
   saved_at: null | string;
   source: null | string;
   updated_at?: null | string;
   user_id?: string;
-  [key: string]: null | string | undefined;
+  [key: string]: null | number | string | undefined;
 }
 
 export interface LibraryRepository {
@@ -53,6 +55,11 @@ const getRowUserId = (row: SupabaseMovieLibraryRow, userColumn: string) => {
 
 const normalizeMovieRow = (row: SupabaseMovieLibraryRow): LibraryMovieRecord => ({
   movieId: row.movie_id,
+  rating:
+    typeof row.rating === 'number' && Number.isFinite(row.rating) && row.rating >= 0.5 && row.rating <= 5
+      ? Math.round(row.rating * 2) / 2
+      : null,
+  reviewText: typeof row.review_text === 'string' ? row.review_text.slice(0, 160).trim() : '',
   savedAt: row.saved_at ?? row.updated_at ?? row.created_at ?? new Date(0).toISOString(),
   source: row.source === 'want_to_watch' ? 'want_to_watch' : 'want_to_watch'
 });
@@ -60,9 +67,11 @@ const normalizeMovieRow = (row: SupabaseMovieLibraryRow): LibraryMovieRecord => 
 const serializeMovieRow = (
   userId: string,
   record: LibraryMovieRecord
-): Record<string, string> => ({
+): Record<string, null | number | string> => ({
   [supabaseMovieLibraryUserColumn]: userId,
   movie_id: record.movieId,
+  rating: record.rating,
+  review_text: record.reviewText,
   saved_at: record.savedAt,
   source: record.source
 });
@@ -118,7 +127,18 @@ export const remoteLibraryRepository = {
     }
 
     const { data, error } = await relation
-      .select([supabaseMovieLibraryUserColumn, 'movie_id', 'saved_at', 'source', 'created_at', 'updated_at'].join(', '))
+      .select(
+        [
+          supabaseMovieLibraryUserColumn,
+          'movie_id',
+          'rating',
+          'review_text',
+          'saved_at',
+          'source',
+          'created_at',
+          'updated_at'
+        ].join(', ')
+      )
       .eq(supabaseMovieLibraryUserColumn, userId)
       .order('saved_at', { ascending: false });
 

@@ -1,1 +1,0 @@
-import{m as h}from"./movieCredits-Doy1bUdO.js";const C=(t,c)=>{var s;const a=h[t],r=(s=a==null?void 0:a.characters)!=null&&s.length?a.characters:c,o=(a==null?void 0:a.cast)??[];return r.map((e,n)=>({name:e,actorName:o[n]??null}))};export{C as g};

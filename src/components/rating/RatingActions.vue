@@ -27,6 +27,7 @@ const emit = defineEmits<{
 type ActionButton = {
   arrow: string;
   className: string;
+  contextLabel?: string;
   decision: RatingDecision | 'not_interested';
   description?: string;
   direction: RatingDirection;
@@ -41,6 +42,7 @@ const actionButtons: ActionButton[] = [
     arrow: '↑',
     shortcut: 'ArrowUp',
     label: '관심있음',
+    contextLabel: '안 본 영화',
     className: 'border border-app-accent bg-app-accent text-white'
   },
   {
@@ -48,7 +50,8 @@ const actionButtons: ActionButton[] = [
     direction: 'left' as const,
     arrow: '←',
     shortcut: 'ArrowLeft',
-    label: '별로였음',
+    label: '재미없음',
+    contextLabel: '본 영화',
     className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   },
   {
@@ -56,7 +59,8 @@ const actionButtons: ActionButton[] = [
     direction: 'right' as const,
     arrow: '→',
     shortcut: 'ArrowRight',
-    label: '재밌음',
+    label: '재미있음',
+    contextLabel: '본 영화',
     className: 'border border-app-accent bg-app-accent text-white'
   },
   {
@@ -65,6 +69,7 @@ const actionButtons: ActionButton[] = [
     arrow: '↓',
     shortcut: 'ArrowDown',
     label: '관심없음',
+    contextLabel: '안 본 영화',
     className: 'border border-app-line bg-app-panelSoft text-[#15171c]'
   },
   {
@@ -152,7 +157,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="props.layout === 'two-rows'" class="grid grid-cols-3 gap-2">
+  <div
+    v-if="props.layout === 'two-rows'"
+    class="grid grid-cols-3 gap-2"
+    @click.stop
+    @pointercancel.stop
+    @pointerdown.stop
+    @pointermove.stop
+    @pointerup.stop
+  >
     <button
       v-for="button in actionButtons"
       :key="button.direction"
@@ -165,10 +178,21 @@ onUnmounted(() => {
     >
       <span class="text-[24px] font-bold leading-none">{{ button.arrow }}</span>
       <span class="mt-1 text-[10px] font-semibold leading-4 text-inherit">{{ button.label }}</span>
+      <span v-if="button.contextLabel" class="text-[9px] leading-3 text-inherit opacity-75">
+        {{ button.contextLabel }}
+      </span>
     </button>
   </div>
 
-  <div v-else class="grid grid-cols-3 gap-2">
+  <div
+    v-else
+    class="grid grid-cols-3 gap-2"
+    @click.stop
+    @pointercancel.stop
+    @pointerdown.stop
+    @pointermove.stop
+    @pointerup.stop
+  >
     <div />
     <button
       type="button"
@@ -180,6 +204,7 @@ onUnmounted(() => {
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[0].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[0].label }}</span>
+      <span class="text-[9px] leading-3 text-inherit opacity-75">{{ actionButtons[0].contextLabel }}</span>
     </button>
     <div />
 
@@ -193,6 +218,7 @@ onUnmounted(() => {
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[1].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[1].label }}</span>
+      <span class="text-[9px] leading-3 text-inherit opacity-75">{{ actionButtons[1].contextLabel }}</span>
     </button>
 
     <button
@@ -225,6 +251,7 @@ onUnmounted(() => {
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[2].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[2].label }}</span>
+      <span class="text-[9px] leading-3 text-inherit opacity-75">{{ actionButtons[2].contextLabel }}</span>
     </button>
 
     <div />
@@ -238,6 +265,7 @@ onUnmounted(() => {
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[3].arrow }}</span>
       <span class="mt-1 text-[11px] text-inherit">{{ actionButtons[3].label }}</span>
+      <span class="text-[9px] leading-3 text-inherit opacity-75">{{ actionButtons[3].contextLabel }}</span>
     </button>
     <div />
   </div>

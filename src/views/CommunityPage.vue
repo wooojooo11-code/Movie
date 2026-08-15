@@ -304,9 +304,9 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
 <template>
   <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-[800px] lg:max-w-[800px] lg:px-6">
     <CommunityHeader @compose="openComposer" />
-    <div class="mt-5 grid gap-3 sm:grid-cols-[minmax(0,1fr)_15rem] sm:items-center">
-      <DailyQuestionCard :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
-      <SavedCommunityPostsCard :posts="savedPosts" :total-count="savedPostCount" :is-authenticated="canWrite" :loading="loadingSavedPosts" />
+    <div class="mt-5 grid gap-3 sm:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.85fr)] sm:items-stretch">
+      <DailyQuestionCard class="h-full" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+      <SavedCommunityPostsCard class="h-full" :posts="savedPosts" :total-count="savedPostCount" :is-authenticated="canWrite" :loading="loadingSavedPosts" />
     </div>
     <section class="mt-7" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div></div>

@@ -658,7 +658,7 @@ onMounted(() => {
     @click.self="closeComposer"
   >
     <section
-      class="corner-hard mx-auto flex max-h-[84dvh] w-full max-w-xl flex-col overflow-hidden border border-app-line bg-app-panel sm:max-h-[calc(100dvh-2rem)]"
+        class="corner-hard mx-auto flex max-h-[84dvh] w-full max-w-[800px] flex-col overflow-hidden border border-app-line bg-app-panel sm:max-h-[calc(100dvh-2rem)]"
     >
       <div class="flex items-center justify-between border-b border-app-line px-3 py-2.5 sm:px-5 sm:py-4">
         <div>

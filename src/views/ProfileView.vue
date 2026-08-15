@@ -150,7 +150,7 @@ onMounted(() => { void load(); });
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-xl">
+  <main class="mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-[800px]">
     <div v-if="loadingPage" class="space-y-5" aria-live="polite" aria-label="프로필을 불러오는 중">
       <div class="corner-hard h-48 animate-pulse border border-app-line bg-app-panelSoft" />
       <div class="corner-hard h-72 animate-pulse border border-app-line bg-app-panelSoft" />

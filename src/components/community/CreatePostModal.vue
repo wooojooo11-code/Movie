@@ -50,7 +50,7 @@ const submit = () => {
 
 <template>
   <div v-if="open" class="fixed inset-0 z-50 flex items-center bg-black/30 p-4">
-    <section class="corner-soft mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line bg-app-panel p-4 sm:max-w-xl sm:p-5 lg:max-w-2xl" role="dialog" aria-modal="true" aria-labelledby="create-post-title">
+    <section class="corner-soft mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line bg-app-panel p-4 sm:max-w-[800px] sm:p-5 lg:max-w-[800px]" role="dialog" aria-modal="true" aria-labelledby="create-post-title">
       <div class="flex items-start justify-between gap-4">
         <div><p class="text-xs font-semibold text-app-accent">WRITE</p><h2 id="create-post-title" class="mt-1 text-lg font-semibold text-[#15171c]">게시글 작성</h2></div>
         <button type="button" class="focus-ring corner-soft border border-app-line px-3 py-2 text-xs text-[#15171c]" @click="$emit('close')">닫기</button>

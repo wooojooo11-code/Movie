@@ -71,7 +71,7 @@ const submit = () => {
 
 <template>
   <div v-if="open" class="fixed inset-0 z-40 bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="프로필 수정">
-    <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-app-line bg-app-surface p-5 sm:max-w-xl sm:p-6">
+    <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-app-line bg-app-surface p-5 sm:max-w-[800px] sm:p-6">
       <div class="flex items-center justify-between gap-4">
         <h2 class="text-xl font-bold text-[#15171c]">프로필 수정</h2>
         <button type="button" class="focus-ring corner-soft size-10 border border-app-line bg-app-panelSoft text-lg text-[#34465b]" aria-label="닫기" :disabled="saving" @click="$emit('close')">×</button>

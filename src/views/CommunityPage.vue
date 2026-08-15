@@ -302,7 +302,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
 </script>
 
 <template>
-  <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-xl lg:max-w-2xl lg:px-6">
+  <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-[800px] lg:max-w-[800px] lg:px-6">
     <CommunityHeader @compose="openComposer" />
     <div class="mt-5 grid gap-3 sm:grid-cols-[minmax(0,1fr)_15rem] sm:items-center">
       <DailyQuestionCard :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />

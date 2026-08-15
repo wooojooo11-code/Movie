@@ -51,7 +51,7 @@ onMounted(load);
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-xl">
+  <main class="mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-[800px]">
     <RouterLink :to="`/profile/${userId}`" class="focus-ring corner-soft inline-flex min-h-9 items-center border border-app-line bg-app-panelSoft px-3 text-sm font-semibold text-[#34465b]">← 프로필로 돌아가기</RouterLink>
     <section class="mt-5">
       <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">TITLE COLLECTION</p>

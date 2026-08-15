@@ -41,11 +41,24 @@ const detailRatingRecords = computed(() =>
     (rating) => getDetailedRatingFeedbackMode(rating.rawDecision, rating.rawDirection) != null
   )
 );
-const editRatingMovies = computed(() =>
-  recommendationStore.primaryRatingMovies.value.filter((movie) =>
-    Boolean(recommendationStore.getStoredRatingRecord(movie.id))
-  )
-);
+const editRatingMovies = computed(() => {
+  const seenMovieIds = new Set<string>();
+  const tasteAnalysisMovies = [
+    ...recommendationStore.primaryRatingMovies.value,
+    ...recommendationStore.state.additionalTasteAnalysisBatches.flatMap((_, batchIndex) =>
+      recommendationStore.getAdditionalTasteAnalysisBatchMovies(batchIndex)
+    )
+  ];
+
+  return tasteAnalysisMovies.filter((movie) => {
+    if (seenMovieIds.has(movie.id) || !recommendationStore.getStoredRatingRecord(movie.id)) {
+      return false;
+    }
+
+    seenMovieIds.add(movie.id);
+    return true;
+  });
+});
 const currentEditMovie = computed(() => editRatingMovies.value[editRatingIndex.value] ?? null);
 const currentEditRating = computed(() => {
   const movie = currentEditMovie.value;
@@ -58,7 +71,18 @@ const currentEditRating = computed(() => {
       }
     : null;
 });
-const hasEditablePrimaryRatings = computed(() => editRatingMovies.value.length > 0);
+const latestEditableRating = computed(() => {
+  const latestMovie = editRatingMovies.value[editRatingMovies.value.length - 1];
+  const record = latestMovie ? recommendationStore.getStoredRatingRecord(latestMovie.id) : null;
+
+  return record
+    ? {
+        decision: record.rawDecision,
+        direction: record.rawDirection
+      }
+    : null;
+});
+const hasEditableTasteAnalysisRatings = computed(() => editRatingMovies.value.length > 0);
 const activeRatingMovies = computed(() => {
   if (isEditMode.value) {
     return editRatingMovies.value;
@@ -370,7 +394,7 @@ const secondaryAction = computed<null | { isMoreAction?: boolean; label: string;
     };
   }
 
-  if (!isDetailMode.value && recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
+  if (recommendationStore.hasAdditionalTasteAnalysisMovies.value) {
     return {
       label: '다음 10편 평가하기',
       to: '/rating?mode=more',
@@ -410,7 +434,7 @@ const openNextAdditionalTasteAnalysis = async () => {
 };
 
 const openRatingEditor = async (startAt: 'first' | 'latest' = 'first') => {
-  if (!hasEditablePrimaryRatings.value) {
+  if (!hasEditableTasteAnalysisRatings.value) {
     return;
   }
 
@@ -663,6 +687,7 @@ watch(
           :key="currentMovie.id"
           :movie="currentMovie"
           :interactive="false"
+          detail-layout
           size="detail"
           show-trailer
           :show-watch-options="false"
@@ -712,8 +737,8 @@ watch(
         size="compact"
         show-trailer
         :show-watch-options="false"
-        :show-previous-rating-edit="!isDetailMode && !isEditMode && hasEditablePrimaryRatings"
-        :previous-rating="currentEditRating"
+        :show-previous-rating-edit="!isDetailMode && !isEditMode && hasEditableTasteAnalysisRatings"
+        :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
         class="w-full"
         @decide="savePrimaryMovieDecision"
         @edit-previous-rating="openRatingEditor('latest')"
@@ -722,7 +747,7 @@ watch(
       <RatingActions class="sm:hidden" @decide="savePrimaryMovieDecision" />
 
       <button
-        v-if="!isDetailMode && !isEditMode && hasEditablePrimaryRatings"
+        v-if="!isDetailMode && !isEditMode && hasEditableTasteAnalysisRatings"
         type="button"
         class="focus-ring corner-soft inline-flex min-h-11 w-full items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c] sm:hidden"
         @click="openRatingEditor('latest')"
@@ -782,7 +807,7 @@ watch(
         </RouterLink>
 
         <button
-          v-if="!isDetailMode && !isEditMode && hasEditablePrimaryRatings"
+          v-if="!isEditMode && hasEditableTasteAnalysisRatings"
           type="button"
           class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
           @click="openRatingEditor()"
@@ -808,7 +833,7 @@ watch(
         </RouterLink>
 
         <button
-          v-if="!isDetailMode && !isEditMode && !secondaryAction?.isMoreAction && recommendationStore.hasAdditionalTasteAnalysisMovies.value"
+          v-if="!isEditMode && !secondaryAction?.isMoreAction && recommendationStore.hasAdditionalTasteAnalysisMovies.value"
           type="button"
           class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
           @click="openNextAdditionalTasteAnalysis"

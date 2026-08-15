@@ -99,7 +99,7 @@ const submit = async () => {
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
   >
     <header class="pt-1">
       <h1 class="text-[27px] font-semibold leading-tight text-white">{{ pageTitle }}</h1>

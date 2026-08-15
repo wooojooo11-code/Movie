@@ -30,7 +30,7 @@ const initial = (nickname: string) => nickname.trim().slice(0, 1) || '?';
 
 <template>
   <div v-if="open" class="fixed inset-0 z-40 flex items-center bg-black/40 p-4" role="presentation" @click.self="emit('close')">
-    <section class="mx-auto flex max-h-full w-full max-w-md flex-col overflow-hidden rounded-2xl bg-app-panel shadow-xl sm:max-w-xl lg:max-w-2xl" role="dialog" aria-modal="true" aria-labelledby="daily-answer-list-title">
+    <section class="mx-auto flex max-h-full w-full max-w-md flex-col overflow-hidden rounded-2xl bg-app-panel shadow-xl sm:max-w-[800px] lg:max-w-[800px]" role="dialog" aria-modal="true" aria-labelledby="daily-answer-list-title">
       <header class="flex items-start justify-between gap-4 border-b border-app-line px-4 py-4">
         <div>
           <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">TODAY'S QUESTION</p>

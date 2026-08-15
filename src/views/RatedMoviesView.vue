@@ -78,7 +78,7 @@ watch(
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
   >
     <section class="grid gap-3">
       <div class="flex items-center justify-between gap-4">

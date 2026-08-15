@@ -28,7 +28,7 @@ defineEmits<{
     @click.self="$emit('close')"
   >
     <section
-      class="corner-hard mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line px-4 py-4 sm:max-w-xl"
+      class="corner-hard mx-auto max-h-full w-full max-w-md overflow-y-auto border border-app-line px-4 py-4 sm:max-w-[800px]"
       style="background-color: rgba(255, 255, 255, 0.96)"
     >
       <div class="flex items-start gap-3">

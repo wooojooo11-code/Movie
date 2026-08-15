@@ -44,7 +44,7 @@ watch(() => route.params.movieId, load, { immediate: true });
 </script>
 
 <template>
-  <main class="community-surface mx-auto w-full max-w-md px-4 pb-24 pt-6 sm:max-w-xl">
+  <main class="community-surface mx-auto w-full max-w-md px-4 pb-24 pt-6 sm:max-w-[800px]">
     <RouterLink to="/community" class="focus-ring text-sm font-semibold text-[#174a77]">← 커뮤니티</RouterLink>
     <div v-if="loading" class="corner-soft mt-5 h-96 animate-pulse border border-app-line bg-app-panelSoft" />
     <p v-else-if="errorMessage" class="corner-soft mt-5 border border-[#d9a7a7] bg-[#fff6f6] p-4 text-sm text-[#a13c3c]">{{ errorMessage }}</p>

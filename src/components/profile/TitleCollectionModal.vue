@@ -17,7 +17,7 @@ defineEmits<{
 
 <template>
   <div v-if="open" class="fixed inset-0 z-40 bg-black/40 p-4" role="dialog" aria-modal="true" aria-label="칭호 보관함">
-    <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-app-line bg-app-surface p-5 sm:max-w-xl sm:p-6">
+    <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto rounded-2xl border border-app-line bg-app-surface p-5 sm:max-w-[800px] sm:p-6">
       <div class="flex items-start justify-between gap-4">
         <div>
           <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">TITLE COLLECTION</p>

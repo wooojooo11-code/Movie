@@ -259,7 +259,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
   >
     <section class="corner-hard border border-app-line bg-app-panel px-5 py-5">
       <p class="text-sm font-semibold text-white">평가기록 수정</p>

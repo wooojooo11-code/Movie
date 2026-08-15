@@ -10,6 +10,7 @@ const props = withDefaults(
   defineProps<{
     movie: RatingMovie;
     interactive?: boolean;
+    detailLayout?: boolean;
     primaryLayout?: boolean;
     size?: 'compact' | 'default' | 'detail';
     showTrailer?: boolean;
@@ -22,6 +23,7 @@ const props = withDefaults(
   }>(),
   {
     interactive: true,
+    detailLayout: false,
     primaryLayout: false,
     size: 'default',
     showTrailer: false,
@@ -289,7 +291,106 @@ const onPointerUp = (event: PointerEvent) => {
     @pointerup="onPointerUp"
     @pointercancel="onPointerUp"
   >
-    <div v-if="primaryLayout" class="bg-app-panel sm:grid sm:min-h-[calc(100dvh-11rem)] sm:grid-cols-[minmax(20rem,0.95fr)_minmax(0,1.05fr)] sm:items-stretch">
+    <div v-if="detailLayout" class="bg-app-panel">
+      <div class="sm:grid sm:grid-cols-[minmax(14rem,0.58fr)_minmax(0,1fr)] sm:items-stretch">
+        <section class="relative flex min-h-[21rem] items-center justify-center overflow-hidden border-b border-app-line bg-[#161b26] p-5 sm:min-h-[33rem] sm:border-b-0 sm:border-r sm:p-7">
+          <img
+            :src="movie.posterUrl"
+            alt=""
+            aria-hidden="true"
+            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-2xl"
+            loading="lazy"
+          />
+          <span aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(145deg,rgba(15,18,27,0.92),rgba(23,29,42,0.52)_48%,rgba(9,11,17,0.94))]"></span>
+          <div class="relative z-10 flex w-full max-w-[13.5rem] flex-col items-center">
+            <div class="corner-soft w-full overflow-hidden border border-white/20 bg-black/20 p-1.5 shadow-[0_18px_42px_rgba(0,0,0,0.45)]">
+              <img
+                :src="movie.posterUrl"
+                :alt="movie.posterAlt"
+                class="aspect-[2/3] w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-4 flex w-full items-center justify-between gap-3 text-white/75">
+              <span class="text-[10px] font-bold tracking-[0.16em]">DETAIL REVIEW</span>
+              <span class="text-[11px] font-semibold">{{ movie.releaseYear }}</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="flex min-w-0 flex-col">
+          <button
+            v-if="showTrailer"
+            type="button"
+            :aria-label="`${movie.title} 예고편 재생하기`"
+            class="focus-ring group relative block aspect-[16/9] w-full overflow-hidden bg-[#11151d] text-left"
+            @click.stop="openTrailer"
+            @pointerdown.stop
+            @pointermove.stop
+            @pointerup.stop
+            @pointercancel.stop
+          >
+            <img
+              :src="movie.posterUrl"
+              alt=""
+              aria-hidden="true"
+              class="absolute inset-0 h-full w-full scale-110 object-cover opacity-55 blur-sm transition duration-500 group-hover:scale-100 group-hover:opacity-70"
+              loading="lazy"
+            />
+            <span aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(125deg,rgba(5,8,13,0.93),rgba(7,10,16,0.26)_56%,rgba(5,8,13,0.74))]"></span>
+            <span class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:left-5 sm:top-5">
+              <span class="size-1.5 rounded-full bg-[#e45050] shadow-[0_0_10px_rgba(228,80,80,0.9)]"></span>
+              OFFICIAL TRAILER
+            </span>
+            <span class="relative flex h-full flex-col items-center justify-center">
+              <span class="grid size-16 place-items-center rounded-full border border-white/75 bg-white/15 shadow-[0_8px_26px_rgba(0,0,0,0.42)] backdrop-blur-sm transition duration-200 group-hover:scale-110 group-hover:bg-white/25 sm:size-[4.5rem]">
+                <span class="ml-1 h-0 w-0 border-y-[10px] border-l-[15px] border-y-transparent border-l-white"></span>
+              </span>
+              <span class="mt-3 text-sm font-semibold text-white sm:text-base">예고편 재생</span>
+            </span>
+            <span class="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 text-[10px] font-medium text-white/75 sm:inset-x-5 sm:bottom-5">
+              <span>상세평가 전용 미리보기</span>
+              <span class="tracking-[0.15em]">PLAY</span>
+            </span>
+          </button>
+
+          <div v-else class="flex aspect-video items-center justify-center bg-app-poster">
+            <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-full w-full object-contain" loading="lazy" />
+          </div>
+
+          <div class="flex flex-1 flex-col p-5 sm:p-7">
+            <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-app-muted">Detail rating</p>
+            <div class="mt-3 flex flex-wrap items-center gap-2">
+              <span class="corner-pill inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c]">
+                {{ movie.releaseYear }}
+              </span>
+              <span
+                v-for="genre in movie.genres.slice(0, 2)"
+                :key="genre"
+                class="corner-pill inline-flex border border-app-line px-3 py-1.5 text-xs font-medium text-app-muted"
+              >
+                {{ genre }}
+              </span>
+            </div>
+            <h1 class="mt-4 text-[28px] font-semibold leading-tight text-[#15171c] sm:text-[36px]">
+              {{ movie.title }}
+            </h1>
+            <p class="mt-3 text-sm font-medium leading-6 text-app-muted sm:text-[15px]">
+              {{ movie.tags.join(' · ') }}
+            </p>
+            <div class="mt-auto border-t border-app-line pt-4 sm:pt-5">
+              <p class="text-xs leading-5 text-[#3d424a]">예고편을 보고, 기억에 남은 감상을 차분히 남겨보세요.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <p v-if="overviewText" class="border-t border-app-line px-5 py-5 text-sm leading-7 text-[#3d424a] sm:px-7 sm:text-[15px]">
+        {{ overviewText }}
+      </p>
+    </div>
+
+    <div v-else-if="primaryLayout" class="bg-app-panel sm:grid sm:min-h-[calc(100dvh-11rem)] sm:grid-cols-[minmax(20rem,0.95fr)_minmax(0,1.05fr)] sm:items-stretch">
       <div class="overflow-hidden border-b border-app-line bg-[#10141c] sm:border-b-0 sm:border-r">
         <button
           v-if="showTrailer"

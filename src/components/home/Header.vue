@@ -36,7 +36,7 @@ const signOut = async () => {
 
 <template>
   <header class="sticky top-0 z-20 border-b border-app-line bg-app-surface">
-    <div class="mx-auto flex w-full max-w-md flex-col gap-3 px-4 py-3 sm:max-w-xl">
+    <div class="mx-auto flex w-full max-w-md flex-col gap-3 px-4 py-3 sm:max-w-[800px]">
       <div class="flex items-center justify-between gap-4">
         <RouterLink to="/" class="focus-ring corner-soft flex min-w-0 items-center gap-3">
           <span

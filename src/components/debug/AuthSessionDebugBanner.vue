@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
 <template>
   <section
     v-if="state.isLocalRuntime"
-    class="corner-hard mx-auto mt-3 w-full max-w-md border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm text-amber-50 sm:max-w-xl"
+    class="corner-hard mx-auto mt-3 w-full max-w-md border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm text-amber-50 sm:max-w-[800px]"
   >
     <div class="flex items-start justify-between gap-3">
       <div class="min-w-0">

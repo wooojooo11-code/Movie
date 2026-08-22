@@ -94,7 +94,7 @@ const loadSavedPosts = async () => {
 
   loadingSavedPosts.value = true;
   try {
-    const result = await fetchSavedCommunityPosts(viewerId.value);
+    const result = await fetchSavedCommunityPosts(viewerId.value, COMMUNITY_FEED_PAGE_SIZE);
     savedPosts.value = result.posts;
     savedPostCount.value = result.totalCount;
   } catch (error) {
@@ -105,6 +105,12 @@ const loadSavedPosts = async () => {
 };
 
 const loadFeed = async () => {
+  if (activeTab.value === 'saved') {
+    posts.value = [];
+    loading.value = false;
+    return;
+  }
+
   if (loading.value) return;
   loading.value = true;
   errorMessage.value = '';
@@ -188,7 +194,13 @@ const submitDailyAnswer = async (input: DailyQuestionAnswerInput) => {
   if (!viewerId.value || !dailyQuestion.value) { goToLogin(); return; }
   try {
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
-    await saveDailyQuestionAnswer(dailyQuestion.value.id, viewerId.value, input);
+    const hadViewerAnswer = Boolean(dailyQuestion.value.viewerAnswer);
+    const savedAnswer = await saveDailyQuestionAnswer(dailyQuestion.value.id, viewerId.value, input);
+    dailyQuestion.value = {
+      ...dailyQuestion.value,
+      answerCount: dailyQuestion.value.answerCount + (hadViewerAnswer ? 0 : 1),
+      viewerAnswer: savedAnswer
+    };
     void checkTitlesForEvent('daily_question');
     await loadDailyQuestion();
     if (dailyAnswerListOpen.value) await loadDailyAnswers();
@@ -294,7 +306,14 @@ const saveList = async (listId: string) => {
   catch { errorMessage.value = '리스트 저장에 실패했습니다.'; }
 };
 
-watch([activeTab, sort], () => { void loadFeed(); });
+watch([activeTab, sort], () => {
+  if (activeTab.value === 'saved') {
+    void loadSavedPosts();
+    return;
+  }
+
+  void loadFeed();
+});
 watch(searchQuery, () => { window.clearTimeout(searchTimer); searchTimer = window.setTimeout(() => { void loadFeed(); }, 300); });
 watch(viewerId, () => { void refresh(); });
 onMounted(() => { void refresh(); });
@@ -304,10 +323,7 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
 <template>
   <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-[800px] lg:max-w-[800px] lg:px-6">
     <CommunityHeader @compose="openComposer" />
-    <div class="mt-5 grid gap-3 sm:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.85fr)] sm:items-stretch">
-      <DailyQuestionCard class="h-full" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
-      <SavedCommunityPostsCard class="h-full" :posts="savedPosts" :total-count="savedPostCount" :is-authenticated="canWrite" :loading="loadingSavedPosts" />
-    </div>
+    <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" :viewer-id="viewerId" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
     <section class="mt-7" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div></div>
       <div class="scrollbar-hide mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" aria-label="인기 게시글 가로 목록">
@@ -315,11 +331,20 @@ onScopeDispose(() => window.clearTimeout(searchTimer));
       </div>
     </section>
     <section class="mt-7" aria-labelledby="latest-posts-title">
-      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">FEED</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">모두의 이야기</h2></div><CommunitySortMenu v-model="sort" /></div>
-      <div class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
+      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">FEED</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">{{ activeTab === 'saved' ? '내가 저장한 글' : '모두의 이야기' }}</h2></div><CommunitySortMenu v-if="activeTab !== 'saved'" v-model="sort" /></div>
+      <div v-if="activeTab !== 'saved'" class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
       <div class="mt-3"><CommunityTabs v-model="activeTab" /></div>
       <p v-if="errorMessage" class="corner-soft mt-4 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
-      <div class="mt-4"><CommunityPostList :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" /></div>
+      <div class="mt-4">
+        <SavedCommunityPostsCard
+          v-if="activeTab === 'saved'"
+          :posts="savedPosts"
+          :total-count="savedPostCount"
+          :is-authenticated="canWrite"
+          :loading="loadingSavedPosts"
+        />
+        <CommunityPostList v-else :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
+      </div>
     </section>
     <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />
     <DailyQuestionAnswersModal :open="dailyAnswerListOpen" :question="dailyQuestion" :answers="dailyAnswers" :loading="loadingDailyAnswers" :error-message="dailyAnswersError" @close="dailyAnswerListOpen = false" />

@@ -9,9 +9,81 @@
   color: #223b59;
   --app-text-heading: #173a5e;
   --app-text-body: #294866;
-  --app-radius-soft: 10px;
-  --app-radius-hard: 0px;
+  --app-radius-soft: 14px;
+  --app-radius-hard: 20px;
   --app-radius-pill: 999px;
+}
+
+/* 웹 화면에서는 가독성을 위해 rem 기반 타이포그래피를 한 단계 키웁니다. */
+@media (min-width: 640px) {
+  :root {
+    font-size: 18px;
+  }
+
+  /* Tailwind의 px 기반 보조 텍스트도 같은 비율로 확대합니다. */
+  [class*='text-[9px]'] {
+    font-size: 10.125px !important;
+  }
+
+  [class*='text-[10px]'] {
+    font-size: 11.25px !important;
+  }
+
+  [class*='text-[11px]'] {
+    font-size: 12.375px !important;
+  }
+
+  [class*='text-[12px]'] {
+    font-size: 13.5px !important;
+  }
+
+  [class*='text-[13px]'] {
+    font-size: 14.625px !important;
+  }
+
+  [class*='text-[14px]'] {
+    font-size: 15.75px !important;
+  }
+
+  [class*='text-[15px]'] {
+    font-size: 16.875px !important;
+  }
+
+  [class*='text-[16px]'] {
+    font-size: 18px !important;
+  }
+
+  [class*='text-[24px]'] {
+    font-size: 27px !important;
+  }
+
+  [class*='text-[25px]'] {
+    font-size: 28.125px !important;
+  }
+
+  [class*='text-[26px]'] {
+    font-size: 29.25px !important;
+  }
+
+  [class*='text-[27px]'] {
+    font-size: 30.375px !important;
+  }
+
+  [class*='text-[28px]'] {
+    font-size: 31.5px !important;
+  }
+
+  [class*='text-[32px]'] {
+    font-size: 36px !important;
+  }
+
+  [class*='text-[34px]'] {
+    font-size: 38.25px !important;
+  }
+
+  [class*='text-[36px]'] {
+    font-size: 40.5px !important;
+  }
 }
 
 * {
@@ -85,6 +157,30 @@ a {
     @apply border border-app-accent bg-app-accent !text-white;
   }
 
+  .button-secondary {
+    @apply border border-app-line bg-app-panelSoft text-[#173a5e] transition-colors hover:border-app-accent;
+  }
+
+  .icon-button {
+    @apply inline-grid shrink-0 place-items-center rounded-full border transition duration-200 disabled:cursor-wait disabled:opacity-50;
+  }
+
+  .chip {
+    @apply inline-flex min-h-7 items-center rounded-full border px-2.5 py-1 text-[11px] font-medium;
+  }
+
+  .poster-card {
+    @apply overflow-hidden rounded-2xl bg-app-panel shadow-sm transition duration-200;
+  }
+
+  .poster-badge {
+    @apply absolute rounded-full bg-slate-950/75 px-2 py-1 text-[10px] font-bold text-white;
+  }
+
+  .movie-shelf {
+    @apply flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2 scrollbar-hide;
+  }
+
   .corner-soft {
     border-radius: var(--app-radius-soft) !important;
   }
@@ -111,6 +207,30 @@ a {
   .poster-hover-image {
     transition: transform 220ms ease;
   }
+
+  .modal-enter {
+    animation: modal-enter 180ms ease-out both;
+  }
+}
+
+@keyframes modal-enter {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.rating-card-enter-active,
+.rating-card-leave-active {
+  transition: opacity 190ms ease, transform 190ms ease;
+}
+
+.rating-card-enter-from {
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+}
+
+.rating-card-leave-to {
+  opacity: 0;
+  transform: translateX(-18px) scale(0.98);
 }
 
 @layer base {
@@ -149,32 +269,6 @@ a {
     border-radius: var(--app-radius-soft);
   }
 
-  [class*='bg-white/'],
-  [class*='bg-white/['],
-  [class*='bg-black/'],
-  [class*='bg-[#0c0e12]/'] {
-    background-image: none !important;
-    background-color: #ffffff !important;
-  }
-
-  [class*='bg-app-accent/'] {
-    background-image: none !important;
-    background-color: #739dc4 !important;
-  }
-
-  [class*='bg-gradient-to-'],
-  [class*='bg-[linear-gradient'],
-  [class*='bg-[radial-gradient'],
-  [class*='from-'],
-  [class*='via-'],
-  [class*='to-'] {
-    background-image: none !important;
-  }
-
-  [class*='shadow-'] {
-    box-shadow: none !important;
-  }
-
   [class*='text-white/'] {
     color: #41627e !important;
   }
@@ -195,11 +289,6 @@ a {
   [class*=' text-white'],
   [class^='text-white'] {
     color: var(--app-text-body) !important;
-  }
-
-  [class*='backdrop-blur'] {
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
   }
 
   @media (hover: hover) and (pointer: fine) {

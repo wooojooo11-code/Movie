@@ -116,6 +116,11 @@ export interface CatalogMovieWatchProviders {
   rent: CatalogMovieWatchProvider[];
 }
 
+export interface CatalogMovieTrailer {
+  name: null | string;
+  youtubeKey: string;
+}
+
 export interface CatalogMovie extends Movie {
   collectionId?: null | number;
   collectionName?: null | string;
@@ -127,6 +132,7 @@ export interface CatalogMovie extends Movie {
   tmdbMovieId: number;
   posterUrl: string;
   posterAlt: string;
+  trailer?: CatalogMovieTrailer | null;
   voteAverage?: null | number;
   voteCount?: null | number;
   watchProvidersKr: CatalogMovieWatchProviders | null;

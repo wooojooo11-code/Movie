@@ -9,7 +9,7 @@ export type CommunityCategory =
   | 'movie_poll'
   | 'daily_question';
 
-export type CommunityTab = 'all' | CommunityCategory;
+export type CommunityTab = 'all' | 'saved' | CommunityCategory;
 export type CommunitySort = 'latest' | 'popular' | 'comments' | 'saves';
 
 export interface CommunityProfile {
@@ -147,7 +147,11 @@ export const COMMUNITY_CATEGORY_LABELS: Record<CommunityCategory, string> = {
 
 export const COMMUNITY_TABS: Array<{ id: CommunityTab; label: string }> = [
   { id: 'all', label: '전체' },
-  ...Object.entries(COMMUNITY_CATEGORY_LABELS).map(([id, label]) => ({ id: id as CommunityCategory, label }))
+  { id: 'movie_recommendation', label: COMMUNITY_CATEGORY_LABELS.movie_recommendation },
+  { id: 'list_share', label: COMMUNITY_CATEGORY_LABELS.list_share },
+  { id: 'movie_poll', label: COMMUNITY_CATEGORY_LABELS.movie_poll },
+  { id: 'saved', label: '저장한 글' },
+  { id: 'daily_question', label: COMMUNITY_CATEGORY_LABELS.daily_question }
 ];
 
 export const COMMUNITY_SORTS: Array<{ id: CommunitySort; label: string }> = [

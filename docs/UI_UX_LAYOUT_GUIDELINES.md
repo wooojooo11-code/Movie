@@ -7,18 +7,18 @@
 커뮤니티 화면의 기본 컨테이너는 다음과 같습니다.
 
 ```html
-<main class="community-surface mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-xl">
+<main class="community-surface mx-auto w-full max-w-md px-4 pb-28 pt-6 sm:max-w-[800px]">
 ```
 
-- 기본 화면은 `max-w-md`, `sm` 이상은 `max-w-xl` 안에서 표시합니다.
-- 취향분석의 메인 평가 화면은 포스터·예고편과 평가 정보를 함께 비교해야 하므로, 웹(`sm` 이상)에서만 `max-w-[880px]`를 사용합니다. 이 경우에도 모든 요소는 해당 `main` 컨테이너 경계 안에 배치합니다.
+- 기본 화면은 `max-w-md`, `sm` 이상은 `max-w-[800px]` 안에서 표시합니다.
+- 취향분석을 포함한 모든 주요 화면은 웹(`sm` 이상)에서 최대 800px를 사용합니다. 모든 요소는 해당 `main` 컨테이너 경계 안에 배치합니다.
 - 좌우 여백은 기본적으로 `px-4`를 사용합니다.
 - 카드, 입력창, 빈 상태, 오류 메시지, 목록은 `w-full`로 컨테이너 너비를 따릅니다.
 
 ## 필수 규칙
 
 1. 일반 콘텐츠는 `main`의 좌우 경계를 기준으로 배치합니다. `w-screen`, 화면 기준의 음수 여백, 페이지 전체 너비를 강제하는 CSS는 사용하지 않습니다.
-2. 플로팅 버튼과 하단 메뉴처럼 `fixed`를 쓰는 요소도 실제 버튼은 컨테이너와 같은 `max-w-md sm:max-w-xl px-4` 래퍼 안에 둡니다.
+2. 플로팅 버튼과 하단 메뉴처럼 `fixed`를 쓰는 요소도 실제 버튼은 컨테이너와 같은 `max-w-md sm:max-w-[800px] px-4` 래퍼 안에 둡니다.
 3. 모달과 시트는 배경 오버레이만 화면 전체를 사용합니다. 실제 조작 UI는 페이지 `main`과 같은 최대 너비 안에 가운데 정렬합니다.
 4. `absolute` 요소는 가능한 해당 카드나 섹션을 `relative`로 지정한 뒤 그 안에 배치합니다.
 5. 모바일 가로 스크롤이 필요하면 스크롤 영역을 컨테이너 내부에만 둡니다. 문서 전체에 가로 오버플로가 생기면 안 됩니다.
@@ -36,7 +36,7 @@
 
 ```html
 <div class="pointer-events-none fixed inset-x-0 bottom-5 z-30">
-  <div class="mx-auto flex w-full max-w-md justify-end px-4 sm:max-w-xl">
+  <div class="mx-auto flex w-full max-w-md justify-end px-4 sm:max-w-[800px]">
     <button class="pointer-events-auto size-14 rounded-full">글쓰기</button>
   </div>
 </div>
@@ -50,7 +50,7 @@
 
 ```html
 <div class="fixed inset-0 z-40 bg-black/40 p-4">
-  <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto sm:max-w-xl">
+  <section class="mx-auto max-h-full w-full max-w-md overflow-y-auto sm:max-w-[800px]">
     <!-- 모달 내용 -->
   </section>
 </div>
@@ -63,7 +63,7 @@
 - 새 UI가 `main`의 좌우 경계 안에 보이는가?
 - `fixed`, `absolute`, 모달, 드롭다운, 툴팁이 컨테이너 밖으로 나가지 않는가?
 - 모바일의 가로 스크롤이 페이지 전체 오버플로를 만들지 않는가?
-- `sm` 이상에서 페이지별로 정의된 최대 너비를 넘지 않는가? (취향분석 메인 평가는 `max-w-[880px]`)
+- `sm` 이상에서 공통 최대 너비인 800px를 넘지 않는가?
 - 진한 버튼의 글자가 연한 색으로 충분히 읽히는가?
 - 하단 고정 UI가 콘텐츠나 모바일 브라우저 영역을 가리지 않는가?
 

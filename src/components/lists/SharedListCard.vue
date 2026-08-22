@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ChevronDown } from 'lucide-vue-next';
+
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import ListMovieShelf from '@/components/lists/ListMovieShelf.vue';
 import type { ResolvedSharedListCard } from '@/types/lists';
@@ -7,12 +9,14 @@ const props = defineProps<{
   list: ResolvedSharedListCard;
   savedMovieIds: readonly string[];
   showSaveButton?: boolean;
+  expanded?: boolean;
 }>();
 
 const emit = defineEmits<{
   'toggle-save': [listId: string];
   'toggle-watch': [movieId: string];
   rate: [payload: { listId: string; rating: number | null }];
+  toggle: [listId: string];
 }>();
 
 const formatCount = (count: number) => count.toLocaleString('ko-KR');
@@ -34,28 +38,28 @@ const clearRating = () => {
 
 <template>
   <article class="corner-hard min-w-0 max-w-full border border-app-line bg-app-panel p-4">
-    <div class="flex items-start justify-between gap-3">
+    <button type="button" class="focus-ring flex w-full items-start justify-between gap-3 text-left" :aria-expanded="expanded" @click="$emit('toggle', list.id)">
       <div>
         <h3 class="text-base font-semibold leading-snug text-white">{{ list.title }}</h3>
         <p class="mt-2 text-sm text-app-muted">
           {{ list.ownerName }} · 평점 {{ list.displayAverageRating.toFixed(1) }} · 저장
-          {{ formatCount(list.displaySaveCount) }}
+          {{ formatCount(list.saveCount) }}
         </p>
       </div>
-      <span
-        class="corner-pill shrink-0 border border-app-accent bg-app-accent px-3 py-1.5 text-xs font-semibold text-white"
-      >
-        공유
+      <span class="flex shrink-0 flex-col items-end gap-2">
+        <span class="corner-pill border border-app-accent bg-app-accent px-3 py-1.5 text-xs font-semibold text-white">공유</span>
+        <ChevronDown :size="18" class="text-app-muted transition-transform duration-200" :class="expanded ? 'rotate-180' : ''" aria-hidden="true" />
       </span>
-    </div>
+    </button>
 
     <ListMovieShelf
       :movies="list.moviePreviews"
       :saved-movie-ids="savedMovieIds"
+      :show-details="expanded"
       @toggle-watch="$emit('toggle-watch', $event)"
     />
 
-    <div class="mt-3 flex items-center gap-2">
+    <div v-if="expanded" class="mt-3 flex items-center gap-2">
       <button
         v-if="showSaveButton !== false"
         type="button"

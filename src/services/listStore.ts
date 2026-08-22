@@ -17,6 +17,7 @@ import type {
   SimilarTasteListSignal,
   UserMovieListRecord
 } from '@/types/lists';
+import type { CatalogMovie } from '@/types/recommendation';
 
 const FALLBACK_USER_ID = 'guest-user';
 
@@ -120,7 +121,8 @@ const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null):
     return {
       userId,
       userLists: [],
-      interactions: []
+      interactions: [],
+      movieSnapshots: []
     };
   }
 
@@ -132,7 +134,8 @@ const normalizeSnapshot = (userId: string, snapshot: ListsStateSnapshot | null):
       isPrivate: hasDuplicateMovieIds(list.movieIds) ? true : list.isPrivate,
       sourceListId: list.sourceListId ?? null
     })),
-    interactions: snapshot.interactions ?? []
+    interactions: snapshot.interactions ?? [],
+    movieSnapshots: snapshot.movieSnapshots ?? []
   };
 };
 
@@ -181,6 +184,9 @@ const state = reactive({
   userLists: initialSnapshot.userLists,
   sharedCatalog: [] as SharedMovieListRecord[],
   interactions: initialSnapshot.interactions,
+  movieSnapshots: Object.fromEntries(
+    (initialSnapshot.movieSnapshots ?? []).map((movie) => [movie.id, movie])
+  ) as Record<string, SearchableCatalogMovie>,
   draft: createEmptyDraft(),
   movieSearchQuery: '',
   listSearchQuery: '',
@@ -197,7 +203,8 @@ const applyCurrentUserShareRules = () => {
 const buildSnapshot = (): ListsStateSnapshot => ({
   userId: state.userId,
   userLists: state.userLists,
-  interactions: state.interactions
+  interactions: state.interactions,
+  movieSnapshots: Object.values(state.movieSnapshots)
 });
 
 const getSnapshotFingerprint = (snapshot: ListsStateSnapshot = buildSnapshot()) =>
@@ -238,12 +245,21 @@ const getErrorMessage = (error: unknown, fallback: string) => {
   return fallback;
 };
 
-const applySnapshot = (snapshot: ListsStateSnapshot) => {
+const applySnapshot = (
+  snapshot: ListsStateSnapshot,
+  options: { preserveMovieSnapshots?: boolean } = {}
+) => {
   latestMovieSearchToken += 1;
   latestListSearchToken += 1;
   state.userId = snapshot.userId;
   state.userLists = snapshot.userLists;
   state.interactions = snapshot.interactions;
+  const nextMovieSnapshots = Object.fromEntries(
+    (snapshot.movieSnapshots ?? []).map((movie) => [movie.id, movie])
+  ) as Record<string, SearchableCatalogMovie>;
+  state.movieSnapshots = options.preserveMovieSnapshots
+    ? { ...state.movieSnapshots, ...nextMovieSnapshots }
+    : nextMovieSnapshots;
   state.draft = createEmptyDraft();
   state.movieSearchQuery = '';
   state.listSearchQuery = '';
@@ -377,7 +393,27 @@ const persistState = async () => {
 };
 
 const resolveMoviePreviews = (movieIds: readonly string[]) =>
-  movieIds.map((movieId) => movieMap[movieId]).filter((movie): movie is SearchableCatalogMovie => Boolean(movie));
+  movieIds
+    .map((movieId) => movieMap[movieId] ?? state.movieSnapshots[movieId])
+    .filter((movie): movie is SearchableCatalogMovie => Boolean(movie));
+
+const registerMovieSnapshot = (movie: CatalogMovie) => {
+  if (movieMap[movie.id]) {
+    return;
+  }
+
+  const existing = state.movieSnapshots[movie.id];
+  state.movieSnapshots = {
+    ...state.movieSnapshots,
+    [movie.id]: {
+      ...movie,
+      characters: [...movie.characters],
+      director: existing?.director ?? '감독 미상',
+      cast: existing?.cast ?? []
+    }
+  };
+  persistSnapshotLocally();
+};
 
 const getInteraction = (listId: string): ListInteractionRecord | undefined =>
   state.interactions.find((interaction) => interaction.listId === listId);
@@ -422,7 +458,7 @@ const createImportedUserList = (
     description: '',
     title: list.title,
     movieIds: [...list.movieIds],
-    saveCount: overrides?.saveCount ?? (nextIsPrivate ? 0 : 1),
+    saveCount: overrides?.saveCount ?? 0,
     averageRating: overrides?.averageRating ?? 0,
     ratingCount: overrides?.ratingCount ?? 0,
     isPrivate: nextIsPrivate,
@@ -481,6 +517,14 @@ const myLists = computed<ResolvedUserListCard[]>(() => {
     }));
 });
 
+// 가져온 공개 리스트는 원본의 읽기 전용 참조이므로 영화 추가 대상에서 제외한다.
+const editableLists = computed<ResolvedUserListCard[]>(() =>
+  state.userLists
+    .filter((list) => !list.sourceListId)
+    .sort((left, right) => new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime())
+    .map((list) => ({ ...list, moviePreviews: resolveMoviePreviews(list.movieIds) }))
+);
+
 const sharedLists = computed<ResolvedSharedListCard[]>(() =>
   state.sharedCatalog.map((list) => {
     const interaction = getInteraction(list.id);
@@ -492,7 +536,6 @@ const sharedLists = computed<ResolvedSharedListCard[]>(() =>
     return {
       ...list,
       moviePreviews: resolveMoviePreviews(list.movieIds),
-      displaySaveCount: list.saveCount + (viewerSaved ? 1 : 0),
       displayAverageRating: ratingCount > 0 ? ratingTotal / ratingCount : 0,
       viewerSaved,
       viewerRating
@@ -532,7 +575,13 @@ const updateListSearchQuery = async (query: string) => {
   await refreshListSearchResults();
 };
 
-const addMovieToDraft = (movieId: string) => {
+const addMovieToDraft = (movie: CatalogMovie | string) => {
+  const movieId = typeof movie === 'string' ? movie : movie.id;
+
+  if (typeof movie !== 'string') {
+    registerMovieSnapshot(movie);
+  }
+
   if (state.draft.movieIds.includes(movieId)) {
     return;
   }
@@ -580,7 +629,7 @@ const saveDraft = async () => {
     description: state.draft.description.trim(),
     title: state.draft.title.trim(),
     movieIds: [...state.draft.movieIds],
-    saveCount: currentList?.saveCount ?? (nextIsPrivate ? 0 : 1),
+    saveCount: currentList?.saveCount ?? 0,
     averageRating: currentList?.averageRating ?? 0,
     ratingCount: currentList?.ratingCount ?? 0,
     isPrivate: nextIsPrivate,
@@ -607,6 +656,42 @@ const saveDraft = async () => {
   }
 
   return true;
+};
+
+const addMovieToList = async (listId: string, movie: CatalogMovie | string) => {
+  const target = state.userLists.find((list) => list.id === listId && !list.sourceListId);
+
+  if (!target) {
+    return 'unavailable' as const;
+  }
+
+  const movieId = typeof movie === 'string' ? movie : movie.id;
+
+  if (typeof movie !== 'string') {
+    registerMovieSnapshot(movie);
+  }
+
+  if (target.movieIds.includes(movieId)) {
+    return 'exists' as const;
+  }
+
+  const updatedAt = new Date().toISOString();
+  state.userLists = state.userLists.map((list) =>
+    list.id === listId
+      ? {
+          ...list,
+          movieIds: [...list.movieIds, movieId],
+          updatedAt
+        }
+      : list
+  );
+  await persistState();
+
+  if (state.listSearchQuery.trim()) {
+    await refreshListSearchResults();
+  }
+
+  return 'added' as const;
 };
 
 const editUserList = (listId: string) => {
@@ -778,7 +863,9 @@ const setActiveUser = async (userId: string, ownerName = '나') => {
     ]);
 
     if (remoteSnapshot) {
-      applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot));
+      applySnapshot(normalizeSnapshot(normalizedUserId, remoteSnapshot), {
+        preserveMovieSnapshots: true
+      });
     }
 
     const snapshotFingerprintBeforeSharedSync = getSnapshotFingerprint();
@@ -821,6 +908,7 @@ export const listStore = {
   canShareDraft,
   draftShareRestrictionReason,
   myLists,
+  editableLists,
   sharedLists,
   similarTasteRecommendedLists,
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
@@ -836,6 +924,7 @@ export const listStore = {
   resetDraft,
   resetMovieSearchState,
   saveDraft,
+  addMovieToList,
   editUserList,
   deleteUserList,
   removeFromMyLists,

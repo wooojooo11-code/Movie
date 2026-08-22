@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
 import LibraryMovieCard from '@/components/library/LibraryMovieCard.vue';
@@ -19,6 +20,8 @@ import type { CatalogMovie } from '@/types/recommendation';
 
 const libraryStore = useLibraryStore();
 const listStore = useListStore();
+const route = useRoute();
+const router = useRouter();
 const isComposerOpen = ref(false);
 const librarySearchQuery = ref('');
 const librarySearchResults = ref<LibraryMovieSearchResult[]>([]);
@@ -28,6 +31,7 @@ const isLibraryMovieCardEditorOpen = ref(false);
 const libraryRating = ref<null | number>(null);
 const libraryReviewText = ref('');
 const isSearchingLibraryMovies = ref(false);
+const expandedListIds = ref(new Set<string>());
 let librarySearchRequestId = 0;
 
 const librarySearchSortOptions: ReadonlyArray<{ label: string; value: LibraryMovieSearchSort }> = [
@@ -125,11 +129,18 @@ const sortedMyLists = computed(() =>
 
 const sortedSharedLists = computed(() =>
   sortLists(listStore.sharedLists.value, listSortOption.value, {
-    getUpdatedAt: (list) => list.updatedAt,
+    getUpdatedAt: (list) => list.createdAt,
     getRatingCount: (list) => list.ratingCount + (list.viewerRating !== null ? 1 : 0),
-    getSaveCount: (list) => list.displaySaveCount
+    getSaveCount: (list) => list.saveCount
   })
 );
+
+const isListExpanded = (listId: string) => expandedListIds.value.has(listId);
+const toggleListDetails = (listId: string) => {
+  const nextIds = new Set(expandedListIds.value);
+  nextIds.has(listId) ? nextIds.delete(listId) : nextIds.add(listId);
+  expandedListIds.value = nextIds;
+};
 
 const similarTasteRecommendedLists = computed(() => listStore.similarTasteRecommendedLists.value);
 
@@ -146,6 +157,17 @@ const searchListCards = computed(() =>
 const openCreateComposer = () => {
   listStore.resetDraft();
   listStore.resetMovieSearchState();
+  isComposerOpen.value = true;
+};
+
+const openCreateComposerWithMovie = (movieId?: unknown) => {
+  listStore.resetDraft();
+  listStore.resetMovieSearchState();
+
+  if (typeof movieId === 'string' && movieId) {
+    listStore.addMovieToDraft(movieId);
+  }
+
   isComposerOpen.value = true;
 };
 
@@ -252,11 +274,16 @@ watch([librarySearchQuery, librarySearchSortOption], async ([query, sort]) => {
 
 onMounted(() => {
   void listStore.refreshSimilarTasteListRecommendations();
+
+  if (route.query.compose === '1') {
+    openCreateComposerWithMovie(route.query.movieId);
+    void router.replace({ name: 'lists' });
+  }
 });
 </script>
 
 <template>
-  <main class="mx-auto w-full max-w-6xl px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-6">
+  <main class="mx-auto w-full max-w-md px-4 pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-[800px]">
     <div class="flex min-w-0 flex-col gap-6">
         <section class="flex flex-wrap items-center justify-end gap-2">
       <label class="min-w-[11rem] flex-1 sm:max-w-xs">
@@ -300,7 +327,7 @@ onMounted(() => {
 
       <div
         v-if="searchListCards.length > 0"
-        class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2"
+        class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2"
       >
         <article
           v-for="result in searchListCards"
@@ -351,7 +378,7 @@ onMounted(() => {
 
       <div
         v-if="listStore.myLists.value.length > 0"
-        class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2"
+        class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2"
       >
         <UserListCard
           v-for="list in sortedMyLists"
@@ -359,10 +386,12 @@ onMounted(() => {
           class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
+          :expanded="isListExpanded(list.id)"
           @edit="openEditComposer"
           @delete="listStore.deleteUserList"
           @remove-from-my-lists="listStore.removeFromMyLists"
           @toggle-watch="libraryStore.toggleMovie"
+          @toggle="toggleListDetails"
         />
       </div>
 
@@ -589,7 +618,7 @@ onMounted(() => {
         아직 보관한 영화가 없어요.
       </div>
 
-      <div v-else class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2">
+      <div v-else class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
         <LibraryMovieCard
           v-for="item in libraryStore.savedMovies.value"
           :key="item.movieId"
@@ -613,16 +642,18 @@ onMounted(() => {
             <span class="text-xs font-medium text-app-muted">{{ similarTasteRecommendedLists.length }}개</span>
           </div>
 
-          <div class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2">
+          <div class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
             <SharedListCard
               v-for="list in similarTasteRecommendedLists"
               :key="list.id"
               class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
               :list="list"
               :saved-movie-ids="libraryStore.savedMovieIds.value"
+              :expanded="isListExpanded(list.id)"
               @toggle-save="listStore.toggleSharedListSave"
               @toggle-watch="libraryStore.toggleMovie"
               @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
+              @toggle="toggleListDetails"
             />
           </div>
         </section>
@@ -635,7 +666,7 @@ onMounted(() => {
         <span class="text-xs font-medium text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
       </div>
 
-      <div class="scrollbar-hide -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2">
+      <div class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
         <SharedListCard
           v-for="list in sortedSharedLists"
           :key="list.id"
@@ -643,9 +674,11 @@ onMounted(() => {
           :list="list"
           :saved-movie-ids="libraryStore.savedMovieIds.value"
           :show-save-button="list.ownerId !== listStore.state.userId"
+          :expanded="isListExpanded(list.id)"
           @toggle-save="listStore.toggleSharedListSave"
           @toggle-watch="libraryStore.toggleMovie"
           @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
+          @toggle="toggleListDetails"
         />
       </div>
         </section>
@@ -654,11 +687,11 @@ onMounted(() => {
 
   <div
     v-if="isComposerOpen"
-    class="fixed inset-0 z-40 flex items-center bg-black px-4 py-4"
+    class="fixed inset-0 z-40 flex items-center bg-white/90 px-4 py-4 backdrop-blur-sm"
     @click.self="closeComposer"
   >
     <section
-        class="corner-hard mx-auto flex max-h-[84dvh] w-full max-w-[800px] flex-col overflow-hidden border border-app-line bg-app-panel sm:max-h-[calc(100dvh-2rem)]"
+        class="corner-hard mx-auto flex max-h-[84dvh] w-full max-w-md flex-col overflow-hidden border border-app-line bg-app-panel sm:max-h-[calc(100dvh-2rem)] sm:max-w-[800px]"
     >
       <div class="flex items-center justify-between border-b border-app-line px-3 py-2.5 sm:px-5 sm:py-4">
         <div>

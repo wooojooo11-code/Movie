@@ -56,17 +56,17 @@ const addPreference = (
 };
 
 const toRankings = (scores: Map<string, PreferenceScore>, limit: number) => {
+  const totalScore = [...scores.values()].reduce((total, preference) => total + preference.score, 0);
   const ranked = [...scores.entries()]
     .sort(([, left], [, right]) =>
       right.score - left.score || right.count - left.count || right.lastRatedAt - left.lastRatedAt
     )
     .slice(0, limit);
-  const highestScore = ranked[0]?.[1].score ?? 0;
 
   return ranked.map(([name, score]) => ({
     name,
     count: score.count,
-    percentage: highestScore > 0 ? Math.round((score.score / highestScore) * 100) : 0
+    percentage: totalScore > 0 ? Math.round((score.score / totalScore) * 100) : 0
   }));
 };
 

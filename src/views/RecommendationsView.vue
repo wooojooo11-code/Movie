@@ -13,10 +13,13 @@ import {
   situationOptionGroups,
   situationPresets
 } from '@/data/situations';
+import Chip from '@/components/common/Chip.vue';
 import FavoritePeopleMovieRows from '@/components/recommendations/FavoritePeopleMovieRows.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
+import { useLibraryStore } from '@/services/libraryStore';
+import { createRatingInput } from '@/services/ratingInput';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type {
@@ -28,9 +31,13 @@ import type {
 import type { RatingFeedbackPayload } from '@/types/recommendation';
 
 const recommendationStore = useRecommendationStore();
+const libraryStore = useLibraryStore();
 const router = useRouter();
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 const isSavingRecommendationRating = ref(false);
+const startSelectedMovieWithTrailer = ref(false);
+const quickRatingMovieIds = ref(new Set<string>());
+const savingLibraryMovieIds = ref(new Set<string>());
 const manualSelection = ref<SituationSelection>({});
 const reasonDropdown = ref<HTMLDetailsElement | null>(null);
 
@@ -54,12 +61,44 @@ const communitySituationAnswerCount = computed(() =>
   )
 );
 
-const openMovieSheet = (movie: RecommendedCatalogMovie) => {
+const openMovieSheet = (movie: RecommendedCatalogMovie, startWithTrailer = false) => {
   selectedMovie.value = movie;
+  startSelectedMovieWithTrailer.value = startWithTrailer;
 };
 
 const closeMovieSheet = () => {
   selectedMovie.value = null;
+  startSelectedMovieWithTrailer.value = false;
+};
+
+const updatePendingMovieIds = (source: typeof quickRatingMovieIds, movieId: string, active: boolean) => {
+  const nextIds = new Set(source.value);
+  active ? nextIds.add(movieId) : nextIds.delete(movieId);
+  source.value = nextIds;
+};
+
+const toggleSavedMovie = async (movie: RecommendedCatalogMovie) => {
+  if (savingLibraryMovieIds.value.has(movie.id)) return;
+  updatePendingMovieIds(savingLibraryMovieIds, movie.id, true);
+  try {
+    await libraryStore.toggleMovie(movie.id);
+  } finally {
+    updatePendingMovieIds(savingLibraryMovieIds, movie.id, false);
+  }
+};
+
+const quickRateMovie = async (movie: RecommendedCatalogMovie) => {
+  if (quickRatingMovieIds.value.has(movie.id)) return;
+  updatePendingMovieIds(quickRatingMovieIds, movie.id, true);
+  try {
+    await recommendationStore.submitSwipeRating(
+      movie,
+      createRatingInput(recommendationStore.state.userId, movie.id, 'like'),
+      { rawDecision: 'like', rawDirection: 'right', detailCompleted: true }
+    );
+  } finally {
+    updatePendingMovieIds(quickRatingMovieIds, movie.id, false);
+  }
 };
 
 const selectedMovieRatingRecord = computed(() => {
@@ -292,7 +331,7 @@ const applyDefaultSituation = () => {
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-7 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-5xl"
+    class="mx-auto flex w-full max-w-md flex-col gap-7 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
   >
     <section class="grid gap-3">
       <div class="flex items-start justify-between gap-4">
@@ -415,32 +454,15 @@ const applyDefaultSituation = () => {
         </div>
 
         <div class="flex flex-wrap gap-2">
-          <button
-            type="button"
-            class="focus-ring corner-pill min-h-9 border px-3 text-left text-xs font-medium transition-colors"
-            :class="
-              activeSituation.kind === 'none'
-                ? 'border-app-accent bg-app-accent text-white'
-                : 'border-app-line bg-app-panelSoft text-app-muted hover:border-app-accent hover:text-[#15171c]'
-            "
-            @click="applyDefaultSituation"
-          >
-            기본
-          </button>
-          <button
+          <Chip as="button" label="기본" :active="activeSituation.kind === 'none'" @click="applyDefaultSituation" />
+          <Chip
             v-for="preset in situationPresets"
             :key="preset.id"
-            type="button"
-            class="focus-ring corner-pill min-h-9 border px-3 text-left text-xs font-medium transition-colors"
-            :class="
-              activeSituation.kind === 'preset' && activeSituation.presetId === preset.id
-                ? 'border-app-accent bg-app-accent text-white'
-                : 'border-app-line bg-app-panelSoft text-app-muted hover:border-app-accent hover:text-[#15171c]'
-            "
+            as="button"
+            :label="preset.label"
+            :active="activeSituation.kind === 'preset' && activeSituation.presetId === preset.id"
             @click="applyPreset(preset.id)"
-          >
-            {{ preset.label }}
-          </button>
+          />
         </div>
       </article>
     </section>
@@ -472,14 +494,20 @@ const applyDefaultSituation = () => {
 
       <div
         v-if="recommendationStore.contextAwareRecommendedMovies.value.length > 0"
-        class="grid grid-cols-5 gap-2"
+        class="grid grid-cols-4 gap-x-2 gap-y-4 sm:grid-cols-5 sm:gap-x-3 sm:gap-y-5"
       >
         <RecommendationMovieCard
           v-for="movie in recommendationStore.contextAwareRecommendedMovies.value"
           :key="movie.id"
           :movie="movie"
+          :rating="quickRatingMovieIds.has(movie.id)"
+          :saved="libraryStore.hasMovie(movie.id)"
+          :saving="savingLibraryMovieIds.has(movie.id)"
           size="compact"
           @open="openMovieSheet"
+          @trailer="(selected) => openMovieSheet(selected, true)"
+          @save="toggleSavedMovie"
+          @rate="quickRateMovie"
         />
       </div>
 
@@ -502,6 +530,7 @@ const applyDefaultSituation = () => {
       :is-saving-rating="isSavingRecommendationRating"
       :movie="selectedMovie"
       :rating-record="selectedMovieRatingRecord"
+      :start-with-trailer="startSelectedMovieWithTrailer"
       @rate-dislike-submit="handleRecommendationDislike"
       @rate-like-submit="handleRecommendationLike"
       @close="closeMovieSheet"

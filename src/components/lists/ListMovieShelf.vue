@@ -1,13 +1,18 @@
 <script setup lang="ts">
+import { Heart } from 'lucide-vue-next';
 import { computed } from 'vue';
 
+import IconButton from '@/components/common/IconButton.vue';
 import { getWatchProviderSummary } from '@/services/watchProviderSummary';
 import type { SearchableCatalogMovie } from '@/types/lists';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   movies: readonly SearchableCatalogMovie[];
   savedMovieIds: readonly string[];
-}>();
+  showDetails?: boolean;
+}>(), {
+  showDetails: false
+});
 
 defineEmits<{
   'toggle-watch': [movieId: string];
@@ -36,24 +41,13 @@ const movieCards = computed(() =>
         {{ entry.movie.title }}
       </p>
       <p
-        v-if="entry.watchAvailabilityText"
+        v-if="showDetails && entry.watchAvailabilityText"
         class="mt-1 line-clamp-2 min-h-8 text-[10px] leading-4 text-app-muted"
       >
         OTT · {{ entry.watchAvailabilityText }}
       </p>
-      <p v-else aria-hidden="true" class="mt-1 min-h-8"></p>
-      <button
-        type="button"
-        class="focus-ring corner-soft mt-1.5 inline-flex min-h-8 w-full items-center justify-center border px-2 text-[11px] font-medium"
-        :class="
-          isSaved(entry.movie.id)
-            ? 'border-[#0d3e6b] bg-[#0d3e6b] !text-white'
-            : 'border-app-accent bg-app-accent !text-white'
-        "
-        @click="$emit('toggle-watch', entry.movie.id)"
-      >
-        {{ isSaved(entry.movie.id) ? '보관 중' : '보고싶어요' }}
-      </button>
+      <p v-else-if="showDetails" aria-hidden="true" class="mt-1 min-h-8"></p>
+      <IconButton v-if="showDetails" class="mt-1.5" :icon="Heart" :active="isSaved(entry.movie.id)" :label="isSaved(entry.movie.id) ? '보고싶어요에서 제거' : '보고싶어요에 저장'" size="sm" @click="$emit('toggle-watch', entry.movie.id)" />
     </article>
   </div>
 </template>

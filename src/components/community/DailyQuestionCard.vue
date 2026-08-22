@@ -8,17 +8,52 @@ import type {
   DailyQuestionAnswerInput
 } from '@/types/community';
 
-const props = defineProps<{ question: DailyQuestion | null; isAuthenticated: boolean; loading?: boolean }>();
+const props = defineProps<{ question: DailyQuestion | null; isAuthenticated: boolean; loading?: boolean; viewerId?: null | string }>();
 const emit = defineEmits<{ submit: [input: DailyQuestionAnswerInput]; login: []; viewAnswers: [] }>();
 const answer = ref('');
 const selectedMovie = ref<CommunityMovieReference | null>(null);
 const submitting = ref(false);
 
+const getAnswerCacheKey = () =>
+  props.question?.id && props.viewerId
+    ? `movielist:daily-question-answer:${props.viewerId}:${props.question.id}`
+    : null;
+
+const loadCachedAnswer = () => {
+  const key = getAnswerCacheKey();
+  if (!key || typeof window === 'undefined') return null;
+
+  try {
+    const cached = JSON.parse(window.localStorage.getItem(key) ?? 'null') as null | {
+      content?: string;
+      movie?: CommunityMovieReference;
+    };
+    return cached?.movie ? { content: cached.content ?? '', movie: cached.movie } : null;
+  } catch {
+    return null;
+  }
+};
+
+const cacheAnswer = () => {
+  const key = getAnswerCacheKey();
+  if (!key || !selectedMovie.value || typeof window === 'undefined') return;
+
+  try {
+    window.localStorage.setItem(
+      key,
+      JSON.stringify({ content: answer.value.trim(), movie: selectedMovie.value })
+    );
+  } catch {
+    // 브라우저 저장소를 사용할 수 없어도 서버 저장은 계속 진행합니다.
+  }
+};
+
 watch(
-  () => props.question?.viewerAnswer,
-  (viewerAnswer) => {
-    answer.value = viewerAnswer?.content ?? '';
-    selectedMovie.value = viewerAnswer?.movie ?? null;
+  () => [props.question?.id, props.question?.viewerAnswer, props.viewerId] as const,
+  ([, viewerAnswer]) => {
+    const savedAnswer = viewerAnswer?.movie ? viewerAnswer : loadCachedAnswer();
+    answer.value = savedAnswer?.content ?? '';
+    selectedMovie.value = savedAnswer?.movie ?? null;
   },
   { immediate: true }
 );
@@ -27,17 +62,29 @@ const selectMovie = (movie: CommunityMovieReference) => {
   selectedMovie.value = movie;
 };
 
+const selectCustomMovie = (title: string) => {
+  const normalizedTitle = title.trim();
+  if (!normalizedTitle) return;
+
+  selectedMovie.value = {
+    id: `manual:${encodeURIComponent(normalizedTitle.toLocaleLowerCase('ko-KR')).slice(0, 180)}`,
+    title: normalizedTitle,
+    posterPath: null
+  };
+};
+
 const submit = () => {
   if (!props.isAuthenticated) {
     emit('login');
     return;
   }
 
-  if (!answer.value.trim() || !selectedMovie.value || submitting.value) {
+  if (!selectedMovie.value || submitting.value) {
     return;
   }
 
   submitting.value = true;
+  cacheAnswer();
   emit('submit', { content: answer.value, movie: selectedMovie.value });
   window.setTimeout(() => {
     submitting.value = false;
@@ -70,8 +117,10 @@ const submit = () => {
 
     <div v-if="question" class="mt-4 border-t border-app-line pt-3">
       <MovieSearchInput
+        allow-custom
         label="이 상황에 추천할 영화"
-        placeholder="영화 제목을 두 글자 이상 입력하세요"
+        placeholder="영화 제목을 입력하세요"
+        @custom="selectCustomMovie"
         @select="selectMovie"
       />
 
@@ -102,13 +151,13 @@ const submit = () => {
           v-model="answer"
           maxlength="500"
           class="focus-ring corner-pill min-w-0 flex-1 border border-app-line bg-app-panelSoft px-4 text-sm text-[#15171c] placeholder:text-app-muted"
-          placeholder="추천 이유를 남겨 주세요"
+          placeholder="추천 이유 (선택)"
           @keyup.enter="submit"
         />
         <button
           type="button"
           class="focus-ring corner-pill shrink-0 border border-app-accent bg-app-accent px-4 text-sm font-bold text-white disabled:opacity-50"
-          :disabled="!answer.trim() || !selectedMovie || submitting"
+          :disabled="!selectedMovie || submitting"
           @click="submit"
         >
           {{ question.viewerAnswer ? '수정' : '등록' }}

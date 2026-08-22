@@ -5,6 +5,11 @@ const KOBIS_DAILY_BOX_OFFICE_URL =
   'https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json';
 const KOREAN_LANGUAGE = 'ko-KR';
 const KOREA_TIME_OFFSET_MS = 9 * 60 * 60 * 1000;
+const TMDB_MOVIE_ID_BY_KOBIS_MOVIE_CODE = new Map([
+  // TMDB currently has no Korean title translation for this concert film,
+  // so a Korean-title search cannot discover the otherwise correct entry.
+  ['20265598', 1722720]
+]);
 
 const getPreviousKoreaDate = (daysAgo) => {
   const koreaNow = new Date(Date.now() + KOREA_TIME_OFFSET_MS);
@@ -29,6 +34,15 @@ const getTmdbMovieTitle = (movie) =>
   typeof movie?.title === 'string' ? movie.title : typeof movie?.original_title === 'string' ? movie.original_title : '';
 
 const findPoster = async (movie, token) => {
+  const explicitTmdbMovieId = TMDB_MOVIE_ID_BY_KOBIS_MOVIE_CODE.get(movie.movieCd);
+
+  if (explicitTmdbMovieId) {
+    const detail = await fetchTmdbJson(`/movie/${explicitTmdbMovieId}`, token, {
+      language: KOREAN_LANGUAGE
+    });
+    return toTmdbImageUrl(detail?.poster_path);
+  }
+
   const targetTitle = normalizeMovieTitle(movie.movieNm);
 
   if (!targetTitle) {

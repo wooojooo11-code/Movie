@@ -2,6 +2,20 @@
 
 Run these migrations in the Supabase SQL Editor.
 
+## Account deletion Edge Function
+
+Deploy the authenticated account-deletion function before enabling the production UI:
+
+```bash
+supabase functions deploy delete-account
+```
+
+The function verifies the caller's Supabase access token, removes avatar files under the user's
+`avatars/<user-id>/` folder, and then hard-deletes the Auth user. Every user-owned application table
+references `auth.users` with `on delete cascade`, so ratings, lists, library items, profiles, titles,
+and community activity are deleted with the account. `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and
+`SUPABASE_SERVICE_ROLE_KEY` are provided automatically to deployed Supabase Edge Functions.
+
 ## 1. Ratings table
 
 Run:

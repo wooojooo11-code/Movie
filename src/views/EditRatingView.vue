@@ -116,6 +116,18 @@ const goBackToHistory = async () => {
   await router.replace('/history');
 };
 
+const returnAfterSave = async () => {
+  if (route.query.returnTo === 'rating-picker') {
+    await router.replace({
+      path: '/rating',
+      query: { picker: 'history' }
+    });
+    return;
+  }
+
+  await goBackToHistory();
+};
+
 const scrollToDetailForm = async () => {
   await nextTick();
   detailFormContainer.value?.scrollIntoView({
@@ -176,7 +188,7 @@ const saveDecision = async (selection: RatingSelection | RatingSelection['decisi
       detailCompleted: true
     });
 
-    await goBackToHistory();
+    await returnAfterSave();
   } finally {
     isSaving.value = false;
   }
@@ -213,7 +225,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       }
     });
 
-    await goBackToHistory();
+    await returnAfterSave();
   } finally {
     isSaving.value = false;
   }
@@ -250,7 +262,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       }
     });
 
-    await goBackToHistory();
+    await returnAfterSave();
   } finally {
     isSaving.value = false;
   }
@@ -309,6 +321,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
           v-if="showPositiveDetailForm"
           :key="`${movie.id}-${draftDecision}`"
           :characters="currentCharacterChoices"
+          :tmdb-movie-id="movie.tmdbMovieId"
           :question-text="currentQuestion"
           :initial-value="initialFeedback"
           :show-skip-button="false"
@@ -320,6 +333,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
           v-else
           :key="`${movie.id}-${draftDecision}`"
           :characters="currentCharacterChoices"
+          :tmdb-movie-id="movie.tmdbMovieId"
           :initial-value="initialNegativeFeedback"
           :show-skip-button="false"
           submit-label="변경 저장하기"

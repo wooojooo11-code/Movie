@@ -57,6 +57,7 @@ export const normalizeFavoriteCharacters = (
 export interface CharacterChoice {
   name: string;
   actorName: string | null;
+  actorPhotoUrl: string | null;
 }
 
 export interface PositiveRatingInput {

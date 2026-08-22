@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { Edit3, Trash2 } from 'lucide-vue-next';
 import { computed } from 'vue';
 
-import { getWatchProviderSummary } from '@/services/watchProviderSummary';
+import IconButton from '@/components/common/IconButton.vue';
 import type { ResolvedLibraryMovieRecord } from '@/types/library';
 
 const props = defineProps<{
@@ -13,55 +14,26 @@ defineEmits<{
   remove: [movieId: string];
 }>();
 
-const formatDate = (value: string) =>
-  new Intl.DateTimeFormat('ko-KR', {
-    month: 'short',
-    day: 'numeric'
-  }).format(new Date(value));
-
-const watchAvailabilityText = computed(() => getWatchProviderSummary(props.item.movie));
 const ratingText = computed(() => (props.item.rating == null ? null : `${props.item.rating.toFixed(1)} / 5.0`));
 </script>
 
 <template>
-  <article class="corner-hard border border-app-line bg-app-panel p-3">
-    <img
-      :src="item.movie.posterUrl"
-      :alt="item.movie.posterAlt"
-      class="corner-soft mx-auto aspect-[4/5] w-[40%] border border-app-line object-cover"
-      loading="lazy"
-    />
-    <div class="mt-3">
+  <article class="group relative">
+    <button type="button" class="focus-ring poster-card block w-full overflow-hidden text-left" :aria-label="`${item.movie.title} 보관 기록 수정`" @click="$emit('edit', item)">
+      <img :src="item.movie.posterUrl" :alt="item.movie.posterAlt" class="aspect-[2/3] w-full object-cover" loading="lazy" />
+    </button>
+    <div class="absolute right-2 top-2 flex gap-1 opacity-100 sm:pointer-events-none sm:opacity-0 sm:transition sm:group-hover:pointer-events-auto sm:group-hover:opacity-100">
+      <IconButton :icon="Edit3" label="보관 기록 수정" size="sm" @click="$emit('edit', item)" />
+      <IconButton :icon="Trash2" label="보관함에서 제거" size="sm" @click="$emit('remove', item.movie.id)" />
+    </div>
+    <div class="px-0.5 pt-2">
       <h3 class="line-clamp-2 text-sm font-semibold leading-5 text-white">{{ item.movie.title }}</h3>
-      <p class="mt-1 text-xs text-app-muted">
-        {{ item.movie.releaseYear }} · {{ item.movie.genres.join(' · ') }}
-      </p>
-      <p v-if="watchAvailabilityText" class="mt-1 text-[11px] text-app-muted">
-        OTT · {{ watchAvailabilityText }}
-      </p>
       <p v-if="ratingText" class="mt-2 text-xs font-semibold text-[#f4c95d]">
         ★ {{ ratingText }}
       </p>
       <p v-if="item.reviewText" class="mt-2 line-clamp-3 text-xs leading-5 text-white/80">
         “{{ item.reviewText }}”
       </p>
-      <p class="mt-1 text-[11px] text-app-muted">보관 · {{ formatDate(item.savedAt) }}</p>
-    </div>
-    <div class="mt-3 grid gap-2">
-      <button
-        type="button"
-        class="focus-ring corner-soft inline-flex min-h-9 w-full items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-white"
-        @click="$emit('edit', item)"
-      >
-        기록 수정
-      </button>
-      <button
-        type="button"
-        class="focus-ring corner-soft inline-flex min-h-9 w-full items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-white/88"
-        @click="$emit('remove', item.movie.id)"
-      >
-        보관함에서 빼기
-      </button>
     </div>
   </article>
 </template>

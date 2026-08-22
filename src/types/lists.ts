@@ -59,6 +59,11 @@ export interface ListsStateSnapshot {
   userId: string;
   userLists: UserMovieListRecord[];
   interactions: ListInteractionRecord[];
+  /**
+   * 홈처럼 런타임에 불러온 영화도 리스트 화면에서 다시 그릴 수 있도록
+   * 로컬 저장소에 함께 보관하는 표시용 정보입니다.
+   */
+  movieSnapshots?: SearchableCatalogMovie[];
 }
 
 export interface RemoteListsPayload {
@@ -94,7 +99,6 @@ export interface ResolvedUserListCard extends UserMovieListRecord {
 
 export interface ResolvedSharedListCard extends SharedMovieListRecord {
   moviePreviews: SearchableCatalogMovie[];
-  displaySaveCount: number;
   displayAverageRating: number;
   viewerSaved: boolean;
   viewerRating: number | null;

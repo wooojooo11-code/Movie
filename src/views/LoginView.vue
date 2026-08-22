@@ -15,7 +15,7 @@ const state = reactive({
   identifier: '',
   password: '',
   nickname: '',
-  notice: ''
+  notice: route.query.deleted === '1' ? '회원 탈퇴가 완료되었습니다.' : ''
 });
 
 watch(

@@ -11,6 +11,7 @@ export const getCharacterChoices = (
 
   return sourceCharacters.map((name, index) => ({
     name,
-    actorName: cast[index] ?? null
+    actorName: cast[index] ?? null,
+    actorPhotoUrl: null
   }));
 };

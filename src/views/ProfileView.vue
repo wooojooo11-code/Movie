@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
+import DeleteAccountModal from '@/components/profile/DeleteAccountModal.vue';
 import ProfileEditModal from '@/components/profile/ProfileEditModal.vue';
 import ProfileHeader from '@/components/profile/ProfileHeader.vue';
 import MovieTasteCard from '@/components/profile/MovieTasteCard.vue';
@@ -17,6 +18,7 @@ import { useAuthStore } from '@/stores/auth';
 import type { ProfileEditInput, ProfileTaste, ProfileTastePerson } from '@/types/profile';
 
 const route = useRoute();
+const router = useRouter();
 const authStore = useAuthStore();
 const recommendationStore = useRecommendationStore();
 const { errorMessage, loadProfile, loading, profile } = useProfile();
@@ -30,6 +32,9 @@ const editOpen = ref(false);
 const titleCollectionOpen = ref(false);
 const saving = ref(false);
 const saveError = ref('');
+const deleteAccountOpen = ref(false);
+const deletingAccount = ref(false);
+const deleteAccountError = ref('');
 
 const userId = computed(() => (typeof route.params.userId === 'string' ? route.params.userId : ''));
 const isOwner = computed(() => Boolean(authStore.user?.id && authStore.user.id === userId.value));
@@ -126,6 +131,33 @@ const saveEdit = async (payload: {
   }
 };
 
+const openDeleteAccount = () => {
+  editOpen.value = false;
+  deleteAccountError.value = '';
+  deleteAccountOpen.value = true;
+};
+
+const closeDeleteAccount = () => {
+  if (deletingAccount.value) return;
+  deleteAccountOpen.value = false;
+  deleteAccountError.value = '';
+};
+
+const deleteAccount = async (confirmation: string) => {
+  deletingAccount.value = true;
+  deleteAccountError.value = '';
+
+  try {
+    await authStore.deleteAccount(confirmation);
+    deleteAccountOpen.value = false;
+    await router.replace({ name: 'login', query: { deleted: '1' } });
+  } catch (error) {
+    deleteAccountError.value = error instanceof Error ? error.message : '회원 탈퇴 처리에 실패했습니다.';
+  } finally {
+    deletingAccount.value = false;
+  }
+};
+
 const setFeatured = (titleId: string) => {
   const displayedIds = profileTitles.value.filter((title) => title.isDisplayed).map((title) => title.id);
   void updatePresentation(titleId, displayedIds);
@@ -200,6 +232,7 @@ onMounted(() => { void load(); });
       :titles="profileTitles"
       :saving="saving"
       @close="editOpen = false"
+      @delete-account="openDeleteAccount"
       @save="saveEdit"
     />
     <TitleCollectionModal
@@ -209,6 +242,14 @@ onMounted(() => { void load(); });
       @close="titleCollectionOpen = false"
       @set-featured="setFeatured"
       @toggle-displayed="toggleDisplayed"
+    />
+    <DeleteAccountModal
+      :open="deleteAccountOpen"
+      :account-name="authStore.displayName"
+      :deleting="deletingAccount"
+      :error-message="deleteAccountError"
+      @close="closeDeleteAccount"
+      @confirm="deleteAccount"
     />
   </main>
 </template>

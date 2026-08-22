@@ -63,7 +63,7 @@ const initial = (nickname: string) => nickname.trim().slice(0, 1) || '?';
                       <p v-if="answer.movie.releaseYear" class="mt-0.5 text-[11px] text-app-muted">{{ answer.movie.releaseYear }}</p>
                     </div>
                   </div>
-                  <p class="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-[#30343b]">{{ answer.content }}</p>
+                  <p v-if="answer.content" class="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-[#30343b]">{{ answer.content }}</p>
                 </div>
               </div>
             </li>

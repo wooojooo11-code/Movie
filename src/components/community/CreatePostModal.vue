@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Minus, Plus } from 'lucide-vue-next';
 import { computed, reactive, toRaw, watch } from 'vue';
 
 import MovieSearchInput from '@/components/community/MovieSearchInput.vue';
@@ -74,7 +75,7 @@ const submit = () => {
 
         <template v-if="draft.category === 'movie_poll'">
           <label class="block"><span class="mb-1 block text-xs font-semibold text-app-muted">투표 질문</span><input v-model="draft.pollQuestion" maxlength="140" class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" placeholder="평생 한 편만 볼 수 있다면?" /></label>
-          <fieldset class="grid gap-2"><legend class="text-xs font-semibold text-app-muted">투표 항목 (2개 이상)</legend><div v-for="(option, index) in draft.pollOptions" :key="index" class="flex gap-2"><input v-model="option.optionText" maxlength="120" class="focus-ring corner-soft min-w-0 flex-1 border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :placeholder="`항목 ${index + 1}`" /><button v-if="draft.pollOptions.length > 2" type="button" class="focus-ring corner-soft border border-app-line px-3 text-xs text-app-muted" @click="removePollOption(index)">삭제</button></div><button type="button" class="focus-ring w-fit text-xs font-semibold text-[#174a77] underline" @click="addPollOption">항목 추가</button></fieldset>
+          <fieldset class="grid gap-2"><legend class="text-xs font-semibold text-app-muted">투표 항목 (2개 이상)</legend><div v-for="(option, index) in draft.pollOptions" :key="index" class="flex gap-2"><input v-model="option.optionText" maxlength="120" class="focus-ring corner-soft min-w-0 flex-1 border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :placeholder="`항목 ${index + 1}`" /><button v-if="draft.pollOptions.length > 2" type="button" class="focus-ring grid size-10 shrink-0 place-items-center rounded-full border border-app-line text-app-muted" :aria-label="`투표 항목 ${index + 1} 삭제`" title="투표 항목 삭제" @click="removePollOption(index)"><Minus :size="18" aria-hidden="true" /></button></div><button type="button" class="focus-ring grid size-10 place-items-center rounded-full border border-app-accent bg-app-accent text-white" aria-label="투표 항목 추가" title="투표 항목 추가" @click="addPollOption"><Plus :size="18" aria-hidden="true" /></button></fieldset>
         </template>
 
         <label class="block"><span class="mb-1 block text-xs font-semibold text-app-muted">대표 이미지 URL (선택)</span><input v-model="draft.imageUrl" type="url" inputmode="url" class="focus-ring corner-soft h-10 w-full border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" placeholder="https://" /></label>

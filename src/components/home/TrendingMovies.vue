@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { ChevronLeft, ChevronRight, RefreshCw } from 'lucide-vue-next';
 
+import IconButton from '@/components/common/IconButton.vue';
 import MovieRankCard from '@/components/home/MovieRankCard.vue';
 import TrendingMovieSheet from '@/components/home/TrendingMovieSheet.vue';
 import type { TrendingMovie } from '@/types/home';
@@ -92,37 +94,15 @@ const closeMovie = () => {
       </div>
 
       <div class="flex shrink-0 gap-2">
-        <button
-          type="button"
-          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c] disabled:cursor-wait disabled:opacity-50"
-          aria-label="KOBIS 인기 영화 새로고침"
-          :disabled="isLoading"
-          @click="emit('refresh')"
-        >
-          ↻
-        </button>
-        <button
-          type="button"
-          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
-          aria-label="이전 영화 보기"
-          @click="scrollByCard(-1)"
-        >
-          &lt;
-        </button>
-        <button
-          type="button"
-          class="focus-ring corner-soft grid size-8 place-items-center border border-app-line bg-app-panel text-sm text-[#15171c]"
-          aria-label="다음 영화 보기"
-          @click="scrollByCard(1)"
-        >
-          &gt;
-        </button>
+        <IconButton :icon="RefreshCw" label="KOBIS 인기 영화 새로고침" size="sm" :disabled="isLoading" @click="emit('refresh')" />
+        <IconButton :icon="ChevronLeft" label="이전 영화 보기" size="sm" @click="scrollByCard(-1)" />
+        <IconButton :icon="ChevronRight" label="다음 영화 보기" size="sm" @click="scrollByCard(1)" />
       </div>
     </div>
 
     <div
       ref="scroller"
-      class="scrollbar-hide -mx-4 flex touch-pan-x snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 pl-8 pr-4 select-none"
+      class="scrollbar-hide flex max-w-full touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto pb-2 select-none"
       :class="dragCursorClass"
       @pointerdown="onPointerDown"
       @pointermove="onPointerMove"

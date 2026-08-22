@@ -54,8 +54,8 @@ const scrollPosts = (direction: -1 | 1) => {
           />
         </div>
 
-        <button type="button" class="focus-ring absolute left-0 top-[calc(50%_-_110px)] z-10 hidden h-14 w-6 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-2xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="이전 게시글" @click="scrollPosts(-1)">←</button>
-        <button type="button" class="focus-ring absolute right-0 top-[calc(50%_-_110px)] z-10 hidden h-14 w-6 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-2xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="다음 게시글" @click="scrollPosts(1)">→</button>
+        <button type="button" class="focus-ring absolute left-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="이전 게시글" @click="scrollPosts(-1)">←</button>
+        <button type="button" class="focus-ring absolute right-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="다음 게시글" @click="scrollPosts(1)">→</button>
       </div>
     </template>
 

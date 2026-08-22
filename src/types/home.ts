@@ -10,10 +10,14 @@ export interface TrendingMovie {
   rank: number;
   title: string;
   audienceLabel: string;
+  dailyAudienceCount?: null | number;
+  cumulativeAudienceCount?: null | number;
+  boxOfficeDate?: null | string;
   sourceLabel: string;
   genres: string[];
   cast: string[];
   rating: number | null;
+  releaseYear?: null | number;
   posterUrl: string;
   posterAlt: string;
   similarMovies: TrendingMovieSimilarPreview[];

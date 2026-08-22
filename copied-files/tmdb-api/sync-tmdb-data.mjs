@@ -24,6 +24,15 @@ const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
 const MAX_TAG_COUNT = 4;
 const MAX_GENRE_COUNT = 3;
 const MAX_CAST_COUNT = 7;
+const trailerTypeRank = new Map([
+  ['Trailer', 0],
+  ['Teaser', 1],
+  ['Clip', 2]
+]);
+const trailerLanguageRank = new Map([
+  ['ko', 0],
+  ['en', 1]
+]);
 
 const discoveryGenres = [
   { key: '액션', tmdbGenreId: 28 },
@@ -650,10 +659,62 @@ const fetchWatchProviders = async (tmdbMovieId) => {
   };
 };
 
+const selectYouTubeTrailer = (videos) => {
+  const candidates = Array.isArray(videos)
+    ? videos.filter(
+        (video) =>
+          video &&
+          video.site === 'YouTube' &&
+          typeof video.key === 'string' &&
+          /^[A-Za-z0-9_-]{6,}$/.test(video.key)
+      )
+    : [];
+
+  candidates.sort((left, right) => {
+    const leftOfficialRank = left.official ? 0 : 1;
+    const rightOfficialRank = right.official ? 0 : 1;
+
+    if (leftOfficialRank !== rightOfficialRank) {
+      return leftOfficialRank - rightOfficialRank;
+    }
+
+    const leftType = trailerTypeRank.get(left.type) ?? 3;
+    const rightType = trailerTypeRank.get(right.type) ?? 3;
+
+    if (leftType !== rightType) {
+      return leftType - rightType;
+    }
+
+    const leftLanguage = trailerLanguageRank.get(left.iso_639_1) ?? 2;
+    const rightLanguage = trailerLanguageRank.get(right.iso_639_1) ?? 2;
+
+    if (leftLanguage !== rightLanguage) {
+      return leftLanguage - rightLanguage;
+    }
+
+    return String(right.published_at ?? '').localeCompare(String(left.published_at ?? ''));
+  });
+
+  return candidates[0] ?? null;
+};
+
+const toCatalogTrailer = (videos) => {
+  const trailer = selectYouTubeTrailer(videos);
+
+  if (!trailer) {
+    return null;
+  }
+
+  return {
+    youtubeKey: trailer.key,
+    name: typeof trailer.name === 'string' ? trailer.name : null
+  };
+};
+
 const fetchMovieDetail = async (tmdbMovieId) => {
   const detail = await tmdbFetch(`/movie/${tmdbMovieId}`, {
     language: DEFAULT_LANGUAGE,
-    append_to_response: 'credits,keywords'
+    append_to_response: 'credits,keywords,videos'
   });
 
   if (!detail.overview?.trim()) {
@@ -704,6 +765,7 @@ const buildCatalogMovie = async (seed, tmdbMovieId, detail, posterBaseUrl) => {
       voteCount: typeof detail.vote_count === 'number' ? detail.vote_count : null,
       posterUrl: `${posterBaseUrl}${detail.poster_path}`,
       posterAlt: `${title} 포스터`,
+      trailer: toCatalogTrailer(detail.videos?.results),
       watchProvidersKr
     },
     credits

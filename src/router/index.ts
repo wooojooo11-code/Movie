@@ -1,3 +1,4 @@
+import { ref } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
 import { useAuthStore } from '@/stores/auth';
@@ -14,6 +15,8 @@ const ProfileView = () => import('@/views/ProfileView.vue');
 const ProfileTitlesView = () => import('@/views/ProfileTitlesView.vue');
 const MovieDetailPage = () => import('@/views/MovieDetailPage.vue');
 const LoginView = () => import('@/views/LoginView.vue');
+
+export const isRouteLoading = ref(true);
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -119,6 +122,8 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
+  isRouteLoading.value = true;
+
   const authStore = useAuthStore();
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const guestOnly = to.matched.some((record) => record.meta.guestOnly);
@@ -143,6 +148,14 @@ router.beforeEach(async (to) => {
   }
 
   return true;
+});
+
+router.afterEach(() => {
+  isRouteLoading.value = false;
+});
+
+router.onError(() => {
+  isRouteLoading.value = false;
 });
 
 export default router;

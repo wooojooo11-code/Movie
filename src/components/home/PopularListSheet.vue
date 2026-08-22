@@ -24,7 +24,7 @@ const isSaved = (movieId: string) => libraryStore.savedMovieIds.value.includes(m
     @click.self="$emit('close')"
   >
     <section
-      class="corner-hard mx-auto w-full max-w-[23.5rem] border border-app-line px-4 py-4"
+      class="corner-hard mx-auto w-full max-w-md border border-app-line px-4 py-4 sm:max-w-[800px]"
       style="background-color: rgba(255, 255, 255, 0.96)"
     >
       <div class="flex items-start justify-between gap-3">

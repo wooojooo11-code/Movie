@@ -524,6 +524,7 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
   ]);
   if (countError || answerResult.error) throw countError ?? answerResult.error;
   const answer = answerResult.data as Row | null;
+  const answerMovie = answer ? toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path) : null;
   const activeDate = asString(question.active_date);
   const situationQuestion = getSituationDailyQuestion(activeDate);
   return {
@@ -534,8 +535,8 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
     answerCount: count ?? 0,
     viewerAnswer: answer ? {
       id: asString(answer.id), questionId: asString(answer.question_id), userId: asString(answer.user_id),
-      content: asString(answer.content), createdAt: asString(answer.created_at), updatedAt: asString(answer.updated_at),
-      movie: toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path),
+      content: asString(answer.content) === answerMovie?.title ? '' : asString(answer.content), createdAt: asString(answer.created_at), updatedAt: asString(answer.updated_at),
+      movie: answerMovie,
       author: toDailyAnswerAuthor(asString(answer.user_id))
     } : null
   };
@@ -571,12 +572,13 @@ export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserI
 
   return answers.map((answer) => {
     const userId = asString(answer.user_id);
+    const movie = toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path);
     return {
       id: asString(answer.id),
       questionId: asString(answer.question_id),
       userId,
-      content: asString(answer.content),
-      movie: toMovie(answer.movie_id, answer.movie_title, answer.movie_poster_path),
+      content: asString(answer.content) === movie?.title ? '' : asString(answer.content),
+      movie,
       createdAt: asString(answer.created_at),
       updatedAt: asString(answer.updated_at),
       author: toDailyAnswerAuthor(userId, profilesById.get(userId))
@@ -595,7 +597,7 @@ export const saveDailyQuestionAnswer = async (
       {
         question_id: questionId,
         user_id: userId,
-        content: input.content.trim(),
+        content: input.content.trim() || input.movie.title,
         movie_id: input.movie.id,
         movie_title: input.movie.title,
         movie_poster_path: input.movie.posterPath
@@ -605,10 +607,11 @@ export const saveDailyQuestionAnswer = async (
     .select('*').single();
   if (error) throw error;
   const row = data as Row;
+  const movie = toMovie(row.movie_id, row.movie_title, row.movie_poster_path);
   return {
     id: asString(row.id), questionId: asString(row.question_id), userId: asString(row.user_id),
-    content: asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
-    movie: toMovie(row.movie_id, row.movie_title, row.movie_poster_path),
+    content: asString(row.content) === movie?.title ? '' : asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
+    movie,
     author: toDailyAnswerAuthor(asString(row.user_id))
   };
 };

@@ -2,6 +2,7 @@
 import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
+import CastChoiceGrid from '@/components/rating/CastChoiceGrid.vue';
 import {
   MAX_FAVORITE_CAST_CHOICES,
   normalizeFavoriteCharacters,
@@ -12,6 +13,7 @@ import {
 const props = withDefaults(
   defineProps<{
     characters: CharacterChoice[];
+    tmdbMovieId?: null | number;
     initialValue?: null | Partial<NegativeRatingInput>;
     showSkipButton?: boolean;
     submitLabel?: string;
@@ -21,6 +23,7 @@ const props = withDefaults(
     compactControls: false,
     initialValue: null,
     showSkipButton: true,
+    tmdbMovieId: null,
     submitLabel: '평가 저장하기'
   }
 );
@@ -154,40 +157,14 @@ const submitForm = () => {
         최대 {{ MAX_FAVORITE_CAST_CHOICES }}명까지 고를 수 있어요.
       </p>
 
-      <div
+      <CastChoiceGrid
         v-if="props.characters.length > 0"
-        class="grid gap-2"
-        :class="props.compactControls ? '' : 'sm:grid-cols-2'"
-      >
-        <button
-          v-for="character in props.characters"
-          :key="character.name"
-          type="button"
-          class="focus-ring corner-soft border text-left transition-colors"
-          :class="[
-            props.compactControls
-              ? 'w-full max-w-[14rem] justify-self-start px-2 py-1.5 text-[11px] leading-tight'
-              : 'w-full px-3 py-3 text-sm',
-            form.favoriteCharacters.includes(character.name)
-              ? 'border-app-accent bg-app-accent text-white'
-              : 'border-app-line bg-app-panelSoft text-[#15171c]'
-          ]"
-          @click="toggleFavoriteCharacter(character.name)"
-        >
-          <span class="block font-semibold">
-            {{ character.actorName ?? '배우 정보 없음' }}
-          </span>
-          <span
-            class="block"
-            :class="[
-              props.compactControls ? 'mt-0.5 text-[10px]' : 'mt-1 text-xs',
-              form.favoriteCharacters.includes(character.name) ? 'text-white/80' : 'text-app-muted'
-            ]"
-          >
-            {{ character.name }} 역
-          </span>
-        </button>
-      </div>
+        :characters="props.characters"
+        :compact="props.compactControls"
+        :selected-characters="form.favoriteCharacters"
+        :tmdb-movie-id="props.tmdbMovieId"
+        @toggle="toggleFavoriteCharacter"
+      />
 
       <p
         v-else

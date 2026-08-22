@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watchEffect, type WatchHandle } from 'vue';
 import { useRouter } from 'vue-router';
+import { LogOut } from 'lucide-vue-next';
 
+import IconButton from '@/components/common/IconButton.vue';
 import { useAuthStore } from '@/stores/auth';
 
 const authStore = useAuthStore();
@@ -35,42 +37,40 @@ const signOut = async () => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-20 border-b border-app-line bg-app-surface">
+  <header class="sticky top-0 z-30 border-b border-app-line bg-white/95 backdrop-blur">
     <div class="mx-auto flex w-full max-w-md flex-col gap-3 px-4 py-3 sm:max-w-[800px]">
       <div class="flex items-center justify-between gap-4">
         <RouterLink to="/" class="focus-ring corner-soft flex min-w-0 items-center gap-3">
           <span
-            class="corner-soft grid size-8 shrink-0 place-items-center border border-app-line bg-app-panelSoft text-sm font-bold text-white"
+            class="corner-soft grid size-8 shrink-0 place-items-center border border-app-accent bg-app-accent text-sm font-bold !text-white"
           >
             M
           </span>
-          <span class="truncate text-base font-semibold text-white">Moodie</span>
+          <span class="truncate text-base font-bold text-[#173a5e]">Moodie</span>
         </RouterLink>
 
         <div class="flex items-center gap-2">
           <template v-if="authStore.isAuthenticated">
-            <span class="max-w-28 truncate text-sm font-semibold text-app-muted" :title="authStore.displayName">
-              {{ authStore.displayName }}
-            </span>
-            <button
-              type="button"
-              class="focus-ring corner-soft border border-[#e5a2a2] bg-[#fff0f0] px-3 py-2 text-sm font-medium text-[#a13c3c] transition-colors hover:bg-[#ffe4e4]"
-              @click="signOut"
+            <RouterLink
+              :to="{ name: 'profile', params: { userId: authStore.user?.id } }"
+              class="focus-ring corner-soft max-w-28 truncate px-1 py-1 text-sm font-semibold text-app-muted hover:text-[#174a77]"
+              :title="`${authStore.displayName} 프로필 보기`"
             >
-              로그아웃
-            </button>
+              {{ authStore.displayName }}
+            </RouterLink>
+            <IconButton :icon="LogOut" label="로그아웃" size="sm" @click="signOut" />
           </template>
 
           <template v-else>
             <RouterLink
               to="/login"
-              class="focus-ring corner-soft border border-[#8bb6d9] bg-[#e7f3fc] px-3 py-2 text-sm font-medium text-[#174a77] transition-colors hover:bg-[#dcecff]"
+              class="focus-ring button-secondary rounded-xl px-3 py-2 text-sm font-medium"
             >
               로그인
             </RouterLink>
             <RouterLink
               :to="{ name: 'login', query: { mode: 'signup' } }"
-              class="focus-ring corner-soft border border-app-accent bg-app-accent px-3 py-2 text-sm font-medium text-white"
+              class="focus-ring button-primary rounded-xl px-3 py-2 text-sm font-semibold"
             >
               회원가입
             </RouterLink>
@@ -85,10 +85,10 @@ const signOut = async () => {
         {{ authStore.errorMessage }}
       </p>
 
-      <nav aria-label="주요 메뉴" class="flex items-center gap-2 overflow-x-auto whitespace-nowrap text-sm">
+      <nav aria-label="주요 메뉴" class="scrollbar-hide flex items-center gap-1 overflow-x-auto whitespace-nowrap text-sm">
         <RouterLink
           to="/"
-          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors"
+          class="focus-ring corner-pill border border-transparent px-3 py-1.5 text-app-muted transition-colors hover:text-[#173a5e]"
           active-class="!border-[#356e9f] !bg-[#dcecff] !font-bold !text-[#174a77]"
         >
           홈

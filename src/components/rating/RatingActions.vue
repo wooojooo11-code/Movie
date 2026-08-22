@@ -6,6 +6,7 @@ import type { RatingDecision, RatingDirection, RatingSelection } from '@/types/r
 const props = withDefaults(
   defineProps<{
     activeDirection?: null | RatingDirection;
+    compact?: boolean;
     layout?: 'cross' | 'two-rows';
     selectedButtonClassName?: string;
     selectedDescriptionClassName?: string;
@@ -13,6 +14,7 @@ const props = withDefaults(
   }>(),
   {
     activeDirection: null,
+    compact: false,
     layout: 'cross',
     selectedButtonClassName: 'border-[#15171c] bg-[#15171c] text-[#ffffff]',
     selectedDescriptionClassName: 'text-[#d9dde3]',
@@ -172,8 +174,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="button.label"
       :aria-keyshortcuts="button.shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center px-1 text-center"
-      :class="getButtonClassName(button)"
+      class="focus-ring corner-soft flex flex-col items-center justify-center px-1 text-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(button)]"
       @click="emitSelection(button)"
     >
       <span class="text-[24px] font-bold leading-none">{{ button.arrow }}</span>
@@ -198,8 +200,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="actionButtons[0].label"
       :aria-keyshortcuts="actionButtons[0].shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="getButtonClassName(actionButtons[0])"
+      class="focus-ring corner-soft flex flex-col items-center justify-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(actionButtons[0])]"
       @click="emitSelection(actionButtons[0])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[0].arrow }}</span>
@@ -212,8 +214,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="actionButtons[1].label"
       :aria-keyshortcuts="actionButtons[1].shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="getButtonClassName(actionButtons[1])"
+      class="focus-ring corner-soft flex flex-col items-center justify-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(actionButtons[1])]"
       @click="emitSelection(actionButtons[1])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[1].arrow }}</span>
@@ -225,8 +227,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="actionButtons[4].label"
       :aria-keyshortcuts="actionButtons[4].shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center px-2 text-center"
-      :class="getButtonClassName(actionButtons[4])"
+      class="focus-ring corner-soft flex flex-col items-center justify-center px-2 text-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(actionButtons[4])]"
       @click="emitSelection(actionButtons[4])"
     >
       <span
@@ -245,8 +247,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="actionButtons[2].label"
       :aria-keyshortcuts="actionButtons[2].shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="getButtonClassName(actionButtons[2])"
+      class="focus-ring corner-soft flex flex-col items-center justify-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(actionButtons[2])]"
       @click="emitSelection(actionButtons[2])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[2].arrow }}</span>
@@ -259,8 +261,8 @@ onUnmounted(() => {
       type="button"
       :aria-label="actionButtons[3].label"
       :aria-keyshortcuts="actionButtons[3].shortcut"
-      class="focus-ring corner-soft flex min-h-[72px] flex-col items-center justify-center"
-      :class="getButtonClassName(actionButtons[3])"
+      class="focus-ring corner-soft flex flex-col items-center justify-center"
+      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(actionButtons[3])]"
       @click="emitSelection(actionButtons[3])"
     >
       <span class="text-[28px] font-bold leading-none">{{ actionButtons[3].arrow }}</span>

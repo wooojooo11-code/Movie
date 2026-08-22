@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router';
 import NegativeFeedbackForm from '@/components/rating/NegativeFeedbackForm.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingActions from '@/components/rating/RatingActions.vue';
+import RatingHistoryPickerModal from '@/components/rating/RatingHistoryPickerModal.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
 import TasteAnalysisResult from '@/components/rating/TasteAnalysisResult.vue';
@@ -27,6 +28,7 @@ const router = useRouter();
 
 const activeAdditionalBatchIndex = ref<null | number>(null);
 const editRatingIndex = ref(0);
+const isRatingHistoryPickerOpen = ref(false);
 const isSavingPrimaryDecision = ref(false);
 const primaryFlowTop = ref<HTMLElement | null>(null);
 const detailFlowTop = ref<HTMLElement | null>(null);
@@ -82,7 +84,8 @@ const latestEditableRating = computed(() => {
       }
     : null;
 });
-const hasEditableTasteAnalysisRatings = computed(() => editRatingMovies.value.length > 0);
+const ratedMoviesHistory = computed(() => recommendationStore.ratedMoviesHistory.value);
+const hasRatedMovieHistory = computed(() => ratedMoviesHistory.value.length > 0);
 const activeRatingMovies = computed(() => {
   if (isEditMode.value) {
     return editRatingMovies.value;
@@ -265,6 +268,16 @@ watch(
 );
 
 watch(
+  [() => route.query.picker, hasRatedMovieHistory],
+  ([picker, hasHistory]) => {
+    if (picker === 'history' && hasHistory) {
+      isRatingHistoryPickerOpen.value = true;
+    }
+  },
+  { immediate: true }
+);
+
+watch(
   currentRatingResumeSurface,
   (surface) => {
     if (!surface) {
@@ -334,10 +347,10 @@ const completionTitle = computed(() => {
   }
 
   if (isAdditionalTasteAnalysisSurface.value) {
-    return '추가 10편 평가가 끝났어요.';
+    return null;
   }
 
-  return '취향분석이 끝났어요.';
+  return null;
 });
 
 const completionDescription = computed<null | string>(() => {
@@ -433,19 +446,33 @@ const openNextAdditionalTasteAnalysis = async () => {
   });
 };
 
-const openRatingEditor = async (startAt: 'first' | 'latest' = 'first') => {
-  if (!hasEditableTasteAnalysisRatings.value) {
+const openRatingHistoryPicker = () => {
+  if (!hasRatedMovieHistory.value) {
     return;
   }
 
+  isRatingHistoryPickerOpen.value = true;
+};
+
+const closeRatingHistoryPicker = async () => {
+  isRatingHistoryPickerOpen.value = false;
+
+  if (route.query.picker !== 'history') {
+    return;
+  }
+
+  const query = { ...route.query };
+  delete query.picker;
+  await router.replace({ path: route.path, query });
+};
+
+const openSelectedRatingEditor = async (movieId: string) => {
+  isRatingHistoryPickerOpen.value = false;
   await router.push({
-    path: '/rating',
-    query: {
-      mode: 'edit'
-    }
+    name: 'history-edit',
+    params: { movieId },
+    query: { returnTo: 'rating-picker' }
   });
-  editRatingIndex.value = startAt === 'latest' ? editRatingMovies.value.length - 1 : 0;
-  await scrollToContainer(primaryFlowTop);
 };
 
 const showPreviousEditMovie = async () => {
@@ -675,7 +702,7 @@ watch(
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[880px]"
+    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
   >
     <div ref="primaryFlowTop">
       <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
@@ -708,6 +735,7 @@ watch(
         v-if="isCurrentDetailPositive"
         :key="`${currentMovie.id}-detail`"
         :characters="currentCharacterChoices"
+        :tmdb-movie-id="currentMovie.tmdbMovieId"
         :question-text="currentQuestion"
         :initial-value="initialFeedback"
         compact-controls
@@ -720,6 +748,7 @@ watch(
         v-else
         :key="`${currentMovie.id}-detail-negative`"
         :characters="currentCharacterChoices"
+        :tmdb-movie-id="currentMovie.tmdbMovieId"
         :initial-value="initialNegativeFeedback"
         compact-controls
         submit-label="상세 평가 저장하기"
@@ -729,28 +758,31 @@ watch(
     </template>
 
     <template v-else-if="currentMovie">
-      <RatingMovieCard
-        :key="`${currentMovie.id}-primary`"
-        :movie="currentMovie"
-        :interactive="true"
-        primary-layout
-        size="compact"
-        show-trailer
-        :show-watch-options="false"
-        :show-previous-rating-edit="!isDetailMode && !isEditMode && hasEditableTasteAnalysisRatings"
-        :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
-        class="w-full"
-        @decide="savePrimaryMovieDecision"
-        @edit-previous-rating="openRatingEditor('latest')"
-      />
+      <Transition name="rating-card">
+        <RatingMovieCard
+          :key="`${currentMovie.id}-primary`"
+          :movie="currentMovie"
+          :interactive="true"
+          primary-layout
+          size="compact"
+          show-trailer
+          :show-watch-options="false"
+          :show-previous-rating-edit="!isDetailMode && !isEditMode && hasRatedMovieHistory"
+          :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
+          class="w-full"
+          @decide="savePrimaryMovieDecision"
+          @edit-previous-rating="openRatingHistoryPicker"
+        />
+      </Transition>
 
-      <RatingActions class="sm:hidden" @decide="savePrimaryMovieDecision" />
+      <p class="text-center text-xs text-app-muted sm:hidden">위·아래·좌·우로 밀거나 방향 아이콘을 눌러 평가하세요.</p>
+      <RatingActions compact class="sm:hidden" @decide="savePrimaryMovieDecision" />
 
       <button
-        v-if="!isDetailMode && !isEditMode && hasEditableTasteAnalysisRatings"
+        v-if="!isDetailMode && !isEditMode && hasRatedMovieHistory"
         type="button"
         class="focus-ring corner-soft inline-flex min-h-11 w-full items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c] sm:hidden"
-        @click="openRatingEditor('latest')"
+        @click="openRatingHistoryPicker"
       >
         이전 평가 수정하기
       </button>
@@ -785,7 +817,7 @@ watch(
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">
         {{ isDetailMode ? 'Details' : 'Done' }}
       </p>
-      <h1 class="mt-2 text-2xl font-semibold text-[#15171c]">
+      <h1 v-if="completionTitle" class="mt-2 text-2xl font-semibold text-[#15171c]">
         {{ completionTitle }}
       </h1>
       <p v-if="completionDescription" class="mt-3 text-sm leading-6 text-app-muted">
@@ -807,10 +839,10 @@ watch(
         </RouterLink>
 
         <button
-          v-if="!isEditMode && hasEditableTasteAnalysisRatings"
+          v-if="!isEditMode && hasRatedMovieHistory"
           type="button"
           class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
-          @click="openRatingEditor()"
+          @click="openRatingHistoryPicker"
         >
           이전 평가 수정하기
         </button>
@@ -844,4 +876,11 @@ watch(
 
     </section>
   </main>
+
+  <RatingHistoryPickerModal
+    v-if="isRatingHistoryPickerOpen"
+    :entries="ratedMoviesHistory"
+    @close="closeRatingHistoryPicker"
+    @select="openSelectedRatingEditor"
+  />
 </template>

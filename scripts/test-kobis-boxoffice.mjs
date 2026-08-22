@@ -35,10 +35,24 @@ try {
               openDt: '2026-07-20',
               audiCnt: '1234',
               audiAcc: '5678'
+            },
+            {
+              rank: '2',
+              movieCd: '20265598',
+              movieNm: '에이티즈 : 라이트 더 웨이 인 시네마',
+              openDt: '2026-08-19',
+              audiCnt: '1000',
+              audiAcc: '2000'
             }
           ]
         }
       });
+    }
+
+    if (url.pathname === '/3/movie/1722720') {
+      assert.equal(url.searchParams.get('language'), 'ko-KR');
+      assert.equal(init?.headers?.Authorization, 'Bearer test-tmdb-token');
+      return responseFor({ poster_path: '/ateez.jpg' });
     }
 
     assert.equal(url.pathname, '/3/search/movie');
@@ -70,6 +84,15 @@ try {
       audiCnt: 1234,
       audiAcc: 5678,
       posterUrl: 'https://image.tmdb.org/t/p/w500/current.jpg'
+    },
+    {
+      rank: 2,
+      movieCd: '20265598',
+      movieNm: '에이티즈 : 라이트 더 웨이 인 시네마',
+      openDt: '2026-08-19',
+      audiCnt: 1000,
+      audiAcc: 2000,
+      posterUrl: 'https://image.tmdb.org/t/p/w500/ateez.jpg'
     }
   ]);
 

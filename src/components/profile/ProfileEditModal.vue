@@ -12,6 +12,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   close: [];
+  'delete-account': [];
   save: [payload: { displayTitleIds: string[]; featuredTitleId: null | string; profile: ProfileEditInput }];
 }>();
 
@@ -112,6 +113,20 @@ const submit = () => {
           <button type="button" class="focus-ring corner-soft min-h-10 border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#34465b]" :disabled="saving" @click="$emit('close')">취소</button>
           <button type="submit" class="focus-ring corner-soft min-h-10 border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white disabled:opacity-60" :disabled="saving">{{ saving ? '저장 중…' : '저장하기' }}</button>
         </div>
+
+        <section class="corner-soft border border-[#e2a5a0] bg-[#fff8f7] p-4" aria-labelledby="profile-danger-zone-title">
+          <p class="text-xs font-bold tracking-[0.12em] text-[#b42318]">DANGER ZONE</p>
+          <h3 id="profile-danger-zone-title" class="mt-1 text-base font-bold text-[#15171c]">회원 탈퇴</h3>
+          <p class="mt-2 text-sm leading-6 text-[#6d4b48]">계정과 모든 활동 데이터를 영구 삭제합니다. 삭제 후에는 복구할 수 없습니다.</p>
+          <button
+            type="button"
+            class="focus-ring corner-soft mt-3 min-h-10 border border-[#b42318] bg-white px-4 text-sm font-semibold text-[#b42318] disabled:opacity-50"
+            :disabled="saving"
+            @click="emit('delete-account')"
+          >
+            회원 탈퇴하기
+          </button>
+        </section>
       </form>
     </section>
   </div>

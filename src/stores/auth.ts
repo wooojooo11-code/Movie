@@ -1,6 +1,7 @@
 import type { AuthChangeEvent, Session, User } from '@supabase/supabase-js';
 import { defineStore } from 'pinia';
 
+import { deleteCurrentAccount, purgeLocalAccountData } from '@/services/accountService';
 import {
   getSupabaseRatingsRelation,
   isSupabaseConfigured,
@@ -433,6 +434,39 @@ export const useAuthStore = defineStore('auth', {
       } finally {
         clearStoredSupabaseSession();
         lastSessionSyncAt = Date.now();
+        isSigningOut = false;
+        this.isSubmitting = false;
+      }
+    },
+    async deleteAccount(confirmation: string) {
+      if (!supabase || !this.user) {
+        throw new Error('로그인한 사용자만 회원 탈퇴를 진행할 수 있습니다.');
+      }
+
+      const deletedUserId = this.user.id;
+      this.isSubmitting = true;
+      this.errorMessage = '';
+
+      try {
+        await deleteCurrentAccount(confirmation);
+        purgeLocalAccountData(deletedUserId);
+
+        isSigningOut = true;
+        await this.applySignedOutState();
+        purgeLocalAccountData(deletedUserId);
+
+        try {
+          await supabase.auth.signOut({ scope: 'local' });
+        } catch {
+          // The auth user is already deleted; clearing the local session is sufficient.
+        }
+
+        clearStoredSupabaseSession();
+        lastSessionSyncAt = Date.now();
+      } catch (error) {
+        this.errorMessage = extractAuthMessage(error, '회원 탈퇴 처리에 실패했습니다.');
+        throw error;
+      } finally {
         isSigningOut = false;
         this.isSubmitting = false;
       }

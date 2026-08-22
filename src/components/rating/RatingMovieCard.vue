@@ -198,7 +198,7 @@ const openTrailer = async () => {
   isTrailerLoading.value = true;
 
   try {
-    const trailer = await loadMovieTrailer(props.movie.tmdbMovieId);
+    const trailer = await loadMovieTrailer(props.movie.tmdbMovieId, props.movie.trailer);
     trailerYouTubeKey.value = trailer.key;
     trailerName.value = trailer.name;
   } catch {
@@ -292,38 +292,13 @@ const onPointerUp = (event: PointerEvent) => {
     @pointercancel="onPointerUp"
   >
     <div v-if="detailLayout" class="bg-app-panel">
-      <div class="sm:grid sm:grid-cols-[minmax(14rem,0.58fr)_minmax(0,1fr)] sm:items-stretch">
-        <section class="relative flex min-h-[21rem] items-center justify-center overflow-hidden border-b border-app-line bg-[#161b26] p-5 sm:min-h-[33rem] sm:border-b-0 sm:border-r sm:p-7">
-          <img
-            :src="movie.posterUrl"
-            alt=""
-            aria-hidden="true"
-            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-20 blur-2xl"
-            loading="lazy"
-          />
-          <span aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(145deg,rgba(15,18,27,0.92),rgba(23,29,42,0.52)_48%,rgba(9,11,17,0.94))]"></span>
-          <div class="relative z-10 flex w-full max-w-[13.5rem] flex-col items-center">
-            <div class="corner-soft w-full overflow-hidden border border-white/20 bg-black/20 p-1.5 shadow-[0_18px_42px_rgba(0,0,0,0.45)]">
-              <img
-                :src="movie.posterUrl"
-                :alt="movie.posterAlt"
-                class="aspect-[2/3] w-full object-contain"
-                loading="lazy"
-              />
-            </div>
-            <div class="mt-4 flex w-full items-center justify-between gap-3 text-white/75">
-              <span class="text-[10px] font-bold tracking-[0.16em]">DETAIL REVIEW</span>
-              <span class="text-[11px] font-semibold">{{ movie.releaseYear }}</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="flex min-w-0 flex-col">
+      <div class="sm:grid sm:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] sm:items-stretch">
+        <section class="relative min-h-[21rem] overflow-hidden border-b border-app-line bg-[#11151d] sm:min-h-[33rem] sm:border-b-0 sm:border-r">
           <button
             v-if="showTrailer"
             type="button"
             :aria-label="`${movie.title} 예고편 재생하기`"
-            class="focus-ring group relative block aspect-[16/9] w-full overflow-hidden bg-[#11151d] text-left"
+            class="focus-ring group absolute inset-0 block h-full w-full overflow-hidden bg-[#11151d] text-left"
             @click.stop="openTrailer"
             @pointerdown.stop
             @pointermove.stop
@@ -338,7 +313,7 @@ const onPointerUp = (event: PointerEvent) => {
               loading="lazy"
             />
             <span aria-hidden="true" class="absolute inset-0 bg-[linear-gradient(125deg,rgba(5,8,13,0.93),rgba(7,10,16,0.26)_56%,rgba(5,8,13,0.74))]"></span>
-            <span class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:left-5 sm:top-5">
+            <span class="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[10px] font-bold tracking-[0.14em] text-white backdrop-blur-sm sm:left-6 sm:top-6">
               <span class="size-1.5 rounded-full bg-[#e45050] shadow-[0_0_10px_rgba(228,80,80,0.9)]"></span>
               OFFICIAL TRAILER
             </span>
@@ -348,16 +323,18 @@ const onPointerUp = (event: PointerEvent) => {
               </span>
               <span class="mt-3 text-sm font-semibold text-white sm:text-base">예고편 재생</span>
             </span>
-            <span class="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 text-[10px] font-medium text-white/75 sm:inset-x-5 sm:bottom-5">
-              <span>상세평가 전용 미리보기</span>
+            <span class="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3 text-[10px] font-medium text-white/75 sm:inset-x-6 sm:bottom-6">
+              <span>상세 평가 전 예고편 보기</span>
               <span class="tracking-[0.15em]">PLAY</span>
             </span>
           </button>
 
-          <div v-else class="flex aspect-video items-center justify-center bg-app-poster">
+          <div v-else class="flex h-full items-center justify-center bg-app-poster">
             <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-full w-full object-contain" loading="lazy" />
           </div>
+        </section>
 
+        <section class="flex min-w-0 flex-col">
           <div class="flex flex-1 flex-col p-5 sm:p-7">
             <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-app-muted">Detail rating</p>
             <div class="mt-3 flex flex-wrap items-center gap-2">
@@ -607,7 +584,7 @@ const onPointerUp = (event: PointerEvent) => {
       @click.self="closeTrailer"
     >
       <section
-        class="corner-hard w-full max-w-3xl overflow-hidden border border-app-line bg-app-panel shadow-2xl"
+        class="corner-hard w-full max-w-[800px] overflow-hidden border border-app-line bg-app-panel shadow-2xl"
         role="dialog"
         aria-modal="true"
         :aria-label="`${movie.title} 예고편`"

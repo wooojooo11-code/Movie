@@ -43,6 +43,7 @@ const startY = ref(0);
 const deltaX = ref(0);
 const deltaY = ref(0);
 const isDragging = ref(false);
+const isOverviewDialogOpen = ref(false);
 const isTrailerDialogOpen = ref(false);
 const isTrailerLoading = ref(false);
 const trailerLoadFailed = ref(false);
@@ -210,6 +211,14 @@ const openTrailer = async () => {
 
 const closeTrailer = () => {
   isTrailerDialogOpen.value = false;
+};
+
+const openOverview = () => {
+  isOverviewDialogOpen.value = true;
+};
+
+const closeOverview = () => {
+  isOverviewDialogOpen.value = false;
 };
 
 const onPointerDown = (event: PointerEvent) => {
@@ -437,12 +446,24 @@ const onPointerUp = (event: PointerEvent) => {
           <p class="mt-1.5 text-xs font-medium text-app-muted sm:mt-3 sm:text-base">
             {{ movie.tags.join(' · ') }}
           </p>
-          <p
-            v-if="overviewText"
-            class="rating-primary-overview mt-2 text-xs leading-5 text-[#3d424a] sm:mt-4 sm:text-[15px] sm:leading-7"
-          >
-            {{ overviewText }}
-          </p>
+          <div v-if="overviewText" class="relative mt-2 sm:mt-4">
+            <p class="rating-primary-overview pr-12 text-xs leading-5 text-[#3d424a] sm:pr-14 sm:text-[15px] sm:leading-7">
+              {{ overviewText }}
+            </p>
+            <button
+              type="button"
+              class="focus-ring corner-pill absolute bottom-0 right-0 inline-flex min-h-6 items-center border border-app-line bg-app-panel px-2 text-[10px] font-bold text-app-accent shadow-[-8px_0_10px_#ffffff] sm:min-h-7 sm:text-xs"
+              aria-haspopup="dialog"
+              :aria-expanded="isOverviewDialogOpen"
+              @click.stop="openOverview"
+              @pointercancel.stop
+              @pointerdown.stop
+              @pointermove.stop
+              @pointerup.stop
+            >
+              더보기
+            </button>
+          </div>
         </div>
 
         <div class="col-span-2 grid shrink-0 gap-2 border-t border-app-line bg-app-panel p-2 sm:mt-auto sm:p-0 sm:pt-4">
@@ -461,7 +482,7 @@ const onPointerUp = (event: PointerEvent) => {
               이전 평가 수정
           </button>
         </div>
-          <RatingActions compact layout="two-rows" @decide="emitDecision" />
+          <RatingActions compact layout="keyboard" @decide="emitDecision" />
         </div>
       </div>
     </div>
@@ -574,6 +595,45 @@ const onPointerUp = (event: PointerEvent) => {
       </div>
     </div>
   </article>
+
+  <Teleport to="body">
+    <div
+      v-if="isOverviewDialogOpen"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4"
+      role="presentation"
+      @click.self="closeOverview"
+      @keydown.esc.stop="closeOverview"
+      @keydown.stop
+    >
+      <section
+        class="corner-hard mx-auto flex max-h-[min(80dvh,48rem)] w-full max-w-md flex-col overflow-hidden border border-app-line bg-app-panel shadow-2xl sm:max-w-[800px]"
+        role="dialog"
+        aria-modal="true"
+        :aria-label="`${movie.title} 전체 줄거리`"
+      >
+        <div class="flex shrink-0 items-center justify-between gap-4 border-b border-app-line px-4 py-3 sm:px-5">
+          <div class="min-w-0">
+            <p class="text-[10px] font-bold uppercase tracking-[0.12em] text-app-muted">줄거리</p>
+            <h2 class="mt-1 truncate text-base font-semibold text-[#15171c] sm:text-xl">{{ movie.title }}</h2>
+          </div>
+          <button
+            type="button"
+            class="focus-ring corner-soft inline-flex size-9 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft text-lg text-[#15171c]"
+            aria-label="줄거리 닫기"
+            @click="closeOverview"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="overflow-y-auto px-4 py-4 sm:px-5 sm:py-5">
+          <p class="whitespace-pre-wrap text-sm leading-7 text-[#3d424a] sm:text-base sm:leading-8">
+            {{ overviewText }}
+          </p>
+        </div>
+      </section>
+    </div>
+  </Teleport>
 
   <Teleport to="body">
     <div

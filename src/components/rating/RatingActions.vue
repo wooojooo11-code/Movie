@@ -7,7 +7,7 @@ const props = withDefaults(
   defineProps<{
     activeDirection?: null | RatingDirection;
     compact?: boolean;
-    layout?: 'cross' | 'two-rows';
+    layout?: 'cross' | 'keyboard';
     selectedButtonClassName?: string;
     selectedDescriptionClassName?: string;
     selectedEnterBadgeClassName?: string;
@@ -96,6 +96,20 @@ const keyboardSelectionByKey = {
 } as const satisfies Record<string, RatingSelection>;
 
 const activeDirection = computed(() => props.activeDirection ?? null);
+const keyboardActionButtons = [
+  actionButtons[0],
+  actionButtons[1],
+  actionButtons[3],
+  actionButtons[2],
+  actionButtons[4]
+];
+const keyboardGridClassByDirection: Record<RatingDirection, string> = {
+  up: 'col-start-2 row-start-1',
+  left: 'col-start-1 row-start-2',
+  down: 'col-start-2 row-start-2',
+  right: 'col-start-3 row-start-2',
+  enter: 'col-start-4 row-span-2 row-start-1'
+};
 
 const isEditableTarget = (target: EventTarget | null) => {
   if (!(target instanceof HTMLElement)) {
@@ -160,8 +174,8 @@ onUnmounted(() => {
 
 <template>
   <div
-    v-if="props.layout === 'two-rows'"
-    class="grid grid-cols-3 gap-2"
+    v-if="props.layout === 'keyboard'"
+    class="grid grid-cols-4 grid-rows-2 gap-1.5 sm:gap-2"
     @click.stop
     @pointercancel.stop
     @pointerdown.stop
@@ -169,13 +183,17 @@ onUnmounted(() => {
     @pointerup.stop
   >
     <button
-      v-for="button in actionButtons"
+      v-for="button in keyboardActionButtons"
       :key="button.direction"
       type="button"
       :aria-label="button.label"
       :aria-keyshortcuts="button.shortcut"
       class="focus-ring corner-soft flex flex-col items-center justify-center px-1 text-center"
-      :class="[props.compact ? 'min-h-12' : 'min-h-[72px]', getButtonClassName(button)]"
+      :class="[
+        keyboardGridClassByDirection[button.direction],
+        props.compact ? 'min-h-12' : 'min-h-[72px]',
+        getButtonClassName(button)
+      ]"
       @click="emitSelection(button)"
     >
       <span class="text-[24px] font-bold leading-none">{{ button.arrow }}</span>

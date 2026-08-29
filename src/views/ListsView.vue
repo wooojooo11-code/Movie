@@ -14,12 +14,14 @@ import {
 } from '@/services/libraryMovieSearch';
 import { useLibraryStore } from '@/services/libraryStore';
 import { useListStore } from '@/services/listStore';
+import { useRecommendationStore } from '@/services/recommendationStore';
 import { checkTitlesForEvent } from '@/services/titleService';
 import type { ResolvedLibraryMovieRecord } from '@/types/library';
 import type { CatalogMovie } from '@/types/recommendation';
 
 const libraryStore = useLibraryStore();
 const listStore = useListStore();
+const recommendationStore = useRecommendationStore();
 const route = useRoute();
 const router = useRouter();
 const isComposerOpen = ref(false);
@@ -48,7 +50,9 @@ const listSortOptions = [
   { label: '날짜순', value: 'date' },
   { label: '이름순', value: 'name' },
   { label: '평점수', value: 'rating_count' },
-  { label: '저장수', value: 'save_count' }
+  { label: '저장수', value: 'save_count' },
+  { label: '나와 취향이 맞는 순', value: 'taste_match' },
+  { label: '나와 취향이 반대인 순', value: 'taste_opposite' }
 ] as const;
 
 type ListSortOption = (typeof listSortOptions)[number]['value'];
@@ -79,7 +83,43 @@ const getTimeValue = (value: string) => {
   return Number.isFinite(time) ? time : 0;
 };
 
-const sortLists = <T extends { title: string }>(
+type ListTasteAffinity = {
+  comparedMovieCount: number;
+  score: number;
+};
+
+const getListTasteAffinity = (movieIds: readonly string[]): null | ListTasteAffinity => {
+  let comparedMovieCount = 0;
+  let scoreTotal = 0;
+
+  movieIds.forEach((movieId) => {
+    const rating = recommendationStore.getStoredRatingRecord(movieId);
+
+    if (!rating || rating.rawDecision === 'not_seen') {
+      return;
+    }
+
+    if (rating.rawDecision === 'like') {
+      comparedMovieCount += 1;
+      scoreTotal += 1;
+      return;
+    }
+
+    if (rating.rawDecision === 'dislike' || rating.rawDecision === 'not_interested') {
+      comparedMovieCount += 1;
+      scoreTotal -= 1;
+    }
+  });
+
+  return comparedMovieCount > 0
+    ? {
+        comparedMovieCount,
+        score: scoreTotal / comparedMovieCount
+      }
+    : null;
+};
+
+const sortLists = <T extends { movieIds: readonly string[]; title: string }>(
   lists: readonly T[],
   option: ListSortOption,
   controls: {
@@ -107,6 +147,35 @@ const sortLists = <T extends { title: string }>(
     if (option === 'rating_count') {
       return (
         controls.getRatingCount(right) - controls.getRatingCount(left) ||
+        rightUpdatedAt - leftUpdatedAt ||
+        compareText(left.title, right.title)
+      );
+    }
+
+    if (option === 'taste_match' || option === 'taste_opposite') {
+      const leftAffinity = getListTasteAffinity(left.movieIds);
+      const rightAffinity = getListTasteAffinity(right.movieIds);
+
+      if (!leftAffinity && !rightAffinity) {
+        return rightUpdatedAt - leftUpdatedAt || compareText(left.title, right.title);
+      }
+
+      if (!leftAffinity) {
+        return 1;
+      }
+
+      if (!rightAffinity) {
+        return -1;
+      }
+
+      const scoreDifference =
+        option === 'taste_match'
+          ? rightAffinity.score - leftAffinity.score
+          : leftAffinity.score - rightAffinity.score;
+
+      return (
+        scoreDifference ||
+        rightAffinity.comparedMovieCount - leftAffinity.comparedMovieCount ||
         rightUpdatedAt - leftUpdatedAt ||
         compareText(left.title, right.title)
       );
@@ -399,10 +468,12 @@ onBeforeUnmount(() => {
         리스트 만들기
       </button>
 
-      <label class="flex shrink-0 items-center text-xs font-medium text-app-muted">
+      <label class="flex shrink-0 items-center gap-2 text-xs font-medium text-app-muted">
+        <span>정렬</span>
         <select
           v-model="listSortOption"
-          class="focus-ring min-h-10 w-[5.1rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
+          class="focus-ring min-h-10 w-[10.5rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
+          aria-label="리스트 정렬 기준"
         >
           <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
             {{ option.label }}

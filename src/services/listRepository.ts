@@ -366,35 +366,74 @@ export const remoteListRepository = {
       serializeInteractionRow(snapshot.userId, interaction)
     );
 
-    const { error: deleteListsError } = await userListsRelation
-      .delete()
-      .eq(supabaseUserListsUserColumn, snapshot.userId);
+    const [existingListsResult, existingInteractionsResult] = await Promise.all([
+      userListsRelation.select('id').eq(supabaseUserListsUserColumn, snapshot.userId),
+      listInteractionsRelation
+        .select('list_id')
+        .eq(supabaseListInteractionsUserColumn, snapshot.userId)
+    ]);
 
-    if (deleteListsError) {
-      throw deleteListsError;
+    if (existingListsResult.error) {
+      throw existingListsResult.error;
     }
 
-    const { error: deleteInteractionsError } = await listInteractionsRelation
-      .delete()
-      .eq(supabaseListInteractionsUserColumn, snapshot.userId);
-
-    if (deleteInteractionsError) {
-      throw deleteInteractionsError;
+    if (existingInteractionsResult.error) {
+      throw existingInteractionsResult.error;
     }
 
     if (userListPayload.length > 0) {
-      const { error: insertListsError } = await userListsRelation.insert(userListPayload);
+      const { error: upsertListsError } = await userListsRelation.upsert(userListPayload, {
+        onConflict: 'id'
+      });
 
-      if (insertListsError) {
-        throw insertListsError;
+      if (upsertListsError) {
+        throw upsertListsError;
       }
     }
 
     if (interactionPayload.length > 0) {
-      const { error: insertInteractionsError } = await listInteractionsRelation.insert(interactionPayload);
+      const { error: upsertInteractionsError } = await listInteractionsRelation.upsert(
+        interactionPayload,
+        {
+          onConflict: `${supabaseListInteractionsUserColumn},list_id`
+        }
+      );
 
-      if (insertInteractionsError) {
-        throw insertInteractionsError;
+      if (upsertInteractionsError) {
+        throw upsertInteractionsError;
+      }
+    }
+
+    const nextListIds = new Set(snapshot.userLists.map((list) => list.id));
+    const staleListIds = ((existingListsResult.data ?? []) as Array<{ id: string }>)
+      .map((row) => row.id)
+      .filter((listId) => !nextListIds.has(listId));
+    const nextInteractionListIds = new Set(snapshot.interactions.map((interaction) => interaction.listId));
+    const staleInteractionListIds = (
+      (existingInteractionsResult.data ?? []) as Array<{ list_id: string }>
+    )
+      .map((row) => row.list_id)
+      .filter((listId) => !nextInteractionListIds.has(listId));
+
+    if (staleInteractionListIds.length > 0) {
+      const { error: deleteInteractionsError } = await listInteractionsRelation
+        .delete()
+        .eq(supabaseListInteractionsUserColumn, snapshot.userId)
+        .in('list_id', staleInteractionListIds);
+
+      if (deleteInteractionsError) {
+        throw deleteInteractionsError;
+      }
+    }
+
+    if (staleListIds.length > 0) {
+      const { error: deleteListsError } = await userListsRelation
+        .delete()
+        .eq(supabaseUserListsUserColumn, snapshot.userId)
+        .in('id', staleListIds);
+
+      if (deleteListsError) {
+        throw deleteListsError;
       }
     }
   },

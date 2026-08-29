@@ -175,6 +175,15 @@ export interface CommunitySituationMovieSignal {
   answerCount: number;
 }
 
+export interface RecommendationScoreBreakdown {
+  personalPreference: number;
+  similarUser: number;
+  situation: number;
+  tmdbQuality: number;
+  novelty: number;
+  people: number;
+}
+
 export interface RecommendationStateSnapshot {
   userId: string;
   profile: UserPreferenceProfile;
@@ -210,14 +219,9 @@ export interface RecommendedMoviePreview {
 
 export interface RecommendedCatalogMovie extends CatalogMovie, ScoredMovie {
   recommendationReasons?: string[];
-  recommendationScoreBreakdown?: {
-    collaborative: number;
-    communitySituation: number;
-    novelty: number;
-    preference: number;
-    quality: number;
-    situation: number;
-  };
+  recommendationRawScores?: RecommendationScoreBreakdown;
+  recommendationScoreBreakdown?: RecommendationScoreBreakdown;
+  recommendationScoreMaximums?: RecommendationScoreBreakdown;
 }
 
 export interface RecommendedCatalogList extends CatalogMovieList, ScoredMovieList {

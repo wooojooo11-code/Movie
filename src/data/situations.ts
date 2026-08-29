@@ -54,7 +54,7 @@ export const situationOptionGroups = [
   },
   {
     key: 'viewingTime',
-    label: '영화 볼 수 있는 시간',
+    label: '상영 시간',
     options: [
       { value: 'any', label: '상관없음' },
       { value: 'under_90', label: '90분 이하' },

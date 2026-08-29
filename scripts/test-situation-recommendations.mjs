@@ -9,6 +9,15 @@ const jiti = jitiPackage(import.meta.url, {
 });
 const { rankSituationMovies } = await jiti.import('../src/services/situationRecommendation.ts');
 const {
+  buildPeoplePreferenceModel,
+  buildPersonalPreferenceModel,
+  calculateFinalRecommendationScore,
+  calculateNoveltyScore,
+  calculatePeopleScore,
+  calculatePersonalPreferenceScore,
+  calculateTmdbQualityScore
+} = await jiti.import('../src/services/recommendationScoring.ts');
+const {
   isCompleteSituationSelection,
   normalizeSituationSelection,
   situationOptionGroups,
@@ -159,18 +168,13 @@ const weightedScores = weightedMovie.recommendationScoreBreakdown;
 assert.ok(weightedScores, 'score breakdown is available');
 assert.equal(
   weightedMovie.recommendationScore,
-      Math.max(
-        0,
-        Math.min(
-          100,
-          weightedScores.preference * 0.36 +
-            weightedScores.collaborative * 0.2 +
-            weightedScores.situation * 0.28 +
-            weightedScores.quality * 0.08 +
-            weightedScores.novelty * 0.08
-        )
-      ),
-  'final score keeps the existing score proportions and adds a 20% collaborative signal'
+  Object.values(weightedScores).reduce((total, value) => total + value, 0),
+  'the six weighted components add up to the final recommendation score'
+);
+assert.equal(
+  Object.values(weightedMovie.recommendationScoreMaximums).reduce((total, value) => total + value, 0),
+  100,
+  'situation-aware component maximums add up to exactly 100 points'
 );
 
 const diverseGenreIds = [10749, 18, 35, 53, 878];
@@ -199,13 +203,10 @@ for (const result of diverseResults) {
 }
 
 assert.ok(
-  [...primaryGenreCounts.values()].every((count) => count <= 2),
-  'the first ten situation recommendations limit each primary genre to two movies when alternatives exist'
-);
-assert.equal(
-  new Set(diverseResults.map((result) => result.collectionId)).size,
-  diverseResults.length,
-  'the first ten situation recommendations avoid duplicate franchises when alternatives exist'
+  diverseResults.every(
+    (result, index) => index === 0 || diverseResults[index - 1].recommendationScore >= result.recommendationScore
+  ),
+  'recommendations remain sorted by final score even when genres overlap'
 );
 
 const recentCandidates = Array.from({ length: 11 }, (_, index) =>
@@ -257,9 +258,62 @@ assert.equal(
 );
 assert.ok(
   collaborativeResults[0].recommendationReasons?.includes(
-    '취향이 비슷한 이용자 1명이 이 영화를 재미있게 봤어요.'
+    '취향이 비슷한 사용자 1명이 좋아한 영화예요.'
   ),
   'the promoted movie explains the privacy-safe collaborative recommendation reason'
 );
+
+const ratingRecord = {
+  rawDecision: 'like',
+  rawDirection: 'right',
+  detailCompleted: true,
+  input: {
+    movieId: 'movie_1',
+    userId: 'test-user',
+    status: 'like',
+    rating: 4.5,
+    reviewTags: [],
+    favoriteCharacters: ['Max Rockatansky'],
+    answeredAt: new Date().toISOString()
+  },
+  reviewText: '',
+  questionText: ''
+};
+const personalCandidate = movie('movie_1', { genres: ['액션'], genreIds: [28] });
+const preferenceModel = buildPersonalPreferenceModel([ratingRecord], { movie_1: personalCandidate });
+assert.equal(
+  calculatePersonalPreferenceScore(personalCandidate, preferenceModel).rawScore,
+  81,
+  'personal score applies the 70 base, main genre bonus, and 4.5-star adjustment'
+);
+assert.equal(
+  calculateTmdbQualityScore(movie('quality', { voteAverage: 10, voteCount: 4000 })).rawScore,
+  100,
+  'TMDB quality score is capped at 100'
+);
+assert.equal(calculateNoveltyScore('new', new Set()).rawScore, 100, 'an unseen movie gets 100 novelty');
+assert.equal(
+  calculateNoveltyScore('seen', new Set(['seen'])).rawScore,
+  0,
+  'an encountered movie gets zero novelty'
+);
+assert.equal(
+  calculatePeopleScore(personalCandidate, buildPeoplePreferenceModel([ratingRecord])).rawScore,
+  92,
+  'people score applies the preferred director and actor bonuses'
+);
+const withoutSituationScore = calculateFinalRecommendationScore({
+  hasSituation: false,
+  rawScores: {
+    personalPreference: 100,
+    similarUser: 100,
+    situation: 0,
+    tmdbQuality: 100,
+    novelty: 100,
+    people: 100
+  }
+});
+assert.equal(withoutSituationScore.finalScore, 100, 'default weights total 100 without a situation');
+assert.equal(withoutSituationScore.breakdown.situation, 0, 'no situation never lowers the available total');
 
 console.log('Situation recommendation tests passed.');

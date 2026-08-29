@@ -1,0 +1,1 @@
+import{m as h}from"./listStore-C9bUWc1t.js";const u=(s,c)=>{var t;const a=h[s],r=(t=a==null?void 0:a.characters)!=null&&t.length?a.characters:c,o=(a==null?void 0:a.cast)??[];return r.map((n,e)=>({name:n,actorName:o[e]??null,actorPhotoUrl:null}))};export{u as g};

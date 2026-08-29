@@ -55,12 +55,17 @@ const breakdown = computed(() => {
   }
 
   const value = props.movie.recommendationScoreBreakdown;
+  const maximums = props.movie.recommendationScoreMaximums;
+  if (!maximums) return [];
+
   return [
-    { label: '취향 일치', value: value.preference },
-    { label: '상황 적합', value: value.situation },
-    { label: '비슷한 취향', value: Math.max(value.collaborative, value.communitySituation) },
-    { label: '새로운 발견', value: value.novelty }
-  ].filter((item) => item.value > 0);
+    { label: '개인 취향', value: value.personalPreference, maximum: maximums.personalPreference },
+    { label: '비슷한 이용자', value: value.similarUser, maximum: maximums.similarUser },
+    { label: '상황 적합', value: value.situation, maximum: maximums.situation },
+    { label: 'TMDB 품질', value: value.tmdbQuality, maximum: maximums.tmdbQuality },
+    { label: '새로움', value: value.novelty, maximum: maximums.novelty },
+    { label: '배우·감독', value: value.people, maximum: maximums.people }
+  ].filter((item) => item.maximum > 0);
 });
 const averageScore = computed(() =>
   'recommendationScore' in props.movie && typeof props.movie.recommendationScore === 'number'
@@ -163,7 +168,7 @@ onUnmounted(() => {
       >
         <header class="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-app-line bg-white/95 px-4 py-3 backdrop-blur sm:px-6">
           <div class="min-w-0">
-            <p v-if="averageScore !== null" class="text-xs font-semibold text-app-accent">취향 일치도 {{ averageScore }}%</p>
+            <p v-if="averageScore !== null" class="text-xs font-semibold text-app-accent">추천 점수 {{ averageScore }}점</p>
             <h2 class="mt-0.5 truncate text-lg font-bold text-[#173a5e] sm:text-xl">{{ props.movie.title }}</h2>
           </div>
           <IconButton :icon="X" label="상세 정보 닫기" @click="close" />
@@ -211,7 +216,7 @@ onUnmounted(() => {
             <div class="mt-3 grid gap-2.5">
               <div v-for="item in breakdown" :key="item.label" class="grid grid-cols-[4.75rem_minmax(0,1fr)_2rem] items-center gap-2 text-xs">
                 <span class="text-app-muted">{{ item.label }}</span>
-                <span class="h-1.5 overflow-hidden rounded-full bg-app-panelSoft"><span class="block h-full rounded-full bg-app-accent" :style="{ width: `${Math.round(item.value)}%` }" /></span>
+                <span class="h-1.5 overflow-hidden rounded-full bg-app-panelSoft"><span class="block h-full rounded-full bg-app-accent" :style="{ width: `${Math.round((item.value / item.maximum) * 100)}%` }" /></span>
                 <span class="text-right font-semibold text-[#173a5e]">{{ Math.round(item.value) }}</span>
               </div>
             </div>

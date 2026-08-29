@@ -82,6 +82,7 @@ let supportsActiveSituationColumns: boolean | null = null;
 let supportsRatingsRawDirectionColumn: boolean | null = null;
 let supportsRatingHistoryRawDirectionColumn: boolean | null = null;
 let hasCollaborativeRecommendationSignalsFunction: boolean | null = null;
+let hasScoreBasedCollaborativeSignalsFunction: boolean | null = null;
 
 const isRemoteSyncEnabled = (userId: string) => isSupabaseConfigured && Boolean(userId) && userId !== 'guest-user';
 
@@ -755,7 +756,19 @@ export const remoteCollaborativeRecommendationRepository = {
       return [];
     }
 
-    const { data, error } = await supabase.rpc('get_collaborative_recommendation_signals');
+    const scoreBasedFunction = 'get_score_based_collaborative_recommendation_signals';
+    let usedLegacyFunction = hasScoreBasedCollaborativeSignalsFunction === false;
+    let { data, error } = await supabase.rpc(
+      usedLegacyFunction ? 'get_collaborative_recommendation_signals' : scoreBasedFunction
+    );
+
+    if (error && !usedLegacyFunction && isMissingSupabaseFunctionError(error, scoreBasedFunction)) {
+      hasScoreBasedCollaborativeSignalsFunction = false;
+      usedLegacyFunction = true;
+      ({ data, error } = await supabase.rpc('get_collaborative_recommendation_signals'));
+    } else if (!error && !usedLegacyFunction) {
+      hasScoreBasedCollaborativeSignalsFunction = true;
+    }
 
     if (error && isMissingSupabaseFunctionError(error, 'get_collaborative_recommendation_signals')) {
       hasCollaborativeRecommendationSignalsFunction = false;
@@ -768,10 +781,24 @@ export const remoteCollaborativeRecommendationRepository = {
 
     hasCollaborativeRecommendationSignalsFunction = true;
 
-    return ((data ?? []) as SupabaseCollaborativeRecommendationSignalRow[])
+    const rows = (data ?? []) as SupabaseCollaborativeRecommendationSignalRow[];
+    const maximumLegacyScore = Math.max(
+      0,
+      ...rows.map((row) => toNonNegativeNumber(row.collaborative_score))
+    );
+
+    return rows
       .map((row) => ({
         movieId: row.movie_id,
-        score: toNonNegativeNumber(row.collaborative_score),
+        score: usedLegacyFunction
+          ? Math.min(
+              100,
+              70 +
+                (maximumLegacyScore > 0
+                  ? (toNonNegativeNumber(row.collaborative_score) / maximumLegacyScore) * 30
+                  : 0)
+            )
+          : Math.min(100, toNonNegativeNumber(row.collaborative_score)),
         similarUserCount: Math.floor(toNonNegativeNumber(row.similar_user_count))
       }))
       .filter((signal) => signal.movieId.length > 0 && signal.score > 0 && signal.similarUserCount > 0);

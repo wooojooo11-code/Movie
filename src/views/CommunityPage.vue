@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, onScopeDispose, ref, watch } from 'vue';
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next';
+import { computed, nextTick, onMounted, onScopeDispose, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+import IconButton from '@/components/common/IconButton.vue';
 import CommunityHeader from '@/components/community/CommunityHeader.vue';
 import CommunityPostCard from '@/components/community/CommunityPostCard.vue';
 import CommunityPostList from '@/components/community/CommunityPostList.vue';
@@ -52,6 +54,8 @@ const savedIds = ref(new Set<string>());
 const savingSaveIds = ref(new Set<string>());
 const loading = ref(false);
 const loadingDaily = ref(false);
+const submittingDailyAnswer = ref(false);
+const dailyAnswerSaved = ref(false);
 const loadingSavedPosts = ref(false);
 const loadingDailyAnswers = ref(false);
 const dailyAnswerListOpen = ref(false);
@@ -60,7 +64,11 @@ const submitting = ref(false);
 const errorMessage = ref('');
 const composerError = ref('');
 const isComposerOpen = ref(false);
+const popularPostScroller = ref<HTMLElement | null>(null);
+const canScrollPopularPrevious = ref(false);
+const canScrollPopularNext = ref(false);
 let searchTimer: number | undefined;
+let dailyAnswerSavedTimer: number | undefined;
 const COMMUNITY_FEED_PAGE_SIZE = 100;
 
 const viewerId = computed(() => authStore.user?.id ?? null);
@@ -70,6 +78,25 @@ const savedListIds = computed(() =>
 );
 
 const goToLogin = () => router.push({ name: 'login', query: { redirect: route.fullPath } });
+
+const updatePopularScrollState = () => {
+  const scroller = popularPostScroller.value;
+  if (!scroller) return;
+
+  const maximumScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+  canScrollPopularPrevious.value = scroller.scrollLeft > 2;
+  canScrollPopularNext.value = scroller.scrollLeft < maximumScroll - 2;
+};
+
+const scrollPopularPosts = (direction: -1 | 1) => {
+  const scroller = popularPostScroller.value;
+  if (!scroller) return;
+
+  const firstCard = scroller.firstElementChild as HTMLElement | null;
+  const gap = Number.parseFloat(window.getComputedStyle(scroller).columnGap) || 0;
+  const distance = (firstCard?.getBoundingClientRect().width ?? scroller.clientWidth) + gap;
+  scroller.scrollBy({ left: direction * distance, behavior: 'smooth' });
+};
 
 const syncViewerInteractions = async (targetPosts: readonly CommunityPost[]) => {
   const interactions = await fetchViewerPostInteractions(targetPosts.map((post) => post.id), viewerId.value);
@@ -150,6 +177,9 @@ const loadSupportingContent = async () => {
     ]);
     popularPosts.value = popular;
     shareableLists.value = lists;
+    await nextTick();
+    if (popularPostScroller.value) popularPostScroller.value.scrollLeft = 0;
+    updatePopularScrollState();
     await syncViewerInteractions(popular);
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '커뮤니티 정보를 불러오지 못했습니다.';
@@ -192,6 +222,12 @@ const submitPost = async (draft: CommunityPostDraft) => {
 
 const submitDailyAnswer = async (input: DailyQuestionAnswerInput) => {
   if (!viewerId.value || !dailyQuestion.value) { goToLogin(); return; }
+  if (submittingDailyAnswer.value) return;
+
+  window.clearTimeout(dailyAnswerSavedTimer);
+  dailyAnswerSaved.value = false;
+  submittingDailyAnswer.value = true;
+  errorMessage.value = '';
   try {
     await ensureCommunityProfile(viewerId.value, authStore.displayName, (authStore.user?.user_metadata.avatar_url as string | undefined) ?? null);
     const hadViewerAnswer = Boolean(dailyQuestion.value.viewerAnswer);
@@ -201,10 +237,20 @@ const submitDailyAnswer = async (input: DailyQuestionAnswerInput) => {
       answerCount: dailyQuestion.value.answerCount + (hadViewerAnswer ? 0 : 1),
       viewerAnswer: savedAnswer
     };
+    dailyAnswerSaved.value = true;
+    submittingDailyAnswer.value = false;
+    dailyAnswerSavedTimer = window.setTimeout(() => {
+      dailyAnswerSaved.value = false;
+    }, 2400);
     void checkTitlesForEvent('daily_question');
     await loadDailyQuestion();
     if (dailyAnswerListOpen.value) await loadDailyAnswers();
-  } catch (error) { errorMessage.value = error instanceof Error ? error.message : '답변 저장에 실패했습니다.'; }
+  } catch (error) {
+    dailyAnswerSaved.value = false;
+    errorMessage.value = error instanceof Error ? error.message : '답변 저장에 실패했습니다.';
+  } finally {
+    submittingDailyAnswer.value = false;
+  }
 };
 
 // 답변 목록은 버튼을 눌렀을 때만 불러와 첫 화면의 요청 수를 늘리지 않습니다.
@@ -315,18 +361,35 @@ watch([activeTab, sort], () => {
   void loadFeed();
 });
 watch(searchQuery, () => { window.clearTimeout(searchTimer); searchTimer = window.setTimeout(() => { void loadFeed(); }, 300); });
-watch(viewerId, () => { void refresh(); });
-onMounted(() => { void refresh(); });
-onScopeDispose(() => window.clearTimeout(searchTimer));
+watch(viewerId, () => {
+  window.clearTimeout(dailyAnswerSavedTimer);
+  dailyAnswerSaved.value = false;
+  void refresh();
+});
+onMounted(() => {
+  window.addEventListener('resize', updatePopularScrollState);
+  void refresh();
+});
+onScopeDispose(() => {
+  window.clearTimeout(searchTimer);
+  window.clearTimeout(dailyAnswerSavedTimer);
+  window.removeEventListener('resize', updatePopularScrollState);
+});
 </script>
 
 <template>
   <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-[800px] lg:max-w-[800px] lg:px-6">
     <CommunityHeader @compose="openComposer" />
-    <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" :viewer-id="viewerId" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+    <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" :viewer-id="viewerId" :submitting="submittingDailyAnswer" :saved="dailyAnswerSaved" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
     <section class="mt-7" aria-labelledby="popular-posts-title">
-      <div class="flex items-end justify-between"><div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div></div>
-      <div class="scrollbar-hide mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1" aria-label="인기 게시글 가로 목록">
+      <div class="flex items-end justify-between gap-3">
+        <div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div>
+        <div v-if="canScrollPopularPrevious || canScrollPopularNext" class="flex shrink-0 gap-2" aria-label="인기 게시글 탐색">
+          <IconButton :icon="ChevronLeft" label="이전 인기 게시글" size="sm" :disabled="!canScrollPopularPrevious" @click="scrollPopularPosts(-1)" />
+          <IconButton :icon="ChevronRight" label="다음 인기 게시글" size="sm" :disabled="!canScrollPopularNext" @click="scrollPopularPosts(1)" />
+        </div>
+      </div>
+      <div ref="popularPostScroller" class="scrollbar-hide mt-4 flex snap-x snap-proximity gap-3 overflow-x-auto scroll-smooth pb-1" aria-label="인기 게시글 가로 목록" @scroll.passive="updatePopularScrollState">
         <CommunityPostCard v-for="post in popularPosts" :key="post.id" class="snap-start" :post="post" compact :show-actions="false" :viewer-liked="likedIds.has(post.id)" :viewer-saved="savedIds.has(post.id)" :saved-list-ids="savedListIds" :saving-save="savingSaveIds.has(post.id)" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
       </div>
     </section>

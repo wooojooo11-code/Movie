@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next';
+import { nextTick, onMounted, onScopeDispose, ref, watch } from 'vue';
 
+import IconButton from '@/components/common/IconButton.vue';
 import CommunityPostCard from '@/components/community/CommunityPostCard.vue';
 import type { CommunityPost } from '@/types/community';
 
-defineProps<{
+const props = defineProps<{
   posts: CommunityPost[];
   likedIds?: ReadonlySet<string>;
   savedIds?: ReadonlySet<string>;
@@ -21,13 +23,54 @@ defineEmits<{
 }>();
 
 const postScroller = ref<HTMLElement | null>(null);
+const canScrollPrevious = ref(false);
+const canScrollNext = ref(false);
+const activePostIndex = ref(0);
+
+const updateScrollState = () => {
+  const scroller = postScroller.value;
+  if (!scroller) return;
+
+  const maximumScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+  canScrollPrevious.value = scroller.scrollLeft > 2;
+  canScrollNext.value = scroller.scrollLeft < maximumScroll - 2;
+
+  const cards = Array.from(scroller.children) as HTMLElement[];
+  const firstCardOffset = cards[0]?.offsetLeft ?? 0;
+  activePostIndex.value = cards.reduce((closestIndex, card, index) => {
+    const closestPosition = cards[closestIndex].offsetLeft - firstCardOffset;
+    const currentPosition = card.offsetLeft - firstCardOffset;
+    return Math.abs(currentPosition - scroller.scrollLeft) < Math.abs(closestPosition - scroller.scrollLeft)
+      ? index
+      : closestIndex;
+  }, 0);
+};
 
 // 카드 한 장의 화면 너비만큼 이동해, 항상 게시글 하나만 보이게 합니다.
 const scrollPosts = (direction: -1 | 1) => {
   const scroller = postScroller.value;
   if (!scroller) return;
-  scroller.scrollBy({ left: direction * scroller.clientWidth, behavior: 'smooth' });
+
+  const firstCard = scroller.firstElementChild as HTMLElement | null;
+  const gap = Number.parseFloat(window.getComputedStyle(scroller).columnGap) || 0;
+  const distance = (firstCard?.getBoundingClientRect().width ?? scroller.clientWidth) + gap;
+  scroller.scrollBy({ left: direction * distance, behavior: 'smooth' });
 };
+
+watch(
+  () => props.posts.map((post) => post.id).join('|'),
+  () => void nextTick(() => {
+    if (postScroller.value) postScroller.value.scrollLeft = 0;
+    updateScrollState();
+  }),
+  { immediate: true }
+);
+
+onMounted(() => {
+  window.addEventListener('resize', updateScrollState);
+  void nextTick(updateScrollState);
+});
+onScopeDispose(() => window.removeEventListener('resize', updateScrollState));
 </script>
 
 <template>
@@ -36,7 +79,17 @@ const scrollPosts = (direction: -1 | 1) => {
 
     <template v-else-if="posts.length">
       <div class="relative lg:-mx-6">
-        <div ref="postScroller" class="scrollbar-hide flex w-full snap-x snap-mandatory items-start gap-4 overflow-x-auto scroll-smooth pb-2 lg:mx-[3.375rem] lg:w-[calc(100%_-_6.75rem)]" aria-label="게시글 가로 피드">
+        <div v-if="posts.length > 1" class="mb-3 flex items-center justify-between sm:hidden" aria-label="게시글 탐색">
+          <p class="text-xs font-semibold tabular-nums text-app-muted" aria-live="polite">
+            {{ activePostIndex + 1 }} / {{ posts.length }}
+          </p>
+          <div class="flex gap-2">
+            <IconButton :icon="ChevronLeft" label="이전 게시글" size="sm" :disabled="!canScrollPrevious" @click="scrollPosts(-1)" />
+            <IconButton :icon="ChevronRight" label="다음 게시글" size="sm" :disabled="!canScrollNext" @click="scrollPosts(1)" />
+          </div>
+        </div>
+
+        <div ref="postScroller" class="scrollbar-hide flex w-full snap-x snap-mandatory items-start gap-4 overflow-x-auto scroll-smooth pb-2 lg:mx-[3.375rem] lg:w-[calc(100%_-_6.75rem)]" aria-label="게시글 가로 피드" @scroll.passive="updateScrollState">
           <CommunityPostCard
             v-for="post in posts"
             :key="post.id"
@@ -54,8 +107,12 @@ const scrollPosts = (direction: -1 | 1) => {
           />
         </div>
 
-        <button type="button" class="focus-ring absolute left-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="이전 게시글" @click="scrollPosts(-1)">←</button>
-        <button type="button" class="focus-ring absolute right-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-xl font-bold text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="posts.length < 2" aria-label="다음 게시글" @click="scrollPosts(1)">→</button>
+        <button type="button" class="focus-ring absolute left-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="!canScrollPrevious" aria-label="이전 게시글" @click="scrollPosts(-1)">
+          <ChevronLeft :size="24" :stroke-width="2" aria-hidden="true" />
+        </button>
+        <button type="button" class="focus-ring absolute right-0 top-[calc(50%_-_110px)] z-10 hidden size-12 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-[#15171c] shadow-sm transition-colors hover:border-app-accent hover:text-[#174a77] active:scale-95 disabled:cursor-default disabled:opacity-40 lg:grid" :disabled="!canScrollNext" aria-label="다음 게시글" @click="scrollPosts(1)">
+          <ChevronRight :size="24" :stroke-width="2" aria-hidden="true" />
+        </button>
       </div>
     </template>
 

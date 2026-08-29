@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
@@ -144,6 +144,88 @@ const toggleListDetails = (listId: string) => {
 
 const similarTasteRecommendedLists = computed(() => listStore.similarTasteRecommendedLists.value);
 
+const createHorizontalScrollControls = (cardSelector: string) => {
+  const scroller = ref<HTMLElement | null>(null);
+  const canScrollLeft = ref(false);
+  const canScrollRight = ref(false);
+  let resizeObserver: ResizeObserver | null = null;
+
+  const update = () => {
+    const element = scroller.value;
+
+    if (!element) {
+      canScrollLeft.value = false;
+      canScrollRight.value = false;
+      return;
+    }
+
+    const maxScrollLeft = Math.max(0, element.scrollWidth - element.clientWidth);
+    canScrollLeft.value = element.scrollLeft > 2;
+    canScrollRight.value = element.scrollLeft < maxScrollLeft - 2;
+  };
+
+  const scroll = (direction: -1 | 1) => {
+    const element = scroller.value;
+
+    if (!element) {
+      return;
+    }
+
+    const card = element.querySelector<HTMLElement>(cardSelector);
+    const gap = Number.parseFloat(window.getComputedStyle(element).columnGap) || 0;
+    const distance = (card?.getBoundingClientRect().width ?? element.clientWidth) + gap;
+
+    element.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  };
+
+  const refresh = () => {
+    void nextTick(() => {
+      resizeObserver?.disconnect();
+      resizeObserver = null;
+      update();
+
+      if (scroller.value && typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(update);
+        resizeObserver.observe(scroller.value);
+      }
+    });
+  };
+
+  const disconnect = () => resizeObserver?.disconnect();
+
+  return { canScrollLeft, canScrollRight, disconnect, refresh, scroll, scroller, update };
+};
+
+const {
+  scroller: myListScroller,
+  canScrollLeft: canScrollMyListsLeft,
+  canScrollRight: canScrollMyListsRight,
+  update: updateMyListScrollControls,
+  scroll: scrollMyLists,
+  refresh: refreshMyListScrollControls,
+  disconnect: disconnectMyListScrollControls
+} = createHorizontalScrollControls('[data-my-list-card]');
+
+const {
+  scroller: libraryScroller,
+  canScrollLeft: canScrollLibraryLeft,
+  canScrollRight: canScrollLibraryRight,
+  update: updateLibraryScrollControls,
+  scroll: scrollLibrary,
+  refresh: refreshLibraryScrollControls,
+  disconnect: disconnectLibraryScrollControls
+} = createHorizontalScrollControls('[data-library-card]');
+
+const {
+  scroller: sharedListScroller,
+  canScrollLeft: canScrollSharedListsLeft,
+  canScrollRight: canScrollSharedListsRight,
+  update: updateSharedListScrollControls,
+  scroll: scrollSharedLists,
+  refresh: refreshSharedListScrollControls,
+  disconnect: disconnectSharedListScrollControls
+} = createHorizontalScrollControls('[data-shared-list-card]');
+
 const searchListCards = computed(() =>
   listStore.state.listResults.map((result) => ({
     ...result,
@@ -274,11 +356,24 @@ watch([librarySearchQuery, librarySearchSortOption], async ([query, sort]) => {
 
 onMounted(() => {
   void listStore.refreshSimilarTasteListRecommendations();
+  refreshMyListScrollControls();
+  refreshLibraryScrollControls();
+  refreshSharedListScrollControls();
 
   if (route.query.compose === '1') {
     openCreateComposerWithMovie(route.query.movieId);
     void router.replace({ name: 'lists' });
   }
+});
+
+watch(sortedMyLists, refreshMyListScrollControls, { flush: 'post' });
+watch(libraryStore.savedMovies, refreshLibraryScrollControls, { flush: 'post' });
+watch(sortedSharedLists, refreshSharedListScrollControls, { flush: 'post' });
+
+onBeforeUnmount(() => {
+  disconnectMyListScrollControls();
+  disconnectLibraryScrollControls();
+  disconnectSharedListScrollControls();
 });
 </script>
 
@@ -376,23 +471,49 @@ onMounted(() => {
         <span class="text-xs font-medium text-app-muted">{{ listStore.myLists.value.length }}개</span>
       </div>
 
-      <div
-        v-if="listStore.myLists.value.length > 0"
-        class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2"
-      >
-        <UserListCard
-          v-for="list in sortedMyLists"
-          :key="list.id"
-          class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
-          :list="list"
-          :saved-movie-ids="libraryStore.savedMovieIds.value"
-          :expanded="isListExpanded(list.id)"
-          @edit="openEditComposer"
-          @delete="listStore.deleteUserList"
-          @remove-from-my-lists="listStore.removeFromMyLists"
-          @toggle-watch="libraryStore.toggleMovie"
-          @toggle="toggleListDetails"
-        />
+      <div v-if="listStore.myLists.value.length > 0" class="relative min-w-0">
+        <div
+          ref="myListScroller"
+          class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2"
+          aria-label="내 리스트 가로 목록"
+          @scroll.passive="updateMyListScrollControls"
+        >
+          <UserListCard
+            v-for="list in sortedMyLists"
+            :key="list.id"
+            data-my-list-card
+            class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
+            :list="list"
+            :saved-movie-ids="libraryStore.savedMovieIds.value"
+            :expanded="isListExpanded(list.id)"
+            @edit="openEditComposer"
+            @delete="listStore.deleteUserList"
+            @remove-from-my-lists="listStore.removeFromMyLists"
+            @toggle-watch="libraryStore.toggleMovie"
+            @toggle="toggleListDetails"
+          />
+        </div>
+
+        <button
+          v-if="canScrollMyListsLeft || canScrollMyListsRight"
+          type="button"
+          class="focus-ring absolute left-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollMyListsLeft"
+          aria-label="이전 내 리스트"
+          @click="scrollMyLists(-1)"
+        >
+          ←
+        </button>
+        <button
+          v-if="canScrollMyListsLeft || canScrollMyListsRight"
+          type="button"
+          class="focus-ring absolute right-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollMyListsRight"
+          aria-label="다음 내 리스트"
+          @click="scrollMyLists(1)"
+        >
+          →
+        </button>
       </div>
 
       <div
@@ -618,15 +739,44 @@ onMounted(() => {
         아직 보관한 영화가 없어요.
       </div>
 
-      <div v-else class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
-        <LibraryMovieCard
-          v-for="item in libraryStore.savedMovies.value"
-          :key="item.movieId"
-          class="w-36 shrink-0 snap-start sm:w-40"
-          :item="item"
-          @edit="editLibraryMovie"
-          @remove="libraryStore.removeMovie"
-        />
+      <div v-else class="relative min-w-0">
+        <div
+          ref="libraryScroller"
+          class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2"
+          aria-label="보관함 영화 가로 목록"
+          @scroll.passive="updateLibraryScrollControls"
+        >
+          <LibraryMovieCard
+            v-for="item in libraryStore.savedMovies.value"
+            :key="item.movieId"
+            data-library-card
+            class="w-36 shrink-0 snap-start sm:w-40"
+            :item="item"
+            @edit="editLibraryMovie"
+            @remove="libraryStore.removeMovie"
+          />
+        </div>
+
+        <button
+          v-if="canScrollLibraryLeft || canScrollLibraryRight"
+          type="button"
+          class="focus-ring absolute left-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollLibraryLeft"
+          aria-label="이전 보관함 영화"
+          @click="scrollLibrary(-1)"
+        >
+          ←
+        </button>
+        <button
+          v-if="canScrollLibraryLeft || canScrollLibraryRight"
+          type="button"
+          class="focus-ring absolute right-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollLibraryRight"
+          aria-label="다음 보관함 영화"
+          @click="scrollLibrary(1)"
+        >
+          →
+        </button>
       </div>
         </section>
 
@@ -666,20 +816,49 @@ onMounted(() => {
         <span class="text-xs font-medium text-app-muted">{{ listStore.sharedLists.value.length }}개</span>
       </div>
 
-      <div class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2">
-        <SharedListCard
-          v-for="list in sortedSharedLists"
-          :key="list.id"
-          class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
-          :list="list"
-          :saved-movie-ids="libraryStore.savedMovieIds.value"
-          :show-save-button="list.ownerId !== listStore.state.userId"
-          :expanded="isListExpanded(list.id)"
-          @toggle-save="listStore.toggleSharedListSave"
-          @toggle-watch="libraryStore.toggleMovie"
-          @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
-          @toggle="toggleListDetails"
-        />
+      <div class="relative min-w-0">
+        <div
+          ref="sharedListScroller"
+          class="scrollbar-hide flex max-w-full snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2"
+          aria-label="공유 리스트 가로 목록"
+          @scroll.passive="updateSharedListScrollControls"
+        >
+          <SharedListCard
+            v-for="list in sortedSharedLists"
+            :key="list.id"
+            data-shared-list-card
+            class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
+            :list="list"
+            :saved-movie-ids="libraryStore.savedMovieIds.value"
+            :show-save-button="list.ownerId !== listStore.state.userId"
+            :expanded="isListExpanded(list.id)"
+            @toggle-save="listStore.toggleSharedListSave"
+            @toggle-watch="libraryStore.toggleMovie"
+            @rate="({ listId, rating }) => listStore.setSharedListRating(listId, rating)"
+            @toggle="toggleListDetails"
+          />
+        </div>
+
+        <button
+          v-if="canScrollSharedListsLeft || canScrollSharedListsRight"
+          type="button"
+          class="focus-ring absolute left-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollSharedListsLeft"
+          aria-label="이전 공유 리스트"
+          @click="scrollSharedLists(-1)"
+        >
+          ←
+        </button>
+        <button
+          v-if="canScrollSharedListsLeft || canScrollSharedListsRight"
+          type="button"
+          class="focus-ring absolute right-2 top-1/2 z-10 grid size-10 -translate-y-1/2 place-items-center rounded-full border border-app-line bg-app-panel text-lg font-bold text-white shadow-lg transition hover:border-app-accent active:scale-95 disabled:cursor-default disabled:opacity-35 sm:size-11"
+          :disabled="!canScrollSharedListsRight"
+          aria-label="다음 공유 리스트"
+          @click="scrollSharedLists(1)"
+        >
+          →
+        </button>
       </div>
         </section>
     </div>

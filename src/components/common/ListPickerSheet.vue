@@ -19,21 +19,30 @@ const listStore = useListStore();
 const router = useRouter();
 const pendingListId = ref<null | string>(null);
 const message = ref('');
+const hasError = ref(false);
 const lists = computed(() => listStore.editableLists.value);
 
 const add = async (listId: string) => {
   if (pendingListId.value) return;
   pendingListId.value = listId;
   message.value = '';
+  hasError.value = false;
 
   try {
     const result = await listStore.addMovieToList(listId, props.movie);
+    hasError.value = result === 'sync-error';
     message.value =
       result === 'added'
         ? '리스트에 추가했어요.'
         : result === 'exists'
           ? '이미 이 리스트에 있어요.'
-          : '이 리스트에는 추가할 수 없어요.';
+          : result === 'sync-error'
+            ? '기기에는 추가했지만 서버 저장에 실패했어요. 연결을 확인한 뒤 다시 눌러 주세요.'
+            : '이 리스트에는 추가할 수 없어요.';
+  } catch (error) {
+    console.error('[ListPickerSheet] Failed to add movie to list.', error);
+    hasError.value = true;
+    message.value = '리스트에 저장하지 못했어요. 잠시 후 다시 시도해 주세요.';
   } finally {
     pendingListId.value = null;
   }
@@ -81,7 +90,14 @@ const createListWithMovie = async () => {
         <p class="text-sm leading-6 text-app-muted">아직 만든 리스트가 없어요. 이 영화를 담은 새 리스트부터 만들 수 있어요.</p>
         <button type="button" class="button-primary mt-3 min-h-10 rounded-xl px-3 text-sm font-semibold" @click="createListWithMovie">새 리스트 만들기</button>
       </div>
-      <p v-if="message" class="mt-3 text-sm font-medium text-app-accent" aria-live="polite">{{ message }}</p>
+      <p
+        v-if="message"
+        class="mt-3 text-sm font-medium"
+        :class="hasError ? 'text-rose-600' : 'text-app-accent'"
+        aria-live="polite"
+      >
+        {{ message }}
+      </p>
     </section>
   </div>
 </template>

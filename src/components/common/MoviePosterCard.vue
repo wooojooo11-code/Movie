@@ -54,7 +54,7 @@ const emit = defineEmits<{
           loading="lazy"
         />
         <span v-if="props.rank !== null" class="poster-badge left-2 top-2">{{ props.rank }}</span>
-        <span v-if="props.score !== null" class="poster-badge bottom-2 left-2">{{ Math.round(props.score) }}%</span>
+        <span v-if="props.score !== null" class="poster-badge bottom-2 left-2">{{ Math.round(props.score) }}점</span>
       </div>
     </button>
 
@@ -66,7 +66,7 @@ const emit = defineEmits<{
         {{ props.movie.title }}
       </h3>
       <p v-if="props.score !== null && props.size !== 'compact'" class="mt-0.5 text-[11px] text-app-muted">
-        취향 일치도 {{ Math.round(props.score) }}%
+        추천 점수 {{ Math.round(props.score) }}점
       </p>
     </div>
 

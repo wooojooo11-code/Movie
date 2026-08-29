@@ -27,6 +27,8 @@ import {
 } from '@/services/recommendationRepository';
 import { rankSituationMovies } from '@/services/situationRecommendation';
 import { checkTitlesForMovieActivity } from '@/services/titleService';
+import { libraryStore } from '@/services/libraryStore';
+import { listStore } from '@/services/listStore';
 import type {
   ActiveSituation,
   AdditionalTasteAnalysisBatch,
@@ -833,6 +835,16 @@ const excludedRecommendationMovieIds = computed(() => [
   ...state.dismissedRecommendationMovieIds
 ]);
 
+const encounteredRecommendationMovieIds = computed(() => [
+  ...new Set([
+    ...ratedMovieIds.value,
+    ...state.dismissedRecommendationMovieIds,
+    ...state.recommendationImpressions.map((impression) => impression.movieId),
+    ...libraryStore.savedMovieIds.value,
+    ...listStore.myLists.value.flatMap((list) => list.movieIds)
+  ])
+]);
+
 const mapScoredMoviesToCatalogMovies = (movies: ReturnType<typeof recommendMovies>) =>
   movies.map((movie) => ({
     ...movieMap[movie.id],
@@ -901,10 +913,12 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
     catalogMovies,
     collaborativeSignals: collaborativeRecommendationSignals.value,
     communitySituationSignals: communitySituationMovieSignals.value,
+    encounteredMovieIds: encounteredRecommendationMovieIds.value,
     hasTasteProfile: state.profile.totalRatings > 0,
     impressions: state.recommendationImpressions,
     likedMovieIds: likedMovieIds.value,
-    movies: fixedPresetRecommendationPool.value ?? fallbackRecommendationPool.value
+    movies: fixedPresetRecommendationPool.value ?? fallbackRecommendationPool.value,
+    ratings: state.ratings
   }).slice(0, recommendationVisibleLimit);
 });
 

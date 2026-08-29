@@ -153,7 +153,7 @@ onMounted(() => void refreshBoxOffice());
         <h1 class="mt-2 text-2xl font-bold leading-tight sm:text-3xl">{{ featuredMovie.title }}</h1>
         <p class="mt-3 text-sm leading-6 text-sky-50/90">{{ featuredMovie.recommendationReasons?.[0] ?? '오늘의 취향에 가장 가까운 영화예요.' }}</p>
         <div class="mt-5 flex items-center gap-3">
-          <span class="rounded-full bg-white/15 px-3 py-1.5 text-sm font-bold">취향 일치 {{ Math.round(featuredMovie.recommendationScore) }}%</span>
+          <span class="rounded-full bg-white/15 px-3 py-1.5 text-sm font-bold">추천 점수 {{ Math.round(featuredMovie.recommendationScore) }}점</span>
           <IconButton class="pointer-events-auto" :icon="Clapperboard" label="오늘의 추천 예고편 보기" @click.stop="openMovie(featuredMovie, true)" />
         </div>
       </div>

@@ -52,6 +52,12 @@ const ensureSupabase = () => {
 const asString = (value: unknown, fallback = '') => (typeof value === 'string' ? value : fallback);
 const asNumber = (value: unknown, fallback = 0) => (typeof value === 'number' ? value : fallback);
 const asNullableString = (value: unknown): null | string => (typeof value === 'string' && value ? value : null);
+const isMissingDailyAnswerMovieColumnError = (error: unknown) => {
+  if (!error || typeof error !== 'object') return false;
+  const code = 'code' in error && typeof error.code === 'string' ? error.code : '';
+  const message = 'message' in error && typeof error.message === 'string' ? error.message : '';
+  return (code === '42703' || code === 'PGRST204') && /movie_(id|title|poster_path)/.test(message);
+};
 // 이전 bigint 컬럼을 아직 마이그레이션하지 않은 환경도 게시글을 읽을 수 있게 합니다.
 const asMovieId = (value: unknown): null | string =>
   typeof value === 'string' && value
@@ -546,7 +552,8 @@ export const fetchDailyQuestion = async (viewerId?: null | string): Promise<Dail
 export const fetchDailyQuestionAnswers = async (questionId: string, excludeUserId?: null | string): Promise<DailyQuestionAnswer[]> => {
   ensureSupabase();
   let query = getDailyQuestionAnswersRelation()!
-    .select('id, question_id, user_id, content, movie_id, movie_title, movie_poster_path, created_at, updated_at')
+    // select('*') keeps this list compatible with databases created before movie reference columns were added.
+    .select('*')
     .eq('question_id', questionId);
 
   if (excludeUserId) {
@@ -592,7 +599,8 @@ export const saveDailyQuestionAnswer = async (
   input: DailyQuestionAnswerInput
 ): Promise<DailyQuestionAnswer> => {
   ensureSupabase();
-  const { data, error } = await getDailyQuestionAnswersRelation()!
+  const relation = getDailyQuestionAnswersRelation()!;
+  const modernResult = await relation
     .upsert(
       {
         question_id: questionId,
@@ -605,12 +613,43 @@ export const saveDailyQuestionAnswer = async (
       { onConflict: 'question_id,user_id' }
     )
     .select('*').single();
+
+  let data = modernResult.data;
+  let error = modernResult.error;
+  let usedLegacyColumns = false;
+
+  // 202608091200 마이그레이션 전 DB에는 영화 열이 없습니다. 이 경우 영화 제목과 이유를
+  // 기존 content 열에 함께 저장해 답변 등록 자체는 중단되지 않게 합니다.
+  if (isMissingDailyAnswerMovieColumnError(error)) {
+    const reason = input.content.trim();
+    const legacyContent = `${input.movie.title}${reason ? `\n${reason}` : ''}`.slice(0, 500);
+    const legacyResult = await relation
+      .upsert(
+        {
+          question_id: questionId,
+          user_id: userId,
+          content: legacyContent
+        },
+        { onConflict: 'question_id,user_id' }
+      )
+      .select('*')
+      .single();
+    data = legacyResult.data;
+    error = legacyResult.error;
+    usedLegacyColumns = true;
+  }
+
   if (error) throw error;
   const row = data as Row;
-  const movie = toMovie(row.movie_id, row.movie_title, row.movie_poster_path);
+  const movie = usedLegacyColumns
+    ? input.movie
+    : toMovie(row.movie_id, row.movie_title, row.movie_poster_path);
   return {
     id: asString(row.id), questionId: asString(row.question_id), userId: asString(row.user_id),
-    content: asString(row.content) === movie?.title ? '' : asString(row.content), createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
+    content: usedLegacyColumns
+      ? input.content.trim()
+      : asString(row.content) === movie?.title ? '' : asString(row.content),
+    createdAt: asString(row.created_at), updatedAt: asString(row.updated_at),
     movie,
     author: toDailyAnswerAuthor(asString(row.user_id))
   };

@@ -1,1 +1,0 @@
-import{movieCreditsById as h}from"./movieCredits-CffrA5Kj.js";const u=(c,s)=>{var a;const t=h[c],r=(a=t==null?void 0:t.characters)!=null&&a.length?t.characters:s,o=(t==null?void 0:t.cast)??[];return r.map((n,e)=>({name:n,actorName:o[e]??null,actorPhotoUrl:null}))};export{u as g};

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CheckCircle2 } from 'lucide-vue-next';
 import { ref, watch } from 'vue';
 
 import MovieSearchInput from '@/components/community/MovieSearchInput.vue';
@@ -8,11 +9,17 @@ import type {
   DailyQuestionAnswerInput
 } from '@/types/community';
 
-const props = defineProps<{ question: DailyQuestion | null; isAuthenticated: boolean; loading?: boolean; viewerId?: null | string }>();
+const props = defineProps<{
+  question: DailyQuestion | null;
+  isAuthenticated: boolean;
+  loading?: boolean;
+  viewerId?: null | string;
+  submitting?: boolean;
+  saved?: boolean;
+}>();
 const emit = defineEmits<{ submit: [input: DailyQuestionAnswerInput]; login: []; viewAnswers: [] }>();
 const answer = ref('');
 const selectedMovie = ref<CommunityMovieReference | null>(null);
-const submitting = ref(false);
 
 const getAnswerCacheKey = () =>
   props.question?.id && props.viewerId
@@ -58,6 +65,14 @@ watch(
   { immediate: true }
 );
 
+// 서버 저장이 확인된 답변만 로컬에 보관합니다. 실패한 입력이 등록된 답변처럼 복원되면 안 됩니다.
+watch(
+  () => props.saved,
+  (saved) => {
+    if (saved) cacheAnswer();
+  }
+);
+
 const selectMovie = (movie: CommunityMovieReference) => {
   selectedMovie.value = movie;
 };
@@ -79,16 +94,11 @@ const submit = () => {
     return;
   }
 
-  if (!selectedMovie.value || submitting.value) {
+  if (!selectedMovie.value || props.submitting || props.saved) {
     return;
   }
 
-  submitting.value = true;
-  cacheAnswer();
   emit('submit', { content: answer.value, movie: selectedMovie.value });
-  window.setTimeout(() => {
-    submitting.value = false;
-  }, 250);
 };
 </script>
 
@@ -156,13 +166,25 @@ const submit = () => {
         />
         <button
           type="button"
-          class="focus-ring corner-pill shrink-0 border border-app-accent bg-app-accent px-4 text-sm font-bold text-white disabled:opacity-50"
-          :disabled="!selectedMovie || submitting"
+          class="focus-ring corner-pill inline-flex min-w-[5.25rem] shrink-0 items-center justify-center gap-1.5 border px-4 text-sm font-bold transition-colors disabled:cursor-default"
+          :class="[
+            saved
+              ? 'border-[#2f855a] bg-[#2f855a] !text-white'
+              : 'border-app-accent bg-app-accent !text-white',
+            (!selectedMovie || submitting) && !saved ? 'opacity-50' : ''
+          ]"
+          :disabled="!selectedMovie || submitting || saved"
           @click="submit"
         >
-          {{ question.viewerAnswer ? '수정' : '등록' }}
+          <CheckCircle2 v-if="saved" :size="16" :stroke-width="2.4" aria-hidden="true" />
+          {{ saved ? '등록 완료' : submitting ? '저장 중' : question.viewerAnswer ? '수정하기' : '등록' }}
         </button>
       </div>
+
+      <p v-if="saved" class="mt-2 flex items-center gap-1.5 text-xs font-semibold text-[#2f855a]" role="status" aria-live="polite">
+        <CheckCircle2 :size="15" :stroke-width="2.3" aria-hidden="true" />
+        답변이 정상적으로 등록됐어요.
+      </p>
     </div>
   </section>
 </template>

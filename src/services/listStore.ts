@@ -235,7 +235,7 @@ const similarTasteListSignals = ref<SimilarTasteListSignal[]>([]);
 
 let latestMovieSearchToken = 0;
 let latestListSearchToken = 0;
-let remoteSaveChain: Promise<void> = Promise.resolve();
+let remoteSaveChain: Promise<boolean> = Promise.resolve(true);
 
 const getErrorMessage = (error: unknown, fallback: string) => {
   if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
@@ -271,29 +271,30 @@ const applySnapshot = (
 
 const runRemoteTask = async (
   task: () => Promise<void>,
-  _fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
+  fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
 ) => {
   remoteSyncStatus.value = 'syncing';
 
   try {
     await task();
     remoteSyncStatus.value = 'success';
+    return true;
   } catch (error) {
     remoteSyncStatus.value = 'error';
-    remoteSyncErrorMessage.value = getErrorMessage(error, REMOTE_SAVE_FAILURE_MESSAGE);
+    remoteSyncErrorMessage.value = getErrorMessage(error, fallbackMessage);
     console.error('[listStore] Supabase list sync failed.', error);
+    return false;
   }
 };
 
 const enqueueRemoteTask = (
   task: () => Promise<void>,
-  _fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
+  fallbackMessage = REMOTE_SAVE_FAILURE_MESSAGE
 ) => {
-  remoteSaveChain = remoteSaveChain
-    .catch(() => {
-      // Previous failures already updated the error state.
-    })
-    .then(() => runRemoteTask(task));
+  remoteSaveChain = remoteSaveChain.then(
+    () => runRemoteTask(task, fallbackMessage),
+    () => runRemoteTask(task, fallbackMessage)
+  );
 
   return remoteSaveChain;
 };
@@ -375,21 +376,23 @@ const persistState = async () => {
   localListRepository.save(snapshot);
   remoteSyncErrorMessage.value = '';
 
-  await enqueueRemoteTask(
+  let didSyncRemotely = await enqueueRemoteTask(
     () => remoteListRepository.save(snapshot),
     '리스트 변경 내용을 Supabase에 저장하지 못했어요.'
   );
 
-  if (state.userId !== FALLBACK_USER_ID) {
+  if (state.userId !== FALLBACK_USER_ID && didSyncRemotely) {
     state.sharedCatalog = normalizeSharedCatalog(await remoteListRepository.loadSharedLists(state.userId));
     syncImportedListsFromSharedCatalog();
     applyCurrentUserShareRules();
     persistSnapshotLocally();
 
     if (getSnapshotFingerprint() !== savedSnapshotFingerprint) {
-      await enqueueRemoteTask(() => remoteListRepository.save(buildSnapshot()));
+      didSyncRemotely = await enqueueRemoteTask(() => remoteListRepository.save(buildSnapshot()));
     }
   }
+
+  return didSyncRemotely;
 };
 
 const resolveMoviePreviews = (movieIds: readonly string[]) =>
@@ -672,7 +675,8 @@ const addMovieToList = async (listId: string, movie: CatalogMovie | string) => {
   }
 
   if (target.movieIds.includes(movieId)) {
-    return 'exists' as const;
+    const didSync = await persistState();
+    return didSync ? ('exists' as const) : ('sync-error' as const);
   }
 
   const updatedAt = new Date().toISOString();
@@ -685,13 +689,13 @@ const addMovieToList = async (listId: string, movie: CatalogMovie | string) => {
         }
       : list
   );
-  await persistState();
+  const didSync = await persistState();
 
   if (state.listSearchQuery.trim()) {
     await refreshListSearchResults();
   }
 
-  return 'added' as const;
+  return didSync ? ('added' as const) : ('sync-error' as const);
 };
 
 const editUserList = (listId: string) => {

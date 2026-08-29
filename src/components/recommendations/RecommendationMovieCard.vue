@@ -24,15 +24,18 @@ const props = withDefaults(
 
 const factors = computed(() => {
   const breakdown = props.movie.recommendationScoreBreakdown;
+  const maximums = props.movie.recommendationScoreMaximums;
 
-  if (!breakdown) return [];
+  if (!breakdown || !maximums) return [];
 
   return [
-    { label: '취향', value: breakdown.preference },
-    { label: '상황', value: breakdown.situation },
-    { label: '비슷한 취향', value: Math.max(breakdown.collaborative, breakdown.communitySituation) },
-    { label: '새로움', value: breakdown.novelty }
-  ].filter((factor) => factor.value > 0);
+    { label: '취향', value: breakdown.personalPreference, maximum: maximums.personalPreference },
+    { label: '비슷한 이용자', value: breakdown.similarUser, maximum: maximums.similarUser },
+    { label: '상황', value: breakdown.situation, maximum: maximums.situation },
+    { label: 'TMDB 품질', value: breakdown.tmdbQuality, maximum: maximums.tmdbQuality },
+    { label: '새로움', value: breakdown.novelty, maximum: maximums.novelty },
+    { label: '배우·감독', value: breakdown.people, maximum: maximums.people }
+  ].filter((factor) => factor.maximum > 0);
 });
 </script>
 
@@ -54,7 +57,7 @@ const factors = computed(() => {
     <button v-if="size === 'grid' && factors.length" type="button" class="focus-ring mt-2 grid w-full gap-1.5 px-0.5 text-left" :aria-label="`${movie.title} 추천 점수 상세 보기`" @click="$emit('open', movie)">
       <div v-for="factor in factors" :key="factor.label" class="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-1.5 text-[10px]">
         <span class="truncate text-app-muted">{{ factor.label }}</span>
-        <span class="h-1 overflow-hidden rounded-full bg-app-panelSoft"><span class="block h-full rounded-full bg-app-accent" :style="{ width: `${Math.round(factor.value)}%` }" /></span>
+        <span class="h-1 overflow-hidden rounded-full bg-app-panelSoft"><span class="block h-full rounded-full bg-app-accent" :style="{ width: `${Math.round((factor.value / factor.maximum) * 100)}%` }" /></span>
       </div>
     </button>
   </div>

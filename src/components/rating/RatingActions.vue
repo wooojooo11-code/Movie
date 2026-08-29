@@ -16,7 +16,7 @@ const props = withDefaults(
     activeDirection: null,
     compact: false,
     layout: 'cross',
-    selectedButtonClassName: 'border-[#15171c] bg-[#15171c] text-[#ffffff]',
+    selectedButtonClassName: 'border-[#15171c] bg-[#15171c] !text-white',
     selectedDescriptionClassName: 'text-[#d9dde3]',
     selectedEnterBadgeClassName: 'border border-[#15171c] bg-[#15171c] text-[#ffffff]'
   }
@@ -45,7 +45,7 @@ const actionButtons: ActionButton[] = [
     shortcut: 'ArrowUp',
     label: '관심있음',
     contextLabel: '안 본 영화',
-    className: 'border border-app-accent bg-app-accent text-white'
+    className: 'border border-app-accent bg-app-accent !text-white'
   },
   {
     decision: 'dislike' as const,
@@ -63,7 +63,7 @@ const actionButtons: ActionButton[] = [
     shortcut: 'ArrowRight',
     label: '재미있음',
     contextLabel: '본 영화',
-    className: 'border border-app-accent bg-app-accent text-white'
+    className: 'border border-app-accent bg-app-accent !text-white'
   },
   {
     decision: 'not_interested' as const,

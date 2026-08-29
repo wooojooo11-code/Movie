@@ -281,7 +281,7 @@ const onPointerUp = (event: PointerEvent) => {
     class="corner-hard select-none overflow-hidden border border-app-line bg-app-panel transition-transform"
     :class="[
       interactive ? 'touch-none cursor-grab active:cursor-grabbing' : 'cursor-default',
-      primaryLayout ? 'sm:min-h-[calc(100dvh-11rem)]' : '',
+      primaryLayout ? 'absolute inset-0 min-h-0' : '',
       { 'transition-none': isDragging },
       previousRatingPresentation?.borderClassName
     ]"
@@ -367,13 +367,16 @@ const onPointerUp = (event: PointerEvent) => {
       </p>
     </div>
 
-    <div v-else-if="primaryLayout" class="bg-app-panel sm:grid sm:min-h-[calc(100dvh-11rem)] sm:grid-cols-[minmax(20rem,0.95fr)_minmax(0,1.05fr)] sm:items-stretch">
-      <div class="overflow-hidden border-b border-app-line bg-[#10141c] sm:border-b-0 sm:border-r">
+    <div
+      v-else-if="primaryLayout"
+      class="grid h-full min-h-0 grid-cols-[minmax(7rem,0.72fr)_minmax(0,1.28fr)] grid-rows-[minmax(0,1fr)_auto] bg-app-panel sm:grid-cols-[minmax(19rem,0.92fr)_minmax(0,1.08fr)] sm:grid-rows-1"
+    >
+      <div class="min-h-0 overflow-hidden border-r border-app-line bg-[#10141c]">
         <button
           v-if="showTrailer"
           type="button"
           :aria-label="`${movie.title} 예고편 앱에서 재생하기`"
-          class="focus-ring group relative block aspect-[16/10] w-full overflow-hidden bg-[#15171c] text-left sm:aspect-[16/11]"
+          class="focus-ring group relative block h-full w-full overflow-hidden bg-[#15171c] text-left"
           @click.stop="openTrailer"
           @pointerdown.stop
           @pointermove.stop
@@ -384,85 +387,81 @@ const onPointerUp = (event: PointerEvent) => {
             :src="movie.posterUrl"
             alt=""
             aria-hidden="true"
-            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-55 blur-sm transition duration-500 group-hover:scale-100"
+            class="absolute inset-0 h-full w-full scale-110 object-cover opacity-45 blur-md transition duration-500 group-hover:scale-100"
             loading="lazy"
           />
-          <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#07090d]/95 via-[#07090d]/25 to-[#07090d]/45"></span>
-          <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.18em] text-white">
+          <span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-[#07090d]/90 via-[#07090d]/20 to-[#07090d]/45"></span>
+          <img
+            :src="movie.posterUrl"
+            :alt="movie.posterAlt"
+            class="relative h-full w-full object-contain px-1 py-8 sm:px-7 sm:py-10"
+            loading="lazy"
+          />
+          <span class="absolute left-2 top-2 inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.14em] text-white sm:left-4 sm:top-4 sm:text-[10px] sm:tracking-[0.18em]">
             <span class="h-1.5 w-1.5 rounded-full bg-[#e45050] shadow-[0_0_10px_rgba(228,80,80,0.9)]"></span>
             TRAILER
           </span>
-          <span class="absolute right-3 top-3 text-[10px] font-medium tracking-[0.12em] text-white/70">
+          <span class="absolute right-2 top-2 text-[9px] font-medium tracking-[0.1em] text-white/70 sm:right-4 sm:top-4 sm:text-[10px] sm:tracking-[0.12em]">
             {{ movie.releaseYear }}
           </span>
-          <span class="relative flex h-full flex-col items-center justify-center">
-            <span class="grid size-16 place-items-center rounded-full border border-white/70 bg-black/35 shadow-[0_6px_20px_rgba(0,0,0,0.45)] transition duration-200 group-hover:scale-110 group-hover:bg-white/20">
-              <span class="ml-1 block h-0 w-0 border-y-[9px] border-l-[14px] border-y-transparent border-l-white"></span>
+          <span class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="grid size-11 place-items-center rounded-full border border-white/70 bg-black/45 shadow-[0_6px_20px_rgba(0,0,0,0.45)] transition duration-200 group-hover:scale-110 group-hover:bg-white/20 sm:size-16">
+              <span class="ml-0.5 block h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-white sm:ml-1 sm:border-y-[9px] sm:border-l-[14px]"></span>
             </span>
-            <span class="mt-4 text-base font-semibold text-white">공식 예고편 재생</span>
-          </span>
-          <span class="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 text-[10px] font-medium text-white/80">
-            <span>앱에서 바로 보기</span>
-            <span class="tracking-[0.12em]">PLAY NOW</span>
+            <span class="mt-2 text-[10px] font-semibold text-white sm:mt-4 sm:text-base">예고편 재생</span>
           </span>
         </button>
 
-        <div v-else class="flex aspect-video items-center justify-center bg-app-poster sm:aspect-[16/11]">
+        <div v-else class="flex h-full items-center justify-center bg-app-poster">
           <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-full w-full object-contain" loading="lazy" />
-        </div>
-
-        <div class="relative z-10 -mt-20 flex items-end gap-4 px-5 pb-5 sm:px-6">
-          <div class="corner-soft w-[104px] shrink-0 overflow-hidden border-2 border-white/90 bg-app-poster shadow-[0_10px_24px_rgba(0,0,0,0.45)] sm:w-[144px]">
-            <img
-              :src="movie.posterUrl"
-              :alt="movie.posterAlt"
-              class="aspect-[2/3] w-full object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div class="min-w-0 pb-2 text-white">
-            <p class="text-[10px] font-bold tracking-[0.14em] text-white/60">NOW SHOWING</p>
-            <p class="mt-1 text-base font-semibold">예고편으로 먼저 만나보세요</p>
-          </div>
         </div>
       </div>
 
-      <div class="p-4 sm:flex sm:flex-col sm:p-6">
-        <p
-          v-if="previousRatingPresentation"
-          class="corner-pill mb-3 inline-flex w-fit border px-3 py-1.5 text-xs font-bold sm:text-sm"
-          :class="previousRatingPresentation.badgeClassName"
-        >
-          {{ previousRatingPresentation.label }}
-        </p>
-        <p
-          class="corner-pill mb-3 inline-flex border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-bold text-[#15171c] sm:text-sm"
-        >
-          {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
-        </p>
-        <h1 class="text-[28px] font-semibold leading-tight text-[#15171c] sm:text-[34px]">
-          {{ movie.title }}
-        </h1>
-        <p class="mt-3 text-sm font-medium text-app-muted sm:text-base">
-          {{ movie.tags.join(' · ') }}
-        </p>
-        <p v-if="overviewText" class="mt-4 text-sm leading-6 text-[#3d424a] sm:text-[15px] sm:leading-7">
-          {{ overviewText }}
-        </p>
-        <div class="mt-5 hidden sm:grid sm:mt-auto sm:gap-3 sm:pt-6">
-          <RatingActions @decide="emitDecision" />
+      <div class="contents sm:flex sm:min-h-0 sm:flex-col sm:p-5">
+        <div class="min-h-0 overflow-hidden p-3 sm:p-0">
+          <p
+            v-if="previousRatingPresentation"
+            class="corner-pill mb-2 inline-flex w-fit border px-2 py-1 text-[10px] font-bold sm:mb-3 sm:px-3 sm:py-1.5 sm:text-sm"
+            :class="previousRatingPresentation.badgeClassName"
+          >
+            {{ previousRatingPresentation.label }}
+          </p>
+          <p
+            class="corner-pill mb-2 inline-flex max-w-full truncate border border-app-line bg-app-panelSoft px-2 py-1 text-[10px] font-bold text-[#15171c] sm:mb-3 sm:px-3 sm:py-1.5 sm:text-sm"
+          >
+            {{ movie.releaseYear }} · {{ movie.genres.join(' · ') }}
+          </p>
+          <h1 class="text-xl font-semibold leading-tight text-[#15171c] sm:text-[34px]">
+            {{ movie.title }}
+          </h1>
+          <p class="mt-1.5 text-xs font-medium text-app-muted sm:mt-3 sm:text-base">
+            {{ movie.tags.join(' · ') }}
+          </p>
+          <p
+            v-if="overviewText"
+            class="rating-primary-overview mt-2 text-xs leading-5 text-[#3d424a] sm:mt-4 sm:text-[15px] sm:leading-7"
+          >
+            {{ overviewText }}
+          </p>
+        </div>
+
+        <div class="col-span-2 grid shrink-0 gap-2 border-t border-app-line bg-app-panel p-2 sm:mt-auto sm:p-0 sm:pt-4">
+          <div class="flex items-center justify-between gap-2 px-0.5">
+            <p class="text-[10px] font-medium text-app-muted sm:text-xs">밀거나 방향 버튼을 눌러 평가하세요.</p>
           <button
             v-if="showPreviousRatingEdit"
             type="button"
-            class="focus-ring corner-soft inline-flex min-h-10 w-full items-center justify-center border border-app-line bg-app-panelSoft px-3 text-sm font-medium text-[#15171c]"
+              class="focus-ring corner-soft inline-flex min-h-7 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-2 text-[10px] font-medium text-[#15171c] sm:min-h-8 sm:text-xs"
             @click.stop="emit('editPreviousRating')"
             @pointercancel.stop
             @pointerdown.stop
             @pointermove.stop
             @pointerup.stop
           >
-            이전 평가 수정하기
+              이전 평가 수정
           </button>
+        </div>
+          <RatingActions compact layout="two-rows" @decide="emitDecision" />
         </div>
       </div>
     </div>
@@ -634,3 +633,18 @@ const onPointerUp = (event: PointerEvent) => {
     </div>
   </Teleport>
 </template>
+
+<style scoped>
+.rating-primary-overview {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+@media (min-width: 640px) {
+  .rating-primary-overview {
+    -webkit-line-clamp: 5;
+  }
+}
+</style>

@@ -4,7 +4,6 @@ import { useRoute, useRouter } from 'vue-router';
 
 import NegativeFeedbackForm from '@/components/rating/NegativeFeedbackForm.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
-import RatingActions from '@/components/rating/RatingActions.vue';
 import RatingHistoryPickerModal from '@/components/rating/RatingHistoryPickerModal.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
@@ -702,10 +701,20 @@ watch(
 
 <template>
   <main
-    class="mx-auto flex w-full max-w-md flex-col gap-5 px-4 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5 sm:max-w-[800px]"
+    class="mx-auto flex w-full max-w-md flex-col px-4 sm:max-w-[800px]"
+    :class="
+      currentMovie && !isDetailMode
+        ? 'h-0 min-h-0 flex-1 gap-2 overflow-hidden pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:gap-3 sm:pb-3 sm:pt-3'
+        : 'gap-5 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5'
+    "
   >
     <div ref="primaryFlowTop">
-      <RatingProgress :current="completedCount" :total="totalCount" :stage-label="stageLabel" />
+      <RatingProgress
+        :compact="Boolean(currentMovie && !isDetailMode)"
+        :current="completedCount"
+        :total="totalCount"
+        :stage-label="stageLabel"
+      />
     </div>
 
     <template v-if="isDetailMode && currentMovie">
@@ -758,34 +767,23 @@ watch(
     </template>
 
     <template v-else-if="currentMovie">
-      <Transition name="rating-card">
-        <RatingMovieCard
-          :key="`${currentMovie.id}-primary`"
-          :movie="currentMovie"
-          :interactive="true"
-          primary-layout
-          size="compact"
-          show-trailer
-          :show-watch-options="false"
-          :show-previous-rating-edit="!isDetailMode && !isEditMode && hasRatedMovieHistory"
-          :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
-          class="w-full"
-          @decide="savePrimaryMovieDecision"
-          @edit-previous-rating="openRatingHistoryPicker"
-        />
-      </Transition>
-
-      <p class="text-center text-xs text-app-muted sm:hidden">위·아래·좌·우로 밀거나 방향 아이콘을 눌러 평가하세요.</p>
-      <RatingActions compact class="sm:hidden" @decide="savePrimaryMovieDecision" />
-
-      <button
-        v-if="!isDetailMode && !isEditMode && hasRatedMovieHistory"
-        type="button"
-        class="focus-ring corner-soft inline-flex min-h-11 w-full items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c] sm:hidden"
-        @click="openRatingHistoryPicker"
-      >
-        이전 평가 수정하기
-      </button>
+      <div class="relative min-h-0 w-full flex-1">
+        <Transition name="rating-card" mode="out-in">
+          <RatingMovieCard
+            :key="`${currentMovie.id}-primary`"
+            :movie="currentMovie"
+            :interactive="true"
+            primary-layout
+            size="compact"
+            show-trailer
+            :show-watch-options="false"
+            :show-previous-rating-edit="!isDetailMode && !isEditMode && hasRatedMovieHistory"
+            :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
+            @decide="savePrimaryMovieDecision"
+            @edit-previous-rating="openRatingHistoryPicker"
+          />
+        </Transition>
+      </div>
 
       <div
         v-if="isEditMode"

@@ -8,7 +8,7 @@ const titleUnlocks = useTitleUnlocks();
 </script>
 
 <template>
-  <div class="min-h-dvh bg-app-surface text-[#15171c]">
+  <div class="flex min-h-dvh flex-col bg-app-surface text-[#15171c]">
     <Header />
     <main
       v-if="isRouteLoading"

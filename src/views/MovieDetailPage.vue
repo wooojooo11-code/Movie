@@ -70,7 +70,7 @@ watch(() => route.params.movieId, load, { immediate: true });
             v-if="movie.watchProvidersKr?.link"
             :href="movie.watchProvidersKr.link"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-app-panelSoft px-3 text-[11px] font-medium text-[#15171c]"
           >
             전체 OTT 보기
@@ -113,7 +113,7 @@ watch(() => route.params.movieId, load, { immediate: true });
             :key="link.key"
             :href="link.href"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center px-3 text-[11px] font-medium"
             :class="link.accentClassName"
           >

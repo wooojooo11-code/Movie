@@ -48,6 +48,7 @@ interface PersonalizedCommunityPostRecommendationRow {
 
 export interface CommunityFeedRequest {
   category: CommunityCategory | 'all';
+  authorId?: null | string;
   sort: CommunitySort;
   query: string;
   offset: number;
@@ -306,6 +307,10 @@ export const fetchCommunityFeed = async (request: CommunityFeedRequest): Promise
 
   if (request.category !== 'all') {
     query = query.eq('category', request.category);
+  }
+
+  if (request.authorId) {
+    query = query.eq('user_id', request.authorId);
   }
 
   const term = cleanSearchTerm(request.query);

@@ -13,6 +13,7 @@ const props = defineProps<{
   savedListIds?: ReadonlySet<string>;
   savingSaveIds?: ReadonlySet<string>;
   loading?: boolean;
+  emptyMessage?: string;
 }>();
 defineEmits<{
   like: [post: CommunityPost];
@@ -117,7 +118,7 @@ onScopeDispose(() => window.removeEventListener('resize', updateScrollState));
     </template>
 
     <p v-else class="corner-soft border border-dashed border-app-line px-5 py-12 text-center text-sm leading-6 text-app-muted">
-      아직 게시글이 없어요. 첫 번째 영화 이야기를 남겨보세요.
+      {{ emptyMessage ?? '아직 게시글이 없어요. 첫 번째 영화 이야기를 남겨보세요.' }}
     </p>
   </div>
 </template>

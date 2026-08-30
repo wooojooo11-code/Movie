@@ -105,6 +105,17 @@ const collaborativeSignalByMovieId = computed(
 const savedListIds = computed(() =>
   new Set(listStore.state.interactions.filter((interaction) => interaction.saved).map((interaction) => interaction.listId))
 );
+const feedTitle = computed(() => {
+  if (activeTab.value === 'saved') return '내가 저장한 글';
+  if (activeTab.value === 'my_recommendations') return '내 추천 게시물';
+  return '모두의 이야기';
+});
+const feedEmptyMessage = computed(() => {
+  if (activeTab.value !== 'my_recommendations') return undefined;
+  return canWrite.value
+    ? '아직 작성한 영화 추천글이 없어요. 새 글에서 첫 추천을 남겨보세요.'
+    : '로그인하면 내가 작성한 영화 추천글을 모아볼 수 있어요.';
+});
 
 const goToLogin = () => router.push({ name: 'login', query: { redirect: route.fullPath } });
 
@@ -281,6 +292,14 @@ const loadFeed = async () => {
     return;
   }
 
+  if (activeTab.value === 'my_recommendations' && !viewerId.value) {
+    posts.value = [];
+    likedIds.value = new Set();
+    savedIds.value = new Set();
+    loading.value = false;
+    return;
+  }
+
   if (loading.value) return;
   loading.value = true;
   errorMessage.value = '';
@@ -292,7 +311,8 @@ const loadFeed = async () => {
     // 더 보기 버튼 없이 모든 게시글을 보여 주기 위해, 서버 결과를 끝까지 이어서 가져옵니다.
     while (hasNextPage) {
       const page = await fetchCommunityFeed({
-        category: activeTab.value,
+        category: activeTab.value === 'my_recommendations' ? 'movie_recommendation' : activeTab.value,
+        authorId: activeTab.value === 'my_recommendations' ? viewerId.value : undefined,
         sort: sort.value,
         query: searchQuery.value,
         offset,
@@ -583,7 +603,7 @@ onScopeDispose(() => {
       </div>
     </section>
     <section class="mt-7" aria-labelledby="latest-posts-title">
-      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">FEED</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">{{ activeTab === 'saved' ? '내가 저장한 글' : '모두의 이야기' }}</h2></div><CommunitySortMenu v-if="activeTab !== 'saved'" v-model="sort" /></div>
+      <div class="flex items-end justify-between gap-3"><div><p class="text-xs font-semibold text-app-accent">FEED</p><h2 id="latest-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">{{ feedTitle }}</h2></div><CommunitySortMenu v-if="activeTab !== 'saved'" v-model="sort" /></div>
       <div v-if="activeTab !== 'saved'" class="mt-4"><CommunitySearchBar v-model="searchQuery" /></div>
       <div class="mt-3"><CommunityTabs v-model="activeTab" /></div>
       <p v-if="errorMessage" class="corner-soft mt-4 border border-[#d9a7a7] bg-[#fff6f6] p-3 text-sm text-[#a13c3c]">{{ errorMessage }}</p>
@@ -595,7 +615,7 @@ onScopeDispose(() => {
           :is-authenticated="canWrite"
           :loading="loadingSavedPosts"
         />
-        <CommunityPostList v-else :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
+        <CommunityPostList v-else :posts="posts" :liked-ids="likedIds" :saved-ids="savedIds" :saved-list-ids="savedListIds" :saving-save-ids="savingSaveIds" :loading="loading" :empty-message="feedEmptyMessage" @like="toggleLike" @save="toggleSave" @save-list="saveList" @vote="vote" @clear-vote="clearVote" />
       </div>
     </section>
     <CreatePostModal :open="isComposerOpen" :lists="shareableLists" :submitting="submitting" :error-message="composerError" @close="closeComposer" @submit="submitPost" />

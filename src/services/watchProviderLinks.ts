@@ -19,6 +19,9 @@ interface WatchProviderLinkDefinition {
   buildHref: (movie: WatchProviderMovie) => string;
 }
 
+const getSearchTerm = (movie: WatchProviderMovie) =>
+  [movie.title, movie.releaseYear].filter((value) => value !== null && value !== undefined).join(' ');
+
 const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
   {
     key: 'netflix',
@@ -26,7 +29,7 @@ const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
     accentClassName: 'border-[#b20710] bg-[#b20710] text-white',
     matches: ['netflix'],
     buildHref: (movie) =>
-      `https://www.netflix.com/search?q=${encodeURIComponent(`${movie.title} ${movie.releaseYear}`)}`
+      `https://www.netflix.com/search?q=${encodeURIComponent(getSearchTerm(movie))}`
   },
   {
     key: 'watcha',
@@ -34,7 +37,7 @@ const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
     accentClassName: 'border-[#f45d2d] bg-[#f45d2d] text-white',
     matches: ['watcha', '왓챠'],
     buildHref: (movie) =>
-      `https://watcha.com/search?query=${encodeURIComponent(`${movie.title} ${movie.releaseYear}`)}`
+      `https://watcha.com/search?query=${encodeURIComponent(getSearchTerm(movie))}`
   },
   {
     key: 'wavve',
@@ -42,7 +45,15 @@ const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
     accentClassName: 'border-[#175dff] bg-[#175dff] text-white',
     matches: ['wavve', '웨이브'],
     buildHref: (movie) =>
-      `https://www.wavve.com/search?searchWord=${encodeURIComponent(`${movie.title} ${movie.releaseYear}`)}`
+      `https://www.wavve.com/search?searchWord=${encodeURIComponent(getSearchTerm(movie))}`
+  },
+  {
+    key: 'tving',
+    buttonLabel: '티빙에서 찾기',
+    accentClassName: 'border-[#ff153c] bg-[#ff153c] text-white',
+    matches: ['tving', '티빙'],
+    buildHref: (movie) =>
+      `https://www.tving.com/search/all?keyword=${encodeURIComponent(getSearchTerm(movie))}`
   },
   {
     key: 'disney-plus',
@@ -57,7 +68,31 @@ const watchProviderLinkDefinitions: WatchProviderLinkDefinition[] = [
     accentClassName: 'border-[#151b54] bg-[#151b54] text-white',
     matches: ['coupang play', '쿠팡플레이'],
     buildHref: (movie) =>
-      `https://www.coupangplay.com/catalog?query=${encodeURIComponent(`${movie.title} ${movie.releaseYear}`)}`
+      `https://www.coupangplay.com/catalog?query=${encodeURIComponent(getSearchTerm(movie))}`
+  },
+  {
+    key: 'google-play',
+    buttonLabel: 'Google Play에서 찾기',
+    accentClassName: 'border-[#1769aa] bg-[#1769aa] text-white',
+    matches: ['google play movies', 'google tv'],
+    buildHref: (movie) =>
+      `https://play.google.com/store/search?q=${encodeURIComponent(getSearchTerm(movie))}&c=movies&hl=ko&gl=KR`
+  },
+  {
+    key: 'apple-tv',
+    buttonLabel: 'Apple TV에서 찾기',
+    accentClassName: 'border-[#15171c] bg-[#15171c] text-white',
+    matches: ['apple tv'],
+    buildHref: (movie) =>
+      `https://tv.apple.com/kr/search?term=${encodeURIComponent(getSearchTerm(movie))}`
+  },
+  {
+    key: 'prime-video',
+    buttonLabel: 'Prime Video에서 찾기',
+    accentClassName: 'border-[#0578ff] bg-[#0578ff] text-white',
+    matches: ['amazon prime video', 'prime video'],
+    buildHref: (movie) =>
+      `https://www.primevideo.com/search/ref=atv_nb_sr?phrase=${encodeURIComponent(getSearchTerm(movie))}`
   }
 ];
 

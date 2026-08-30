@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, Clapperboard, Heart, ListPlus, X } from 'lucide-vue-next';
+import { Check, Clapperboard, ExternalLink, Heart, ListPlus, X } from 'lucide-vue-next';
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 
 import IconButton from '@/components/common/IconButton.vue';
@@ -11,6 +11,7 @@ import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import { getCharacterChoices } from '@/services/movieCreditsService';
 import { useLibraryStore } from '@/services/libraryStore';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
+import { getWatchProviderLinks } from '@/services/watchProviderLinks';
 import type { NegativeRatingInput, PositiveRatingInput } from '@/types/rating';
 import type { CatalogMovie, RecommendedCatalogMovie, StoredRatingRecord } from '@/types/recommendation';
 
@@ -80,8 +81,18 @@ const actors = computed(() =>
 );
 const providerNames = computed(() => {
   const providers = props.movie.watchProvidersKr;
-  return providers ? [...providers.flatrate, ...providers.rent, ...providers.buy].slice(0, 5) : [];
+  if (!providers) return [];
+
+  return [
+    ...new Map(
+      [...providers.flatrate, ...providers.rent, ...providers.buy].map((provider) => [
+        provider.providerId,
+        provider
+      ])
+    ).values()
+  ].slice(0, 5);
 });
+const quickWatchLinks = computed(() => getWatchProviderLinks(props.movie));
 const initialPositiveFeedback = computed(() => {
   const record = props.ratingRecord;
   if (!record || record.rawDecision !== 'like') return null;
@@ -229,11 +240,43 @@ onUnmounted(() => {
           </section>
 
           <section class="mt-6 border-t border-app-line pt-5">
-            <h3 class="text-sm font-bold text-[#173a5e]">볼 수 있는 곳</h3>
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 class="text-sm font-bold text-[#173a5e]">볼 수 있는 곳</h3>
+                <p class="mt-1 text-xs text-app-muted">한국 기준 제공처예요.</p>
+              </div>
+              <a
+                v-if="props.movie.watchProvidersKr?.link"
+                :href="props.movie.watchProvidersKr.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="`${props.movie.title} 전체 OTT 제공처 보기`"
+                class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center gap-1.5 border border-app-line bg-app-panelSoft px-3 text-[11px] font-semibold text-[#294866]"
+              >
+                <span>전체 제공처</span>
+                <ExternalLink :size="13" aria-hidden="true" />
+              </a>
+            </div>
             <div v-if="providerNames.length" class="mt-3 flex flex-wrap gap-2">
               <span v-for="provider in providerNames" :key="provider.providerId" class="chip border-app-line bg-app-panelSoft text-[#294866]">{{ provider.providerName }}</span>
             </div>
             <p v-else class="mt-2 text-sm text-app-muted">현재 한국 기준 OTT 정보를 찾지 못했어요.</p>
+
+            <div v-if="quickWatchLinks.length" class="mt-3 grid gap-2 sm:grid-cols-2">
+              <a
+                v-for="link in quickWatchLinks"
+                :key="link.key"
+                :href="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="`${props.movie.title} ${link.buttonLabel}`"
+                class="focus-ring corner-soft inline-flex min-h-11 w-full items-center justify-center gap-2 border px-3 text-center text-xs font-semibold"
+                :class="link.accentClassName"
+              >
+                <span>{{ link.buttonLabel }}</span>
+                <ExternalLink :size="14" aria-hidden="true" />
+              </a>
+            </div>
           </section>
 
           <section v-if="ratingMode" class="mt-6 border-t border-app-line pt-5">

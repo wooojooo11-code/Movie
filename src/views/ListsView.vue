@@ -14,6 +14,7 @@ import {
 } from '@/services/libraryMovieSearch';
 import { useLibraryStore } from '@/services/libraryStore';
 import { useListStore } from '@/services/listStore';
+import { calculateMovieRecommendationScore } from '@/services/movie_recommendation_algorithm';
 import { useRecommendationStore } from '@/services/recommendationStore';
 import { checkTitlesForEvent } from '@/services/titleService';
 import type { ResolvedLibraryMovieRecord } from '@/types/library';
@@ -88,33 +89,36 @@ type ListTasteAffinity = {
   score: number;
 };
 
+const ratingMovieById = new Map(
+  recommendationStore.catalogMovies.map((movie) => [movie.id, movie] as const)
+);
+
 const getListTasteAffinity = (movieIds: readonly string[]): null | ListTasteAffinity => {
+  let catalogMovieCount = 0;
   let comparedMovieCount = 0;
   let scoreTotal = 0;
 
   movieIds.forEach((movieId) => {
-    const rating = recommendationStore.getStoredRatingRecord(movieId);
+    const movie = ratingMovieById.get(movieId);
 
-    if (!rating || rating.rawDecision === 'not_seen') {
+    if (!movie) {
       return;
     }
 
-    if (rating.rawDecision === 'like') {
+    catalogMovieCount += 1;
+    const score = calculateMovieRecommendationScore(movie, recommendationStore.state.profile);
+
+    if (score !== 0) {
       comparedMovieCount += 1;
-      scoreTotal += 1;
-      return;
     }
 
-    if (rating.rawDecision === 'dislike' || rating.rawDecision === 'not_interested') {
-      comparedMovieCount += 1;
-      scoreTotal -= 1;
-    }
+    scoreTotal += score;
   });
 
-  return comparedMovieCount > 0
+  return catalogMovieCount > 0 && comparedMovieCount > 0
     ? {
         comparedMovieCount,
-        score: scoreTotal / comparedMovieCount
+        score: scoreTotal / catalogMovieCount
       }
     : null;
 };
@@ -155,29 +159,22 @@ const sortLists = <T extends { movieIds: readonly string[]; title: string }>(
     if (option === 'taste_match' || option === 'taste_opposite') {
       const leftAffinity = getListTasteAffinity(left.movieIds);
       const rightAffinity = getListTasteAffinity(right.movieIds);
-
-      if (!leftAffinity && !rightAffinity) {
-        return rightUpdatedAt - leftUpdatedAt || compareText(left.title, right.title);
-      }
-
-      if (!leftAffinity) {
-        return 1;
-      }
-
-      if (!rightAffinity) {
-        return -1;
-      }
+      const leftScore = leftAffinity?.score ?? 0;
+      const rightScore = rightAffinity?.score ?? 0;
+      const isOppositeSort = option === 'taste_opposite';
 
       const scoreDifference =
-        option === 'taste_match'
-          ? rightAffinity.score - leftAffinity.score
-          : leftAffinity.score - rightAffinity.score;
+        isOppositeSort ? leftScore - rightScore : rightScore - leftScore;
+      const comparedMovieDifference =
+        (rightAffinity?.comparedMovieCount ?? 0) - (leftAffinity?.comparedMovieCount ?? 0);
 
       return (
         scoreDifference ||
-        rightAffinity.comparedMovieCount - leftAffinity.comparedMovieCount ||
-        rightUpdatedAt - leftUpdatedAt ||
-        compareText(left.title, right.title)
+        comparedMovieDifference ||
+        (isOppositeSort ? leftUpdatedAt - rightUpdatedAt : rightUpdatedAt - leftUpdatedAt) ||
+        (isOppositeSort
+          ? compareText(right.title, left.title)
+          : compareText(left.title, right.title))
       );
     }
 

@@ -27,8 +27,6 @@ import {
 } from '@/services/recommendationRepository';
 import { rankSituationMovies } from '@/services/situationRecommendation';
 import { checkTitlesForMovieActivity } from '@/services/titleService';
-import { libraryStore } from '@/services/libraryStore';
-import { listStore } from '@/services/listStore';
 import type {
   ActiveSituation,
   AdditionalTasteAnalysisBatch,
@@ -839,9 +837,7 @@ const encounteredRecommendationMovieIds = computed(() => [
   ...new Set([
     ...ratedMovieIds.value,
     ...state.dismissedRecommendationMovieIds,
-    ...state.recommendationImpressions.map((impression) => impression.movieId),
-    ...libraryStore.savedMovieIds.value,
-    ...listStore.myLists.value.flatMap((list) => list.movieIds)
+    ...state.recommendationImpressions.map((impression) => impression.movieId)
   ])
 ]);
 

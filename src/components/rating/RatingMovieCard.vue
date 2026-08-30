@@ -594,9 +594,7 @@ const onPointerUp = (event: PointerEvent) => {
         </div>
       </div>
     </div>
-  </article>
-
-  <Teleport to="body">
+    <Teleport to="body">
     <div
       v-if="isOverviewDialogOpen"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/55 p-4"
@@ -633,9 +631,9 @@ const onPointerUp = (event: PointerEvent) => {
         </div>
       </section>
     </div>
-  </Teleport>
+    </Teleport>
 
-  <Teleport to="body">
+    <Teleport to="body">
     <div
       v-if="isTrailerDialogOpen"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
@@ -691,7 +689,8 @@ const onPointerUp = (event: PointerEvent) => {
         </div>
       </section>
     </div>
-  </Teleport>
+    </Teleport>
+  </article>
 </template>
 
 <style scoped>

@@ -2,6 +2,7 @@ import {
   getCommunityFollowsRelation,
   getCommunityLikesRelation,
   getCommunityPostMoviesRelation,
+  getCommunityPostViewsRelation,
   getCommunityPollOptionsRelation,
   getCommunityPollVotesRelation,
   getCommunityPollsRelation,
@@ -23,16 +24,27 @@ import type {
   CommunityPost,
   CommunityPostDetail,
   CommunityPostDraft,
+  CommunityPostRecommendationReason,
   CommunityProfile,
   CommunitySort,
   DailyQuestion,
   DailyQuestionAnswer,
-  DailyQuestionAnswerInput
+  DailyQuestionAnswerInput,
+  RecommendedCommunityPost
 } from '@/types/community';
 import type { CommunityPoll, CommunityPollOption } from '@/types/poll';
 import type { CommunitySituationMovieSignal, SituationPresetId } from '@/types/recommendation';
 
 type Row = Record<string, any>;
+
+interface PersonalizedCommunityPostRecommendationRow {
+  author_overlap_count: number | string | null;
+  author_similarity_score: number | string | null;
+  post_id: string;
+  recommendation_score: number | string | null;
+  taste_match_movie_count: number | string | null;
+  unseen_movie_count: number | string | null;
+}
 
 export interface CommunityFeedRequest {
   category: CommunityCategory | 'all';
@@ -51,7 +63,23 @@ const ensureSupabase = () => {
 
 const asString = (value: unknown, fallback = '') => (typeof value === 'string' ? value : fallback);
 const asNumber = (value: unknown, fallback = 0) => (typeof value === 'number' ? value : fallback);
+const asFiniteNumber = (value: unknown, fallback = 0) => {
+  const parsed = typeof value === 'number' ? value : Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
 const asNullableString = (value: unknown): null | string => (typeof value === 'string' && value ? value : null);
+const isMissingSupabaseFunctionError = (error: unknown, functionName: string) => {
+  if (!error || typeof error !== 'object') return false;
+  const code = 'code' in error && typeof error.code === 'string' ? error.code : '';
+  const message = 'message' in error && typeof error.message === 'string' ? error.message : '';
+  return (code === 'PGRST202' || code === '42883') && message.includes(functionName);
+};
+const isMissingSupabaseRelationError = (error: unknown, relationName: string) => {
+  if (!error || typeof error !== 'object') return false;
+  const code = 'code' in error && typeof error.code === 'string' ? error.code : '';
+  const message = 'message' in error && typeof error.message === 'string' ? error.message : '';
+  return (code === 'PGRST205' || code === '42P01') && message.includes(relationName);
+};
 const isMissingDailyAnswerMovieColumnError = (error: unknown) => {
   if (!error || typeof error !== 'object') return false;
   const code = 'code' in error && typeof error.code === 'string' ? error.code : '';
@@ -305,6 +333,80 @@ export const fetchCommunityFeed = async (request: CommunityFeedRequest): Promise
 
 export const fetchPopularPosts = async (viewerId?: null | string) =>
   (await fetchCommunityFeed({ category: 'all', sort: 'popular', query: '', offset: 0, limit: 3, viewerId })).posts;
+
+export const fetchViewedCommunityPostIds = async (
+  userId: string,
+  postIds: readonly string[]
+): Promise<Set<string>> => {
+  if (postIds.length === 0) return new Set();
+
+  ensureSupabase();
+  const { data, error } = await getCommunityPostViewsRelation()!
+    .select('post_id')
+    .eq('user_id', userId)
+    .in('post_id', [...postIds]);
+
+  // 마이그레이션 적용 전 환경도 기존 추천 폴백을 계속 사용할 수 있게 합니다.
+  if (error && isMissingSupabaseRelationError(error, 'community_post_views')) return new Set();
+  if (error) throw error;
+  return new Set(((data ?? []) as Row[]).map((row) => asString(row.post_id)).filter(Boolean));
+};
+
+export const recordCommunityPostView = async (postId: string, userId: string) => {
+  ensureSupabase();
+  const { error } = await getCommunityPostViewsRelation()!.upsert(
+    { post_id: postId, user_id: userId, last_viewed_at: new Date().toISOString() },
+    { onConflict: 'user_id,post_id' }
+  );
+
+  if (error && isMissingSupabaseRelationError(error, 'community_post_views')) return;
+  if (error) throw error;
+};
+
+export const fetchRecommendedCommunityPosts = async (
+  viewerId?: null | string,
+  limit = 6
+): Promise<RecommendedCommunityPost[]> => {
+  if (!viewerId) return [];
+
+  ensureSupabase();
+  const functionName = 'get_personalized_community_post_recommendations';
+  const safeLimit = Math.max(1, Math.min(12, Math.floor(limit)));
+  const { data, error } = await supabase!.rpc(functionName, { p_limit: safeLimit });
+
+  // 서버 SQL을 아직 적용하지 않은 환경에서는 화면이 깨지지 않고 클라이언트 추천으로 대체됩니다.
+  if (error && isMissingSupabaseFunctionError(error, functionName)) return [];
+  if (error) throw error;
+
+  const signals = (data ?? []) as PersonalizedCommunityPostRecommendationRow[];
+  const postIds = signals.map((signal) => asString(signal.post_id)).filter(Boolean);
+  if (postIds.length === 0) return [];
+
+  const { data: postRows, error: postsError } = await getCommunityPostsRelation()!
+    .select('*')
+    .in('id', postIds);
+  if (postsError) throw postsError;
+
+  const decoratedPosts = await decoratePosts((postRows ?? []) as Row[], viewerId);
+  const postById = new Map(decoratedPosts.map((post) => [post.id, post]));
+
+  return signals.flatMap((signal) => {
+    const post = postById.get(asString(signal.post_id));
+    if (!post) return [];
+
+    const reasons: CommunityPostRecommendationReason[] = ['unseen_post'];
+    if (asFiniteNumber(signal.unseen_movie_count) > 0) reasons.push('unseen_movie');
+    if (
+      asFiniteNumber(signal.author_similarity_score) >= 70 &&
+      asFiniteNumber(signal.author_overlap_count) >= 2
+    ) {
+      reasons.push('similar_author');
+    }
+    if (asFiniteNumber(signal.taste_match_movie_count) > 0) reasons.push('taste_match');
+
+    return [{ post, reasons, score: asFiniteNumber(signal.recommendation_score) }];
+  });
+};
 
 export const fetchViewerPostInteractions = async (postIds: readonly string[], userId?: null | string) => {
   const liked = new Set<string>();

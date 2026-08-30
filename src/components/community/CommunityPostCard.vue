@@ -15,8 +15,16 @@ const props = withDefaults(
     savingSave?: boolean;
     compact?: boolean;
     showActions?: boolean;
+    recommendationReasons?: readonly string[];
   }>(),
-  { viewerLiked: false, viewerSaved: false, savingSave: false, compact: false, showActions: true }
+  {
+    viewerLiked: false,
+    viewerSaved: false,
+    savingSave: false,
+    compact: false,
+    showActions: true,
+    recommendationReasons: () => []
+  }
 );
 
 const emit = defineEmits<{
@@ -44,7 +52,11 @@ const previewImage = computed(() => props.post.imageUrl ?? relatedMovies.value[0
 </script>
 
 <template>
-  <article v-if="compact" class="w-28 shrink-0">
+  <article
+    v-if="compact"
+    class="shrink-0"
+    :class="recommendationReasons.length > 0 ? 'w-44' : 'w-28'"
+  >
     <RouterLink :to="`/community/${post.id}`" class="focus-ring block">
       <div class="relative aspect-square overflow-hidden border border-app-line bg-app-panelSoft">
         <img
@@ -73,6 +85,18 @@ const previewImage = computed(() => props.post.imageUrl ?? relatedMovies.value[0
           {{ post.author.nickname.slice(0, 1) }}
         </span>
         <span class="truncate text-[11px] font-semibold text-[#15171c]">{{ post.author.nickname }}</span>
+      </div>
+      <p v-if="recommendationReasons.length > 0" class="mt-2 line-clamp-2 text-xs font-bold leading-5 text-[#15171c]">
+        {{ post.title }}
+      </p>
+      <div v-if="recommendationReasons.length > 0" class="mt-2 flex flex-wrap gap-1">
+        <span
+          v-for="reason in recommendationReasons.slice(0, 3)"
+          :key="reason"
+          class="corner-pill border border-[#bfd5ea] bg-[#eef6ff] px-2 py-1 text-[9px] font-semibold text-[#174a77]"
+        >
+          {{ reason }}
+        </span>
       </div>
     </RouterLink>
   </article>

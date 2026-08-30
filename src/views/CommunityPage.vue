@@ -14,6 +14,7 @@ import CommunityTabs from '@/components/community/CommunityTabs.vue';
 import CreatePostModal from '@/components/community/CreatePostModal.vue';
 import DailyQuestionCard from '@/components/community/DailyQuestionCard.vue';
 import DailyQuestionAnswersModal from '@/components/community/DailyQuestionAnswersModal.vue';
+import { catalogMovies } from '@/data/catalog';
 import { castPollVote, clearPollVote, fetchPollOptionCounts } from '@/services/community/pollService';
 import {
   createCommunityPost,
@@ -23,19 +24,36 @@ import {
   fetchDailyQuestionAnswers,
   fetchMyShareableLists,
   fetchPopularPosts,
+  fetchRecommendedCommunityPosts,
   fetchSavedCommunityPosts,
+  fetchViewedCommunityPostIds,
   fetchViewerPostInteractions,
   saveDailyQuestionAnswer,
   toggleCommunityLike,
   toggleCommunitySave
 } from '@/services/community/communityService';
 import { useListStore } from '@/services/listStore';
+import { useRecommendationStore } from '@/services/recommendationStore';
 import { checkTitlesForEvent } from '@/services/titleService';
 import { useAuthStore } from '@/stores/auth';
-import type { CommunityCategory, CommunityListReference, CommunityPost, CommunityPostDraft, CommunitySort, CommunityTab, DailyQuestion, DailyQuestionAnswer, DailyQuestionAnswerInput } from '@/types/community';
+import {
+  COMMUNITY_POST_RECOMMENDATION_REASON_LABELS,
+  type CommunityCategory,
+  type CommunityListReference,
+  type CommunityPost,
+  type CommunityPostDraft,
+  type CommunityPostRecommendationReason,
+  type CommunitySort,
+  type CommunityTab,
+  type DailyQuestion,
+  type DailyQuestionAnswer,
+  type DailyQuestionAnswerInput,
+  type RecommendedCommunityPost
+} from '@/types/community';
 
 const authStore = useAuthStore();
 const listStore = useListStore();
+const recommendationStore = useRecommendationStore();
 const router = useRouter();
 const route = useRoute();
 
@@ -44,6 +62,7 @@ const sort = ref<CommunitySort>('latest');
 const searchQuery = ref('');
 const posts = ref<CommunityPost[]>([]);
 const popularPosts = ref<CommunityPost[]>([]);
+const recommendedPosts = ref<RecommendedCommunityPost[]>([]);
 const dailyQuestion = ref<DailyQuestion | null>(null);
 const dailyAnswers = ref<DailyQuestionAnswer[]>([]);
 const shareableLists = ref<CommunityListReference[]>([]);
@@ -57,6 +76,7 @@ const loadingDaily = ref(false);
 const submittingDailyAnswer = ref(false);
 const dailyAnswerSaved = ref(false);
 const loadingSavedPosts = ref(false);
+const loadingRecommendedPosts = ref(false);
 const loadingDailyAnswers = ref(false);
 const dailyAnswerListOpen = ref(false);
 const dailyAnswersError = ref('');
@@ -73,6 +93,15 @@ const COMMUNITY_FEED_PAGE_SIZE = 100;
 
 const viewerId = computed(() => authStore.user?.id ?? null);
 const canWrite = computed(() => authStore.isAuthenticated && Boolean(viewerId.value));
+const catalogMovieById = new Map(
+  catalogMovies.flatMap((movie) => [
+    [movie.id, movie] as const,
+    [String(movie.tmdbMovieId), movie] as const
+  ])
+);
+const collaborativeSignalByMovieId = computed(
+  () => new Map(recommendationStore.collaborativeRecommendationSignals.value.map((signal) => [signal.movieId, signal]))
+);
 const savedListIds = computed(() =>
   new Set(listStore.state.interactions.filter((interaction) => interaction.saved).map((interaction) => interaction.listId))
 );
@@ -103,6 +132,120 @@ const syncViewerInteractions = async (targetPosts: readonly CommunityPost[]) => 
   likedIds.value = new Set([...likedIds.value, ...interactions.liked]);
   savedIds.value = new Set([...savedIds.value, ...interactions.saved]);
 };
+
+const getPostMovieIds = (post: CommunityPost) =>
+  [
+    ...post.movies.map((movie) => movie.id),
+    ...(post.movie ? [post.movie.id] : []),
+    ...(post.list?.movieIds ?? []),
+    ...(post.poll?.options.flatMap((option) => (option.movie ? [option.movie.id] : [])) ?? [])
+  ].filter((movieId, index, movieIds) => movieId && movieIds.indexOf(movieId) === index);
+
+const buildFallbackRecommendedPosts = (
+  candidates: readonly CommunityPost[],
+  viewedPostIds: ReadonlySet<string>,
+  limit: number
+): RecommendedCommunityPost[] => {
+  const now = Date.now();
+
+  return candidates
+    .flatMap((post): RecommendedCommunityPost[] => {
+      if (post.userId === viewerId.value || viewedPostIds.has(post.id)) return [];
+
+      const relatedMovieIds = getPostMovieIds(post);
+      if (relatedMovieIds.length === 0) return [];
+
+      const unseenMovieIds = relatedMovieIds.filter((movieId) => {
+        const rating = recommendationStore.getStoredRatingRecord(movieId);
+        return !rating || rating.rawDecision === 'not_seen';
+      });
+
+      let collaborativeScore = 0;
+      let genreAffinity = 0;
+      for (const movieId of relatedMovieIds) {
+        collaborativeScore = Math.max(
+          collaborativeScore,
+          collaborativeSignalByMovieId.value.get(movieId)?.score ?? 0
+        );
+
+        const movie = catalogMovieById.get(movieId);
+        if (movie) {
+          genreAffinity += movie.genres.reduce(
+            (total, genre) => total + Math.max(0, recommendationStore.state.profile.genreScores[genre] ?? 0),
+            0
+          );
+        }
+      }
+
+      const hasTasteMatch = collaborativeScore > 0 || genreAffinity > 0;
+      const ageInDays = Math.max(0, (now - new Date(post.createdAt).getTime()) / 86_400_000);
+      const engagementScore = Math.min(post.likeCount * 1.2 + post.saveCount * 1.8 + post.commentCount, 18);
+      const score =
+        unseenMovieIds.length * 8 +
+        collaborativeScore * 0.55 +
+        Math.min(genreAffinity, 24) +
+        engagementScore +
+        Math.max(0, 14 - ageInDays) * 0.35;
+      const reasons: CommunityPostRecommendationReason[] = ['unseen_post'];
+      if (unseenMovieIds.length > 0) reasons.push('unseen_movie');
+      if (hasTasteMatch) reasons.push('taste_match');
+
+      return [{ post, reasons, score }];
+    })
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        new Date(right.post.createdAt).getTime() - new Date(left.post.createdAt).getTime()
+    )
+    .slice(0, limit);
+};
+
+const loadRecommendedPosts = async () => {
+  if (!viewerId.value) {
+    recommendedPosts.value = [];
+    loadingRecommendedPosts.value = false;
+    return;
+  }
+
+  loadingRecommendedPosts.value = true;
+  try {
+    let personalizedPosts: RecommendedCommunityPost[] = [];
+
+    try {
+      personalizedPosts = await fetchRecommendedCommunityPosts(viewerId.value, 6);
+    } catch (error) {
+      // 개인화 RPC는 선택 기능입니다. 실패해도 아래의 로컬 취향 추천으로 이어갑니다.
+      console.warn('[community] Personalized post recommendations are unavailable.', error);
+    }
+
+    if (personalizedPosts.length === 0) {
+      const fallbackFeed = await fetchCommunityFeed({
+        category: 'all',
+        sort: 'popular',
+        query: '',
+        offset: 0,
+        limit: 50,
+        viewerId: viewerId.value
+      });
+      const viewedPostIds = await fetchViewedCommunityPostIds(
+        viewerId.value,
+        fallbackFeed.posts.map((post) => post.id)
+      );
+      personalizedPosts = buildFallbackRecommendedPosts(fallbackFeed.posts, viewedPostIds, 6);
+    }
+
+    recommendedPosts.value = personalizedPosts;
+    await syncViewerInteractions(personalizedPosts.map((recommendation) => recommendation.post));
+  } catch (error) {
+    recommendedPosts.value = [];
+    console.warn('[community] Failed to build recommended posts.', error);
+  } finally {
+    loadingRecommendedPosts.value = false;
+  }
+};
+
+const getRecommendationReasonLabels = (recommendation: RecommendedCommunityPost) =>
+  recommendation.reasons.map((reason) => COMMUNITY_POST_RECOMMENDATION_REASON_LABELS[reason]);
 
 const loadDailyQuestion = async () => {
   loadingDaily.value = true;
@@ -189,7 +332,12 @@ const loadSupportingContent = async () => {
 const refresh = async () => {
   // 게시글 상호작용 상태를 먼저 초기화한 뒤 인기글 상태를 합쳐 경합을 피합니다.
   await loadFeed();
-  await Promise.all([loadDailyQuestion(), loadSupportingContent(), loadSavedPosts()]);
+  await Promise.all([
+    loadDailyQuestion(),
+    loadSupportingContent(),
+    loadRecommendedPosts(),
+    loadSavedPosts()
+  ]);
 };
 
 const openComposer = () => {
@@ -381,6 +529,47 @@ onScopeDispose(() => {
   <main class="community-surface mx-auto w-full max-w-md px-4 pb-16 pt-4 sm:max-w-[800px] lg:max-w-[800px] lg:px-6">
     <CommunityHeader @compose="openComposer" />
     <DailyQuestionCard class="mt-5" :question="dailyQuestion" :is-authenticated="canWrite" :loading="loadingDaily" :viewer-id="viewerId" :submitting="submittingDailyAnswer" :saved="dailyAnswerSaved" @submit="submitDailyAnswer" @login="goToLogin" @view-answers="openDailyAnswers" />
+    <section
+      v-if="canWrite && (loadingRecommendedPosts || recommendedPosts.length > 0)"
+      class="mt-7"
+      aria-labelledby="recommended-posts-title"
+    >
+      <div class="flex items-end justify-between gap-3">
+        <div>
+          <p class="text-xs font-semibold text-app-accent">FOR YOU</p>
+          <h2 id="recommended-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">추천 게시물</h2>
+          <p class="mt-1 text-xs leading-5 text-app-muted">처음 보는 글 중 취향과 작성자 반응이 잘 맞는 글을 골랐어요.</p>
+        </div>
+        <span v-if="recommendedPosts.length > 0" class="shrink-0 text-xs font-medium text-app-muted">
+          {{ recommendedPosts.length }}개
+        </span>
+      </div>
+
+      <div
+        v-if="loadingRecommendedPosts && recommendedPosts.length === 0"
+        class="scrollbar-hide mt-4 flex gap-3 overflow-hidden"
+        aria-label="추천 게시물 불러오는 중"
+      >
+        <div v-for="index in 3" :key="index" class="h-64 w-44 shrink-0 animate-pulse border border-app-line bg-app-panelSoft" />
+      </div>
+      <div
+        v-else
+        class="scrollbar-hide mt-4 flex max-w-full snap-x snap-proximity gap-3 overflow-x-auto scroll-smooth pb-1"
+        aria-label="취향 맞춤 추천 게시물"
+      >
+        <CommunityPostCard
+          v-for="recommendation in recommendedPosts"
+          :key="recommendation.post.id"
+          class="snap-start"
+          :post="recommendation.post"
+          compact
+          :show-actions="false"
+          :recommendation-reasons="getRecommendationReasonLabels(recommendation)"
+          :viewer-liked="likedIds.has(recommendation.post.id)"
+          :viewer-saved="savedIds.has(recommendation.post.id)"
+        />
+      </div>
+    </section>
     <section class="mt-7" aria-labelledby="popular-posts-title">
       <div class="flex items-end justify-between gap-3">
         <div><p class="text-xs font-semibold text-app-accent">HOT TALKS</p><h2 id="popular-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">지금 뜨는 이야기</h2></div>

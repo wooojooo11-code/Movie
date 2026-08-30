@@ -1302,6 +1302,7 @@ export const recommendationStore = {
   rawRecommendedMovies,
   isRecommendationFallbackMode,
   recommendedLists,
+  collaborativeRecommendationSignals: readonly(collaborativeRecommendationSignals),
   communitySituationMovieSignals: readonly(communitySituationMovieSignals),
   remoteSyncErrorMessage: readonly(remoteSyncErrorMessage),
   remoteSyncStatus: readonly(remoteSyncStatus),

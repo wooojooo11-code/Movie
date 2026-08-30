@@ -12,6 +12,7 @@ import {
   deleteCommunityPost,
   ensureCommunityProfile,
   fetchCommunityPost,
+  recordCommunityPostView,
   toggleCommunityFollow,
   toggleCommunityLike,
   toggleCommunitySave,
@@ -69,6 +70,11 @@ const load = async () => {
     ]);
     post.value = loadedPost;
     comments.value = loadedComments;
+    if (viewerId.value) {
+      void recordCommunityPostView(loadedPost.id, viewerId.value).catch((error) => {
+        console.warn('[community] Failed to record post view.', error);
+      });
+    }
   } catch (error) {
     errorMessage.value = error instanceof Error ? error.message : '게시글을 불러오지 못했습니다.';
   } finally {

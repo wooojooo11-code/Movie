@@ -56,6 +56,28 @@ export interface CommunityPost {
   poll?: CommunityPoll;
 }
 
+export type CommunityPostRecommendationReason =
+  | 'unseen_post'
+  | 'similar_author'
+  | 'taste_match'
+  | 'unseen_movie';
+
+export interface RecommendedCommunityPost {
+  post: CommunityPost;
+  reasons: CommunityPostRecommendationReason[];
+  score: number;
+}
+
+export const COMMUNITY_POST_RECOMMENDATION_REASON_LABELS: Record<
+  CommunityPostRecommendationReason,
+  string
+> = {
+  unseen_post: '처음 보는 게시물',
+  unseen_movie: '아직 안 본 영화',
+  taste_match: '내 취향과 잘 맞아요',
+  similar_author: '취향이 비슷한 작성자'
+};
+
 export interface CommunityPostDetail extends CommunityPost {
   /** 이전 추천 릴레이 데이터 호환용 필드이며, 현재 화면에는 표시하지 않습니다. */
   relays: RecommendationRelay[];

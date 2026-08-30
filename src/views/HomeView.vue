@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { ChevronLeft, ChevronRight, Clapperboard, RefreshCw } from 'lucide-vue-next';
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 import IconButton from '@/components/common/IconButton.vue';
 import MoviePosterCard from '@/components/common/MoviePosterCard.vue';
 import HeroCTA from '@/components/home/HeroCTA.vue';
 import TrendingMovies from '@/components/home/TrendingMovies.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
-import { Clapperboard } from 'lucide-vue-next';
 import { trendingMovies } from '@/data/home';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
 import { loadKobisBoxOfficeMovies } from '@/services/kobisBoxOffice';
@@ -24,6 +24,14 @@ const isSavingRating = ref(false);
 const boxOfficeStatus = ref('KOBIS 최신 집계 정보를 불러오는 중입니다.');
 const selectedMovie = ref<null | RecommendedCatalogMovie>(null);
 const isSelectedTrailerOpen = ref(false);
+const unexpectedMovies = ref<RecommendedCatalogMovie[]>([]);
+const unexpectedMovieScroller = ref<HTMLElement | null>(null);
+const quickRatingMovieIds = ref(new Set<string>());
+const canScrollUnexpectedPrevious = ref(false);
+const canScrollUnexpectedNext = ref(false);
+let unexpectedMovieOffset = 0;
+let unexpectedSnapshotUserId = '';
+const UNEXPECTED_MOVIE_BATCH_SIZE = 10;
 
 const hasTasteProfile = computed(() => recommendationStore.state.profile.totalRatings > 0);
 const recommendations = computed(() => recommendationStore.contextAwareRecommendedMovies.value);
@@ -35,7 +43,7 @@ const preferredGenres = computed(() =>
     .slice(0, 3)
     .map(([genre]) => genre)
 );
-const unexpectedMovies = computed(() => {
+const unexpectedMovieCandidates = computed(() => {
   const preferredGenreSet = new Set(preferredGenres.value);
 
   if (preferredGenreSet.size === 0) {
@@ -44,15 +52,22 @@ const unexpectedMovies = computed(() => {
 
   const genreAffinity = (movie: RecommendedCatalogMovie) =>
     movie.genres.reduce((total, genre) => total + (recommendationStore.state.profile.genreScores[genre] ?? 0), 0);
+  const preferredGenreOverlap = (movie: RecommendedCatalogMovie) =>
+    movie.genres.filter((genre) => preferredGenreSet.has(genre)).length;
 
   return [...recommendationStore.favoritePeopleRecommendationPool.value]
     .filter(
       (movie) =>
         movie.id !== featuredMovie.value?.id &&
-        movie.genres.length > 0 &&
-        movie.genres.every((genre) => !preferredGenreSet.has(genre))
+        movie.genres.length > 0
     )
     .sort((left, right) => {
+      const preferredGenreDistance = preferredGenreOverlap(left) - preferredGenreOverlap(right);
+
+      if (preferredGenreDistance !== 0) {
+        return preferredGenreDistance;
+      }
+
       const genreDistance = genreAffinity(left) - genreAffinity(right);
 
       if (genreDistance !== 0) {
@@ -60,8 +75,7 @@ const unexpectedMovies = computed(() => {
       }
 
       return (right.voteAverage ?? 0) - (left.voteAverage ?? 0);
-    })
-    .slice(0, 10);
+    });
 });
 const selectedRatingRecord = computed(() => {
   if (!selectedMovie.value) return null;
@@ -81,12 +95,77 @@ const closeMovie = () => {
   isSelectedTrailerOpen.value = false;
 };
 
-const quickRateMovie = (movie: RecommendedCatalogMovie) =>
-  recommendationStore.submitSwipeRating(
-    movie,
-    createRatingInput(recommendationStore.state.userId, movie.id, 'like'),
-    { rawDecision: 'like', rawDirection: 'right', detailCompleted: true }
+const updateQuickRatingMovieIds = (movieId: string, active: boolean) => {
+  const nextIds = new Set(quickRatingMovieIds.value);
+  active ? nextIds.add(movieId) : nextIds.delete(movieId);
+  quickRatingMovieIds.value = nextIds;
+};
+
+const isUnexpectedMovieRated = (movieId: string) =>
+  Boolean(recommendationStore.getStoredRatingRecord(movieId));
+
+const quickRateMovie = async (movie: RecommendedCatalogMovie) => {
+  if (quickRatingMovieIds.value.has(movie.id) || isUnexpectedMovieRated(movie.id)) return;
+
+  updateQuickRatingMovieIds(movie.id, true);
+  try {
+    await recommendationStore.submitSwipeRating(
+      movie,
+      createRatingInput(recommendationStore.state.userId, movie.id, 'like'),
+      { rawDecision: 'like', rawDirection: 'right', detailCompleted: true }
+    );
+  } finally {
+    updateQuickRatingMovieIds(movie.id, false);
+  }
+};
+
+const updateUnexpectedScrollState = () => {
+  const scroller = unexpectedMovieScroller.value;
+  if (!scroller) return;
+
+  const maximumScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+  canScrollUnexpectedPrevious.value = scroller.scrollLeft > 2;
+  canScrollUnexpectedNext.value = scroller.scrollLeft < maximumScroll - 2;
+};
+
+const scrollUnexpectedMovies = (direction: -1 | 1) => {
+  const scroller = unexpectedMovieScroller.value;
+  if (!scroller) return;
+
+  const firstCard = scroller.firstElementChild as HTMLElement | null;
+  const gap = Number.parseFloat(window.getComputedStyle(scroller).columnGap) || 0;
+  const distance = (firstCard?.getBoundingClientRect().width ?? scroller.clientWidth) + gap;
+  scroller.scrollBy({ left: direction * distance, behavior: 'smooth' });
+};
+
+const setUnexpectedMovieBatch = (startIndex: number) => {
+  const candidates = unexpectedMovieCandidates.value;
+  if (candidates.length === 0) {
+    unexpectedMovieOffset = 0;
+    unexpectedMovies.value = [];
+    return;
+  }
+
+  unexpectedMovieOffset = ((startIndex % candidates.length) + candidates.length) % candidates.length;
+  const batchSize = Math.min(UNEXPECTED_MOVIE_BATCH_SIZE, candidates.length);
+  unexpectedMovies.value = Array.from(
+    { length: batchSize },
+    (_, index) => candidates[(unexpectedMovieOffset + index) % candidates.length]
   );
+};
+
+const refreshUnexpectedMovies = () => {
+  const candidates = unexpectedMovieCandidates.value;
+  const candidateIndexById = new Map(candidates.map((movie, index) => [movie.id, index]));
+  const currentIndexes = unexpectedMovies.value
+    .map((movie) => candidateIndexById.get(movie.id))
+    .filter((index): index is number => typeof index === 'number');
+  const nextStartIndex = currentIndexes.length > 0
+    ? Math.max(...currentIndexes) + 1
+    : unexpectedMovieOffset + UNEXPECTED_MOVIE_BATCH_SIZE;
+
+  setUnexpectedMovieBatch(nextStartIndex);
+};
 
 const refreshBoxOffice = async () => {
   if (isBoxOfficeLoading.value) return;
@@ -128,7 +207,39 @@ const saveDislike = async (feedback: NegativeRatingInput) => {
   await saveRating({ movieId: selectedMovie.value.id, userId: recommendationStore.state.userId, status: 'dislike', rating: payload.rating, reviewTags: payload.reviewTags, favoriteCharacters: payload.favoriteCharacters, answeredAt: new Date().toISOString() }, { rawDecision: 'dislike', detailCompleted: true, feedback: payload });
 };
 
-onMounted(() => void refreshBoxOffice());
+watch(
+  [() => recommendationStore.state.userId, unexpectedMovieCandidates],
+  ([userId, candidates]) => {
+    if (!hasTasteProfile.value || candidates.length === 0) {
+      unexpectedSnapshotUserId = userId;
+      unexpectedMovies.value = [];
+      return;
+    }
+
+    if (unexpectedSnapshotUserId !== userId || unexpectedMovies.value.length === 0) {
+      unexpectedSnapshotUserId = userId;
+      setUnexpectedMovieBatch(0);
+    }
+  },
+  { immediate: true }
+);
+
+watch(
+  () => unexpectedMovies.value.map((movie) => movie.id).join('|'),
+  () => void nextTick(() => {
+    if (unexpectedMovieScroller.value) unexpectedMovieScroller.value.scrollLeft = 0;
+    updateUnexpectedScrollState();
+  }),
+  { immediate: true }
+);
+
+onMounted(() => {
+  window.addEventListener('resize', updateUnexpectedScrollState);
+  updateUnexpectedScrollState();
+  void refreshBoxOffice();
+});
+
+onBeforeUnmount(() => window.removeEventListener('resize', updateUnexpectedScrollState));
 </script>
 
 <template>
@@ -163,12 +274,19 @@ onMounted(() => void refreshBoxOffice());
     <TrendingMovies :movies="movies" :is-loading="isBoxOfficeLoading" :status="boxOfficeStatus" @refresh="refreshBoxOffice" />
 
     <section v-if="hasTasteProfile && unexpectedMovies.length" aria-labelledby="unexpected-title">
-      <div class="mb-4">
-        <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">DISCOVER</p>
-        <h2 id="unexpected-title" class="mt-1 text-xl font-bold text-[#173a5e]">의외로 취향에 맞을 영화</h2>
+      <div class="mb-4 flex items-end justify-between gap-3">
+        <div class="min-w-0">
+          <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">DISCOVER · {{ unexpectedMovies.length }}편</p>
+          <h2 id="unexpected-title" class="mt-1 text-xl font-bold text-[#173a5e]">의외로 취향에 맞을 영화</h2>
+        </div>
+        <div class="flex shrink-0 gap-2" aria-label="의외로 취향에 맞을 영화 탐색">
+          <IconButton :icon="RefreshCw" label="의외로 취향에 맞을 영화 새로고침" size="sm" @click="refreshUnexpectedMovies" />
+          <IconButton :icon="ChevronLeft" label="이전 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedPrevious" @click="scrollUnexpectedMovies(-1)" />
+          <IconButton :icon="ChevronRight" label="다음 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedNext" @click="scrollUnexpectedMovies(1)" />
+        </div>
       </div>
-      <div class="movie-shelf">
-        <MoviePosterCard v-for="movie in unexpectedMovies" :key="movie.id" :movie="movie" :saved="libraryStore.hasMovie(movie.id)" @open="openMovie(movie)" @rate="quickRateMovie(movie)" @save="libraryStore.toggleMovie(movie.id)" @trailer="openMovie(movie, true)" />
+      <div ref="unexpectedMovieScroller" class="movie-shelf scroll-smooth" @scroll.passive="updateUnexpectedScrollState">
+        <MoviePosterCard v-for="movie in unexpectedMovies" :key="movie.id" :movie="movie" :rating="quickRatingMovieIds.has(movie.id)" :rated="isUnexpectedMovieRated(movie.id)" :saved="libraryStore.hasMovie(movie.id)" @open="openMovie(movie)" @rate="quickRateMovie(movie)" @save="libraryStore.toggleMovie(movie.id)" @trailer="openMovie(movie, true)" />
       </div>
     </section>
   </main>

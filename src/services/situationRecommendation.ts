@@ -23,10 +23,10 @@ import type {
   ActiveSituation,
   CatalogMovie,
   CollaborativeRecommendationSignal,
-  CommunitySituationMovieSignal,
   RecommendationImpression,
   RecommendationScoreBreakdown,
   RecommendedCatalogMovie,
+  SituationPresetId,
   SituationViewingTime,
   StoredRatingRecord
 } from '@/types/recommendation';
@@ -35,7 +35,6 @@ interface SituationRankingOptions {
   activeSituation: ActiveSituation;
   catalogMovies: readonly CatalogMovie[];
   collaborativeSignals?: readonly CollaborativeRecommendationSignal[];
-  communitySituationSignals?: readonly CommunitySituationMovieSignal[];
   encounteredMovieIds?: readonly string[];
   hasTasteProfile?: boolean;
   impressions?: readonly RecommendationImpression[];
@@ -65,6 +64,57 @@ const normalizeText = (value: string) => value.trim().toLocaleLowerCase();
 
 const isTrueStoryMovie = (movie: CatalogMovie) =>
   movie.contextTags?.includes('true_story') || trueStoryTmdbMovieIds.has(movie.tmdbMovieId);
+
+const countMatchingTags = (movie: CatalogMovie, tags: readonly string[]) => {
+  const movieTags = new Set(movie.tags);
+  return tags.filter((tag) => movieTags.has(tag)).length;
+};
+
+const hasMatchingGenre = (movie: CatalogMovie, genreIds: readonly number[]) => {
+  const movieGenreIds = new Set(movie.genreIds ?? []);
+  return genreIds.some((genreId) => movieGenreIds.has(genreId));
+};
+
+const matchesConfiguredPreset = (movie: CatalogMovie, presetId: SituationPresetId) => {
+  if (presetId === 'after_breakup') {
+    return (
+      hasMatchingGenre(movie, [28, 10749]) ||
+      countMatchingTags(movie, ['감동', '여운']) >= 1
+    );
+  }
+
+  if (presetId === 'offline_rest') {
+    return (
+      hasMatchingGenre(movie, [16, 18]) ||
+      countMatchingTags(movie, ['영상미', '감성적인 음악', '여운']) >= 1
+    );
+  }
+
+  if (presetId === 'before_travel') {
+    return hasMatchingGenre(movie, [12]);
+  }
+
+  if (presetId === 'cleaning') {
+    return hasMatchingGenre(movie, [35]);
+  }
+
+  if (presetId === 'before_confession') {
+    return hasMatchingGenre(movie, [10749]);
+  }
+
+  if (presetId === 'winter_vibes') {
+    return movie.contextTags?.includes('winter') === true;
+  }
+
+  if (presetId === 'sunday_night') {
+    return (
+      countMatchingTags(movie, ['감동', '여운', '감성적인 음악']) >= 1 &&
+      !hasMatchingGenre(movie, [28, 53, 27, 80, 10752])
+    );
+  }
+
+  return false;
+};
 
 /** 장르 일치 +2, 태그·키워드 일치 +1.5 규칙으로 한 상황 규칙의 0~100 일치율을 계산합니다. */
 const getRuleMatch = (movie: CatalogMovie, rule: SituationRule): RuleMatch => {
@@ -104,6 +154,19 @@ const getRuleMatch = (movie: CatalogMovie, rule: SituationRule): RuleMatch => {
         ? clampRecommendationScore((matchedScore / maximumScore) * 100)
         : 0
   };
+};
+
+const scopePresetCandidates = (
+  candidates: readonly RecommendedCatalogMovie[],
+  activeSituation: ActiveSituation
+) => {
+  if (activeSituation.kind !== 'preset') {
+    return [...candidates];
+  }
+
+  return candidates.filter((movie) =>
+    matchesConfiguredPreset(movie, activeSituation.presetId)
+  );
 };
 
 const timeMatches = (movie: CatalogMovie, viewingTime: SituationViewingTime, expanded = false) => {
@@ -207,11 +270,6 @@ export const calculateSituationScore = (
   return { isStrongMatch: false, reasons: [], score: 100 };
 };
 
-const getCommunitySituationScore = (answerCount: number, maximumAnswerCount: number) =>
-  maximumAnswerCount > 0 && answerCount > 0
-    ? (Math.log1p(answerCount) / Math.log1p(maximumAnswerCount)) * 100
-    : 0;
-
 const mergeReasons = (...reasonGroups: readonly string[][]) =>
   [...new Set(reasonGroups.flat().filter(Boolean))].slice(0, 6);
 
@@ -219,7 +277,6 @@ export const rankSituationMovies = ({
   activeSituation,
   catalogMovies,
   collaborativeSignals = [],
-  communitySituationSignals = [],
   encounteredMovieIds = [],
   impressions = [],
   movies,
@@ -252,10 +309,11 @@ export const rankSituationMovies = ({
           .filter((movie) => explicitMovieIds.has(movie.tmdbMovieId))
           .map((movie) => ({ ...movie, genreIds: movie.genreIds ?? [], recommendationScore: 0 }))
       : [];
-  const scopedCandidates =
+  const presetScopedCandidates =
     explicitMovieIds.size > 0 && presetCandidates.length === 0
       ? fixedCatalogFallback
       : presetCandidates;
+  const scopedCandidates = scopePresetCandidates(presetScopedCandidates, activeSituation);
   const movieById = Object.fromEntries(catalogMovies.map((movie) => [movie.id, movie])) as Record<
     string,
     CatalogMovie
@@ -265,16 +323,8 @@ export const rankSituationMovies = ({
   const collaborativeSignalByMovieId = new Map(
     collaborativeSignals.map((signal) => [signal.movieId, signal])
   );
-  const communitySignalByMovieId = new Map(
-    communitySituationSignals.map((signal) => [signal.movieId, signal])
-  );
-  const maximumCommunityAnswerCount = Math.max(
-    0,
-    ...communitySituationSignals.map((signal) => signal.answerCount)
-  );
   const hasSituation = activeSituation.kind !== 'none';
-  const hasCommunitySituationSignals =
-    activeSituation.kind === 'preset' && maximumCommunityAnswerCount > 0;
+  const configuredPreset = activeSituation.kind === 'preset';
   const encounteredIds = new Set([
     ...encounteredMovieIds,
     ...impressions.map((impression) => impression.movieId)
@@ -282,35 +332,35 @@ export const rankSituationMovies = ({
 
   const rankedMovies: RankedSituationMovie[] = scopedCandidates
     .map((movie, index) => {
-      const personalPreference = calculatePersonalPreferenceScore(movie, preferenceModel);
-      const similarUser = encounteredIds.has(movie.id)
+      const personalPreference = configuredPreset
         ? { rawScore: 0, reasons: [] }
-        : calculateSimilarUserScore(movie.id, collaborativeSignalByMovieId);
+        : calculatePersonalPreferenceScore(movie, preferenceModel);
+      const similarUser = configuredPreset
+        ? { rawScore: 0, reasons: [] }
+        : encounteredIds.has(movie.id)
+          ? { rawScore: 0, reasons: [] }
+          : calculateSimilarUserScore(movie.id, collaborativeSignalByMovieId);
       const baseSituation = calculateSituationScore(movie, activeSituation);
-      const communityAnswerCount = communitySignalByMovieId.get(movie.id)?.answerCount ?? 0;
-      const communityScore = getCommunitySituationScore(
-        communityAnswerCount,
-        maximumCommunityAnswerCount
-      );
-      const situationScore =
-        hasCommunitySituationSignals && communityAnswerCount > 0
-          ? clampRecommendationScore(
-              baseSituation.score * (1 - RECOMMENDATION_SCORING_CONFIG.situation.communityBlend) +
-                communityScore * RECOMMENDATION_SCORING_CONFIG.situation.communityBlend
-            )
-          : baseSituation.score;
       const tmdbQuality = calculateTmdbQualityScore(movie);
-      const novelty = calculateNoveltyScore(movie.id, encounteredIds);
-      const people = calculatePeopleScore(movie, peopleModel);
+      const novelty = configuredPreset
+        ? { rawScore: 0, reasons: [] }
+        : calculateNoveltyScore(movie.id, encounteredIds);
+      const people = configuredPreset
+        ? { rawScore: 0, reasons: [] }
+        : calculatePeopleScore(movie, peopleModel);
       const rawScores: RecommendationScoreBreakdown = {
         personalPreference: personalPreference.rawScore,
         similarUser: similarUser.rawScore,
-        situation: situationScore,
+        situation: baseSituation.score,
         tmdbQuality: tmdbQuality.rawScore,
         novelty: novelty.rawScore,
         people: people.rawScore
       };
-      const finalScore = calculateFinalRecommendationScore({ hasSituation, rawScores });
+      const finalScore = calculateFinalRecommendationScore({
+        configuredPreset,
+        hasSituation,
+        rawScores
+      });
       const timeReason =
         activeSituation.kind === 'manual' &&
         activeSituation.selection.viewingTime &&
@@ -318,11 +368,6 @@ export const rankSituationMovies = ({
         typeof movie.runtimeMinutes === 'number'
           ? [`선택한 관람 시간에 맞는 ${movie.runtimeMinutes}분 영화예요.`]
           : [];
-      const communityReasons =
-        hasCommunitySituationSignals && communityAnswerCount > 0
-          ? [`이 상황에서 커뮤니티 ${communityAnswerCount}명이 추천했어요.`]
-          : [];
-
       return {
         index,
         qualityRawScore: tmdbQuality.rawScore,
@@ -332,7 +377,6 @@ export const rankSituationMovies = ({
             personalPreference.reasons,
             similarUser.reasons,
             baseSituation.reasons,
-            communityReasons,
             timeReason,
             people.reasons,
             novelty.reasons,

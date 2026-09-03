@@ -18,9 +18,12 @@ const bookingPartners = [
   }
 ];
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
+  initialTrailerOpen?: boolean;
   movie: TrendingMovie;
-}>();
+}>(), {
+  initialTrailerOpen: false
+});
 
 const emit = defineEmits<{
   close: [];
@@ -28,9 +31,11 @@ const emit = defineEmits<{
 
 const detail = ref<null | KobisTmdbDetail>(null);
 const isDetailLoading = ref(true);
-const isTrailerOpen = ref(false);
+const isTrailerOpen = ref(props.initialTrailerOpen);
+const isOverviewExpanded = ref(false);
 const displayedGenres = computed(() => detail.value?.genres.length ? detail.value.genres : props.movie.genres);
 const displayedCast = computed(() => detail.value?.cast.length ? detail.value.cast : props.movie.cast);
+const hasLongOverview = computed(() => (detail.value?.overview.trim().length ?? 0) > 110);
 const hasAudienceCounts = computed(
   () => Number.isFinite(props.movie.dailyAudienceCount) || Number.isFinite(props.movie.cumulativeAudienceCount)
 );
@@ -126,6 +131,19 @@ onBeforeUnmount(() => window.removeEventListener('keydown', closeOnEscape));
         </div>
       </div>
 
+      <div v-if="trailerMovie" class="mt-4 border-t border-app-line pt-4">
+        <div class="flex justify-end">
+          <IconButton
+            :icon="Clapperboard"
+            :active="isTrailerOpen"
+            :label="isTrailerOpen ? '예고편 닫기' : '예고편 바로 보기'"
+            size="sm"
+            @click="isTrailerOpen = !isTrailerOpen"
+          />
+        </div>
+        <MovieTrailerPlayer v-if="isTrailerOpen" class="mt-3" :movie="trailerMovie" />
+      </div>
+
       <dl v-if="hasAudienceCounts" class="mt-4 grid grid-cols-2 gap-2" aria-label="관객 수 정보">
         <div class="corner-soft bg-[#eef6ff] px-3 py-3 sm:px-4 sm:py-4">
           <dt class="text-xs font-medium text-app-muted">일일 관객수</dt>
@@ -172,12 +190,26 @@ onBeforeUnmount(() => window.removeEventListener('keydown', closeOnEscape));
       </div>
 
       <div v-if="isDetailLoading" class="mt-4 text-xs text-app-muted">영화 정보를 확인하고 있어요.</div>
-      <p v-else-if="detail?.overview" class="mt-4 border-t border-app-line pt-4 text-sm leading-6 text-[#294866]">{{ detail.overview }}</p>
-
-      <div v-if="trailerMovie" class="mt-4 border-t border-app-line pt-4">
-        <IconButton :icon="Clapperboard" :active="isTrailerOpen" label="예고편 보기" @click="isTrailerOpen = !isTrailerOpen" />
-        <MovieTrailerPlayer v-if="isTrailerOpen" class="mt-3" :movie="trailerMovie" />
-      </div>
+      <section v-else-if="detail?.overview" class="mt-4 border-t border-app-line pt-4" aria-labelledby="trending-overview-title">
+        <div class="flex items-center justify-between gap-3">
+          <h4 id="trending-overview-title" class="text-sm font-semibold text-[#15171c]">줄거리</h4>
+          <button
+            v-if="hasLongOverview"
+            type="button"
+            class="focus-ring corner-pill shrink-0 border border-app-line bg-app-panelSoft px-3 py-1.5 text-xs font-semibold text-app-accent"
+            :aria-expanded="isOverviewExpanded"
+            @click="isOverviewExpanded = !isOverviewExpanded"
+          >
+            {{ isOverviewExpanded ? '접기' : '더보기' }}
+          </button>
+        </div>
+        <p
+          class="mt-2 whitespace-pre-wrap text-sm leading-6 text-[#294866]"
+          :class="!isOverviewExpanded && hasLongOverview ? 'line-clamp-3' : ''"
+        >
+          {{ detail.overview }}
+        </p>
+      </section>
 
       <div v-if="movie.similarMovies.length > 0" class="mt-5 border-t border-app-line pt-4">
         <div class="mb-3 flex items-center justify-between gap-3">

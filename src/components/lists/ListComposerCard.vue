@@ -70,7 +70,7 @@ const availableMovieResults = computed(() =>
         :class="
           isPrivate
             ? 'border-app-line bg-app-panelSoft text-app-muted'
-            : 'border-app-accent bg-app-accent text-white'
+            : 'border-slate-300 bg-slate-200 text-slate-700'
         "
         :disabled="Boolean(shareRestrictionReason)"
         @click="emit('toggle-private')"

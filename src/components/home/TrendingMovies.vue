@@ -19,6 +19,7 @@ const emit = defineEmits<{
 
 const scroller = ref<HTMLElement | null>(null);
 const selectedMovie = ref<TrendingMovie | null>(null);
+const shouldOpenTrailer = ref(false);
 const isDragging = ref(false);
 const startX = ref(0);
 const startScrollLeft = ref(0);
@@ -51,37 +52,59 @@ const onPointerDown = (event: PointerEvent) => {
     return;
   }
 
-  isDragging.value = true;
+  isDragging.value = false;
   activePointerId.value = event.pointerId;
   startX.value = event.clientX;
   startScrollLeft.value = target.scrollLeft;
-  target.setPointerCapture(event.pointerId);
 };
 
 const onPointerMove = (event: PointerEvent) => {
-  if (!isDragging.value || !scroller.value || activePointerId.value !== event.pointerId) {
+  if (!scroller.value || activePointerId.value !== event.pointerId) {
     return;
   }
 
-  scroller.value.scrollLeft = startScrollLeft.value - (event.clientX - startX.value);
+  const dragDistance = event.clientX - startX.value;
+
+  if (!isDragging.value && Math.abs(dragDistance) < 6) {
+    return;
+  }
+
+  if (!isDragging.value) {
+    isDragging.value = true;
+    scroller.value.setPointerCapture(event.pointerId);
+  }
+
+  scroller.value.scrollLeft = startScrollLeft.value - dragDistance;
 };
 
 const stopDragging = (event: PointerEvent) => {
-  if (!isDragging.value || activePointerId.value !== event.pointerId) {
+  if (activePointerId.value !== event.pointerId) {
     return;
+  }
+
+  const target = scroller.value;
+
+  if (isDragging.value && target?.hasPointerCapture(event.pointerId)) {
+    target.releasePointerCapture(event.pointerId);
   }
 
   isDragging.value = false;
   activePointerId.value = null;
-  scroller.value?.releasePointerCapture(event.pointerId);
 };
 
 const openMovie = (movie: TrendingMovie) => {
+  shouldOpenTrailer.value = false;
+  selectedMovie.value = movie;
+};
+
+const openMovieTrailer = (movie: TrendingMovie) => {
+  shouldOpenTrailer.value = true;
   selectedMovie.value = movie;
 };
 
 const closeMovie = () => {
   selectedMovie.value = null;
+  shouldOpenTrailer.value = false;
 };
 </script>
 
@@ -110,9 +133,20 @@ const closeMovie = () => {
       @pointercancel="stopDragging"
       @pointerleave="stopDragging"
     >
-      <MovieRankCard v-for="movie in movies" :key="movie.id" :movie="movie" @open="openMovie" />
+      <MovieRankCard
+        v-for="movie in movies"
+        :key="movie.id"
+        :movie="movie"
+        @open="openMovie"
+        @trailer="openMovieTrailer"
+      />
     </div>
 
-    <TrendingMovieSheet v-if="selectedMovie" :movie="selectedMovie" @close="closeMovie" />
+    <TrendingMovieSheet
+      v-if="selectedMovie"
+      :movie="selectedMovie"
+      :initial-trailer-open="shouldOpenTrailer"
+      @close="closeMovie"
+    />
   </section>
 </template>

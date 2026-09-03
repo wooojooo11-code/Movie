@@ -72,13 +72,20 @@ export const RECOMMENDATION_SCORING_CONFIG = {
       people: 10
     },
     withSituation: {
-      personalPreference: 28,
-      similarUser: 28,
-      situation: 16,
+      personalPreference: 27,
+      similarUser: 25,
+      situation: 20,
       tmdbQuality: 16,
       novelty: 6,
       people: 6
+    },
+    configuredPreset: {
+      personalPreference: 0,
+      similarUser: 0,
+      situation: 80,
+      tmdbQuality: 20,
+      novelty: 0,
+      people: 0
     }
-  } satisfies Record<'withSituation' | 'withoutSituation', RecommendationScoreWeights>
+  } satisfies Record<'configuredPreset' | 'withSituation' | 'withoutSituation', RecommendationScoreWeights>
 } as const;
-

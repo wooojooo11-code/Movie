@@ -89,17 +89,10 @@ onBeforeUnmount(() => {
       <section
         role="dialog"
         aria-modal="true"
-        aria-labelledby="rating-history-picker-title"
+        aria-label="평가 수정"
         class="modal-enter mx-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-md flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-w-[800px]"
       >
-        <header class="flex items-start justify-between gap-4 border-b border-app-line px-4 py-4 sm:px-5">
-          <div class="min-w-0">
-            <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">EDIT RATING</p>
-            <h2 id="rating-history-picker-title" class="mt-1 text-xl font-bold text-[#173a5e]">
-              수정할 영화 선택
-            </h2>
-            <p class="mt-1 text-sm text-app-muted">평가한 영화 {{ entries.length }}편</p>
-          </div>
+        <header class="flex justify-end border-b border-app-line px-4 py-3 sm:px-5">
           <IconButton :icon="X" label="평가 선택 창 닫기" @click="emit('close')" />
         </header>
 

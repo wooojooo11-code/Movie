@@ -558,7 +558,6 @@ onScopeDispose(() => {
         <div>
           <p class="text-xs font-semibold text-app-accent">FOR YOU</p>
           <h2 id="recommended-posts-title" class="mt-1 text-lg font-semibold text-[#15171c]">추천 게시물</h2>
-          <p class="mt-1 text-xs leading-5 text-app-muted">처음 보는 글 중 취향과 작성자 반응이 잘 맞는 글을 골랐어요.</p>
         </div>
         <span v-if="recommendedPosts.length > 0" class="shrink-0 text-xs font-medium text-app-muted">
           {{ recommendedPosts.length }}개

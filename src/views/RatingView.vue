@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Search } from 'lucide-vue-next';
 import { computed, nextTick, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -6,13 +7,13 @@ import NegativeFeedbackForm from '@/components/rating/NegativeFeedbackForm.vue';
 import PositiveFeedbackForm from '@/components/rating/PositiveFeedbackForm.vue';
 import RatingHistoryPickerModal from '@/components/rating/RatingHistoryPickerModal.vue';
 import RatingMovieCard from '@/components/rating/RatingMovieCard.vue';
+import TasteProfileChart from '@/components/rating/TasteProfileChart.vue';
 import RatingProgress from '@/components/rating/RatingProgress.vue';
-import TasteAnalysisResult from '@/components/rating/TasteAnalysisResult.vue';
 import { getCharacterChoices } from '@/services/movieCreditsService';
 import { createRatingInput } from '@/services/ratingInput';
 import { getCharacterQuestionByGenre } from '@/services/ratingQuestionService';
 import { useRecommendationStore } from '@/services/recommendationStore';
-import type { RatingResumeSurface, StoredRatingRecord } from '@/types/recommendation';
+import type { CatalogMovie, RatingResumeSurface, StoredRatingRecord } from '@/types/recommendation';
 import { getDetailedRatingFeedbackMode, toStoredRatingStatus } from '@/types/rating';
 import type {
   NegativeRatingInput,
@@ -29,6 +30,9 @@ const activeAdditionalBatchIndex = ref<null | number>(null);
 const editRatingIndex = ref(0);
 const isRatingHistoryPickerOpen = ref(false);
 const isSavingPrimaryDecision = ref(false);
+const isStartingCustomDetailRating = ref(false);
+const detailMovieSearchQuery = ref('');
+const selectedDetailMovieId = ref<null | string>(null);
 const primaryFlowTop = ref<HTMLElement | null>(null);
 const detailFlowTop = ref<HTMLElement | null>(null);
 
@@ -72,17 +76,6 @@ const currentEditRating = computed(() => {
       }
     : null;
 });
-const latestEditableRating = computed(() => {
-  const latestMovie = editRatingMovies.value[editRatingMovies.value.length - 1];
-  const record = latestMovie ? recommendationStore.getStoredRatingRecord(latestMovie.id) : null;
-
-  return record
-    ? {
-        decision: record.rawDecision,
-        direction: record.rawDirection
-      }
-    : null;
-});
 const ratedMoviesHistory = computed(() => recommendationStore.ratedMoviesHistory.value);
 const hasRatedMovieHistory = computed(() => ratedMoviesHistory.value.length > 0);
 const activeRatingMovies = computed(() => {
@@ -108,7 +101,38 @@ const currentRatingMovie = computed(() =>
       })
     : recommendationStore.getNextRatingMovie()
 );
-const currentDetailMovie = computed(() => recommendationStore.getPendingDetailMovie());
+const normalizeMovieSearchValue = (value: string) =>
+  value.toLocaleLowerCase('ko-KR').replace(/\s+/g, '');
+const customDetailMovieResults = computed(() => {
+  const query = normalizeMovieSearchValue(detailMovieSearchQuery.value.trim());
+
+  if (!query) {
+    return [];
+  }
+
+  return recommendationStore.catalogMovies
+    .filter((movie) =>
+      normalizeMovieSearchValue(
+        [movie.title, movie.releaseYear, ...movie.genres, ...movie.tags].join(' ')
+      ).includes(query)
+    )
+    .slice(0, 6);
+});
+const currentDetailMovie = computed(() => {
+  if (selectedDetailMovieId.value) {
+    const selectedRecord = pendingDetailedRatings.value.find(
+      (record) => record.input.movieId === selectedDetailMovieId.value
+    );
+
+    if (selectedRecord) {
+      return recommendationStore.catalogMovies.find(
+        (movie) => movie.id === selectedDetailMovieId.value
+      ) ?? null;
+    }
+  }
+
+  return recommendationStore.getPendingDetailMovie();
+});
 const currentMovie = computed(() => {
   if (isDetailPaused.value) {
     return null;
@@ -505,6 +529,48 @@ const pauseDetailedRating = async () => {
   });
 };
 
+const startCustomDetailedRating = async (
+  movie: CatalogMovie,
+  feedbackMode: 'negative' | 'positive'
+) => {
+  if (isStartingCustomDetailRating.value) {
+    return;
+  }
+
+  isStartingCustomDetailRating.value = true;
+
+  try {
+    if (!isDetailMode.value) {
+      await router.replace('/rating?mode=detail');
+    }
+
+    const isPositive = feedbackMode === 'positive';
+    const decision = isPositive ? 'like' : 'dislike';
+
+    await recommendationStore.submitSwipeRating(
+      movie,
+      createRatingInput(recommendationStore.state.userId, movie.id, decision),
+      {
+        rawDecision: decision,
+        rawDirection: isPositive ? 'right' : 'left',
+        detailCompleted: false
+      }
+    );
+
+    selectedDetailMovieId.value = movie.id;
+    detailMovieSearchQuery.value = '';
+    await scrollToContainer(detailFlowTop);
+  } finally {
+    isStartingCustomDetailRating.value = false;
+  }
+};
+
+const clearSelectedDetailMovie = (movieId: string) => {
+  if (selectedDetailMovieId.value === movieId) {
+    selectedDetailMovieId.value = null;
+  }
+};
+
 const scrollToContainer = async (containerRef: { value: HTMLElement | null }) => {
   await nextTick();
   containerRef.value?.scrollIntoView({
@@ -603,6 +669,7 @@ const submitNegativeFeedback = async (feedback: NegativeRatingInput) => {
       questionText: ''
     }
   });
+  clearSelectedDetailMovie(movie.id);
   await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
@@ -631,6 +698,7 @@ const submitPositiveFeedback = async (feedback: PositiveRatingInput) => {
       questionText: ''
     }
   });
+  clearSelectedDetailMovie(movie.id);
   await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
@@ -654,6 +722,7 @@ const skipPositiveFeedback = async () => {
     rawDirection: currentDetailRecord.value?.rawDirection ?? null,
     detailCompleted: true
   });
+  clearSelectedDetailMovie(movie.id);
   await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
@@ -678,6 +747,7 @@ const skipNegativeFeedback = async () => {
     rawDirection: record.rawDirection,
     detailCompleted: true
   });
+  clearSelectedDetailMovie(movie.id);
   await scrollToNextDetailMovie();
 
   if (!recommendationStore.getPendingDetailMovie()) {
@@ -708,7 +778,73 @@ watch(
         : 'gap-5 pb-[calc(3.75rem+env(safe-area-inset-bottom))] pt-5'
     "
   >
-    <div ref="primaryFlowTop">
+    <section
+      v-if="isDetailMode || isDetailPaused"
+      class="corner-hard border border-app-line bg-app-panel p-4 sm:p-5"
+      aria-labelledby="custom-detail-rating-title"
+    >
+      <div>
+        <h2 id="custom-detail-rating-title" class="text-base font-semibold text-[#15171c]">원하는 영화 상세평가</h2>
+      </div>
+
+      <label class="relative mt-3 block">
+        <span class="sr-only">상세평가할 영화 검색</span>
+        <Search :size="17" class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-app-muted" aria-hidden="true" />
+        <input
+          v-model="detailMovieSearchQuery"
+          type="search"
+          placeholder="영화 제목이나 장르를 입력하세요"
+          class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft pl-10 pr-3 text-sm text-[#15171c] placeholder:text-app-muted"
+        />
+      </label>
+
+      <div v-if="detailMovieSearchQuery.trim()" class="mt-3 grid gap-2">
+        <article
+          v-for="movie in customDetailMovieResults"
+          :key="movie.id"
+          class="corner-soft flex items-center gap-3 border border-app-line bg-app-panelSoft p-2.5"
+        >
+          <img :src="movie.posterUrl" :alt="movie.posterAlt" class="h-16 w-11 shrink-0 object-cover" loading="lazy" />
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-semibold text-[#15171c]">{{ movie.title }}</p>
+            <p class="mt-1 truncate text-xs text-app-muted">{{ movie.releaseYear }} · {{ movie.genres.slice(0, 2).join(' · ') }}</p>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <button
+                type="button"
+                class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-accent bg-app-accent px-3 text-[11px] font-semibold !text-white disabled:opacity-45"
+                :disabled="isStartingCustomDetailRating"
+                @click="startCustomDetailedRating(movie, 'positive')"
+              >
+                좋았어요 상세평가
+              </button>
+              <button
+                type="button"
+                class="focus-ring corner-soft inline-flex min-h-8 items-center justify-center border border-app-line bg-white px-3 text-[11px] font-semibold text-[#15171c] disabled:opacity-45"
+                :disabled="isStartingCustomDetailRating"
+                @click="startCustomDetailedRating(movie, 'negative')"
+              >
+                아쉬웠어요 상세평가
+              </button>
+            </div>
+          </div>
+        </article>
+        <p v-if="customDetailMovieResults.length === 0" class="corner-soft border border-dashed border-app-line px-3 py-4 text-sm text-app-muted">
+          검색 결과가 없어요.
+        </p>
+      </div>
+    </section>
+
+    <div v-if="!isDetailMode && !isEditMode && hasRatedMovieHistory" class="flex justify-end">
+      <button
+        type="button"
+        class="focus-ring corner-soft inline-flex min-h-10 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-semibold text-[#15171c]"
+        @click="openRatingHistoryPicker"
+      >
+        이전 평가 수정
+      </button>
+    </div>
+
+    <div v-if="currentMovie" ref="primaryFlowTop">
       <RatingProgress
         :compact="Boolean(currentMovie && !isDetailMode)"
         :current="completedCount"
@@ -777,10 +913,8 @@ watch(
             size="compact"
             show-trailer
             :show-watch-options="false"
-            :show-previous-rating-edit="!isDetailMode && !isEditMode && hasRatedMovieHistory"
-            :previous-rating="isEditMode ? currentEditRating : latestEditableRating"
+            :previous-rating="isEditMode ? currentEditRating : null"
             @decide="savePrimaryMovieDecision"
-            @edit-previous-rating="openRatingHistoryPicker"
           />
         </Transition>
       </div>
@@ -822,7 +956,7 @@ watch(
         {{ completionDescription }}
       </p>
 
-      <TasteAnalysisResult
+      <TasteProfileChart
         v-if="!isDetailMode"
         class="mt-5"
         :entries="recommendationStore.ratedMoviesHistory.value"
@@ -831,19 +965,10 @@ watch(
       <div class="mt-5 flex flex-wrap gap-3">
         <RouterLink
           to="/recommendations"
-          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold text-white"
+          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
         >
           추천 보러 가기
         </RouterLink>
-
-        <button
-          v-if="!isEditMode && hasRatedMovieHistory"
-          type="button"
-          class="focus-ring corner-soft inline-flex min-h-11 items-center justify-center border border-app-line bg-app-panelSoft px-4 text-sm font-medium text-[#15171c]"
-          @click="openRatingHistoryPicker"
-        >
-          이전 평가 수정하기
-        </button>
 
         <button
           v-if="secondaryAction?.isMoreAction"

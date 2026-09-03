@@ -40,8 +40,8 @@ const formatDate = (value: string) =>
       </div>
       <div class="flex shrink-0 flex-col items-end gap-2">
         <span
-          class="corner-pill border px-3 py-1.5 text-xs font-semibold text-white"
-          :class="list.isPrivate ? 'border-app-line bg-app-panelSoft text-app-muted' : 'border-app-accent bg-app-accent'"
+          class="corner-pill border px-3 py-1.5 text-xs font-semibold"
+          :class="list.isPrivate ? 'border-app-line bg-app-panelSoft text-app-muted' : 'border-slate-300 bg-slate-200 text-slate-700'"
         >
           {{ list.isPrivate ? '비공개' : '공유' }}
         </span>

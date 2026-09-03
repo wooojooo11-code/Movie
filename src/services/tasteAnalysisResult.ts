@@ -13,6 +13,7 @@ export interface TasteAnalysisResult {
   directors: TasteAnalysisRanking[];
   genres: TasteAnalysisRanking[];
   likedMovieCount: number;
+  tags: TasteAnalysisRanking[];
 }
 
 type PreferenceScore = {
@@ -24,8 +25,23 @@ type PreferenceScore = {
 const isLikedRating = (entry: RatedCatalogMovieRecord) =>
   entry.ratingRecord.rawDecision === 'like' || entry.ratingRecord.input.status === 'like';
 
-const getPreferenceWeight = (entry: RatedCatalogMovieRecord) =>
-  Math.max(1, entry.ratingRecord.input.rating ?? 3);
+const getPreferenceWeight = (entry: RatedCatalogMovieRecord) => {
+  const rating = entry.ratingRecord.input.rating;
+
+  if (typeof rating === 'number') {
+    return Math.max(0.5, Math.min(5, rating));
+  }
+
+  if (entry.ratingRecord.rawDirection === 'right') {
+    return 4;
+  }
+
+  if (entry.ratingRecord.rawDirection === 'up') {
+    return 2.5;
+  }
+
+  return 3.5;
+};
 
 const getRatedAtTime = (entry: RatedCatalogMovieRecord) => {
   const timestamp = new Date(entry.ratingRecord.input.answeredAt).getTime();
@@ -35,7 +51,8 @@ const getRatedAtTime = (entry: RatedCatalogMovieRecord) => {
 const addPreference = (
   scores: Map<string, PreferenceScore>,
   name: null | string | undefined,
-  entry: RatedCatalogMovieRecord
+  entry: RatedCatalogMovieRecord,
+  weight = getPreferenceWeight(entry)
 ) => {
   const normalizedName = name?.trim();
 
@@ -51,7 +68,7 @@ const addPreference = (
 
   current.count += 1;
   current.lastRatedAt = Math.max(current.lastRatedAt, getRatedAtTime(entry));
-  current.score += getPreferenceWeight(entry);
+  current.score += weight;
   scores.set(normalizedName, current);
 };
 
@@ -76,27 +93,36 @@ export const getTasteAnalysisResult = (
   const actorScores = new Map<string, PreferenceScore>();
   const directorScores = new Map<string, PreferenceScore>();
   const genreScores = new Map<string, PreferenceScore>();
+  const tagScores = new Map<string, PreferenceScore>();
   const likedEntries = entries.filter(isLikedRating);
 
   for (const entry of likedEntries) {
+    const entryWeight = getPreferenceWeight(entry);
+    const genreWeight = entry.movie.genres.length > 0 ? entryWeight / entry.movie.genres.length : entryWeight;
+
     for (const genre of entry.movie.genres) {
-      addPreference(genreScores, genre, entry);
+      addPreference(genreScores, genre, entry, genreWeight);
+    }
+
+    const uniqueTags = [...new Set(entry.movie.tags.map((tag) => tag.trim()).filter(Boolean))];
+    const tagWeight = uniqueTags.length > 0 ? entryWeight / uniqueTags.length : entryWeight;
+
+    for (const tag of uniqueTags) {
+      addPreference(tagScores, tag, entry, tagWeight);
     }
 
     const credits = movieCreditsById[entry.movie.id];
-    addPreference(directorScores, credits?.director, entry);
+    addPreference(directorScores, credits?.director, entry, entryWeight);
 
-    const selectedActors = entry.ratingRecord.input.favoriteCharacters
+    const selectedLeadActor = entry.ratingRecord.input.favoriteCharacters
       .map((character) => {
         const characterIndex = credits?.characters.indexOf(character) ?? -1;
         return characterIndex >= 0 ? credits?.cast[characterIndex] : null;
       })
-      .filter((actor): actor is string => Boolean(actor));
-    const actorNames = selectedActors.length > 0 ? selectedActors : (credits?.cast.slice(0, 2) ?? []);
+      .find((actor): actor is string => Boolean(actor));
+    const leadActor = selectedLeadActor ?? credits?.cast[0] ?? null;
 
-    for (const actor of actorNames) {
-      addPreference(actorScores, actor, entry);
-    }
+    addPreference(actorScores, leadActor, entry, entryWeight);
   }
 
   return {
@@ -104,6 +130,7 @@ export const getTasteAnalysisResult = (
     likedMovieCount: likedEntries.length,
     genres: toRankings(genreScores, 4),
     actors: toRankings(actorScores, 3),
-    directors: toRankings(directorScores, 3)
+    directors: toRankings(directorScores, 3),
+    tags: toRankings(tagScores, 12)
   };
 };

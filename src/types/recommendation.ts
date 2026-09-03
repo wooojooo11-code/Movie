@@ -45,6 +45,14 @@ export type SituationReason =
   | 'mystery_twist'
   | 'visuals'
   | 'new_world'
+  | 'healing'
+  | 'romance'
+  | 'family_time'
+  | 'friendship'
+  | 'music'
+  | 'acting'
+  | 'escape'
+  | 'learn'
   | 'true_story';
 
 export interface SituationSelection {

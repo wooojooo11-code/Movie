@@ -59,7 +59,7 @@ const movie = (id, overrides = {}) => ({
 assert.equal(situationOptionGroups.length, 5, 'five direct situation groups are available');
 assert.deepEqual(
   situationOptionGroups.map((group) => group.options.length),
-  [7, 8, 5, 11, 12],
+  [7, 8, 5, 11, 20],
   'every requested direct-selection option is present'
 );
 assert.equal(situationPresets.length, 7, 'all supported recommendation presets are available');
@@ -70,6 +70,11 @@ assert.equal(
   normalizeSituationSelection({ reason: ['focus', 'action'] })?.reason?.join(','),
   'focus,action',
   'two reasons are preserved in a single dropdown selection'
+);
+assert.equal(
+  normalizeSituationSelection({ reason: ['focus', 'action', 'healing'] }),
+  null,
+  'more than two reasons are rejected'
 );
 
 const singleSelectionCandidates = [movie('single-selection-a'), movie('single-selection-b')];
@@ -151,9 +156,9 @@ assert.equal(
 );
 
 const weightedCandidates = [
-  movie('weighted-romance', { genreIds: [10749], recommendationScore: 99 }),
-  movie('weighted-drama', { genreIds: [18], recommendationScore: 60 }),
-  movie('weighted-comedy', { genreIds: [35], recommendationScore: 20 })
+  movie('weighted-romance', { contextTags: ['winter'], genreIds: [10749], recommendationScore: 99 }),
+  movie('weighted-drama', { contextTags: ['winter'], genreIds: [18], recommendationScore: 60 }),
+  movie('weighted-comedy', { contextTags: ['winter'], genreIds: [35], recommendationScore: 20 })
 ];
 const weightedResults = rankSituationMovies({
   activeSituation: { kind: 'preset', presetId: 'winter_vibes' },
@@ -176,12 +181,104 @@ assert.equal(
   100,
   'situation-aware component maximums add up to exactly 100 points'
 );
+assert.deepEqual(
+  weightedMovie.recommendationScoreMaximums,
+  {
+    personalPreference: 0,
+    similarUser: 0,
+    situation: 80,
+    tmdbQuality: 20,
+    novelty: 0,
+    people: 0
+  },
+  'configured presets rank movies only by the requested situation and baseline quality'
+);
+assert.deepEqual(
+  calculateFinalRecommendationScore({
+    hasSituation: true,
+    rawScores: {
+      personalPreference: 100,
+      similarUser: 100,
+      situation: 100,
+      tmdbQuality: 100,
+      novelty: 100,
+      people: 100
+    }
+  }).maximums,
+  {
+    personalPreference: 27,
+    similarUser: 25,
+    situation: 20,
+    tmdbQuality: 16,
+    novelty: 6,
+    people: 6
+  },
+  'direct situation settings keep the balanced twenty-point situation weighting'
+);
+
+const strictPresetCases = [
+  {
+    presetId: 'after_breakup',
+    overrides: { genreIds: [28], genres: ['액션'], tags: ['긴장감'] }
+  },
+  {
+    presetId: 'offline_rest',
+    overrides: { genreIds: [16], genres: ['애니메이션'], tags: ['영상미'] }
+  },
+  {
+    presetId: 'before_travel',
+    overrides: { genreIds: [12], genres: ['모험'], tags: ['세계관'] }
+  },
+  {
+    presetId: 'cleaning',
+    overrides: { genreIds: [35], genres: ['코미디'], tags: ['유머'] }
+  },
+  {
+    presetId: 'before_confession',
+    overrides: { genreIds: [10749], genres: ['로맨스'], tags: ['감동'] }
+  },
+  {
+    presetId: 'winter_vibes',
+    overrides: { contextTags: ['winter'], genreIds: [18], genres: ['드라마'], tags: ['영상미'] }
+  },
+  {
+    presetId: 'sunday_night',
+    overrides: { genreIds: [18], genres: ['드라마'], tags: ['여운'] }
+  }
+];
+
+for (const { presetId, overrides } of strictPresetCases) {
+  const strongCandidates = Array.from({ length: 10 }, (_, index) =>
+    movie(`${presetId}-strong-${index}`, overrides)
+  );
+  const unrelatedCandidates = Array.from({ length: 10 }, (_, index) =>
+    movie(`${presetId}-unrelated-${index}`, {
+      genreIds: [878],
+      genres: ['SF'],
+      tags: ['긴장감'],
+      voteAverage: 10,
+      voteCount: 4000
+    })
+  );
+  const strictResults = rankSituationMovies({
+    activeSituation: { kind: 'preset', presetId },
+    catalogMovies: [...strongCandidates, ...unrelatedCandidates],
+    movies: [...strongCandidates, ...unrelatedCandidates]
+  }).slice(0, 10);
+
+  assert.equal(
+    strictResults.every((result) => result.id.startsWith(`${presetId}-strong-`)),
+    true,
+    `${presetId} prioritizes strongly matched candidates before unrelated movies`
+  );
+}
 
 const diverseGenreIds = [10749, 18, 35, 53, 878];
 const diverseCandidates = diverseGenreIds.flatMap((genreId, genreIndex) =>
   Array.from({ length: 3 }, (_, movieIndex) =>
     movie(`diverse-${genreId}-${movieIndex}`, {
       collectionId: genreIndex * 10 + movieIndex,
+      contextTags: ['winter'],
       genreIds: [genreId],
       recommendationScore: 100 - genreIndex * 3 - movieIndex
     })
@@ -212,6 +309,7 @@ assert.ok(
 const recentCandidates = Array.from({ length: 11 }, (_, index) =>
   movie(`recent-${index}`, {
     collectionId: index,
+    contextTags: ['winter'],
     genreIds: [10749],
     recommendationScore: 100 - index
   })
@@ -227,8 +325,8 @@ const recentResults = rankSituationMovies({
 
 assert.equal(
   recentResults.some((result) => result.id === 'recent-0'),
-  false,
-  'a movie shown within the last fourteen days is excluded when enough fresh alternatives exist'
+  true,
+  'configured preset ranking is not changed by prior-exposure scoring'
 );
 
 const collaborativeCandidates = [

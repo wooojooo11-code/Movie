@@ -76,7 +76,7 @@ const emit = defineEmits<{
       <IconButton :icon="Play" label="예고편 재생" size="sm" @click.stop="emit('trailer')" />
       <div class="flex gap-1">
         <IconButton :icon="Heart" :active="props.saved" :disabled="props.saving" :class="props.saved ? 'heart-saved' : ''" :label="props.saved ? '보관함에서 제거' : '보관함에 저장'" size="sm" @click.stop="emit('save')" />
-        <IconButton :icon="Check" :active="props.rated" :disabled="props.rating || props.rated" :label="props.rated ? '좋아요 평가 완료' : '좋아요로 바로 평가하기'" size="sm" @click.stop="emit('rate')" />
+        <IconButton :icon="Check" :active="props.rated" :disabled="props.rating || props.rated" :label="props.rated ? '이미 본 영화로 처리 완료' : '이미 본 영화로 표시하고 새 영화 받기'" size="sm" @click.stop="emit('rate')" />
       </div>
     </div>
   </article>

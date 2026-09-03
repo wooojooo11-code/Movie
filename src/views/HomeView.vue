@@ -59,6 +59,7 @@ const unexpectedMovieCandidates = computed(() => {
     .filter(
       (movie) =>
         movie.id !== featuredMovie.value?.id &&
+        !recommendationStore.getStoredRatingRecord(movie.id) &&
         movie.genres.length > 0
     )
     .sort((left, right) => {
@@ -114,6 +115,17 @@ const quickRateMovie = async (movie: RecommendedCatalogMovie) => {
       createRatingInput(recommendationStore.state.userId, movie.id, 'like'),
       { rawDecision: 'like', rawDirection: 'right', detailCompleted: true }
     );
+    await nextTick();
+
+    const remainingMovies = unexpectedMovies.value.filter((entry) => entry.id !== movie.id);
+    const remainingMovieIds = new Set(remainingMovies.map((entry) => entry.id));
+    const replacementMovie = unexpectedMovieCandidates.value.find(
+      (candidate) => !remainingMovieIds.has(candidate.id)
+    );
+
+    unexpectedMovies.value = replacementMovie
+      ? [...remainingMovies, replacementMovie]
+      : remainingMovies;
   } finally {
     updateQuickRatingMovieIds(movie.id, false);
   }
@@ -276,8 +288,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', updateUnexpectedScrol
     <section v-if="hasTasteProfile && unexpectedMovies.length" aria-labelledby="unexpected-title">
       <div class="mb-4 flex items-end justify-between gap-3">
         <div class="min-w-0">
-          <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">DISCOVER · {{ unexpectedMovies.length }}편</p>
-          <h2 id="unexpected-title" class="mt-1 text-xl font-bold text-[#173a5e]">의외로 취향에 맞을 영화</h2>
+          <h2 id="unexpected-title" class="text-xl font-bold text-[#173a5e]">의외로 취향에 맞을 영화</h2>
         </div>
         <div class="flex shrink-0 gap-2" aria-label="의외로 취향에 맞을 영화 탐색">
           <IconButton :icon="RefreshCw" label="의외로 취향에 맞을 영화 새로고침" size="sm" @click="refreshUnexpectedMovies" />

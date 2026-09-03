@@ -293,13 +293,14 @@ const {
 } = createHorizontalScrollControls('[data-shared-list-card]');
 
 const searchListCards = computed(() =>
-  listStore.state.listResults.map((result) => ({
-    ...result,
-    movieTitles: listStore
-      .resolveMoviePreviews(result.list.movieIds)
-      .slice(0, 3)
-      .map((movie) => movie.title)
-  }))
+  listStore.state.listResults
+    .map((result) => ({
+      ...result,
+      movieTitles: listStore
+        .resolveMoviePreviews(result.list.movieIds)
+        .slice(0, 3)
+        .map((movie) => movie.title)
+    }))
 );
 
 const openCreateComposer = () => {
@@ -425,12 +426,20 @@ onMounted(() => {
   refreshMyListScrollControls();
   refreshLibraryScrollControls();
   refreshSharedListScrollControls();
-
-  if (route.query.compose === '1') {
-    openCreateComposerWithMovie(route.query.movieId);
-    void router.replace({ name: 'lists' });
-  }
 });
+
+watch(
+  [() => route.query.compose, () => route.query.movieId],
+  ([compose, movieId]) => {
+    if (compose !== '1') {
+      return;
+    }
+
+    openCreateComposerWithMovie(movieId);
+    void router.replace({ name: 'lists' });
+  },
+  { immediate: true }
+);
 
 watch(sortedMyLists, refreshMyListScrollControls, { flush: 'post' });
 watch(libraryStore.savedMovies, refreshLibraryScrollControls, { flush: 'post' });
@@ -446,38 +455,41 @@ onBeforeUnmount(() => {
 <template>
   <main class="mx-auto w-full max-w-md px-4 pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-[800px]">
     <div class="flex min-w-0 flex-col gap-6">
-        <section class="flex flex-wrap items-center justify-end gap-2">
-      <label class="min-w-[11rem] flex-1 sm:max-w-xs">
-        <span class="sr-only">리스트 검색</span>
-        <input
-          :value="listStore.state.listSearchQuery"
-          type="search"
-          placeholder="리스트 검색"
-          class="focus-ring min-h-10 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
-          @input="handleListSearchInput"
-        />
-      </label>
-      <button
-        type="button"
-        class="focus-ring corner-soft inline-flex min-h-10 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-2.5 text-xs font-medium text-white"
-        @click="openCreateComposer"
-      >
-        리스트 만들기
-      </button>
-
-      <label class="flex shrink-0 items-center gap-2 text-xs font-medium text-app-muted">
-        <span>정렬</span>
-        <select
-          v-model="listSortOption"
-          class="focus-ring min-h-10 w-[10.5rem] border border-app-line bg-app-panelSoft px-2 text-sm text-white"
-          aria-label="리스트 정렬 기준"
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="focus-ring corner-soft inline-flex min-h-11 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold !text-white"
+          @click="openCreateComposer"
         >
-          <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
-            {{ option.label }}
-          </option>
-        </select>
-      </label>
-        </section>
+          리스트 만들기
+        </button>
+      </div>
+
+      <section class="grid gap-3 sm:grid-cols-[minmax(0,1fr)_15rem]" aria-label="리스트 검색 및 정렬">
+        <label class="corner-hard block border border-app-line bg-app-panel p-4">
+          <span class="sr-only">리스트 찾기</span>
+          <input
+            :value="listStore.state.listSearchQuery"
+            type="search"
+            placeholder="제목이나 영화로 검색"
+            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
+            @input="handleListSearchInput"
+          />
+        </label>
+
+        <label class="corner-hard block border border-app-line bg-app-panel p-4">
+          <span class="sr-only">리스트 순서</span>
+          <select
+            v-model="listSortOption"
+            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white"
+            aria-label="리스트 정렬 기준"
+          >
+            <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </label>
+      </section>
 
         <section v-if="listStore.state.listSearchQuery.trim()" class="grid gap-3">
       <div class="flex items-end justify-between gap-4">
@@ -495,7 +507,7 @@ onBeforeUnmount(() => {
         <article
           v-for="result in searchListCards"
           :key="`${result.source}-${result.list.id}`"
-          class="corner-hard w-[calc(100vw-2rem)] shrink-0 snap-start border border-app-line bg-app-panel p-4 sm:w-[23rem]"
+          class="corner-hard w-full shrink-0 snap-start border border-app-line bg-app-panel p-4 sm:w-[23rem]"
         >
           <div class="flex items-start justify-between gap-3">
             <div class="min-w-0">
@@ -506,7 +518,7 @@ onBeforeUnmount(() => {
             </div>
             <span
               class="corner-pill shrink-0 border px-2.5 py-1 text-[11px] font-semibold"
-              :class="result.source === 'mine' ? 'border-app-line bg-app-panelSoft text-app-muted' : 'border-app-accent bg-app-accent text-white'"
+              :class="result.source === 'mine' ? 'border-app-line bg-app-panelSoft text-app-muted' : 'border-slate-300 bg-slate-200 text-slate-700'"
             >
               {{ result.source === 'mine' ? '내 리스트' : '공유 리스트' }}
             </span>
@@ -531,7 +543,7 @@ onBeforeUnmount(() => {
       </div>
         </section>
 
-        <section class="grid gap-3">
+        <section class="order-2 grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">내 리스트</h2>
@@ -550,7 +562,7 @@ onBeforeUnmount(() => {
             v-for="list in sortedMyLists"
             :key="list.id"
             data-my-list-card
-            class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
+            class="w-full shrink-0 snap-start sm:w-[23rem]"
             :list="list"
             :saved-movie-ids="libraryStore.savedMovieIds.value"
             :expanded="isListExpanded(list.id)"
@@ -592,7 +604,7 @@ onBeforeUnmount(() => {
       </div>
         </section>
 
-        <section id="library" class="grid scroll-mt-32 gap-3">
+        <section id="library" class="order-last grid scroll-mt-32 gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">보관함</h2>
@@ -848,7 +860,7 @@ onBeforeUnmount(() => {
       </div>
         </section>
 
-        <section v-if="similarTasteRecommendedLists.length > 0" class="grid gap-3">
+        <section v-if="similarTasteRecommendedLists.length > 0" class="order-3 grid gap-3">
           <div class="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p class="text-xs font-semibold tracking-[0.12em] text-app-accent">SIMILAR TASTE</p>
@@ -864,7 +876,7 @@ onBeforeUnmount(() => {
             <SharedListCard
               v-for="list in similarTasteRecommendedLists"
               :key="list.id"
-              class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
+              class="w-full shrink-0 snap-start sm:w-[23rem]"
               :list="list"
               :saved-movie-ids="libraryStore.savedMovieIds.value"
               :expanded="isListExpanded(list.id)"
@@ -876,7 +888,7 @@ onBeforeUnmount(() => {
           </div>
         </section>
 
-        <section class="grid gap-3">
+        <section class="order-1 grid gap-3">
       <div class="flex items-end justify-between gap-4">
         <div>
           <h2 class="text-lg font-semibold text-white">공유 리스트</h2>
@@ -895,7 +907,7 @@ onBeforeUnmount(() => {
             v-for="list in sortedSharedLists"
             :key="list.id"
             data-shared-list-card
-            class="w-[calc(100vw-2rem)] shrink-0 snap-start sm:w-[23rem]"
+            class="w-full shrink-0 snap-start sm:w-[23rem]"
             :list="list"
             :saved-movie-ids="libraryStore.savedMovieIds.value"
             :show-save-button="list.ownerId !== listStore.state.userId"

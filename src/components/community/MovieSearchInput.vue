@@ -55,9 +55,9 @@ onScopeDispose(() => { window.clearTimeout(debounceId); });
 <template>
   <div class="relative">
     <label class="block">
-      <span class="mb-1 block text-xs font-semibold text-app-muted">{{ props.label }}</span>
+      <span v-if="props.label" class="mb-1 block text-xs font-semibold text-app-muted">{{ props.label }}</span>
       <span class="flex gap-2">
-        <input v-model="query" type="search" class="focus-ring corner-soft h-10 min-w-0 flex-1 border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :placeholder="props.placeholder" @keydown.enter.prevent="selectCustomTitle" />
+        <input v-model="query" type="search" class="focus-ring corner-soft h-10 min-w-0 flex-1 border border-app-line bg-app-panel px-3 text-sm text-[#15171c]" :aria-label="props.label || props.placeholder" :placeholder="props.placeholder" @keydown.enter.prevent="selectCustomTitle" />
         <button
           v-if="props.allowCustom"
           type="button"

@@ -67,6 +67,10 @@ const router = createRouter({
       }
     },
     {
+      path: '/collection',
+      redirect: { name: 'lists' }
+    },
+    {
       path: '/community',
       name: 'community',
       component: CommunityPage

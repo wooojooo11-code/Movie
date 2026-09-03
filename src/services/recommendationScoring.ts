@@ -30,6 +30,7 @@ export interface PeoplePreferenceModel {
 }
 
 export interface FinalRecommendationScoreInput {
+  configuredPreset?: boolean;
   hasSituation: boolean;
   rawScores: RecommendationScoreBreakdown;
 }
@@ -283,12 +284,15 @@ const scaleRawScore = (rawScore: number, maximum: number) =>
 
 /** 상황 유무에 맞는 config 배점을 선택해 여섯 원점수를 정확히 100점 만점으로 합산합니다. */
 export const calculateFinalRecommendationScore = ({
+  configuredPreset = false,
   hasSituation,
   rawScores
 }: FinalRecommendationScoreInput): FinalRecommendationScoreResult => {
-  const weights: RecommendationScoreWeights = hasSituation
-    ? RECOMMENDATION_SCORING_CONFIG.weights.withSituation
-    : RECOMMENDATION_SCORING_CONFIG.weights.withoutSituation;
+  const weights: RecommendationScoreWeights = configuredPreset
+    ? RECOMMENDATION_SCORING_CONFIG.weights.configuredPreset
+    : hasSituation
+      ? RECOMMENDATION_SCORING_CONFIG.weights.withSituation
+      : RECOMMENDATION_SCORING_CONFIG.weights.withoutSituation;
   const maximums: RecommendationScoreBreakdown = { ...weights };
   const breakdown: RecommendationScoreBreakdown = {
     personalPreference: scaleRawScore(rawScores.personalPreference, weights.personalPreference),
@@ -304,4 +308,3 @@ export const calculateFinalRecommendationScore = ({
 
   return { breakdown, finalScore, maximums };
 };
-

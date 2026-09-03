@@ -108,11 +108,10 @@ const submit = () => {
       <span class="grid size-11 shrink-0 place-items-center rounded-full border-2 border-app-accent bg-[#eef6ff] text-sm font-bold text-[#174a77]" aria-hidden="true">Q</span>
       <div class="min-w-0 flex-1">
         <div class="flex items-center justify-between gap-3">
-          <p class="text-xs font-bold text-[#15171c]">오늘의 영화 질문</p>
           <button
             v-if="question"
             type="button"
-            class="focus-ring text-xs font-semibold text-[#174a77] underline underline-offset-2"
+            class="focus-ring ml-auto text-xs font-semibold text-[#174a77] underline underline-offset-2"
             @click="emit('viewAnswers')"
           >
             답변 보기
@@ -121,14 +120,13 @@ const submit = () => {
         <h2 id="daily-question-title" class="mt-2 text-base font-semibold leading-6 text-[#15171c]">
           {{ question?.question ?? (loading ? '오늘의 질문을 불러오는 중이에요.' : '오늘의 질문을 준비하고 있어요.') }}
         </h2>
-        <p v-if="question" class="mt-2 text-xs text-app-muted">{{ question.answerCount }}명이 영화를 추천했어요.</p>
       </div>
     </div>
 
     <div v-if="question" class="mt-4 border-t border-app-line pt-3">
       <MovieSearchInput
         allow-custom
-        label="이 상황에 추천할 영화"
+        label=""
         placeholder="영화 제목을 입력하세요"
         @custom="selectCustomMovie"
         @select="selectMovie"

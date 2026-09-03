@@ -908,7 +908,6 @@ const contextAwareRecommendedMovies = computed<RecommendedCatalogMovie[]>(() => 
     activeSituation: activeSituation.value,
     catalogMovies,
     collaborativeSignals: collaborativeRecommendationSignals.value,
-    communitySituationSignals: communitySituationMovieSignals.value,
     encounteredMovieIds: encounteredRecommendationMovieIds.value,
     hasTasteProfile: state.profile.totalRatings > 0,
     impressions: state.recommendationImpressions,

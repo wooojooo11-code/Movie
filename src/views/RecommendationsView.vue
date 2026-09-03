@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.3 seconds
-Output:
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -14,7 +11,6 @@ import {
   situationPresets
 } from '@/data/situations';
 import Chip from '@/components/common/Chip.vue';
-import FavoritePeopleMovieRows from '@/components/recommendations/FavoritePeopleMovieRows.vue';
 import RecommendationMovieCard from '@/components/recommendations/RecommendationMovieCard.vue';
 import RecommendationMovieSheet from '@/components/recommendations/RecommendationMovieSheet.vue';
 import type { RatingInput } from '@/services/movie_recommendation_algorithm';
@@ -53,12 +49,6 @@ const activeSituationTitle = computed(() => {
 });
 const activeSituationLabels = computed(() =>
   activeSituation.value.kind === 'manual' ? getManualSituationLabels(activeSituation.value.selection) : []
-);
-const communitySituationAnswerCount = computed(() =>
-  recommendationStore.communitySituationMovieSignals.value.reduce(
-    (total, signal) => total + signal.answerCount,
-    0
-  )
 );
 
 const openMovieSheet = (movie: RecommendedCatalogMovie, startWithTrailer = false) => {
@@ -298,7 +288,6 @@ const toggleReasonSelection = (reason: string) => {
 
 onMounted(() => {
   document.addEventListener('pointerdown', handleReasonDropdownPointerDown);
-  void recommendationStore.refreshCommunitySituationMovieSignals();
 });
 
 onBeforeUnmount(() => {
@@ -372,7 +361,6 @@ const applyDefaultSituation = () => {
       <article class="corner-hard border border-app-line bg-app-panel p-4">
         <div class="mb-3">
           <h2 class="text-base font-semibold text-[#15171c]">직접 상황 설정</h2>
-          <p class="mt-1 text-xs text-app-muted">한 가지만 골라도 추천받을 수 있어요.</p>
         </div>
 
         <div class="grid max-w-sm grid-cols-3 gap-2.5">
@@ -380,6 +368,7 @@ const applyDefaultSituation = () => {
             v-for="group in situationOptionGroups"
             :key="group.key"
             class="grid min-w-0 gap-1"
+            :class="group.key === 'reason' ? 'col-span-2' : ''"
           >
             <span class="text-xs font-semibold text-[#15171c]">{{ group.label }}</span>
             <details v-if="group.key === 'reason'" :ref="setReasonDropdown" class="relative">
@@ -450,7 +439,6 @@ const applyDefaultSituation = () => {
       <article class="corner-hard border border-app-line bg-app-panel p-4 sm:p-5">
         <div class="mb-4">
           <h2 class="text-lg font-semibold text-[#15171c]">추천 상황</h2>
-          <p class="mt-1 text-sm text-app-muted">지금 마음에 가까운 문구를 누르면 바로 추천해 드려요.</p>
         </div>
 
         <div class="flex flex-wrap gap-2">
@@ -480,12 +468,6 @@ const applyDefaultSituation = () => {
               {{ label }}
             </span>
           </div>
-          <p
-            v-if="activeSituation.kind === 'preset' && communitySituationAnswerCount > 0"
-            class="mt-2 text-xs text-app-muted"
-          >
-            커뮤니티가 이 상황에서 남긴 영화 추천 {{ communitySituationAnswerCount }}건을 반영하고 있어요.
-          </p>
         </div>
         <span class="shrink-0 text-xs text-app-muted">
           {{ recommendationStore.contextAwareRecommendedMovies.value.length }}개
@@ -518,12 +500,6 @@ const applyDefaultSituation = () => {
         지금 조건과 맞는 영화가 없어요. 다른 상황을 선택해 보세요.
       </div>
     </section>
-
-    <FavoritePeopleMovieRows
-      :entries="recommendationStore.ratedMoviesHistory.value"
-      :movies="recommendationStore.favoritePeopleRecommendationPool.value"
-      @open="openMovieSheet"
-    />
 
     <RecommendationMovieSheet
       v-if="selectedMovie"

@@ -15,7 +15,6 @@ const props = withDefaults(
     size?: 'compact' | 'default' | 'detail';
     showTrailer?: boolean;
     showWatchOptions?: boolean;
-    showPreviousRatingEdit?: boolean;
     previousRating?: null | {
       decision: RatingSelection['decision'];
       direction: null | RatingDirection;
@@ -28,14 +27,12 @@ const props = withDefaults(
     size: 'default',
     showTrailer: false,
     showWatchOptions: true,
-    showPreviousRatingEdit: false,
     previousRating: null
   }
 );
 
 const emit = defineEmits<{
   decide: [selection: RatingSelection];
-  editPreviousRating: [];
 }>();
 
 const startX = ref(0);
@@ -467,21 +464,7 @@ const onPointerUp = (event: PointerEvent) => {
         </div>
 
         <div class="col-span-2 grid shrink-0 gap-2 border-t border-app-line bg-app-panel p-2 sm:mt-auto sm:p-0 sm:pt-4">
-          <div class="flex items-center justify-between gap-2 px-0.5">
-            <p class="text-[10px] font-medium text-app-muted sm:text-xs">밀거나 방향 버튼을 눌러 평가하세요.</p>
-          <button
-            v-if="showPreviousRatingEdit"
-            type="button"
-              class="focus-ring corner-soft inline-flex min-h-7 shrink-0 items-center justify-center border border-app-line bg-app-panelSoft px-2 text-[10px] font-medium text-[#15171c] sm:min-h-8 sm:text-xs"
-            @click.stop="emit('editPreviousRating')"
-            @pointercancel.stop
-            @pointerdown.stop
-            @pointermove.stop
-            @pointerup.stop
-          >
-              이전 평가 수정
-          </button>
-        </div>
+          <p class="px-0.5 text-[10px] font-medium text-app-muted sm:text-xs">밀거나 방향 버튼을 눌러 평가하세요.</p>
           <RatingActions compact layout="keyboard" @decide="emitDecision" />
         </div>
       </div>

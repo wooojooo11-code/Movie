@@ -47,7 +47,7 @@ const clearRating = () => {
         </p>
       </div>
       <span class="flex shrink-0 flex-col items-end gap-2">
-        <span class="corner-pill border border-app-accent bg-app-accent px-3 py-1.5 text-xs font-semibold text-white">공유</span>
+        <span class="corner-pill border border-slate-300 bg-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700">공유</span>
         <ChevronDown :size="18" class="text-app-muted transition-transform duration-200" :class="expanded ? 'rotate-180' : ''" aria-hidden="true" />
       </span>
     </button>

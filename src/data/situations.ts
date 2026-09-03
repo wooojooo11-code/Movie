@@ -95,6 +95,14 @@ export const situationOptionGroups = [
       { value: 'mystery_twist', label: '추리·반전' },
       { value: 'visuals', label: '영상미' },
       { value: 'new_world', label: '새로운 세계관' },
+      { value: 'healing', label: '마음 달래기' },
+      { value: 'romance', label: '설렘 느끼기' },
+      { value: 'family_time', label: '가족과 함께' },
+      { value: 'friendship', label: '우정 이야기' },
+      { value: 'music', label: '음악 듣기' },
+      { value: 'acting', label: '배우 연기' },
+      { value: 'escape', label: '현실 탈출' },
+      { value: 'learn', label: '새로운 지식' },
       { value: 'true_story', label: '실화' }
     ]
   }
@@ -147,6 +155,14 @@ export const reasonRules: Record<SituationReason, SituationRule> = {
   mystery_twist: { genreIds: [53, 9648, 80], tags: ['반전', '긴장감', '탄탄한 스토리'] },
   visuals: { tags: ['영상미', '연출', '세계관'] },
   new_world: { genreIds: [878, 14, 12], tags: ['세계관', '영상미', '몰입감'] },
+  healing: { genreIds: [18, 16], tags: ['감동', '여운', '감성적인 음악'] },
+  romance: { genreIds: [10749], tags: ['감성적인 음악', '감동', '여운'] },
+  family_time: { contextTags: ['family'], genreIds: [10751, 16], tags: ['감동', '유쾌함'] },
+  friendship: { tags: ['성장', '유쾌함', '캐릭터 매력'] },
+  music: { tags: ['OST', '감성적인 음악', '여운'] },
+  acting: { tags: ['배우들의 연기력', '캐릭터 매력', '몰입감'] },
+  escape: { genreIds: [878, 14, 12], tags: ['세계관', '영상미', '몰입감'] },
+  learn: { genreIds: [99, 36], tags: ['탄탄한 스토리', '성장', '몰입감'] },
   true_story: {
     contextTags: ['true_story']
   }
@@ -169,7 +185,11 @@ export const manualSituationRule = (selection: SituationSelection): SituationRul
 };
 
 export const situationPresets: SituationPreset[] = [
-  { id: 'after_breakup', label: '헤어지고 난 첫 주', rule: { tags: ['감동', '여운', 'OST'] } },
+  {
+    id: 'after_breakup',
+    label: '헤어지고 난 첫 주',
+    rule: { genreIds: [28, 10749], tags: ['감동', '여운'] }
+  },
   {
     id: 'offline_rest',
     label: '인스타·숏츠 끄고 쉬고 싶은 날',
@@ -178,23 +198,23 @@ export const situationPresets: SituationPreset[] = [
   {
     id: 'before_travel',
     label: '여행 가기 전 기분 내기',
-    rule: { contextTags: ['travel'], genreIds: [12, 35], tags: ['영상미', '유쾌함'] }
+    rule: { genreIds: [12] }
   },
-  { id: 'cleaning', label: '청소하면서', rule: { genreIds: [35, 16], tags: ['유쾌함', 'OST'] } },
+  { id: 'cleaning', label: '청소하면서', rule: { genreIds: [35] } },
   {
     id: 'before_confession',
     label: '고백하기 전',
-    rule: { genreIds: [10749], tags: ['감성적인 음악', '성장', '감동'] }
+    rule: { genreIds: [10749] }
   },
   {
     id: 'winter_vibes',
     label: '겨울 감성',
-    rule: { contextTags: ['winter'], genreIds: [10749, 18], tags: ['감성적인 음악', '영상미', '여운'] }
+    rule: { contextTags: ['winter'] }
   },
   {
     id: 'sunday_night',
     label: '일요일 밤',
-    rule: { genreIds: [16, 18], tags: ['감동', '여운', '유쾌함'] }
+    rule: { tags: ['감동', '여운', '감성적인 음악'] }
   }
 ];
 

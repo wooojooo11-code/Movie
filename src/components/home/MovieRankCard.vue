@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Info } from 'lucide-vue-next';
+import { Clapperboard } from 'lucide-vue-next';
 
+import IconButton from '@/components/common/IconButton.vue';
 import type { TrendingMovie } from '@/types/home';
 
 const props = defineProps<{
@@ -9,6 +10,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   open: [movie: TrendingMovie];
+  trailer: [movie: TrendingMovie];
 }>();
 
 let touchStartX = 0;
@@ -17,6 +19,10 @@ let touchMoved = false;
 
 const openMovie = () => {
   emit('open', props.movie);
+};
+
+const openTrailer = () => {
+  emit('trailer', props.movie);
 };
 
 const onTouchStart = (event: TouchEvent) => {
@@ -52,36 +58,67 @@ const onTouchEnd = () => {
 
 <template>
   <article class="w-32 shrink-0 snap-start sm:w-40">
-    <button
-      type="button"
-      class="focus-ring poster-card block w-full overflow-hidden text-left"
-      style="touch-action: manipulation"
-      :aria-label="`${movie.title} 제목과 관객 수 보기`"
-      @click.stop="openMovie"
-      @touchstart.passive="onTouchStart"
-      @touchmove.passive="onTouchMove"
-      @touchend.capture.prevent.stop="onTouchEnd"
-    >
-      <div class="aspect-[2/3] overflow-hidden bg-app-poster">
-        <img
-          :src="movie.posterUrl"
-          :alt="movie.posterAlt"
-          class="poster-hover-image h-full w-full object-cover"
-          draggable="false"
-          loading="lazy"
-        />
-      </div>
-    </button>
+    <div class="group relative">
+      <button
+        type="button"
+        class="focus-ring poster-card block w-full overflow-hidden text-left"
+        style="touch-action: manipulation"
+        :aria-label="`${movie.title} 상세 정보 보기`"
+        @click.stop="openMovie"
+        @touchstart.passive="onTouchStart"
+        @touchmove.passive="onTouchMove"
+        @touchend.capture.prevent.stop="onTouchEnd"
+      >
+        <div class="aspect-[2/3] overflow-hidden bg-app-poster">
+          <img
+            :src="movie.posterUrl"
+            :alt="movie.posterAlt"
+            class="poster-hover-image h-full w-full object-cover"
+            draggable="false"
+            loading="lazy"
+          />
+        </div>
+      </button>
 
-    <button
-      type="button"
-      class="button-secondary focus-ring corner-soft mt-2 inline-flex min-h-9 w-full items-center justify-center gap-1.5 px-3 text-xs font-semibold"
-      :aria-label="`${movie.title} 상세 정보 보기`"
-      @pointerdown.stop
-      @click.stop="openMovie"
-    >
-      <Info :size="15" :stroke-width="2" aria-hidden="true" />
-      <span>정보 보기</span>
-    </button>
+      <IconButton
+        :icon="Clapperboard"
+        class="trailer-hover-action absolute right-2 top-2 z-10 shadow-lg"
+        :label="`${movie.title} 예고편 바로 보기`"
+        size="sm"
+        @pointerdown.stop
+        @click.stop="openTrailer"
+      />
+    </div>
   </article>
 </template>
+
+<style scoped>
+.trailer-hover-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trailer-hover-action {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.35rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
+  }
+
+  .group:hover .trailer-hover-action,
+  .group:focus-within .trailer-hover-action {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trailer-hover-action {
+    transition: none;
+  }
+}
+</style>

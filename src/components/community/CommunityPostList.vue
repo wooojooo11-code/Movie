@@ -15,7 +15,7 @@ const props = defineProps<{
   loading?: boolean;
   emptyMessage?: string;
 }>();
-defineEmits<{
+const emit = defineEmits<{
   like: [post: CommunityPost];
   save: [post: CommunityPost];
   'save-list': [listId: string];
@@ -58,6 +58,34 @@ const scrollPosts = (direction: -1 | 1) => {
   scroller.scrollBy({ left: direction * distance, behavior: 'smooth' });
 };
 
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+
+  const target = event.target;
+  if (target instanceof HTMLElement && (
+    target.isContentEditable || target.closest('input, textarea, select, [role="slider"], [role="tablist"], [role="menu"], [role="listbox"]')
+  )) return;
+  if (document.querySelector('[role="dialog"], [aria-modal="true"]')) return;
+
+  const scroller = postScroller.value;
+  if (!scroller || props.loading) return;
+  const bounds = scroller.getBoundingClientRect();
+  if (bounds.bottom <= 0 || bounds.top >= window.innerHeight || bounds.width === 0) return;
+
+  event.preventDefault();
+  if (event.repeat) return;
+  updateScrollState();
+  const post = props.posts[activePostIndex.value];
+  if (!post) return;
+
+  if (event.key === 'ArrowLeft') scrollPosts(-1);
+  else if (event.key === 'ArrowRight') scrollPosts(1);
+  else if (event.key === 'ArrowUp') {
+    if (!props.savingSaveIds?.has(post.id)) emit('save', post);
+  } else emit('like', post);
+};
+
 watch(
   () => props.posts.map((post) => post.id).join('|'),
   () => void nextTick(() => {
@@ -69,9 +97,13 @@ watch(
 
 onMounted(() => {
   window.addEventListener('resize', updateScrollState);
+  window.addEventListener('keydown', handleKeydown);
   void nextTick(updateScrollState);
 });
-onScopeDispose(() => window.removeEventListener('resize', updateScrollState));
+onScopeDispose(() => {
+  window.removeEventListener('resize', updateScrollState);
+  window.removeEventListener('keydown', handleKeydown);
+});
 </script>
 
 <template>
@@ -79,7 +111,8 @@ onScopeDispose(() => window.removeEventListener('resize', updateScrollState));
     <div v-if="loading && posts.length === 0" class="corner-soft h-80 w-full animate-pulse border border-app-line bg-app-panelSoft" />
 
     <template v-else-if="posts.length">
-      <div class="relative lg:-mx-6">
+      <p class="mb-3 text-xs leading-5 text-app-muted">← 이전 글 · → 다음 글 · ↑ 저장 · ↓ 좋아요</p>
+      <div class="relative">
         <div v-if="posts.length > 1" class="mb-3 flex items-center justify-between sm:hidden" aria-label="게시글 탐색">
           <p class="text-xs font-semibold tabular-nums text-app-muted" aria-live="polite">
             {{ activePostIndex + 1 }} / {{ posts.length }}

@@ -368,9 +368,24 @@ const onPointerUp = (event: PointerEvent) => {
         </section>
       </div>
 
-      <p v-if="overviewText" class="border-t border-app-line px-5 py-5 text-sm leading-7 text-[#3d424a] sm:px-7 sm:text-[15px]">
-        {{ overviewText }}
-      </p>
+      <div v-if="overviewText" class="border-t border-app-line px-5 py-5 sm:px-7">
+        <p class="line-clamp-3 whitespace-pre-wrap text-sm leading-7 text-[#3d424a] sm:text-[15px]">
+          {{ overviewText }}
+        </p>
+        <button
+          type="button"
+          class="focus-ring corner-pill mt-2 inline-flex min-h-9 items-center border border-app-line bg-app-panel px-3 text-xs font-bold text-app-accent"
+          aria-haspopup="dialog"
+          :aria-expanded="isOverviewDialogOpen"
+          @click.stop="openOverview"
+          @pointerdown.stop
+          @pointermove.stop
+          @pointerup.stop
+          @pointercancel.stop
+        >
+          더보기
+        </button>
+      </div>
     </div>
 
     <div
@@ -532,9 +547,24 @@ const onPointerUp = (event: PointerEvent) => {
           {{ movie.tags.join(' · ') }}
         </p>
 
-        <p v-if="overviewText" class="mt-4 whitespace-pre-wrap text-sm leading-6 text-[#3d424a]">
-          {{ overviewText }}
-        </p>
+        <div v-if="overviewText" class="mt-4">
+          <p class="line-clamp-3 whitespace-pre-wrap text-sm leading-6 text-[#3d424a]">
+            {{ overviewText }}
+          </p>
+          <button
+            type="button"
+            class="focus-ring corner-pill mt-2 inline-flex min-h-9 items-center border border-app-line bg-app-panel px-3 text-xs font-bold text-app-accent"
+            aria-haspopup="dialog"
+            :aria-expanded="isOverviewDialogOpen"
+            @click.stop="openOverview"
+            @pointerdown.stop
+            @pointermove.stop
+            @pointerup.stop
+            @pointercancel.stop
+          >
+            더보기
+          </button>
+        </div>
 
         <div v-if="showWatchOptions" class="mt-4 border-t border-app-line pt-3">
           <p class="text-[11px] font-medium uppercase tracking-[0.08em] text-app-muted">OTT</p>

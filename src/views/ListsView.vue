@@ -465,7 +465,7 @@ onBeforeUnmount(() => {
         </button>
       </div>
 
-      <section class="grid gap-3 sm:grid-cols-[minmax(0,1fr)_15rem]" aria-label="리스트 검색 및 정렬">
+      <section class="grid gap-5 sm:grid-cols-[minmax(0,1fr)_15rem] sm:gap-6" aria-label="리스트 검색 및 정렬">
         <label class="corner-hard block border border-app-line bg-app-panel p-4">
           <span class="sr-only">리스트 찾기</span>
           <input

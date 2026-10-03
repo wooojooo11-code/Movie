@@ -48,6 +48,17 @@ const graphGroups = computed<
 
 const getBarWidth = (percentage: number) => Math.max(0, Math.min(100, percentage));
 
+const keywordGroups = [
+  { name: '감정·웃음', colorClassName: 'text-[#a83e65]', keywords: ['감동', '여운', '유머'] },
+  { name: '긴장·액션', colorClassName: 'text-[#a84925]', keywords: ['긴장감', '몰입감', '반전', '액션', '공포'] },
+  { name: '영상·음악', colorClassName: 'text-[#6846b5]', keywords: ['영상미', '연출', '감성적인 음악', 'OST'] },
+  { name: '이야기·세계관', colorClassName: 'text-[#2463a0]', keywords: ['탄탄한 스토리', '세계관', 'SF', '다큐멘터리'] },
+  { name: '배우·캐릭터', colorClassName: 'text-[#187568]', keywords: ['배우들의 연기력', '캐릭터 매력'] }
+];
+const otherKeywordGroup = { name: '기타', colorClassName: 'text-[#526176]', keywords: [] };
+const getKeywordGroup = (keyword: string) =>
+  keywordGroups.find((group) => group.keywords.includes(keyword.trim())) ?? otherKeywordGroup;
+
 const tagCloudItems = computed(() => {
   const tags = result.value.tags;
   const fontSizes = [2, 1.58, 1.4, 1.24, 1.12, 1.02, 0.96, 0.9, 0.84, 0.78, 0.74, 0.7];
@@ -55,12 +66,8 @@ const tagCloudItems = computed(() => {
   return tags.map((tag, index) => {
     return {
       ...tag,
-      colorClassName: [
-        'text-[#5a4bd8]',
-        'text-[#d15d49]',
-        'text-[#1f8178]',
-        'text-[#173a5e]'
-      ][index % 4],
+      group: getKeywordGroup(tag.name),
+      colorClassName: getKeywordGroup(tag.name).colorClassName,
       fontSize: `${fontSizes[index] ?? 0.7}rem`,
       fontWeight: Math.max(560, 800 - index * 22),
       layoutClassName: `taste-tag-${index + 1}`
@@ -71,7 +78,7 @@ const tagCloudItems = computed(() => {
 
 <template>
   <section
-    class="corner-hard border border-app-line bg-app-panel px-4 py-5 sm:px-5"
+    class="min-w-0"
     aria-labelledby="taste-profile-chart-title"
   >
     <div class="flex items-center justify-between gap-3">
@@ -79,7 +86,7 @@ const tagCloudItems = computed(() => {
         내 취향 한눈에
       </h2>
       <span
-        class="corner-pill shrink-0 bg-app-panelSoft px-2.5 py-1 text-[11px] font-semibold text-app-muted"
+        class="shrink-0 text-[11px] font-semibold text-app-muted"
       >
         {{ result.analyzedMovieCount }}편 기준
       </span>
@@ -130,7 +137,7 @@ const tagCloudItems = computed(() => {
 
       <section v-if="tagCloudItems.length" class="mt-6 border-t border-app-line pt-5" aria-labelledby="taste-keyword-title">
         <h3 id="taste-keyword-title" class="text-sm font-semibold text-[#15171c]">좋아하는 키워드</h3>
-        <div class="mt-3 rounded-2xl bg-app-panelSoft px-3 py-5 text-center sm:px-5">
+        <div class="mt-3 py-5 text-center">
           <div class="taste-tag-cloud mx-auto max-w-xs">
             <span
               v-for="tag in tagCloudItems"
@@ -138,7 +145,8 @@ const tagCloudItems = computed(() => {
               class="taste-tag inline-flex leading-tight"
               :class="[tag.colorClassName, tag.layoutClassName]"
               :style="{ fontSize: tag.fontSize, fontWeight: tag.fontWeight }"
-              :aria-label="`${tag.name}, 선호 비중 ${tag.percentage}%`"
+              :title="`${tag.group.name} · 선호 비중 ${tag.percentage}%`"
+              :aria-label="`${tag.name}, ${tag.group.name}, 선호 비중 ${tag.percentage}%`"
             >
               {{ tag.name }}
             </span>
@@ -147,7 +155,7 @@ const tagCloudItems = computed(() => {
       </section>
     </template>
 
-    <div v-else class="mt-4 rounded-2xl bg-app-panelSoft px-4 py-7 text-center">
+    <div v-else class="mt-4 py-7 text-center">
       <p class="text-sm font-semibold text-[#15171c]">좋아한 영화가 쌓이면 취향을 보여드릴게요.</p>
       <p class="mt-1 text-xs leading-5 text-app-muted">영화를 평가할수록 장르와 인물, 키워드가 정확해져요.</p>
     </div>

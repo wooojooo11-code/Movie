@@ -147,7 +147,7 @@ const scrollUnexpectedMovies = (direction: -1 | 1) => {
   const firstCard = scroller.firstElementChild as HTMLElement | null;
   const gap = Number.parseFloat(window.getComputedStyle(scroller).columnGap) || 0;
   const distance = (firstCard?.getBoundingClientRect().width ?? scroller.clientWidth) + gap;
-  scroller.scrollBy({ left: direction * distance, behavior: 'smooth' });
+  scroller.scrollBy({ left: direction * distance * 4, behavior: 'smooth' });
 };
 
 const setUnexpectedMovieBatch = (startIndex: number) => {
@@ -256,8 +256,7 @@ onBeforeUnmount(() => window.removeEventListener('resize', updateUnexpectedScrol
 
 <template>
   <main id="top" class="mx-auto flex w-full max-w-md flex-col gap-10 px-4 pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-[800px]">
-    <section v-if="featuredMovie" class="relative overflow-hidden rounded-3xl bg-[#173a5e] px-5 py-6 !text-white shadow-panel sm:grid sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-7 sm:px-7 sm:py-8">
-      <img :src="featuredMovie.posterUrl" alt="" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15 blur-sm" />
+    <section v-if="featuredMovie" class="relative py-6 text-[#173a5e] sm:grid sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-7 sm:py-8">
       <button
         type="button"
         class="focus-ring absolute inset-0 z-10 cursor-pointer rounded-3xl"
@@ -268,15 +267,15 @@ onBeforeUnmount(() => window.removeEventListener('resize', updateUnexpectedScrol
       <div class="pointer-events-none relative z-20 mt-5 min-w-0 sm:mt-0 sm:self-center">
         <RouterLink
           to="/rating"
-          class="focus-ring pointer-events-auto inline-flex min-h-9 items-center justify-center rounded-xl bg-white/15 px-3 text-xs font-semibold !text-white transition hover:bg-white/25"
+          class="focus-ring pointer-events-auto inline-flex min-h-9 items-center justify-center rounded-xl bg-app-panelSoft px-3 text-xs font-semibold text-app-accent transition hover:bg-sky-100"
           @click.stop
         >
           취향분석 하러가기
         </RouterLink>
         <h1 class="mt-2 text-2xl font-bold leading-tight sm:text-3xl">{{ featuredMovie.title }}</h1>
-        <p class="mt-3 text-sm leading-6 text-sky-50/90">{{ featuredMovie.recommendationReasons?.[0] ?? '오늘의 취향에 가장 가까운 영화예요.' }}</p>
+        <p class="mt-3 text-sm leading-6 text-app-muted">{{ featuredMovie.recommendationReasons?.[0] ?? '오늘의 취향에 가장 가까운 영화예요.' }}</p>
         <div class="mt-5 flex items-center gap-3">
-          <span class="rounded-full bg-white/15 px-3 py-1.5 text-sm font-bold">추천 점수 {{ Math.round(featuredMovie.recommendationScore) }}점</span>
+          <span class="rounded-full bg-app-panelSoft px-3 py-1.5 text-sm font-bold">추천 점수 {{ Math.round(featuredMovie.recommendationScore) }}점</span>
           <IconButton class="pointer-events-auto" :icon="Clapperboard" label="오늘의 추천 예고편 보기" @click.stop="openMovie(featuredMovie, true)" />
         </div>
       </div>
@@ -292,8 +291,8 @@ onBeforeUnmount(() => window.removeEventListener('resize', updateUnexpectedScrol
         </div>
         <div class="flex shrink-0 gap-2" aria-label="의외로 취향에 맞을 영화 탐색">
           <IconButton :icon="RefreshCw" label="의외로 취향에 맞을 영화 새로고침" size="sm" @click="refreshUnexpectedMovies" />
-          <IconButton :icon="ChevronLeft" label="이전 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedPrevious" @click="scrollUnexpectedMovies(-1)" />
-          <IconButton :icon="ChevronRight" label="다음 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedNext" @click="scrollUnexpectedMovies(1)" />
+          <IconButton class="!border-0 !bg-transparent !shadow-none" :icon="ChevronLeft" label="이전 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedPrevious" @click="scrollUnexpectedMovies(-1)" />
+          <IconButton class="!border-0 !bg-transparent !shadow-none" :icon="ChevronRight" label="다음 취향 영화 보기" size="sm" :disabled="!canScrollUnexpectedNext" @click="scrollUnexpectedMovies(1)" />
         </div>
       </div>
       <div ref="unexpectedMovieScroller" class="movie-shelf scroll-smooth" @scroll.passive="updateUnexpectedScrollState">

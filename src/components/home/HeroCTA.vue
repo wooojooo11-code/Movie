@@ -18,7 +18,7 @@ const installApp = async () => {
 </script>
 
 <template>
-  <section aria-labelledby="home-cta-title" class="rounded-3xl bg-app-panelSoft px-5 py-6 sm:px-7 sm:py-8">
+  <section aria-labelledby="home-cta-title" class="py-6 sm:py-8">
     <p class="text-xs font-semibold tracking-[0.14em] text-app-accent">MOVIE DISCOVERY</p>
     <h1 id="home-cta-title" class="mt-2 text-[26px] font-bold leading-tight text-[#173a5e]">
       취향분석을 이어가 보세요

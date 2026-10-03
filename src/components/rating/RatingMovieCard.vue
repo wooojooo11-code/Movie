@@ -369,7 +369,7 @@ const onPointerUp = (event: PointerEvent) => {
       </div>
 
       <div v-if="overviewText" class="border-t border-app-line px-5 py-5 sm:px-7">
-        <p class="line-clamp-3 whitespace-pre-wrap text-sm leading-7 text-[#3d424a] sm:text-[15px]">
+        <p class="line-clamp-2 whitespace-pre-wrap text-sm leading-7 text-[#3d424a] sm:text-[15px]">
           {{ overviewText }}
         </p>
         <button
@@ -383,7 +383,7 @@ const onPointerUp = (event: PointerEvent) => {
           @pointerup.stop
           @pointercancel.stop
         >
-          더보기
+          줄거리 더보기
         </button>
       </div>
     </div>
@@ -458,13 +458,20 @@ const onPointerUp = (event: PointerEvent) => {
           <p class="mt-1.5 text-xs font-medium text-app-muted sm:mt-3 sm:text-base">
             {{ movie.tags.join(' · ') }}
           </p>
-          <div v-if="overviewText" class="relative mt-2 sm:mt-4">
-            <p class="rating-primary-overview pr-12 text-xs leading-5 text-[#3d424a] sm:pr-14 sm:text-[15px] sm:leading-7">
+          <div v-if="overviewText" class="mt-2 sm:mt-4">
+            <p class="rating-primary-overview text-xs leading-5 text-[#3d424a] sm:text-[15px] sm:leading-7">
               {{ overviewText }}
             </p>
+          </div>
+        </div>
+
+        <div class="col-span-2 grid shrink-0 gap-2 border-t border-app-line bg-app-panel p-2 sm:mt-auto sm:p-0 sm:pt-4">
+          <div class="flex min-w-0 items-center justify-between gap-2 px-0.5">
+            <p class="min-w-0 text-[10px] font-medium text-app-muted sm:text-xs">밀거나 방향 버튼을 눌러 평가하세요.</p>
             <button
+              v-if="overviewText"
               type="button"
-              class="focus-ring corner-pill absolute bottom-0 right-0 inline-flex min-h-6 items-center border border-app-line bg-app-panel px-2 text-[10px] font-bold text-app-accent shadow-[-8px_0_10px_#ffffff] sm:min-h-7 sm:text-xs"
+              class="focus-ring corner-pill inline-flex min-h-7 shrink-0 items-center border border-app-line bg-app-panelSoft px-2.5 text-[10px] font-bold text-app-accent sm:min-h-8 sm:px-3 sm:text-xs"
               aria-haspopup="dialog"
               :aria-expanded="isOverviewDialogOpen"
               @click.stop="openOverview"
@@ -473,13 +480,9 @@ const onPointerUp = (event: PointerEvent) => {
               @pointermove.stop
               @pointerup.stop
             >
-              더보기
+              줄거리 더보기
             </button>
           </div>
-        </div>
-
-        <div class="col-span-2 grid shrink-0 gap-2 border-t border-app-line bg-app-panel p-2 sm:mt-auto sm:p-0 sm:pt-4">
-          <p class="px-0.5 text-[10px] font-medium text-app-muted sm:text-xs">밀거나 방향 버튼을 눌러 평가하세요.</p>
           <RatingActions compact layout="keyboard" @decide="emitDecision" />
         </div>
       </div>
@@ -548,7 +551,7 @@ const onPointerUp = (event: PointerEvent) => {
         </p>
 
         <div v-if="overviewText" class="mt-4">
-          <p class="line-clamp-3 whitespace-pre-wrap text-sm leading-6 text-[#3d424a]">
+          <p class="line-clamp-2 whitespace-pre-wrap text-sm leading-6 text-[#3d424a]">
             {{ overviewText }}
           </p>
           <button
@@ -562,7 +565,7 @@ const onPointerUp = (event: PointerEvent) => {
             @pointerup.stop
             @pointercancel.stop
           >
-            더보기
+            줄거리 더보기
           </button>
         </div>
 
@@ -711,12 +714,12 @@ const onPointerUp = (event: PointerEvent) => {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
 }
 
 @media (min-width: 640px) {
   .rating-primary-overview {
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
   }
 }
 </style>

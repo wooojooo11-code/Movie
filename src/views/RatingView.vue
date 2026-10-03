@@ -884,7 +884,8 @@ watch(
         :question-text="currentQuestion"
         :initial-value="initialFeedback"
         compact-controls
-        submit-label="상세 평가 저장하기"
+        keyboard-shortcuts
+        submit-label="저장하고 다음"
         @skip="skipPositiveFeedback"
         @submit="submitPositiveFeedback"
       />
@@ -896,7 +897,8 @@ watch(
         :tmdb-movie-id="currentMovie.tmdbMovieId"
         :initial-value="initialNegativeFeedback"
         compact-controls
-        submit-label="상세 평가 저장하기"
+        keyboard-shortcuts
+        submit-label="저장하고 다음"
         @skip="skipNegativeFeedback"
         @submit="submitNegativeFeedback"
       />
@@ -945,7 +947,7 @@ watch(
       </div>
     </template>
 
-    <section v-else class="corner-hard border border-app-line bg-app-panel px-5 py-5">
+    <section v-else class="min-w-0 py-5">
       <p class="text-xs font-medium uppercase tracking-[0.12em] text-app-muted">
         {{ isDetailMode ? 'Details' : 'Done' }}
       </p>
@@ -958,7 +960,7 @@ watch(
 
       <TasteProfileChart
         v-if="!isDetailMode"
-        class="mt-5"
+        class="mt-8"
         :entries="recommendationStore.ratedMoviesHistory.value"
       />
 

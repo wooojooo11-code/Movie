@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>빛의 이중슬릿 간섭무늬</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f6f8fb;
+        color: #17202a;
+      }
+
+      * { box-sizing: border-box; }
+
+      body { margin: 0; }
+
+      main {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 32px 16px 48px;
+      }
+
+      h1 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); }
+
+      p { line-height: 1.6; }
+
+      .formula {
+        margin: 20px 0;
+        padding: 14px 16px;
+        border: 1px solid #b9c9dd;
+        border-radius: 12px;
+        background: #edf5fd;
+        color: #173f67;
+        font-weight: 650;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        background: #ffffff;
+      }
+
+      .caption { color: #526273; font-size: 0.95rem; }
+
+      @media (prefers-color-scheme: dark) {
+        :root { background: #12171d; color: #edf3f8; }
+        .formula { border-color: #355e86; background: #152b40; color: #dbeeff; }
+        canvas { border-color: #3b4857; background: #1b222b; }
+        .caption { color: #b3c0cc; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>빛의 이중슬릿 실험: 간섭무늬</h1>
+      <p>두 슬릿을 지난 빛이 겹치면서 밝고 어두운 무늬가 반복되는 모습을 단순화해 나타낸 그래프입니다.</p>
+      <p class="formula">빛의 세기 I(x) = [1 + cos(2πx / Δx)] / 2</p>
+      <canvas id="interference-graph" aria-label="스크린 위치에 따른 빛의 세기 그래프" role="img">
+        이 브라우저에서는 그래프를 표시할 수 없습니다.
+      </canvas>
+      <p class="caption">x축: 스크린에서의 위치 (mm) · y축: 정규화된 빛의 세기</p>
+    </main>
+
+    <script>
+      const canvas = document.getElementById('interference-graph');
+      const context = canvas.getContext('2d');
+
+      // 화면의 위치 범위와 밝고 어두운 무늬 사이의 간격을 정합니다.
+      const xMin = -10;
+      const xMax = 10;
+      const fringeSpacing = 2.5;
+
+      const color = (light, dark) =>
+        window.matchMedia('(prefers-color-scheme: dark)').matches ? dark : light;
+
+      const drawGraph = () => {
+        const cssWidth = Math.max(320, Math.floor(canvas.getBoundingClientRect().width));
+        const cssHeight = Math.max(320, Math.round(cssWidth * 0.56));
+        const scale = window.devicePixelRatio || 1;
+
+        canvas.width = cssWidth * scale;
+        canvas.height = cssHeight * scale;
+        canvas.style.height = `${cssHeight}px`;
+        context.setTransform(scale, 0, 0, scale, 0, 0);
+
+        const margin = { top: 28, right: 28, bottom: 68, left: 72 };
+        const chartWidth = cssWidth - margin.left - margin.right;
+        const chartHeight = cssHeight - margin.top - margin.bottom;
+        const toX = (x) => margin.left + ((x - xMin) / (xMax - xMin)) * chartWidth;
+        const toY = (intensity) => margin.top + (1 - intensity) * chartHeight;
+        const textColor = color('#17202a', '#edf3f8');
+        const mutedColor = color('#526273', '#b3c0cc');
+        const gridColor = color('#dbe4ee', '#374554');
+        const lineColor = color('#1769aa', '#73b8f2');
+        const fillColor = color('rgba(23, 105, 170, 0.13)', 'rgba(115, 184, 242, 0.16)');
+
+        context.clearRect(0, 0, cssWidth, cssHeight);
+        context.font = '13px system-ui, sans-serif';
+        context.lineWidth = 1;
+
+        // 눈금과 보조선을 먼저 그려서 간섭무늬의 높이를 읽기 쉽게 만듭니다.
+        context.strokeStyle = gridColor;
+        context.fillStyle = mutedColor;
+        context.textAlign = 'right';
+        context.textBaseline = 'middle';
+        [0, 0.25, 0.5, 0.75, 1].forEach((intensity) => {
+          const y = toY(intensity);
+          context.beginPath();
+          context.moveTo(margin.left, y);
+          context.lineTo(margin.left + chartWidth, y);
+          context.stroke();
+          context.fillText(intensity.toFixed(2), margin.left - 10, y);
+        });
+
+        context.textAlign = 'center';
+        context.textBaseline = 'top';
+        [-10, -5, 0, 5, 10].forEach((position) => {
+          const x = toX(position);
+          context.beginPath();
+          context.moveTo(x, margin.top);
+          context.lineTo(x, margin.top + chartHeight);
+          context.stroke();
+          context.fillText(String(position), x, margin.top + chartHeight + 12);
+        });
+
+        // I(x) = [1 + cos(2πx / Δx)] / 2 로 각 위치의 빛의 세기를 계산합니다.
+        const intensityAt = (position) => (1 + Math.cos((2 * Math.PI * position) / fringeSpacing)) / 2;
+        const sampleCount = Math.max(240, Math.floor(chartWidth * 1.5));
+
+        context.beginPath();
+        for (let index = 0; index <= sampleCount; index += 1) {
+          const position = xMin + ((xMax - xMin) * index) / sampleCount;
+          const x = toX(position);
+          const y = toY(intensityAt(position));
+          if (index === 0) context.moveTo(x, y);
+          else context.lineTo(x, y);
+        }
+        context.lineTo(toX(xMax), toY(0));
+        context.lineTo(toX(xMin), toY(0));
+        context.closePath();
+        context.fillStyle = fillColor;
+        context.fill();
+
+        context.beginPath();
+        for (let index = 0; index <= sampleCount; index += 1) {
+          const position = xMin + ((xMax - xMin) * index) / sampleCount;
+          const x = toX(position);
+          const y = toY(intensityAt(position));
+          if (index === 0) context.moveTo(x, y);
+          else context.lineTo(x, y);
+        }
+        context.strokeStyle = lineColor;
+        context.lineWidth = 3;
+        context.stroke();
+
+        // x축과 y축 제목을 마지막에 그려 그래프 위에서 또렷하게 보이도록 합니다.
+        context.fillStyle = textColor;
+        context.font = '600 14px system-ui, sans-serif';
+        context.textAlign = 'center';
+        context.textBaseline = 'alphabetic';
+        context.fillText('스크린에서의 위치 (mm)', margin.left + chartWidth / 2, cssHeight - 18);
+
+        context.save();
+        context.translate(20, margin.top + chartHeight / 2);
+        context.rotate(-Math.PI / 2);
+        context.fillText('빛의 세기', 0, 0);
+        context.restore();
+      };
+
+      new ResizeObserver(drawGraph).observe(canvas);
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', drawGraph);
+      drawGraph();
+    </script>
+  </body>
+</html>

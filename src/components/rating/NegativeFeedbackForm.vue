@@ -2,6 +2,7 @@
 import { reactive, watch } from 'vue';
 
 import HalfStarRating from '@/components/common/HalfStarRating.vue';
+import DetailRatingShortcuts from '@/components/rating/DetailRatingShortcuts.vue';
 import CastChoiceGrid from '@/components/rating/CastChoiceGrid.vue';
 import {
   MAX_FAVORITE_CAST_CHOICES,
@@ -18,9 +19,11 @@ const props = withDefaults(
     showSkipButton?: boolean;
     submitLabel?: string;
     compactControls?: boolean;
+    keyboardShortcuts?: boolean;
   }>(),
   {
     compactControls: false,
+    keyboardShortcuts: false,
     initialValue: null,
     showSkipButton: true,
     tmdbMovieId: null,
@@ -102,6 +105,7 @@ const submitForm = () => {
         @click="$emit('skip')"
       >
         건너뛰기
+        <kbd v-if="props.keyboardShortcuts" class="ml-2 rounded border border-app-line border-b-2 bg-white px-1.5 py-0.5 font-sans text-[10px]">N</kbd>
       </button>
     </div>
 
@@ -122,6 +126,14 @@ const submitForm = () => {
         size="md"
         hint="선택하지 않아도 저장할 수 있어요"
         aria-label-prefix="영화 평점"
+      />
+      <DetailRatingShortcuts
+        v-if="props.keyboardShortcuts"
+        :stars="form.stars"
+        :can-skip="props.showSkipButton"
+        @rate="form.stars = $event"
+        @submit="submitForm"
+        @skip="emit('skip')"
       />
     </div>
 
@@ -189,6 +201,7 @@ const submitForm = () => {
         @click="submitForm"
       >
         {{ props.submitLabel }}
+        <kbd v-if="props.keyboardShortcuts" class="ml-2 inline-flex rounded border border-white/60 border-b-2 px-1.5 py-0.5 font-sans text-[10px] text-white">Enter</kbd>
       </button>
     </div>
   </section>

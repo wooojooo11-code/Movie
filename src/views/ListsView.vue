@@ -455,33 +455,23 @@ onBeforeUnmount(() => {
 <template>
   <main class="mx-auto w-full max-w-md px-4 pb-[calc(4.5rem+env(safe-area-inset-bottom))] pt-6 sm:max-w-[800px]">
     <div class="flex min-w-0 flex-col gap-6">
-      <div class="flex justify-end">
-        <button
-          type="button"
-          class="focus-ring corner-soft inline-flex min-h-11 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-4 text-sm font-semibold !text-white"
-          @click="openCreateComposer"
-        >
-          리스트 만들기
-        </button>
-      </div>
-
-      <section class="grid gap-5 sm:grid-cols-[minmax(0,1fr)_15rem] sm:gap-6" aria-label="리스트 검색 및 정렬">
-        <label class="corner-hard block border border-app-line bg-app-panel p-4">
+      <section class="flex min-w-0 items-center gap-3 sm:gap-5" aria-label="리스트 만들기, 검색 및 정렬">
+        <label class="block min-w-0 flex-1">
           <span class="sr-only">리스트 찾기</span>
           <input
             :value="listStore.state.listSearchQuery"
             type="search"
             placeholder="제목이나 영화로 검색"
-            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white placeholder:text-app-muted"
+            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-2 text-xs text-white sm:px-3 sm:text-sm placeholder:text-app-muted"
             @input="handleListSearchInput"
           />
         </label>
 
-        <label class="corner-hard block border border-app-line bg-app-panel p-4">
+        <label class="block w-24 shrink-0 sm:w-36">
           <span class="sr-only">리스트 순서</span>
           <select
             v-model="listSortOption"
-            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-3 text-sm text-white"
+            class="focus-ring min-h-11 w-full border border-app-line bg-app-panelSoft px-2 text-xs text-white sm:px-3 sm:text-sm"
             aria-label="리스트 정렬 기준"
           >
             <option v-for="option in listSortOptions" :key="option.value" :value="option.value">
@@ -489,6 +479,13 @@ onBeforeUnmount(() => {
             </option>
           </select>
         </label>
+        <button
+          type="button"
+          class="focus-ring corner-soft inline-flex min-h-11 shrink-0 items-center justify-center border border-app-accent bg-app-accent px-2 text-xs font-semibold !text-white sm:px-4 sm:text-sm"
+          @click="openCreateComposer"
+        >
+          리스트 만들기
+        </button>
       </section>
 
         <section v-if="listStore.state.listSearchQuery.trim()" class="grid gap-3">

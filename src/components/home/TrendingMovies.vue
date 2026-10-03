@@ -34,9 +34,10 @@ const scrollByCard = (direction: -1 | 1) => {
     return;
   }
 
-  const cardWidth = target.querySelector('button')?.clientWidth ?? 150;
+  const cardWidth = target.firstElementChild?.getBoundingClientRect().width ?? 150;
+  const gap = Number.parseFloat(window.getComputedStyle(target).columnGap) || 0;
   target.scrollBy({
-    left: direction * (cardWidth + 14),
+    left: direction * (cardWidth + gap) * 4,
     behavior: 'smooth'
   });
 };
@@ -118,8 +119,8 @@ const closeMovie = () => {
 
       <div class="flex shrink-0 gap-2">
         <IconButton :icon="RefreshCw" label="KOBIS 인기 영화 새로고침" size="sm" :disabled="isLoading" @click="emit('refresh')" />
-        <IconButton :icon="ChevronLeft" label="이전 영화 보기" size="sm" @click="scrollByCard(-1)" />
-        <IconButton :icon="ChevronRight" label="다음 영화 보기" size="sm" @click="scrollByCard(1)" />
+        <IconButton class="!border-0 !bg-transparent !shadow-none" :icon="ChevronLeft" label="이전 영화 보기" size="sm" @click="scrollByCard(-1)" />
+        <IconButton class="!border-0 !bg-transparent !shadow-none" :icon="ChevronRight" label="다음 영화 보기" size="sm" @click="scrollByCard(1)" />
       </div>
     </div>
 

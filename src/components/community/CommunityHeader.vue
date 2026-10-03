@@ -3,7 +3,7 @@ defineEmits<{ compose: [] }>();
 </script>
 
 <template>
-  <section class="flex items-center justify-between gap-4 border-b border-app-line pb-4" aria-labelledby="community-title">
+  <section class="flex items-center justify-between gap-4 pb-4" aria-labelledby="community-title">
     <div class="min-w-0">
       <p class="text-[11px] font-bold tracking-[0.18em] text-app-accent">MOVIE PEOPLE</p>
       <h1 id="community-title" class="mt-1 text-2xl font-bold tracking-tight text-[#15171c]">커뮤니티</h1>
